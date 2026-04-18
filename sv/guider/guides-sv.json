@@ -1,0 +1,34 @@
+[
+  {
+    "id": "claude",
+    "title": "Claude för lärare och skolledare",
+    "tool": "Claude",
+    "status": "available",
+    "url": "/sv/guider/claude/",
+    "cover_image": "/assets/images/guide-covers/claude.svg"
+  },
+  {
+    "id": "gemini-notebooklm",
+    "title": "Gemini & NotebookLM i klassrummet",
+    "tool": "Gemini / NotebookLM",
+    "status": "coming-soon",
+    "url": "/sv/guider/gemini-notebooklm/",
+    "cover_image": "/assets/images/guide-covers/gemini.svg"
+  },
+  {
+    "id": "apple-intelligence",
+    "title": "Apple Intelligence för lärare",
+    "tool": "Apple Intelligence",
+    "status": "coming-soon",
+    "url": "/sv/guider/apple-intelligence/",
+    "cover_image": "/assets/images/guide-covers/apple.svg"
+  },
+  {
+    "id": "copilot",
+    "title": "Microsoft Copilot i skolan",
+    "tool": "Copilot",
+    "status": "coming-soon",
+    "url": "/sv/guider/copilot/",
+    "cover_image": "/assets/images/guide-covers/copilot.svg"
+  }
+]
