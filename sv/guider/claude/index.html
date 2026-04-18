@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guide till Claude för lärare och skolledare — Johan Lindström</title>
+<meta name="description" content="En praktisk handbok för lärare och skolledare — från din första prompt till en AI-strategi på hela skolan. Gratis guide av Johan Lindström.">
+<meta property="og:title" content="Guide till Claude för lärare och skolledare">
+<meta property="og:description" content="En praktisk handbok för lärare och skolledare — från din första prompt till en AI-strategi på hela skolan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="styles.css">
+<script defer src="script.js"></script>
+</head>
+<body>
+
+<div data-include="/assets/partials/header-sv.html"></div>
+
+<div class="jl-page">
+
+<!-- ═══════════════════════════════════════════════════
+     STICKY ANCHOR NAV — appears after hero scrolls past
+     ═══════════════════════════════════════════════════ -->
+<nav class="anchor-nav" id="anchorNav" aria-label="Guidens delar">
+  <ul class="anchor-nav__list">
+    <li><a href="#part-1">Del 1 · Kom igång</a></li>
+    <li><a href="#part-2">Del 2 · Arbeta smartare</a></li>
+    <li><a href="#part-3">Del 3 · Skala upp &amp; led</a></li>
+    <li><a href="#prompts">Prompter</a></li>
+    <li><a href="#download">Ladda ner PDF</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO — Apple-premium white background with video loop placeholder
+     ═══════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero__banner" aria-hidden="true">
+    <div class="hero__banner-title">Claude</div>
+    <div class="hero__banner-subtitle">Chat · Cowork · Code</div>
+  </div>
+  <h1>Guide till Claude för lärare och skolledare</h1>
+  <p class="lede">En praktisk handbok för dig som undervisar eller leder en skola — från din första prompt till en AI-strategi på hela skolan.</p>
+  <a class="button button--primary" href="#download">Ladda ner PDF:en gratis →</a>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     INTRODUCTION — Three Principles
+     ═══════════════════════════════════════════════════ -->
+<section class="section section--surface" id="intro">
+  <div class="container">
+    <span class="eyebrow">Introduktion</span>
+    <h2>Tre principer som formar guiden</h2>
+    <p>Innan vi kommer till hur, några ord om varför. Vem som helst kan räkna upp Claudes funktioner. Få guider tar ställning till vad verktyget faktiskt är till för — och vad det inte är till för. Den här gör det. Tre principer ligger bakom varje rekommendation på de sidor som följer.</p>
+
+    <h3>Läraren är experten</h3>
+    <p>Claude är ett verktyg. Du är läraren. Verktyget sätter inte målen för lärandet. Det känner inte dina elever. Det förstår inte de pedagogiska val du har gjort, och varför du gjort dem. Det gör du. Varje output Claude producerar passerar din professionella bedömning innan den når ett klassrum. Det är inte en fin idé — det är arbetsregeln.</p>
+    <p>Din kunskap, din erfarenhet, din omdömesförmåga — det är det som gör AI-output verkligt användbar. Om du förstår differentiering på djupet blir Claude en kraftmultiplikator. Om du inte gör det kommer ingen AI att fylla luckan. Verktyget förstärker det du redan tar med dig; det ersätter det inte.</p>
+
+    <h3>Gör grunderna bättre</h3>
+    <p>Frestelsen med ny teknik är alltid att göra nya saker — escape rooms, VR-exkursioner, gamifiera allting. Det mesta är brus. Den verkliga möjligheten är subtilare. Den handlar om att göra det evidensbaserade grundarbetet oftare och mer konsekvent än du gör i dag.</p>
+    <p>Retrieval practice. Ordförrådsarbete. Differentiering av text. Meningsstöd. Genomarbetade exempel. Formativ återkoppling. Det är de metoder som forskningen pekar på om och om igen, och metoder som lärare alltid sagt att de skulle använda oftare — om de hade tid. Claude ger dig tiden. Det som tidigare krävde nittio minuters förberedelse tar nu fem. Det är inte glamoröst. Det är transformativt i den enda mening som faktiskt spelar roll: eleverna lär sig mer.</p>
+
+    <div class="callout callout--johan">
+      <span class="callout__label">Johans anteckning</span>
+      <p>Efter snart tre decennier i klassrum och skolledning har jag sett ett stort antal verktyg komma med löften om att förändra skolan. De som blev kvar var de som lät lärare göra mer av det de redan visste fungerade. De som försvann var de som krävde att läraren skulle bli någon annan. Claude är ett av de bästa AI-verktyg jag sett som tydligt hör hemma i den första kategorin — förutsatt att du använder det väl.</p>
+      <span class="callout__signature">— JL</span>
+    </div>
+
+    <h3>Inkludera varje elev</h3>
+    <p>I varje klassrum finns elever i marginalen. Andraspråkseleven som behöver nyckelord förundervisade för att över huvud taget komma in i samma text som de andra läser. Eleven med inlärningssvårigheter som behöver samma innehåll på en enklare lässvårighetsnivå. Den avancerade eleven som cruisar runt för att uppgiften inte utmanar. Att möta alla dessa elever, varje lektion, har alltid varit det rätta — och alltid varit för tidskrävande för att göras konsekvent.</p>
+    <p>Claude sänker tidskostnaden till en nivå där det blir realistiskt. Differentierade texter på fem minuter. Översatta nyckelbegrepp. Stöttade instruktioner. Ljudversioner av skrivna uppgifter. Det handlar inte om att göra mer. Det handlar om att göra det som spelar roll, för de elever som behöver det mest, i den kadens som forskningen rekommenderat i decennier.</p>
+
+    <div class="callout callout--watch">
+      <span class="callout__label">Se upp</span>
+      <p>Claude hjälper dig att skapa material snabbare. Det ersätter inte det relationella arbete som undervisning är. Låt inte AI:ns effektivitet lura dig att lägga mindre tid med eleverna. Den tid AI sparar är till för dem — inte för mer administration.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     ECOSYSTEM
+     ═══════════════════════════════════════════════════ -->
+<section class="section" id="ecosystem">
+  <div class="container">
+    <span class="eyebrow">Orientering</span>
+    <h2>Förstå Claudes ekosystem</h2>
+    <p>Claude är inte en enda produkt. De flesta lärare kommer att tillbringa den största delen av tiden på en och samma plats — i chatten — men det är värt att känna till de andra ytorna, eftersom de fyller olika syften och vissa kräver en betald plan.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 640px; margin: 0 auto;">
+        <line x1="40" y1="200" x2="640" y2="200" stroke="#6B7280" stroke-width="0.8" opacity="0.4"/>
+        <rect x="40" y="60" width="130" height="130" rx="10" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
+        <text x="105" y="112" font-family="Playfair Display, serif" font-size="22" font-weight="700" fill="#1B2733" text-anchor="middle">Chat</text>
+        <text x="105" y="144" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#6B7280" text-anchor="middle">GRATIS + BETALD</text>
+        <rect x="200" y="60" width="130" height="130" rx="10" fill="#1B2733"/>
+        <text x="265" y="112" font-family="Playfair Display, serif" font-size="22" font-weight="700" fill="white" text-anchor="middle">Cowork</text>
+        <text x="265" y="144" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#C8A86B" text-anchor="middle">ENDAST BETALD</text>
+        <rect x="231" y="74" width="68" height="14" rx="7" fill="#C8A86B"/>
+        <text x="265" y="84" font-family="Inter, sans-serif" font-size="7" font-weight="700" letter-spacing="1.2" fill="#1B2733" text-anchor="middle">NY 2026</text>
+        <rect x="360" y="60" width="130" height="130" rx="10" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
+        <text x="425" y="112" font-family="Playfair Display, serif" font-size="22" font-weight="700" fill="#1B2733" text-anchor="middle">Code</text>
+        <text x="425" y="144" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#6B7280" text-anchor="middle">BETALD · TEKNISK</text>
+        <rect x="520" y="60" width="130" height="130" rx="10" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
+        <text x="585" y="112" font-family="Playfair Display, serif" font-size="22" font-weight="700" fill="#1B2733" text-anchor="middle">Mobil</text>
+        <text x="585" y="144" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#6B7280" text-anchor="middle">GRATIS + BETALD</text>
+      </svg>
+      <p class="diagram__caption">Fyra ytor, en modellfamilj. Det mesta av ditt arbete sker till en början i Chat.</p>
+    </div>
+
+    <h3>Chat — det samtalande gränssnittet</h3>
+    <p>Chat är Claude så som de flesta känner till verktyget: du skriver en prompt, får ett svar, itererar. Den körs på claude.ai i webbläsaren, i Claude Desktop-appen på macOS och Windows, samt i mobilapparna. Den kostnadsfria nivån ger dig tillgång till Claude Sonnet, filuppladdning, webbsökning, minne mellan samtal, och möjlighet att skapa nedladdningsbara dokument. Det är här en stor del av lärarna kommer att göra majoriteten av sitt arbete till en början.</p>
+
+    <h3>Cowork — agentiskt läge i Claude Desktop (betald)</h3>
+    <p>Cowork är nyare, och värt att lära sig eftersom det ändrar vad Claude kan uträtta åt dig på en enda förfrågan. Anthropic beskriver det så här: <em>"Claude Cowork använder samma agentiska arkitektur som driver Claude Code, nu tillgänglig inne i Claude Desktop utan att du behöver öppna terminalen. I stället för att svara på en prompt i taget kan Claude ta sig an komplexa uppgifter i flera steg och utföra dem åt dig."</em> Cowork ligger som en flik inne i Claude Desktop på betalda planer. Du möter verktyget ordentligt i Del 3.</p>
+
+    <h3>Claude Code — utvecklarverktyget (betald, tekniskt)</h3>
+    <p>Claude Code är ett kommandoradsverktyg för utvecklare och IT-nyfiken personal. Det låter Claude läsa och skriva filer på din dator och köra program. För de flesta lärare är det inte ett verktyg för vardagen, men det är här Claude blir som mest kraftfullt — och det är där skolans tekniker eller utvecklingsledare kan vilja lägga sin tid. Del 3 innehåller en kort översikt så att du vet vad det är.</p>
+
+    <h3>Mobil — Claude på språng</h3>
+    <p>iOS- och Android-apparna ger dig samma Chat på en mindre skärm. Röstinmatning är särskilt användbar: en lärare jag arbetar med skriver utkasten till veckans föräldrabrev under arbetsresan genom att diktera, och redigerar sedan på laptopen hemma. Mobilen är inte där du bygger; det är där du fångar upp och granskar.</p>
+
+    <h3>Vad som ingår i respektive plan</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Plan</th>
+          <th>Pris</th>
+          <th>Bäst för</th>
+          <th>Innehåller</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Free</strong></td>
+          <td>0 kr</td>
+          <td>Att prova verktyget; lätt privat användning</td>
+          <td>Chat (Sonnet), webbsökning, minne, filuppladdning, filskapande, mobilappar</td>
+        </tr>
+        <tr>
+          <td><strong>Pro</strong></td>
+          <td>ca 200 kr / mån</td>
+          <td>En lärares dagliga arbetshäst</td>
+          <td>Allt i Free, plus tillgång till Opus, <em>Cowork</em>, högre användningstak, obegränsat antal Projects, extended thinking</td>
+        </tr>
+        <tr>
+          <td><strong>Max</strong></td>
+          <td>ca 1 000 kr+ / mån</td>
+          <td>Storanvändare, arbetslag</td>
+          <td>Allt i Pro, plus 5–20× användning, högre outputgränser, tidig tillgång till nya funktioner</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size: 13px; color: var(--color-text-light); font-style: italic;">Priserna stämmer per april 2026 och är omräknade från Anthropics dollarpriser. Se <em>claude.ai</em> för aktuella priser. Det är Anthropics planer för enskilda användare; team- och enterpriseplaner skiljer sig.</p>
+
+    <div class="callout callout--watch">
+      <span class="callout__label">Se upp · Integritet</span>
+      <p>På planerna för enskilda användare kan dina samtal användas för att träna modellen, som standard. Öppna Inställningar → Privacy och granska alternativet. Om du skriver något om elever — även avidentifierat — gå igenom skolans AI-policy innan du fortsätter, och stäng av modellträningen om du är osäker.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     PART 1 — GETTING STARTED
+     ═══════════════════════════════════════════════════ -->
+<section class="section section--surface" id="part-1">
+  <div class="container">
+    <span class="eyebrow">Del 1</span>
+    <h2>Kom igång</h2>
+    <img src="assets/part-1-opener.jpg" class="part-opener-image" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;&quot;&gt;Öppningsbild Del 1 · lägg part-1-opener.jpg i website/assets/&lt;/div&gt;';">
+    <p class="lede">Om du aldrig har öppnat Claude förut, börja här. När du är klar med denna del har du ett konto, du vet hur man skriver en prompt som inte slösar din tid, och du har fem konkreta saker du kan använda redan den här veckan.</p>
+
+    <h3>Skapa ett konto</h3>
+    <p>Gå till <em>claude.ai</em> och registrera dig. Du kan logga in via Google eller Apple, eller skapa konto med valfri e-postadress. För att avgöra om Claude är ett användbart verktyg för dig kan du inledningsvis prova ett gratis privatkonto — ladda bara inte upp känslig data. Om du bedömer att din skola bör ha Claude-konton åt er finns det flera steg som behöver hanteras och lösas innan ni är igång.</p>
+    <p>Den kostnadsfria nivån är på riktigt användbar. Du får Claude Sonnet, minne mellan samtal, webbsökning, filuppladdning och filskapande, samt mobilapparna. Det mesta i den här guiden fungerar på den kostnadsfria nivån. Börja där. Uppgradera först när du märker att användningen tar slut mitt i en produktiv session — inte tidigare.</p>
+
+    <h4>Webb (claude.ai)</h4>
+    <p>Snabbast igång. Ingen installation, inga behörigheter, inget IT-ärende. Öppna webbläsaren, logga in, börja skriva.</p>
+
+    <h4>Desktopappen (macOS och Windows)</h4>
+    <p>Rekommenderas för daglig användning. Desktopappen körs utanför webbläsaren, vilket innebär att du inte behöver kämpa mot trettio öppna flikar när du vill tänka. Dessutom är det där Cowork finns på betalda planer.</p>
+
+    <h4>Mobil (iOS och Android)</h4>
+    <p>Installera båda. Röstinmatning är den dolda produktivitetsfunktionen. En tiominuters promenad mellan klassrum räcker för att diktera ett utkast till ett föräldrabrev, en sammanfattning av återkoppling, eller en grov lektionsstruktur. Texten redigerar du senare, på ett ordentligt tangentbord.</p>
+
+    <h3>Din första prompt — RTF-anatomin</h3>
+    <p>De flesta prompter misslyckas inte för att modellen är dålig, utan för att prompten är för vag. En användbar prompt har tre delar: Roll, Uppgift, Format. Tre bokstäver på engelska: R, T, F.</p>
+
+    <h4>R — Role (Roll)</h4>
+    <p>Säg åt Claude vem den ska vara. Ju mer specifik rollen är, desto mer jordnära blir outputen. "En lärare i de lägre åldrarna" är svagare än "en erfaren klasslärare i åk 4 som undervisar i en kommunal skola med stor spridning i läsnivåer".</p>
+
+    <h4>T — Task (Uppgift)</h4>
+    <p>Berätta exakt vad du vill ha gjort. Inte "hjälp mig med en quiz" — det lämnar för mycket åt gissning. I stället: "Gör en tiominuters retrieval practice-quiz på de retoriska grepp som har gåtts igenom de senaste tre lektionerna."</p>
+
+    <h4>F — Format</h4>
+    <p>Specificera formen på svaret. Antal frågor, blandning av frågetyper, ordantal, rubrikstruktur, om du vill ha ett facit. Formatet är där de flesta första utkast går fel — och där de flesta rättningarna görs. Säg det därför från början.</p>
+
+    <p>Sätt ihop de tre delarna och du har en prompt som fungerar på första försöket och blir bättre på det andra. Iteration — d v s att gå tillbaka och förfina utkastet i flera steg — är en del av hantverket: Claudes första output är ett utkast, inte en leverabel. Läs det, säg till Claude vad som ska ändras, kör igen.</p>
+
+    <div class="callout callout--try">
+      <span class="callout__label">Prova den här veckan</span>
+      <p>Öppna Claude. Skriv en prompt enligt RTF-anatomin — Roll, Uppgift, Format — för en verklig uppgift som ligger på ditt bord just nu. När det första utkastet kommer, be om två ändringar och kör igen. Be om ytterligare en. Lägg märke till vad som förändras mellan utkast ett och tre. Det är din kompetensutveckling i praktiken.</p>
+    </div>
+
+    <h3>Dålig → Bättre → Bäst</h3>
+    <p>Samma ämne, tre utkast av samma prompt. Varje utkast blir mer specifikt om vad Claude behöver veta. Outputkvaliteten stiger med promptens precision — inte med dess längd.</p>
+
+    <div class="card" style="border-left: 5px solid var(--color-warning); margin-bottom: var(--space-2);">
+      <strong style="color: var(--color-warning); letter-spacing: 1px; font-size: 13px;">● DÅLIG</strong>
+      <p style="font-family: var(--font-mono); font-size: 14px; margin-top: 8px; margin-bottom: 0;">Förklara vattnets kretslopp.</p>
+    </div>
+
+    <div class="card" style="border-left: 5px solid var(--color-accent); margin-bottom: var(--space-2);">
+      <strong style="color: var(--color-accent); letter-spacing: 1px; font-size: 13px;">● BÄTTRE</strong>
+      <p style="font-family: var(--font-mono); font-size: 14px; margin-top: 8px; margin-bottom: 0;">Förklara vattnets kretslopp för elever i årskurs 6. Gör det lätt att förstå.</p>
+    </div>
+
+    <div class="card" style="border-left: 5px solid #5C8A6D; margin-bottom: var(--space-3);">
+      <strong style="color: #5C8A6D; letter-spacing: 1px; font-size: 13px;">● BÄST</strong>
+      <pre style="font-family: var(--font-mono); font-size: 13.5px; line-height: 1.6; margin-top: 8px; margin-bottom: 0; white-space: pre-wrap;">Agera som en erfaren NO-lärare för åk 6.
+
+Uppgift: Skriv en förklaring av vattnets kretslopp på en sida, anpassad för ett klassrum i åk 6 med bred spridning i kunskapsnivå. Ta med de fyra centrala stegen och ett verkligt exempel för varje steg.
+
+Format:
+- 250–300 ord totalt
+- Enkelt språk, korta meningar (≤ 15 ord där det går)
+- En ordlista-ruta med fem nyckeltermer och elevvänliga definitioner
+- Avsluta med tre retrieval-frågor (två minnes-, en tillämpningsfråga)
+
+Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
+    </div>
+
+    <p style="font-style: italic; color: var(--color-text-light); font-size: 15px;">Den bästa prompten är inte längre för syns skull. Varje ord förtjänar sin plats genom att minska det Claude måste gissa.</p>
+
+    <h3>Fem snabba vinster den här veckan</h3>
+    <p>Försök inte använda Claude till allt på en gång. Bli bra på en uppgift, få in den i din rutin, lägg sedan till nästa.</p>
+
+    <h4>1 · Differentiera en läsförståelsetext på tre nivåer</h4>
+    <p>Klistra in en text du planerar att använda. Be Claude producera tre versioner av den — på en läsnivå två år under, i nivå med, och två år över åldersgruppen — med samma grundidéer och med gemensamt ordförråd intakt. Hela arbetet tar fem minuter i stället för fyrtio, och varje elev i rummet läser om samma ämne samma dag.</p>
+    <p><strong>Extra exempel:</strong> en SO-lärare för åk 7 jag arbetar med använder det här varje vecka på DN- och Aftonbladet-artiklar om aktuella händelser. En artikel blir tre versioner för tre läsgrupper inom femton minuter, och samhällsfrågor kommer äntligen in i klassrummet i rätt tid i stället för en termin för sent.</p>
+
+    <h4>2 · Bygg en retrieval practice-quiz</h4>
+    <p>Retrieval practice fungerar. Det som hindrar de flesta lärare från att köra det varje lektion är tidskostnaden för att ta fram nya frågor. Claude tar bort den kostnaden. Ge ämnet, årskursen, blandningen av frågetyper och antalet frågor. Be om ett facit i slutet. Du har ett användbart utkast inom två minuter.</p>
+    <p><strong>Extra exempel:</strong> en ämnesansvarig jag coachat använder detta för att ta fram en femfrågors lågt insatsande quiz för de första fem minuterna av varje lektion i hela arbetslaget. Quizzen är konsekventa, bygger på tidigare stoff, och tar henne tio minuter i veckan att ta fram för ett helt team.</p>
+
+    <h4>3 · Skriv utkast till ett föräldrabrev</h4>
+    <p>Du vet vad du vill säga. Det som tar tid är att skriva det väl, professionellt, och utan att falla tillbaka i de sex hackiga meningar du har använt förr. Ge Claude kontexten — vad som hände, vad du vill att föräldern ska veta, vilken ton du vill träffa — och låt verktyget ta fram ett första utkast. Redigera. Skicka.</p>
+    <p><strong>Extra exempel:</strong> använd Claude för att skriva utkast till ett känsligt brev om en elevs uppförande, och be sedan om samma meddelande i två alternativa toner (fastare, varmare). De tre versionerna ger dig kalibrering innan du bestämmer dig för den du skickar.</p>
+
+    <h4>4 · Sammanfatta ett långt policydokument</h4>
+    <p>Lärare drunknar i policydokument de inte hinner läsa ordentligt. Ladda upp PDF:en och be Claude om de tre saker du faktiskt behöver veta, de delar som påverkar dig direkt, och eventuella deadlines som gömmer sig i texten.</p>
+    <p><strong>Extra exempel:</strong> när kommunen släpper en uppdaterad bedömningspolicy, ladda upp den nya versionen och den tidigare versionen. Be Claude om en sida-vid-sida-jämförelse av vad som har ändrats. Du har nu en överblick dina kollegor inte har.</p>
+
+    <h4>5 · Skapa en lektionsstart</h4>
+    <p>De första fem minuterna av en lektion spelar större roll än de flesta av de femtio följande. Be Claude om tre alternativ till lektionsstart i olika format — en ordförrådsuppvärmning, en meningskompletteringsuppgift och en fråga för think-pair-share — och välj det som passar din klass.</p>
+    <p><strong>Extra exempel:</strong> en klasslärare jag arbetar med genererar sina lektionsstarter en termin i taget, i batch. En kväll producerar tolv veckors starter över hennes ämnesrotation. Hon redigerar och arkiverar dem sedan, och frigör sina söndagskvällar för resten av terminen.</p>
+
+    <div class="callout callout--try">
+      <span class="callout__label">Prova den här veckan</span>
+      <p>Välj en av de fem. Gör den på en verklig lektion den här veckan. De andra fyra finns kvar nästa vecka. Du utvecklar din kunskapsnivå mer om du upprepar samma uppgift flera gånger jämfört med om du gör många olika uppgifter samtidigt.</p>
+    </div>
+
+    <h3>Del 1 — Innan du går vidare</h3>
+    <ol class="checklist">
+      <li>Jag har skapat ett Claude-konto och loggat in på claude.ai</li>
+      <li>Jag vet vilken yta (Chat, Cowork, Code, Mobil) som är vilken, och vilka som kräver en betald plan</li>
+      <li>Jag har skrivit minst tre prompter enligt RTF-anatomin — Roll, Uppgift, Format</li>
+      <li>Jag har itererat på minst en prompt — förbättrat den genom två rundor av återkoppling — för en verklig uppgift</li>
+      <li>Jag har genomfört minst en av de fem snabba vinsterna för en lektion eller uppgift den här veckan</li>
+      <li>Jag har bestämt vilka kategorier av data som är okej att dela med Claude, och vilka som inte är det</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     PART 2 — WORKING SMARTER
+     ═══════════════════════════════════════════════════ -->
+<section class="section" id="part-2">
+  <div class="container">
+    <span class="eyebrow">Del 2</span>
+    <h2>Arbeta smartare</h2>
+    <img src="assets/part-2-opener.jpg" class="part-opener-image" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;&quot;&gt;Öppningsbild Del 2 · lägg part-2-opener.jpg i website/assets/&lt;/div&gt;';">
+    <p class="lede">När du märker att du återvänder till Claude för samma typ av uppgift vecka efter vecka, är det dags att sluta börja från noll. Den här delen visar hur du gör Claude till en bestående assistent — en som redan känner ditt ämne, din skola, och hur du vill att texten ska låta.</p>
+
+    <h3>Projects — din bestående lärarassistent</h3>
+    <p>Projects är en arbetsyta inne i Claude. Du skapar en, ger den ett namn, laddar upp referensfiler och skriver en uppsättning egna instruktioner. Varje samtal du startar inne i det projektet bygger på de filerna och följer de instruktionerna — utan att du behöver klistra in dem igen.</p>
+    <p>Det är här Claude slutar vara allmänt hjälpsam och börjar bli din kompetenta assistent. Samma prompt som producerade ett kompetent-men-blekt arbetsblad utanför ett Projekt producerar ett arbetsblad som passar dina elever när det körs inne i en. Skillnaden handlar inte om att Claude arbetar hårdare; den handlar om att Claude arbetar med mer kontext.</p>
+
+    <img src="assets/screenshot-projects-sidebar.png" alt="Claude Desktop med sidomenyn för Projects" style="width: 100%; margin: var(--space-3) 0; border-radius: var(--radius-card); border: 1px solid var(--color-light); box-shadow: var(--shadow-card);" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Skärmbild saknas: screenshot-projects-sidebar.png&lt;/div&gt;';">
+
+    <h4>Vad du ska ladda upp till ditt första Projekt</h4>
+    <p>Välj ditt huvudsakliga undervisningsområde — det ämne eller den årskurs där du lägger mest tid. Skapa ett Projekt för det. Ladda upp fem saker som tillsammans beskriver din arbetssituation:</p>
+    <ul>
+      <li>Kursplan eller ämnesplan för ämnet och årskursen</li>
+      <li>Din grovplanering eller terminsplan, om du har en</li>
+      <li>Skolans språkliga stilguide eller kommunikationsguide, om en sådan finns</li>
+      <li>En bedömningsmatris du ofta använder</li>
+      <li>Tre avidentifierade elevarbeten på olika prestationsnivåer</li>
+    </ul>
+
+    <div class="callout callout--watch">
+      <span class="callout__label">Se upp · Tänk innan du delar</span>
+      <p>Innan du laddar upp något till Claude, bestäm vilka kategorier av data som är okej att dela — och vilka som inte är det.</p>
+    </div>
+
+    <h4>Instruktionerna som gör skillnaden</h4>
+    <p>Under Projektets inställningar lägger du till en egen instruktion som beskriver vem Claude är för dig. Något i stil med:</p>
+    <div class="card" style="font-style: italic; color: var(--color-text-light);">
+      <p>"Du är en erfaren svensklärare i åk 8 i en kommunal skola med bred spridning i kunskapsnivå. Outputen ska vara klassrumsklar, följa den uppladdade stilguiden och aldrig producera mer än jag har bett om. Om en uppgift rör elevdata, be mig bekräfta att datan har avidentifierats innan du fortsätter. Använd svensk språkriktighet enligt Svenska skrivregler."</p>
+    </div>
+
+    <div class="callout callout--try">
+      <span class="callout__label">Prova den här veckan</span>
+      <p>Lägg tjugo minuter på att sätta upp ditt första Projekt. Ladda upp tre dokument. Skriv instruktionerna. Kör sedan gårdagens sämsta prompt inne i Projectet och lägg märke till skillnaden. De tjugo minuterna kan vara den största tidsbesparingen som du gör med AI under hela läsåret.</p>
+    </div>
+
+    <h3>Artifacts — gör samtal till nedladdningsbara dokument</h3>
+    <p>När du ber Claude skapa något — ett arbetsblad, en matris, en quiz, ett brev hem, en ordlista — kan verktyget producera en nedladdningsbar fil direkt i samtalet. Dessa dyker upp bredvid chatten som artifacts. Du laddar ner dem, redigerar dem och itererar, utan att lämna webbläsaren.</p>
+    <p>Vanliga outputformat: Word-dokument, PDF, PowerPoint-presentationer, Excel-kalkyler med formler, ren text, HTML, Markdown. För det mesta klassrumsmaterialet är det Word eller PDF du vill ha.</p>
+
+    <h3>Filer — låt Claude läsa din kursplan</h3>
+    <p>Claude hanterar långa dokument exceptionellt bra. Du kan ladda upp PDF:er, Word-dokument, kalkyler, bilder och presentationer. Filuppladdning är där Claude förtjänar sin mest underskattade plats: att läsa de dokument du aldrig själv hinner läsa.</p>
+    <p>Tre högvärdesanvändningar för lärare och skolledare:</p>
+    <ul>
+      <li><strong>Sammanfatta ett långt policydokument.</strong> Ladda upp det, be om de tre saker som faktiskt påverkar dig, alla deadlines som gömmer sig i texten, och eventuella förändringar från en tidigare version som du också laddar upp.</li>
+      <li><strong>Mappa en befintlig arbetsområdesplanering mot styrdokument.</strong> Ladda upp din arbetsområdesplan och kurs- eller ämnesplanen, och be Claude identifiera luckor, överlapp och möjligheter.</li>
+      <li><strong>Analysera avidentifierade elevarbeten för återkopplingsmönster.</strong> Ladda upp åtta till tio anonymiserade svar och be Claude identifiera återkommande styrkor och återkommande missuppfattningar, och sedan föreslå de tre lärarhandlingar som ger mest avkastning under nästa lektion.</li>
+    </ul>
+
+    <div class="callout callout--watch">
+      <span class="callout__label">Se upp · Tänk innan du delar</span>
+      <p><strong>Innan du laddar upp något till Claude, bestäm vilka kategorier av data som är okej att dela — och vilka som inte är det.</strong> Offentliga styrdokument, policy-PDF:er, dina egna lektionsanteckningar och presentationer är vanligen okej. Elevnamn, betyg, ordningsomdömen, hälsoinformation, vårdnadshavares kontaktuppgifter, allt som identifierar en ung människa — aldrig. Avidentifiera allt. Byt ut namn mot roller ("Elev A", "Elev B"). Generalisera datum och platser. Om du är osäker på om ett dokument är säkert att ladda upp, behandla det som att det inte är det, och fråga skolans dataskyddsombud innan du fortsätter.</p>
+    </div>
+
+    <h3>Styles &amp; Memory — få Claude att låta som dig</h3>
+
+    <h4>Styles</h4>
+    <p>Styles är röst-presets. Du sparar en som heter "Föräldrakommunikation — varmt, tydligt, professionellt, ingen jargong" och en annan som heter "Lärarkonferens-brief — koncist, handlingsorienterat, med punktlistor". När du startar en relevant uppgift väljer du Stylen ur en rullista, och outputen kommer fram redan i den röst du vill ha. De flesta lärare landar i tre eller fyra Styles. Det räcker vanligen för att täcka åttio procent av skrivuppgifterna.</p>
+
+    <h4>Memory</h4>
+    <p>Claude kan komma ihåg saker om dig mellan samtal — din roll, årskursen du undervisar i, din skolkontext, hur du vill att outputen ska formateras. Du aktiverar funktionen en gång, och den jobbar sedan i bakgrunden. Öppna Inställningar, hitta Memory-avsnittet och slå på det. Berätta om dig själv i vanliga meningar i de första samtalen. Du kan granska varje minne som sparats — och radera vilket som helst — i Inställningar när som helst.</p>
+
+    <img src="assets/screenshot-memory-settings.png" alt="Inställningspanelen för Memory i Claude" style="width: 100%; margin: var(--space-3) 0; border-radius: var(--radius-card); border: 1px solid var(--color-light); box-shadow: var(--shadow-card);" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Skärmbild saknas: screenshot-memory-settings.png&lt;/div&gt;';">
+
+    <div class="diagram">
+      <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 520px; margin: 0 auto;">
+        <!-- Connecting lines (drawn first so circles sit on top) -->
+        <line x1="300" y1="220" x2="300" y2="60" stroke="#C8A86B" stroke-width="1.3"/>
+        <line x1="300" y1="220" x2="161" y2="300" stroke="#C8A86B" stroke-width="1.3"/>
+        <line x1="300" y1="220" x2="439" y2="300" stroke="#C8A86B" stroke-width="1.3"/>
+
+        <!-- Top: Instructions -->
+        <circle cx="300" cy="60" r="55" fill="#F6F3EE" stroke="#C8A86B" stroke-width="1.5"/>
+        <text x="300" y="58" font-family="Playfair Display, serif" font-size="14" font-weight="700" fill="#1B2733" text-anchor="middle">Instruktioner</text>
+        <text x="300" y="76" font-family="Inter, sans-serif" font-size="9" fill="#6B7280" text-anchor="middle">vem Claude är</text>
+
+        <!-- Centre: Project -->
+        <circle cx="300" cy="220" r="60" fill="#1B2733"/>
+        <text x="300" y="218" font-family="Playfair Display, serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">Project</text>
+        <text x="300" y="238" font-family="Inter, sans-serif" font-size="9" fill="#C8A86B" text-anchor="middle">bestående kontext</text>
+
+        <!-- Lower-left: Files -->
+        <circle cx="161" cy="300" r="55" fill="#F6F3EE" stroke="#C8A86B" stroke-width="1.5"/>
+        <text x="161" y="298" font-family="Playfair Display, serif" font-size="14" font-weight="700" fill="#1B2733" text-anchor="middle">Filer</text>
+        <text x="161" y="316" font-family="Inter, sans-serif" font-size="9" fill="#6B7280" text-anchor="middle">det Claude läser</text>
+
+        <!-- Lower-right: Conversations -->
+        <circle cx="439" cy="300" r="55" fill="#F6F3EE" stroke="#C8A86B" stroke-width="1.5"/>
+        <text x="439" y="298" font-family="Playfair Display, serif" font-size="13" font-weight="700" fill="#1B2733" text-anchor="middle">Samtal</text>
+        <text x="439" y="316" font-family="Inter, sans-serif" font-size="9" fill="#6B7280" text-anchor="middle">där arbetet sker</text>
+      </svg>
+      <p class="diagram__caption">Project är den minsta enhet av ackumulerat värde i Claude. Sätt upp den en gång; dra nytta av den i varje samtal.</p>
+    </div>
+
+    <h3>Fem arbetsflöden för klassrummet som ackumuleras</h3>
+    <p>Enskilda prompter ger enskilda outputs. Den verkliga hävstången ligger i arbetsflöden — promptmönster du återanvänder vecka efter vecka, inbäddade inne i ett Projekt, där filerna och instruktionerna gör halva arbetet åt dig.</p>
+
+    <h4>1 · Veckans lektionsplanering utifrån lärandemål</h4>
+    <p>Utgå från veckans mål, din årskurs och den tid du har. Be Claude om ett lektionsskelett: en fem-minutersstart, en huvuduppgift med differentiering på tre nivåer, en exit ticket. Fem minuters arbete ersätter det som tidigare var ett fyrtio-minuters planeringspass.</p>
+
+    <h4>2 · Återkopplingsmönster från avidentifierade elevarbeten</h4>
+    <p>Ladda upp åtta till tio avidentifierade svar på samma uppgift. Be Claude identifiera de tre återkommande styrkorna, de tre återkommande missuppfattningarna, och den enskilt mest avkastande saken att undervisa om härnäst. Det som kommer tillbaka är vanligen det du själv skulle ha kommit fram till, men snabbare och med bekvämligheten av ett andra par ögon.</p>
+
+    <h4>3 · Differentieringsgenerator</h4>
+    <p>Vilken undervisningsresurs som helst — en läsförståelsetext, ett arbetsblad, en instruktionstext — kan differentieras i tre riktningar: förenklad, utvidgad och med ordförrådsstöttning för andraspråkselever. Sätt upp det en gång inne i ditt Projekt, så blir prompten ett återkommande mönster.</p>
+
+    <h4>4 · För skolledare — förberedelse inför APT eller ledningsgruppsmöte</h4>
+    <p>Ladda upp dagordningen, eventuellt inläsningsmaterial och senaste mötesanteckningarna. Be Claude producera en enkelsidig mötesbrief med de beslut som ska fattas, tidsdisposition per punkt, frågor att förvänta sig från personalen, och förslag på uppföljningsåtgärder.</p>
+
+    <h4>5 · För skolledare — utkast till policydokument</h4>
+    <p>Claude producerar ett första utkast av en policy från en brief. Du bidrar med kontexten — problemet, begränsningarna, intressenterna, det juridiska ramverket — och ber om ett utkast. Redigera, iterera, cirkulera. Ett första utkast är alltid en utgångspunkt för mänskligt omdöme; det är aldrig det slutgiltiga.</p>
+
+    <div class="callout callout--johan">
+      <span class="callout__label">Johans anteckning</span>
+      <p>De lärare jag arbetar med som får ut mest av Claude är inte de som använder verktyget oftast. Det är de som har byggt in tre eller fyra arbetsflöden i sin veckorutin och sedan slutat lägga till nya. Djup slår bredd varje gång. Välj en eller två av de fem ovan, kör den/dem tills du är bekväm innan du lägger till ytterligare en.</p>
+      <span class="callout__signature">— JL</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     PART 3 — SCALE & LEAD
+     ═══════════════════════════════════════════════════ -->
+<section class="section section--surface" id="part-3">
+  <div class="container">
+    <span class="eyebrow">Del 3</span>
+    <h2>Skala upp &amp; led</h2>
+    <img src="assets/part-3-opener.jpg" class="part-opener-image" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;&quot;&gt;Öppningsbild Del 3 · lägg part-3-opener.jpg i website/assets/&lt;/div&gt;';">
+    <p class="lede">Del 3 är för dig som vill göra mer än att spara personlig tid. Det är för dig som bygger ett system — för ditt klassrum, ditt arbetslag, din skola. Verktygen och mönstren här ändrar vad en enskild pedagog kan ta sig an.</p>
+
+    <h3>Cowork — agentiska arbetsflöden utan terminalen</h3>
+    <p>Cowork är en flik inne i Claude Desktop på betalda planer. Anthropics egen beskrivning är värd att citera: <em>"Claude Cowork använder samma agentiska arkitektur som driver Claude Code, nu tillgänglig inne i Claude Desktop utan att du behöver öppna terminalen. I stället för att svara på en prompt i taget kan Claude ta sig an komplexa uppgifter i flera steg och utföra dem åt dig."</em></p>
+    <p>Den praktiska skillnaden: i Chat kör du en prompt, väntar på svaret, avgör sedan nästa steg. I Cowork beskriver du en uppgift i flera steg och Claude arbetar sig igenom den, använder verktyg under vägen, tills uppgiften är klar. Du är kvar i loopen — du kan se på, avbryta och omdirigera — men du gör inte den manuella orkestreringen.</p>
+
+    <img src="assets/screenshot-cowork-tab.png" alt="Claude Desktop med Cowork-fliken öppen" style="width: 100%; margin: var(--space-3) 0; border-radius: var(--radius-card); border: 1px solid var(--color-light); box-shadow: var(--shadow-card);" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Skärmbild saknas: screenshot-cowork-tab.png&lt;/div&gt;';">
+
+    <h4>När du ska greppa efter Cowork i stället för Chat</h4>
+    <p>Cowork förtjänar sin plats på uppgifter som annars skulle kräva att du skriver tre, fem eller tio kedjade prompter själv. T ex:</p>
+    <ul>
+      <li>"Planera ett arbetsområde om fotosyntes som sträcker sig över fem veckor. Inkludera lärandemål per vecka, en lektionsstruktur per vecka, en formativ bedömning vecka tre, en summativ projektbeskrivning för vecka fem, och en enkelsidig översikt riktad till vårdnadshavare."</li>
+      <li>"Skriv utkast till den här månadens veckobrev till vårdnadshavare. Hämta händelserna från den bifogade skolkalendern, lägg till en kort text från rektor, en hyllning av tre elevers prestationer, och en påminnelse om den kommande provveckan. Formatera som en utskriftsbar A4-sida."</li>
+      <li>"Producera ett konsekvent set av differentierade resurser för arbetsområdet Industriella revolutionen i åk 9: en förenklad läsförståelsetext, en på nivå, en utvidgad, ett ordförrådsblad med elevvänliga definitioner, och en retrieval-quiz, för vart och ett av de fyra lektionsämnena."</li>
+    </ul>
+    <p>Var och en av dessa skulle ha varit en förmiddag med kedjade prompter i Chat. I Cowork är var och en en enda förfrågan.</p>
+
+    <div class="callout callout--watch">
+      <span class="callout__label">Se upp · Autonomi</span>
+      <p>Cowork är mer autonomt än Chat. Det tar flera steg i följd utan att stämma av emellan varje. Den hastigheten är själva poängen — men den innebär också att fel kan propagera längre innan du fångar dem. Läs allt som produceras innan du skickar det någonstans eller agerar på det. Behandla varje Cowork-output som ett utkast från en junior kollega som arbetar mycket snabbt och ibland har självsäkert fel.</p>
+    </div>
+
+    <h3>Custom Skills — dina återanvändbara undervisningsagenter</h3>
+    <p>Skills är små, namngivna instruktioner som Claude laddar in när den känner igen en relevant uppgift. Du bygger en, ger den ett namn, och från och med då triggas Skillen automatiskt i varje samtal där uppgiften passar. Det är ett sätt att lära Claude de specifika mönster du använder, så att du inte behöver förklara dem varje gång.</p>
+    <p>Tänk dig en Skill som heter <em>differentiera-tre-nivåer</em>. Du skriver den en gång. Den beskriver exakt hur du vill att vilken text som helst ska skrivas om på en enklare läsnivå, på nivå, och i en utvidgad version, med gemensamt fetad nyckelvokabulär och en ordlista. Från och med då, varje gång du klistrar in en text och ber om "differentiera den här", tillämpar Claude Skillen exakt.</p>
+    <p>En annan kandidat: <em>föräldrabrev-mall</em>. Skolans ton, din föredragna struktur, den vanliga avslutningen. Skriven en gång, anropad när den behövs.</p>
+    <p>Tregångsregeln. Om du märker att du förklarar samma mönster för Claude mer än tre gånger är det dags att göra det till en Skill.</p>
+    <p>Du behöver inte bygga varje Skill från noll. Det finns en aktiv community som öppet delar högkvalitativa utbildnings-Skills på GitHub — för differentiering, retrieval practice, återkoppling, föräldrakommunikation och mycket annat. Ladda ner de som passar ditt arbete och installera dem i din egen Claude. Gareth Mannings repo <em>claude-education-skills</em> är en bra utgångspunkt; en sökning på GitHub efter <em>claude skills</em> ger många fler.</p>
+
+    <h3>Claude Code — en inblick</h3>
+    <p>För de flesta lärare är Claude Code inte ett verktyg för vardagen. Men det är värt att veta att det finns, eftersom det är där Claude blir som mest kraftfullt, och där skolans IT-personal eller utvecklingsledare kan vilja lägga sin tid.</p>
+    <p>Claude Code är ett kommandoradsverktyg som körs på macOS, Windows och Linux. Claude kan läsa och skriva filer på din dator, köra program, och genomföra planer i flera steg tvärs över filsystemet. Tre exempel på vad det låser upp:</p>
+    <ul>
+      <li>Massbyte av namn och omstrukturering av en mapp med hundratals klassrumsresurser enligt en ny namnstandard, på minuter i stället för en eftermiddag</li>
+      <li>Bygga en liten webbplats för ett klassprojekt, endast utifrån beskrivningar i vanligt språk om vad webbplatsen ska göra</li>
+      <li>Automatisera produktionen av ett helt års differentierade arbetsblad utifrån ett styrdokument och en bedömningsmatris</li>
+    </ul>
+    <p>Om din skola har en tekniknyfiken lärare, en skoladministratör med en teknisk ådra, eller en IT-ansvarig — peka ut Claude Code för dem.</p>
+
+    <h3>Införande på hela skolan — fortbildning, policy, styrning</h3>
+    <p>För skolledare som överväger Claude bortom personlig användning spelar tre saker större roll än allt annat: hur ni fortbildar, vad ni kodifierar, och vem som bär ansvaret.</p>
+
+    <h4>Fortbildning</h4>
+    <p>De flesta skolor gör som standard en engångsworkshop: en besökande expert, två timmar på en studiedag, en presentation som cirkuleras efteråt. Två veckor senare har ingenting förändrats i klassrummen. Det mönstret fungerar inte bättre för AI än det fungerar för någon annan form av kompetensutveckling.</p>
+    <p>Det som fungerar är en liten arbetsgrupp som träffas regelbundet — varannan vecka under en termin räcker — där personalen tar med sig verkliga uppgifter, lär sig tillsammans, och dokumenterar de mönster som fungerar i skolans specifika kontext. Gruppen leds av en lärare eller skolledare som är ett steg före, inte tre.</p>
+
+    <h4>Policy</h4>
+    <p>Varje skola som använder AI behöver en skriven AI-policy. Inte visionär, inte abstrakt, utan tillräckligt specifik för att en medarbetare i en verklig situation ska kunna slå upp vad hen ska göra.</p>
+
+    <h4>Styrning</h4>
+    <p>Någon äger AI på skolan. Det kan vara en enskild skolledare eller ett litet team, men en tydlig ägare är icke-förhandlingsbar. Utan en sådan splittras ansvar och besluten blir oklara.</p>
+
+    <h4>Hur "bra" ser ut under de första 90 dagarna</h4>
+    <p><strong>Dag 0–30:</strong> Utse ägaren. Kör en bas-undersökning bland personalen om nuvarande AI-användning. Ta fram version 0.1 av policyn. Identifiera tre lärare som är villiga att vara tidiga användare.</p>
+    <p><strong>Dag 31–60:</strong> De tidiga användarna kör pilot-arbetsflöden. Arbetsgruppen träffas varannan vecka. Policyn går till version 0.2 baserat på verkliga lärdomar från piloten.</p>
+    <p><strong>Dag 61–90:</strong> Arbetsgruppen öppnas för all intresserad personal. Policyn fastställs på huvudmannanivå. Skolan dokumenterar sina tre första skolspecifika Skills. Plan för termin-för-termin-granskning etableras.</p>
+
+    <div class="callout callout--johan">
+      <span class="callout__label">Johans anteckning</span>
+      <p>Jag har rådgivit skolor över hela Sverige och Norden genom AI-införandets tidiga år. De skolor som gör det bra delar en sak gemensamt, och det är inte att de köpt det verktyg som blänker mest just nu. Det är att någon i skolledningen gjort AI till en del av sin befattningsbeskrivning — uttryckligen, på papper — och skyddat tid för det. Varje skola som kämpat har haft AI som "allas ansvar", d v s ingens.</p>
+      <span class="callout__signature">— JL</span>
+    </div>
+
+    <h3>Etik — när du INTE ska använda Claude</h3>
+    <p>Varje verktyg talar om för dig vad det är till för. Få talar om vad det inte är till för. Det här avsnittet är det senare.</p>
+
+    <h4>Hallucinationer</h4>
+    <p>Claude kan producera innehåll som låter helt rimligt och är faktamässigt fel. Verktyget är som mest benäget att göra så på smala, tekniska, mycket färska eller numeriskt precisa ämnen. Du kan ditt ämne. Använd den expertisen för att kontrollera allt innan det når en elev.</p>
+    <div class="callout callout--watch">
+      <span class="callout__label">Se upp</span>
+      <p>Ge aldrig en elev en AI-genererad resurs du inte själv har läst noggrant. Flyt i språket gör fel svårare att upptäcka, inte lättare. Ett faktafel formulerat med självsäkerhet i en klassrumsresurs undergräver både lektionen och din trovärdighet på samma gång.</p>
+    </div>
+
+    <h4>Datadisciplin</h4>
+    <p>Regeln från Del 2 återkommer här, på skolnivå: bestäm i förväg vilka kategorier av data som är okej att dela med Claude och vilka som inte är det. Tillämpa samma disciplin på <strong>att ge Claude tillgång till mappar och kopplade tjänster</strong>. Cowork, Claude Code och MCP-integrationer kan nå ditt filsystem, din e-post, din molnlagring. Ge bara tillgång till mappar och verktyg som innehåller data du skulle vara bekväm med att dela i en chatt. Behandla mapptillgång så som du skulle behandla att lämna ut nyckeln till ett arkivskåp: bara när det är nödvändigt, bara till den specifika lådan, och aldrig hela skåpet som standard.</p>
+
+    <h4>Att automatisera fel saker</h4>
+    <p>Den sämsta användningen av AI i skolan är inte fusk. Det är lärare som använder AI för att producera arbete som inte borde existera, till elever som använder AI för att göra klart det, till lärare som använder AI för att rätta det. Innan du ber Claude hjälpa till, fråga: är den här uppgiften värd att göras över huvud taget? Är det ett arbete jag borde göra själv?</p>
+
+    <h4>Bildningsfrågan</h4>
+    <p>Inte varje uppgift ska outsourcas — även när det skulle gå. Att skriva, tänka, planera, reflektera är inte bara uppgifter. Det är så lärare växer som professionella. Om AI gör allt ditt tänkande slutar du utvecklas. Använd AI för det mekaniska. Behåll det meningsbärande.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     BONUS — FOR EU READERS
+     ═══════════════════════════════════════════════════ -->
+<section class="section" id="bonus-eu">
+  <div class="container">
+    <span class="eyebrow">Bonuskapitel</span>
+    <h2>Europeiska regler styr</h2>
+    <p class="lede">Eftersom Sverige är ett EU-land gäller två regelverk för hur du använder Claude i skolan: GDPR och EU:s AI-förordning. Det här kapitlet är en praktisk grundintroduktion — inte juridisk rådgivning.</p>
+
+    <h3>GDPR-grunder för skolan</h3>
+
+    <h4>Rättslig grund</h4>
+    <p>Skolor stödjer sig vanligen på myndighetsutövning, uppgift av allmänt intresse eller berättigat intresse som rättslig grund för behandling av elevdata. Förutsätt inte att du har elevens eller vårdnadshavarens samtycke om du inte aktivt inhämtat det för ett specifikt, tydligt beskrivet ändamål. "Vi använder AI på skolan" är inte samtycke.</p>
+
+    <h4>Uppgiftsminimering</h4>
+    <p>Dela bara det du behöver dela. Om du ber Claude analysera ett stycke ur en elevtext, klistra in det stycket — inte hela uppsatsen, och definitivt inte uppsatsen med elevens namn.</p>
+
+    <h4>Elevdata är personuppgifter</h4>
+    <p>Ja, även när du tror att den är anonymiserad. Äkta anonymisering är svårare än det ser ut. Pseudonymisering (d v s att ersätta namn med koder som "Elev A") är mer realistisk och är det säkrare standardvalet i klassrumsbruk.</p>
+
+    <h4>Registerförteckning (artikel 30)</h4>
+    <p>Om din skola använder Claude rutinmässigt bör skolans registerförteckning spegla det. När du inför en ny rutinmässig användning av Claude, berätta det för dataskyddsombudet.</p>
+
+    <h3>EU:s AI-förordning — vad den betyder för skolan</h3>
+    <p>EU:s AI-förordning trädde i kraft 2024 och fasas in under 2026 och framåt. Den klassificerar AI-användning efter risknivå och kopplar skyldigheter till varje nivå. Skola och utbildning omfattas uttryckligen, och flera vanliga användningar i skolan klassas som högrisk.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 520px; margin: 0 auto;">
+        <polygon points="300,30 380,30 400,90 280,90" fill="#B8553F"/>
+        <text x="340" y="57" font-family="Playfair Display, serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">Oacceptabel</text>
+        <text x="340" y="75" font-family="Inter, sans-serif" font-size="8" fill="white" text-anchor="middle">förbjuden</text>
+        <text x="415" y="65" font-family="Inter, sans-serif" font-size="9" fill="#1B2733">t ex social poängsättning av elever</text>
+        <polygon points="280,90 400,90 430,180 250,180" fill="#1B2733"/>
+        <text x="340" y="130" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="white" text-anchor="middle">Hög risk</text>
+        <text x="340" y="150" font-family="Inter, sans-serif" font-size="8" fill="#C8A86B" text-anchor="middle">stränga skyldigheter</text>
+        <text x="445" y="140" font-family="Inter, sans-serif" font-size="9" fill="#1B2733">t ex antagning, betygssättning, uppförande</text>
+        <polygon points="250,180 430,180 470,280 210,280" fill="#2E4057"/>
+        <text x="340" y="225" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="white" text-anchor="middle">Begränsad risk</text>
+        <text x="340" y="245" font-family="Inter, sans-serif" font-size="8" fill="#C8A86B" text-anchor="middle">transparenskrav</text>
+        <text x="485" y="235" font-family="Inter, sans-serif" font-size="9" fill="#1B2733">t ex chatbottar riktade till elever</text>
+        <polygon points="210,280 470,280 510,360 170,360" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
+        <text x="340" y="315" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#1B2733" text-anchor="middle">Minimal risk</text>
+        <text x="340" y="335" font-family="Inter, sans-serif" font-size="8" fill="#6B7280" text-anchor="middle">allmän användning</text>
+        <text x="525" y="325" font-family="Inter, sans-serif" font-size="9" fill="#1B2733">t ex lektionsplanering, sammanfattning</text>
+      </svg>
+      <p class="diagram__caption">Riskklassificeringen avgör skyldigheterna. De flesta lärares dagliga användning ligger i de två nedre nivåerna.</p>
+    </div>
+
+    <p><strong>Minimal risk:</strong> lektionsplanering, utkast till kommunikation, sammanfattning av egna anteckningar. Vanlig dataskyddsdisciplin gäller.</p>
+    <p><strong>Begränsad risk:</strong> chatbottar riktade till elever, eller Claude-drivna verktyg som interagerar med elever direkt. Transparenskrav gäller: eleverna måste få veta att de interagerar med en AI.</p>
+    <p><strong>Hög risk:</strong> AI som används för att bedöma elever på sätt som avgör tillgången till utbildning — antagning, betygssättning, bedömning av uppförande. Stränga skyldigheter gäller. Involvera skolans dataskyddsombud och juridisk rådgivning innan du sätter något i drift här.</p>
+    <p><strong>Oacceptabel risk:</strong> förbjudet rakt av. Social poängsättning, känsloigenkänningssystem som används för bedömning, system som utnyttjar sårbarheter hos barn.</p>
+
+    <h3>En praktisk efterlevnadschecklista</h3>
+    <p>Om du kan svara ja på var och en av dessa punkter har du en försvarbar utgångspunkt — inte en färdig efterlevnadsposition.</p>
+
+    <ol class="checklist">
+      <li>Vi har en skriven AI-policy som personalen har läst och kvitterat</li>
+      <li>Policyn utser en enskild ägare med ansvar för AI-användningen på skolan</li>
+      <li>Vi har bestämt vilka kategorier av data som är okej att dela med Claude — och vilka som inte är det</li>
+      <li>Personalen vet hur man avidentifierar elevdata före uppladdning</li>
+      <li>Vi har gått igenom Claudes integritetsinställningar, inklusive möjligheten att avstå från modellträning</li>
+      <li>Vår registerförteckning (artikel 30) speglar all rutinmässig användning av Claude</li>
+      <li>Vi har klassificerat våra avsedda användningar mot risknivåerna i EU:s AI-förordning</li>
+      <li>Vi har involverat vårt dataskyddsombud i eventuella högrisk-användningar</li>
+      <li>Vi har en process där personalen kan lyfta farhågor om AI-användning utan negativa följder</li>
+      <li>Vi granskar policyn minst en gång per termin</li>
+    </ol>
+
+    <div class="callout callout--watch">
+      <span class="callout__label">Se upp · En anteckning från Johan</span>
+      <p>Jag är inte jurist. Den här guiden ger dig en utgångspunkt, inte juridisk rådgivning. Se till att checklistan harmonierar med din egen organisations tolkning av GDPR och EU:s AI-förordning, och rådgör med ert dataskyddsombud eller juridisk rådgivning för bindande beslut. Regleringen på området utvecklas — bygg in en granskningscykel i skolans kalender och behandla AI-efterlevnad som en pågående praktik, inte ett engångsprojekt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     PROMPT LIBRARY — 25 expandable prompts
+     ═══════════════════════════════════════════════════ -->
+<section class="section section--surface" id="prompts">
+  <div class="container">
+    <span class="eyebrow">Bilaga</span>
+    <h2>Promptbibliotek</h2>
+    <p>Tjugofem prompter du kan kopiera, klistra in och anpassa. Klicka på en rubrik för att expandera. Klicka <em>Kopiera</em> för att lägga prompten på din urklipp.</p>
+
+    <h3>För lärare</h3>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">1 · Differentiera en läsförståelsetext på tre nivåer<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Agera som en erfaren lärare i [ämne] för [årskurs] i ett klassrum med bred spridning i kunskapsnivå.
+
+Uppgift: Nedanför den här prompten finns en läsförståelsetext. Producera tre versioner av den — på läsnivåer motsvarande [ålder − 2 år], [åldersnivå] och [ålder + 2 år] — med grundidéerna bevarade och de sex fetade nyckeltermerna identiska i alla tre versionerna.
+
+Format: Märk varje version tydligt. 150–250 ord per version. Enkelt språk i den förenklade; utvidgat ordförråd i den avancerade.
+
+[klistra in läsförståelsetexten här]</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">2 · Generator för retrieval practice-quiz<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Agera som en erfaren lärare i [ämne] för [årskurs].
+
+Uppgift: Skapa en [10]-minuters retrieval practice-quiz om [ämnesområde], som täcker stoffet från de senaste [tre] lektionerna.
+
+Format:
+- [5] flervalsfrågor (fyra alternativ vardera)
+- [5] kortsvarsfrågor
+- Blandad svårighetsgrad
+- Facit i slutet med korta förklaringar för varje svar</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">3 · Återkopplingsmönster från avidentifierade elevarbeten<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Agera som en erfaren lärare i [ämne] för [årskurs].
+
+Uppgift: Nedan finns [8] avidentifierade elevsvar på samma uppgift. Identifiera (1) de tre återkommande styrkorna, (2) de tre återkommande missuppfattningarna, och (3) den enskilt mest avkastande saken jag bör undervisa om härnäst. Kommentera inte enskilda elever — aggregera endast.
+
+Format: Tre numrerade avsnitt, punktlistor under varje.
+
+[klistra in de avidentifierade svaren]</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">4 · Bedömningsmatris-byggare<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Agera som en erfaren lärare i [ämne].
+
+Uppgift: Ta fram en fyrnivås bedömningsmatris för en [uppgiftstyp, t ex argumenterande text] i [årskurs]. Bedöm [kriterium 1], [kriterium 2], [kriterium 3] och [kriterium 4].
+
+Format:
+- Enkelsidig tabell
+- Fyra nivåer: På väg, Utvecklande, Säker, Utvidgande
+- En deskriptor per kriterium per nivå, i ett språk som eleven förstår
+- Avsluta med ett exempel på hur "Säker"-nivå ser ut i praktiken</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">5 · Mall för föräldrakommunikation<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Skriv ett kort brev till vårdnadshavare för elever i [årskurs] om [ämne].
+
+Ton: professionell, varm, tydlig — ingen jargong. Utgå från att vårdnadshavaren har ont om tid.
+
+Format: två korta stycken plus en avslutande mening. Inkludera en mening som lugnar vårdnadshavare om det stöd som finns för elever som behöver det. Avsluta med: "Med vänliga hälsningar, [mitt namn]".
+
+Kontext:
+[1–3 meningar om vad som har hänt eller vad vårdnadshavare behöver veta]</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">6 · Omskrivare av läsförståelsetext<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Skriv om läsförståelsetexten nedan för elever med en läsnivå motsvarande [ålder] år. Bevara varje faktapåstående. Korta meningarna (≤ 15 ord där det går). Byt ut lågfrekvent ordförråd mot mer tillgängliga alternativ, utom de fetade nyckeltermerna, som ska stå kvar.
+
+[klistra in originaltexten]</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">7 · Ordförrådslista med elevvänliga definitioner<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Ta fram en ordförrådslista för [ämnesområde] för elever i [årskurs]. Inkludera [10] nyckeltermer. För varje term: en barnvänlig definition, en mening som visar termen i sitt sammanhang, och en fråga som kontrollerar förståelsen.
+
+Format: tabell med fyra kolumner — Term · Definition · Exempel · Kontrollfråga.</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">8 · Generator för exit tickets<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Agera som en erfaren lärare i [ämne].
+
+Uppgift: Ta fram tre exit ticket-alternativ för dagens lektion om [ämnesområde]. Varje alternativ ska ta högst 3 minuter att göra.
+
+Format: (1) en tvåfrågors minneskontroll, (2) en förklaringsfråga i en mening, (3) en reflektionsfråga: "Vad är en sak du fortfarande är osäker på?". Märk varje tydligt.</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">9 · Detaljerad lektionsplan-generator<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Agera som en erfaren lärare i [ämne] för [årskurs].
+
+Uppgift: Ta fram en komplett 60-minuters lektionsplan om [ämnesområde]. Lektionens mål: [mål]. Förkunskaper: eleverna har gått igenom [X, Y, Z].
+
+Format:
+- 5-minuters start (retrieval eller engagemang)
+- 10-minuters lärarförklaring med ett genomarbetat exempel
+- 25-minuters självständigt eller parvis arbete, differentierat på tre nivåer
+- 10-minuters återgång/kontroll av förståelse
+- 5-minuters exit ticket
+- Inkludera en Se upp: en trolig missuppfattning och hur den hanteras
+- Inkludera en Utmaning: en extensionsuppgift för avancerade elever</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">10 · Klassrumsdebatt-prompter<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Ta fram tre debattsatser som passar elever i [årskurs] om ämnet [ämnesområde]. För varje sats:
+- En mening som formulerar själva satsen
+- Tre nyckelpoänger för "för"-sidan
+- Tre nyckelpoänger för "mot"-sidan
+- Ett motargument som varje sida bör vara beredd att bemöta
+- Ett stycke evidens eller exempel som varje sida kan använda
+
+Nivå: åldersanpassat, inte kränkande, tillräckligt med substans för att bära en 20-minuters diskussion.</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <h3>För skolledare</h3>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">11 · Mötesbrief från dagordning<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Nedan finns dagordningen och eventuellt inläsningsmaterial för morgondagens personalmöte. Ta fram en enkelsidig brief till mig (ordförande) som täcker:
+
+1. De viktigaste besluten som ska fattas, i prioritetsordning
+2. Tidsram jag bör rikta in mig på per punkt
+3. Två eller tre frågor jag bör förvänta mig från personalen per punkt, och ett kort svar på varje
+4. Förslag på uppföljningsåtgärder beroende på hur varje beslut landar
+
+[klistra in dagordning och inläsningsmaterial]</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">12 · Första utkast till policy från brief<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Ta fram ett första utkast till en policy på skolan om [ämne].
+
+Kontext: [2–3 meningar om problemet policyn adresserar, intressenterna, och eventuellt regulatoriskt ramverk]
+
+Format:
+- Syfte (ett stycke)
+- Omfattning (vem och vad policyn gäller för)
+- Grundprinciper (3–5 punkter)
+- Konkreta rutiner (numrerade steg)
+- Revisionscykel (hur ofta, av vem)
+- Högst två A4-sidor
+
+Röst: tydlig, tillgänglig för icke-specialister, undviker jargong.</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">13 · Veckobrev till vårdnadshavare från källmaterial<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Skriv utkast till den här månadens föräldrabrev för [skolans namn]. Använd den bifogade kalendern, rektors utkast till hälsning, och listan över elevprestationer.
+
+Format:
+- En utskriftsbar A4-sida
+- Varm, inte korporativ, ton
+- Avsnitt: Rektors hälsning, Månadens höjdpunkter, Viktiga datum, Hyllningar
+- Håll kalenderhändelserna faktabaserade; väv in rektors hälsning i Höjdpunkter
+
+[bifoga källmaterial]</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">14 · Syntes av lektionsobservationer<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Nedan finns mina anteckningar från [n] lektionsobservationer den här terminen. Identifiera de tre återkommande styrkorna över hela arbetslaget och de tre återkommande utvecklingsområdena. För varje utvecklingsområde, föreslå ett konkret coachande samtal en arbetslagsledare kan inleda med.
+
+Format: två numrerade avsnitt. Aggregera endast — referera inte till enskilda lärare.
+
+[klistra in observationsanteckningarna]</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">15 · Första utkast till AI-policy<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Ta fram ett första utkast till AI-användningspolicy för en [typ av skola] i [kommun]. Policyn ska adressera:
+
+1. Vilka kategorier av elevdata som får delas med AI-verktyg, och vilka som inte får det
+2. Personalens användning av AI för planering, kommunikation och bedömning
+3. Elevernas användning av AI i läxor och bedömningsuppgifter
+4. Vad personalen ska göra när en elev misstänks ha lämnat in AI-genererat arbete
+5. Revisionscykel och ägarskap
+
+Format: högst två A4-sidor. Vanligt språk. Skriven för personal, inte jurister.</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">16 · Dagordning för kompetensutveckling<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Designa en 90-minuters kompetensutvecklingssession om [ämne], som passar en blandad grupp av lärare och arbetslagsledare. Sessionen ska vara praktisk — personalen går därifrån med något de kan använda redan på måndagen.
+
+Format:
+- 15 minuters ramsättning (varför detta ämne, varför nu)
+- 30 minuters input med ett genomarbetat exempel
+- 30 minuters strukturerad aktivitet i smågrupper
+- 15 minuters återrapportering och handlingsplan
+
+Inkludera: diskussionsfrågor, ett stycke förläsning (länk eller kort text), och den enskilda konkreta handling varje medarbetare ombeds förbinda sig till inför nästa möte.</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">17 · Mall för krisrespons-kommunikation<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Skriv utkast till en första-respons-kommunikation till vårdnadshavare gällande [händelse]. Utgå från att (1) skolans prioritering är elevernas trygghet, (2) transparens är avgörande, och (3) vi har ännu inte alla fakta.
+
+Format: ett e-brev. Tydligt, lugnt, sakligt. Undvik spekulation. Berätta vad vi vet, vad vi gör, och när vårdnadshavare får höra mer. Inget juristspråk. Avsluta med: "Med omsorg, [rektors namn]".</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">18 · Veckans läxor<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Ta fram den här veckans läxor för [ämne] i [årskurs]. Total tid eleverna ska lägga: [n] minuter. Ämnesområde: [ämnesområde] från [lektionsnummer].
+
+Format:
+- 3–5 frågor eller uppgifter av varierande svårighetsgrad
+- Minst en retrieval-fråga från tidigare stoff
+- Minst en tillämpningsuppgift som bygger vidare på dagens lärande
+- Tydliga instruktioner en vårdnadshavare kan läsa och förstå
+- Facit / framgångskriterier i ett separat avsnitt</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <h3>Universella</h3>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">19 · Uppstartsprompten för första mötet med Claude<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Jag vill att du kommer ihåg några saker om mig, så att du kan vara mer användbar i framtida samtal:
+
+Jag är [roll, t ex svensklärare i åk 8] på en [typ av skola] i [kommun]. Jag undervisar [n] klasser med runt [n] elever. Min undervisningskontext är [bred spridning i kunskapsnivå / nivågrupperad / specifik kursplan]. Jag värderar [evidensbaserad praktik / kreativitet / specifik pedagogik].
+
+Mina önskemål om output:
+- Håll det kort om jag inte ber om djup
+- Använd svensk språkriktighet enligt Svenska skrivregler
+- Klassrumsklara outputs — minimal redigering ska krävas
+- Om en uppgift rör elevdata, be mig bekräfta att den har avidentifierats innan du fortsätter
+
+Bekräfta att du har sparat den här kontexten.</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">20 · Analysera det här dokumentet<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Jag laddar upp ett [policydokument / styrdokument / forskningsartikel / annat]. Ge mig:
+
+1. En sammanfattning på ett stycke (vad är det här dokumentet och vad vill det?)
+2. De tre saker som påverkar mig direkt i rollen som [roll]
+3. Eventuella deadlines som nämns i dokumentet
+4. Eventuella motsägelser med [annan källa / min nuvarande praktik / en tidigare version] jag bör flagga
+5. Frågor jag bör ställa innan jag agerar på detta
+
+Format: numrerade avsnitt, punktlistor där det hjälper.</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">21 · Gör det här till en bedömningsmatris<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Nedan finns en beskrivning av en bedömningsuppgift. Ta fram en fyrnivås matris för den, med nivåerna På väg / Utvecklande / Säker / Utvidgande. Identifiera de tre till fem viktigaste kriterierna att bedöma, och skriv en deskriptor i elevvänligt språk för varje kriterium på varje nivå.
+
+Format: enkelsidig tabell.
+
+[klistra in bedömningsuppgiften]</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">22 · Lektionsrecap &amp; exit ticket-par<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Nedan finns en översikt av dagens lektion. Ta fram (1) en minutslång verbal recap-text jag kan läsa upp i klass, och (2) en treftrågors exit ticket som stämmer av de viktigaste lärdomarna.
+
+Format:
+- Recap: 4–6 meningar, talspråksnära, fångar kärnidén
+- Exit ticket: en minnesfråga, en förklaringsfråga, en reflektionsfråga
+
+[klistra in lektionsöversikten]</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">23 · Generator för läsförståelsefrågor<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">För läsförståelsetexten nedan, ta fram ett set av läsförståelsefrågor på tre nivåer:
+
+- 3 retrieval-frågor (fakta som står direkt i texten)
+- 3 inferensfrågor (slutsatser som dras ur texten)
+- 3 värderingsfrågor (bedömningar av texten eller dess implikationer)
+
+Format: tre numrerade avsnitt. Inkludera facit i slutet.
+
+[klistra in texten]</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">24 · Förberedelsebrief inför föräldramöte<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Hjälp mig att förbereda ett möte med [elevens namn]s vårdnadshavare om [ämne — t ex studieresultat, oro kring beteende, framgång].
+
+Kontext: [2–3 meningar om eleven och skälet till mötet]
+
+Producera:
+1. Tre talepunkter jag vill göra, i ordning
+2. Två frågor jag bör ställa till vårdnadshavarna
+3. Ett konkret nästa steg jag kan föreslå
+4. En förväntad oro från vårdnadshavare och ett förberett svar
+
+Håll det fokuserat — 20-minuters möte.</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">25 · Förklara det som om jag är ny<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Jag har just fått ansvar för [uppgift, roll eller område]. Förklara vad jag behöver förstå, på ett enkelt språk, utan att anta tidigare expertis.
+
+Format:
+- De tre saker jag måste förstå innan jag gör någonting
+- De två vanligaste misstagen som nya personer i den här rollen gör
+- En konkret handling jag ska ta under min första vecka
+- En konkret handling jag ska ta under min första månad
+- Hur "bra" ser ut efter sex månader
+
+Undvik jargong. Om en term är oundviklig, definiera den i en mening.</pre>
+        <button class="prompt-card__copy" data-copy>Kopiera</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FAQ
+     ═══════════════════════════════════════════════════ -->
+<section class="section" id="faq">
+  <div class="container">
+    <span class="eyebrow">FAQ</span>
+    <h2>Vanliga frågor</h2>
+
+    <details class="faq-item">
+      <summary>Räcker den kostnadsfria nivån?</summary>
+      <div class="faq-body">
+        <p>För de flesta lärare, ja — åtminstone de första månaderna. Den kostnadsfria nivån ger dig Claude Sonnet, minne mellan samtal, webbsökning, filuppladdning och filskapande. Uppgradera till Pro när du märker att användningen tar slut mitt i en session eller när du vill ha Cowork för uppgifter i flera steg.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Vad är skillnaden mellan Claude och ChatGPT?</summary>
+      <div class="faq-body">
+        <p>Båda är kompetenta AI-assistenter. I lärares arbetsflöden brukar tre skillnader spela roll: Claudes texter är ofta mindre generiska (outputen behöver mindre redigering); Claude hanterar långa dokument exceptionellt bra, vilket märks när du läser styrdokument och policy-PDF:er; och Claudes Projects-funktion är enklare än ChatGPT:s custom GPTs, vilket de flesta lärare upplever som lättare att ta till sig.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Kan jag använda det här med elevdata?</summary>
+      <div class="faq-body">
+        <p>Endast med avidentifierad data, och endast om skolans AI-policy tillåter det. Elevnamn, betyg, ordningsomdömen, hälsoinformation, vårdnadshavares kontaktuppgifter, allt som identifierar en ung människa — ladda aldrig upp. Byt ut namn mot roller ("Elev A"). Generalisera datum och platser. När du tvekar, behandla data som att den inte är säker att ladda upp och rådgör med ert dataskyddsombud.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Vad händer om Claude gör fel?</summary>
+      <div class="faq-body">
+        <p>Claude producerar ibland innehåll som låter rimligt och är faktamässigt fel. Det kallas hallucination och är vanligast på smala, tekniska, mycket färska eller numeriskt precisa ämnen. Du är experten — kontrollera allt innan det når en elev. Ge aldrig en elev en AI-genererad resurs du inte själv har läst noggrant.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Hur skiljer sig Cowork från Chat?</summary>
+      <div class="faq-body">
+        <p>I Chat kör du en prompt, väntar på svaret, avgör sedan nästa steg. I Cowork (endast betald Desktop) beskriver du en uppgift i flera steg och Claude arbetar sig igenom den, vidtar åtgärder åt dig tills uppgiften är klar. Du är kvar i loopen men gör inte den manuella orkestreringen. Använd Cowork för uppgifter som annars skulle kräva fem eller tio kedjade prompter.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Behöver jag Claude Code?</summary>
+      <div class="faq-body">
+        <p>Nästan säkert inte som lärare. Claude Code är ett kommandoradsverktyg för utvecklare och IT-nyfiken personal. Det är där Claude blir som mest kraftfullt för mass-filoperationer, automatisering och skräddarsydda arbetsflöden — men om du inte redan är bekväm i en terminal, börja med Chat, Projects och Cowork. Peka ut Claude Code för er IT-ansvarige eller utvecklingsledare om de kan ha nytta av det.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Hur ska vi tänka kring fusk och elevernas AI-användning?</summary>
+      <div class="faq-body">
+        <p>Skolan behöver en policy. AI-detektorer är otillförlitliga; behandla inte deras output som bevis. Fokusera i stället på bedömningsdesign: uppgifter som kräver skrivande i klassrummet, muntlig redovisning, personlig reflektion eller processdokumentation är svårare att lämna in AI-genererade arbeten för. Den ärliga positionen är att AI nu är en del av lärmiljön, och bedömningen behöver ta hänsyn till det snarare än att låtsas motsatsen.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Hur får jag med mig kollegorna?</summary>
+      <div class="faq-body">
+        <p>Predika inte. Visa. Välj ett arbetsflöde som sparar dig verklig tid — utkast till föräldrakommunikation är vanligen vinnaren — och dela dina faktiska tidsbesparingar med kollegor som frågar. Kör inte en workshop. Starta en liten arbetsgrupp där personalen tar med sig verkliga uppgifter och lär sig tillsammans. Dina mest skeptiska kollegor är ofta dina mest värdefulla bidragsgivare till policyn; bjud in dem tidigt.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Vad betyder EU:s AI-förordning för mitt klassrum (kort svar)?</summary>
+      <div class="faq-body">
+        <p>För det mesta undervisningsarbetet — lektionsplanering, kommunikation, differentiering — väldigt lite. Du befinner dig i kategorin minimal risk och vanlig dataskyddsdisciplin gäller. AI-förordningen spelar roll framför allt när AI används för att bedöma elever på sätt som påverkar tillgången till utbildning: antagning, betygssättning, bedömning av uppförande. Om din skola överväger något av det, involvera ert dataskyddsombud och juridisk rådgivning. Se bonuskapitlet ovan för hela bilden.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Var får jag hjälp?</summary>
+      <div class="faq-body">
+        <p>Börja på Anthropics egna hjälpsidor: <em>support.anthropic.com</em>. För skolspecifika frågor — AI-policy, införande på hela skolan, design av arbetsgrupper, implementering av EU:s AI-förordning — hör av dig via min webbplats (länk i sidfoten). Jag erbjuder konsultativa uppdrag för skolor och kan peka dig mot resurser som passar din kontext.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     DARK CTA BAND — DOWNLOAD PDF
+     ═══════════════════════════════════════════════════ -->
+<section class="cta-band" id="download">
+  <h2>Ta guiden med dig</h2>
+  <p>Ladda ner den portabla PDF:en — samma innehåll, premium-layout, perfekt för offline-läsning eller för att dela med dina kollegor.</p>
+  <button class="button button--primary" data-gate="claude-guide-sv" data-gate-pdf="/assets/pdfs/guides/claude-guide-sv.pdf">
+    Ladda ner guiden (PDF)
+  </button>
+  <p class="cta-fineprint">Gratis. Ingen registrering krävs. Uppdaterad april 2026.</p>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════ -->
+<footer class="footer">
+  <p>© 2026 Johan Lindström · Får spridas fritt med angivande av författare.<br>
+  <a href="https://choosewise.education">Besök huvudsajten</a> · <a href="https://www.linkedin.com/in/johan-lindstr%C3%B6m-b290a85/">Följ på LinkedIn</a></p>
+</footer>
+
+</div><!-- /.jl-page -->
+
+<div data-include="/assets/partials/footer-sv.html"></div>
+<script src="/assets/js/include.js"></script>
+<script type="module" src="/assets/js/mailerlite-gate.js" defer></script>
+</body>
+</html>
