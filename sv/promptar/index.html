@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Promptbibliotek — choosewise.education</title>
+  <meta name="description" content="Gratis nedladdningsbara promptpaket för lärare, skolledare och andra yrkesgrupper i skolan.">
+  <meta property="og:image" content="/assets/images/brand/og-default.svg">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+</head>
+<body>
+  <div data-include="/assets/partials/header-sv.html"></div>
+
+  <main>
+    <section class="page-hero container">
+      <span class="eyebrow" data-reveal>Promptar</span>
+      <h1 data-reveal>Promptbibliotek</h1>
+      <p class="lede" data-reveal>Gratis promptpaket. Ladda ner. Använd. Dela. Ingen e-post krävs. Fler läggs till regelbundet.</p>
+    </section>
+
+    <section class="container section">
+      <div class="filters" data-reveal>
+        <label>Roll:
+          <select id="filter-role">
+            <option value="">Alla</option>
+            <option>Lärare</option>
+            <option>Rektor</option>
+            <option>Skolledare</option>
+            <option>Specialpedagog</option>
+          </select>
+        </label>
+        <label>Tema:
+          <select id="filter-topic">
+            <option value="">Alla</option>
+            <option>Pedagogik</option>
+            <option>Bedömning</option>
+            <option>Planering</option>
+            <option>Ledarskap</option>
+          </select>
+        </label>
+      </div>
+      <div class="prompts-grid" id="prompts-grid" data-source="/sv/promptar/prompts-sv.json" data-template="prompt"></div>
+      <p id="prompts-empty" class="blog-empty" style="display:none;margin-top:var(--space-6);">Promptpaket läggs till löpande. Kom tillbaka snart.</p>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-sv.html"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="/assets/js/include.js"></script>
+  <script src="/assets/js/render-grid.js"></script>
+  <script src="/assets/js/scroll-reveals.js"></script>
+  <script>
+    const grid = document.getElementById('prompts-grid');
+    grid.addEventListener('grid:rendered', (e) => {
+      if (e.detail.count === 0) { document.getElementById('prompts-empty').style.display = 'block'; return; }
+      const role = document.getElementById('filter-role');
+      const topic = document.getElementById('filter-topic');
+      const cards = document.querySelectorAll('.card--prompt');
+      function apply() {
+        cards.forEach(c => {
+          const meta = c.querySelector('.card__meta').textContent;
+          const roleOk = !role.value || meta.includes(role.value);
+          const topicOk = !topic.value || meta.includes(topic.value);
+          c.style.display = (roleOk && topicOk) ? '' : 'none';
+        });
+      }
+      role.addEventListener('change', apply);
+      topic.addEventListener('change', apply);
+    });
+  </script>
+</body>
+</html>
