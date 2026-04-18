@@ -42,7 +42,9 @@
     },
   });
 
-  ['W','I','S','E'].forEach((letter, idx) => {
+  // Detect which letters this page uses by reading data-letter attributes
+  const letterOrder = Array.from(letters).map(el => el.dataset.letter);
+  letterOrder.forEach((letter, idx) => {
     const sel = `[data-letter="${letter}"]`;
     tl.to(`.wise-letter${sel}`, { opacity: 1, scale: 1, duration: 0.5 }, idx)
       .to(`.wise-panel${sel}`,  { opacity: 1, y: 0,  duration: 0.5 }, idx)
