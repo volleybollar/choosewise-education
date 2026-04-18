@@ -41,7 +41,7 @@
 /* ───── Page hero (non-homepage / interior pages) ───── */
 .page-hero { padding-block: var(--space-9) var(--space-7); }
 .page-hero h1 { margin-bottom: var(--space-5); }
-.page-hero .lede { font-size: 1.25rem; color: var(--color-text-soft); max-width: 48ch; }
+.page-hero .lede { font-size: 1.25rem; color: var(--color-text-soft); max-width: none; }
 .eyebrow { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-highlight); font-weight: 500; display: block; margin-bottom: var(--space-3); }
 
 /* ───── Two-col generic ───── */
