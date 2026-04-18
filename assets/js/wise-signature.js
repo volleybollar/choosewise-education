@@ -1,7 +1,9 @@
 /*
   Pinned scroll-driven animation for the WISE framework signature section.
   - Each letter (W, I, S, E) scales from 0.4 → 1 and fades in as user scrolls
-  - Matching panel on the right fades in, stays, then fades out to 25%
+  - Matching panel fades in, stays, then fades completely out before the next panel appears
+    (so only one panel is readable at a time — no ghost-text overlap)
+  - Last panel stays visible at the end of the timeline
   - Respects prefers-reduced-motion (shows all letters and first panel instantly)
   - Falls back cleanly on small screens (no pinning; CSS layout stacks panels)
 */
@@ -19,9 +21,9 @@
 
   if (reduced || narrow) {
     letters.forEach(l => { l.style.opacity = '1'; });
-    panels.forEach((p, i) => {
+    panels.forEach((p) => {
       p.classList.add('is-visible');
-      if (!narrow && i > 0) p.style.opacity = '0.25';
+      p.style.opacity = '1';
     });
     return;
   }
@@ -42,12 +44,20 @@
     },
   });
 
-  // Detect which letters this page uses by reading data-letter attributes
+  // Detect which letters this page uses by reading data-letter attributes.
+  // Timeline uses unit=1 per letter. Within each slot:
+  //   - Letter scales + fades in at t = idx (stays visible through the rest of the timeline)
+  //   - Panel fades in at t = idx
+  //   - Panel fades out at t = idx + 0.7 (so the next panel at t = idx+1 appears clean)
+  //   - Last panel does NOT fade out — it remains visible at the end of the timeline
   const letterOrder = Array.from(letters).map(el => el.dataset.letter);
+  const lastIdx = letterOrder.length - 1;
   letterOrder.forEach((letter, idx) => {
     const sel = `[data-letter="${letter}"]`;
-    tl.to(`.wise-letter${sel}`, { opacity: 1, scale: 1, duration: 0.5 }, idx)
-      .to(`.wise-panel${sel}`,  { opacity: 1, y: 0,  duration: 0.5 }, idx)
-      .to(`.wise-panel${sel}`,  { opacity: 0.25, y: -20, duration: 0.5 }, idx + 0.7);
+    tl.to(`.wise-letter${sel}`, { opacity: 1, scale: 1, duration: 0.4 }, idx)
+      .to(`.wise-panel${sel}`,  { opacity: 1, y: 0, duration: 0.3 }, idx);
+    if (idx < lastIdx) {
+      tl.to(`.wise-panel${sel}`, { opacity: 0, y: -20, duration: 0.3 }, idx + 0.7);
+    }
   });
 })();
