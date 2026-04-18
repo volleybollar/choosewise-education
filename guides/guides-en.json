@@ -1,0 +1,34 @@
+[
+  {
+    "id": "claude",
+    "title": "Claude for teachers and school leaders",
+    "tool": "Claude",
+    "status": "available",
+    "url": "/guides/claude/",
+    "cover_image": "/assets/images/guide-covers/claude.svg"
+  },
+  {
+    "id": "gemini-notebooklm",
+    "title": "Gemini & NotebookLM in the classroom",
+    "tool": "Gemini / NotebookLM",
+    "status": "coming-soon",
+    "url": "/guides/gemini-notebooklm/",
+    "cover_image": "/assets/images/guide-covers/gemini.svg"
+  },
+  {
+    "id": "apple-intelligence",
+    "title": "Apple Intelligence for educators",
+    "tool": "Apple Intelligence",
+    "status": "coming-soon",
+    "url": "/guides/apple-intelligence/",
+    "cover_image": "/assets/images/guide-covers/apple.svg"
+  },
+  {
+    "id": "copilot",
+    "title": "Microsoft Copilot in schools",
+    "tool": "Copilot",
+    "status": "coming-soon",
+    "url": "/guides/copilot/",
+    "cover_image": "/assets/images/guide-covers/copilot.svg"
+  }
+]
