@@ -29,7 +29,14 @@ async function main() {
   const allFiles = await fs.readdir(INPUT_DIR);
   const files = allFiles
     .filter(f => /\.(png|jpe?g|webp)$/i.test(f))
-    .sort(); // alphabetical → consistent numbering
+    // Sort numerically by the leading integer in the filename (1.png, 2.png, ..., 140.png).
+    // Alphabetical sort would give 1, 10, 100, 101, ..., 2, 20, ... which breaks the
+    // prompt→image pairing (prompts are indexed numerically in the source data).
+    .sort((a, b) => {
+      const na = parseInt(a.match(/^\d+/)?.[0] ?? '0', 10);
+      const nb = parseInt(b.match(/^\d+/)?.[0] ?? '0', 10);
+      return na - nb;
+    });
 
   console.log(`Found ${files.length} source images in ${INPUT_DIR}`);
   console.log(`Output dir: ${OUTPUT_DIR}`);
