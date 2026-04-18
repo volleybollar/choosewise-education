@@ -89,6 +89,26 @@
   .wise-signature__diagram { margin-inline: auto; }
 }
 
+/* ───── WISE summary (complete framework view after the pinned reveal) ───── */
+.wise-summary { padding-block: var(--space-9); }
+.wise-summary__title { text-align: center; margin-bottom: var(--space-8); font-size: var(--fs-h1); }
+.wise-summary__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: var(--space-7);
+  align-items: center;
+}
+.wise-summary__diagram { width: 100%; height: auto; max-width: 520px; justify-self: center; }
+.wise-summary__steps { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5) var(--space-6); }
+.wise-summary__step h3 { font-size: var(--fs-h3); margin-bottom: var(--space-3); }
+.wise-summary__step p  { font-size: var(--fs-small); line-height: var(--lh-normal); color: var(--color-text-soft); max-width: none; }
+
+@media (max-width: 900px) {
+  .wise-summary__layout { grid-template-columns: 1fr; gap: var(--space-6); }
+  .wise-summary__steps  { grid-template-columns: 1fr; }
+  .wise-summary__diagram { max-width: 420px; }
+}
+
 /* ───── Filters ───── */
 .filters { display: flex; gap: var(--space-5); margin-bottom: var(--space-6); flex-wrap: wrap; }
 .filters label { display: flex; gap: var(--space-2); align-items: center; font-size: var(--fs-small); color: var(--color-text-soft); }
