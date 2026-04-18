@@ -43,6 +43,7 @@
 .page-hero h1 { margin-bottom: var(--space-5); }
 .page-hero .lede { font-size: 1.25rem; color: var(--color-text-soft); max-width: none; }
 .eyebrow { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-highlight); font-weight: 500; display: block; margin-bottom: var(--space-3); }
+.eyebrow--framework { font-size: 1.125rem; letter-spacing: 0.1em; margin-bottom: var(--space-4); }
 
 /* ───── Two-col generic ───── */
 .grid-two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); }
