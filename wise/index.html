@@ -28,7 +28,17 @@
     <section class="wise-signature" id="wise-signature">
       <div class="wise-signature__sticky">
         <svg class="wise-signature__diagram" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <marker id="arr-en" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#2d5a3f" opacity="0.6"/>
+            </marker>
+          </defs>
           <circle cx="300" cy="300" r="220" fill="none" stroke="var(--color-border)" stroke-width="1" stroke-dasharray="4 6"/>
+          <!-- Clockwise arrows: W → I → S → E → W -->
+          <path d="M 375.24 93.27 A 220 220 0 0 1 506.74 224.76" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-en)"/>
+          <path d="M 506.74 375.24 A 220 220 0 0 1 375.24 506.73" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-en)"/>
+          <path d="M 224.76 506.73 A 220 220 0 0 1 93.27 375.24" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-en)"/>
+          <path d="M 93.27 224.76 A 220 220 0 0 1 224.76 93.27" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-en)"/>
           <g class="wise-letter" data-letter="W">
             <circle cx="300" cy="80"  r="54" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
             <text x="300" y="95" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="var(--color-accent)">W</text>
@@ -70,12 +80,21 @@
       </div>
     </section>
 
-    <!-- Summary: the complete framework in one view (appears after the pinned reveal) -->
+    <!-- Summary for teachers: the complete framework in one view -->
     <section class="wise-summary container" data-reveal>
-      <h2 class="wise-summary__title">The WISE Framework</h2>
+      <h2 class="wise-summary__title">The WISE Framework for Teachers</h2>
       <div class="wise-summary__layout">
         <svg class="wise-summary__diagram" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <marker id="arr-en" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#2d5a3f" opacity="0.6"/>
+            </marker>
+          </defs>
           <circle cx="300" cy="300" r="220" fill="none" stroke="var(--color-border)" stroke-width="1" stroke-dasharray="4 6"/>
+          <path d="M 375.24 93.27 A 220 220 0 0 1 506.74 224.76" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-en)"/>
+          <path d="M 506.74 375.24 A 220 220 0 0 1 375.24 506.73" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-en)"/>
+          <path d="M 224.76 506.73 A 220 220 0 0 1 93.27 375.24" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-en)"/>
+          <path d="M 93.27 224.76 A 220 220 0 0 1 224.76 93.27" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-en)"/>
           <g><circle cx="300" cy="80"  r="54" fill="none" stroke="var(--color-accent)" stroke-width="2"/><text x="300" y="95"  text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="var(--color-accent)">W</text></g>
           <g><circle cx="520" cy="300" r="54" fill="none" stroke="var(--color-accent)" stroke-width="2"/><text x="520" y="315" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="var(--color-accent)">I</text></g>
           <g><circle cx="300" cy="520" r="54" fill="none" stroke="var(--color-highlight)" stroke-width="2"/><text x="300" y="535" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="var(--color-highlight)">S</text></g>
@@ -92,16 +111,33 @@
       </div>
     </section>
 
-    <section class="section container" data-reveal>
-      <h2>For teachers, for school leaders</h2>
-      <div class="grid-two">
-        <div>
-          <h3 class="eyebrow">WISE for Teachers</h3>
-          <p>Use WISE in lesson planning. One A4 sheet on your desk is enough.</p>
-        </div>
-        <div>
-          <h3 class="eyebrow">WISE for School Leaders</h3>
-          <p>Use WISE in procurement and strategy. One framework for the whole school's AI conversation.</p>
+    <!-- Summary for school leaders -->
+    <section class="wise-summary container" data-reveal>
+      <h2 class="wise-summary__title">The WISE Framework for School Leaders</h2>
+      <div class="wise-summary__layout">
+        <svg class="wise-summary__diagram" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <marker id="arr-en-leader" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#2d5a3f" opacity="0.6"/>
+            </marker>
+          </defs>
+          <circle cx="300" cy="300" r="220" fill="none" stroke="var(--color-border)" stroke-width="1" stroke-dasharray="4 6"/>
+          <path d="M 375.24 93.27 A 220 220 0 0 1 506.74 224.76" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-en-leader)"/>
+          <path d="M 506.74 375.24 A 220 220 0 0 1 375.24 506.73" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-en-leader)"/>
+          <path d="M 224.76 506.73 A 220 220 0 0 1 93.27 375.24" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-en-leader)"/>
+          <path d="M 93.27 224.76 A 220 220 0 0 1 224.76 93.27" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-en-leader)"/>
+          <g><circle cx="300" cy="80"  r="54" fill="none" stroke="var(--color-accent)" stroke-width="2"/><text x="300" y="95"  text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="var(--color-accent)">W</text></g>
+          <g><circle cx="520" cy="300" r="54" fill="none" stroke="var(--color-accent)" stroke-width="2"/><text x="520" y="315" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="var(--color-accent)">I</text></g>
+          <g><circle cx="300" cy="520" r="54" fill="none" stroke="var(--color-highlight)" stroke-width="2"/><text x="300" y="535" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="var(--color-highlight)">S</text></g>
+          <g><circle cx="80"  cy="300" r="54" fill="none" stroke="var(--color-accent)" stroke-width="2"/><text x="80"  y="315" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="var(--color-accent)">E</text></g>
+          <text x="300" y="285" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="18" fill="var(--color-text-soft)">Professional</text>
+          <text x="300" y="310" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="18" fill="var(--color-text-soft)">judgment</text>
+        </svg>
+        <div class="wise-summary__steps">
+          <div class="wise-summary__step"><h3>W — Weigh the objective</h3><p>What problem should this initiative solve? Start with the school's vision and the needs of students and teachers — not with the tech budget or the latest tool.</p></div>
+          <div class="wise-summary__step"><h3>I — Investigate subjects and operations</h3><p>Which subjects and activities benefit from this initiative — and which don't? An investment that works in mathematics may not work in language arts. Conduct thorough needs assessments that lead to well-founded decisions!</p></div>
+          <div class="wise-summary__step"><h3>S — Select with strategic intent</h3><p>Which tools should the school invest in — and which should it actively choose not to? Which of the tools currently available deliver the desired results and which don't?</p></div>
+          <div class="wise-summary__step"><h3>E — Evaluate with data</h3><p>Set evaluation criteria before the initiative is implemented — not afterwards. Did student outcomes improve? Did teacher competence increase? Use data to evaluate and discontinue what doesn't work.</p></div>
         </div>
       </div>
     </section>
