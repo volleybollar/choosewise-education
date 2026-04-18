@@ -205,3 +205,40 @@
 .styles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-4); }
 
 .skeleton--card { aspect-ratio: 4 / 5; border-radius: var(--radius-md); }
+
+/* ───── Modal (gated downloads) ───── */
+.modal-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(26,26,24,0.6);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--dur-medium) var(--ease-out);
+  z-index: 100;
+}
+.modal-backdrop--open { opacity: 1; pointer-events: auto; }
+
+.modal {
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  max-width: 440px; width: calc(100% - 2rem);
+  padding: var(--space-7);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(20px) scale(0.98);
+  transition: transform var(--dur-medium) var(--ease-out);
+  position: relative;
+}
+.modal-backdrop--open .modal { transform: translateY(0) scale(1); }
+
+.modal h3 { margin-bottom: var(--space-3); }
+.modal__desc { color: var(--color-text-soft); margin-bottom: var(--space-5); font-size: var(--fs-small); }
+.modal__form { display: flex; flex-direction: column; gap: var(--space-3); }
+.modal__submit { margin-top: var(--space-3); }
+.modal__close {
+  position: absolute; top: var(--space-3); right: var(--space-3);
+  background: transparent; border: 0; font-size: 1.5rem; line-height: 1;
+  cursor: pointer; color: var(--color-text-soft); padding: var(--space-2);
+  border-radius: var(--radius-sm);
+}
+.modal__close:hover { color: var(--color-text); }
+.modal__success { display: none; text-align: center; padding: var(--space-4); }
+.modal__success--visible { display: block; }
