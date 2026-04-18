@@ -59,3 +59,27 @@
 .about__text p { margin-bottom: var(--space-4); }
 .about__links { display: flex; gap: var(--space-4); margin-top: var(--space-6); flex-wrap: wrap; }
 @media (max-width: 768px) { .about { grid-template-columns: 1fr; } .about__portrait img { max-width: 240px; } }
+
+/* ───── WISE signature ───── */
+.wise-signature { height: 300vh; position: relative; }
+.wise-signature__sticky {
+  position: sticky; top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8);
+  align-items: center;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: var(--space-6) var(--space-5);
+}
+.wise-signature__diagram { width: 100%; height: auto; max-width: 560px; }
+.wise-signature__panels { position: relative; min-height: 220px; }
+.wise-panel { position: absolute; inset: 0; }
+.wise-panel h2 { font-size: var(--fs-h2); margin-bottom: var(--space-4); }
+.wise-panel p  { font-size: 1.125rem; max-width: 38ch; }
+
+@media (max-width: 900px) {
+  .wise-signature { height: auto; }
+  .wise-signature__sticky { position: static; height: auto; grid-template-columns: 1fr; gap: var(--space-5); }
+  .wise-panel { position: static; opacity: 1 !important; transform: none !important; margin-bottom: var(--space-6); }
+  .wise-signature__diagram { margin-inline: auto; }
+}

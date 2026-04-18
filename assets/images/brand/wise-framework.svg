@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="700" height="700" fill="#f7f4ec" rx="0"/>
+  <defs>
+    <filter id="shadow" x="-15%" y="-15%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#1e1e1c" flood-opacity="0.06"/>
+    </filter>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#2f4a3a" opacity="0.6"/>
+    </marker>
+  </defs>
+  <text x="350" y="48" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="36" font-weight="400" fill="#1e1e1c" letter-spacing="-0.5">The WISE Framework</text>
+  <text x="350" y="78" text-anchor="middle" font-family="'Work Sans', -apple-system, sans-serif" font-size="18" font-weight="400" fill="#5a5a57" letter-spacing="0.3">The right tool at the right time</text>
+  <rect x="255" y="160" width="190" height="75" rx="12" fill="#d4e8db" stroke="#2f4a3a" stroke-width="2" filter="url(#shadow)"/>
+  <text x="350" y="194" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#2f4a3a">W</text>
+  <text x="350" y="220" text-anchor="middle" font-family="'Work Sans', -apple-system, sans-serif" font-size="13" font-weight="500" fill="#2f4a3a">Weigh</text>
+  <rect x="470" y="353" width="190" height="75" rx="12" fill="#f5ecd0" stroke="#c69c3c" stroke-width="2" filter="url(#shadow)"/>
+  <text x="565" y="387" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#a07d2e">I</text>
+  <text x="565" y="413" text-anchor="middle" font-family="'Work Sans', -apple-system, sans-serif" font-size="13" font-weight="500" fill="#a07d2e">Inspect</text>
+  <rect x="255" y="545" width="190" height="75" rx="12" fill="#d0e8ec" stroke="#3a7a8a" stroke-width="2" filter="url(#shadow)"/>
+  <text x="350" y="579" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#2e6d7a">S</text>
+  <text x="350" y="605" text-anchor="middle" font-family="'Work Sans', -apple-system, sans-serif" font-size="13" font-weight="500" fill="#2e6d7a">Select the right tool</text>
+  <rect x="40" y="353" width="190" height="75" rx="12" fill="#f5d8cc" stroke="#b35a3a" stroke-width="2" filter="url(#shadow)"/>
+  <text x="135" y="387" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#b35a3a">E</text>
+  <text x="135" y="413" text-anchor="middle" font-family="'Work Sans', -apple-system, sans-serif" font-size="13" font-weight="500" fill="#b35a3a">Evaluate</text>
+  <path d="M 445,197 C 530,197 565,270 565,345" fill="none" stroke="#2f4a3a" stroke-width="2.2" opacity="0.45" marker-end="url(#arr)"/>
+  <path d="M 565,428 C 565,510 530,583 453,583" fill="none" stroke="#2f4a3a" stroke-width="2.2" opacity="0.45" marker-end="url(#arr)"/>
+  <path d="M 255,583 C 170,583 135,510 135,436" fill="none" stroke="#2f4a3a" stroke-width="2.2" opacity="0.45" marker-end="url(#arr)"/>
+  <path d="M 135,353 C 135,270 170,197 247,197" fill="none" stroke="#2f4a3a" stroke-width="2.2" opacity="0.45" marker-end="url(#arr)"/>
+  <circle cx="350" cy="390" r="65" fill="#ffffff" stroke="#2f4a3a" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="350" y="383" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" font-weight="500" fill="#2f4a3a">Professional</text>
+  <text x="350" y="403" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" font-weight="500" fill="#2f4a3a">judgment</text>
+  <text x="350" y="670" text-anchor="middle" font-family="'Work Sans', -apple-system, sans-serif" font-size="11" font-weight="400" fill="#a5a59f">© Johan Lindström · JL Skolutveckling AB · jlsu.se</text>
+</svg>
