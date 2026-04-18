@@ -6,9 +6,17 @@
   Templates: 'style' (flip card with image + prompt), 'prompt' (PDF download card), 'guide', 'blog-post'
 */
 
+/* Language-aware strings for the style template (resolved at render time from URL path) */
+const IS_SV = typeof location !== 'undefined' && location.pathname.startsWith('/sv/');
+const COPY_BTN_LABEL = IS_SV ? 'Kopiera prompt – Stil' : 'Copy prompt – Style';
+const COPIED_LABEL   = IS_SV ? 'Kopierat!' : 'Copied!';
+
 const TEMPLATES = {
-  /* NotebookLM style — flip card with image front, prompt back */
-  style: (item, idx) => `
+  /* NotebookLM style — flip card with image front, prompt back.
+     `item.id` looks like "style-1" / "style-140"; we extract the number for the button label. */
+  style: (item, idx) => {
+    const styleNumber = String(item.id || '').replace(/^style-/, '') || String(idx + 1);
+    return `
     <article class="flipcard" data-index="${idx}">
       <div class="flipcard__inner">
         <div class="flipcard__face flipcard__front">
@@ -21,12 +29,13 @@ const TEMPLATES = {
         <div class="flipcard__face flipcard__back">
           <div class="flipcard__prompt">${escapeHtml(item.prompt)}</div>
           <button class="btn btn--primary copy-btn" data-copy="${escapeAttr(item.prompt)}">
-            Copy prompt
+            ${COPY_BTN_LABEL} ${escapeHtml(styleNumber)}
           </button>
-          <span class="copy-toast">Copied!</span>
+          <span class="copy-toast">${COPIED_LABEL}</span>
         </div>
       </div>
-    </article>`,
+    </article>`;
+  },
 
   /* Prompt library — download card */
   prompt: (item) => `

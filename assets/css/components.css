@@ -200,6 +200,8 @@
 .flipcard__back { background: var(--color-dark-bg); color: var(--color-dark-text); transform: rotateY(180deg); padding: var(--space-5); gap: var(--space-4); }
 .flipcard__prompt { flex: 1; font-size: var(--fs-small); line-height: var(--lh-normal); overflow-y: auto; font-family: var(--font-mono); opacity: 0.9; }
 .flipcard__back .btn { align-self: stretch; }
+.flipcard__back .copy-btn { background: var(--color-copy); color: var(--color-dark-text); }
+.flipcard__back .copy-btn:hover { background: var(--color-copy-hover); color: var(--color-dark-text); }
 .flipcard__back .copy-toast { background: var(--color-highlight); }
 
 .styles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-4); }

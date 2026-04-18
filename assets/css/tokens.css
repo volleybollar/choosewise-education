@@ -25,6 +25,10 @@
   --color-bg-blur:       rgba(250, 247, 242, 0.85); /* off-white with alpha for backdrop-filter */
   --color-border-subtle: rgba(247, 243, 237, 0.10); /* subtle light divider on dark surfaces */
 
+  /* Copy-action accent (flipcard backs — contrasts with dark bg, non-green) */
+  --color-copy:       #1e3a5f;   /* editorial midnight blue */
+  --color-copy-hover: #152a46;
+
   /* ───── Typography ───── */
   --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
   --font-body:    'Work Sans', -apple-system, 'Helvetica Neue', sans-serif;
