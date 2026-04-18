@@ -1,0 +1,19 @@
+# Node / tooling
+node_modules/
+package-lock.json
+.DS_Store
+
+# Image optimization pipeline outputs (source lives on user machine)
+/scripts/input-cache/
+/scripts/output-temp/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+Thumbs.db
+
+# Superpowers brainstorm state (not part of the shippable site)
+.superpowers/
