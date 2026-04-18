@@ -60,10 +60,15 @@
 .about__links { display: flex; gap: var(--space-4); margin-top: var(--space-6); flex-wrap: wrap; }
 @media (max-width: 768px) { .about { grid-template-columns: 1fr; } .about__portrait img { max-width: 240px; } }
 
-/* ───── WISE signature ───── */
-.wise-signature { height: 300vh; position: relative; }
+/* ───── WISE signature ─────
+   Desktop: GSAP ScrollTrigger handles pinning entirely (see wise-signature.js).
+   We do NOT use CSS `height: 300vh` or `position: sticky` here because that would
+   double up with GSAP's pin-spacer and create a dead-zone where only the final
+   panel is visible after the timeline has ended. The sticky element just needs
+   to fill the viewport-minus-nav so GSAP has something tall to pin.
+*/
+.wise-signature { position: relative; }
 .wise-signature__sticky {
-  position: sticky; top: var(--nav-height);
   height: calc(100vh - var(--nav-height));
   display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8);
   align-items: center;
@@ -78,8 +83,8 @@
 .wise-panel p  { font-size: 1.125rem; max-width: 38ch; }
 
 @media (max-width: 900px) {
-  .wise-signature { height: auto; }
-  .wise-signature__sticky { position: static; height: auto; grid-template-columns: 1fr; gap: var(--space-5); }
+  /* Mobile: no pinning at all. Content stacks normally, all panels show inline. */
+  .wise-signature__sticky { height: auto; grid-template-columns: 1fr; gap: var(--space-5); }
   .wise-panel { position: static; opacity: 1 !important; transform: none !important; margin-bottom: var(--space-6); }
   .wise-signature__diagram { margin-inline: auto; }
 }
