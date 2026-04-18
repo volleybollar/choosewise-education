@@ -90,3 +90,17 @@
 .filters select { padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-bg); }
 
 .prompts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--space-5); }
+
+/* ───── Blog ───── */
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-5); }
+.blog-empty { text-align: center; color: var(--color-text-soft); padding: var(--space-8); border: 1px dashed var(--color-border); border-radius: var(--radius-md); }
+
+.post { max-width: 42rem; margin-inline: auto; padding-block: var(--space-8); }
+.post__header { margin-bottom: var(--space-7); }
+.post__header h1 { margin-bottom: var(--space-3); }
+.post__body p, .post__body ul, .post__body ol { margin-bottom: var(--space-4); }
+.post__body h2 { margin-block: var(--space-7) var(--space-4); }
+.post__body h3 { margin-block: var(--space-5) var(--space-3); }
+.post__body blockquote { border-left: 3px solid var(--color-highlight); padding-left: var(--space-5); font-style: italic; color: var(--color-text-soft); margin-block: var(--space-5); }
+.post__body img { border-radius: var(--radius-md); margin-block: var(--space-5); }
+.post__footer { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
