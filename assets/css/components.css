@@ -48,7 +48,7 @@
 /* ───── Navigation ───── */
 .nav {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(250, 247, 242, 0.85);
+  background: var(--color-bg-blur);
   backdrop-filter: saturate(150%) blur(16px);
   -webkit-backdrop-filter: saturate(150%) blur(16px);
   border-bottom: 1px solid var(--color-border);
@@ -184,5 +184,5 @@
 .footer__col ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
 .footer__col a { color: var(--color-dark-text); opacity: 0.8; text-decoration: none; font-size: var(--fs-small); }
 .footer__col a:hover { opacity: 1; color: var(--color-dark-text); }
-.footer__meta { margin-top: var(--space-7); padding-top: var(--space-5); border-top: 1px solid rgba(247,243,237,0.1); font-size: var(--fs-caption); opacity: 0.5; max-width: var(--content-max); margin-inline: auto; padding-inline: var(--space-5); }
+.footer__meta { margin-top: var(--space-7); padding-top: var(--space-5); border-top: 1px solid var(--color-border-subtle); font-size: var(--fs-caption); opacity: 0.5; max-width: var(--content-max); margin-inline: auto; padding-inline: var(--space-5); }
 @media (max-width: 768px) { .footer__inner { grid-template-columns: 1fr; } }
