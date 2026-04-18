@@ -83,3 +83,10 @@
   .wise-panel { position: static; opacity: 1 !important; transform: none !important; margin-bottom: var(--space-6); }
   .wise-signature__diagram { margin-inline: auto; }
 }
+
+/* ───── Filters ───── */
+.filters { display: flex; gap: var(--space-5); margin-bottom: var(--space-6); flex-wrap: wrap; }
+.filters label { display: flex; gap: var(--space-2); align-items: center; font-size: var(--fs-small); color: var(--color-text-soft); }
+.filters select { padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-bg); }
+
+.prompts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--space-5); }
