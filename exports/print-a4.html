@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Work Sans', -apple-system, sans-serif;
+    color: #1e1e1c;
+    background: #f7f4ec;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ===== SIDA 1: Diagrammet ===== */
+  .page1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 297mm;
+    padding: 20mm;
+    page-break-after: always;
+  }
+
+  .page1 svg {
+    width: 150mm;
+    height: 150mm;
+  }
+
+  .page1-quote {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    color: #2f4a3a;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  /* ===== SIDA 2: Legend (Lärare + Skolledare) ===== */
+  .page2 {
+    page-break-before: always;
+    height: 297mm;
+    padding: 20mm 20mm 15mm 20mm;
+  }
+
+  .legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+  }
+
+  .legend-section h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 18px;
+    font-weight: 450;
+    margin-bottom: 4px;
+    color: #1e1e1c;
+  }
+
+  .legend-intro {
+    font-size: 11px;
+    color: #7a7a75;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .legend-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+
+  .legend-letter {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1;
+    min-width: 22px;
+  }
+
+  .legend-text {
+    font-size: 12px;
+    line-height: 1.55;
+    color: #3a3a38;
+  }
+
+  .legend-text strong {
+    display: block;
+    color: #1e1e1c;
+    font-weight: 600;
+    font-size: 12.5px;
+    margin-bottom: 2px;
+  }
+
+  .color-green { color: #2f4a3a; }
+  .color-gold { color: #a07d2e; }
+  .color-teal { color: #2e6d7a; }
+  .color-terra { color: #b35a3a; }
+
+  .page2-footer {
+    margin-top: 30px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(30,30,28,0.1);
+    text-align: center;
+  }
+
+  .page2-footer .quote {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 400;
+    color: #2f4a3a;
+  }
+
+  .page2-footer .attr {
+    font-size: 11px;
+    color: #a5a59f;
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== SIDA 1: Diagrammet ===== -->
+  <div class="page1">
+    <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="shadow" x="-15%" y="-15%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#1e1e1c" flood-opacity="0.06"/>
+        </filter>
+        <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#2f4a3a" opacity="0.6"/>
+        </marker>
+      </defs>
+      <text x="350" y="48" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="36" font-weight="400" fill="#1e1e1c" letter-spacing="-0.5">RÄTT-modellen</text>
+      <text x="350" y="78" text-anchor="middle" font-family="'Work Sans', sans-serif" font-size="18" font-weight="400" fill="#5a5a57" letter-spacing="0.3">Rätt verktyg vid rätt tillfälle</text>
+      <rect x="255" y="160" width="190" height="75" rx="12" fill="#d4e8db" stroke="#2f4a3a" stroke-width="2" filter="url(#shadow)"/>
+      <text x="350" y="194" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#2f4a3a">R</text>
+      <text x="350" y="220" text-anchor="middle" font-family="'Work Sans', sans-serif" font-size="12" font-weight="500" fill="#2f4a3a">Reflektera över lärandet</text>
+      <rect x="470" y="353" width="190" height="75" rx="12" fill="#f5ecd0" stroke="#c69c3c" stroke-width="2" filter="url(#shadow)"/>
+      <text x="565" y="387" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#a07d2e">Ä</text>
+      <text x="565" y="413" text-anchor="middle" font-family="'Work Sans', sans-serif" font-size="13" font-weight="500" fill="#a07d2e">Ämnet avgör</text>
+      <rect x="255" y="545" width="190" height="75" rx="12" fill="#d0e8ec" stroke="#3a7a8a" stroke-width="2" filter="url(#shadow)"/>
+      <text x="350" y="579" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#2e6d7a">T</text>
+      <text x="350" y="605" text-anchor="middle" font-family="'Work Sans', sans-serif" font-size="13" font-weight="500" fill="#2e6d7a">Tillämpa rätt verktyg</text>
+      <rect x="40" y="353" width="190" height="75" rx="12" fill="#f5d8cc" stroke="#b35a3a" stroke-width="2" filter="url(#shadow)"/>
+      <text x="135" y="387" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#b35a3a">T</text>
+      <text x="135" y="413" text-anchor="middle" font-family="'Work Sans', sans-serif" font-size="13" font-weight="500" fill="#b35a3a">Testa &amp; utvärdera</text>
+      <path d="M 445,197 C 530,197 565,270 565,345" fill="none" stroke="#2f4a3a" stroke-width="2.2" opacity="0.45" marker-end="url(#arr)"/>
+      <path d="M 565,428 C 565,510 530,583 453,583" fill="none" stroke="#2f4a3a" stroke-width="2.2" opacity="0.45" marker-end="url(#arr)"/>
+      <path d="M 255,583 C 170,583 135,510 135,436" fill="none" stroke="#2f4a3a" stroke-width="2.2" opacity="0.45" marker-end="url(#arr)"/>
+      <path d="M 135,353 C 135,270 170,197 247,197" fill="none" stroke="#2f4a3a" stroke-width="2.2" opacity="0.45" marker-end="url(#arr)"/>
+      <circle cx="350" cy="390" r="65" fill="#ffffff" stroke="#2f4a3a" stroke-width="2.5" filter="url(#shadow)"/>
+      <text x="350" y="383" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" font-weight="500" fill="#2f4a3a">Professionellt</text>
+      <text x="350" y="403" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" font-weight="500" fill="#2f4a3a">omdöme</text>
+      <text x="350" y="670" text-anchor="middle" font-family="'Work Sans', sans-serif" font-size="11" font-weight="400" fill="#a5a59f">Copyright Johan Lindström, choosewise.education</text>
+    </svg>
+  </div>
+
+  <!-- ===== SIDA 2: Legend ===== -->
+  <div class="page2">
+    <div class="legend">
+
+      <div class="legend-section">
+        <h3>RÄTT för Lärare</h3>
+        <p class="legend-intro">Hur du som lärare väljer rätt verktyg i klassrummet.</p>
+
+        <div class="legend-item">
+          <span class="legend-letter color-green">R</span>
+          <div class="legend-text">
+            <strong>Reflektera över lärandet som ska ske</strong>
+            Vad ska eleverna lära sig? Vilka förkunskaper har eleverna? Starta alltid med pedagogiken — aldrig med verktyget.
+          </div>
+        </div>
+        <div class="legend-item">
+          <span class="legend-letter color-gold">Ä</span>
+          <div class="legend-text">
+            <strong>Ämnet avgör</strong>
+            Vad kräver just det här ämnet och innehållet? En uppsats i svenska har andra verktygsbehov än en problemlösningsuppgift i matematik.
+          </div>
+        </div>
+        <div class="legend-item">
+          <span class="legend-letter color-teal">T</span>
+          <div class="legend-text">
+            <strong>Tillämpa rätt verktyg</strong>
+            Välj det verktyg som är bäst för lärandet för de elever du har: papper och penna, en fysisk bok, en digital bok, andra digitala verktyg, ett AI-verktyg, inget verktyg alls eller något helt annat?
+          </div>
+        </div>
+        <div class="legend-item">
+          <span class="legend-letter color-terra">T</span>
+          <div class="legend-text">
+            <strong>Testa och utvärdera</strong>
+            Fungerade det bra? Lärde sig eleverna bättre med det här verktyget än de hade gjort med ett annat verktyg? Justera och kör cykeln igen.
+          </div>
+        </div>
+      </div>
+
+      <div class="legend-section">
+        <h3>RÄTT för Skolledare</h3>
+        <p class="legend-intro">Hur du som rektor eller skolchef styr skolans verktygsstrategi.</p>
+
+        <div class="legend-item">
+          <span class="legend-letter color-green">R</span>
+          <div class="legend-text">
+            <strong>Reflektera över målet</strong>
+            Vilket problem ska den här satsningen lösa? Starta med skolans vision, elevernas och lärarnas behov — inte med teknikbudgeten eller det senaste verktyget.
+          </div>
+        </div>
+        <div class="legend-item">
+          <span class="legend-letter color-gold">Ä</span>
+          <div class="legend-text">
+            <strong>Ämnes- och verksamhetsanalys</strong>
+            Vilka ämnen och verksamheter gynnas av satsningen — och vilka gör det inte? En investering som fungerar i matematik kanske inte fungerar i svenska. Gör gedigna behovsanalyser som leder till välgrundade beslut!
+          </div>
+        </div>
+        <div class="legend-item">
+          <span class="legend-letter color-teal">T</span>
+          <div class="legend-text">
+            <strong>Tillämpa med strategiskt urval</strong>
+            Vilka verktyg ska skolan satsa på — och vilka ska skolan aktivt välja bort? Vilka av de verktyg som vi har tillgång till idag ger önskat resultat och vilka gör inte det?
+          </div>
+        </div>
+        <div class="legend-item">
+          <span class="legend-letter color-terra">T</span>
+          <div class="legend-text">
+            <strong>Testa med data</strong>
+            Sätt utvärderingskriterier innan satsningen genomförs — inte efteråt. Förbättrades elevresultaten? Ökade lärarnas kompetens? Använd data för att utvärdera och avsluta det som inte fungerar.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="page2-footer">
+      <p class="quote">"Är det fler verktyg eller bättre omdöme som behövs?"</p>
+      <p class="attr">RÄTT-modellen – Johan Lindström – choosewise.education</p>
+    </div>
+  </div>
+
+</body>
+</html>
