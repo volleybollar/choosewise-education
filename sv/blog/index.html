@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blogg — choosewise.education</title>
+  <meta name="description" content="Essäer om AI i skolan, utbildning och professionellt omdöme.">
+  <meta property="og:image" content="/assets/images/brand/og-default.svg">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+</head>
+<body>
+  <div data-include="/assets/partials/header-sv.html"></div>
+
+  <main>
+    <section class="page-hero container">
+      <span class="eyebrow" data-reveal>Blogg</span>
+      <h1 data-reveal>Essäer om AI, skolan och omdöme.</h1>
+      <p class="lede" data-reveal>Långläsning. Publiceras när det finns något värt att säga.</p>
+    </section>
+
+    <section class="container section">
+      <div class="blog-grid" data-source="/sv/blog/posts-sv.json" data-template="blog-post"></div>
+      <p id="blog-empty" class="blog-empty" style="display:none;">Inga inlägg än — det första är på väg. Titta in snart igen.</p>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-sv.html"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="/assets/js/include.js"></script>
+  <script src="/assets/js/render-grid.js"></script>
+  <script src="/assets/js/scroll-reveals.js"></script>
+  <script>
+    document.querySelector('[data-source="/sv/blog/posts-sv.json"]').addEventListener('grid:rendered', (e) => {
+      if (e.detail.count === 0) document.getElementById('blog-empty').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
