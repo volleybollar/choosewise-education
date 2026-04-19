@@ -356,6 +356,87 @@
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════════════════ -->
+<!--                       FAQ                            -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="section" id="faq">
+  <div class="section__inner">
+    <p class="part-label">FAQ</p>
+    <h2>Questions teachers ask</h2>
+
+    <details class="faq-item">
+      <summary>Does my iPad support Apple Intelligence?</summary>
+      <div class="faq-body">
+        <p>Apple Intelligence requires an iPad with an M1 chip or later — that means iPad Pro (M1 and up), iPad Air (M1 and up), and recent iPad mini models with Apple silicon. Most school-fleet iPads running A-series chips do not qualify. The quick check: open Settings and look for <em>Apple Intelligence &amp; Siri</em> — if the menu is there, your device supports it. If your school's iPads don't make the cut, rushing to upgrade is rarely the right call. Most teachers gain more, faster, from Claude or Gemini in a browser than from waiting on a hardware refresh. Hardware is the smallest part of an AI strategy.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Is Apple Intelligence available in Swedish?</summary>
+      <div class="faq-body">
+        <p>Swedish localisation rolled out during 2025, but Apple ships languages in quarterly waves, so verify the current language matrix on Apple's support pages before planning a staff rollout. A useful nuance: Writing Tools and Mail categorisation work on Swedish text even before full Siri localisation, because the on-device language model handles Swedish grammar and vocabulary competently. Siri 2.0's fully localised voice responses depend on a separate release track. For classroom purposes, treat written-Swedish features as ready today and expect spoken-Swedish Siri to keep improving over successive iPadOS updates through 2026.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Should I turn on the ChatGPT integration?</summary>
+      <div class="faq-body">
+        <p>For personal, adult-only use, it's a judgement call. For school-issued iPads with any student-facing use, disable it by default through your MDM. The reason is straightforward: the ChatGPT integration sends specific requests to OpenAI, a US-based processor whose retention and training policies are different from Apple's — and not covered by Apple's Data Processing Addendum. It isn't inherently dangerous for general writing tasks, but it is a separate legal analysis your school should have made before enabling it. Start with it off. Enable it consciously, not accidentally. Part 3 walks through the policy implications in more depth.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can I use Apple Intelligence with student data?</summary>
+      <div class="faq-body">
+        <p>The working rule is the same one that applies to any AI tool: de-identify first. Even on-device processing deserves the same discipline you'd apply to a cloud service when the content involves student names, grades, behavioural notes, SEN plans, or safeguarding concerns. The reasons are practical — iCloud Backup may include the document, shared or substitute-teacher access means material doesn't always stay with you, and accidental dictation pickup can capture things you never meant to record. Teacher-work data — your planning documents, generalised parent communications, your own meeting notes — is generally fine to process on-device. Part 3 covers this in more depth.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>How does this compare to Claude or Gemini?</summary>
+      <div class="faq-body">
+        <p>Different tool class. Claude and Gemini are general-purpose chatbots built for open-ended thinking work — drafting, analysis, research, longer conversations where you're reasoning through something with the model. Apple Intelligence is an ambient assistant built into the device: Writing Tools, Mail categorisation, Siri-driven actions, Visual Intelligence. Choose based on the task. Claude or Gemini for "help me think through this". Apple Intelligence for "do this small polishing or retrieval thing quickly without leaving my flow". They're complementary rather than competitors, and most teachers end up using both — the chatbot on a laptop for the hard thinking, Apple Intelligence on the iPad for the in-context nudges.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>What about Apple Intelligence on my personal iPhone — is that relevant for school use?</summary>
+      <div class="faq-body">
+        <p>Relevant for the adult-productivity side: parent emails drafted on your commute, meeting prep on the bus, the ten-minute tidy-up of tomorrow's lesson plan while waiting for coffee. Not relevant for any student-facing work. Your personal iPhone is generally not covered by your school's data processing agreements with Apple, so student data should not touch it — the legal basis for processing simply isn't there. Keep student data on school-issued devices with proper MDM configuration. Treat personal-iPhone Apple Intelligence as a personal productivity gain, not as an extension of your school's AI tooling.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Does Apple Intelligence train on my data?</summary>
+      <div class="faq-body">
+        <p>Apple's public stance is that they do not train their models on user data from Apple Intelligence requests — whether those requests are processed on-device or via Private Cloud Compute. PCC requests are stateless and discarded once the response is returned. The ChatGPT integration is a different matter: OpenAI's own training and retention policies apply to that specific subset of opted-in requests, unless you are on a plan where training is explicitly disabled, and those policies evolve, so verify OpenAI's current terms if this matters to your DPIA. The short version: Apple = no training by default. ChatGPT = depends on opt-in and plan.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Is Apple Intelligence covered by my school's existing data processor agreement with Apple?</summary>
+      <div class="faq-body">
+        <p>Verify with your DPO and procurement contact. Apple's published Data Processing Addendum for Apple School Manager and education customers generally covers Apple services used as part of normal device operation, and Apple Intelligence as an extension of iPadOS is usually within scope for on-device processing and Private Cloud Compute. The ChatGPT integration is a different matter entirely — it is not covered by Apple's DPA, because it's a separate relationship between the user and OpenAI, and it requires its own legal analysis. Your school's DPIA should explicitly address the ChatGPT path as a distinct risk and document the decision to disable it by default.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can I turn off specific features while keeping Writing Tools?</summary>
+      <div class="faq-body">
+        <p>Yes. Each feature has its own toggle, which matters for a staff rollout where you want the master switch on but the noisier or less familiar features off. Mail categorisation lives under Settings → Mail → Categorisation. Notification summaries live under Settings → Notifications → Summarise Previews. Writing Tools itself is tied to the master Apple Intelligence toggle, but the specific ChatGPT-adjacent behaviour — "Compose with ChatGPT" and similar — has its own setting under Siri &amp; Apple Intelligence → ChatGPT Extension. A sensible default for a staff rollout: master switch on, Writing Tools on, Mail categorisation off, ChatGPT Extension off.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Where do I get help if something goes wrong?</summary>
+      <div class="faq-body">
+        <p>Start with Apple's own documentation at <em>support.apple.com/apple-intelligence</em>, and for the technical privacy architecture behind Private Cloud Compute, the Apple Security Research site at <em>security.apple.com</em> is genuinely well written. For school-specific questions — policy decisions, DPIA implications, rolling out across a staff room, EU AI Act alignment — reach out through my website (link in the footer). I offer consulting for schools, primarily in Sweden. For MDM-specific configuration, your school's managed-device provider (Jamf, Mosyle, Intune, Apple School Manager itself) will have Apple Intelligence documentation and the relevant MDM profile options.</p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
 </div><!-- /.jl-page -->
 
 <div data-include="/assets/partials/footer-en.html"></div>
