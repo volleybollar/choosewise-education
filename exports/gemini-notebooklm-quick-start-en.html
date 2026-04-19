@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gemini &amp; NotebookLM Quick Start — for teachers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #1a1a18;
+    background: #faf7f2;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 18mm 20mm;
+    display: flex;
+    flex-direction: column;
+  }
+  .page1 { page-break-after: always; }
+  .page2 { page-break-before: always; }
+
+  /* ─── Page header ─── */
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(26, 26, 24, 0.12);
+    margin-bottom: 14px;
+  }
+  .masthead .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: #c66b3d;
+  }
+  .masthead .page-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #a5a59f;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.6px;
+    color: #1a1a18;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    color: #5a5a57;
+    margin-bottom: 14px;
+  }
+  .lede {
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: #3a3a38;
+    max-width: 155mm;
+    margin-bottom: 16px;
+  }
+
+  /* ─── Section ─── */
+  .section { margin-bottom: 12px; }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a1a18;
+    margin-bottom: 4px;
+  }
+  .section h2 .num {
+    color: #c66b3d;
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .section p {
+    font-size: 10.5px;
+    line-height: 1.55;
+    color: #3a3a38;
+    margin-bottom: 5px;
+  }
+
+  /* ─── Two-tool setup row ─── */
+  .tools-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 6px;
+  }
+  .tool-card {
+    background: #fbf8f1;
+    border-left: 3px solid #c66b3d;
+    padding: 8px 12px;
+    border-radius: 2px;
+  }
+  .tool-card.notebooklm { border-color: #1a1a18; }
+  .tool-card .tool-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a18;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .tool-card p {
+    font-size: 10px;
+    line-height: 1.5;
+    color: #3a3a38;
+    margin: 0;
+  }
+
+  /* ─── RTF grid ─── */
+  .rtf-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .rtf-card {
+    background: #fbf8f1;
+    border-left: 3px solid #c66b3d;
+    padding: 10px 12px;
+    border-radius: 2px;
+  }
+  .rtf-card:nth-child(2) { border-color: #c69c3c; }
+  .rtf-card:nth-child(3) { border-color: #2d5a3f; }
+  .rtf-card .letter {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1;
+    color: #c66b3d;
+  }
+  .rtf-card:nth-child(2) .letter { color: #c69c3c; }
+  .rtf-card:nth-child(3) .letter { color: #2d5a3f; }
+  .rtf-card .name {
+    display: block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a18;
+    margin: 3px 0 3px;
+  }
+  .rtf-card p {
+    font-size: 10px;
+    line-height: 1.5;
+    color: #3a3a38;
+    margin: 0;
+  }
+
+  /* ─── Bad/Better/Best ─── */
+  .bbb {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .bbb-card {
+    background: #fbf8f1;
+    border-top: 2px solid #c4c0b2;
+    padding: 8px 10px;
+    border-radius: 2px;
+  }
+  .bbb-card.better { border-color: #c69c3c; }
+  .bbb-card.best   { border-color: #2d5a3f; }
+  .bbb-card .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #a5a59f;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .bbb-card.better .label { color: #c69c3c; }
+  .bbb-card.best   .label { color: #2d5a3f; }
+  .bbb-card .sample {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 10px;
+    line-height: 1.45;
+    font-style: italic;
+    color: #3a3a38;
+    white-space: pre-wrap;
+  }
+
+  /* ─── Steps list (page 2) ─── */
+  .wins {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 18px;
+    margin-top: 6px;
+  }
+  .win {
+    display: flex;
+    gap: 10px;
+    padding: 4px 0;
+  }
+  .win .idx {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #c66b3d;
+    min-width: 14px;
+  }
+  .win .text {
+    font-size: 10px;
+    line-height: 1.5;
+    color: #3a3a38;
+  }
+  .win .text strong {
+    color: #1a1a18;
+    font-weight: 700;
+    display: block;
+    font-size: 10.5px;
+    margin-bottom: 1px;
+  }
+  .win .text .tag {
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #c66b3d;
+    margin-left: 6px;
+  }
+  .win .text .tag.nlm { color: #5a5a57; }
+
+  /* ─── Two-column setup ─── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .two-col p { margin-bottom: 4px; font-size: 10px; line-height: 1.5; }
+
+  /* ─── Watch out ─── */
+  .watchout {
+    background: #f8efd3;
+    border-left: 3px solid #c69c3c;
+    padding: 10px 14px;
+    border-radius: 2px;
+    margin-top: 6px;
+  }
+  .watchout .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #a07d2e;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .watchout p {
+    font-size: 10px;
+    line-height: 1.5;
+    color: #3a3a38;
+    margin: 0;
+  }
+
+  /* ─── Footer ─── */
+  .page-footer {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid rgba(26, 26, 24, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 9.5px;
+    color: #a5a59f;
+    letter-spacing: 0.3px;
+  }
+  .page-footer .brand {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 10.5px;
+    color: #5a5a57;
+  }
+
+  /* ─── Closing CTA (page 2) ─── */
+  .closing {
+    background: linear-gradient(135deg, #c66b3d 0%, #1a1a18 100%);
+    color: #faf7f2;
+    padding: 14px 18px;
+    border-radius: 3px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .closing .msg {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #faf7f2;
+    line-height: 1.4;
+  }
+  .closing .url {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: rgba(250, 247, 242, 0.9);
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ PAGE 1 ═══════════════ -->
+<div class="page page1">
+  <div class="masthead">
+    <span class="eyebrow">Gemini &amp; NotebookLM Quick Start · for teachers</span>
+    <span class="page-num">01 / 02</span>
+  </div>
+
+  <h1>Fifteen minutes from sign-up to your first useful output.</h1>
+  <p class="subtitle">A compressed first hour with Gemini and NotebookLM — the full guide is at choosewise.education.</p>
+
+  <p class="lede">Gemini and NotebookLM are two views on one Google account. This page gives you what separates a useful first session from a frustrating one: access to both tools, a prompt that does not waste your time, and the habit of iterating. Skim it once, apply it today, return for depth tomorrow.</p>
+
+  <div class="section">
+    <h2><span class="num">1</span>Sign in to both tools</h2>
+    <p>The same Google account works for both — no separate sign-up. A free personal account is fine for early exploration, but never upload sensitive data (student names, grades, behaviour records, SEN plans). If your school runs Google Workspace for Education, use that domain account instead.</p>
+    <div class="tools-row">
+      <div class="tool-card">
+        <span class="tool-name">Gemini · gemini.google.com</span>
+        <p>Generative — drafts, differentiates, researches, ideates. Web, mobile, and the Workspace sidebar.</p>
+      </div>
+      <div class="tool-card notebooklm">
+        <span class="tool-name">NotebookLM · notebooklm.google.com</span>
+        <p>Grounded — answers only from sources you upload, with citations back to the exact passage.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">2</span>Write a prompt that works — the RTF anatomy</h2>
+    <p>Most prompts fail because they are vague, not because the model is weak. A useful prompt names three things: Role, Task, Format.</p>
+    <div class="rtf-grid">
+      <div class="rtf-card">
+        <span class="letter">R</span>
+        <span class="name">Role</span>
+        <p>Who Gemini should be. "An experienced Year 4 literacy teacher in a mixed-ability state school" beats "a teacher".</p>
+      </div>
+      <div class="rtf-card">
+        <span class="letter">T</span>
+        <span class="name">Task</span>
+        <p>Exactly what you want done. "A ten-minute retrieval quiz on persuasive techniques from the past three lessons" beats "help with a quiz".</p>
+      </div>
+      <div class="rtf-card">
+        <span class="letter">F</span>
+        <span class="name">Format</span>
+        <p>The shape of the answer. Count, question types, word limit, whether to include an answer key. Say it up front.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">3</span>Iterate — the first draft is never the deliverable</h2>
+    <p>Read the first output. Tell Gemini two things to change. Run again. Ask for one more refinement. Two rounds of feedback take three minutes and roughly triple the quality. That iteration loop is the skill — not the perfect opening prompt.</p>
+
+    <div class="bbb">
+      <div class="bbb-card">
+        <span class="label">● Bad</span>
+        <div class="sample">Explain the water cycle.</div>
+      </div>
+      <div class="bbb-card better">
+        <span class="label">● Better</span>
+        <div class="sample">Explain the water cycle for Year 6. Make it easy to understand.</div>
+      </div>
+      <div class="bbb-card best">
+        <span class="label">● Best</span>
+        <div class="sample">Act as a Year 6 Science teacher. Write a 250-word explanation of the water cycle for a mixed-ability class. Include the four stages, one real-world example each, a five-term vocabulary box, and three retrieval questions at the end.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Gemini &amp; NotebookLM Quick Start</span>
+    <span class="brand">choosewise.education</span>
+    <span>Page 01 / 02</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 2 ═══════════════ -->
+<div class="page page2">
+  <div class="masthead">
+    <span class="eyebrow">Gemini &amp; NotebookLM Quick Start · after the first hour</span>
+    <span class="page-num">02 / 02</span>
+  </div>
+
+  <h1>Where the real leverage starts.</h1>
+  <p class="subtitle">Set the tools up once. Benefit every lesson after.</p>
+
+  <div class="section">
+    <h2>Build one Gem — your persistent teaching assistant</h2>
+    <p>A Gem is a named instruction set with attached files. Build one for your most-planned subject or year, and every future conversation starts with the context loaded. Stop pasting context; start compounding it.</p>
+    <div class="two-col">
+      <div>
+        <p><strong style="color:#1a1a18;font-weight:700;">Upload these five:</strong></p>
+        <p>· Your curriculum or syllabus for the subject and year</p>
+        <p>· Your scope and sequence or term planner</p>
+        <p>· Your school's style or communications guide</p>
+        <p>· An assessment rubric you use regularly</p>
+        <p>· Three de-identified student work samples</p>
+      </div>
+      <div>
+        <p><strong style="color:#1a1a18;font-weight:700;">Write one instruction:</strong></p>
+        <p style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#3a3a38;">"You are an experienced Year 8 English teacher in a mixed-ability state school. Outputs should be classroom-ready, follow the uploaded style guide, never produce more than I asked for, and use British English."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Open NotebookLM — upload three sources, click Audio Overview</h2>
+    <p>NotebookLM turns your uploaded sources into briefings, mind maps, study guides, podcast-style Audio Overviews, and Cinematic Video Overviews — each one cited back to the passage. Three workflows earn their place in week one:</p>
+    <p>· <strong style="color:#1a1a18;font-weight:700;">Audio Overview</strong> of a unit plan + two readings — excellent for EAL students who listen before reading, and for your own commute review.</p>
+    <p>· <strong style="color:#1a1a18;font-weight:700;">Mind Map</strong> of a long policy document — share with your department instead of asking colleagues to read forty pages.</p>
+    <p>· <strong style="color:#1a1a18;font-weight:700;">Briefing Doc</strong> from a meeting agenda + pre-reads — the one-page summary everyone actually reads before the meeting.</p>
+  </div>
+
+  <div class="section">
+    <h2>Five first wins — pick one this week</h2>
+    <div class="wins">
+      <div class="win">
+        <span class="idx">1</span>
+        <div class="text"><strong>Differentiate a reading passage <span class="tag">Gemini</span></strong>Three versions at two years below, at-level, and two years above — same core ideas, shared key vocabulary.</div>
+      </div>
+      <div class="win">
+        <span class="idx">2</span>
+        <div class="text"><strong>Generate a podcast from your unit <span class="tag nlm">NotebookLM</span></strong>Upload three to five unit documents. Click Audio Overview. 15–25 minutes of classroom-ready audio.</div>
+      </div>
+      <div class="win">
+        <span class="idx">3</span>
+        <div class="text"><strong>Run Deep Research on a topic <span class="tag">Gemini</span></strong>Background reading for a new unit in fifteen minutes instead of an afternoon — with inline citations. Verify every one.</div>
+      </div>
+      <div class="win">
+        <span class="idx">4</span>
+        <div class="text"><strong>Mind-map a policy document <span class="tag nlm">NotebookLM</span></strong>Upload the PDF. Click Mind Map. Share with your team as a faster way to align on what the document says.</div>
+      </div>
+      <div class="win">
+        <span class="idx">5</span>
+        <div class="text"><strong>Draft a parent email in three tones <span class="tag">Gemini</span></strong>Give the context. Ask for warmer, firmer, and neutral versions. Pick the one that fits — edit, send.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="watchout">
+    <span class="label">● Watch out · age-gates and data</span>
+    <p>Gemini Live is 18+. Premium Gemini-in-Workspace features (Docs, Slides, Forms, Vids) are 18+. NotebookLM is 13+ in a browser with stricter rules under 18. National guidance on student AI use varies — verify your country's current rules before any student-facing feature. For data: de-identify everything. Never upload student names, grades, health info, SEN plans, or safeguarding notes — not to any account type. If unsure, treat the file as unsafe and ask your DPO first.</p>
+  </div>
+
+  <div class="closing">
+    <div class="msg">Ready for depth? Read the full <em>Gemini &amp; NotebookLM Guide</em> — or download the 40-page premium PDF from the same page.</div>
+    <div class="url">choosewise.education / guides / gemini-notebooklm</div>
+  </div>
+
+  <div class="page-footer">
+    <span>Gemini &amp; NotebookLM Quick Start — Johan Lindström</span>
+    <span class="brand">choosewise.education</span>
+    <span>Page 02 / 02</span>
+  </div>
+</div>
+
+</body>
+</html>
