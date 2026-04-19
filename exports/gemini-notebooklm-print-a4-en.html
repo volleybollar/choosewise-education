@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gemini &amp; NotebookLM for teachers and school leaders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ─── Page geometry ─── */
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #faf7f2; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1a1a18;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-weight: 400;
+  }
+
+  /* ─── Typography ─── */
+  h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: #1a1a18; }
+  h1 { font-size: 40pt; line-height: 1.05; letter-spacing: -0.8pt; font-weight: 900; }
+  h2 { font-size: 26pt; line-height: 1.1; margin: 0 0 12pt; }
+  h3 { font-size: 16pt; line-height: 1.2; margin: 16pt 0 6pt; }
+  h4 { font-size: 12pt; line-height: 1.25; margin: 12pt 0 4pt; font-weight: 700; }
+  p { margin: 0 0 8pt; }
+  p + p { margin-top: 0; }
+  em { font-style: italic; }
+  strong { font-weight: 600; }
+  a { color: #1a1a18; text-decoration: underline; text-decoration-color: #c66b3d; text-decoration-thickness: 0.5pt; }
+  ul, ol { margin: 6pt 0 10pt 18pt; }
+  li { margin-bottom: 3pt; }
+
+  .eyebrow {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 2.4pt;
+    text-transform: uppercase;
+    color: #c66b3d;
+    margin-bottom: 10pt;
+  }
+
+  p.lede {
+    font-family: 'Playfair Display', serif;
+    font-size: 13pt;
+    line-height: 1.45;
+    font-weight: 400;
+    color: #3a3a38;
+    margin: 0 0 14pt;
+    font-style: italic;
+  }
+
+  /* ─── Page wrappers ─── */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm 22mm;
+    position: relative;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ─── Cover page ─── */
+  .cover {
+    background: linear-gradient(135deg, #c66b3d 0%, #1a1a18 100%);
+    color: #faf7f2;
+    padding: 30mm 26mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 297mm;
+  }
+  .cover .eyebrow {
+    color: rgba(250, 247, 242, 0.82);
+    font-size: 9.5pt;
+    letter-spacing: 3pt;
+  }
+  .cover h1 {
+    color: #faf7f2;
+    font-size: 46pt;
+    line-height: 1.03;
+    font-weight: 900;
+    letter-spacing: -1pt;
+    margin: 14pt 0 16pt;
+    max-width: 160mm;
+  }
+  .cover .cover__lede {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14pt;
+    line-height: 1.45;
+    color: rgba(250, 247, 242, 0.86);
+    max-width: 150mm;
+    margin-bottom: 10pt;
+  }
+  .cover__diagram {
+    margin: 10pt 0;
+    padding: 10pt 0;
+    display: flex;
+    justify-content: center;
+  }
+  .cover__diagram svg { width: 140mm; height: auto; }
+  .cover__signature {
+    border-top: 0.5pt solid rgba(250, 247, 242, 0.35);
+    padding-top: 10pt;
+    font-size: 10pt;
+    letter-spacing: 0.6pt;
+  }
+  .cover__signature strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 14pt;
+    letter-spacing: 1.4pt;
+    text-transform: uppercase;
+    margin-bottom: 2pt;
+  }
+  .cover__signature .cover__attr {
+    display: block;
+    color: rgba(250, 247, 242, 0.75);
+    font-size: 9pt;
+    margin-top: 3pt;
+  }
+
+  /* ─── Table of contents ─── */
+  .toc h2 { margin-bottom: 18pt; }
+  .toc__list { list-style: none; margin: 0; padding: 0; }
+  .toc__list li {
+    display: flex;
+    align-items: baseline;
+    padding: 8pt 0;
+    border-bottom: 0.4pt dotted #c9c6be;
+    font-size: 11pt;
+  }
+  .toc__list li:last-child { border-bottom: none; }
+  .toc__list .toc__title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    flex: 1;
+    color: #1a1a18;
+  }
+  .toc__list .toc__sub {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 400;
+    color: #5a5a57;
+    margin-top: 2pt;
+    font-style: normal;
+  }
+  .toc__list .toc__dots {
+    flex: 0 0 auto;
+    margin: 0 6pt;
+    color: #c9c6be;
+    font-size: 9pt;
+    letter-spacing: 1pt;
+  }
+  .toc__list .toc__page {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: #1a1a18;
+    min-width: 16pt;
+    text-align: right;
+  }
+
+  /* ─── Callouts ─── */
+  .callout {
+    border-left: 3pt solid;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    background: #fbf8f1;
+    border-radius: 2pt;
+    page-break-inside: avoid;
+  }
+  .callout--johan { border-color: #c66b3d; background: #f9ede2; }
+  .callout--johan .callout__label { color: #c66b3d; }
+  .callout--watch { border-color: #c69c3c; background: #f8efd3; }
+  .callout--watch .callout__label { color: #a07d2e; }
+  .callout--try { border-color: #2d5a3f; background: #e3ecdf; }
+  .callout--try .callout__label { color: #2d5a3f; }
+  .callout__label {
+    display: block;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 1.8pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+    font-family: 'Inter', sans-serif;
+  }
+  .callout p { margin-bottom: 6pt; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout__signature {
+    display: block;
+    text-align: right;
+    font-style: italic;
+    color: #5a5a57;
+    margin-top: 4pt;
+    font-size: 9.5pt;
+  }
+
+  /* ─── Cards (Bad/Better/Best, Gem instruction) ─── */
+  .card {
+    border-left: 4pt solid #c66b3d;
+    padding: 9pt 14pt;
+    margin: 8pt 0;
+    background: #fbf8f1;
+    border-radius: 2pt;
+    page-break-inside: avoid;
+  }
+  .card--warning { border-color: #c69c3c; }
+  .card--accent { border-color: #c66b3d; }
+  .card--success { border-color: #5C8A6D; }
+  .card__label {
+    font-size: 9pt;
+    letter-spacing: 1.4pt;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 4pt;
+    font-family: 'Inter', sans-serif;
+  }
+  .card--warning .card__label { color: #c69c3c; }
+  .card--accent .card__label { color: #c66b3d; }
+  .card--success .card__label { color: #5C8A6D; }
+  .card pre, .card .card__text {
+    font-family: 'JetBrains Mono', 'Menlo', 'Courier New', monospace;
+    font-size: 9.5pt;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    color: #2a2a28;
+    margin: 0;
+  }
+  .card p { margin: 0; }
+  .card--italic p { font-style: italic; color: #3a3a38; }
+
+  /* ─── Checklists ─── */
+  ol.checklist {
+    list-style: none;
+    counter-reset: check;
+    padding-left: 0;
+    margin: 10pt 0;
+  }
+  ol.checklist li {
+    counter-increment: check;
+    position: relative;
+    padding-left: 22pt;
+    margin-bottom: 6pt;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+  ol.checklist li::before {
+    content: counter(check);
+    position: absolute;
+    left: 0;
+    top: 1pt;
+    width: 16pt;
+    height: 16pt;
+    border-radius: 50%;
+    background: #c66b3d;
+    color: #faf7f2;
+    font-size: 8.5pt;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ─── Diagram / SVG ─── */
+  .diagram { margin: 14pt 0; text-align: center; page-break-inside: avoid; }
+  .diagram svg { width: 100%; max-width: 160mm; height: auto; }
+  .diagram__caption {
+    font-size: 9pt;
+    color: #5a5a57;
+    font-style: italic;
+    margin-top: 6pt;
+    max-width: 150mm;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+  }
+
+  /* ─── Section dividers ─── */
+  .section-break {
+    page-break-before: always;
+  }
+  .section-break:first-child { page-break-before: auto; }
+
+  /* ─── Prompt cards (all expanded) ─── */
+  .prompts-group { margin-top: 14pt; }
+  .prompt-card {
+    border-left: 3pt solid #2d5a3f;
+    background: #fbf8f1;
+    padding: 9pt 12pt;
+    margin: 8pt 0;
+    border-radius: 2pt;
+    page-break-inside: avoid;
+  }
+  .prompt-card__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 11.5pt;
+    font-weight: 700;
+    color: #1a1a18;
+    margin-bottom: 5pt;
+  }
+  .prompt-card__text {
+    font-family: 'JetBrains Mono', 'Menlo', 'Courier New', monospace;
+    font-size: 8.5pt;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    color: #3a3a38;
+    margin: 0;
+  }
+
+  /* ─── FAQ items (all expanded) ─── */
+  .faq-item {
+    margin-bottom: 10pt;
+    padding: 8pt 0;
+    border-bottom: 0.4pt solid #eceae4;
+    page-break-inside: avoid;
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item__q {
+    font-family: 'Playfair Display', serif;
+    font-size: 12pt;
+    font-weight: 700;
+    color: #1a1a18;
+    margin-bottom: 4pt;
+  }
+  .faq-item__a {
+    font-size: 10pt;
+    line-height: 1.55;
+    color: #3a3a38;
+  }
+  .faq-item__a p { margin-bottom: 5pt; }
+  .faq-item__a p:last-child { margin-bottom: 0; }
+
+  /* ─── Styles grid (NotebookLM styles library) ─── */
+  .styles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10pt;
+    margin: 14pt 0 8pt;
+  }
+  .style-card {
+    background: #fbf8f1;
+    border: 0.4pt solid #eceae4;
+    border-radius: 4pt;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+  .style-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+  }
+  .style-card__label { padding: 6pt 9pt 8pt; }
+  .style-card__label strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 10.5pt;
+    margin-bottom: 2pt;
+    font-weight: 700;
+  }
+  .style-card__label span {
+    display: block;
+    font-size: 8.5pt;
+    color: #5a5a57;
+    line-height: 1.4;
+  }
+  .styles-grid__cta {
+    text-align: center;
+    margin-top: 10pt;
+    font-size: 10pt;
+    color: #3a3a38;
+    font-style: italic;
+  }
+  .styles-grid__cta a { color: #c66b3d; font-weight: 600; }
+
+  /* ─── Closing page ─── */
+  .closing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 30mm 26mm;
+  }
+  .closing__quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 22pt;
+    font-weight: 400;
+    font-style: italic;
+    color: #1a1a18;
+    line-height: 1.3;
+    margin-bottom: 24pt;
+  }
+  .closing__cta {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    color: #3a3a38;
+    margin-bottom: 20pt;
+    line-height: 1.5;
+  }
+  .closing__cta strong { color: #c66b3d; }
+  .closing__signature {
+    font-family: 'Playfair Display', serif;
+    font-size: 13pt;
+    font-style: italic;
+    color: #1a1a18;
+    margin-top: 18pt;
+  }
+  .closing__attr {
+    font-size: 9.5pt;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    color: #5a5a57;
+    margin-top: 6pt;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ─── Orphan / widow control ─── */
+  p, li { orphans: 3; widows: 3; }
+  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  img { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 1 — COVER
+     ══════════════════════════════════════════════════ -->
+<div class="page cover">
+  <div>
+    <span class="eyebrow">Gemini · NotebookLM for education</span>
+    <h1>Gemini &amp; NotebookLM for teachers and school leaders</h1>
+    <p class="cover__lede">A practical handbook for using Google's research and generative AI in the classroom — from your first prompt to a school-wide strategy.</p>
+  </div>
+
+  <div class="cover__diagram">
+    <svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
+      <rect x="80" y="50" width="220" height="160" rx="12" fill="#faf7f2" stroke="#f2eee6" stroke-width="1"/>
+      <text x="190" y="110" font-family="Playfair Display, serif" font-size="26" font-weight="700" fill="#1a1a18" text-anchor="middle">Gemini</text>
+      <text x="190" y="140" font-family="Inter, sans-serif" font-size="11" fill="#5a5a57" text-anchor="middle">Generative · open-domain</text>
+      <text x="190" y="168" font-family="Inter, sans-serif" font-size="10" fill="#5a5a57" text-anchor="middle">App · Web · Mobile · Workspace</text>
+      <line x1="305" y1="120" x2="375" y2="120" stroke="#faf7f2" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.95"/>
+      <line x1="305" y1="140" x2="375" y2="140" stroke="#faf7f2" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.95"/>
+      <text x="340" y="108" font-family="Inter, sans-serif" font-size="9" fill="#faf7f2" text-anchor="middle" letter-spacing="1" opacity="0.9">TWO-WAY</text>
+      <text x="340" y="158" font-family="Inter, sans-serif" font-size="9" fill="#faf7f2" text-anchor="middle" letter-spacing="1" opacity="0.9">SYNC</text>
+      <rect x="380" y="50" width="220" height="160" rx="12" fill="#1a1a18"/>
+      <text x="490" y="110" font-family="Playfair Display, serif" font-size="24" font-weight="700" fill="#faf7f2" text-anchor="middle">NotebookLM</text>
+      <text x="490" y="140" font-family="Inter, sans-serif" font-size="11" fill="#c69c3c" text-anchor="middle">Grounded · source-first</text>
+      <text x="490" y="168" font-family="Inter, sans-serif" font-size="10" fill="#c69c3c" text-anchor="middle">Web · Mobile · Gemini app</text>
+    </svg>
+  </div>
+
+  <div class="cover__signature">
+    <strong>Johan Lindström</strong>
+    choosewise.education
+    <span class="cover__attr">April 2026</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 2 — CONTENTS
+     ══════════════════════════════════════════════════ -->
+<div class="page toc">
+  <span class="eyebrow">The guide</span>
+  <h2>Contents</h2>
+  <ul class="toc__list">
+    <li>
+      <span class="toc__title">Introduction
+        <span class="toc__sub">Three principles that shape this guide</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">3</span>
+    </li>
+    <li>
+      <span class="toc__title">Understanding Gemini and NotebookLM
+        <span class="toc__sub">Two views, one Google account</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">5</span>
+    </li>
+    <li>
+      <span class="toc__title">Part 1 · Getting Started
+        <span class="toc__sub">RTF prompts, source-first thinking, five quick wins</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">8</span>
+    </li>
+    <li>
+      <span class="toc__title">Part 2 · Working Smarter
+        <span class="toc__sub">Gems, Canvas, Deep Research, Studio, workflows</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">13</span>
+    </li>
+    <li>
+      <span class="toc__title">Part 3 · Scale &amp; Lead
+      <span class="toc__sub">Shared Notebooks, shared Gems, PD pathways</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">20</span>
+    </li>
+    <li>
+      <span class="toc__title">Part 4 · Google Workspace for Education
+        <span class="toc__sub">Licences, data residency, admin controls, rollout</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">24</span>
+    </li>
+    <li>
+      <span class="toc__title">Bonus Chapter · For EU readers
+        <span class="toc__sub">GDPR, the EU AI Act, risk tiers, compliance checklist</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">28</span>
+    </li>
+    <li>
+      <span class="toc__title">The Styles Library
+        <span class="toc__sub">Eight curated entry points from 140 NotebookLM styles</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">32</span>
+    </li>
+    <li>
+      <span class="toc__title">Prompts
+        <span class="toc__sub">25 starter prompts for Gemini and NotebookLM</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">34</span>
+    </li>
+    <li>
+      <span class="toc__title">FAQ
+        <span class="toc__sub">Eleven common questions answered</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">40</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     INTRODUCTION
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Introduction</span>
+  <h2>Three principles that shape this guide</h2>
+  <p>Before the how, a word on the why. Anyone can list Gemini's features, and anyone can recite the NotebookLM marketing copy. Few guides take a position on what these tools are actually for in a school — and, just as importantly, what they are not for. This one does. Three principles sit behind every recommendation in the pages that follow, and they are worth reading before you open a single prompt box.</p>
+
+  <h3>The teacher is the expert</h3>
+  <p>Gemini and NotebookLM are tools. You are the teacher. The tools do not set the learning goals. They do not know your students. They have not read the curriculum you are working under, nor do they understand the pedagogical choices you have made and why. You do. Every output either tool produces passes through your professional judgment before it reaches a classroom. That is not a polite idea — it is the working rule of this guide.</p>
+  <p>Your knowledge, your experience, your discernment: these are what make any AI output actually useful. If you understand differentiation deeply, these tools become a genuine force multiplier. If you don't, no model will fill the gap. The tool amplifies what you already bring; it does not replace it.</p>
+
+  <h3>Do the fundamentals better</h3>
+  <p>The temptation with new technology is always to reach for the new: escape rooms, immersive worlds, gamified everything. Most of it is noise. The real opportunity with Gemini and NotebookLM is quieter, and more consequential. It is to do the evidence-based fundamentals more often and more consistently than you currently can.</p>
+  <p>Retrieval practice. Vocabulary work. Text differentiation. Sentence stems. Worked examples. Formative feedback. These are the practices the research keeps pointing to, and the practices teachers have always said they would use more often if they had the time. These tools give you the time. What used to take ninety minutes of lesson preparation now takes five. That is not flashy. It is transformative in the only sense that matters: students learn more.</p>
+
+  <div class="callout callout--johan">
+    <span class="callout__label">Johan's Note</span>
+    <p>After 28 years in classrooms and leadership roles, I have watched a lot of AI tools arrive with the promise of changing education. The ones that stayed were the ones that let teachers do more of what they already knew worked. The ones that vanished were the ones that asked teachers to become something else. Gemini and NotebookLM — used well — belong clearly in the first group. Used badly, they don't.</p>
+    <span class="callout__signature">— JL</span>
+  </div>
+
+  <h3>Include every student</h3>
+  <p>Every classroom has students on the margins. The EAL student who needs key vocabulary pre-taught before she can access the text everyone else is reading. The student with a learning difference who needs the same content at a simplified reading age. The advanced student who is coasting because the work is not stretching her. Meeting all of these students, every lesson, has always been the right thing to do — and has always been too time-consuming to do consistently.</p>
+  <p>Gemini and NotebookLM lower that cost to the point where meeting them becomes realistic. Differentiated texts in five minutes. Translated key terms for a newly arrived student. Scaffolded instructions for a worked example. Audio versions of a written task, recorded by the tool itself. This is not about doing more. It is about doing what matters, for the students who need it most, at a cadence the research has recommended for decades.</p>
+
+  <p>One more thing worth naming before we begin. Under Article 4 of the EU AI Act — which has applied since 2 February 2025 — every organisation that deploys AI, schools included, must ensure its staff have sufficient AI literacy to use these tools responsibly. The guide you are reading is itself a form of that work. Part 4 and the EU bonus chapter return to this obligation in detail; for now, know that your teacher development and your time spent reading this guide IS your school's Article 4 work.</p>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Watch Out</span>
+    <p>Gemini and NotebookLM can help you create resources faster. They cannot replace the relational work of teaching. Do not let the efficiency of AI trick you into spending less time with students. The time AI saves is for them — not for more admin.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     ECOSYSTEM
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Orientation</span>
+  <h2>Understanding Gemini and NotebookLM</h2>
+  <p>Gemini and NotebookLM are best understood as two complementary views onto a single Google account. Gemini generates from open knowledge — the whole of the web, Google's search index, and the model's own training. NotebookLM synthesises from a set of sources that you have chosen and uploaded yourself. Since 8 April 2026 the two sync bidirectionally: a Notebook built in one tool now appears in the other, with the same sources and the same chat history behind it.</p>
+
+  <div class="diagram">
+    <svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
+      <line x1="40" y1="220" x2="640" y2="220" stroke="#5a5a57" stroke-width="0.8" opacity="0.4"/>
+      <rect x="80" y="50" width="220" height="160" rx="12" fill="#fbf8f1" stroke="#eceae4" stroke-width="1"/>
+      <text x="190" y="110" font-family="Playfair Display, serif" font-size="26" font-weight="700" fill="#1a1a18" text-anchor="middle">Gemini</text>
+      <text x="190" y="140" font-family="Inter, sans-serif" font-size="11" fill="#5a5a57" text-anchor="middle">Generative · open-domain</text>
+      <text x="190" y="168" font-family="Inter, sans-serif" font-size="10" fill="#5a5a57" text-anchor="middle">App · Web · Mobile · Workspace</text>
+      <line x1="305" y1="120" x2="375" y2="120" stroke="#c66b3d" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <line x1="305" y1="140" x2="375" y2="140" stroke="#c66b3d" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="340" y="108" font-family="Inter, sans-serif" font-size="9" fill="#c66b3d" text-anchor="middle" letter-spacing="1">TWO-WAY</text>
+      <text x="340" y="158" font-family="Inter, sans-serif" font-size="9" fill="#c66b3d" text-anchor="middle" letter-spacing="1">SYNC</text>
+      <rect x="380" y="50" width="220" height="160" rx="12" fill="#1a1a18"/>
+      <text x="490" y="110" font-family="Playfair Display, serif" font-size="24" font-weight="700" fill="#faf7f2" text-anchor="middle">NotebookLM</text>
+      <text x="490" y="140" font-family="Inter, sans-serif" font-size="11" fill="#c69c3c" text-anchor="middle">Grounded · source-first</text>
+      <text x="490" y="168" font-family="Inter, sans-serif" font-size="10" fill="#c69c3c" text-anchor="middle">Web · Mobile · Gemini app</text>
+    </svg>
+    <p class="diagram__caption">Two views, one Google account. Gemini generates from open knowledge; NotebookLM synthesises from your sources. Since April 2026 the two sync bidirectionally.</p>
+  </div>
+
+  <h3>Gemini — your generative assistant</h3>
+  <p>Gemini is the conversational interface — where you draft, differentiate, research, and ideate. It lives in the Gemini app on Mac, iOS, and Android, at gemini.google.com in a browser, and as a sidebar inside Google Docs, Sheets, Slides, Gmail, Forms, and Vids when your school has the Education Plus or Teaching &amp; Learning add-on. The current flagship model is Gemini 3 Pro, launched 18 November 2025, with a one-million-token context window and strong multimodal reasoning.</p>
+  <p>Inside Gemini you also get Canvas (an interactive workspace for documents, code, and interactive artefacts), Deep Research (a multi-step research agent that plans, searches, and produces cited reports), Gemini Live (a real-time voice mode), and image generation powered by Nano Banana 2. Part 2 walks through each of these in classroom terms and shows when to reach for which.</p>
+
+  <h3>NotebookLM — your grounded research companion</h3>
+  <p>NotebookLM is the mirror image of Gemini. It answers only from sources you upload to it — nothing else. Supported source types are PDFs, Google Docs, Google Slides, websites (by URL), YouTube videos, and copy-pasted text. Matt Miller of Ditch That Textbook (January 2026) captures it well: NotebookLM is <em>"a personal tutor that only knows what you teach"</em>. That single constraint is what makes the tool trustworthy for classroom use.</p>
+  <p>Its Studio features turn those uploaded sources into briefings, mind maps, flashcards, quizzes, study guides, Audio Overviews (podcast-style conversations between two AI hosts) and Video Overviews — each one synthesised from your material with citations rather than hallucinated from general knowledge. Part 2 covers how each Studio output earns its place in a teacher's week.</p>
+
+  <h3>How they now connect</h3>
+  <p>Since 8 April 2026 the two tools sync bidirectionally. A Notebooks section has appeared in the Gemini side panel, sitting between "My stuff" and "Gems", and anything you create in one surface is visible and editable in the other. The workflow this unlocks is genuinely new. A student can upload her class notes in Gemini, generate a cinematic Video Overview of them in NotebookLM, then return to Gemini to draft an essay outline against the same sources — without re-uploading anything.</p>
+  <p>The two sides remain complementary rather than identical. NotebookLM gives you Video Overviews and infographics that Gemini does not offer. Gemini gives you web-search alongside your uploaded sources, which NotebookLM refuses on principle. The integration is rolling out first to Google AI Ultra, Pro, and Plus subscribers; the free tier follows in the weeks after.</p>
+
+  <h3>What you can access</h3>
+  <p>What you actually see depends on your account type. A personal Google account gets you consumer Gemini and NotebookLM at the free tier, with paid AI Plus, AI Pro, and AI Ultra tiers above it. Schools running Google Workspace for Education are on a different path. Core Gemini AI in Classroom — lesson planning, quiz generation, rubric drafting, and similar — is free for all Workspace for Education accounts (confirmed at BETT 2026). Premium Gemini-in-Workspace features inside Docs, Slides, Forms, and Vids require the Education Plus or Teaching &amp; Learning add-on and are restricted to users 18 and over. Part 4 covers the admin and school-leader angle in detail. Exact usage limits are not quoted here because Google updates them monthly — refer to Google's current documentation for the live numbers.</p>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Watch Out</span>
+    <p>Age-gates matter, especially in primary and lower-secondary schools. Gemini Live is 18+ only, and the premium Gemini-in-Workspace features inside Docs, Slides, Forms, and Vids are 18+ only. NotebookLM is available to users 13+ in a browser, with stricter content policies for users under 18. Hands-on student use below 18 is therefore constrained — and in several EU member states, national guidance goes further still (some require head-teacher approval, or prohibit independent student use of generative AI during instruction). The teacher-as-primary-user framing in this guide reflects those constraints. <strong>Verify your own country's current rules before you deploy any feature described in this guide</strong> — AI in education is evolving quickly and national rules differ significantly. For privacy: inside Workspace for Education the data-protection defaults are stricter than consumer Gemini, but verify the current state in your Google Workspace Admin console and DPA before implementation.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PART 1 — GETTING STARTED
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 1</span>
+  <h2>Getting Started</h2>
+  <p class="lede">If you have never opened Gemini or NotebookLM, start here. By the end of this part you will have accounts for both, you will know the prompt anatomy that actually works, and you will have five concrete things to try this week.</p>
+
+  <h3>Your Google account</h3>
+  <p>Sign in at <em>gemini.google.com</em> and <em>notebooklm.google.com</em> with your Google account. The same account works for both — no separate sign-up, no extra password to forget. A personal Google account is perfectly fine for your early exploration. What it is not fine for is sensitive data: student names, grades, behaviour records, health information, SEN plans, safeguarding notes. None of that belongs in a consumer account. Part 4 and the EU bonus chapter explain the reasons properly; for now, treat the line as absolute.</p>
+  <p>If your school runs Google Workspace for Education, the access path is different. Core Gemini AI inside Google Classroom — lesson planning, quiz generation, rubric drafting — is free to every Workspace for Education account (confirmed at BETT 2026). The premium Gemini-in-Workspace features inside Docs, Slides, Forms, and Vids require either the Education Plus or the Teaching &amp; Learning add-on and are restricted to users 18 and over. NotebookLM is free for Workspace for Education accounts too, and Education Plus / Teaching &amp; Learning customers now get the expanded Plus-tier limits at no additional cost. Part 4 covers the admin angle in full.</p>
+  <p>A practical note for most teachers: for most of this guide, a free account is enough. Upgrade only when you hit a real limit mid-task — not before. Google changes features and limits monthly; for current limits and availability, check Google Workspace Admin and your Data Processing Agreement before implementation.</p>
+
+  <h3>Your first Gemini prompt — the RTF anatomy</h3>
+  <p>Most prompts fail not because the model is weak, but because the prompt is vague. A useful prompt names three things: Role, Task, Format. Three letters: R, T, F.</p>
+
+  <h4>R — Role</h4>
+  <p>Tell Gemini who to be. Specific beats generic, every time. "A primary teacher" is weaker than "an experienced Year 4 literacy teacher in a state primary school with a wide range of reading ages in the class". Why this matters: grounding the role makes every downstream choice better — vocabulary complexity, cultural references, examples, assumed prior knowledge. Gemini cannot read your mind, but it can adopt a stance if you describe one carefully. A sentence on the role is the single cheapest upgrade you can make to any prompt.</p>
+
+  <h4>T — Task</h4>
+  <p>State exactly what you want done. Not "help me with a quiz" — that leaves too much to guess. Instead: "Create a ten-minute retrieval-practice quiz on the persuasive techniques covered in the past three lessons." Pack three things into the task sentence: a time frame, a scope boundary (which lessons, which topic, which year level), and the learning intention. The more the task sentence resembles a line you would write to a colleague covering your class, the better it performs.</p>
+
+  <h4>F — Format</h4>
+  <p>Specify the shape of the answer. Number of questions, mix of question types, word count, heading structure, whether you want an answer key at the end, whether you want it as a table or as prose. Format is where most first drafts go wrong and where most fixes get made — so say it up front. If you cannot picture the output in your head, Gemini cannot either.</p>
+
+  <p>Put the three together and you have a prompt that works on the first try and gets better on the second. Iteration is part of the skill: Gemini's first output is a draft, not a deliverable. Read it, tell Gemini what to change, and run again.</p>
+
+  <div class="callout callout--try">
+    <span class="callout__label">Try This Week</span>
+    <p>Open Gemini. Write one prompt using RTF — Role, Task, Format — for a real task on your desk this week. When the first draft arrives, ask for two changes and run it again. Then ask for one more. Notice what changes between draft one and draft three. That is your skill curve in action.</p>
+  </div>
+
+  <h3>Bad → Better → Best</h3>
+  <p>Same topic, three drafts of the same prompt. Each draft gets more precise about what Gemini needs to know. Output quality climbs with the specificity of the prompt — not with the length of it.</p>
+
+  <div class="card card--warning">
+    <span class="card__label">● BAD</span>
+    <p class="card__text">Explain the water cycle.</p>
+  </div>
+
+  <div class="card card--accent">
+    <span class="card__label">● BETTER</span>
+    <p class="card__text">Explain the water cycle for Year 6 students. Make it easy to understand.</p>
+  </div>
+
+  <div class="card card--success">
+    <span class="card__label">● BEST</span>
+    <pre class="card__text">Act as an experienced Year 6 Science teacher.
+
+Task: Write a one-page explanation of the water cycle suitable for a mixed-ability Year 6 class. Include the four core stages and one real-world example for each.
+
+Format:
+- 250–300 words total
+- Plain language, short sentences (≤15 words where possible)
+- One vocabulary box with five key terms and child-friendly definitions
+- End with three retrieval questions (two recall, one application)
+
+Pitch: students reading at Year 5 to Year 7 level.</pre>
+  </div>
+
+  <p style="font-style: italic; color: #5a5a57; font-size: 10pt;">The Best prompt is not longer for its own sake. Every word earns a place by reducing what Gemini has to guess.</p>
+
+  <h3>Source-first thinking — how NotebookLM is different</h3>
+  <p>NotebookLM flips Gemini's approach on its head. Instead of starting with your intent and asking Gemini to generate from its general knowledge of the world, you start with sources — documents, links, videos, notes you have chosen yourself — and ask NotebookLM to synthesise from them. Three things fall out of that one design choice, and each one matters for a classroom.</p>
+  <p>First, citations. Every answer NotebookLM produces points back to the exact source passage it came from — click the citation, land on the line. Second, hallucination control. Because NotebookLM answers only from what you have uploaded, it cannot invent facts from elsewhere; the worst it can do is misread your own material, which you can immediately check against the source. Third, and most important for a teacher: your curriculum, not "a curriculum". Working on your own documents means the answers reflect your school's actual materials, assessment style, and language — not a generic version pulled from wherever the training data landed.</p>
+  <p>A practical example. Upload your civics curriculum, two of your lesson plans, and the assessment rubric you use for the unit. Ask: "What learning progressions are implied across these documents, and where do my assessment criteria misalign with the unit plan?" You get a grounded, citable answer in two minutes — the kind of analysis that would have taken an afternoon by hand.</p>
+  <p>Matt Miller (Ditch That Textbook, January 2026) puts it neatly: NotebookLM is <em>"a personal tutor that only knows what you teach"</em>. Most of what teachers actually need sits between the two tools — Gemini for generation, NotebookLM for grounding — and since April 2026 both are accessible from the same interface.</p>
+
+  <h3>Five quick wins for this week</h3>
+  <p>Don't try to use Gemini and NotebookLM for everything at once. Get good at one task, get it into your routine, then add the next.</p>
+
+  <h4>1 · Differentiate a reading passage at three levels (Gemini)</h4>
+  <p>Paste a passage you are planning to use. Ask Gemini to produce three versions of it at reading ages two years below, at-level, and two years above, preserving the core ideas and keeping the shared key vocabulary intact. The whole job takes five minutes instead of forty, and every student in your room reads about the same subject on the same day.</p>
+  <p><strong>Extra example:</strong> a Year 7 geography teacher I work with uses this every week on newspaper articles about current events. One article becomes three versions for three reading groups within fifteen minutes, and current affairs finally enter the classroom on time rather than a term late.</p>
+
+  <h4>2 · Generate a podcast from your unit plan (NotebookLM Audio Overview)</h4>
+  <p>Upload three to five unit documents — your unit plan, a couple of key readings, your rubric. In NotebookLM, click "Audio Overview". You get back a 15–25 minute podcast-style discussion of the material by two AI hosts. Why teachers care: it's excellent for EAL students (they can listen before reading); excellent for commute-time review of unit content; excellent as a catch-up resource for absent students. The interactive mode (currently in beta) lets learners break in and ask the hosts questions mid-podcast.</p>
+  <p><strong>Extra example:</strong> two SO-teachers at Fristadsskolan in Eskilstuna — Viktor Säfström and David Folkebrant — published their workflow on Pedagog Eskilstuna in early 2026. They produce short 1–2 minute audio clips per concept, regenerate them in Arabic and Amharic for newly-arrived students on request, and share them through Google Classroom.</p>
+
+  <h4>3 · Research a topic with cited sources (Gemini Deep Research)</h4>
+  <p>Open Gemini and choose Deep Research. Ask your question; Gemini proposes a research plan (the sources it will look at, the sub-questions it will answer); you approve; it works for 5–15 minutes; you receive a structured, multi-page report with inline citations, delivered as a Canvas artefact or an audio summary. Why teachers care: background reading for a new unit in fifteen minutes instead of an afternoon; comparative analysis across three educational frameworks or five countries' curricula in a single pass; staff-development briefings ready before the meeting. Watch out: citations must be verified — AI can still mis-attribute.</p>
+
+  <h4>4 · Summarise a long policy document as a mind map (NotebookLM)</h4>
+  <p>Upload the PDF. Click "Mind Map". NotebookLM analyses the document and produces a visual, structured map of the key concepts and how they relate, with citations back to the source. Share it with your team. Why teachers care: policy documents are long and few people actually read them properly; a mind map with source citations is a faster way to align your department on what the document actually says.</p>
+  <p><strong>Extra example:</strong> when your national education authority or school district issues an updated assessment policy, upload both the new and the previous version. Ask for a side-by-side of what has changed. You now have a comparison your colleagues do not.</p>
+
+  <h4>5 · Draft a parent email in three tones (Gemini)</h4>
+  <p>You know what you want to say. Writing it well, professionally, and without falling into the six awkward sentences you have used before is what takes time. Give Gemini the context — what happened, what you want the parent to know, what tone you want to strike — and ask for three versions (firmer, warmer, neutral). The three versions give you calibration before you commit to the one you will send. Edit. Send.</p>
+
+  <div class="callout callout--try">
+    <span class="callout__label">Try This Week</span>
+    <p>Pick one of the five. Do it for a real lesson this week. The other four will still be there next week. Mastery happens through repetition on one task, not scatter across all five at once.</p>
+  </div>
+
+  <h3>Part 1 — Before you move on</h3>
+  <ol class="checklist">
+    <li>I have signed in to Gemini and NotebookLM with my Google account</li>
+    <li>I understand the difference between Gemini (generative) and NotebookLM (source-grounded)</li>
+    <li>I have written at least three prompts using the RTF anatomy — Role, Task, Format</li>
+    <li>I have iterated on at least one prompt — improving it through two rounds of feedback — for a real task</li>
+    <li>I have completed at least one of the five quick wins for a lesson or task this week</li>
+    <li>I have decided which categories of data are acceptable to share with Gemini or NotebookLM, and which are not</li>
+  </ol>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PART 2 — WORKING SMARTER
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2</span>
+  <h2>Working Smarter</h2>
+  <p class="lede">Once you find yourself returning to Gemini or NotebookLM for the same kind of task week after week, it is time to stop starting from scratch. This part shows you how to turn these tools into persistent assistants — how to set up Gems, use the Studio features, and make Canvas, Deep Research, and Audio Overviews part of a weekly rhythm that already knows your subject, your school, and how you like to write.</p>
+
+  <h3>Gemini Gems — your persistent custom agents</h3>
+  <p>A Gem is a named instruction set with optional attached files. You build one — give it a name, write instructions, optionally upload two or three reference documents — and from then on every time you trigger that Gem, Gemini loads the context before you have typed a word. This is where Gemini stops being generically helpful and starts being genuinely yours. Gems are shareable too: you can pass a Gem to a colleague through a link, or inside Google Classroom as part of the Gemini-in-Classroom rollout.</p>
+
+  <h4>What to upload to your first Gem</h4>
+  <p>Pick the subject or year level where you spend most of your planning time. Create a Gem for it. Upload five things that together describe your working context:</p>
+  <ul>
+    <li>Your curriculum or syllabus for that subject and year</li>
+    <li>Your scope and sequence or term planner, if you have one</li>
+    <li>Your school's style guide or communications guide, if one exists</li>
+    <li>An assessment rubric you use regularly</li>
+    <li>Three de-identified student work samples at different performance levels</li>
+  </ul>
+
+  <h4>The instructions that make the difference</h4>
+  <p>Under the Gem's settings, write a short instruction set that describes who the Gem is for you. Narrow the scope; name the register; state the hard rules. Something like:</p>
+  <div class="card card--italic">
+    <p>"You are an experienced Year 8 English teacher in a mixed-ability state school. Outputs should be classroom-ready, follow the uploaded style guide, and never produce more than I asked for. If a task involves student data, ask me to confirm the data has been de-identified before proceeding. Use British English spelling."</p>
+  </div>
+
+  <p>A word on reliability. Gems do not always stick rigidly to their knowledge base — if your instructions are vague, the Gem drifts. A narrow scope and a clear purpose are the antidote. Alice Keeler, writing about why she loves the concept of Gems, frames it plainly: a generic AI tool cannot understand the nuances of your classroom or the principles of effective pedagogy. A Gem is the antidote to "generic AI that understands nothing about your classroom" — but only if you actually tell it what the nuances are.</p>
+
+  <p>A practical rule: if you find yourself explaining the same pattern to Gemini more than three times, it is time to make it a Gem. The three-repetitions rule is a remarkably reliable signal. Meeting brief for the same department every fortnight? Gem. Differentiated reading passage at three levels for your current unit? Gem. Parent-communication draft in your school's voice? Gem.</p>
+
+  <p>You do not have to build every Gem from scratch. Eric Curts, a long-time Google Certified Trainer, maintains edugems.ai — a free library of roughly 200 ready-to-use Gems for educators, growing by around eighteen a month. Use them as templates; rewrite to match your own classroom context before you trust them in production. And inside Classroom specifically, Google now ships four template Gems — Study partner, Quiz me, Brainstorm partner, Real-world connector — which are worth looking at even if you end up replacing them with your own.</p>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Watch Out · Think before you share</span>
+    <p>De-identify everything before it goes into a Gem's knowledge base. Student names, grades, behaviour records, health information, SEN plans, safeguarding notes, parent contact details — never. Replace names with roles ("Student A", "Student B"). Generalise dates and locations. The moment a file leaves your desktop and lands in a shared Gem context, you have lost granular control of who sees it. If you are unsure whether a document is safe to upload, treat it as if it is not, and ask your school's data protection officer before you proceed.</p>
+  </div>
+
+  <div class="callout callout--try">
+    <span class="callout__label">Try This Week</span>
+    <p>Spend twenty minutes setting up one Gem for your most-used task. Upload three documents. Write the instructions. Then run yesterday's worst prompt inside the Gem and notice the difference. That twenty minutes is the highest-leverage time you will spend on AI all year.</p>
+  </div>
+
+  <h3>Canvas — the interactive workspace</h3>
+  <p>Canvas is a side-by-side workspace inside Gemini. While a chat runs on the left, Canvas holds a document, a piece of code, or an interactive artefact on the right — editable in place. You can change a paragraph inline, ask Gemini to rewrite a single section, regenerate one quiz question without losing the rest of the quiz, or restyle a table without touching the prose around it. The effect is that Gemini moves from throwaway-chat mode to co-editor mode. Drafts stop being disposable.</p>
+
+  <p>For a teacher this unlocks several patterns that pure chat struggles with. You can build a worksheet collaboratively — Gemini drafts the questions, you edit the wording you would never have used, ask for two harder extension questions at the end, regenerate just question four when it lands badly. You can hold a full lesson plan in Canvas with a scope table, learning objectives, differentiated questions at three levels, and an exit ticket, all visible at once and all editable without starting over. You can take a Deep Research report (more on those below) and ask Canvas to transform it into something classroom-ready: an infographic, an interactive quiz, a one-page student handout, a webpage, even a small game students can play. You can generate a customised quiz from a source document and iterate on it in the same surface without ever leaving the chat.</p>
+
+  <h3>Deep Research — multi-step research with citations</h3>
+  <p>Deep Research is a multi-step agent. It plans your research, searches the web (and, optionally, your Gmail, Drive, and Chat if you give it permission), reasons across what it finds, and writes a structured report with inline citations. It runs on the Gemini 3 Pro backbone with a one-million-token context window, which is why it can hold several long sources in mind at once and cross-reference them. The moment you ask your question, Gemini proposes a research plan — the sub-questions it will answer and the kinds of sources it will look at — and hands it to you for approval before it runs. The finished report arrives as a Canvas artefact or, if you prefer, an audio summary.</p>
+
+  <p>For a teacher this collapses research time from hours to minutes. Background reading for a new unit that used to eat an afternoon now takes fifteen minutes of compute while you are teaching. Comparative analysis — three educational frameworks side by side, or five countries' curricula on the same topic — comes back in a single pass with citations you can actually follow. Staff-development briefings can be delivered as an audio summary the head of department listens to on the commute; Kasey Bell describes this well as "a podcast for your commute", and it is a fair description of the experience.</p>
+
+  <p>One discipline is non-negotiable. Citations must be verified. The report looks authoritative, the inline footnotes look clean, but AI can still mis-attribute — a claim cited to a source that does not quite say that thing, a figure lifted from an older edition, a quote reassigned to the wrong author. Click through before you quote. Every footnote deserves a glance, and the ones you will quote aloud deserve a read.</p>
+
+  <h3>Gemini Live — voice for on-the-go work</h3>
+  <p>Gemini Live is the voice conversation mode. You talk; Gemini listens and replies in a natural-sounding voice. Camera share is supported (point your phone at a diagram, a textbook page, an object on your desk, and ask about it); screen share is supported (walk Gemini through what you are looking at on the device itself). It integrates with Google Maps, Calendar, Tasks, and Keep. Two hard constraints matter: it is mobile-only, and it is age-gated to users 18 and over.</p>
+
+  <p>For a teacher the right framing is "thinking aloud with a colleague who is actually listening". Dictate a draft parent email while walking between classrooms and arrive at your desk with a first version already written. Brainstorm a unit concept on the commute and have the outline waiting when you open your laptop. Rehearse a difficult parent conversation by role-playing — Gemini plays the parent, pushes back in character, and you practise your responses without burning a real meeting. What Gemini Live is not: a classroom note-taker with students present. That belongs to purpose-built classroom tools with the appropriate data-protection treatment. The mobile-only and 18+ constraints are a feature here, not a bug — they define this as a teacher tool, not a student-facing one.</p>
+
+  <h3>Nano Banana 2 — image generation inside Gemini</h3>
+  <p>Nano Banana 2 is Google's image model inside Gemini. Released 26 February 2026 (also known as Gemini 3.1 Flash Image), it replaces Nano Banana Pro as the default image generator in the Gemini app. Capabilities worth knowing: web-grounded rendering of specific subjects, genuinely precise text rendering (which makes it good for posters, headings, and translation tasks — the places where earlier image models produced gibberish), subject consistency across up to five subjects or fourteen objects in the same scene, and output resolutions from 512 pixels up to 4K.</p>
+
+  <p>For teachers the classroom uses are quietly practical. Diagrams for concepts students struggle with — water cycle variants, circulatory system close-ups, historical map overlays, abstract mathematical relationships visualised. Illustrations for reading passages where stock imagery simply does not exist — a Viking longhouse interior, an industrial-era workshop, a scene from a text your class is studying that has never been illustrated. Cover images for Google Slides decks, so the deck announces the lesson before a word is spoken. Visual examples for art and design prompts, generated fast enough to iterate during the lesson.</p>
+
+  <p>Style controls matter more than most teachers realise. "In the style of a vintage children's book", "a clean line drawing in ink", "a technical engineering diagram", "a watercolour illustration in muted tones" — the style tag is where a generic image turns into a classroom-ready one. Johan's 140 NotebookLM styles are about <em>text</em> styles (see the Styles Library further down this guide); Nano Banana 2 is the visual equivalent, and the two combine well when you are building a polished handout or slide deck.</p>
+
+  <p>Do not generate images of specific real people, and especially not of students. General and anonymous only. Representations of individual pupils — even well-intentioned ones — cross a line that no style tag fixes.</p>
+
+  <h3>NotebookLM Studio — turn sources into artefacts</h3>
+  <p>NotebookLM's Studio is the set of one-click tools that transform your uploaded sources into different artefact formats. The notebook stays the same; the output changes. Five of them deserve attention, because each one turns the same material into a different kind of classroom-ready resource — and most teachers I work with use only one of them before discovering the others.</p>
+
+  <h4>Audio Overviews</h4>
+  <p>A podcast-style dialogue between two AI hosts summarising your sources. Four formats are now available — the default Deep Dive, plus Brief, Critique, and Debate (added September 2025). An interactive mode (still in beta) lets learners break in mid-podcast and ask the hosts questions in real time. Excellent for EAL students who listen before reading, for absent-student catch-up, and for your own commute review of a unit you are about to teach. Output in languages beyond English — including Swedish and other EU languages — works well as of April 2026, though quality varies by language; generate a test clip before relying on it for a whole unit. The anchor example worth knowing: Viktor Säfström and David Folkebrant, two social-studies teachers at Fristadsskolan in Eskilstuna, Sweden, generate 1–2 minute audio clips per concept, regenerate them in Arabic and Amharic for newly-arrived students on request, and share them through Google Classroom. Their workflow is published on Pedagog Eskilstuna.</p>
+
+  <h4>Video Overviews</h4>
+  <p>Narrated slide-based video summaries built from your sources. The newer Cinematic Video Overview format is markedly higher production value — good for flipped-classroom intro videos the evening before a lesson. One thing to know: Video Overviews live inside NotebookLM but are not available from the Gemini-side interface even though Notebooks now sync across. To generate one, switch to the NotebookLM view of your workspace.</p>
+
+  <h4>Mind Maps</h4>
+  <p>NotebookLM analyses your sources and produces a visual concept map showing how ideas connect, with citations back to the passages each node came from. Matt Miller of Ditch That Textbook singles it out as a standout educator feature, and I think he is right to. Three classroom uses earn their place straight away: as a starter task for students ("build the mind map in your head, then compare with this one, and flag any link you think is missing"); as a unit-planning aid that helps you spot coverage gaps before the unit starts; as a parent-evening handout that shows, without jargon, where a subject sits in the broader curriculum.</p>
+
+  <h4>Briefing Docs and Study Guides</h4>
+  <p>Briefing Docs are one-page executive summaries of your sources — the format to reach for when you want colleagues or parents to absorb a long document without reading it. Study Guides are structured learning materials: key concepts, short-answer questions with an answer key, and a glossary of terms, all generated from the same notebook. The newer Learning Guide format (added September 2025) runs in tutoring mode, asking probing, open-ended questions rather than handing students direct answers. Flashcards and quizzes can be produced instantly from the same sources, which means one notebook now quietly serves five or six different lesson artefacts.</p>
+
+  <h4>The 140 styles connection</h4>
+  <p>NotebookLM's output can be shaped by style. Johan has built a library of 140 styles — formal academic, conversational podcast, child-friendly storytelling, oral-history interview, inquiry-first student handout, and 135 more. Each style changes <em>how</em> the same notebook content is expressed without changing what the content says. The same three uploaded sources can become a dry academic briefing, a warm parent letter, or a question-led student handout, depending on which style you apply. See the Styles Library further down this guide for selected examples and access to the full library.</p>
+
+  <div class="callout callout--try">
+    <span class="callout__label">Integration · Your Notebooks inside Gemini</span>
+    <p>Since 8 April 2026 Notebooks sync bidirectionally. A Notebook created in Gemini appears in NotebookLM, and a Notebook created in NotebookLM appears in Gemini — same sources, same chat history, both surfaces editable. Why this matters in practice: you can ask Gemini to work with a Notebook's sources without leaving the Gemini chat. "Summarise what my Year 9 history Notebook says about the causes of WWI, and produce three differentiated exit tickets." You get a grounded answer <strong>and</strong> a creative classroom resource in one interaction. The two sides stay complementary: NotebookLM gives you Video Overviews and infographics that Gemini does not offer; Gemini gives you web search alongside uploaded sources that NotebookLM refuses on principle. The integration is rolling out first to AI Ultra, Pro, and Plus subscribers; the free tier follows in the weeks after.</p>
+  </div>
+
+  <h3>Five classroom workflows that compound</h3>
+  <p>Single prompts produce single outputs. The real leverage is in workflows — patterns you reuse week after week, embedded inside a Gem or a Notebook, where the files and instructions do half the work for you before you have typed a character.</p>
+
+  <h4>1 · Weekly lesson planning from learning objectives (Gemini Gem + Canvas)</h4>
+  <p>Start from your weekly objective, the year level, and the time you have available. Trigger your <em>weekly-planner</em> Gem. Gemini drafts the lesson in Canvas: a five-minute starter, a main task differentiated at three levels, and an exit ticket, all visible in the same workspace. You edit the wording inline, ask for a harder extension question, regenerate the exit ticket when it lands badly. Five minutes of work replaces what was previously a forty-minute planning block, and the output fits your class because the Gem already knows your context.</p>
+
+  <h4>2 · Marking feedback patterns from de-identified work (NotebookLM)</h4>
+  <p>Upload eight to ten de-identified responses to the same task into a fresh notebook. Ask NotebookLM to identify the three recurring strengths, the three recurring misconceptions, and the single highest-leverage thing to teach next. What comes back is usually what you would have concluded yourself — faster, with the comfort of a second set of eyes, and with passages cited back to the exact student work so you can see why NotebookLM landed where it did. The citations are what make this trustworthy.</p>
+
+  <h4>3 · Differentiated instruction generator (Gemini Gem, trigger pattern)</h4>
+  <p>Any teaching resource — a reading passage, a worksheet, a set of instructions — can be differentiated in three directions: simplified for readers two years below the group, extended for readers two years above, and an EAL vocabulary scaffold for newly-arrived students. Set this up once inside your <em>differentiate-three-levels</em> Gem. From then on, paste a text, say "differentiate this", and get three versions with shared bolded key vocabulary and a small glossary. Works in the language of instruction as well as in the home languages of any newly-arrived students in your class.</p>
+
+  <h4>4 · For school leaders — staff meeting preparation (NotebookLM Briefing Doc)</h4>
+  <p>Upload the agenda, the pre-reads, and recent meeting minutes into a notebook. Generate a Briefing Doc. You get a one-page meeting brief with the decisions to be made, time allocations per item, questions to anticipate from staff, and suggested follow-up actions. Share the Briefing Doc with attendees in advance, so the meeting itself is about deciding rather than reading. This single workflow probably returns more time per week than any of the others.</p>
+
+  <h4>5 · For school leaders — policy drafting (Gemini Gem with policy templates)</h4>
+  <p>Your <em>policy-drafter</em> Gem contains your school's policy templates and the constraints that matter — your national legal framework, your district's or authority's directives, and any current national education-ministry guidance. You describe the new policy's purpose, its stakeholders, and its boundaries. Gemini produces a first draft in your school's voice. You edit, iterate, and circulate. A first draft is always a starting point for human judgement; it is never final, and for public-school policies, run the draft past your DPO before any internal circulation. The Gem accelerates the work; the professional responsibility stays where it belongs.</p>
+
+  <div class="callout callout--johan">
+    <span class="callout__label">Johan's Note</span>
+    <p>The teachers I work with who get the most from Gemini and NotebookLM are not the ones who use them most often. They are the ones who built three or four workflows into their weekly routine and then stopped adding new ones. Depth beats breadth every time. Pick two of the five above, run them for half a term, and only then add a third.</p>
+    <span class="callout__signature">— JL</span>
+  </div>
+
+  <h3>Part 2 — Before you move on</h3>
+  <ol class="checklist">
+    <li>I have built at least one Gemini Gem for a recurring task</li>
+    <li>I have used Canvas to iterate on a document or worksheet inside Gemini</li>
+    <li>I have created at least one Notebook in NotebookLM and run an Audio Overview, Mind Map, or Briefing Doc</li>
+    <li>I have triggered a Notebook from Gemini (or a Gem from inside a Notebook context) to experience the bidirectional sync</li>
+    <li>I have picked two of the five compounding workflows to run regularly this term</li>
+    <li>I have re-read the de-identification rule and committed to it</li>
+  </ol>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PART 3 — SCALE & LEAD
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 3</span>
+  <h2>Scale &amp; Lead</h2>
+  <p class="lede">Part 3 is for educators who want to do more than save personal time. It is for those building a system — for their classroom, their team, their school. The patterns here change what a single educator can take on, and start to answer what a school's Article 4 AI literacy obligation actually looks like in practice.</p>
+
+  <h3>Shared Notebooks for departments</h3>
+  <p>Personal Notebooks serve one teacher. A shared Notebook serves a department — and compounds every time a colleague adds to it. The pattern is simple: a subject team creates one Notebook per unit and uploads the curriculum, exemplar student work (de-identified), the department's rubric, and past unit plans. Every teacher in the team queries the same grounded source-of-truth. New teachers get onboarded instantly.</p>
+
+  <p>Take the Year 10 maths team. They create a notebook called <em>y10-algebra-unit</em> and populate it with the unit plan, three past years of exam papers (de-identified), and the department's shared rubric. A teacher joining mid-year generates a Briefing Doc in 30 seconds and walks into their first lesson understanding how the department teaches this unit — not what one colleague happened to remember to mention. The Säfström and Folkebrant workflow at Fristadsskolan in Eskilstuna, Sweden (published on Pedagog Eskilstuna in February 2026) extends this further into shared audio content: 1–2 minute Audio Overviews per concept, regenerated in the language of instruction and in the home languages of newly-arrived students on request, and shared via Google Classroom.</p>
+
+  <p>Why this compounds. A shared Notebook improves as the department adds material. The third teacher who joins gets a better resource than the first. The cost of a new teacher catching up drops from weeks of shadowing and scattered handover conversations to minutes of grounded Q&amp;A against material the department has already written down. For departments that lose a teacher mid-year — which happens in every school — the shared Notebook is institutional memory the school did not previously have.</p>
+
+  <p>The bidirectional sync earns its keep here. Once a shared Notebook is built in NotebookLM, every department member can also work with it from the Gemini app — generating differentiated exit tickets, drafting parent emails grounded in the unit's assessment criteria, or producing a Canvas-based lesson plan — all from the same sources, without re-uploading a thing.</p>
+
+  <h3>Shared Gems for teams</h3>
+  <p>Gems can be shared across a Workspace team or through Google Classroom. Build one, share it, and everyone in the department now triggers the same standard for differentiation, feedback, or parent communication. This is how you solve the "my drafts all look different" problem at department level — not with a style guide nobody reads, but with a Gem everyone uses.</p>
+
+  <p>A concrete example. A <em>parent-communication-school-voice</em> Gem carries the school's style guide and three exemplar emails (warm, factual, firm). Every teacher in the school drafts parent emails that sound like the school — not like an individual's best effort on a Thursday afternoon. The consistency is not cosmetic; it is a quality bar the whole staff commits to, enforced by the tool that now sits inside their workflow.</p>
+
+  <p>Another: a <em>quiz-generator-our-rubric</em> Gem produces quizzes matched to the department's assessment rubric and question style. Shared across a year group, every class gets quizzes with the same cognitive demand. No more the parallel class receiving markedly easier or harder items because the teacher wrote them in a rush.</p>
+
+  <p>You do not have to build every Gem from scratch. Eric Curts's <em>edugems.ai</em> hosts around 200 free education Gems and is worth mining as a starting point — rewrite for your own context before you rely on them. And inside Classroom specifically, Google now ships four template Gems (Study partner, Quiz me, Brainstorm partner, Real-world connector) that a brand-new department can pilot immediately while it works out its own.</p>
+
+  <h3>Professional development pathways — supporting Article 4</h3>
+  <p>Article 4 of the AI Act, in force since 2 February 2025, requires every organisation that deploys AI — schools included — to ensure its staff have sufficient AI literacy to use these tools responsibly. This is not a future obligation; it is a present one. And it does not have to be painful. Your staff development programme <em>is</em> your Article 4 compliance. A consistent, low-key rhythm over a term does more, legally and pedagogically, than a one-off compliance workshop. Here is a three-month pathway that works.</p>
+
+  <h4>Month 1 — personal familiarity</h4>
+  <p>Every teacher sets up one Gem for their own most-repeated task. Every teacher creates one personal Notebook from unit material they are currently teaching. Every teacher runs one Audio Overview from that Notebook. Nothing is shared yet. The goal is that each staff member has felt how these tools behave on their own work, before anyone is asked to collaborate.</p>
+
+  <h4>Month 2 — share what's best</h4>
+  <p>The best Gems from Month 1 are shared across the department — via Classroom or direct link. Each subject strand builds one shared Notebook of the kind described above. The department runs a bi-weekly 30-minute "AI hour" where colleagues try one new workflow together. Kasey Bell frames the shift well when she describes Gemini-in-Classroom as "a deeply embedded teaching assistant directly within your workflow" — that embedding happens through repeated, short, shared practice, not through a single training day.</p>
+
+  <h4>Month 3 — policy and institutionalise</h4>
+  <p>The school reviews what has been learned. Which practices are safe? What needs documenting? Which uses have drifted in directions that need a rule? This is where AI usage moves from experimental to institutional. Update the school's records of processing (GDPR Article 30) to reflect the new tools. Formalise the data-handling rules that the department has been practising informally. Name what each teacher is expected to know, and what each teacher is expected never to do.</p>
+
+  <p>A principle to close on. The school that succeeds with Gemini and NotebookLM is not the school with the biggest licence spend. It is the school that built a consistent, low-key staff development rhythm and stuck to it for a term. Article 4 will be assessed on what your staff can actually do, not on what your procurement documents say you bought.</p>
+
+  <h3>Data considerations — the short version</h3>
+  <p>De-identify everything. Student names, grades, behavioural data, health information, parent contact details, safeguarding notes — never. If your school runs Google Workspace for Education, data residency and training-data defaults differ from consumer accounts. Verify your Data Processing Agreement (DPA) with Google before implementing routine use across the school. Details in Part 4 and the bonus EU chapter.</p>
+
+  <p>If your school is not on Workspace for Education and your teachers are using consumer Gemini accounts for school work — stop. You are personally carrying GDPR risk that belongs with your organisation. Move the school to an appropriate Workspace tier before you formalise any AI workflow.</p>
+
+  <h3>Part 3 — Before you move on</h3>
+  <ol class="checklist">
+    <li>My department has at least one shared Notebook with de-identified source material</li>
+    <li>My department has at least one shared Gem with a clear, narrow purpose</li>
+    <li>We have a 3-month pathway for staff development that supports our Article 4 obligation</li>
+    <li>We have reviewed our school's Workspace for Education DPA and data-handling settings</li>
+    <li>We have written (or updated) the rule for what categories of data are acceptable to share with AI tools</li>
+  </ol>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PART 4 — GOOGLE WORKSPACE FOR EDUCATION
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 4</span>
+  <h2>Google Workspace for Education</h2>
+  <p class="lede">Many schools run Google Workspace for Education. Inside Workspace, AI features are gated and governed differently from consumer Gemini — admin controls, data residency, age gates, and the free core Gemini AI in Classroom all change the picture. This part covers what teachers need to know (briefly) and what school leaders need to decide (at length).</p>
+
+  <h3>For teachers — what's different inside Workspace</h3>
+  <p>A short orientation before the leadership section. The headline is that your school's admin, not Google, decides what you see and what you can do. Keep these points in mind:</p>
+  <ul>
+    <li>Your school's admin decides which AI features you can use.</li>
+    <li>Your prompts and data stay inside your school's Workspace with the DPA's data-protection terms. Consumer Gemini's training defaults do not apply here.</li>
+    <li>Some features (the Gemini sidebar in Docs, Slides, Forms, and Vids) only appear if your school holds the Education Plus or Teaching &amp; Learning add-on <em>and</em> you are 18 or over.</li>
+    <li>Core Gemini AI in Google Classroom is free for all Workspace for Education accounts — that gives you lesson planning, quiz generation, rubric drafting, suggested feedback (English-first), video suggestions, and brainstorming starters.</li>
+    <li>Gemini Live is 18+ only — a teacher tool, not a classroom one.</li>
+    <li>If you don't see a feature described in this guide, it may be disabled at the school level. Ask your admin, not Google support.</li>
+    <li>Start with a conversation with your Google Workspace admin before uploading anything to any account.</li>
+  </ul>
+
+  <h3>For school leaders — what to decide before rollout</h3>
+  <p>The next five subsections cover the decisions a school-leader-level reader needs to make before rolling out Gemini and NotebookLM at scale. Each one points to official Google documentation for exact current settings — because Google updates features and limits monthly, the specific numbers belong in Workspace Admin, not in this guide.</p>
+
+  <h4>The Gemini for Education license</h4>
+  <p>Two relevant licensing paths exist as of 2026: Education Plus (per-user paid add-on) and the Teaching &amp; Learning add-on (per-licensed-educator add-on). Premium Gemini-in-Workspace features — Docs, Slides, Forms, Vids — launched in February 2026 to these two license types at no additional cost for license holders. Core Gemini AI in Classroom is free to all Workspace for Education accounts. How to choose: if your school uses Docs, Slides, Forms, and Vids heavily as the production environment where teachers actually make their materials, the add-ons pay for themselves quickly. If you primarily work in Gmail and Drive, wait until Google brings premium features to those apps. Verify current pricing and feature set in the Google Workspace Admin console before implementation.</p>
+
+  <h4>Data residency, GDPR, and national context</h4>
+  <p>For schools inside the EU, where data is processed matters. NotebookLM Enterprise (on Google Cloud) supports EU-only data residency; the Workspace for Education version's residency commitment is not as clearly documented in public materials and needs to be confirmed via your school's Data Processing Agreement. Verify in Google Workspace Admin and your DPA before implementation.</p>
+
+  <p>Standard GDPR discipline applies for EU schools: the school is data controller, Google is processor, and the DPA governs the relationship. Public schools in many EU member states use Article 6(1)(e) (public task) as lawful basis, with Article 9 conditions where special-category data (health, SEN, safeguarding) is involved — check the specific guidance from your national data protection authority. When AI becomes routine in your school, update your Article 30 records of processing to reflect the new tools, the categories of data processed, retention, and international transfers.</p>
+
+  <p><strong>Readers outside the EU</strong> should verify the privacy framework that applies in your jurisdiction (GDPR-equivalent laws in the UK, Switzerland, and several non-EU European states; FERPA and state laws in the US; APPI in Japan; and so on). The principles below — minimisation, de-identification, lawful basis, transparency — are common to most jurisdictions; the specific mechanisms and authorities vary.</p>
+
+  <p><strong>National supervisory authorities.</strong> Every EU member state has one, and you should know yours by name — your country's data protection authority is who enforces GDPR for schools locally and publishes practical guidance. National AI-in-schools guidance varies widely: some countries (UK, France, Germany, the Netherlands) have published detailed guidance; others (Sweden is a notable example, as of April 2026) have not yet, which makes the EU AI Act the dominant framework for your school until that changes. Consult your national authority's current positions before making school-wide commitments, and do not assume today's absence of detailed national guidance relieves you of the underlying GDPR and Article 4 obligations.</p>
+
+  <h4>Admin controls and student access</h4>
+  <p>Gemini in Workspace is toggled at the domain, OU, or group level. Granular per-app toggles (for example, allow Gemini in Docs but not in Slides) are rolling out through 2026 — verify the current state with your admin. NotebookLM access is similarly admin-gated.</p>
+
+  <p>Student access is a separate decision. Teen Gemini (13+) can be enabled as an additional service with "added data protection"; premium Gemini-in-Workspace features inside Docs, Slides, Forms, and Vids stay 18+. National guidance on student AI use varies: some countries require head-teacher approval before deployment, some prohibit independent student use of generative AI during instruction, and some leave the decision to individual schools. <strong>Verify the operative rule in your country</strong> before enabling student-facing features. Your admin controls are simply the implementation layer of that policy — they do not substitute for knowing what the policy is.</p>
+
+  <h4>Google Classroom AI features</h4>
+  <p>Free with all Workspace for Education accounts. Teacher-side features include lesson planning first drafts, quiz generation (exportable to Google Forms), rubric generation, suggested feedback on written assignments (teacher must approve before the student sees it — an intentional design choice that keeps the teacher as decision-maker and avoids triggering the EU AI Act's high-risk grading category), video suggestions, brainstorming starters, real-world examples, and audio lessons. Student-facing features rolling out through 2026 include NotebookLM in Classroom, Gems in Classroom (shared templates), and Read Along enhancements. Admin analytics include a redesigned homepage dashboard, insights showing student interaction with Gems and NotebookLM, and direct audio/video recording.</p>
+
+  <p>One gap worth naming. As of BETT 2026, the "learning standards tagging" feature in Classroom supports the UK, Australia, Canada, Japan, Brazil, Mexico, and Italy. Other countries (including Sweden and most of Europe) are not on the list. Teachers in unsupported countries will need to map Classroom assignments to their national curriculum frameworks manually until that changes.</p>
+
+  <h4>A phased rollout that works</h4>
+  <p>Do not run a school-wide training session before teachers have actually used the tools. Start with a volunteer cohort of 5–10 staff. Let them build Gems and Notebooks for their own subjects for a month. They become your internal experts. Month 2: let them run short, informal demos for their departments. Month 3: write the school's AI usage policy from what the cohort has learned — not from a template pulled off the internet. This approach compounds your Article 4 obligation into organic staff development, rather than turning it into a compliance tick-box exercise that leaves nobody any more capable than before.</p>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Watch Out · Verify before you scale</span>
+    <p>Google changes features, pricing, and limits monthly. Every specific claim in this Part — license tier contents, student-access settings, admin toggle granularity, what is free versus paid — deserves a verification pass in Google Workspace Admin and your current DPA before you act on it. This guide is a starting map, not a live configuration file. Build a quarterly review into your school calendar, not a one-time rollout project.</p>
+  </div>
+
+  <h3>Part 4 — Before you move on</h3>
+  <ol class="checklist">
+    <li>Our school has confirmed which Gemini for Education license (if any) we hold</li>
+    <li>We have verified data-residency and DPA terms for Workspace for Education with our Google admin</li>
+    <li>Our admin has configured Gemini and NotebookLM access at appropriate domain / OU / group level</li>
+    <li>We have reviewed Google Classroom's AI features and decided which to enable</li>
+    <li>We have a phased rollout plan starting with a small volunteer cohort</li>
+    <li>We have a quarterly review on the calendar to catch Google's feature and pricing changes</li>
+  </ol>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     BONUS CHAPTER — FOR EU READERS
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Bonus Chapter</span>
+  <h2>For EU readers</h2>
+  <p class="lede">If you teach or lead a school in an EU member state, two regulations shape how you use Gemini and NotebookLM: the GDPR and the EU AI Act. This chapter is a practical primer — not legal advice.</p>
+
+  <h3>GDPR fundamentals for schools using AI</h3>
+  <p>Your school is the data controller; Google is the processor. Workspace for Education carries a Data Processing Addendum whose terms differ meaningfully from the consumer Gemini account a teacher might sign up for privately — which is why school-domain accounts matter.</p>
+  <p>For public schools in most EU member states, the lawful basis for processing student data is typically Article 6(1)(e) — public task — not consent. "We use AI in the school" is not a lawful basis, and parental consent is not the route. Special-category data (health information, SEN plans, safeguarding notes) requires an additional Article 9 condition before it goes anywhere near an AI tool. Check with your national data protection authority if the precise application in your country is unclear.</p>
+  <p>Data minimisation is the everyday discipline. Do not upload what is not needed. De-identify everything where identification is not strictly required — pseudonymise student names to "Student A" rather than relying on a vague sense that the content has been anonymised.</p>
+  <p>Article 30 requires schools to maintain written Records of Processing Activities listing purposes, categories of personal data, recipients, international transfers, and retention periods. Adding routine Gemini or NotebookLM use to the classroom triggers a RoPA update — this is not optional.</p>
+  <p>Data residency is the one area where Google's product lineup diverges. NotebookLM Enterprise on Google Cloud supports EU-only at-rest residency. The Workspace for Education tier's residency commitment is not as clearly documented in public sources — verify in Google Workspace Admin and your current DPA before implementation.</p>
+  <p>Your country's national data protection authority is the supervisory body you need to know by name. National positions on school AI use differ: some authorities (including in France, Germany, and the Netherlands) have published practical guidance for schools; others (Sweden is a notable example, as of April 2026) are still working on joint guidance with their national education agency. Consult your own authority's current position before school-wide commitments.</p>
+  <p>The practical rule for teachers is blunt: use only the school-domain Workspace account for anything touching student data. Never put student-identifiable content into a consumer Gemini or NotebookLM account. If your school routinely uses Gemini or NotebookLM, your records of processing should reflect that.</p>
+
+  <h3>The EU AI Act — what it means for schools</h3>
+  <p>The EU AI Act entered into force on 1 August 2024 and phases in through 2026 and beyond. It classifies AI use by risk level and attaches obligations to each level. Education is explicitly in scope.</p>
+  <p>Two dates matter more than the others. On <strong>2 February 2025</strong>, the prohibited practices took effect and the AI literacy obligations in Article 4 began to apply to every organisation deploying AI — schools included. On <strong>2 August 2026</strong>, general applicability begins, transparency rules apply, and most high-risk obligations take effect.</p>
+  <p>Article 4 deserves to be stated plainly: schools that deploy AI must ensure their staff have sufficient AI literacy. This guide — and the professional development cadence described in Part 3 — is the practical route to Article 4 compliance. A staff development programme for AI is not a nice-to-have. It is a legal requirement.</p>
+  <p>Why the EU AI Act matters more in some countries than others. Several EU member states have published detailed national AI-in-schools guidance that goes beyond the Act's baseline; others have not. Sweden, as of April 2026, is among the countries that have <em>not</em> yet issued detailed national guidance — which makes the EU AI Act the dominant framework for Swedish schools until that changes. If you teach or lead in a country without national guidance, the Act itself is what you have to work from. If your country has published national guidance, the Act is the floor, not the ceiling — your national rules may go further.</p>
+
+  <div class="diagram">
+    <svg viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg">
+      <!-- Minimal risk -->
+      <rect x="80" y="250" width="520" height="50" rx="6" fill="#D4E4D4" stroke="#8AAE8A" stroke-width="0.8"/>
+      <text x="110" y="282" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#1a1a18">Minimal risk</text>
+      <text x="590" y="282" font-family="Inter, sans-serif" font-size="11" fill="#4A6B4A" text-anchor="end">default — no new obligations</text>
+
+      <!-- Limited risk -->
+      <rect x="80" y="185" width="520" height="50" rx="6" fill="#F5ECD0" stroke="#C69C3C" stroke-width="0.8"/>
+      <text x="110" y="217" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#1a1a18">Limited risk</text>
+      <text x="590" y="217" font-family="Inter, sans-serif" font-size="11" fill="#A07D2E" text-anchor="end">transparency obligations — AI must be disclosed</text>
+
+      <!-- High risk -->
+      <rect x="80" y="120" width="520" height="50" rx="6" fill="#F5D8CC" stroke="#C66B3D" stroke-width="0.8"/>
+      <text x="110" y="152" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#1a1a18">High risk</text>
+      <text x="590" y="152" font-family="Inter, sans-serif" font-size="11" fill="#A4482B" text-anchor="end">grading · admissions · behaviour assessment</text>
+
+      <!-- Prohibited -->
+      <rect x="80" y="55" width="520" height="50" rx="6" fill="#8C2F1F" stroke="#5A1E13" stroke-width="0.8"/>
+      <text x="110" y="87" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#F6F3EE">Prohibited</text>
+      <text x="590" y="87" font-family="Inter, sans-serif" font-size="11" fill="#F6F3EE" text-anchor="end">social scoring · manipulation — cannot be used</text>
+
+      <text x="40" y="80" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="2" fill="#5a5a57" transform="rotate(-90, 40, 180)">RISK →</text>
+    </svg>
+    <p class="diagram__caption">The EU AI Act's four risk tiers. Most teacher uses of Gemini and NotebookLM sit in Minimal or Limited. High risk begins when AI affects access to education — grading, admissions, behaviour assessment.</p>
+  </div>
+
+  <h3>Mapping Gemini and NotebookLM uses to the risk tiers</h3>
+  <p><strong>Minimal risk.</strong> Generating differentiated texts, drafting parent emails, producing study guides from lesson materials, running Audio Overviews of unit sources, brainstorming lesson objectives, drafting staff briefings. Most teacher uses of Gemini and NotebookLM live here — standard data-protection discipline is enough.</p>
+  <p><strong>Limited risk.</strong> A NotebookLM "tutor" that students chat with must be clearly labelled as AI, and it cannot replace a teacher in a learning judgement. An AI-generated video used in instruction must be disclosed to students as AI-generated. Transparency is the operative word at this tier — the obligation is to ensure the human on the other end knows they are interacting with AI or looking at AI-generated content.</p>
+  <p><strong>High risk.</strong> Using Gemini to produce summative grades; ranking students for selective programmes; classifying student behaviour for administrative action; automated exam-scoring. These triggers carry formal pre-market obligations: risk assessment, dataset quality management, logging, documentation, mandatory human oversight. Google Classroom's "suggested feedback" feature is specifically designed to avoid this trigger — the teacher must approve the feedback before the student sees it, keeping the teacher as the decision-maker.</p>
+  <p><strong>Prohibited.</strong> Any use that scores students as people rather than on their work — social scoring — is banned outright. This is not a grey area.</p>
+
+  <h3>Your practical compliance checklist</h3>
+  <ol class="checklist">
+    <li>We have conducted or updated a DPIA (Data Protection Impact Assessment) covering our Gemini and NotebookLM use</li>
+    <li>We have confirmed the DPA covering Gemini and NotebookLM (consumer or Workspace for Education variant) is in force and current</li>
+    <li>We have verified data-residency terms for Workspace for Education with our Google admin</li>
+    <li>We have reviewed privacy and training settings for every account type our staff use</li>
+    <li>Our records of processing (Article 30) reflect routine AI use across our school</li>
+    <li>We have classified our intended uses against the EU AI Act risk tiers</li>
+    <li>We have engaged our DPO on any use that approaches the High-risk tier</li>
+    <li>We have a staff development cadence that supports our Article 4 AI literacy obligation</li>
+    <li>We have a safe channel for staff to raise concerns about AI use without consequence</li>
+  </ol>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Watch Out · A note from Johan</span>
+    <p>I am not a lawyer. This chapter gives you a starting point, not legal advice. Make sure the checklist harmonises with your own school's interpretation of the GDPR and the EU AI Act, and consult your Data Protection Officer or legal counsel for binding decisions. <strong>Readers outside the EU</strong> should verify the data-protection and AI-governance frameworks that apply in their own country — the principles transfer, the specific obligations do not. Regulation in this space is evolving everywhere. Build a review cycle into your school's calendar and treat AI compliance as an ongoing practice, not a one-time project.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     STYLES LIBRARY
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">The Styles Library</span>
+  <h2>140 ways to see what your Notebook knows</h2>
+
+  <p>The same notebook and the same prompt will produce very different outputs depending on the style you pick. A formal academic layout for a department brief. A conversational podcast for a student's commute recap. A child-friendly storytelling frame for a primary handout. An oral-history interview for a local-history unit. The subject matter does not change — only the register, the composition, and the level of welcome does. Style is the difference between "NotebookLM says X" and "NotebookLM teaches X the way your students need to hear it".</p>
+
+  <p>I have built 140 such styles. Each one is a full, ready-to-copy prompt that sets NotebookLM — and Gemini's image tools — into a specific visual and tonal register, from editorial infographics and comic-book covers to documentary stills and anatomy posters. The eight examples below are a curated entry point. Browse the full library at <em>choosewise.education/notebooklm-styles/</em>, where every style has a thumbnail, a short description, and the full prompt ready to paste.</p>
+
+  <div class="styles-grid">
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-001.webp" alt="Wide editorial spread with serif headline and natural-history illustration">
+      <div class="style-card__label">
+        <strong>Editorial Infographic Spread</strong>
+        <span>For briefings to department heads and governors that need to read like a feature article.</span>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-002.webp" alt="Cinematic 3D news thumbnail with neon lighting and a reporter figure">
+      <div class="style-card__label">
+        <strong>Cinematic News Thumbnail</strong>
+        <span>For current-affairs hooks at the top of a media-literacy or digital-citizenship lesson.</span>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-005.webp" alt="Photorealistic classroom still in soft daylight from a pupil's point of view">
+      <div class="style-card__label">
+        <strong>Documentary Classroom Still</strong>
+        <span>For case-study openers and CPD materials grounded in the look and feel of a real school.</span>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-006.webp" alt="Bright sunburst background with cut-out figure and stacked text stickers">
+      <div class="style-card__label">
+        <strong>Creator Sticker Card</strong>
+        <span>For announcements, pupil reward cards, and high-energy corridor displays children actually stop to read.</span>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-014.webp" alt="Dark minimalist tech layout with a cyan neon glow and grid of figures">
+      <div class="style-card__label">
+        <strong>Dark Tech Update</strong>
+        <span>For short data-dashboard explainers and updates to the senior team or digitalisation lead.</span>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-016.webp" alt="Classic comic book cover with three heroes in a dramatic triangular composition">
+      <div class="style-card__label">
+        <strong>Comic Book Cover</strong>
+        <span>For primary-years project briefs and reading-quest handouts pupils actually want to keep.</span>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-046.webp" alt="Pastel top-down knolling layout of stationery and devices on a split background">
+      <div class="style-card__label">
+        <strong>Pastel Knolling Layout</strong>
+        <span>For calm, organised handouts — tool comparisons, lesson kit lists, and routines at a glance.</span>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-052.webp" alt="Premium dark anatomy poster with a glowing x-ray silhouette in motion">
+      <div class="style-card__label">
+        <strong>X-Ray Anatomy Poster</strong>
+        <span>For science and PE units where a single dramatic visual has to carry the lesson.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="styles-grid__cta">Browse all 140 styles at <a href="https://choosewise.education/notebooklm-styles/">choosewise.education/notebooklm-styles/</a></p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PROMPTS
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Prompts</span>
+  <h2>A starter library of Gemini prompts</h2>
+  <p>Copy these prompts, adapt them to your context, run them. Most work straight out of the box; all become better when you feed them your actual files — a unit plan, a reading passage, a rubric. Where a prompt is NotebookLM-specific, it expects sources already uploaded to a Notebook. Where it is Gemini-specific (Gemini Live, Deep Research, Canvas), it expects you to be in that surface of the Gemini app.</p>
+
+  <h3>Getting started</h3>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">1 · RTF starter — first usable prompt</div>
+    <pre class="prompt-card__text">Act as [role — e.g. an experienced Year 6 Science teacher in a mixed-ability state school].
+
+Task: [what you need — e.g. draft a 250-word explanation of the water cycle for a mixed-ability class. Include the four stages and one real-world example for each.]
+
+Format:
+- [length]
+- [tone]
+- [structure — bullets, headings, numbered, etc.]
+- [any required elements — vocabulary box, answer key, retrieval questions]
+
+Pitch: [reading ages or ability band].</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">2 · Retrieval-practice quiz generator</div>
+    <pre class="prompt-card__text">Produce a [n]-minute retrieval-practice quiz on [topic] for [year level].
+
+Coverage: drawn from the past [n] lessons.
+
+Format:
+- [n] questions
+- Mix of recall, comprehension, and application
+- Multiple-choice + short-answer + one open question
+- Answer key at the end with a one-sentence explanation per answer
+- Ready to paste into Google Forms</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">3 · Differentiate a reading passage at three levels</div>
+    <pre class="prompt-card__text">Below is a reading passage. Produce three versions of it at:
+1. Reading age two years below the year level
+2. At the target year level
+3. Reading age two years above the year level
+
+Rules:
+- Preserve the core ideas in all three versions
+- Keep a shared set of 8–10 key vocabulary terms, bolded in each version
+- Version 1: short sentences (≤12 words), concrete language, high-frequency vocabulary
+- Version 3: compound sentences OK, Tier 2 vocabulary, one subordinate clause per paragraph max
+- End with a glossary of the 8–10 shared terms, child-friendly definitions
+
+[paste passage]</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">4 · Parent email in three tones</div>
+    <pre class="prompt-card__text">Help me draft an email to a parent about [context — e.g. a behaviour concern / a positive observation / a request for a meeting].
+
+I want three versions:
+1. Warm — collaborative, acknowledging the parent as partner
+2. Factual — neutral, just the information, no emotion
+3. Firm — clear about expectations, without being cold
+
+Context: [2–3 sentences about the student and the reason]
+
+Each version: under 150 words, plain language, British English, sign-off "With best wishes, [teacher name]".</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">5 · Summarise a long document — "what actually affects me?"</div>
+    <pre class="prompt-card__text">I have uploaded a [policy document / curriculum document / national ministry guidance / research paper].
+
+Give me:
+1. A one-paragraph summary (what is this document, what does it want?)
+2. The three things that affect me directly as a [role]
+3. Any deadlines or dates mentioned
+4. Any contradictions with [another source / my current practice / the previous version] I should flag
+5. Two questions I should ask my head teacher before acting on this
+
+Format: numbered sections, bullet points where useful. Keep it under 500 words total.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">6 · Lesson starter generator</div>
+    <pre class="prompt-card__text">Generate three lesson-starter options for a [subject] lesson on [topic], for a [year level] class of [n] minutes total.
+
+The three starters should use different approaches:
+1. A vocabulary warm-up (5 minutes)
+2. A sentence-completion task tied to prior learning (5 minutes)
+3. A think-pair-share prompt that sets up today's main task (5 minutes)
+
+For each: exact student-facing instructions + a teacher note on what you're looking for / common misconceptions.</pre>
+  </div>
+
+  <h3>Working smarter</h3>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">7 · Gem setup prompt — "teach Gemini who I am"</div>
+    <pre class="prompt-card__text">I'm about to build a Gem for my daily teaching work. Help me write the instruction set.
+
+About me: [role, year level, school context, subject]
+About my students: [ability range, languages spoken, any relevant context]
+How I want outputs: [length preference, British/American English, how direct or discussion-style, whether to include thinking out loud or just the deliverable]
+What I never want: [specific things — e.g. emojis, American cultural references, speculation beyond what I asked]
+
+Produce the Gem instruction set as 4–6 tight bullet points I can paste into the Gem settings. Use second person ("You are…") and British English.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">8 · Deep Research briefing</div>
+    <pre class="prompt-card__text">Do a deep research brief on [topic].
+
+Audience: [teachers / senior leadership team / parents / students].
+Length of final report: [short — 500 words / medium — 1500 words / long — 3000+ words with citations].
+Sources to prioritise: [peer-reviewed research / official guidance / practitioner blogs / recent news].
+
+Include:
+1. One-paragraph executive summary
+2. What the research actually says (not what practitioners say about the research)
+3. Practical implications for a state primary/secondary school
+4. Three specific questions still open in the literature
+5. Citations inline
+
+If sources disagree, show both sides and flag which is better evidenced.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">9 · Canvas — lesson plan with table</div>
+    <pre class="prompt-card__text">Build a one-lesson plan in Canvas for [subject] [year level], topic [topic], duration [n] minutes.
+
+Produce as:
+- A single-page plan with a table of activities (time, teacher action, student action, materials)
+- Differentiation notes for three ability bands (simplified, at-level, extended) in a side column
+- An exit ticket of 3 questions at the end
+- One sentence of "what to watch for" (common misconception)
+
+Keep it editable in Canvas so I can refine individual cells without regenerating the whole thing.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">10 · NotebookLM — Study Guide from your notebook</div>
+    <pre class="prompt-card__text">Using the sources in this Notebook, generate a Study Guide for students that:
+
+- Opens with a one-paragraph overview
+- Lists 10–15 key concepts, each with a one-sentence definition
+- Includes 8 short-answer questions with an answer key at the end (answers pulled from the sources, with passage references)
+- Ends with a glossary of 10 key terms at [reading age]
+
+Format: single-page, printable, classroom-ready. Use British English.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">11 · NotebookLM — audio overview brief</div>
+    <pre class="prompt-card__text">Using the sources in this Notebook, produce an audio overview in the "Brief" format (under 15 minutes). Frame the discussion for [EAL students / senior leadership / Year 8 students] who are [new to the topic / preparing for assessment / reviewing before parents' evening].
+
+Structure the discussion:
+- What is this about, in one sentence?
+- The three things that matter most
+- What the sources disagree on
+- What a listener should do next
+
+End with a 30-second recap.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">12 · Marking feedback patterns — de-identified</div>
+    <pre class="prompt-card__text">I'm uploading 8–10 de-identified student responses to the same task. All identifying information has been removed.
+
+Analyse them and return:
+1. Three recurring strengths across the class
+2. Three recurring misconceptions across the class
+3. The single highest-leverage teaching move for the next lesson
+4. One short, student-friendly sentence of feedback that would apply to roughly half the class
+
+Format: four numbered sections, under 400 words total.
+
+[paste responses or reference uploaded file]</pre>
+  </div>
+
+  <h3>Scale &amp; lead</h3>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">13 · Policy draft from a brief</div>
+    <pre class="prompt-card__text">Draft a one-page school policy on [topic — e.g. "Student use of AI tools in classwork" or "Teacher use of Gemini for lesson planning"].
+
+Context:
+- School type: [primary / secondary / independent / public — specify country]
+- Governing authority / school district / trust: [name]
+- Relevant legal framework: [e.g. GDPR + EU AI Act + your national school-governance law]
+- Stakeholders affected: [teachers / students / parents / leadership]
+- Existing related policies: [list any]
+
+Include:
+1. Purpose (2 sentences)
+2. Scope (who, what, when)
+3. Rules (what is required, allowed, prohibited — use active voice)
+4. Responsibilities (who enforces, who reports concerns)
+5. Review cadence
+
+Keep it under 600 words, plain school-facing tone, no legalese beyond what is strictly required.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">14 · Meeting brief from a Notebook</div>
+    <pre class="prompt-card__text">Using the sources in this Notebook (agenda, pre-reads, previous meeting minutes), produce a meeting brief for [meeting type — e.g. "a department head meeting Tuesday morning"].
+
+Format:
+1. Decisions to be made (list, with recommended option for each)
+2. Time allocation per agenda item (total: [n] minutes)
+3. Three questions to anticipate from staff and how to answer each
+4. Three follow-up actions and who owns them
+5. A single-sentence executive summary for anyone who can't attend
+
+Keep it under one printed page. British English.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">15 · Shared Gem for parent communication</div>
+    <pre class="prompt-card__text">I'm setting up a school-wide Gem for parent email drafting. Our school voice is: [describe — e.g. "warm, direct, pupil-centred, never defensive"].
+
+Produce Gem instructions that:
+- Force consistency with our school voice
+- Always ask me the reason and desired outcome before drafting
+- Default to 120–180 words
+- Default to British English
+- Always produce three tones (warm, factual, firm) unless I specify one
+- Never speculate about what the parent is thinking — only respond to what they said
+- Close with "[Teacher name]" not "Kind regards," which the teacher will add
+
+Output: the full instruction set as a copy-paste block.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">16 · Department onboarding doc</div>
+    <pre class="prompt-card__text">I'm adding a new teacher to the [subject] department in [month]. Produce a one-page onboarding doc that covers:
+
+- The three key things about how we teach this subject at our school
+- The three assessments they will need to deliver in their first term
+- The two adults they should meet first (roles, not names)
+- Where our shared Notebook and Gems live
+- What is expected in the first staff meeting
+- Our answer to the "what's our stance on AI in student work?" question
+
+Keep it warm — this is a welcome, not a manual. Under 500 words.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">17 · Communications crisis-response template</div>
+    <pre class="prompt-card__text">Draft a first-response communication for parents regarding [incident]. Assume (1) the school's priority is student safety, (2) transparency is essential, and (3) we do not yet have all the facts.
+
+Format: one email. Clear, calm, factual. Avoid speculation. State what we know, what we are doing, and when parents will hear more. No legalistic language. Sign off: "With care, [head teacher name]".</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">18 · Professional development plan from evidence</div>
+    <pre class="prompt-card__text">Plan a 10-week professional development block for our [department / whole staff] on [topic — e.g. "Using Gemini and NotebookLM for lesson planning" or "Improving feedback with AI assistance"].
+
+Base the plan on:
+- 30 minutes per session, maximum
+- Whole staff together OR small cross-department groups (your call, justify it)
+- Uses our existing shared Gems and Notebooks wherever possible
+- Explicitly connects to our Article 4 AI literacy obligation
+- Ends with a tangible artefact — a Gem, a Notebook, a shared prompt library
+
+Output: week-by-week plan with session topic, artefact produced, and link to Article 4 framing.</pre>
+  </div>
+
+  <h3>Universal</h3>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">19 · First-meeting setup prompt (Gemini + Gems)</div>
+    <pre class="prompt-card__text">I'd like you to remember some things about me, so you can be more useful in future conversations:
+
+I am a [role, e.g. Year 8 English teacher] at a [type of school] in [country]. I teach [n] classes of around [n] students. My teaching context is [mixed ability / selective / specific curriculum]. I value [evidence-based practice / creativity / specific pedagogy].
+
+My preferences for outputs:
+- Keep things concise unless I ask for depth
+- Use [British / American] English spelling
+- Classroom-ready outputs — minimal editing required
+- If a task involves student data, ask me to confirm it has been de-identified before proceeding
+
+Please confirm you've saved this context, or — if I'm inside a Gem — propose a 5-bullet Gem instruction set based on this.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">20 · Analyse this document</div>
+    <pre class="prompt-card__text">I'm uploading a [policy document / curriculum document / research paper / other]. Give me:
+
+1. A one-paragraph summary (what is this document and what does it want?)
+2. The three things that affect me directly as a [role]
+3. Any deadlines mentioned in the document
+4. Any contradictions with [another source / my current practice / a previous version] I should flag
+5. Questions I should ask before acting on this
+
+Format: numbered sections, bullet points where useful.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">21 · Turn this into a rubric</div>
+    <pre class="prompt-card__text">Below is a description of an assessment task. Produce a four-level rubric for it, using Emerging / Developing / Secure / Extending as the levels. Identify the three to five most important criteria to assess, and write a student-facing descriptor for each criterion at each level.
+
+Format: single-page table.
+
+[paste assessment task]</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">22 · Lesson recap &amp; exit ticket pair</div>
+    <pre class="prompt-card__text">Below is an outline of today's lesson. Produce (1) a one-minute verbal recap script I can read out in class, and (2) a three-question exit ticket that checks the key takeaways.
+
+Format:
+- Recap: 4–6 sentences, conversational, captures the core idea
+- Exit ticket: one recall, one explanation, one reflection
+
+[paste lesson outline]</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">23 · Reading comprehension question generator</div>
+    <pre class="prompt-card__text">For the reading passage below, produce a set of comprehension questions at three levels:
+
+- 3 retrieval questions (facts directly stated in the text)
+- 3 inference questions (conclusions drawn from the text)
+- 3 evaluation questions (judgments about the text or its implications)
+
+Format: three numbered sections. Include an answer key at the end.
+
+[paste passage]</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">24 · Parent meeting prep brief</div>
+    <pre class="prompt-card__text">Help me prepare for a meeting with [parent name]'s parents about [topic — e.g. progress, behaviour concern, celebration].
+
+Context: [2–3 sentences about the student and the reason for the meeting]
+
+Produce:
+1. Three talking points I want to make, in order
+2. Two questions I should ask the parents
+3. One concrete next step I can propose
+4. One anticipated concern from parents and a prepared response
+
+Keep it focused — 20-minute meeting.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">25 · Explain it to me as if I'm new</div>
+    <pre class="prompt-card__text">I've just been given responsibility for [task, role, or area]. Explain what I need to understand, in plain language, assuming no prior expertise.
+
+Format:
+- The three things I must understand before I do anything
+- The two most common mistakes new people in this role make
+- One concrete action I should take in my first week
+- One concrete action I should take in my first month
+- What "good" looks like after six months
+
+Avoid jargon. If a term is unavoidable, define it in a sentence.</pre>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     FAQ
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">FAQ</span>
+  <h2>Common questions</h2>
+
+  <div class="faq-item">
+    <div class="faq-item__q">Is the free tier enough?</div>
+    <div class="faq-item__a">
+      <p>For most teachers, yes — at least initially. The free Gemini tier includes Gemini 3 Flash-level access, the web Gemini app, the mobile app, and basic Canvas. NotebookLM is free with generous source and notebook limits (check Google for current numbers, as they change). Core Gemini AI in Google Classroom is free for all Workspace for Education accounts. You will bump into the paid tier (AI Pro / AI Ultra) when Deep Research sessions run into limits mid-task; Gems start feeling slow; or premium Workspace features (Gemini in Docs / Slides / Forms / Vids) become a daily workflow. Upgrade then, not before.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">What is the difference between Gemini and NotebookLM?</div>
+    <div class="faq-item__a">
+      <p>Gemini is generative — you give it a question or task, it produces an answer from its open-domain knowledge plus web search. NotebookLM is grounded — it answers only from sources you have uploaded to a specific Notebook, with citations pointing back to the source passage. Both run on Google's Gemini model family. Gemini is where you draft, brainstorm, and create. NotebookLM is where you research, study, and synthesise from your own material. Since April 2026, Notebooks sync bidirectionally into Gemini — you can ask Gemini to work with a Notebook's sources without leaving the Gemini chat.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">What is the difference between Gemini, ChatGPT, and Claude?</div>
+    <div class="faq-item__a">
+      <p>All three are capable AI assistants from different companies (Google, OpenAI, Anthropic) running on different models. Practical differences for teachers: Gemini is tightly integrated with Google Workspace (Docs, Slides, Forms, Classroom, NotebookLM) — if your school runs Workspace, Gemini saves tab-switching. ChatGPT and Claude run on their own platforms and interact less natively with your school's document workflow. Claude is often described as writing with less generic output; Gemini is strong on Google-surface integration and multimodal work (video, image generation); ChatGPT has the largest third-party plugin ecosystem. Pick the one that lives closest to where your work already happens.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">Can I use these with student data?</div>
+    <div class="faq-item__a">
+      <p>Only with de-identified data, and only if your school's AI policy permits it. Student names, grades, behavioural records, health information, parent contact details, safeguarding notes — never upload any of it, to any account type. Replace names with roles ("Student A", "Student B"). Generalise dates and locations. Use only your school-domain Workspace for Education account (never a personal Gmail) for anything touching a student. If you are uncertain, consult your Data Protection Officer before uploading. National rules on student AI use vary — some countries require head-teacher approval before any classroom deployment and restrict independent student use during instruction. <strong>Verify your own country's current rules</strong> before enabling student-facing features. See Part 4 and the EU bonus chapter for the full picture.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">What if Gemini or NotebookLM makes something up (hallucination)?</div>
+    <div class="faq-item__a">
+      <p>Both tools can produce content that sounds plausible and is factually wrong — particularly on niche, technical, very recent, or numerically precise topics. NotebookLM hallucinates less than Gemini because it answers only from your uploaded sources; its main failure mode is misquoting or misattributing inside those sources. Gemini hallucinates more often, particularly when you ask about current events or specific names and dates. You are the expert — verify every claim before it reaches a student. Never hand a student an AI-generated resource you have not read carefully. Every Deep Research citation deserves a glance.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">Do I need the paid Gemini plan?</div>
+    <div class="faq-item__a">
+      <p>As a teacher, start on free; upgrade only when you hit a real limit mid-task. The paid consumer tiers (AI Pro, AI Ultra) unlock larger Deep Research sessions, higher limits on NotebookLM audio/video overviews, and access to Gemini 3 Pro with Deep Think. For school-wide rollout, the relevant question is not consumer-paid but Workspace for Education licensing: does your school hold Education Plus or Teaching &amp; Learning add-ons? These enable Gemini in Docs / Slides / Forms / Vids and are how premium AI shows up inside your existing Google workflow. Part 4 covers this properly.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">What is a Gem and when should I build one?</div>
+    <div class="faq-item__a">
+      <p>A Gem is a named, reusable custom assistant with saved instructions and optionally attached files. Build one when you notice yourself giving Gemini the same context three times. A year-level Gem, a parent-communication Gem, a quiz-generator Gem — each saves you five minutes of context-setting per use. Start with one. Learn what narrow purpose feels like. Add more only when you know why. Shared Gems are powerful for departments — every teacher triggers the same standard without copy-pasting instructions between staff. Eric Curts maintains edugems.ai with about 200 free education Gems; use them as templates.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">What does the EU AI Act mean for my classroom (short answer)?</div>
+    <div class="faq-item__a">
+      <p>For most teaching tasks — lesson planning, communications, differentiation, study-guide generation — very little. You are in the minimal-risk tier and standard data-protection discipline applies. The AI Act matters most when AI is used to evaluate students in ways that affect access to education: admissions, grading, automated behaviour assessment. If your school is considering any of those, engage your DPO and legal counsel. Article 4 (AI literacy) applies since February 2025 and means your school must ensure staff have sufficient AI literacy — your professional development programme is your practical compliance. See the bonus chapter above for the full picture.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">What about plagiarism and student AI use?</div>
+    <div class="faq-item__a">
+      <p>Your school needs a policy on it, and AI-detection tools are unreliable — do not treat their outputs as evidence. Focus instead on assessment design: tasks that require in-class writing, oral defence, personal reflection, or process documentation are harder to submit AI-generated work for. National guidance varies on whether students may use generative AI independently during instruction — check your country's current position before you set a school-level rule. The honest position is that AI is now part of the learning environment outside school, and your assessment needs to reflect that rather than pretend otherwise. Involve students in the conversation — they know more about AI use than most policy documents assume.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">How do I get my colleagues on board?</div>
+    <div class="faq-item__a">
+      <p>Do not evangelise. Demonstrate. Pick one workflow that saves you real time — parent communication drafting is usually the winner, or Audio Overviews of unit sources — and share your actual savings with colleagues who ask. Do not run a training session. Run a small working group where staff bring real tasks and learn together. Your most sceptical colleagues are often your most valuable contributors to policy; invite them in early. Remember your Article 4 obligation: this is not just a nice-to-have — it is a legal requirement for any school deploying AI. A modest, consistent cadence beats a one-off training day every time.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">Where do I get help?</div>
+    <div class="faq-item__a">
+      <p>Start with Google's own help pages at <em>support.google.com/gemini</em> and <em>support.google.com/notebooklm</em>. For school-specific questions — AI policy, whole-school rollout, working-group design, EU AI Act implementation — reach out through my website (link in the footer). I offer consulting for schools, primarily in Sweden but happy to discuss engagements in other countries too, and can point you towards resources appropriate to your context. For practical classroom material, the community of teacher-bloggers and podcasters cited throughout this guide (Matt Miller, Monica Burns, Kasey Bell, Eric Curts, Alice Keeler, Tony Vincent, Jake Miller) is a strong starting point.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     CLOSING PAGE
+     ══════════════════════════════════════════════════ -->
+<div class="page closing">
+  <p class="closing__quote">"Depth beats breadth every time. Pick two workflows, run them for half a term, and only then add a third."</p>
+
+  <p class="closing__cta">For the latest version of this guide, the web edition, and the full 140-style library, visit<br>
+  <strong>choosewise.education/guides/gemini-notebooklm</strong></p>
+
+  <p class="closing__signature">— Johan Lindström, April 2026</p>
+  <p class="closing__attr">choosewise.education</p>
+</div>
+
+</body>
+</html>
