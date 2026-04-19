@@ -9,15 +9,15 @@
   },
   {
     "id": "gemini-notebooklm",
-    "title": "Gemini & NotebookLM in the classroom",
+    "title": "Gemini & NotebookLM for teachers and school leaders",
     "tool": "Gemini / NotebookLM",
-    "status": "coming-soon",
+    "status": "available",
     "url": "/guides/gemini-notebooklm/",
     "cover_image": "/assets/images/guide-covers/gemini.svg"
   },
   {
     "id": "apple-intelligence",
-    "title": "Apple Intelligence for educators",
+    "title": "Apple Intelligence for teachers and school leaders",
     "tool": "Apple Intelligence",
     "status": "coming-soon",
     "url": "/guides/apple-intelligence/",
@@ -25,7 +25,7 @@
   },
   {
     "id": "copilot",
-    "title": "Microsoft Copilot in schools",
+    "title": "Microsoft Copilot for teachers and school leaders",
     "tool": "Copilot",
     "status": "coming-soon",
     "url": "/guides/copilot/",
