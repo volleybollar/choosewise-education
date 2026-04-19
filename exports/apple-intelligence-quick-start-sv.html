@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Apple Intelligence Quick Start — för lärare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ═══ Apple Intelligence Quick Start — 2-page A4 ═══
+     Palette: navy #1B2733, graphite #3E4A57, brass #C8A86B, cream #F6F3EE
+     Fonts:   Playfair Display (headings), Inter (body)
+  */
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #1B2733;
+    background: #F6F3EE;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 18mm 20mm;
+    display: flex;
+    flex-direction: column;
+  }
+  .page1 { page-break-after: always; }
+  .page2 { page-break-before: always; }
+
+  /* ─── Page header ─── */
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(27, 39, 51, 0.14);
+    margin-bottom: 14px;
+  }
+  .masthead .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: #C8A86B;
+  }
+  .masthead .page-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #9a9a94;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.6px;
+    color: #1B2733;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: italic;
+    color: #3E4A57;
+    margin-bottom: 14px;
+  }
+  .lede {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #3E4A57;
+    max-width: 160mm;
+    margin-bottom: 16px;
+  }
+
+  /* ─── Section ─── */
+  .section { margin-bottom: 12px; }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1B2733;
+    margin-bottom: 6px;
+  }
+  .section h2 .accent {
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: #C8A86B;
+    vertical-align: middle;
+    margin-right: 10px;
+    position: relative;
+    top: -3px;
+  }
+  .section p {
+    font-size: 10.5px;
+    line-height: 1.55;
+    color: #3E4A57;
+    margin-bottom: 5px;
+  }
+
+  /* ─── Feature grid (2 × 3, 6 cards) ─── */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px 11px;
+    margin-top: 6px;
+  }
+  .feature-mini {
+    background: #faf7f2;
+    border-left: 3px solid #3E4A57;
+    padding: 9px 12px 10px;
+    border-radius: 2px;
+  }
+  .feature-mini .idx {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    color: #3E4A57;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .feature-mini .name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1B2733;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .feature-mini p {
+    font-size: 10px;
+    line-height: 1.5;
+    color: #3E4A57;
+    margin: 0;
+  }
+
+  /* ─── Steps list (page 2) ─── */
+  .wins {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 20px;
+    margin-top: 6px;
+  }
+  .win {
+    display: flex;
+    gap: 10px;
+    padding: 4px 0;
+  }
+  .win .idx {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #3E4A57;
+    min-width: 16px;
+  }
+  .win .text {
+    font-size: 10.5px;
+    line-height: 1.5;
+    color: #3E4A57;
+  }
+  .win .text strong {
+    color: #1B2733;
+    font-weight: 700;
+    display: block;
+    font-size: 11px;
+    margin-bottom: 1px;
+  }
+
+  /* ─── Watch out ─── */
+  .watchout {
+    background: #faf3e2;
+    border-left: 3px solid #C8A86B;
+    padding: 10px 14px;
+    border-radius: 2px;
+    margin-top: 10px;
+  }
+  .watchout .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #a07d2e;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .watchout p {
+    font-size: 10.5px;
+    line-height: 1.5;
+    color: #3E4A57;
+    margin: 0;
+  }
+
+  /* ─── Footer ─── */
+  .page-footer {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid rgba(27, 39, 51, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 9.5px;
+    color: #9a9a94;
+    letter-spacing: 0.3px;
+  }
+  .page-footer .brand {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 10.5px;
+    color: #3E4A57;
+  }
+
+  /* ─── Closing CTA (page 2) ─── */
+  .closing {
+    background: #1B2733;
+    color: #F6F3EE;
+    padding: 14px 18px;
+    border-radius: 3px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .closing .msg {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #F6F3EE;
+    line-height: 1.4;
+  }
+  .closing .url {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #C8A86B;
+    white-space: nowrap;
+  }
+
+  /* ─── License line (bottom of last page) ─── */
+  .license-line {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(27, 39, 51, 0.08);
+    font-size: 8.5px;
+    color: #9a9a94;
+    letter-spacing: 0.25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .license-line strong {
+    color: #3E4A57;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ PAGE 1 ═══════════════ -->
+<div class="page page1">
+  <div class="masthead">
+    <span class="eyebrow">Apple Intelligence Quick Start · för lärare</span>
+    <span class="page-num">01 / 02</span>
+  </div>
+
+  <h1>Sex Apple Intelligence-funktioner som förändrar arbetet i klassrummet.</h1>
+  <p class="subtitle">iPad-först, integritetsmedveten, tar 10 minuter att lära sig.</p>
+
+  <p class="lede">Apple Intelligence körs till största delen på enheten — en verklig GDPR-fördel när du arbetar med känsligt innehåll. De här sex funktionerna ger dig störst daglig nytta. Mer om vad som lämnar enheten finns i Del 3 av den fullständiga guiden.</p>
+
+  <div class="section">
+    <h2><span class="accent"></span>Sex funktioner i fickformat</h2>
+
+    <div class="feature-grid">
+      <!-- 1 -->
+      <div class="feature-mini">
+        <span class="idx">1</span>
+        <span class="name">Writing Tools</span>
+        <p>Skriva om, korrläsa, sammanfatta. Bedömningskommentarer, föräldramejl, lektionsplaner. Mestadels på enheten.</p>
+      </div>
+
+      <!-- 2 -->
+      <div class="feature-mini">
+        <span class="idx">2</span>
+        <span class="name">Siri 2.0</span>
+        <p>Kontextmedveten schemaläggning, hämta saker mellan appar. Nästan allt på enheten.</p>
+      </div>
+
+      <!-- 3 -->
+      <div class="feature-mini">
+        <span class="idx">3</span>
+        <span class="name">Mail-kategorisering</span>
+        <p>Primary / Transactions / Updates / Promotions. Hitta mejlet föräldrarna faktiskt frågar om.</p>
+      </div>
+
+      <!-- 4 -->
+      <div class="feature-mini">
+        <span class="idx">4</span>
+        <span class="name">Notissammanfattningar</span>
+        <p>50 nattliga notiser blir en läsbar rad. Helt på enheten.</p>
+      </div>
+
+      <!-- 5 -->
+      <div class="feature-mini">
+        <span class="idx">5</span>
+        <span class="name">Notes och Image Wand</span>
+        <p>Skiss eller beskrivning → snygg illustration för arbetsblad och whiteboards.</p>
+      </div>
+
+      <!-- 6 -->
+      <div class="feature-mini">
+        <span class="idx">6</span>
+        <span class="name">Visual Intelligence</span>
+        <p>Rikta kameran mot text eller objekt för översättning, sammanfattning, sammanhang.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Apple Intelligence Quick Start — Johan Lindström</span>
+    <span class="brand">choosewise.education</span>
+    <span>Sida 01 / 02</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 2 ═══════════════ -->
+<div class="page page2">
+  <div class="masthead">
+    <span class="eyebrow">5 saker att testa på din iPad idag</span>
+    <span class="page-num">02 / 02</span>
+  </div>
+
+  <h1>Testa: 5 praktiska uppgifter.</h1>
+  <p class="subtitle">Tio minuter, fem drag, en sak mindre på ditt skrivbord ikväll.</p>
+
+  <div class="section">
+    <div class="wins">
+      <div class="win">
+        <span class="idx">1</span>
+        <div class="text"><strong>Skriv om ett föräldramejl i tre tonlägen</strong>Writing Tools erbjuder Vänlig / Professionell / Koncis. Välj den som passar, skicka.</div>
+      </div>
+      <div class="win">
+        <span class="idx">2</span>
+        <div class="text"><strong>Sammanfatta en 5-sidig läroplans-PDF</strong>Dra PDF:en in i Notes, be Writing Tools om en sammanfattning. Private Cloud Compute hanterar det långa underlaget.</div>
+      </div>
+      <div class="win">
+        <span class="idx">3</span>
+        <div class="text"><strong>Fråga Siri om torsdagens schema</strong>"Öppna Notes för torsdagens planering" och "Mejla föräldrarna i årskurs 9 om utflykten" i samma andetag.</div>
+      </div>
+      <div class="win">
+        <span class="idx">4</span>
+        <div class="text"><strong>Rensa en översvämmad inkorg</strong>Mail Primary visar de tre föräldrafrågor som faktiskt behöver svar; resten ligger lugnt grupperat under.</div>
+      </div>
+      <div class="win">
+        <span class="idx">5</span>
+        <div class="text"><strong>Skissa ett diagram i Notes</strong>Grova cirklar och etiketter blir en whiteboard-klar illustration via Image Wand.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="watchout">
+    <span class="label">● Tänk på · åldersgränser och data</span>
+    <p>Vissa funktioner är 18+; kontrollera nationella regler för elev-användning. Avidentifiera dokument innan Apple Intelligence processar dem. Stäng av ChatGPT-integrationen på skolenheter som default — den skickar text till OpenAI och öppnar en helt annan integritetsfråga.</p>
+  </div>
+
+  <div class="closing">
+    <div class="msg">Vill du ha djup? Läs hela <em>Apple Intelligence-guiden</em> — eller ladda ner den 25-sidiga premium-PDF:en från samma sida.</div>
+    <div class="url">choosewise.education / sv / guider / apple-intelligence</div>
+  </div>
+
+  <div class="license-line">
+    <span><strong>Licensierad under CC BY-NC-SA 4.0</strong> — ange källa, icke-kommersiell, samma licens.</span>
+    <span>creativecommons.org/licenses/by-nc-sa/4.0/deed.sv</span>
+  </div>
+
+  <div class="page-footer">
+    <span>Apple Intelligence Quick Start — Johan Lindström</span>
+    <span class="brand">choosewise.education</span>
+    <span>Sida 02 / 02</span>
+  </div>
+</div>
+
+</body>
+</html>
