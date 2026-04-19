@@ -515,6 +515,73 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
   <div class="container">
     <span class="eyebrow">Bonus Chapter</span>
     <h2>For EU readers</h2>
+    <p class="lede">If you teach or lead a school in an EU member state, two regulations shape how you use Gemini and NotebookLM: the GDPR and the EU AI Act. This chapter is a practical primer — not legal advice.</p>
+
+    <h3>GDPR fundamentals for schools using AI</h3>
+    <p>Your school is the data controller; Google is the processor. Workspace for Education carries a Data Processing Addendum whose terms differ meaningfully from the consumer Gemini account a teacher might sign up for privately — which is why school-domain accounts matter.</p>
+    <p>For Swedish public schools, the lawful basis for processing student data is typically Article 6(1)(e) — public task — not consent. "We use AI in the school" is not a lawful basis, and parental consent is not the route. Special-category data (health information, SEN plans, safeguarding notes) requires an additional Article 9 condition before it goes anywhere near an AI tool.</p>
+    <p>Data minimisation is the everyday discipline. Do not upload what is not needed. De-identify everything where identification is not strictly required — pseudonymise student names to "Student A" rather than relying on a vague sense that the content has been anonymised.</p>
+    <p>Article 30 requires schools to maintain written Records of Processing Activities listing purposes, categories of personal data, recipients, international transfers, and retention periods. Adding routine Gemini or NotebookLM use to the classroom triggers a RoPA update — this is not optional.</p>
+    <p>Data residency is the one area where Google's product lineup diverges. NotebookLM Enterprise on Google Cloud supports EU-only at-rest residency. The Workspace for Education tier's residency commitment is not as clearly documented in public sources — verify in Google Workspace Admin and your current DPA before implementation.</p>
+    <p>IMY (Integritetsskyddsmyndigheten) is the Swedish supervisory authority. Joint guidance from IMY and Skolverket on school AI use is expected but not yet published as of April 2026.</p>
+    <p>The practical rule for teachers is blunt: use only the school-domain Workspace account for anything touching student data. Never put student-identifiable content into a consumer Gemini or NotebookLM account. If your school routinely uses Gemini or NotebookLM, your records of processing should reflect that.</p>
+
+    <h3>The EU AI Act — what it means for schools</h3>
+    <p>The EU AI Act entered into force on 1 August 2024 and phases in through 2026 and beyond. It classifies AI use by risk level and attaches obligations to each level. Education is explicitly in scope.</p>
+    <p>Two dates matter more than the others. On <strong>2 February 2025</strong>, the prohibited practices took effect and the AI literacy obligations in Article 4 began to apply to every organisation deploying AI — schools included. On <strong>2 August 2026</strong>, general applicability begins, transparency rules apply, and most high-risk obligations take effect.</p>
+    <p>Article 4 deserves to be stated plainly: schools that deploy AI must ensure their staff have sufficient AI literacy. This guide — and the professional development cadence described in Part 3 — is the practical route to Article 4 compliance. A staff development programme for AI is not a nice-to-have. It is a legal requirement.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 640px; margin: 0 auto;">
+        <!-- Minimal risk (bottom, green-ish) -->
+        <rect x="80" y="250" width="520" height="50" rx="6" fill="#D4E4D4" stroke="#8AAE8A" stroke-width="0.8"/>
+        <text x="110" y="282" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#1B2733">Minimal risk</text>
+        <text x="590" y="282" font-family="Inter, sans-serif" font-size="11" fill="#4A6B4A" text-anchor="end">default — no new obligations</text>
+
+        <!-- Limited risk (gold) -->
+        <rect x="80" y="185" width="520" height="50" rx="6" fill="#F5ECD0" stroke="#C69C3C" stroke-width="0.8"/>
+        <text x="110" y="217" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#1B2733">Limited risk</text>
+        <text x="590" y="217" font-family="Inter, sans-serif" font-size="11" fill="#A07D2E" text-anchor="end">transparency obligations — AI must be disclosed</text>
+
+        <!-- High risk (terracotta) -->
+        <rect x="80" y="120" width="520" height="50" rx="6" fill="#F5D8CC" stroke="#C66B3D" stroke-width="0.8"/>
+        <text x="110" y="152" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#1B2733">High risk</text>
+        <text x="590" y="152" font-family="Inter, sans-serif" font-size="11" fill="#A4482B" text-anchor="end">grading · admissions · behaviour assessment</text>
+
+        <!-- Prohibited (deep red) -->
+        <rect x="80" y="55" width="520" height="50" rx="6" fill="#8C2F1F" stroke="#5A1E13" stroke-width="0.8"/>
+        <text x="110" y="87" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#F6F3EE">Prohibited</text>
+        <text x="590" y="87" font-family="Inter, sans-serif" font-size="11" fill="#F6F3EE" text-anchor="end">social scoring · manipulation — cannot be used</text>
+
+        <!-- Axis label -->
+        <text x="40" y="80" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="2" fill="#6B7280" transform="rotate(-90, 40, 180)">RISK →</text>
+      </svg>
+      <p class="diagram__caption">The EU AI Act's four risk tiers. Most teacher uses of Gemini and NotebookLM sit in Minimal or Limited. High risk begins when AI affects access to education — grading, admissions, behaviour assessment.</p>
+    </div>
+
+    <h3>Mapping Gemini and NotebookLM uses to the risk tiers</h3>
+    <p><strong>Minimal risk.</strong> Generating differentiated texts, drafting parent emails, producing study guides from lesson materials, running Audio Overviews of unit sources, brainstorming lesson objectives, drafting staff briefings. Most teacher uses of Gemini and NotebookLM live here — standard data-protection discipline is enough.</p>
+    <p><strong>Limited risk.</strong> A NotebookLM "tutor" that students chat with must be clearly labelled as AI, and it cannot replace a teacher in a learning judgement. An AI-generated video used in instruction must be disclosed to students as AI-generated. Transparency is the operative word at this tier — the obligation is to ensure the human on the other end knows they are interacting with AI or looking at AI-generated content.</p>
+    <p><strong>High risk.</strong> Using Gemini to produce summative grades; ranking students for selective programmes; classifying student behaviour for administrative action; automated exam-scoring. These triggers carry formal pre-market obligations: risk assessment, dataset quality management, logging, documentation, mandatory human oversight. Google Classroom's "suggested feedback" feature is specifically designed to avoid this trigger — the teacher must approve the feedback before the student sees it, keeping the teacher as the decision-maker.</p>
+    <p><strong>Prohibited.</strong> Any use that scores students as people rather than on their work — social scoring — is banned outright. This is not a grey area.</p>
+
+    <h3>Your practical compliance checklist</h3>
+    <ol class="checklist">
+      <li>We have conducted or updated a DPIA (Data Protection Impact Assessment) covering our Gemini and NotebookLM use</li>
+      <li>We have confirmed the DPA covering Gemini and NotebookLM (consumer or Workspace for Education variant) is in force and current</li>
+      <li>We have verified data-residency terms for Workspace for Education with our Google admin</li>
+      <li>We have reviewed privacy and training settings for every account type our staff use</li>
+      <li>Our records of processing (Article 30) reflect routine AI use across our school</li>
+      <li>We have classified our intended uses against the EU AI Act risk tiers</li>
+      <li>We have engaged our DPO on any use that approaches the High-risk tier</li>
+      <li>We have a staff development cadence that supports our Article 4 AI literacy obligation</li>
+      <li>We have a safe channel for staff to raise concerns about AI use without consequence</li>
+    </ol>
+
+    <div class="callout callout--watch">
+      <span class="callout__label">Watch Out · A note from Johan</span>
+      <p>I am not a lawyer. This chapter gives you a starting point, not legal advice. Make sure the checklist harmonises with your own school's interpretation of the GDPR and the EU AI Act, and consult your Data Protection Officer or legal counsel for binding decisions. Regulation in this space is evolving — IMY and Skolverket are working on joint AI guidance as of April 2026. Build a review cycle into your school's calendar and treat AI compliance as an ongoing practice, not a one-time project.</p>
+    </div>
   </div>
 </section>
 
