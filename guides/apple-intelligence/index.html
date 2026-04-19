@@ -312,6 +312,50 @@
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════════════════ -->
+<!--                     PART 3                           -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="section section--surface" id="part-3">
+  <div class="section__inner">
+    <p class="part-label">Part 3</p>
+    <h2>The GDPR angle — in practice</h2>
+    <p class="part-lede">Why on-device processing matters under Swedish and EU data protection law, where Apple's privacy story holds up, and the one place it breaks.</p>
+
+    <h3 id="p3-stays">What stays on your device</h3>
+    <p>A meaningful share of Apple Intelligence runs without anything leaving the iPad or the Mac in front of you. <strong>Writing Tools</strong> operations on short text — proofreading, tone rewrites, a brief summary of a few hundred words — are handled by the on-device model. <strong>Mail categorisation</strong> and <strong>notification summaries</strong> are entirely on-device. Most everyday <strong>Siri</strong> requests stay local. <strong>Visual Intelligence</strong> performs basic recognition — text detection, common-object identification — without a round-trip to Apple's servers.</p>
+    <p>This matters under GDPR because the regulation defines <strong>processing</strong> very broadly — Article 4(2) covers almost any operation performed on personal data. But if personal data never leaves the controller's own systems (in practice, the teacher's iPad), the question of whether a third-party processor is involved narrows considerably. That does not exempt the operation from GDPR scrutiny, but it reduces the surface area of a Data Protection Impact Assessment (DPIA) in a way cloud-based AI services cannot.</p>
+    <p>That said, "on-device" is not magic. The iPad is a controller-owned device, but it still backs up to iCloud unless the backup is disabled, still syncs across other devices signed into the same Apple Account, and still participates in the broader Apple ecosystem. On-device processing reduces exposure. It does not eliminate it, and a school's policy should treat it as one mitigation among several rather than as a clean answer.</p>
+
+    <h3 id="p3-pcc-use">When Private Cloud Compute is used</h3>
+    <p>Some requests exceed the capacity of the on-device model. Rewriting multi-paragraph text, summarising a long document, generating an image with Image Wand, complex Visual Intelligence summarisation, and the more demanding Siri queries all invoke <strong>Private Cloud Compute (PCC)</strong>. Apple's own documentation — published at security.apple.com alongside a technical whitepaper on the PCC architecture — describes the path the data takes once the device decides to hand off.</p>
+    <p>Technically, the request is encrypted end-to-end to Apple's PCC servers. Those servers run a specific software image that Apple has published for independent audit, so researchers can verify that the code running in production matches the code Apple claims to run. The computation is performed, the response is returned, and — according to Apple's stated architecture — the request data is discarded once the response is delivered. There are no persistent server-side logs of request content, and Apple engineers have no privileged back door into live requests.</p>
+    <p>Honestly framed: <strong>PCC is still a data transfer to a processor.</strong> The architectural guarantees are stronger than a typical SaaS API call — most SaaS APIs log requests and could be inspected by engineering staff — but from a GDPR perspective it is processing by Apple, and it is a transfer to Apple's infrastructure (Apple operates PCC regions in Europe, but verify current regional availability with your procurement contact before relying on it in a DPIA). It should be referenced in the school's DPIA and lined up alongside the existing Apple Data Processing Addendum. One pragmatic sentence for your policy document: PCC is probably the strongest privacy architecture any major cloud-AI provider has deployed at scale — and it still isn't the same as nothing leaving the device.</p>
+
+    <h3 id="p3-chatgpt">The ChatGPT exception</h3>
+    <div class="warning-box">
+      <p class="warning-box__title">This is where the on-device promise breaks</p>
+      <p>The ChatGPT handoff is triggered when a user explicitly taps <strong>Ask ChatGPT</strong> — surfaced by Writing Tools, Visual Intelligence, or Siri when the request exceeds what Apple's own models will handle. iPadOS shows a confirmation dialog first, and nothing is forwarded without the user accepting it. That consent step is real, and it is a deliberate design choice by Apple. It is also the point where the privacy architecture of the rest of Apple Intelligence stops applying.</p>
+      <p>What actually happens once the user accepts: the specific text or image is sent to OpenAI. Apple anonymises the request at the network and account level — OpenAI does not see the Apple Account identity — but OpenAI receives the content itself. OpenAI's own logging, retention, and training policies then govern that content, not Apple's. The protections described in the PCC whitepaper do not carry over to this path.</p>
+      <p>The GDPR dimension is significant. OpenAI is a US-based processor, and transfers of EU personal data to US processors require specific legal mechanisms — Standard Contractual Clauses, adequacy considerations, and the ongoing Schrems II analysis of US surveillance law. An opt-in dialog on an iPad does not substitute for the school's own legal analysis. The practical recommendation is therefore blunt: <strong>disable the ChatGPT integration on school-issued iPads by default through Apple School Manager or your MDM</strong>, and train staff to recognise the "Ask ChatGPT" prompt and decline it for anything student-related. This is the single most important configuration decision for any school rolling out Apple Intelligence.</p>
+    </div>
+
+    <h3 id="p3-student-data">What this means for student data</h3>
+    <p>The working rule is simple: de-identify student data before any Apple Intelligence interaction, even when you believe the operation will run on-device. The distinction worth drawing is between <strong>teacher-work data</strong> — planning documents without student names, generalised parent emails, your own meeting notes — and <strong>student data</strong>, which includes names, grades, behavioural notes, SEN plans, safeguarding concerns, and anything that could identify a child or their family. Teacher-work data is generally fine to process on-device. Student data should be de-identified or kept out of Apple Intelligence entirely.</p>
+    <p>Four reasons on-device processing alone does not make student data safe. First, <strong>iCloud Backup</strong> may include the document you just processed, and from that point on the data's journey is governed by iCloud's terms rather than the on-device model's architecture. Second, classroom iPads and cover-teacher devices are often shared, so material one teacher processed may be visible to another. Third, accidental dictation pickup during a lesson can send snippets of student discussion into a transcript you did not intend to create. Fourth, the on-device model does learn usage patterns locally — not a data breach, but something to be aware of when the same device moves between teachers or across a role change.</p>
+    <p>A plain working heuristic for staff: if the document would be sensitive to send to a cloud service, apply the same discipline to Apple Intelligence interactions — even when you are told they run on-device. The habit is more reliable than a feature-by-feature mental model.</p>
+
+    <h3 id="p3-policy">Five policy decisions for your school</h3>
+    <ol class="policy-list">
+      <li><strong>Disable "Compose with ChatGPT" by default via MDM.</strong> On school-managed iPads and Macs, use Apple School Manager or your MDM provider to set the default for the ChatGPT Extension to off. Staff can be trained to enable it deliberately for specific personal-device use cases, but the default should never be on.</li>
+      <li><strong>Document Apple Intelligence in your school's DPIA.</strong> Most processing is on-device, but Private Cloud Compute constitutes a data transfer to Apple and should be referenced alongside your existing Apple Data Processing Addendum. Cite Apple's published PCC architecture — the security.apple.com documentation and the PCC whitepaper — as a risk-mitigation factor, not as a replacement for your own analysis.</li>
+      <li><strong>Produce a one-page staff guideline on what to paste.</strong> Teacher-work content is fine; student data should be de-identified or avoided. Include three worked examples of acceptable prompts and three of prompts to avoid, with names and specifics drawn from your own school context. Pin it to your shared staff wiki and reference it in onboarding.</li>
+      <li><strong>Make iCloud Backup settings an onboarding topic.</strong> Staff should understand that the iPad's iCloud Backup may include documents processed by Apple Intelligence. For personal devices that also handle school work, this is legitimately a matter of per-teacher judgement — but the default should be conscious, not accidental, and the school should offer a clear recommendation.</li>
+      <li><strong>Build in a termly review.</strong> Apple ships Apple Intelligence features monthly; EU feature availability shifts; ChatGPT integration mechanics may evolve. A thirty-minute calendar entry each term for the digital-lead to skim Apple's release notes and update the staff guideline is enough to stop the policy drifting out of date.</li>
+    </ol>
+
+  </div>
+</section>
+
 </div><!-- /.jl-page -->
 
 <div data-include="/assets/partials/footer-en.html"></div>
