@@ -132,7 +132,7 @@
 
     <div class="callout callout--watch">
       <span class="callout__label">Watch Out</span>
-      <p>Two age-gates matter for grundskolan and gymnasium. Gemini Live is 18+ only, and the premium Gemini-in-Workspace features inside Docs, Slides, Forms, and Vids are 18+ only. Hands-on student use below that age is therefore constrained — which happens to match Skolverket's August 2025 guidance that students may not use generative AI on their own during instruction. The teacher-as-primary-user framing in this guide reflects that reality. For privacy: inside Workspace for Education the data-protection defaults are stricter than consumer Gemini, but verify the current state in your Google Workspace Admin console and DPA before implementation.</p>
+      <p>Age-gates matter, especially in primary and lower-secondary schools. Gemini Live is 18+ only, and the premium Gemini-in-Workspace features inside Docs, Slides, Forms, and Vids are 18+ only. NotebookLM is available to users 13+ in a browser, with stricter content policies for users under 18. Hands-on student use below 18 is therefore constrained — and in several EU member states, national guidance goes further still (some require head-teacher approval, or prohibit independent student use of generative AI during instruction). The teacher-as-primary-user framing in this guide reflects those constraints. <strong>Verify your own country's current rules before you deploy any feature described in this guide</strong> — AI in education is evolving quickly and national rules differ significantly. For privacy: inside Workspace for Education the data-protection defaults are stricter than consumer Gemini, but verify the current state in your Google Workspace Admin console and DPA before implementation.</p>
     </div>
   </div>
 </section>
@@ -150,13 +150,13 @@
     <h3>Your Google account</h3>
     <p>Sign in at <em>gemini.google.com</em> and <em>notebooklm.google.com</em> with your Google account. The same account works for both — no separate sign-up, no extra password to forget. A personal Google account is perfectly fine for your early exploration. What it is not fine for is sensitive data: student names, grades, behaviour records, health information, SEN plans, safeguarding notes. None of that belongs in a consumer account. Part 4 and the EU bonus chapter explain the reasons properly; for now, treat the line as absolute.</p>
     <p>If your school runs Google Workspace for Education, the access path is different. Core Gemini AI inside Google Classroom — lesson planning, quiz generation, rubric drafting — is free to every Workspace for Education account (confirmed at BETT 2026). The premium Gemini-in-Workspace features inside Docs, Slides, Forms, and Vids require either the Education Plus or the Teaching &amp; Learning add-on and are restricted to users 18 and over. NotebookLM is free for Workspace for Education accounts too, and Education Plus / Teaching &amp; Learning customers now get the expanded Plus-tier limits at no additional cost. Part 4 covers the admin angle in full.</p>
-    <p>A practical note for teachers in grundskolan: for most of this guide, a free account is enough. Upgrade only when you hit a real limit mid-task — not before. Google changes features and limits monthly; for current limits and availability, check Google Workspace Admin and your Data Processing Agreement before implementation.</p>
+    <p>A practical note for most teachers: for most of this guide, a free account is enough. Upgrade only when you hit a real limit mid-task — not before. Google changes features and limits monthly; for current limits and availability, check Google Workspace Admin and your Data Processing Agreement before implementation.</p>
 
     <h3>Your first Gemini prompt — the RTF anatomy</h3>
     <p>Most prompts fail not because the model is weak, but because the prompt is vague. A useful prompt names three things: Role, Task, Format. Three letters: R, T, F.</p>
 
     <h4>R — Role</h4>
-    <p>Tell Gemini who to be. Specific beats generic, every time. "A primary teacher" is weaker than "an experienced Year 4 literacy teacher in a Swedish grundskola with a wide range of reading ages in the class". Why this matters: grounding the role makes every downstream choice better — vocabulary complexity, cultural references, examples, assumed prior knowledge. Gemini cannot read your mind, but it can adopt a stance if you describe one carefully. A sentence on the role is the single cheapest upgrade you can make to any prompt.</p>
+    <p>Tell Gemini who to be. Specific beats generic, every time. "A primary teacher" is weaker than "an experienced Year 4 literacy teacher in a state primary school with a wide range of reading ages in the class". Why this matters: grounding the role makes every downstream choice better — vocabulary complexity, cultural references, examples, assumed prior knowledge. Gemini cannot read your mind, but it can adopt a stance if you describe one carefully. A sentence on the role is the single cheapest upgrade you can make to any prompt.</p>
 
     <h4>T — Task</h4>
     <p>State exactly what you want done. Not "help me with a quiz" — that leaves too much to guess. Instead: "Create a ten-minute retrieval-practice quiz on the persuasive techniques covered in the past three lessons." Pack three things into the task sentence: a time frame, a scope boundary (which lessons, which topic, which year level), and the learning intention. The more the task sentence resembles a line you would write to a colleague covering your class, the better it performs.</p>
@@ -204,7 +204,7 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
     <h3>Source-first thinking — how NotebookLM is different</h3>
     <p>NotebookLM flips Gemini's approach on its head. Instead of starting with your intent and asking Gemini to generate from its general knowledge of the world, you start with sources — documents, links, videos, notes you have chosen yourself — and ask NotebookLM to synthesise from them. Three things fall out of that one design choice, and each one matters for a classroom.</p>
     <p>First, citations. Every answer NotebookLM produces points back to the exact source passage it came from — click the citation, land on the line. Second, hallucination control. Because NotebookLM answers only from what you have uploaded, it cannot invent facts from elsewhere; the worst it can do is misread your own material, which you can immediately check against the source. Third, and most important for a teacher: your curriculum, not "a curriculum". Working on your own documents means the answers reflect your school's actual materials, assessment style, and language — not a generic version pulled from wherever the training data landed.</p>
-    <p>A practical example. Upload your kursplan in samhällskunskap, two lektionsplaneringar, and the bedömningsmatris you use for the unit. Ask: "What learning progressions are implied across these documents, and where do my assessment criteria misalign with the unit plan?" You get a grounded, citable answer in two minutes — the kind of analysis that would have taken an afternoon by hand.</p>
+    <p>A practical example. Upload your civics curriculum, two of your lesson plans, and the assessment rubric you use for the unit. Ask: "What learning progressions are implied across these documents, and where do my assessment criteria misalign with the unit plan?" You get a grounded, citable answer in two minutes — the kind of analysis that would have taken an afternoon by hand.</p>
     <p>Matt Miller (Ditch That Textbook, January 2026) puts it neatly: NotebookLM is <em>"a personal tutor that only knows what you teach"</em>. Most of what teachers actually need sits between the two tools — Gemini for generation, NotebookLM for grounding — and since April 2026 both are accessible from the same interface.</p>
 
     <h3>Five quick wins for this week</h3>
@@ -223,7 +223,7 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
 
     <h4>4 · Summarise a long policy document as a mind map (NotebookLM)</h4>
     <p>Upload the PDF. Click "Mind Map". NotebookLM analyses the document and produces a visual, structured map of the key concepts and how they relate, with citations back to the source. Share it with your team. Why teachers care: policy documents are long and few people actually read them properly; a mind map with source citations is a faster way to align your department on what the document actually says.</p>
-    <p><strong>Extra example:</strong> when Skolverket or your huvudman issues an updated assessment policy, upload both the new and the previous version. Ask for a side-by-side of what has changed. You now have a comparison your colleagues do not.</p>
+    <p><strong>Extra example:</strong> when your national education authority or school district issues an updated assessment policy, upload both the new and the previous version. Ask for a side-by-side of what has changed. You now have a comparison your colleagues do not.</p>
 
     <h4>5 · Draft a parent email in three tones (Gemini)</h4>
     <p>You know what you want to say. Writing it well, professionally, and without falling into the six awkward sentences you have used before is what takes time. Give Gemini the context — what happened, what you want the parent to know, what tone you want to strike — and ask for three versions (firmer, warmer, neutral). The three versions give you calibration before you commit to the one you will send. Edit. Send.</p>
@@ -273,14 +273,14 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
     <h4>The instructions that make the difference</h4>
     <p>Under the Gem's settings, write a short instruction set that describes who the Gem is for you. Narrow the scope; name the register; state the hard rules. Something like:</p>
     <div class="card" style="font-style: italic; color: var(--color-text-light);">
-      <p>"You are an experienced Year 8 English teacher in a mixed-ability Swedish grundskola. Outputs should be classroom-ready, follow the uploaded style guide, and never produce more than I asked for. If a task involves student data, ask me to confirm the data has been de-identified before proceeding. Use British English spelling."</p>
+      <p>"You are an experienced Year 8 English teacher in a mixed-ability state school. Outputs should be classroom-ready, follow the uploaded style guide, and never produce more than I asked for. If a task involves student data, ask me to confirm the data has been de-identified before proceeding. Use British English spelling."</p>
     </div>
 
     <p>A word on reliability. Gems do not always stick rigidly to their knowledge base — if your instructions are vague, the Gem drifts. A narrow scope and a clear purpose are the antidote. Alice Keeler, writing about why she loves the concept of Gems, frames it plainly: a generic AI tool cannot understand the nuances of your classroom or the principles of effective pedagogy. A Gem is the antidote to "generic AI that understands nothing about your classroom" — but only if you actually tell it what the nuances are.</p>
 
     <p>A practical rule: if you find yourself explaining the same pattern to Gemini more than three times, it is time to make it a Gem. The three-repetitions rule is a remarkably reliable signal. Meeting brief for the same department every fortnight? Gem. Differentiated reading passage at three levels for your current unit? Gem. Parent-communication draft in your school's voice? Gem.</p>
 
-    <p>You do not have to build every Gem from scratch. Eric Curts, a long-time Google Certified Trainer, maintains edugems.ai — a free library of roughly 200 ready-to-use Gems for educators, growing by around eighteen a month. Use them as templates; rewrite to match your Swedish classroom context before you trust them in production. And inside Classroom specifically, Google now ships four template Gems — Study partner, Quiz me, Brainstorm partner, Real-world connector — which are worth looking at even if you end up replacing them with your own.</p>
+    <p>You do not have to build every Gem from scratch. Eric Curts, a long-time Google Certified Trainer, maintains edugems.ai — a free library of roughly 200 ready-to-use Gems for educators, growing by around eighteen a month. Use them as templates; rewrite to match your own classroom context before you trust them in production. And inside Classroom specifically, Google now ships four template Gems — Study partner, Quiz me, Brainstorm partner, Real-world connector — which are worth looking at even if you end up replacing them with your own.</p>
 
     <div class="callout callout--watch">
       <span class="callout__label">Watch Out · Think before you share</span>
@@ -316,7 +316,7 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
     <h3>Nano Banana 2 — image generation inside Gemini</h3>
     <p>Nano Banana 2 is Google's image model inside Gemini. Released 26 February 2026 (also known as Gemini 3.1 Flash Image), it replaces Nano Banana Pro as the default image generator in the Gemini app. Capabilities worth knowing: web-grounded rendering of specific subjects, genuinely precise text rendering (which makes it good for posters, headings, and translation tasks — the places where earlier image models produced gibberish), subject consistency across up to five subjects or fourteen objects in the same scene, and output resolutions from 512 pixels up to 4K.</p>
 
-    <p>For teachers the classroom uses are quietly practical. Diagrams for concepts students struggle with — water cycle variants, circulatory system close-ups, historical map overlays, abstract mathematical relationships visualised. Illustrations for reading passages where stock imagery simply does not exist — a Viking longhouse interior, a specific Swedish industrial-era workshop, a scene from a text your class is studying that has never been illustrated. Cover images for Google Slides decks, so the deck announces the lesson before a word is spoken. Visual examples for art and design prompts, generated fast enough to iterate during the lesson.</p>
+    <p>For teachers the classroom uses are quietly practical. Diagrams for concepts students struggle with — water cycle variants, circulatory system close-ups, historical map overlays, abstract mathematical relationships visualised. Illustrations for reading passages where stock imagery simply does not exist — a Viking longhouse interior, an industrial-era workshop, a scene from a text your class is studying that has never been illustrated. Cover images for Google Slides decks, so the deck announces the lesson before a word is spoken. Visual examples for art and design prompts, generated fast enough to iterate during the lesson.</p>
 
     <p>Style controls matter more than most teachers realise. "In the style of a vintage children's book", "a clean line drawing in ink", "a technical engineering diagram", "a watercolour illustration in muted tones" — the style tag is where a generic image turns into a classroom-ready one. Johan's 140 NotebookLM styles are about <em>text</em> styles (see the Styles Library further down this guide); Nano Banana 2 is the visual equivalent, and the two combine well when you are building a polished handout or slide deck.</p>
 
@@ -326,7 +326,7 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
     <p>NotebookLM's Studio is the set of one-click tools that transform your uploaded sources into different artefact formats. The notebook stays the same; the output changes. Five of them deserve attention, because each one turns the same material into a different kind of classroom-ready resource — and most teachers I work with use only one of them before discovering the others.</p>
 
     <h4>Audio Overviews</h4>
-    <p>A podcast-style dialogue between two AI hosts summarising your sources. Four formats are now available — the default Deep Dive, plus Brief, Critique, and Debate (added September 2025). An interactive mode (still in beta) lets learners break in mid-podcast and ask the hosts questions in real time. Excellent for EAL students who listen before reading, for absent-student catch-up, and for your own commute review of a unit you are about to teach. The Swedish voices work well as of April 2026. The anchor example worth knowing: Viktor Säfström and David Folkebrant, two SO-teachers at Fristadsskolan in Eskilstuna, generate 1–2 minute audio clips per concept, regenerate them in Arabic and Amharic for newly-arrived students on request, and share them through Google Classroom. Their workflow is published on Pedagog Eskilstuna.</p>
+    <p>A podcast-style dialogue between two AI hosts summarising your sources. Four formats are now available — the default Deep Dive, plus Brief, Critique, and Debate (added September 2025). An interactive mode (still in beta) lets learners break in mid-podcast and ask the hosts questions in real time. Excellent for EAL students who listen before reading, for absent-student catch-up, and for your own commute review of a unit you are about to teach. Output in languages beyond English — including Swedish and other EU languages — works well as of April 2026, though quality varies by language; generate a test clip before relying on it for a whole unit. The anchor example worth knowing: Viktor Säfström and David Folkebrant, two social-studies teachers at Fristadsskolan in Eskilstuna, Sweden, generate 1–2 minute audio clips per concept, regenerate them in Arabic and Amharic for newly-arrived students on request, and share them through Google Classroom. Their workflow is published on Pedagog Eskilstuna.</p>
 
     <h4>Video Overviews</h4>
     <p>Narrated slide-based video summaries built from your sources. The newer Cinematic Video Overview format is markedly higher production value — good for flipped-classroom intro videos the evening before a lesson. One thing to know: Video Overviews live inside NotebookLM but are not available from the Gemini-side interface even though Notebooks now sync across. To generate one, switch to the NotebookLM view of your workspace.</p>
@@ -359,13 +359,13 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
     <p>Upload eight to ten de-identified responses to the same task into a fresh notebook. Ask NotebookLM to identify the three recurring strengths, the three recurring misconceptions, and the single highest-leverage thing to teach next. What comes back is usually what you would have concluded yourself — faster, with the comfort of a second set of eyes, and with passages cited back to the exact student work so you can see why NotebookLM landed where it did. The citations are what make this trustworthy.</p>
 
     <h4>3 · Differentiated instruction generator (Gemini Gem, trigger pattern)</h4>
-    <p>Any teaching resource — a reading passage, a worksheet, a set of instructions — can be differentiated in three directions: simplified for readers two years below the group, extended for readers two years above, and an EAL vocabulary scaffold for newly-arrived students. Set this up once inside your <em>differentiate-three-levels</em> Gem. From then on, paste a text, say "differentiate this", and get three versions with shared bolded key vocabulary and a small glossary. Works in Swedish for nyanlända too.</p>
+    <p>Any teaching resource — a reading passage, a worksheet, a set of instructions — can be differentiated in three directions: simplified for readers two years below the group, extended for readers two years above, and an EAL vocabulary scaffold for newly-arrived students. Set this up once inside your <em>differentiate-three-levels</em> Gem. From then on, paste a text, say "differentiate this", and get three versions with shared bolded key vocabulary and a small glossary. Works in the language of instruction as well as in the home languages of any newly-arrived students in your class.</p>
 
     <h4>4 · For school leaders — staff meeting preparation (NotebookLM Briefing Doc)</h4>
     <p>Upload the agenda, the pre-reads, and recent meeting minutes into a notebook. Generate a Briefing Doc. You get a one-page meeting brief with the decisions to be made, time allocations per item, questions to anticipate from staff, and suggested follow-up actions. Share the Briefing Doc with attendees in advance, so the meeting itself is about deciding rather than reading. This single workflow probably returns more time per week than any of the others.</p>
 
     <h4>5 · For school leaders — policy drafting (Gemini Gem with policy templates)</h4>
-    <p>Your <em>policy-drafter</em> Gem contains your school's policy templates and the constraints that matter — the Swedish legal framework, your huvudman's directives, relevant Skolverket guidance. You describe the new policy's purpose, its stakeholders, and its boundaries. Gemini produces a first draft in your school's voice. You edit, iterate, and circulate. A first draft is always a starting point for human judgement; it is never final, and for Swedish public-school policies, run the draft past your DPO before any internal circulation. The Gem accelerates the work; the professional responsibility stays where it belongs.</p>
+    <p>Your <em>policy-drafter</em> Gem contains your school's policy templates and the constraints that matter — your national legal framework, your district's or authority's directives, and any current national education-ministry guidance. You describe the new policy's purpose, its stakeholders, and its boundaries. Gemini produces a first draft in your school's voice. You edit, iterate, and circulate. A first draft is always a starting point for human judgement; it is never final, and for public-school policies, run the draft past your DPO before any internal circulation. The Gem accelerates the work; the professional responsibility stays where it belongs.</p>
 
     <div class="callout callout--johan">
       <span class="callout__label">Johan's Note</span>
@@ -393,12 +393,12 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
     <span class="eyebrow">Part 3</span>
     <h2>Scale &amp; Lead</h2>
     <img src="assets/part-3-opener.jpg" class="part-opener-image" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;&quot;&gt;Part 3 opener image · drop part-3-opener.jpg into guides/gemini-notebooklm/assets/&lt;/div&gt;';">
-    <p class="lede">Part 3 is for educators who want to do more than save personal time. It is for those building a system — for their classroom, their team, their school. The patterns here change what a single educator can take on, and start to answer what a Swedish school's Article 4 AI literacy obligation actually looks like in practice.</p>
+    <p class="lede">Part 3 is for educators who want to do more than save personal time. It is for those building a system — for their classroom, their team, their school. The patterns here change what a single educator can take on, and start to answer what a school's Article 4 AI literacy obligation actually looks like in practice.</p>
 
     <h3>Shared Notebooks for departments</h3>
-    <p>Personal Notebooks serve one teacher. A shared Notebook serves a department — and compounds every time a colleague adds to it. The pattern is simple: a subject team creates one Notebook per unit and uploads the curriculum (kursplan), exemplar student work (de-identified), the department's rubric, and past unit plans. Every teacher in the team queries the same grounded source-of-truth. New teachers get onboarded instantly.</p>
+    <p>Personal Notebooks serve one teacher. A shared Notebook serves a department — and compounds every time a colleague adds to it. The pattern is simple: a subject team creates one Notebook per unit and uploads the curriculum, exemplar student work (de-identified), the department's rubric, and past unit plans. Every teacher in the team queries the same grounded source-of-truth. New teachers get onboarded instantly.</p>
 
-    <p>Take the Year 10 maths team. They create a notebook called <em>y10-algebra-unit</em> and populate it with the unit plan, three past years of exam papers (de-identified), and the department's shared rubric. A teacher joining mid-year generates a Briefing Doc in 30 seconds and walks into their first lesson understanding how the department teaches this unit — not what one colleague happened to remember to mention. The Säfström and Folkebrant workflow at Fristadsskolan in Eskilstuna (published on Pedagog Eskilstuna in February 2026) extends this further into shared audio content: 1–2 minute Audio Overviews per concept, regenerated in Swedish, Arabic, and Amharic on student request, and shared via Google Classroom.</p>
+    <p>Take the Year 10 maths team. They create a notebook called <em>y10-algebra-unit</em> and populate it with the unit plan, three past years of exam papers (de-identified), and the department's shared rubric. A teacher joining mid-year generates a Briefing Doc in 30 seconds and walks into their first lesson understanding how the department teaches this unit — not what one colleague happened to remember to mention. The Säfström and Folkebrant workflow at Fristadsskolan in Eskilstuna, Sweden (published on Pedagog Eskilstuna in February 2026) extends this further into shared audio content: 1–2 minute Audio Overviews per concept, regenerated in the language of instruction and in the home languages of newly-arrived students on request, and shared via Google Classroom.</p>
 
     <p>Why this compounds. A shared Notebook improves as the department adds material. The third teacher who joins gets a better resource than the first. The cost of a new teacher catching up drops from weeks of shadowing and scattered handover conversations to minutes of grounded Q&amp;A against material the department has already written down. For departments that lose a teacher mid-year — which happens in every school — the shared Notebook is institutional memory the school did not previously have.</p>
 
@@ -411,7 +411,7 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
 
     <p>Another: a <em>quiz-generator-our-rubric</em> Gem produces quizzes matched to the department's assessment rubric and question style. Shared across a year group, every class gets quizzes with the same cognitive demand. No more the parallel class receiving markedly easier or harder items because the teacher wrote them in a rush.</p>
 
-    <p>You do not have to build every Gem from scratch. Eric Curts's <em>edugems.ai</em> hosts around 200 free education Gems and is worth mining as a starting point — rewrite for your Swedish context before you rely on them. And inside Classroom specifically, Google now ships four template Gems (Study partner, Quiz me, Brainstorm partner, Real-world connector) that a brand-new department can pilot immediately while it works out its own.</p>
+    <p>You do not have to build every Gem from scratch. Eric Curts's <em>edugems.ai</em> hosts around 200 free education Gems and is worth mining as a starting point — rewrite for your own context before you rely on them. And inside Classroom specifically, Google now ships four template Gems (Study partner, Quiz me, Brainstorm partner, Real-world connector) that a brand-new department can pilot immediately while it works out its own.</p>
 
     <h3>Professional development pathways — supporting Article 4</h3>
     <p>Article 4 of the AI Act, in force since 2 February 2025, requires every organisation that deploys AI — schools included — to ensure its staff have sufficient AI literacy to use these tools responsibly. This is not a future obligation; it is a present one. And it does not have to be painful. Your staff development programme <em>is</em> your Article 4 compliance. A consistent, low-key rhythm over a term does more, legally and pedagogically, than a one-off compliance workshop. Here is a three-month pathway that works.</p>
@@ -451,7 +451,7 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
     <span class="eyebrow">Part 4</span>
     <h2>Google Workspace for Education</h2>
     <img src="assets/part-4-opener.jpg" class="part-opener-image" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;&quot;&gt;Part 4 opener image · drop part-4-opener.jpg into guides/gemini-notebooklm/assets/&lt;/div&gt;';">
-    <p class="lede">Many Swedish schools run Google Workspace for Education. Inside Workspace, AI features are gated and governed differently from consumer Gemini — admin controls, data residency, age gates, and the free core Gemini AI in Classroom all change the picture. This part covers what teachers need to know (briefly) and what school leaders need to decide (at length).</p>
+    <p class="lede">Many schools run Google Workspace for Education. Inside Workspace, AI features are gated and governed differently from consumer Gemini — admin controls, data residency, age gates, and the free core Gemini AI in Classroom all change the picture. This part covers what teachers need to know (briefly) and what school leaders need to decide (at length).</p>
 
     <h3>For teachers — what's different inside Workspace</h3>
     <p>A short orientation before the leadership section. The headline is that your school's admin, not Google, decides what you see and what you can do. Keep these points in mind:</p>
@@ -471,22 +471,24 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
     <h4>The Gemini for Education license</h4>
     <p>Two relevant licensing paths exist as of 2026: Education Plus (per-user paid add-on) and the Teaching &amp; Learning add-on (per-licensed-educator add-on). Premium Gemini-in-Workspace features — Docs, Slides, Forms, Vids — launched in February 2026 to these two license types at no additional cost for license holders. Core Gemini AI in Classroom is free to all Workspace for Education accounts. How to choose: if your school uses Docs, Slides, Forms, and Vids heavily as the production environment where teachers actually make their materials, the add-ons pay for themselves quickly. If you primarily work in Gmail and Drive, wait until Google brings premium features to those apps. Verify current pricing and feature set in the Google Workspace Admin console before implementation.</p>
 
-    <h4>Data residency, GDPR, and the Swedish context</h4>
-    <p>For Swedish schools, where data is processed matters. NotebookLM Enterprise (on Google Cloud) supports EU-only data residency; the Workspace for Education version's residency commitment is not as clearly documented in public materials and needs to be confirmed via your school's Data Processing Agreement. Verify in Google Workspace Admin and your DPA before implementation.</p>
+    <h4>Data residency, GDPR, and national context</h4>
+    <p>For schools inside the EU, where data is processed matters. NotebookLM Enterprise (on Google Cloud) supports EU-only data residency; the Workspace for Education version's residency commitment is not as clearly documented in public materials and needs to be confirmed via your school's Data Processing Agreement. Verify in Google Workspace Admin and your DPA before implementation.</p>
 
-    <p>Standard GDPR discipline applies: the school is data controller, Google is processor, and the DPA governs the relationship. Swedish public schools typically use Article 6(1)(e) (public task) as lawful basis, with Article 9 conditions where special-category data (health, SEN, safeguarding) is involved. When AI becomes routine in your school, update your Article 30 records of processing to reflect the new tools, the categories of data processed, retention, and international transfers.</p>
+    <p>Standard GDPR discipline applies for EU schools: the school is data controller, Google is processor, and the DPA governs the relationship. Public schools in many EU member states use Article 6(1)(e) (public task) as lawful basis, with Article 9 conditions where special-category data (health, SEN, safeguarding) is involved — check the specific guidance from your national data protection authority. When AI becomes routine in your school, update your Article 30 records of processing to reflect the new tools, the categories of data processed, retention, and international transfers.</p>
 
-    <p>IMY (Integritetsskyddsmyndigheten) is your supervisory authority. Expected joint guidance from IMY and Skolverket on AI in schools is a moving target — consult their current positions before making school-wide commitments, and do not assume today's absence of detailed national guidance relieves you of the underlying GDPR and Article 4 obligations.</p>
+    <p><strong>Readers outside the EU</strong> should verify the privacy framework that applies in your jurisdiction (GDPR-equivalent laws in the UK, Switzerland, and several non-EU European states; FERPA and state laws in the US; APPI in Japan; and so on). The principles below — minimisation, de-identification, lawful basis, transparency — are common to most jurisdictions; the specific mechanisms and authorities vary.</p>
+
+    <p><strong>National supervisory authorities.</strong> Every EU member state has one, and you should know yours by name — your country's data protection authority is who enforces GDPR for schools locally and publishes practical guidance. National AI-in-schools guidance varies widely: some countries (UK, France, Germany, the Netherlands) have published detailed guidance; others (Sweden is a notable example, as of April 2026) have not yet, which makes the EU AI Act the dominant framework for your school until that changes. Consult your national authority's current positions before making school-wide commitments, and do not assume today's absence of detailed national guidance relieves you of the underlying GDPR and Article 4 obligations.</p>
 
     <h4>Admin controls and student access</h4>
     <p>Gemini in Workspace is toggled at the domain, OU, or group level. Granular per-app toggles (for example, allow Gemini in Docs but not in Slides) are rolling out through 2026 — verify the current state with your admin. NotebookLM access is similarly admin-gated.</p>
 
-    <p>Student access is a separate decision. Teen Gemini (13+) can be enabled as an additional service with "added data protection"; premium Gemini-in-Workspace features inside Docs, Slides, Forms, and Vids stay 18+. Skolverket's guidance of 11 August 2025 is the operative rule for Swedish schools — students may not use generative AI on their own during instruction, rektor approval is required for any deployment, and teacher oversight is mandatory. Your admin controls are simply the implementation layer of that policy.</p>
+    <p>Student access is a separate decision. Teen Gemini (13+) can be enabled as an additional service with "added data protection"; premium Gemini-in-Workspace features inside Docs, Slides, Forms, and Vids stay 18+. National guidance on student AI use varies: some countries require head-teacher approval before deployment, some prohibit independent student use of generative AI during instruction, and some leave the decision to individual schools. <strong>Verify the operative rule in your country</strong> before enabling student-facing features. Your admin controls are simply the implementation layer of that policy — they do not substitute for knowing what the policy is.</p>
 
     <h4>Google Classroom AI features</h4>
     <p>Free with all Workspace for Education accounts. Teacher-side features include lesson planning first drafts, quiz generation (exportable to Google Forms), rubric generation, suggested feedback on written assignments (teacher must approve before the student sees it — an intentional design choice that keeps the teacher as decision-maker and avoids triggering the EU AI Act's high-risk grading category), video suggestions, brainstorming starters, real-world examples, and audio lessons. Student-facing features rolling out through 2026 include NotebookLM in Classroom, Gems in Classroom (shared templates), and Read Along enhancements. Admin analytics include a redesigned homepage dashboard, insights showing student interaction with Gems and NotebookLM, and direct audio/video recording.</p>
 
-    <p>One gap worth naming. As of BETT 2026, the "learning standards tagging" feature in Classroom supports the UK, Australia, Canada, Japan, Brazil, Mexico, and Italy — Sweden is not on the list. Swedish teachers will need to map Classroom assignments to Lgr22 and Gy25 manually until that changes.</p>
+    <p>One gap worth naming. As of BETT 2026, the "learning standards tagging" feature in Classroom supports the UK, Australia, Canada, Japan, Brazil, Mexico, and Italy. Other countries (including Sweden and most of Europe) are not on the list. Teachers in unsupported countries will need to map Classroom assignments to their national curriculum frameworks manually until that changes.</p>
 
     <h4>A phased rollout that works</h4>
     <p>Do not run a school-wide training session before teachers have actually used the tools. Start with a volunteer cohort of 5–10 staff. Let them build Gems and Notebooks for their own subjects for a month. They become your internal experts. Month 2: let them run short, informal demos for their departments. Month 3: write the school's AI usage policy from what the cohort has learned — not from a template pulled off the internet. This approach compounds your Article 4 obligation into organic staff development, rather than turning it into a compliance tick-box exercise that leaves nobody any more capable than before.</p>
@@ -519,17 +521,18 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
 
     <h3>GDPR fundamentals for schools using AI</h3>
     <p>Your school is the data controller; Google is the processor. Workspace for Education carries a Data Processing Addendum whose terms differ meaningfully from the consumer Gemini account a teacher might sign up for privately — which is why school-domain accounts matter.</p>
-    <p>For Swedish public schools, the lawful basis for processing student data is typically Article 6(1)(e) — public task — not consent. "We use AI in the school" is not a lawful basis, and parental consent is not the route. Special-category data (health information, SEN plans, safeguarding notes) requires an additional Article 9 condition before it goes anywhere near an AI tool.</p>
+    <p>For public schools in most EU member states, the lawful basis for processing student data is typically Article 6(1)(e) — public task — not consent. "We use AI in the school" is not a lawful basis, and parental consent is not the route. Special-category data (health information, SEN plans, safeguarding notes) requires an additional Article 9 condition before it goes anywhere near an AI tool. Check with your national data protection authority if the precise application in your country is unclear.</p>
     <p>Data minimisation is the everyday discipline. Do not upload what is not needed. De-identify everything where identification is not strictly required — pseudonymise student names to "Student A" rather than relying on a vague sense that the content has been anonymised.</p>
     <p>Article 30 requires schools to maintain written Records of Processing Activities listing purposes, categories of personal data, recipients, international transfers, and retention periods. Adding routine Gemini or NotebookLM use to the classroom triggers a RoPA update — this is not optional.</p>
     <p>Data residency is the one area where Google's product lineup diverges. NotebookLM Enterprise on Google Cloud supports EU-only at-rest residency. The Workspace for Education tier's residency commitment is not as clearly documented in public sources — verify in Google Workspace Admin and your current DPA before implementation.</p>
-    <p>IMY (Integritetsskyddsmyndigheten) is the Swedish supervisory authority. Joint guidance from IMY and Skolverket on school AI use is expected but not yet published as of April 2026.</p>
+    <p>Your country's national data protection authority is the supervisory body you need to know by name. National positions on school AI use differ: some authorities (including in France, Germany, and the Netherlands) have published practical guidance for schools; others (Sweden is a notable example, as of April 2026) are still working on joint guidance with their national education agency. Consult your own authority's current position before school-wide commitments.</p>
     <p>The practical rule for teachers is blunt: use only the school-domain Workspace account for anything touching student data. Never put student-identifiable content into a consumer Gemini or NotebookLM account. If your school routinely uses Gemini or NotebookLM, your records of processing should reflect that.</p>
 
     <h3>The EU AI Act — what it means for schools</h3>
     <p>The EU AI Act entered into force on 1 August 2024 and phases in through 2026 and beyond. It classifies AI use by risk level and attaches obligations to each level. Education is explicitly in scope.</p>
     <p>Two dates matter more than the others. On <strong>2 February 2025</strong>, the prohibited practices took effect and the AI literacy obligations in Article 4 began to apply to every organisation deploying AI — schools included. On <strong>2 August 2026</strong>, general applicability begins, transparency rules apply, and most high-risk obligations take effect.</p>
     <p>Article 4 deserves to be stated plainly: schools that deploy AI must ensure their staff have sufficient AI literacy. This guide — and the professional development cadence described in Part 3 — is the practical route to Article 4 compliance. A staff development programme for AI is not a nice-to-have. It is a legal requirement.</p>
+    <p>Why the EU AI Act matters more in some countries than others. Several EU member states have published detailed national AI-in-schools guidance that goes beyond the Act's baseline; others have not. Sweden, as of April 2026, is among the countries that have <em>not</em> yet issued detailed national guidance — which makes the EU AI Act the dominant framework for Swedish schools until that changes. If you teach or lead in a country without national guidance, the Act itself is what you have to work from. If your country has published national guidance, the Act is the floor, not the ceiling — your national rules may go further.</p>
 
     <div class="diagram">
       <svg viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 640px; margin: 0 auto;">
@@ -580,7 +583,7 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
 
     <div class="callout callout--watch">
       <span class="callout__label">Watch Out · A note from Johan</span>
-      <p>I am not a lawyer. This chapter gives you a starting point, not legal advice. Make sure the checklist harmonises with your own school's interpretation of the GDPR and the EU AI Act, and consult your Data Protection Officer or legal counsel for binding decisions. Regulation in this space is evolving — IMY and Skolverket are working on joint AI guidance as of April 2026. Build a review cycle into your school's calendar and treat AI compliance as an ongoing practice, not a one-time project.</p>
+      <p>I am not a lawyer. This chapter gives you a starting point, not legal advice. Make sure the checklist harmonises with your own school's interpretation of the GDPR and the EU AI Act, and consult your Data Protection Officer or legal counsel for binding decisions. <strong>Readers outside the EU</strong> should verify the data-protection and AI-governance frameworks that apply in their own country — the principles transfer, the specific obligations do not. Regulation in this space is evolving everywhere. Build a review cycle into your school's calendar and treat AI compliance as an ongoing practice, not a one-time project.</p>
     </div>
   </div>
 </section>
@@ -685,7 +688,7 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
     <div class="prompt-card">
       <div class="prompt-card__title">1 · RTF starter — first usable prompt<span class="prompt-card__toggle">+</span></div>
       <div class="prompt-card__body">
-        <pre class="prompt-card__text">Act as [role — e.g. an experienced Year 6 Science teacher in a mixed-ability Swedish grundskola].
+        <pre class="prompt-card__text">Act as [role — e.g. an experienced Year 6 Science teacher in a mixed-ability state school].
 
 Task: [what you need — e.g. draft a 250-word explanation of the water cycle for a mixed-ability class. Include the four stages and one real-world example for each.]
 
@@ -757,14 +760,14 @@ Each version: under 150 words, plain language, British English, sign-off "With b
     <div class="prompt-card">
       <div class="prompt-card__title">5 · Summarise a long document — "what actually affects me?"<span class="prompt-card__toggle">+</span></div>
       <div class="prompt-card__body">
-        <pre class="prompt-card__text">I have uploaded a [policy document / curriculum document / Skolverket guidance / research paper].
+        <pre class="prompt-card__text">I have uploaded a [policy document / curriculum document / national ministry guidance / research paper].
 
 Give me:
 1. A one-paragraph summary (what is this document, what does it want?)
 2. The three things that affect me directly as a [role]
 3. Any deadlines or dates mentioned
 4. Any contradictions with [another source / my current practice / the previous version] I should flag
-5. Two questions I should ask my rektor before acting on this
+5. Two questions I should ask my head teacher before acting on this
 
 Format: numbered sections, bullet points where useful. Keep it under 500 words total.</pre>
         <button class="prompt-card__copy" data-copy>Copy</button>
@@ -815,7 +818,7 @@ Sources to prioritise: [peer-reviewed research / official guidance / practitione
 Include:
 1. One-paragraph executive summary
 2. What the research actually says (not what practitioners say about the research)
-3. Practical implications for a Swedish grundskola/gymnasium
+3. Practical implications for a state primary/secondary school
 4. Three specific questions still open in the literature
 5. Citations inline
 
@@ -897,9 +900,9 @@ Format: four numbered sections, under 400 words total.
         <pre class="prompt-card__text">Draft a one-page school policy on [topic — e.g. "Student use of AI tools in classwork" or "Teacher use of Gemini for lesson planning"].
 
 Context:
-- School type: [grundskola / gymnasium / friskola / kommunal]
-- Huvudman: [name]
-- Relevant legal framework: GDPR, EU AI Act, Skollagen
+- School type: [primary / secondary / independent / public — specify country]
+- Governing authority / school district / trust: [name]
+- Relevant legal framework: [e.g. GDPR + EU AI Act + your national school-governance law]
 - Stakeholders affected: [teachers / students / parents / leadership]
 - Existing related policies: [list any]
 
@@ -910,7 +913,7 @@ Include:
 4. Responsibilities (who enforces, who reports concerns)
 5. Review cadence
 
-Keep it under 600 words, plain Swedish-school tone, no legalese beyond what is strictly required.</pre>
+Keep it under 600 words, plain school-facing tone, no legalese beyond what is strictly required.</pre>
         <button class="prompt-card__copy" data-copy>Copy</button>
       </div>
     </div>
@@ -973,7 +976,7 @@ Keep it warm — this is a welcome, not a manual. Under 500 words.</pre>
       <div class="prompt-card__body">
         <pre class="prompt-card__text">Draft a first-response communication for parents regarding [incident]. Assume (1) the school's priority is student safety, (2) transparency is essential, and (3) we do not yet have all the facts.
 
-Format: one email. Clear, calm, factual. Avoid speculation. State what we know, what we are doing, and when parents will hear more. No legalistic language. Sign off: "With care, [rektor name]".</pre>
+Format: one email. Clear, calm, factual. Avoid speculation. State what we know, what we are doing, and when parents will hear more. No legalistic language. Sign off: "With care, [head teacher name]".</pre>
         <button class="prompt-card__copy" data-copy>Copy</button>
       </div>
     </div>
@@ -1142,7 +1145,7 @@ Avoid jargon. If a term is unavoidable, define it in a sentence.</pre>
     <details class="faq-item">
       <summary>Can I use these with student data?</summary>
       <div class="faq-body">
-        <p>Only with de-identified data, and only if your school's AI policy permits it. Student names, grades, behavioural records, health information, parent contact details, safeguarding notes — never upload any of it, to any account type. Replace names with roles ("Student A", "Student B"). Generalise dates and locations. Use only your school-domain Workspace for Education account (never a personal Gmail) for anything touching a student. If you are uncertain, consult your Data Protection Officer before uploading. Skolverket's August 2025 guidance is clear: students may not use generative AI on their own in instruction; rektor approval and teacher oversight are required. See Part 4 and the EU bonus chapter for the full picture.</p>
+        <p>Only with de-identified data, and only if your school's AI policy permits it. Student names, grades, behavioural records, health information, parent contact details, safeguarding notes — never upload any of it, to any account type. Replace names with roles ("Student A", "Student B"). Generalise dates and locations. Use only your school-domain Workspace for Education account (never a personal Gmail) for anything touching a student. If you are uncertain, consult your Data Protection Officer before uploading. National rules on student AI use vary — some countries require head-teacher approval before any classroom deployment and restrict independent student use during instruction. <strong>Verify your own country's current rules</strong> before enabling student-facing features. See Part 4 and the EU bonus chapter for the full picture.</p>
       </div>
     </details>
 
@@ -1177,7 +1180,7 @@ Avoid jargon. If a term is unavoidable, define it in a sentence.</pre>
     <details class="faq-item">
       <summary>What about plagiarism and student AI use?</summary>
       <div class="faq-body">
-        <p>Your school needs a policy on it, and AI-detection tools are unreliable — do not treat their outputs as evidence. Focus instead on assessment design: tasks that require in-class writing, oral defence, personal reflection, or process documentation are harder to submit AI-generated work for. Skolverket's guidance is that students may not use generative AI on their own in instruction; rektor approval is required for any exceptions. The honest position is that AI is now part of the learning environment outside school, and your assessment needs to reflect that rather than pretend otherwise. Involve students in the conversation — they know more about AI use than most policy documents assume.</p>
+        <p>Your school needs a policy on it, and AI-detection tools are unreliable — do not treat their outputs as evidence. Focus instead on assessment design: tasks that require in-class writing, oral defence, personal reflection, or process documentation are harder to submit AI-generated work for. National guidance varies on whether students may use generative AI independently during instruction — check your country's current position before you set a school-level rule. The honest position is that AI is now part of the learning environment outside school, and your assessment needs to reflect that rather than pretend otherwise. Involve students in the conversation — they know more about AI use than most policy documents assume.</p>
       </div>
     </details>
 
@@ -1191,7 +1194,7 @@ Avoid jargon. If a term is unavoidable, define it in a sentence.</pre>
     <details class="faq-item">
       <summary>Where do I get help?</summary>
       <div class="faq-body">
-        <p>Start with Google's own help pages at <em>support.google.com/gemini</em> and <em>support.google.com/notebooklm</em>. For school-specific questions — AI policy, whole-school rollout, working-group design, EU AI Act implementation, Swedish grundskolan or gymnasium context — reach out through my website (link in the footer). I offer consulting for Swedish schools and can point you towards resources appropriate to your context. For the broader Swedish pedagog community, Skolverket's guidance pages are the anchor; Pedagog Eskilstuna and smartaai.se are active sources of practical material.</p>
+        <p>Start with Google's own help pages at <em>support.google.com/gemini</em> and <em>support.google.com/notebooklm</em>. For school-specific questions — AI policy, whole-school rollout, working-group design, EU AI Act implementation — reach out through my website (link in the footer). I offer consulting for schools, primarily in Sweden but happy to discuss engagements in other countries too, and can point you towards resources appropriate to your context. For practical classroom material, the community of teacher-bloggers and podcasters cited throughout this guide (Matt Miller, Monica Burns, Kasey Bell, Eric Curts, Alice Keeler, Tony Vincent, Jake Miller) is a strong starting point.</p>
       </div>
     </details>
   </div>
