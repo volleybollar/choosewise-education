@@ -97,6 +97,29 @@
 .nav__link:hover::after,
 .nav__link[aria-current="page"]::after { transform: scaleX(1); }
 
+/* Visually-hidden checkbox that drives the mobile menu toggle. */
+.nav__toggle { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+/* Hamburger label — hidden on desktop, visible on mobile. */
+.nav__burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 10px;
+  margin-right: calc(var(--space-3) * -1);
+}
+.nav__burger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--color-text);
+  border-radius: 1px;
+  transition: transform var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out);
+}
+.nav__toggle:checked ~ .nav__burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav__toggle:checked ~ .nav__burger span:nth-child(2) { opacity: 0; }
+.nav__toggle:checked ~ .nav__burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 .nav__lang {
   font-size: var(--fs-caption);
   color: var(--color-text-soft);
@@ -107,7 +130,27 @@
 .nav__lang a:hover, .nav__lang a[aria-current="true"] { color: var(--color-text); }
 
 @media (max-width: 768px) {
-  .nav__links { display: none; } /* Hamburger to be added in a future task if needed */
+  .nav { height: auto; }
+  .nav__inner { flex-wrap: wrap; min-height: var(--nav-height); padding-block: var(--space-3); gap: var(--space-3); }
+  .nav__burger { display: flex; order: 3; }
+  .nav__lang { order: 2; margin-left: auto; }
+  .nav__links {
+    order: 4;
+    flex-basis: 100%;
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--dur-medium) var(--ease-out);
+    border-top: 1px solid var(--color-border);
+    margin: 0 calc(var(--space-5) * -1);
+    padding-inline: var(--space-5);
+  }
+  .nav__links li { border-bottom: 1px solid var(--color-border); }
+  .nav__links li:last-child { border-bottom: none; }
+  .nav__link { display: block; padding: var(--space-3) 0; font-size: var(--fs-body); }
+  .nav__link::after { display: none; }
+  .nav__toggle:checked ~ .nav__links { max-height: 60vh; overflow-y: auto; border-top: 1px solid var(--color-border); margin-top: var(--space-3); padding-top: var(--space-2); }
 }
 
 /* ───── Cards ───── */

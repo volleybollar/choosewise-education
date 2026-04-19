@@ -16,10 +16,12 @@
   const panels  = document.querySelectorAll('.wise-panel');
   if (letters.length === 0) return;
 
-  // On narrow viewports, CSS shows everything in stacked layout — don't animate.
+  // On narrow viewports, CSS shows everything in stacked layout — the pinned
+  // scroll-driven timeline is skipped. We still want a sense of motion though,
+  // so we fade letters + panels in as they reach the viewport.
   const narrow = window.matchMedia('(max-width: 900px)').matches;
 
-  if (reduced || narrow) {
+  if (reduced) {
     letters.forEach(l => { l.style.opacity = '1'; });
     panels.forEach((p) => {
       p.classList.add('is-visible');
@@ -29,6 +31,29 @@
   }
 
   gsap.registerPlugin(ScrollTrigger);
+
+  if (narrow) {
+    // Stagger letters in when the diagram enters the viewport, then fade each
+    // panel in as it scrolls into view below it.
+    const diagram = document.querySelector('.wise-signature__diagram');
+    if (diagram) {
+      gsap.from(letters, {
+        opacity: 0, scale: 0.6, transformOrigin: '50% 50%',
+        duration: 0.5, ease: 'power2.out', stagger: 0.12,
+        scrollTrigger: { trigger: diagram, start: 'top 80%', toggleActions: 'play none none none' },
+      });
+    } else {
+      letters.forEach(l => { l.style.opacity = '1'; });
+    }
+    panels.forEach((p) => {
+      p.classList.add('is-visible');
+      gsap.from(p, {
+        opacity: 0, y: 20, duration: 0.5, ease: 'power2.out',
+        scrollTrigger: { trigger: p, start: 'top 85%', toggleActions: 'play none none none' },
+      });
+    });
+    return;
+  }
 
   // Initial state
   gsap.set(letters, { opacity: 0, scale: 0.4, transformOrigin: '50% 50%' });
