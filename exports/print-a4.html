@@ -37,14 +37,33 @@
     height: 150mm;
   }
 
-  .page1-quote {
+  .page1 .diagram-title {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 16px;
-    font-style: italic;
+    font-size: 36px;
     font-weight: 400;
-    color: #2f4a3a;
+    color: #1e1e1c;
+    letter-spacing: -0.5px;
     text-align: center;
-    margin-top: 20px;
+    margin-bottom: 6px;
+  }
+
+  .page1 .diagram-subtitle {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #5a5a57;
+    letter-spacing: 0.3px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .page1 .diagram-attr {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: #a5a59f;
+    text-align: center;
+    margin-top: 18px;
   }
 
   /* ===== SIDA 2: Legend (Lärare + Skolledare) ===== */
@@ -135,38 +154,27 @@
 
   <!-- ===== SIDA 1: Diagrammet ===== -->
   <div class="page1">
-    <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+    <h1 class="diagram-title">RÄTT-modellen</h1>
+    <p class="diagram-subtitle">Rätt verktyg vid rätt tillfälle</p>
+    <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <filter id="shadow" x="-15%" y="-15%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#1e1e1c" flood-opacity="0.06"/>
-        </filter>
-        <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-          <path d="M 0 1 L 10 5 L 0 9 z" fill="#2f4a3a" opacity="0.6"/>
+        <marker id="arr-sv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#2d5a3f" opacity="0.6"/>
         </marker>
       </defs>
-      <text x="350" y="48" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="36" font-weight="400" fill="#1e1e1c" letter-spacing="-0.5">RÄTT-modellen</text>
-      <text x="350" y="78" text-anchor="middle" font-family="'Work Sans', sans-serif" font-size="18" font-weight="400" fill="#5a5a57" letter-spacing="0.3">Rätt verktyg vid rätt tillfälle</text>
-      <rect x="255" y="160" width="190" height="75" rx="12" fill="#d4e8db" stroke="#2f4a3a" stroke-width="2" filter="url(#shadow)"/>
-      <text x="350" y="194" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#2f4a3a">R</text>
-      <text x="350" y="220" text-anchor="middle" font-family="'Work Sans', sans-serif" font-size="12" font-weight="500" fill="#2f4a3a">Reflektera över lärandet</text>
-      <rect x="470" y="353" width="190" height="75" rx="12" fill="#f5ecd0" stroke="#c69c3c" stroke-width="2" filter="url(#shadow)"/>
-      <text x="565" y="387" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#a07d2e">Ä</text>
-      <text x="565" y="413" text-anchor="middle" font-family="'Work Sans', sans-serif" font-size="13" font-weight="500" fill="#a07d2e">Ämnet avgör</text>
-      <rect x="255" y="545" width="190" height="75" rx="12" fill="#d0e8ec" stroke="#3a7a8a" stroke-width="2" filter="url(#shadow)"/>
-      <text x="350" y="579" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#2e6d7a">T</text>
-      <text x="350" y="605" text-anchor="middle" font-family="'Work Sans', sans-serif" font-size="13" font-weight="500" fill="#2e6d7a">Tillämpa rätt verktyg</text>
-      <rect x="40" y="353" width="190" height="75" rx="12" fill="#f5d8cc" stroke="#b35a3a" stroke-width="2" filter="url(#shadow)"/>
-      <text x="135" y="387" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#b35a3a">T</text>
-      <text x="135" y="413" text-anchor="middle" font-family="'Work Sans', sans-serif" font-size="13" font-weight="500" fill="#b35a3a">Testa &amp; utvärdera</text>
-      <path d="M 445,197 C 530,197 565,270 565,345" fill="none" stroke="#2f4a3a" stroke-width="2.2" opacity="0.45" marker-end="url(#arr)"/>
-      <path d="M 565,428 C 565,510 530,583 453,583" fill="none" stroke="#2f4a3a" stroke-width="2.2" opacity="0.45" marker-end="url(#arr)"/>
-      <path d="M 255,583 C 170,583 135,510 135,436" fill="none" stroke="#2f4a3a" stroke-width="2.2" opacity="0.45" marker-end="url(#arr)"/>
-      <path d="M 135,353 C 135,270 170,197 247,197" fill="none" stroke="#2f4a3a" stroke-width="2.2" opacity="0.45" marker-end="url(#arr)"/>
-      <circle cx="350" cy="390" r="65" fill="#ffffff" stroke="#2f4a3a" stroke-width="2.5" filter="url(#shadow)"/>
-      <text x="350" y="383" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" font-weight="500" fill="#2f4a3a">Professionellt</text>
-      <text x="350" y="403" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="15" font-weight="500" fill="#2f4a3a">omdöme</text>
-      <text x="350" y="670" text-anchor="middle" font-family="'Work Sans', sans-serif" font-size="11" font-weight="400" fill="#a5a59f">Copyright Johan Lindström, choosewise.education</text>
+      <circle cx="300" cy="300" r="220" fill="none" stroke="#e8e2d5" stroke-width="1" stroke-dasharray="4 6"/>
+      <path d="M 375.24 93.27 A 220 220 0 0 1 506.74 224.76" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-sv)"/>
+      <path d="M 506.74 375.24 A 220 220 0 0 1 375.24 506.73" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-sv)"/>
+      <path d="M 224.76 506.73 A 220 220 0 0 1 93.27 375.24" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-sv)"/>
+      <path d="M 93.27 224.76 A 220 220 0 0 1 224.76 93.27" fill="none" stroke="#2d5a3f" stroke-width="2" opacity="0.5" marker-end="url(#arr-sv)"/>
+      <g><circle cx="300" cy="80"  r="54" fill="none" stroke="#2d5a3f" stroke-width="2"/><text x="300" y="95"  text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#2d5a3f">R</text></g>
+      <g><circle cx="520" cy="300" r="54" fill="none" stroke="#2d5a3f" stroke-width="2"/><text x="520" y="315" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#2d5a3f">Ä</text></g>
+      <g><circle cx="300" cy="520" r="54" fill="none" stroke="#c66b3d" stroke-width="2"/><text x="300" y="535" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#c66b3d">T</text></g>
+      <g><circle cx="80"  cy="300" r="54" fill="none" stroke="#2d5a3f" stroke-width="2"/><text x="80"  y="315" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#2d5a3f">T</text></g>
+      <text x="300" y="285" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="18" fill="#6b6b65">Professionellt</text>
+      <text x="300" y="310" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="18" fill="#6b6b65">omdöme</text>
     </svg>
+    <p class="diagram-attr">Copyright Johan Lindström, choosewise.education</p>
   </div>
 
   <!-- ===== SIDA 2: Legend ===== -->
