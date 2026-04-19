@@ -36,22 +36,28 @@
     // Stagger letters in when the diagram enters the viewport, then fade each
     // panel in as it scrolls into view below it.
     const diagram = document.querySelector('.wise-signature__diagram');
+    gsap.set(letters, { opacity: 0, scale: 0.6, transformOrigin: '50% 50%' });
+    gsap.set(panels, { opacity: 0, y: 20 });
     if (diagram) {
-      gsap.from(letters, {
-        opacity: 0, scale: 0.6, transformOrigin: '50% 50%',
+      gsap.to(letters, {
+        opacity: 1, scale: 1,
         duration: 0.5, ease: 'power2.out', stagger: 0.12,
-        scrollTrigger: { trigger: diagram, start: 'top 80%', toggleActions: 'play none none none' },
+        scrollTrigger: { trigger: diagram, start: 'top 85%', toggleActions: 'play none none none' },
       });
     } else {
-      letters.forEach(l => { l.style.opacity = '1'; });
+      gsap.set(letters, { opacity: 1, scale: 1 });
     }
     panels.forEach((p) => {
-      p.classList.add('is-visible');
-      gsap.from(p, {
-        opacity: 0, y: 20, duration: 0.5, ease: 'power2.out',
-        scrollTrigger: { trigger: p, start: 'top 85%', toggleActions: 'play none none none' },
+      gsap.to(p, {
+        opacity: 1, y: 0, duration: 0.5, ease: 'power2.out',
+        onStart: () => p.classList.add('is-visible'),
+        scrollTrigger: { trigger: p, start: 'top 90%', toggleActions: 'play none none none' },
       });
     });
+    // iOS Safari sometimes computes ScrollTrigger start positions before layout
+    // settles — refresh once the page is fully loaded + after 400ms as a backstop.
+    window.addEventListener('load', () => ScrollTrigger.refresh());
+    setTimeout(() => ScrollTrigger.refresh(), 400);
     return;
   }
 

@@ -84,9 +84,11 @@
 .wise-panel p  { font-size: 1.125rem; max-width: 38ch; }
 
 @media (max-width: 900px) {
-  /* Mobile: no pinning at all. Content stacks normally, all panels show inline. */
+  /* Mobile: no pinning at all. Content stacks normally, all panels show inline.
+     wise-signature.js handles per-element fade-in via GSAP ScrollTrigger —
+     no CSS !important here so GSAP can drive opacity/transform. */
   .wise-signature__sticky { height: auto; grid-template-columns: 1fr; gap: var(--space-5); }
-  .wise-panel { position: static; opacity: 1 !important; transform: none !important; margin-bottom: var(--space-6); }
+  .wise-panel { position: static; margin-bottom: var(--space-6); }
   .wise-signature__diagram { margin-inline: auto; }
 }
 
