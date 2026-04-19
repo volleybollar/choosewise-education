@@ -13,9 +13,8 @@
 */
 
 export const MAILERLITE = {
-  // Replace XXXXXX/YYYYYY with the real account/form IDs from MailerLite
-  formAction: 'https://assets.mailerlite.com/jsonp/XXXXXX/forms/YYYYYY/subscribe',
-  configured: false, // set to true once real formAction is in place
+  formAction: 'https://assets.mailerlite.com/jsonp/2278442/forms/185191894925444559/subscribe',
+  configured: true,
   fields: {
     email: 'fields[email]',
     name:  'fields[name]',
