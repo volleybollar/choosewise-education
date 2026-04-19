@@ -252,6 +252,136 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
   <div class="container">
     <span class="eyebrow">Part 2</span>
     <h2>Working Smarter</h2>
+    <img src="assets/part-2-opener.jpg" class="part-opener-image" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;&quot;&gt;Part 2 opener image · drop part-2-opener.jpg into guides/gemini-notebooklm/assets/&lt;/div&gt;';">
+    <p class="lede">Once you find yourself returning to Gemini or NotebookLM for the same kind of task week after week, it is time to stop starting from scratch. This part shows you how to turn these tools into persistent assistants — how to set up Gems, use the Studio features, and make Canvas, Deep Research, and Audio Overviews part of a weekly rhythm that already knows your subject, your school, and how you like to write.</p>
+
+    <h3>Gemini Gems — your persistent custom agents</h3>
+    <p>A Gem is a named instruction set with optional attached files. You build one — give it a name, write instructions, optionally upload two or three reference documents — and from then on every time you trigger that Gem, Gemini loads the context before you have typed a word. This is where Gemini stops being generically helpful and starts being genuinely yours. Gems are shareable too: you can pass a Gem to a colleague through a link, or inside Google Classroom as part of the Gemini-in-Classroom rollout.</p>
+
+    <img src="assets/screenshot-gems.png" alt="Gemini Gems panel" style="width: 100%; margin: var(--space-3) 0; border-radius: var(--radius-card); border: 1px solid var(--color-light); box-shadow: var(--shadow-card);" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Screenshot pending: screenshot-gems.png&lt;/div&gt;';">
+
+    <h4>What to upload to your first Gem</h4>
+    <p>Pick the subject or year level where you spend most of your planning time. Create a Gem for it. Upload five things that together describe your working context:</p>
+    <ul>
+      <li>Your curriculum or syllabus for that subject and year</li>
+      <li>Your scope and sequence or term planner, if you have one</li>
+      <li>Your school's style guide or communications guide, if one exists</li>
+      <li>An assessment rubric you use regularly</li>
+      <li>Three de-identified student work samples at different performance levels</li>
+    </ul>
+
+    <h4>The instructions that make the difference</h4>
+    <p>Under the Gem's settings, write a short instruction set that describes who the Gem is for you. Narrow the scope; name the register; state the hard rules. Something like:</p>
+    <div class="card" style="font-style: italic; color: var(--color-text-light);">
+      <p>"You are an experienced Year 8 English teacher in a mixed-ability Swedish grundskola. Outputs should be classroom-ready, follow the uploaded style guide, and never produce more than I asked for. If a task involves student data, ask me to confirm the data has been de-identified before proceeding. Use British English spelling."</p>
+    </div>
+
+    <p>A word on reliability. Gems do not always stick rigidly to their knowledge base — if your instructions are vague, the Gem drifts. A narrow scope and a clear purpose are the antidote. Alice Keeler, writing about why she loves the concept of Gems, frames it plainly: a generic AI tool cannot understand the nuances of your classroom or the principles of effective pedagogy. A Gem is the antidote to "generic AI that understands nothing about your classroom" — but only if you actually tell it what the nuances are.</p>
+
+    <p>A practical rule: if you find yourself explaining the same pattern to Gemini more than three times, it is time to make it a Gem. The three-repetitions rule is a remarkably reliable signal. Meeting brief for the same department every fortnight? Gem. Differentiated reading passage at three levels for your current unit? Gem. Parent-communication draft in your school's voice? Gem.</p>
+
+    <p>You do not have to build every Gem from scratch. Eric Curts, a long-time Google Certified Trainer, maintains edugems.ai — a free library of roughly 200 ready-to-use Gems for educators, growing by around eighteen a month. Use them as templates; rewrite to match your Swedish classroom context before you trust them in production. And inside Classroom specifically, Google now ships four template Gems — Study partner, Quiz me, Brainstorm partner, Real-world connector — which are worth looking at even if you end up replacing them with your own.</p>
+
+    <div class="callout callout--watch">
+      <span class="callout__label">Watch Out · Think before you share</span>
+      <p>De-identify everything before it goes into a Gem's knowledge base. Student names, grades, behaviour records, health information, SEN plans, safeguarding notes, parent contact details — never. Replace names with roles ("Student A", "Student B"). Generalise dates and locations. The moment a file leaves your desktop and lands in a shared Gem context, you have lost granular control of who sees it. If you are unsure whether a document is safe to upload, treat it as if it is not, and ask your school's data protection officer before you proceed.</p>
+    </div>
+
+    <div class="callout callout--try">
+      <span class="callout__label">Try This Week</span>
+      <p>Spend twenty minutes setting up one Gem for your most-used task. Upload three documents. Write the instructions. Then run yesterday's worst prompt inside the Gem and notice the difference. That twenty minutes is the highest-leverage time you will spend on AI all year.</p>
+    </div>
+
+    <h3>Canvas — the interactive workspace</h3>
+    <p>Canvas is a side-by-side workspace inside Gemini. While a chat runs on the left, Canvas holds a document, a piece of code, or an interactive artefact on the right — editable in place. You can change a paragraph inline, ask Gemini to rewrite a single section, regenerate one quiz question without losing the rest of the quiz, or restyle a table without touching the prose around it. The effect is that Gemini moves from throwaway-chat mode to co-editor mode. Drafts stop being disposable.</p>
+
+    <p>For a teacher this unlocks several patterns that pure chat struggles with. You can build a worksheet collaboratively — Gemini drafts the questions, you edit the wording you would never have used, ask for two harder extension questions at the end, regenerate just question four when it lands badly. You can hold a full lesson plan in Canvas with a scope table, learning objectives, differentiated questions at three levels, and an exit ticket, all visible at once and all editable without starting over. You can take a Deep Research report (more on those below) and ask Canvas to transform it into something classroom-ready: an infographic, an interactive quiz, a one-page student handout, a webpage, even a small game students can play. You can generate a customised quiz from a source document and iterate on it in the same surface without ever leaving the chat.</p>
+
+    <img src="assets/screenshot-canvas.png" alt="Canvas workspace in Gemini" style="width: 100%; margin: var(--space-3) 0; border-radius: var(--radius-card); border: 1px solid var(--color-light); box-shadow: var(--shadow-card);" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Screenshot pending: screenshot-canvas.png&lt;/div&gt;';">
+
+    <h3>Deep Research — multi-step research with citations</h3>
+    <p>Deep Research is a multi-step agent. It plans your research, searches the web (and, optionally, your Gmail, Drive, and Chat if you give it permission), reasons across what it finds, and writes a structured report with inline citations. It runs on the Gemini 3 Pro backbone with a one-million-token context window, which is why it can hold several long sources in mind at once and cross-reference them. The moment you ask your question, Gemini proposes a research plan — the sub-questions it will answer and the kinds of sources it will look at — and hands it to you for approval before it runs. The finished report arrives as a Canvas artefact or, if you prefer, an audio summary.</p>
+
+    <p>For a teacher this collapses research time from hours to minutes. Background reading for a new unit that used to eat an afternoon now takes fifteen minutes of compute while you are teaching. Comparative analysis — three educational frameworks side by side, or five countries' curricula on the same topic — comes back in a single pass with citations you can actually follow. Staff-development briefings can be delivered as an audio summary the head of department listens to on the commute; Kasey Bell describes this well as "a podcast for your commute", and it is a fair description of the experience.</p>
+
+    <p>One discipline is non-negotiable. Citations must be verified. The report looks authoritative, the inline footnotes look clean, but AI can still mis-attribute — a claim cited to a source that does not quite say that thing, a figure lifted from an older edition, a quote reassigned to the wrong author. Click through before you quote. Every footnote deserves a glance, and the ones you will quote aloud deserve a read.</p>
+
+    <img src="assets/screenshot-deep-research.png" alt="Deep Research report in Gemini" style="width: 100%; margin: var(--space-3) 0; border-radius: var(--radius-card); border: 1px solid var(--color-light); box-shadow: var(--shadow-card);" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Screenshot pending: screenshot-deep-research.png&lt;/div&gt;';">
+
+    <h3>Gemini Live — voice for on-the-go work</h3>
+    <p>Gemini Live is the voice conversation mode. You talk; Gemini listens and replies in a natural-sounding voice. Camera share is supported (point your phone at a diagram, a textbook page, an object on your desk, and ask about it); screen share is supported (walk Gemini through what you are looking at on the device itself). It integrates with Google Maps, Calendar, Tasks, and Keep. Two hard constraints matter: it is mobile-only, and it is age-gated to users 18 and over.</p>
+
+    <p>For a teacher the right framing is "thinking aloud with a colleague who is actually listening". Dictate a draft parent email while walking between classrooms and arrive at your desk with a first version already written. Brainstorm a unit concept on the commute and have the outline waiting when you open your laptop. Rehearse a difficult parent conversation by role-playing — Gemini plays the parent, pushes back in character, and you practise your responses without burning a real meeting. What Gemini Live is not: a classroom note-taker with students present. That belongs to purpose-built classroom tools with the appropriate data-protection treatment. The mobile-only and 18+ constraints are a feature here, not a bug — they define this as a teacher tool, not a student-facing one.</p>
+
+    <h3>Nano Banana 2 — image generation inside Gemini</h3>
+    <p>Nano Banana 2 is Google's image model inside Gemini. Released 26 February 2026 (also known as Gemini 3.1 Flash Image), it replaces Nano Banana Pro as the default image generator in the Gemini app. Capabilities worth knowing: web-grounded rendering of specific subjects, genuinely precise text rendering (which makes it good for posters, headings, and translation tasks — the places where earlier image models produced gibberish), subject consistency across up to five subjects or fourteen objects in the same scene, and output resolutions from 512 pixels up to 4K.</p>
+
+    <p>For teachers the classroom uses are quietly practical. Diagrams for concepts students struggle with — water cycle variants, circulatory system close-ups, historical map overlays, abstract mathematical relationships visualised. Illustrations for reading passages where stock imagery simply does not exist — a Viking longhouse interior, a specific Swedish industrial-era workshop, a scene from a text your class is studying that has never been illustrated. Cover images for Google Slides decks, so the deck announces the lesson before a word is spoken. Visual examples for art and design prompts, generated fast enough to iterate during the lesson.</p>
+
+    <p>Style controls matter more than most teachers realise. "In the style of a vintage children's book", "a clean line drawing in ink", "a technical engineering diagram", "a watercolour illustration in muted tones" — the style tag is where a generic image turns into a classroom-ready one. Johan's 140 NotebookLM styles are about <em>text</em> styles (see the Styles Library further down this guide); Nano Banana 2 is the visual equivalent, and the two combine well when you are building a polished handout or slide deck.</p>
+
+    <p>Do not generate images of specific real people, and especially not of students. General and anonymous only. Representations of individual pupils — even well-intentioned ones — cross a line that no style tag fixes.</p>
+
+    <h3>NotebookLM Studio — turn sources into artefacts</h3>
+    <p>NotebookLM's Studio is the set of one-click tools that transform your uploaded sources into different artefact formats. The notebook stays the same; the output changes. Five of them deserve attention, because each one turns the same material into a different kind of classroom-ready resource — and most teachers I work with use only one of them before discovering the others.</p>
+
+    <h4>Audio Overviews</h4>
+    <p>A podcast-style dialogue between two AI hosts summarising your sources. Four formats are now available — the default Deep Dive, plus Brief, Critique, and Debate (added September 2025). An interactive mode (still in beta) lets learners break in mid-podcast and ask the hosts questions in real time. Excellent for EAL students who listen before reading, for absent-student catch-up, and for your own commute review of a unit you are about to teach. The Swedish voices work well as of April 2026. The anchor example worth knowing: Viktor Säfström and David Folkebrant, two SO-teachers at Fristadsskolan in Eskilstuna, generate 1–2 minute audio clips per concept, regenerate them in Arabic and Amharic for newly-arrived students on request, and share them through Google Classroom. Their workflow is published on Pedagog Eskilstuna.</p>
+
+    <h4>Video Overviews</h4>
+    <p>Narrated slide-based video summaries built from your sources. The newer Cinematic Video Overview format is markedly higher production value — good for flipped-classroom intro videos the evening before a lesson. One thing to know: Video Overviews live inside NotebookLM but are not available from the Gemini-side interface even though Notebooks now sync across. To generate one, switch to the NotebookLM view of your workspace.</p>
+
+    <h4>Mind Maps</h4>
+    <p>NotebookLM analyses your sources and produces a visual concept map showing how ideas connect, with citations back to the passages each node came from. Matt Miller of Ditch That Textbook singles it out as a standout educator feature, and I think he is right to. Three classroom uses earn their place straight away: as a starter task for students ("build the mind map in your head, then compare with this one, and flag any link you think is missing"); as a unit-planning aid that helps you spot coverage gaps before the unit starts; as a parent-evening handout that shows, without jargon, where a subject sits in the broader curriculum.</p>
+
+    <h4>Briefing Docs and Study Guides</h4>
+    <p>Briefing Docs are one-page executive summaries of your sources — the format to reach for when you want colleagues or parents to absorb a long document without reading it. Study Guides are structured learning materials: key concepts, short-answer questions with an answer key, and a glossary of terms, all generated from the same notebook. The newer Learning Guide format (added September 2025) runs in tutoring mode, asking probing, open-ended questions rather than handing students direct answers. Flashcards and quizzes can be produced instantly from the same sources, which means one notebook now quietly serves five or six different lesson artefacts.</p>
+
+    <h4>The 140 styles connection</h4>
+    <p>NotebookLM's output can be shaped by style. Johan has built a library of 140 styles — formal academic, conversational podcast, child-friendly storytelling, oral-history interview, inquiry-first student handout, and 135 more. Each style changes <em>how</em> the same notebook content is expressed without changing what the content says. The same three uploaded sources can become a dry academic briefing, a warm parent letter, or a question-led student handout, depending on which style you apply. See the Styles Library further down this guide for selected examples and access to the full library.</p>
+
+    <img src="assets/screenshot-notebooklm-audio.png" alt="NotebookLM Audio Overview" style="width: 100%; margin: var(--space-3) 0; border-radius: var(--radius-card); border: 1px solid var(--color-light); box-shadow: var(--shadow-card);" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Screenshot pending: screenshot-notebooklm-audio.png&lt;/div&gt;';">
+
+    <div class="callout callout--try">
+      <span class="callout__label">Integration · Your Notebooks inside Gemini</span>
+      <p>Since 8 April 2026 Notebooks sync bidirectionally. A Notebook created in Gemini appears in NotebookLM, and a Notebook created in NotebookLM appears in Gemini — same sources, same chat history, both surfaces editable. Why this matters in practice: you can ask Gemini to work with a Notebook's sources without leaving the Gemini chat. "Summarise what my Year 9 history Notebook says about the causes of WWI, and produce three differentiated exit tickets." You get a grounded answer <strong>and</strong> a creative classroom resource in one interaction. The two sides stay complementary: NotebookLM gives you Video Overviews and infographics that Gemini does not offer; Gemini gives you web search alongside uploaded sources that NotebookLM refuses on principle. The integration is rolling out first to AI Ultra, Pro, and Plus subscribers; the free tier follows in the weeks after.</p>
+    </div>
+
+    <img src="assets/screenshot-notebooklm-in-gemini.png" alt="Notebooks panel inside Gemini" style="width: 100%; margin: var(--space-3) 0; border-radius: var(--radius-card); border: 1px solid var(--color-light); box-shadow: var(--shadow-card);" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Screenshot pending: screenshot-notebooklm-in-gemini.png&lt;/div&gt;';">
+
+    <h3>Five classroom workflows that compound</h3>
+    <p>Single prompts produce single outputs. The real leverage is in workflows — patterns you reuse week after week, embedded inside a Gem or a Notebook, where the files and instructions do half the work for you before you have typed a character.</p>
+
+    <h4>1 · Weekly lesson planning from learning objectives (Gemini Gem + Canvas)</h4>
+    <p>Start from your weekly objective, the year level, and the time you have available. Trigger your <em>weekly-planner</em> Gem. Gemini drafts the lesson in Canvas: a five-minute starter, a main task differentiated at three levels, and an exit ticket, all visible in the same workspace. You edit the wording inline, ask for a harder extension question, regenerate the exit ticket when it lands badly. Five minutes of work replaces what was previously a forty-minute planning block, and the output fits your class because the Gem already knows your context.</p>
+
+    <h4>2 · Marking feedback patterns from de-identified work (NotebookLM)</h4>
+    <p>Upload eight to ten de-identified responses to the same task into a fresh notebook. Ask NotebookLM to identify the three recurring strengths, the three recurring misconceptions, and the single highest-leverage thing to teach next. What comes back is usually what you would have concluded yourself — faster, with the comfort of a second set of eyes, and with passages cited back to the exact student work so you can see why NotebookLM landed where it did. The citations are what make this trustworthy.</p>
+
+    <h4>3 · Differentiated instruction generator (Gemini Gem, trigger pattern)</h4>
+    <p>Any teaching resource — a reading passage, a worksheet, a set of instructions — can be differentiated in three directions: simplified for readers two years below the group, extended for readers two years above, and an EAL vocabulary scaffold for newly-arrived students. Set this up once inside your <em>differentiate-three-levels</em> Gem. From then on, paste a text, say "differentiate this", and get three versions with shared bolded key vocabulary and a small glossary. Works in Swedish for nyanlända too.</p>
+
+    <h4>4 · For school leaders — staff meeting preparation (NotebookLM Briefing Doc)</h4>
+    <p>Upload the agenda, the pre-reads, and recent meeting minutes into a notebook. Generate a Briefing Doc. You get a one-page meeting brief with the decisions to be made, time allocations per item, questions to anticipate from staff, and suggested follow-up actions. Share the Briefing Doc with attendees in advance, so the meeting itself is about deciding rather than reading. This single workflow probably returns more time per week than any of the others.</p>
+
+    <h4>5 · For school leaders — policy drafting (Gemini Gem with policy templates)</h4>
+    <p>Your <em>policy-drafter</em> Gem contains your school's policy templates and the constraints that matter — the Swedish legal framework, your huvudman's directives, relevant Skolverket guidance. You describe the new policy's purpose, its stakeholders, and its boundaries. Gemini produces a first draft in your school's voice. You edit, iterate, and circulate. A first draft is always a starting point for human judgement; it is never final, and for Swedish public-school policies, run the draft past your DPO before any internal circulation. The Gem accelerates the work; the professional responsibility stays where it belongs.</p>
+
+    <div class="callout callout--johan">
+      <span class="callout__label">Johan's Note</span>
+      <p>The teachers I work with who get the most from Gemini and NotebookLM are not the ones who use them most often. They are the ones who built three or four workflows into their weekly routine and then stopped adding new ones. Depth beats breadth every time. Pick two of the five above, run them for half a term, and only then add a third.</p>
+      <span class="callout__signature">— JL</span>
+    </div>
+
+    <h3>Part 2 — Before you move on</h3>
+    <ol class="checklist">
+      <li>I have built at least one Gemini Gem for a recurring task</li>
+      <li>I have used Canvas to iterate on a document or worksheet inside Gemini</li>
+      <li>I have created at least one Notebook in NotebookLM and run an Audio Overview, Mind Map, or Briefing Doc</li>
+      <li>I have triggered a Notebook from Gemini (or a Gem from inside a Notebook context) to experience the bidirectional sync</li>
+      <li>I have picked two of the five compounding workflows to run regularly this term</li>
+      <li>I have re-read the de-identification rule and committed to it</li>
+    </ol>
   </div>
 </section>
 
