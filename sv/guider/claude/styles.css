@@ -728,3 +728,43 @@
   .jl-page .anchor-nav__list { gap: 12px; }
   .jl-page .anchor-nav a { font-size: 12px; }
 }
+
+/* ═══════════════════════════════════════════════════
+   LICENSE BAND
+   ═══════════════════════════════════════════════════ */
+.jl-page .license-band {
+  background: var(--color-surface);
+  padding: var(--space-4) var(--space-3);
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+.jl-page .license-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.jl-page .license-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  margin: 0 0 var(--space-1);
+}
+.jl-page .license-body {
+  font-size: 14px;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+.jl-page .license-body strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+.jl-page .license-body a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+}
+.jl-page .license-body a:hover {
+  color: var(--color-accent);
+}
