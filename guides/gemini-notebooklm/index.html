@@ -678,6 +678,435 @@ Pitch: students reading at Year 5 to Year 7 level.</pre>
   <div class="container">
     <span class="eyebrow">Prompts</span>
     <h2>A starter library of Gemini prompts</h2>
+    <p>Copy these prompts, adapt them to your context, run them. Most work straight out of the box; all become better when you feed them your actual files — a unit plan, a reading passage, a rubric. Where a prompt is NotebookLM-specific, it expects sources already uploaded to a Notebook. Where it is Gemini-specific (Gemini Live, Deep Research, Canvas), it expects you to be in that surface of the Gemini app.</p>
+
+    <h3>Getting started</h3>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">1 · RTF starter — first usable prompt<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Act as [role — e.g. an experienced Year 6 Science teacher in a mixed-ability Swedish grundskola].
+
+Task: [what you need — e.g. draft a 250-word explanation of the water cycle for a mixed-ability class. Include the four stages and one real-world example for each.]
+
+Format:
+- [length]
+- [tone]
+- [structure — bullets, headings, numbered, etc.]
+- [any required elements — vocabulary box, answer key, retrieval questions]
+
+Pitch: [reading ages or ability band].</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">2 · Retrieval-practice quiz generator<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Produce a [n]-minute retrieval-practice quiz on [topic] for [year level].
+
+Coverage: drawn from the past [n] lessons.
+
+Format:
+- [n] questions
+- Mix of recall, comprehension, and application
+- Multiple-choice + short-answer + one open question
+- Answer key at the end with a one-sentence explanation per answer
+- Ready to paste into Google Forms</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">3 · Differentiate a reading passage at three levels<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Below is a reading passage. Produce three versions of it at:
+1. Reading age two years below the year level
+2. At the target year level
+3. Reading age two years above the year level
+
+Rules:
+- Preserve the core ideas in all three versions
+- Keep a shared set of 8–10 key vocabulary terms, bolded in each version
+- Version 1: short sentences (≤12 words), concrete language, high-frequency vocabulary
+- Version 3: compound sentences OK, Tier 2 vocabulary, one subordinate clause per paragraph max
+- End with a glossary of the 8–10 shared terms, child-friendly definitions
+
+[paste passage]</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">4 · Parent email in three tones<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Help me draft an email to a parent about [context — e.g. a behaviour concern / a positive observation / a request for a meeting].
+
+I want three versions:
+1. Warm — collaborative, acknowledging the parent as partner
+2. Factual — neutral, just the information, no emotion
+3. Firm — clear about expectations, without being cold
+
+Context: [2–3 sentences about the student and the reason]
+
+Each version: under 150 words, plain language, British English, sign-off "With best wishes, [teacher name]".</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">5 · Summarise a long document — "what actually affects me?"<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">I have uploaded a [policy document / curriculum document / Skolverket guidance / research paper].
+
+Give me:
+1. A one-paragraph summary (what is this document, what does it want?)
+2. The three things that affect me directly as a [role]
+3. Any deadlines or dates mentioned
+4. Any contradictions with [another source / my current practice / the previous version] I should flag
+5. Two questions I should ask my rektor before acting on this
+
+Format: numbered sections, bullet points where useful. Keep it under 500 words total.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">6 · Lesson starter generator<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Generate three lesson-starter options for a [subject] lesson on [topic], for a [year level] class of [n] minutes total.
+
+The three starters should use different approaches:
+1. A vocabulary warm-up (5 minutes)
+2. A sentence-completion task tied to prior learning (5 minutes)
+3. A think-pair-share prompt that sets up today's main task (5 minutes)
+
+For each: exact student-facing instructions + a teacher note on what you're looking for / common misconceptions.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <h3>Working smarter</h3>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">7 · Gem setup prompt — "teach Gemini who I am"<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">I'm about to build a Gem for my daily teaching work. Help me write the instruction set.
+
+About me: [role, year level, school context, subject]
+About my students: [ability range, languages spoken, any relevant context]
+How I want outputs: [length preference, British/American English, how direct or discussion-style, whether to include thinking out loud or just the deliverable]
+What I never want: [specific things — e.g. emojis, American cultural references, speculation beyond what I asked]
+
+Produce the Gem instruction set as 4–6 tight bullet points I can paste into the Gem settings. Use second person ("You are…") and British English.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">8 · Deep Research briefing<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Do a deep research brief on [topic].
+
+Audience: [teachers / senior leadership team / parents / students].
+Length of final report: [short — 500 words / medium — 1500 words / long — 3000+ words with citations].
+Sources to prioritise: [peer-reviewed research / official guidance / practitioner blogs / recent news].
+
+Include:
+1. One-paragraph executive summary
+2. What the research actually says (not what practitioners say about the research)
+3. Practical implications for a Swedish grundskola/gymnasium
+4. Three specific questions still open in the literature
+5. Citations inline
+
+If sources disagree, show both sides and flag which is better evidenced.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">9 · Canvas — lesson plan with table<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Build a one-lesson plan in Canvas for [subject] [year level], topic [topic], duration [n] minutes.
+
+Produce as:
+- A single-page plan with a table of activities (time, teacher action, student action, materials)
+- Differentiation notes for three ability bands (simplified, at-level, extended) in a side column
+- An exit ticket of 3 questions at the end
+- One sentence of "what to watch for" (common misconception)
+
+Keep it editable in Canvas so I can refine individual cells without regenerating the whole thing.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">10 · NotebookLM — Study Guide from your notebook<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Using the sources in this Notebook, generate a Study Guide for students that:
+
+- Opens with a one-paragraph overview
+- Lists 10–15 key concepts, each with a one-sentence definition
+- Includes 8 short-answer questions with an answer key at the end (answers pulled from the sources, with passage references)
+- Ends with a glossary of 10 key terms at [reading age]
+
+Format: single-page, printable, classroom-ready. Use British English.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">11 · NotebookLM — audio overview brief<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Using the sources in this Notebook, produce an audio overview in the "Brief" format (under 15 minutes). Frame the discussion for [EAL students / senior leadership / Year 8 students] who are [new to the topic / preparing for assessment / reviewing before parents' evening].
+
+Structure the discussion:
+- What is this about, in one sentence?
+- The three things that matter most
+- What the sources disagree on
+- What a listener should do next
+
+End with a 30-second recap.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">12 · Marking feedback patterns — de-identified<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">I'm uploading 8–10 de-identified student responses to the same task. All identifying information has been removed.
+
+Analyse them and return:
+1. Three recurring strengths across the class
+2. Three recurring misconceptions across the class
+3. The single highest-leverage teaching move for the next lesson
+4. One short, student-friendly sentence of feedback that would apply to roughly half the class
+
+Format: four numbered sections, under 400 words total.
+
+[paste responses or reference uploaded file]</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <h3>Scale &amp; lead</h3>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">13 · Policy draft from a brief<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Draft a one-page school policy on [topic — e.g. "Student use of AI tools in classwork" or "Teacher use of Gemini for lesson planning"].
+
+Context:
+- School type: [grundskola / gymnasium / friskola / kommunal]
+- Huvudman: [name]
+- Relevant legal framework: GDPR, EU AI Act, Skollagen
+- Stakeholders affected: [teachers / students / parents / leadership]
+- Existing related policies: [list any]
+
+Include:
+1. Purpose (2 sentences)
+2. Scope (who, what, when)
+3. Rules (what is required, allowed, prohibited — use active voice)
+4. Responsibilities (who enforces, who reports concerns)
+5. Review cadence
+
+Keep it under 600 words, plain Swedish-school tone, no legalese beyond what is strictly required.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">14 · Meeting brief from a Notebook<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Using the sources in this Notebook (agenda, pre-reads, previous meeting minutes), produce a meeting brief for [meeting type — e.g. "a department head meeting Tuesday morning"].
+
+Format:
+1. Decisions to be made (list, with recommended option for each)
+2. Time allocation per agenda item (total: [n] minutes)
+3. Three questions to anticipate from staff and how to answer each
+4. Three follow-up actions and who owns them
+5. A single-sentence executive summary for anyone who can't attend
+
+Keep it under one printed page. British English.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">15 · Shared Gem for parent communication<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">I'm setting up a school-wide Gem for parent email drafting. Our school voice is: [describe — e.g. "warm, direct, pupil-centred, never defensive"].
+
+Produce Gem instructions that:
+- Force consistency with our school voice
+- Always ask me the reason and desired outcome before drafting
+- Default to 120–180 words
+- Default to British English
+- Always produce three tones (warm, factual, firm) unless I specify one
+- Never speculate about what the parent is thinking — only respond to what they said
+- Close with "[Teacher name]" not "Kind regards," which the teacher will add
+
+Output: the full instruction set as a copy-paste block.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">16 · Department onboarding doc<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">I'm adding a new teacher to the [subject] department in [month]. Produce a one-page onboarding doc that covers:
+
+- The three key things about how we teach this subject at our school
+- The three assessments they will need to deliver in their first term
+- The two adults they should meet first (roles, not names)
+- Where our shared Notebook and Gems live
+- What is expected in the first staff meeting
+- Our answer to the "what's our stance on AI in student work?" question
+
+Keep it warm — this is a welcome, not a manual. Under 500 words.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">17 · Communications crisis-response template<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Draft a first-response communication for parents regarding [incident]. Assume (1) the school's priority is student safety, (2) transparency is essential, and (3) we do not yet have all the facts.
+
+Format: one email. Clear, calm, factual. Avoid speculation. State what we know, what we are doing, and when parents will hear more. No legalistic language. Sign off: "With care, [rektor name]".</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">18 · Professional development plan from evidence<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Plan a 10-week professional development block for our [department / whole staff] on [topic — e.g. "Using Gemini and NotebookLM for lesson planning" or "Improving feedback with AI assistance"].
+
+Base the plan on:
+- 30 minutes per session, maximum
+- Whole staff together OR small cross-department groups (your call, justify it)
+- Uses our existing shared Gems and Notebooks wherever possible
+- Explicitly connects to our Article 4 AI literacy obligation
+- Ends with a tangible artefact — a Gem, a Notebook, a shared prompt library
+
+Output: week-by-week plan with session topic, artefact produced, and link to Article 4 framing.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <h3>Universal</h3>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">19 · First-meeting setup prompt (Gemini + Gems)<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">I'd like you to remember some things about me, so you can be more useful in future conversations:
+
+I am a [role, e.g. Year 8 English teacher] at a [type of school] in [country]. I teach [n] classes of around [n] students. My teaching context is [mixed ability / selective / specific curriculum]. I value [evidence-based practice / creativity / specific pedagogy].
+
+My preferences for outputs:
+- Keep things concise unless I ask for depth
+- Use [British / American] English spelling
+- Classroom-ready outputs — minimal editing required
+- If a task involves student data, ask me to confirm it has been de-identified before proceeding
+
+Please confirm you've saved this context, or — if I'm inside a Gem — propose a 5-bullet Gem instruction set based on this.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">20 · Analyse this document<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">I'm uploading a [policy document / curriculum document / research paper / other]. Give me:
+
+1. A one-paragraph summary (what is this document and what does it want?)
+2. The three things that affect me directly as a [role]
+3. Any deadlines mentioned in the document
+4. Any contradictions with [another source / my current practice / a previous version] I should flag
+5. Questions I should ask before acting on this
+
+Format: numbered sections, bullet points where useful.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">21 · Turn this into a rubric<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Below is a description of an assessment task. Produce a four-level rubric for it, using Emerging / Developing / Secure / Extending as the levels. Identify the three to five most important criteria to assess, and write a student-facing descriptor for each criterion at each level.
+
+Format: single-page table.
+
+[paste assessment task]</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">22 · Lesson recap &amp; exit ticket pair<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Below is an outline of today's lesson. Produce (1) a one-minute verbal recap script I can read out in class, and (2) a three-question exit ticket that checks the key takeaways.
+
+Format:
+- Recap: 4–6 sentences, conversational, captures the core idea
+- Exit ticket: one recall, one explanation, one reflection
+
+[paste lesson outline]</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">23 · Reading comprehension question generator<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">For the reading passage below, produce a set of comprehension questions at three levels:
+
+- 3 retrieval questions (facts directly stated in the text)
+- 3 inference questions (conclusions drawn from the text)
+- 3 evaluation questions (judgments about the text or its implications)
+
+Format: three numbered sections. Include an answer key at the end.
+
+[paste passage]</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">24 · Parent meeting prep brief<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">Help me prepare for a meeting with [parent name]'s parents about [topic — e.g. progress, behaviour concern, celebration].
+
+Context: [2–3 sentences about the student and the reason for the meeting]
+
+Produce:
+1. Three talking points I want to make, in order
+2. Two questions I should ask the parents
+3. One concrete next step I can propose
+4. One anticipated concern from parents and a prepared response
+
+Keep it focused — 20-minute meeting.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card__title">25 · Explain it to me as if I'm new<span class="prompt-card__toggle">+</span></div>
+      <div class="prompt-card__body">
+        <pre class="prompt-card__text">I've just been given responsibility for [task, role, or area]. Explain what I need to understand, in plain language, assuming no prior expertise.
+
+Format:
+- The three things I must understand before I do anything
+- The two most common mistakes new people in this role make
+- One concrete action I should take in my first week
+- One concrete action I should take in my first month
+- What "good" looks like after six months
+
+Avoid jargon. If a term is unavoidable, define it in a sentence.</pre>
+        <button class="prompt-card__copy" data-copy>Copy</button>
+      </div>
+    </div>
   </div>
 </section>
 
