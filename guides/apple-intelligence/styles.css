@@ -216,10 +216,10 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* Warm glow from upper-right on a near-black base, echoing Claude's brand splash */
+  /* Cool graphite with subtle silver highlight — echoes Apple hardware aesthetic */
   background:
-    radial-gradient(ellipse 70% 85% at 78% 42%, rgba(232, 150, 75, 0.60) 0%, rgba(232, 150, 75, 0.22) 28%, rgba(18, 16, 15, 0) 62%),
-    linear-gradient(135deg, #0F0E0C 0%, #1A1613 100%);
+    radial-gradient(ellipse 80% 90% at 72% 38%, rgba(168, 179, 190, 0.42) 0%, rgba(168, 179, 190, 0.12) 32%, rgba(12, 14, 17, 0) 66%),
+    linear-gradient(135deg, #1A1F26 0%, #0A0D10 100%);
   box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.35);
 }
 .jl-page .hero__banner-title {
