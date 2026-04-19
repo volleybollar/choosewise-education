@@ -647,6 +647,10 @@
   border-top: 1px solid rgba(26, 39, 51, 0.08);
   background: var(--color-bg);
 }
+.jl-page .footer p {
+  max-width: none;
+  margin-inline: auto;
+}
 .jl-page .footer a { color: var(--color-primary); }
 
 /* ─────────────────────────────────────────────────────────
