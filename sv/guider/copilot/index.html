@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft Copilot för lärare och skolledare — Johan Lindström</title>
+<meta name="description" content="Hur Microsoft Copilot fungerar i en skoltenant, vad Kommersiellt dataskydd faktiskt omfattar och vad licensdjungeln betyder för svenska skolor.">
+<link rel="canonical" href="https://choosewise.education/sv/guider/copilot/">
+<meta property="og:title" content="Microsoft Copilot för lärare och skolledare">
+<meta property="og:description" content="Hur Microsoft Copilot fungerar i en skoltenant, vad Kommersiellt dataskydd faktiskt omfattar och vad licensdjungeln betyder för svenska skolor.">
+<meta property="og:url" content="https://choosewise.education/sv/guider/copilot/">
+<meta property="og:image" content="/assets/images/guide-covers/copilot.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Microsoft Copilot för lärare och skolledare">
+<meta name="twitter:description" content="Hur Microsoft Copilot fungerar i en skoltenant, vad Kommersiellt dataskydd faktiskt omfattar och vad licensdjungeln betyder för svenska skolor.">
+<meta name="twitter:image" content="/assets/images/guide-covers/copilot.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="styles.css">
+<script defer src="script.js"></script>
+</head>
+<body>
+
+<div data-include="/assets/partials/header-sv.html"></div>
+
+<div class="jl-page">
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!--                       HERO                           -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero__banner" aria-hidden="true">
+    <div class="hero__banner-title">Microsoft Copilot</div>
+    <div class="hero__banner-subtitle">Chatta · Skriva · Sammanfatta</div>
+  </div>
+  <div class="container">
+    <p class="eyebrow">AI i skolan · Praktisk guide</p>
+    <h1>Microsoft Copilot för lärare och skolledare</h1>
+    <p class="lede">En praktisk, CDP-medveten guide till AI-funktionerna som är inbyggda i Microsoft 365 och Copilot Chat — vad som stannar i tenanten, vad som inte gör det, och vad det betyder för arbetet i klassrummet.</p>
+
+    <div class="hero__meta">
+      <span class="meta-chip">Uppdaterad april 2026</span>
+    </div>
+
+    <div class="cta-stack">
+      <a class="button button--primary" href="#download">Ladda ner PDF</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!--                    ANCHOR NAV                        -->
+<!-- ═══════════════════════════════════════════════════ -->
+<nav class="anchor-nav" id="anchorNav" aria-label="På den här sidan">
+  <div class="anchor-nav__inner">
+    <ul class="anchor-nav__list">
+      <li><a href="#part-1" data-section="part-1">Kom igång</a></li>
+      <li><a href="#part-2" data-section="part-2">Arbeta smartare</a></li>
+      <li><a href="#part-3" data-section="part-3">Regelefterlevnad &amp; licensiering</a></li>
+      <li><a href="#faq" data-section="faq">Vanliga frågor</a></li>
+      <li><a href="#download" data-section="download">Ladda ner PDF</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!--                     PART 1                           -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="section section--surface" id="part-1">
+  <div class="container">
+    <header class="part-opener">
+      <div class="part-opener__number" aria-hidden="true">01</div>
+      <div class="part-opener__content">
+        <p class="part-opener__eyebrow">Del 1</p>
+        <h2 class="part-opener__title">Kom igång</h2>
+        <p class="part-opener__lede">Vilken Copilot du faktiskt kör, hur du slår på den, och den enda distinktion — Kommersiellt dataskydd — som styr nästan varje policyfråga som följer.</p>
+      </div>
+    </header>
+
+    <!-- 1.1 Which product -->
+    <h3 id="p1-products">Vilken produkt använder du egentligen?</h3>
+    <p>Det mest förvirrande med Microsoft Copilot är att namnet täcker fyra olika produkter med olika villkor, olika priser och olika dataskydd. En lärare som öppnar <em>copilot.microsoft.com</em> i en privat webbläsare och en lärare som öppnar <em>copilot.cloud.microsoft</em> inloggad med ett skolkonto använder två skilda tjänster som råkar dela logotyp. Det praktiska står på spel: den ena ligger inne i skolans Microsoft 365-tenant och ärver ert befintliga personuppgiftsbiträdesavtal; den andra är en konsumentprodukt under konsumentvillkor.</p>
+    <p>Innan något annat är det värt att rakt av namnge de fyra SKU:erna.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Namn</th>
+          <th>För vem</th>
+          <th>CDP?</th>
+          <th>Kostnad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Copilot (gratis webb) på <em>copilot.microsoft.com</em></td>
+          <td>Alla med ett Microsoft-konto (MSA)</td>
+          <td><strong>Nej</strong> — konsumentvillkor</td>
+          <td>Gratis</td>
+        </tr>
+        <tr>
+          <td>Copilot Chat med arbets- eller skolkonto</td>
+          <td>Inloggade M365-användare</td>
+          <td><strong>Ja</strong> — CDP aktiverat</td>
+          <td>Gratis med M365</td>
+        </tr>
+        <tr>
+          <td>Copilot Pro</td>
+          <td>Privatpersoner som uppgraderar gratis-Copilot</td>
+          <td>Nej — fortfarande konsument</td>
+          <td>Betald</td>
+        </tr>
+        <tr>
+          <td>Microsoft 365 Copilot</td>
+          <td>Tenant-licensierade platser (lärare/administratörer)</td>
+          <td><strong>Ja</strong> — inne i tenanten</td>
+          <td>Tillägg, ~350 kr/användare/mån</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Den praktiska regeln för skolor: <strong>logga in med arbets- eller skolkontot, varje gång</strong>. Just det beteendet är skillnaden mellan att en lärares prompt stannar inne i er M365-tenant och att en lärares prompt rinner in i en konsumentprodukt som lyder under andra villkor. Överallt där du ser Microsoft 365 Copilot-ikonen inne i Word, Excel, PowerPoint, Outlook eller Teams är Kommersiellt dataskydd redan i kraft — för du är inloggad i tenanten, och de ytorna exponerar inte konsumentvägen. Tvetydigheten lever nästan uteslutande i webbchatts-ytan, och det är därför inloggningsdisciplin är det viktigaste policybeslutet i den här guiden.</p>
+
+    <!-- 1.2 Turning it on -->
+    <h3 id="p1-setup">Så slår du på det (lärare först)</h3>
+    <p>Copilot är i praktiken en stationär- och bärbar-produkt för lärare. Windows, Mac eller webbläsaren är där det mesta arbetet sker; telefonapparna är sekundära. Det finns inget att installera på själva enheten för kärnfunktionerna — vad du behöver är att en tenant-administratör delar ut rätt licens, och att varje lärare loggar in med arbetskontot på den yta där Copilot bor.</p>
+    <ol class="steps">
+      <li><strong>Inne i M365-apparna</strong> (Word, Excel, PowerPoint, Outlook, OneNote, Teams): Copilot-ikonen dyker upp i menyfliken eller i höger panel efter att tenant-administratören tilldelat en Microsoft 365 Copilot-licens. Ingen användarsides-installation — funktionen är en serversides-switch i Microsoft 365-administrationscentret.</li>
+      <li><strong>Copilot Chat</strong> (gratis med valfritt arbets- eller skolkonto): öppna <em>copilot.cloud.microsoft</em> i en webbläsare, eller klicka på Copilot-ikonen i Teams-sidofältet eller i Microsoft Edge. Logga in med arbetskontot; CDP är på som standard på den här vägen.</li>
+      <li><strong>På en privat Mac</strong>: installera <strong>Microsoft 365 Copilot</strong>-appen från Mac App Store för en fristående chatyta som ändå autentiserar mot ditt arbetskonto. Samma CDP-skydd, dedikerat fönster.</li>
+      <li><strong>Verifiera inloggningen.</strong> Uppe till höger på <em>copilot.cloud.microsoft</em>, leta efter sköldikonen eller "Protected"-emblemet som signalerar att arbets- eller skolkontot är aktivt. Ser du i stället ett vanligt Microsoft-kontonamn är du i konsument-Copilot — logga ut, logga in igen med skolkontot och bekräfta att emblemet dyker upp.</li>
+      <li><strong>Kontrollera menyflikens ikon i Word eller Outlook.</strong> Syns Copilot-ikonen inne i skrivbordsappen är licensen på plats. Saknas den, prata med er tenant-administratör innan du räknar med att resten av guiden fungerar.</li>
+    </ol>
+
+    <!-- 1.3 CDP explainer -->
+    <h3 id="p1-cdp">Kommersiellt dataskydd — vad det faktiskt är</h3>
+    <div class="explainer-box">
+      <p class="explainer-box__title">Skillnaden som spelar roll</p>
+      <p>Microsoft pratar om Kommersiellt dataskydd (CDP) som funktionen som gör Copilot trygg för arbete. För det mesta en lärare gör i ett klassrum är beskrivningen korrekt — förutsatt att läraren är inloggad med rätt konto. CDP är inte en reglage någonstans i Inställningar; det är en egenskap hos tjänsten som aktiveras automatiskt när en användare är autentiserad med en arbets- eller skolidentitet mot en tenant som bär den relevanta licensen. Frågan att ställa för en given uppgift är därför inte "slog jag på CDP?" utan "är jag på en yta där CDP gäller?". Det finns tre skilda ställen där din prompt kan bearbetas, och att veta vilket som gäller är skillnaden mellan en informerad användare och en som litar på en logotyp.</p>
+
+      <p><strong>1. Inne i Microsoft 365-tenanten (CDP aktivt).</strong> När en lärare använder Copilot i Word, Outlook, Teams eller PowerPoint — eller öppnar Copilot Chat på <em>copilot.cloud.microsoft</em> inloggad med arbetskontot — är prompten och svaret avgränsade till tenanten. Innehållet används inte för att träna Microsofts grundmodeller. Interaktionen loggas under samma M365-gransknings- och lagringsinställningar som redan styr skolans mejl och filer. Microsoft agerar som personuppgiftsbiträde under ert befintliga personuppgiftsbiträdesavtal. Det är vägen en skola bör designa varje utrullning runt, och den täcker den överväldigande majoriteten av de praktiska användningsområdena i Del 2.</p>
+
+      <p><strong>2. Vad CDP inte betyder.</strong> CDP minskar exponering; det eliminerar inte behandling. Det förvandlar inte en molntjänst till en lokal — din prompt färdas fortfarande över internet till Microsofts servrar och bearbetas där. Det ändrar inte den rättsliga grunden för behandling av elevdata under GDPR — skolan är fortfarande personuppgiftsansvarig, och de vanliga reglerna om laglig grund, dataminimering och ändamålsbegränsning gäller fortfarande. Det täcker inte automatiskt tredjepartsanslutningar som en användare godkänner (en plug-in som ringer en extern tjänst styrs av den tjänstens villkor, inte av CDP). Och granskningsmöjligheten är bara så god som de lagringsinställningar tenant-administratören har konfigurerat: CDP-loggar finns bara om er tenant är konfigurerad att behålla dem.</p>
+
+      <p><strong>3. EU Data Boundary och Schrems II-frågan.</strong> Microsofts EU Data Boundary (EU-datagräns) är ett avtalsmässigt och tekniskt åtagande att lagra och behandla EU-kunders data inom EU-regioner, och det gäller de flesta Copilot-operationer. Det minskar gränsöverskridande dataflöden väsentligt — men inte allt. Viss telemetri och ett litet antal delbearbetningsoperationer kan fortfarande passera Atlanten, och den exakta listan över undantag skiftar i takt med att Microsoft uppdaterar sin arkitektur. Verifiera det aktuella läget med er upphandlingskontakt i stället för att anta full EU-residens för varje operation. Under allt detta ligger Schrems II-verkligheten: Microsoft är en USA-baserad koncern, så EU-till-USA-överföringar kräver Standardavtalsklausuler (SCC), kompletterande åtgärder och den löpande rättsliga analys som varje betydande SaaS-relation redan innebär. Copilot gör inte detta svårare; det får det inte heller att försvinna.</p>
+
+      <p>Två ärliga reservationer är värda att uttala här. För det första: CDP kombinerat med EU Data Boundary hör till de starkaste dataskyddspositioner som erbjuds av någon stor molnleverantör av AI i april 2026 — de arkitektoniska och avtalsmässiga skydden är verkliga, de är dokumenterade och de är oberoende granskningsbara på sätt som de flesta konkurrerande leverantörer inte matchar. För det andra är "det är avgränsat till er tenant" fortfarande ett <strong>förtroendepåstående</strong> som beror på att Microsofts implementation matchar det de har publicerat. Personuppgiftsbiträdesavtalet, granskningsloggarna och EU Data Boundary-åtagandena är det som gör det förtroendet någorlunda verifierbart snarare än enbart ryktesburet. Men det är inte samma sak som att datan aldrig lämnar skolans eget nätverk.</p>
+
+      <p>En användbar tumregel: är du inloggad med arbetskontot och ytan visar Protected-emblemet är du inne i CDP. Är du på <em>copilot.microsoft.com</em> med ett privat Microsoft-konto, eller på Copilot Pro, är du i konsument-Copilot — en annan produkt under andra villkor. Allt i den här guiden förutsätter den första av de två situationerna.</p>
+    </div>
+
+    <!-- 1.4 Outside scope -->
+    <aside class="sidenote">
+      <p class="sidenote__title">Värt att veta (men utanför denna guides omfång)</p>
+      <p>Två delar av Copilot-produktfamiljen får mycket uppmärksamhet men ligger utanför vardagen i den här guiden. Nämner dem kort så du kan svara på de oundvikliga frågorna i personalrummet.</p>
+      <p><strong>Copilot Studio</strong> är Microsofts low-code-miljö för att bygga anpassade agenter — chatbottar och arbetsflöden som sitter ovanpå Copilot och hämtar från tenantens data. Den är genuint användbar för skolor som bygger, till exempel, en FAQ-agent för elevhälsa eller en intern HR-assistent, men det är ett IT-avdelningsprojekt snarare än en funktion varje lärare kommer att röra vid. Behandla den som roadmap-material för digitala ledarens planering för år två, inte som introduktion vecka ett.</p>
+      <p><strong>Copilot Pro</strong> är konsumentens uppgraderingsväg — den betalda nivån för privatpersoner som använder Copilot på privata Microsoft-konton. Den lägger till bildgenereringskapacitet och längre kontextfönster på konsumentsidan. Den är <strong>inte</strong> relevant för skolutfärdat arbete, eftersom den ligger på konsumentsidan om CDP-linjen. Nämner en kollega att de har "Copilot Pro", reda ut om de menar den betalda konsumentnivån eller Microsoft 365 Copilot-tillägget; det är olika produkter.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!--                     PART 2                           -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="section" id="part-2">
+  <div class="container">
+    <header class="part-opener">
+      <div class="part-opener__number" aria-hidden="true">02</div>
+      <div class="part-opener__content">
+        <p class="part-opener__eyebrow">Del 2</p>
+        <h2 class="part-opener__title">Arbeta smartare</h2>
+        <p class="part-opener__lede">Sex funktioner som förändrar det dagliga lärararbetet, med praktiska exempel, en tydlig notering om var var och en bearbetar din data, och hur du kommer igång på mindre än en minut.</p>
+      </div>
+    </header>
+
+    <!-- 2.1 Copilot Chat -->
+    <article class="feature-card" id="p2-chat">
+      <h3>1. Copilot Chat (med din arbetsdata)</h3>
+      <p class="feature-card__what">Copilot Chat är den allmänna chatytan som ligger på <em>copilot.cloud.microsoft</em> och inne i Teams- och Edge-sidofälten. Inloggad med arbetskontot körs den under Kommersiellt dataskydd och — med en Microsoft 365 Copilot-licens — kan den referera dina egna OneDrive- och SharePoint-filer när du förankrar den med snedstreckskommandot.</p>
+
+      <h4>Exempel från klassrummet</h4>
+      <ul class="example-list">
+        <li><strong>Göra lektionsplaner från förra årets OneNote:</strong> Be Copilot läsa din biologibok för årskurs 9 och göra ett utkast till ett reviderat arbetsområde för årets elevgrupp — samma lärandemål, nya aktiviteter. Prompten stannar inne i tenanten och svaret är förankrat i ditt eget material.</li>
+        <li><strong>Extrahera åtgärdspunkter från ett mötestranskript:</strong> Klistra in transkriptet av ett långt ämneslagsmöte och fråga "Vad åtog jag mig personligen att göra?". Två minuters städning ersätter tjugo minuter av att scrolla genom anteckningar.</li>
+        <li><strong>Sammanfatta ett styrdokument:</strong> Be om en ensidig sammanfattning av ett trettiosidors vägledningsdokument från Skolverket, formulerad på den nivå du skulle dela med personalen. Användbart för ämnesansvariga som behöver formen på en policy innan de läser hela.</li>
+        <li><strong>Omformulera tonen i ett föräldramejl:</strong> Släpp in ett utkast som läser mer avklippt än du tänkt dig och be om en varmare, professionell version som behåller innehållet men mjukar upp registret.</li>
+        <li><strong>Stötta differentiering:</strong> Beskriv en årskurs 7-klass med blandade kunskapsnivåer och lärandemålet för morgondagens lektion, och be om tre differentieringsnivåer med specifika aktiviteter för varje. En strukturerad startpunkt som du sedan anpassar till de elever du faktiskt har.</li>
+      </ul>
+
+      <div class="processing-callout">
+        <p class="processing-callout__title">Var den körs</p>
+        <p>Microsofts moln, med Kommersiellt dataskydd aktiverat när du är inloggad med ett arbets- eller skolkonto. Prompter och svar används inte för att träna Microsofts grundmodeller; innehåll är avgränsat till er tenants förtroendegräns och styrs av ert befintliga personuppgiftsbiträdesavtal. Konsument-Copilot på <em>copilot.microsoft.com</em> är en annan produkt under andra villkor — verifiera alltid Protected-emblemet uppe till höger innan du klistrar in något känsligt.</p>
+      </div>
+
+      <h4>Så kommer du igång</h4>
+      <ol class="steps">
+        <li>Öppna <em>copilot.cloud.microsoft</em> i en webbläsare, eller klicka på Copilot-ikonen i Teams-sidofältet.</li>
+        <li>Logga in med ditt skol- eller arbetskonto. Bekräfta att Protected-emblemet syns uppe till höger.</li>
+        <li>Skriv din prompt, eller skriv <strong>/</strong> för att förankra samtalet i en specifik OneDrive- eller SharePoint-fil (kräver en Microsoft 365 Copilot-licens).</li>
+        <li>Granska svaret och iterera. Kopiera det du behöver in i slutdokumentet snarare än att jobba inne i chattfönstret.</li>
+      </ol>
+
+      <p class="feature-card__mac-note"><strong>På Mac:</strong> Installera Microsoft 365 Copilot-appen från Mac App Store för ett fristående chattfönster, eller använd webbläsaren. Samma CDP-väg, samma inloggning med arbetskontot.</p>
+    </article>
+
+    <!-- 2.2 Copilot in Word -->
+    <article class="feature-card" id="p2-word">
+      <h3>2. Copilot i Word</h3>
+      <p class="feature-card__what">Copilot i Word skriver ett utkast från en prompt, skriver om en markerad passage i ett annat register, eller producerar en sammanfattning av det öppna dokumentet. Den bor i Start-menyfliken och i höger panel när du öppnar ett dokument; inget att installera, inget att ladda ner när tenantlicensen väl är på plats.</p>
+
+      <h4>Exempel från klassrummet</h4>
+      <ul class="example-list">
+        <li><strong>Från tvåpunkts-skiss till föräldrabrev:</strong> Skriv "utflykten bekräftad tisdag" och "ta med matsäck och regnkläder", be Copilot expandera det till ett varmt halvsides föräldrabrev, och redigera därifrån. Utkastet är aldrig slutversionen, men det tar dig förbi det tomma papperet på sekunder.</li>
+        <li><strong>Varmare ton i omdöme:</strong> Skriv om ett knapphändigt terminsomdöme till en vänligare men fortfarande precis version. Användbart när det faktiska innehållet är rätt men tonen läser mer avklippt än du tänkt dig.</li>
+        <li><strong>Sammanfattning av en 12-sidig forskningsartikel:</strong> Klistra in en längre forskningsartikel eller be Copilot sammanfatta ett öppet Word-dokument till ett enda stycke lämpligt för en personalbriefing. Originalet ligger intakt; sammanfattningen landar i en sidopanel.</li>
+        <li><strong>Punktlista för en briefing:</strong> Be om de sex viktigaste punkterna från ett längre dokument, formaterade som punkter som får plats på en slide. Två minuters förberedelse för ett ämneslagsmöte som förut tog femton.</li>
+        <li><strong>Svensk-engelsk parallellversion för SVA-föräldrar:</strong> Skriv den svenska versionen av en samtyckesblankett och be sedan om en engelsk version under varje stycke för föräldrar som fortfarande bygger sin svenska. Sparar att skicka två separata dokument och hjälper familjen referera dem tillsammans.</li>
+      </ul>
+
+      <div class="processing-callout">
+        <p class="processing-callout__title">Var den körs</p>
+        <p>Microsofts moln, inne i er tenant, under Kommersiellt dataskydd. Dokumentet du jobbar i stannar i OneDrive eller SharePoint där det redan låg; Copilot läser och skriver till det under samma behörighetskontroller och granskningsloggar som vilken annan Word-session som helst.</p>
+      </div>
+
+      <h4>Så kommer du igång</h4>
+      <ol class="steps">
+        <li>Öppna ett dokument i Word (skrivbord eller webb).</li>
+        <li>Klicka på <strong>Copilot</strong>-ikonen i Start-menyfliken, eller tryck på Copilot-knappen i höger panel.</li>
+        <li>Skriv en prompt — "gör ett utkast till ett föräldrabrev om klass 8:s utflykt" — eller markera en passage och välj <strong>Skriv om</strong>, <strong>Sammanfatta</strong> eller <strong>Visualisera som tabell</strong>.</li>
+        <li>Granska förslaget innan du godkänner. Copilot skriver in i dokumentet; dina redigeringar är fortfarande sista ordet.</li>
+      </ol>
+
+      <p class="feature-card__mac-note"><strong>På Mac:</strong> Identisk upplevelse i Word för Mac när licensen är på plats. Copilot-panelen dyker upp till höger; menyflikens ikon beter sig likadant som på Windows.</p>
+    </article>
+
+    <!-- 2.3 Copilot in Outlook -->
+    <article class="feature-card" id="p2-outlook">
+      <h3>3. Copilot i Outlook</h3>
+      <p class="feature-card__what">Copilot i Outlook sammanfattar långa mejltrådar, gör utkast till svar i en begärd ton, och coachar ditt skrivande innan du skickar — signalerar en för direkt formulering eller en saknad uppföljning. För en lärare med översvämmad inkorg första måndagen tillbaka från lovet är effekten omedelbar.</p>
+
+      <h4>Exempel från klassrummet</h4>
+      <ul class="example-list">
+        <li><strong>Morgonens föräldrasvar-triage:</strong> Fyrtio meddelanden från föräldrar efter ett utflyktsutskick. Be Copilot sammanfatta inkorgen, flagga de tre som ställer riktiga frågor, och göra baslinjeutkast till svar till resten. Tio minuter i stället för nittio.</li>
+        <li><strong>Komma ikapp med en 40-meddelandes ämneslagstråd:</strong> Öppna tråden, klicka Sammanfatta, och få en tre-styckes återblick med besluten, de öppna frågorna och vem som sa vad. Användbart när du missade gårdagens fram-och-tillbaka och behöver komma ikapp innan nästa möte.</li>
+        <li><strong>Mjuka upp ett för direkt utkast:</strong> Skriv det du faktiskt vill säga till en förälder, och be sedan Copilot skriva om det i en mer förlikande ton medan innehållet behålls. Coaching-funktionen signalerar de specifika raderna som läser vassa och föreslår ersättningar.</li>
+        <li><strong>Veckans åtgärdslista:</strong> "Vilka åtgärder är jag skyldig från den senaste veckans inkorg?" Returnerar en konsoliderad lista över åtaganden tvärs alla dina trådar. En förnuftig fredagseftermiddagsrutin.</li>
+        <li><strong>Uppföljning efter ett utvecklingssamtal:</strong> Gör ett utkast till en sammanfattningsmejl utifrån anteckningar som redan finns i tråden — överenskomna datum, mål för nästa termin, det specifika stödet föräldern bad om. Copilot producerar ett utkast; du bekräftar att innehållet matchar det faktiska samtalet.</li>
+      </ul>
+
+      <div class="processing-callout">
+        <p class="processing-callout__title">Var den körs</p>
+        <p>Microsofts moln, under CDP. Mejlinnehåll bearbetas inne i er tenants förtroendegräns och används inte för träning. Den vanliga försiktigheten gäller: elevdata ska fortfarande avidentifieras före varje Copilot-prompt, även inne i CDP.</p>
+      </div>
+
+      <h4>Så kommer du igång</h4>
+      <ol class="steps">
+        <li>Öppna skrivbords- eller webb-Outlook (inloggad med arbetskontot).</li>
+        <li>Klicka på <strong>Copilot</strong>-knappen i menyfliken för åtgärder på inkorgsnivå, eller gnistikonen i skrivfönstret för hjälp med utkast.</li>
+        <li>För en trådsammanfattning, öppna valfri lång tråd och klicka på <strong>Sammanfatta med Copilot</strong> högst upp.</li>
+        <li>För utkast, skriv en kort brief ("svara för att bekräfta närvaro och fråga om specialkost") och låt Copilot producera utkastet. Granska alltid innan du skickar.</li>
+      </ol>
+
+      <p class="feature-card__mac-note"><strong>På Mac:</strong> Nya Outlook för Mac har samma Copilot-funktioner. Den gamla "Legacy Outlook" för Mac har det inte — saknar en kollega Copilot-ikonen kan de fortfarande vara på legacy-appen.</p>
+    </article>
+
+    <!-- 2.4 Copilot in Teams -->
+    <article class="feature-card" id="p2-teams">
+      <h3>4. Copilot i Teams (mötesåterblick och hjälp i chatten)</h3>
+      <p class="feature-card__what">Under ett Teams-möte med transkription påslagen kan Copilot svara på frågor under mötet ("vad bestämde vi nyss om bedömningsschemat?") och producera en strukturerad återblick efteråt med åtgärdspunkter och ansvariga. För den som leder eller deltar i återkommande ämneslagsmöten är det här den mest tidsbesparande funktionen i stacken.</p>
+
+      <h4>Exempel från klassrummet</h4>
+      <ul class="example-list">
+        <li><strong>Åtgärdspunkter från ämneslagsmöte:</strong> Avsluta mötet, klicka Återblick, få en lista över åtgärder med ansvarig person och överenskommen deadline. Ett delat dokument som bor i möteschatten, så ingen behöver jaga anteckningarna efteråt.</li>
+        <li><strong>Ikapplägga en kollega:</strong> En kollega missade personalmötet. Dela återblicken; de kan läsa tre styckes viktiga beslut på den tid det tar att gå till personalrummet, snarare än att titta på en timmes video.</li>
+        <li><strong>Viktiga beslut från ett utvecklingssamtal:</strong> Efter ett längre samtal med föräldrar (med alla samtycken säkrade i förväg), använd återblicken för att extrahera den överenskomna stödplanen och dela den med relevanta kollegor.</li>
+        <li><strong>Vad åtog jag mig?</strong> Fråga Copilot i slutet av ett möte "vilka åtgärder äger jag personligen från detta?" för att separera dina egna åtaganden från den allmänna listan.</li>
+        <li><strong>Delad återblick för personalens wiki:</strong> Släpp återblicken i en stående "ämneslagsbeslut"-sida så att historiken över vad som bestämdes när är sökbar senare under året.</li>
+      </ul>
+
+      <div class="processing-callout">
+        <p class="processing-callout__title">Var den körs</p>
+        <p>Microsofts moln, under CDP. En avgörande policynotering: återblicken och in-meeting-Copilot fungerar bara när inspelning eller transkription är uttryckligen aktiverad för mötet. Det är ett medvetet val från mötesarrangören, inte en standardinställning — och i många skolor är det ett beslut som innefattar att informera föräldrar eller elever innan inspelning startar. Behandla transkript-på som ett medvetet steg.</p>
+      </div>
+
+      <h4>Så kommer du igång</h4>
+      <ol class="steps">
+        <li>I ett Teams-möte, klicka på <strong>Fler åtgärder → Starta transkription</strong> (eller inspelning). Informera deltagarna först.</li>
+        <li>Öppna Copilot-panelen till höger under mötet för frågor under mötet.</li>
+        <li>När mötet avslutats, öppna möteschatten och klicka på <strong>Återblick</strong> för att se den genererade sammanfattningen och åtgärdspunkterna.</li>
+        <li>Kopiera de delar du vill ha in i ämneslagets wiki eller dina egna anteckningar. Återblicken bor i möteschatten för deltagarna.</li>
+      </ol>
+
+      <p class="feature-card__mac-note"><strong>På Mac:</strong> Samma funktionsuppsättning i Teams för Mac. Återblicken och in-meeting-Copilot är webbläsarparitetsfunktioner tvärs skrivbordsplattformarna.</p>
+    </article>
+
+    <!-- 2.5 Copilot in PowerPoint -->
+    <article class="feature-card" id="p2-powerpoint">
+      <h3>5. Copilot i PowerPoint</h3>
+      <p class="feature-card__what">Copilot i PowerPoint bygger en bildspelsdeck från ett Word-dokument eller en skissprompt, skriver om befintlig bildtext och föreslår talarnoteringar. Resultatet är ett användbart första utkast snarare än en färdig presentation — men det stänger glappet mellan "jag behöver en deck till torsdag" och "jag har något att redigera".</p>
+
+      <h4>Exempel från klassrummet</h4>
+      <ul class="example-list">
+        <li><strong>Lektionsplan till 12-bilders deck:</strong> Peka Copilot på din Word-lektionsplan och be om en 12-bilders elevriktad deck. Två minuter för ett utkast som förut tog tjugo, och lektionsplanen förblir den enda sanna källan.</li>
+        <li><strong>Talarnoteringar för en vikaries deck:</strong> Generera talpunkter under varje bild så att en vikarie kan leverera lektionen utan att du behöver skriva ett separat manus.</li>
+        <li><strong>Jargongtunga bilder omskrivna för elever:</strong> Klistra in en deck ärvd från en fortbildningssession och be om en elevtillgänglig svensk omskrivning, nedbromsad till läsnivån i din faktiska klass.</li>
+        <li><strong>Bildförslag per bildtema:</strong> Be om konkreta bildförslag för varje bild — "ett diagram som visar vattnets kretslopp" snarare än generiska stockbilder. Sparar letande-i-Unsplash-steget.</li>
+        <li><strong>Konsekvensgenomgång av gamla decks:</strong> Släpp in en ärvd deck och be Copilot städa den för tonalitets- och längdkonsekvens utan att ändra det underliggande innehållet.</li>
+      </ul>
+
+      <div class="processing-callout">
+        <p class="processing-callout__title">Var den körs</p>
+        <p>Microsofts moln, under CDP. Den genererade decken är ett Microsoft 365-dokument som vilket annat som helst — lagrat i OneDrive eller SharePoint, styrt av er tenants lagringspolicyer, och inte använt för att träna Microsofts modeller.</p>
+      </div>
+
+      <h4>Så kommer du igång</h4>
+      <ol class="steps">
+        <li>Öppna PowerPoint (skrivbord eller webb) med arbetskontot inloggat.</li>
+        <li>Klicka på <strong>Copilot</strong>-ikonen i Start-menyfliken.</li>
+        <li>Välj <strong>Skapa presentation från fil</strong> och peka på ett Word-dokument, eller välj <strong>Skapa presentation</strong> och skriv en enstyckes brief.</li>
+        <li>Låt Copilot generera utkastet, och redigera sedan som du skulle göra med vilken deck som helst. Temat och strukturen är startpunkter, inte slutpunkter.</li>
+      </ol>
+
+      <p class="feature-card__mac-note"><strong>På Mac:</strong> Identiskt i PowerPoint för Mac. Många lärare föredrar Keynote för slutpolering; ett vanligt arbetsflöde är Copilot → utkastdeck → export till Keynote för sista rundan av designarbete.</p>
+    </article>
+
+    <!-- 2.6 Copilot Pages -->
+    <article class="feature-card" id="p2-pages">
+      <h3>6. Copilot Pages (delad canvas)</h3>
+      <p class="feature-card__what">Copilot Pages är en fleranvändar-canvas som sitter mellan ett chattsamtal och ett dokument. Du startar något i Copilot Chat, klickar "Redigera i Pages", och svaret blir en beständig artefakt som kollegor kan öppna, redigera och utvidga med ytterligare Copilot-prompter. Skillnaden mot ett vanligt Word-dokument är att Pages är byggt AI-native — Copilot är en aktiv deltagare i dokumentet, inte ett sidofälts-tillägg.</p>
+
+      <h4>Exempel från klassrummet</h4>
+      <ul class="example-list">
+        <li><strong>Arbetsområdesskiss med en kollega:</strong> Gör utkast till formen av ett nytt ämnesövergripande arbetsområde i Pages, bjud in kollegan, iterera tillsammans medan Copilot förfinar avsnitt som svar på kommentarer. Artefakten består mellan sessioner på ett sätt ett chattfönster inte gör.</li>
+        <li><strong>Delad resursbank med äldre elever:</strong> Bygg en referenssida för ett gymnasieprojekt där eleverna (åldersgränsade lämpligt) kan lägga till källor och Copilot hjälper till att sammanfatta dem till ett sammanhängande delat dokument.</li>
+        <li><strong>Fördelar/nackdelar för ett riktigt beslut:</strong> I stället för att förlora ett användbart Copilot-svar i en engångs-chatt, flytta det till en Page, döp den till "Ska vi ändra lunchschemat?", och låt bidragsgivare lägga till egna punkter under veckan.</li>
+        <li><strong>Briefa en elevassistent:</strong> Gör utkast till skissen av en lektion eller presentation i Pages, dela med assistenten, och låt dem förfina sin del medan Copilot håller tonen konsekvent mellan bidrag.</li>
+        <li><strong>Löpande anteckningsbok för en arbetsgrupp:</strong> Skolutvecklingsarbetsgrupper förlorar ofta momentum mellan möten. En Page som alla återvänder till, med Copilot som hjälper till att sammanfatta läget vid varje session, håller tråden.</li>
+      </ul>
+
+      <div class="processing-callout">
+        <p class="processing-callout__title">Var den körs</p>
+        <p>Microsofts moln, under CDP. Pages lagras inne i tenanten och styrs av tenantens dellnings- och lagringspolicyer — samma som vilket OneDrive- eller SharePoint-dokument som helst.</p>
+      </div>
+
+      <h4>Så kommer du igång</h4>
+      <ol class="steps">
+        <li>Öppna Copilot Chat på <em>copilot.cloud.microsoft</em>.</li>
+        <li>Ställ en fråga vars svar är värt att behålla — en arbetsområdesplan, en jämförelse, en beslutsbrief.</li>
+        <li>Under svaret, klicka på <strong>Redigera i Pages</strong>.</li>
+        <li>Dela Page med kollegor via de vanliga Microsoft 365-delningskontrollerna.</li>
+      </ol>
+
+      <p class="feature-card__mac-note"><strong>På Mac:</strong> Pages körs i webbläsaren, så upplevelsen är identisk tvärs Windows, Mac och ChromeOS. Ingen separat installation.</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!--                     PART 3                           -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="section section--surface" id="part-3">
+  <div class="container">
+    <header class="part-opener">
+      <div class="part-opener__number" aria-hidden="true">03</div>
+      <div class="part-opener__content">
+        <p class="part-opener__eyebrow">Del 3</p>
+        <h2 class="part-opener__title">Regelefterlevnad &amp; licensiering i praktiken</h2>
+        <p class="part-opener__lede">Vad Kommersiellt dataskydd faktiskt ger dig under GDPR, hur EU Data Boundary och Schrems II hänger ihop, och de fem policybeslut som är värda att fatta före en bredare utrullning.</p>
+      </div>
+    </header>
+
+    <!-- 3.1 What CDP actually gives you -->
+    <h3 id="p3-cdp">Vad CDP faktiskt ger dig</h3>
+    <p>Microsofts tillägg om produkters och tjänsters dataskydd (Products and Services Data Protection Addendum), kombinerat med Volume Licensing-villkoren och de Copilot-specifika tilläggen i Microsoft 365-tjänstebeskrivningen, utgör tillsammans tre tydliga påståenden för en inloggad skolanvändare:</p>
+    <ol>
+      <li><strong>Dina prompter och svar används inte för att träna Microsofts grundmodeller.</strong> Det är det enskilda påståendet som flest skolor bryr sig mest om. Det är avtalsmässigt, inte bara marknadsföring — språket i personuppgiftsbiträdesavtalet är tydligt.</li>
+      <li><strong>Din data stannar inom er tenants förtroendegräns.</strong> Copilot-interaktioner är avgränsade till organisationens Microsoft 365-miljö. En annan skolas tenant kan inte se ert innehåll; Microsofts ingenjörer kan inte tillfälligt komma åt det; samma behörighetskontroller som styr er mejl och OneDrive gäller Copilot-artefakter.</li>
+      <li><strong>Microsoft agerar som personuppgiftsbiträde under ert befintliga personuppgiftsbiträdesavtal.</strong> Ni är fortsatt personuppgiftsansvariga. Microsofts skyldigheter — säkerhet, incidentrapportering, transparens kring underbiträden, assistans vid begäran från registrerade — är desamma som redan gäller för resten av M365.</li>
+    </ol>
+    <p>Vad CDP inte är: det är inte magi, det ändrar inte era skyldigheter som personuppgiftsansvariga, och det undantar inte Copilot från skolans konsekvensbedömning (DPIA). DPIA:n behöver fortfarande täcka varför ni behandlar elevdata, på vilken rättslig grund, med vilken dataminimering, under hur lång tid. CDP är en riskreducerande åtgärd som minskar vissa risker; DPIA:n är det dokument där de riskreducerande åtgärderna vägs mot kvarvarande risker.</p>
+
+    <!-- 3.2 Sign-in = compliance -->
+    <h3 id="p3-signin">Inloggning är lika med regelefterlevnad</h3>
+    <p>Den enskilt största felkällan i en Copilot-utrullning är en lärare som av misstag använder konsument-Copilot. Det är förvånansvärt lätt att göra: en webbläsare som kommer ihåg det privata Microsoft-kontot, en kollegas delade länk som öppnar <em>copilot.microsoft.com</em> snarare än <em>copilot.cloud.microsoft</em>, en Chrome-profil som inte helt loggades ut. Konsumenttjänsten ser nästan identisk ut som arbetstjänsten och beter sig nästan likadant — men datavägen är annorlunda och de avtalsmässiga skydden är annorlunda.</p>
+    <p>De visuella signalerna är värda att träna personalen att känna igen. Uppe till höger på <em>copilot.cloud.microsoft</em> visar ett inloggat arbetskonto en sköldikon och ett "Protected"-emblem; konsument-Copilot visar Microsoft-kontots avatar utan emblem. Inne i M365:s skrivbordsappar är risken mycket lägre — de ytorna exponerar inte konsumentvägen — men webbläsarytan är där linjen överskrids. Policymässigt är den försvarbara positionen att kräva inloggad arbetskonto-användning för alla Copilot-interaktioner och, där tenantkontrollerna tillåter, blockera konsumentdomänen (<em>copilot.microsoft.com</em>) via villkorlig åtkomst på skolhanterade enheter. Microsofts admincenter-dokumentation kallar det "Access Protection for Copilot" och det är värt de trettio minuter det tar att konfigurera.</p>
+
+    <!-- 3.3 EU Data Boundary and Schrems II -->
+    <h3 id="p3-boundary">EU Data Boundary och Schrems II</h3>
+    <p>Microsofts EU Data Boundary är ett avtalsmässigt åtagande att lagra och behandla EU-kunders data inom EU-regioner, inklusive för Copilot, med specifika undantag som är publicerade och uppdateras periodiskt. I praktiken betyder det att den överväldigande majoriteten av Copilot-prompter, -svar och -metadata för en europeisk tenant aldrig lämnar EU. Viss begränsad telemetri och ett litet antal delbearbetningsoperationer kan fortfarande transitera till amerikansk infrastruktur; den exakta listan finns tillgänglig i Microsofts dokumentation och ändras i takt med att arkitekturen utvecklas.</p>
+    <p>Under detta ligger Schrems II-verkligheten. Microsoft är ett USA-baserat företag, så överföringar av EU-personuppgifter till amerikanska biträden (där de sker) kräver Standardavtalsklausuler, kompletterande åtgärder och den löpande analysen av amerikansk övervakningslagstiftning som har format EU:s molnefterlevnad sedan 2020. Microsoft är också certifierade under EU-US Data Privacy Framework, vilket ger en för närvarande giltig adekvansgrund för vissa överföringar — även om den rättsliga stabiliteten i det ramverket förblir föremål för pågående debatt i europeiska domstolar och hos tillsynsmyndigheter.</p>
+    <p>Den ärliga meningen som bör finnas i er DPIA: det här hör till de bäst dokumenterade och mest robusta dataskyddspositioner som erbjuds av någon stor molnleverantör av AI, och det är fortfarande en relation med ett USA-baserat biträde med komplexa gränsöverskridande beroenden som skolan bör referera uttryckligen snarare än vifta bort. EU Data Boundary minskar exponering väsentligt; den producerar inte en rent europeisk dataväg, och att behandla den så är den sortens efterlevnadspåstående som fastnar i en riktig revision.</p>
+
+    <!-- 3.4 Licensing -->
+    <h3 id="p3-licensing">Licensiering — vilken plats gör vad</h3>
+    <p>De fyra SKU:erna som introducerades i Del 1 har olika funktionsåtkomst, och en klar bild av dem har betydelse före upphandlingsdiskussioner:</p>
+    <ul>
+      <li><strong>Copilot (gratis, konsument)</strong> på <em>copilot.microsoft.com</em>: endast webbchatt, ingen integration med Word, Excel, PowerPoint, Outlook eller Teams. Inget Kommersiellt dataskydd. Konsumentvillkor.</li>
+      <li><strong>Copilot Chat med arbets- eller skolkonto</strong>: webb- och Teams-sidofälts-chatt, CDP aktiverat, gratis med valfri Microsoft 365-licens. Ingen integration i Word eller Outlook — det är M365 Copilot-SKU:n.</li>
+      <li><strong>Copilot Pro (betald konsument)</strong>: bildgenerering, prioriterad modellåtkomst och längre kontext på konsumentsidan. Täcks inte av Kommersiellt dataskydd; ska inte användas för skolarbete.</li>
+      <li><strong>Microsoft 365 Copilot</strong>: integrationen i Word, Excel, PowerPoint, Outlook, Teams, OneNote, plus tenant-förankrade svar som kan referera era egna filer. Cirka 350 kr per användare och månad som tenant-tillägg, listpris — verifiera aktuellt pris med er Microsoft-återförsäljare, eftersom utbildningstenants ofta har ramavtalsrabatter.</li>
+    </ul>
+    <p>En fasad utrullning är det förnuftiga mönstret. Börja med skolledning och ämnesansvariga under en termin — typiskt femton till tjugofem platser — så att ni kan bygga en genuin bild av var Copilot tillför värde i just er skola innan ni binder er för full personallicensiering. Bredare utrullning följer när policyramverket och personalutbildningen är på plats. De flesta tenants behöver inte köpa platser till varje lärare dag ett; gratisnivån Copilot Chat täcker tillräckligt mycket av baslinjen att en fasad ansats sällan lämnar någon fast.</p>
+
+    <!-- 3.5 Student data -->
+    <h3 id="p3-student-data">Elevåtkomst och åldersgränser</h3>
+    <p>Microsofts egen åldersgräns för Copilot med ett arbets- eller skolkonto är 13 år, i linje med Microsoft 365 Education-villkoren. Elever under den åldern kan inte ges direkt Copilot-åtkomst under de villkoren; lärare kan och gör använder Copilot på sina egna konton för att förbereda material för yngre klasser, men barnen själva interagerar inte med tjänsten. För elever 13 år och äldre kan tenant-administratören grinda vilka Copilot-funktioner som är tillgängliga — endast chatt, endast i-app, eller full åtkomst — via admincentret.</p>
+    <p>En konkret rekommendation för skolor som är nya på Copilot: börja med lärar-endast-åtkomst under en hel termin, även om er licens tekniskt sett skulle tillåta elevåtkomst. De vuxna användningsfallen i Del 2 ger er mer än tillräckligt att jobba med för en första utrullning, och att skjuta upp elevåtkomst tills personalpolicyn och exemplen är stabila undviker att den svåraste versionen av frågan landar i er första månad. När ni väl aktiverar elevåtkomst, kombinera det med åldersanpassade lektioner i AI-kunnighet — prompting, hallucinationer, källkritik — snarare än att lägga om reglaget och hoppas.</p>
+    <p class="reader-responsibility-note"><strong>Läsaransvar.</strong> Läsare utanför Sverige bör verifiera egna nationella regler innan de förlitar sig på någon specifik regel i det här avsnittet. AI i skolan utvecklas snabbt och länders regler skiljer sig väsentligt. Sverige saknar särskilt ett enhetligt nationellt vägledningsdokument för AI i skolan per april 2026 — Skolverket och IMY har bekräftat ett pågående gemensamt arbete, utan publicerat datum. Länder inklusive Storbritannien, Frankrike, Tyskland och Nederländerna har redan utfärdat nationella guider, var och en med sin egen tolkning av åldersgränser och hantering av elevdata. Den här guiden är en startpunkt för lokal anpassning, inte en ersättning för de publicerade reglerna i ditt eget land.</p>
+
+    <!-- 3.6 Five policy decisions -->
+    <h3 id="p3-policy">Fem policybeslut för din skola</h3>
+    <ol class="policy-list">
+      <li><strong>Kräv inloggat arbets- eller skolkonto för all Copilot-användning.</strong> Där era tenantkontroller tillåter, blockera konsument-Copilot-domänen via villkorlig åtkomst på skolhanterade enheter. Det är den enskilda beteendeförändring som skyddar CDP-gränsen — varje annan policy förutsätter att den är på plats.</li>
+      <li><strong>Dokumentera Copilot-vägarna i er DPIA.</strong> Tre vägar att namnge uttryckligen: Microsoft 365 Copilot (betald, i-app), Copilot Chat med arbetskontot (gratis, CDP), och — om överhuvudtaget tillåtet — all konsument-Copilot-användning av personal på privata enheter för tydligt vuxen-endast-uppgifter. Hänvisa till Microsofts personuppgiftsbiträdesavtal och EU Data Boundary-åtagandet som riskreducerande åtgärder, och referera Schrems II som en olöst riskkategori som skolan har vägt.</li>
+      <li><strong>Ta fram en riktlinje på en sida för personalen om vad som får klistras in och vad som ska undvikas.</strong> Tre konkreta acceptera-exempel och tre konkreta undvika-exempel, anpassade till er skola — inte generiska. Fäst den på personalens gemensamma wiki och hänvisa till den vid introduktion. En ny lärare i augusti ska hitta den på under en minut.</li>
+      <li><strong>Fasa utrullningen: ledning och ämnesansvariga först, sedan bredare personal, sedan elever (om tillåtet).</strong> Tenant-administratörens switch som aktiverar Microsoft 365 Copilot är omedelbar; organisationens mognad är det inte. Budgetera åtminstone en termin mellan varje fas så att lärdomar från en våg faktiskt formar nästa.</li>
+      <li><strong>Terminsvis översyn.</strong> Microsoft skeppar Copilot-uppdateringar månadsvis. En 30-minuters stående kalenderbokning varje termin för den digitala ledaren — skumma release notes, uppdatera personalriktlinjen, flagga något som ändrar DPIA:n — räcker för att hindra policyn från att glida ifrån verkligheten. Riktlinjer som inte överlever kontakten med nästa termins produktuppdatering är inte riktlinjer; de är önskningar.</li>
+    </ol>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!--                       FAQ                            -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="section" id="faq">
+  <div class="container">
+    <p class="part-label">Vanliga frågor</p>
+    <h2>Frågor lärare ställer</h2>
+
+    <details class="faq-item">
+      <summary>Vilken version av Copilot ska vår skola egentligen använda?</summary>
+      <div class="faq-body">
+        <p>För vardagligt lärararbete inne i Microsoft 365-tenanten är svaret oftast ett av två. Har skolan budget för full integration i apparna — Copilot inne i Word, Outlook, PowerPoint, Teams — är det betalda <strong>Microsoft 365 Copilot</strong>-tillägget rätt val, typiskt kring 350 kr per lärare och månad. Börjar ni smått eller pilottestar ger redan gratis <strong>Copilot Chat med arbets- eller skolkonto</strong> på <em>copilot.cloud.microsoft</em> er allmän chatt under Kommersiellt dataskydd utan extra kostnad. Fel svar i nästan varje fall är gratis-konsumentvarianten Copilot på <em>copilot.microsoft.com</em>, som körs under konsumentvillkor och inte täcks av skolans personuppgiftsbiträdesavtal — oavsett hur bekvämt det kan se ut i en stressad stund.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Tränar mina prompts Microsofts AI?</summary>
+      <div class="faq-body">
+        <p>Inte när du är inloggad med ett arbets- eller skolkonto på en tenant som bär CDP-egenskapen — vilket täcker både Microsoft 365 Copilot och gratis Copilot Chat med arbetsinloggning. Microsofts personuppgiftsbiträdesavtal anger avtalsmässigt att prompter och svar på de vägarna inte används för att träna deras grundmodeller. Det avtalsmässiga språket är skyddet; lita på det på den nivån. Historien ändras helt om en lärare av misstag använder konsument-Copilot på <em>copilot.microsoft.com</em> på ett privat Microsoft-konto — konsumentvillkoren är annorlunda, träning är tillåten om inte användaren aktivt tackat nej, och skolans personuppgiftsbiträdesavtal gäller inte. Det enskilda beteende som gör "ingen träning"-löftet verkligt är disciplinerad inloggning med arbetskontot.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Finns Copilot på svenska?</summary>
+      <div class="faq-body">
+        <p>Ja — Copilot har varit flytande på svenska i Chat, Word, Outlook, PowerPoint och Teams sedan 2024, och kvaliteten har förbättrats med varje modelluppdatering. Du kan skriva prompter på svenska, få svenska svar, och Copilot respekterar svensk grammatik, register och pedagogiskt ordförråd kompetent. En nyans värd att känna till: vissa nyare funktioner (specifika Copilot Studio-mallar, vissa regionbegränsade förhandsversioner) rullas ut på engelska först och får svenskt stöd i senare vågor. För kärnlärarytorna i Del 2 är svenska ett förstaklassens språk. Ett praktiskt tips: om ett svar läser lätt stelt, lägg till "skriv på naturlig svenska, i samma stil som en lärare skulle skriva till en förälder" till prompten — registerkorrigeringen är oftast omedelbar.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Får jag använda Copilot med elevdata?</summary>
+      <div class="faq-body">
+        <p>Arbetsregeln är densamma som för varje moln-AI-tjänst: avidentifiera elevdata före varje Copilot-prompt, även inne i CDP. CDP minskar exponeringen väsentligt men ändrar inte era skyldigheter som personuppgiftsansvariga under GDPR. Namn, omdömen, beteendeanteckningar, åtgärdsprogram, elevhälsofrågor, fritextobservationer om enskilda elever — håll dem ur prompten, eller ersätt med platshållare ("Elev A", "eleven i årskurs 9 vi pratade om på förra veckans möte"). Lärararbetets data som inte identifierar specifika elever — planeringsdokument, generella mallar för föräldrakommunikation, mötesanteckningar utan namn — är i allmänhet okej. Sverige saknar för närvarande ett enhetligt nationellt vägledningsdokument om detta (<strong>Skolverket</strong> och <strong>IMY</strong> har bekräftat ett pågående gemensamt arbete); skolans DPIA bör uttala regeln uttryckligen så att personalen har något konkret att följa.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Hur jämförs Copilot med Claude eller Gemini?</summary>
+      <div class="faq-body">
+        <p>Olika styrkor. Copilots fördel är integration — den sitter inne i Microsoft 365-tenanten där de flesta skolor redan arbetar, bär det befintliga personuppgiftsbiträdesavtalet, och förankrar svar i era egna OneDrive- och SharePoint-filer när du ger den åtkomst. Det är genuint svårt att replikera med en extern chatbot. Claude och Gemini känns ofta mer kapabla för öppet tänkande — längre skrivarbete, nyanserad analys, kodning, djupare resonerande samtal — och har sina egna företagsvägar med jämförbara integritetsåtaganden. Ett realistiskt lärararbetsflöde 2026 använder båda: Copilot för knuffarna i kontext inne i Word, Outlook och Teams, och en allmän chatbot på en laptop för de svårare tänkandeuppgifterna. De är komplementära snarare än konkurrerande; frågan är vilken av skolans personuppgiftsbiträdesavtalstäckta vägar varje verktyg sitter på, inte vilket som är "bäst".</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Hur är det med Copilot på min privata dator?</summary>
+      <div class="faq-body">
+        <p>Relevant för den vuxenproduktiva sidan av undervisning — skriva föräldramejl hemma, städa en lektionsplan på köksbordslaptopen, sammanfatta ett längre dokument en helg. Nyckeln är fortfarande inloggningen: på en privat Mac eller PC, installera <strong>Microsoft 365 Copilot</strong>-appen (Mac App Store eller Microsoft Store) och autentisera med ditt skolkonto. Appen ger dig ett fristående chattfönster som körs under er tenants CDP även på privat hårdvara. Använd inte konsument-Copilot på <em>copilot.microsoft.com</em> med ett privat Microsoft-konto för skolarbete — den rättsliga grunden är annorlunda och skolans personuppgiftsbiträdesavtal gäller inte. Din privata telefon är i allmänhet inte rätt yta för elevdata oavsett vilken Copilot-variant du använder.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Täcks Copilot av skolans personuppgiftsbiträdesavtal med Microsoft?</summary>
+      <div class="faq-body">
+        <p>För Copilot-interaktioner inne i Microsoft 365-tenanten — det vill säga Microsoft 365 Copilot och Copilot Chat med ett inloggat arbetskonto — ja. Microsofts standard Online Services DPA täcker Copilot som en del av Microsoft 365-tjänsten, och den tenant-specifika CDP-egenskapen utvidgar "ingen träning"-åtagandet till Copilot-vägarna specifikt. EU Data Boundary-åtagandet är ett ytterligare lager som ligger bredvid personuppgiftsbiträdesavtalet för europeiska tenants. Konsument-Copilot på <em>copilot.microsoft.com</em> är <strong>inte</strong> täckt av skolans personuppgiftsbiträdesavtal — den körs under Microsofts konsumentvillkor, vilket är en annan rättslig relation. Er DPIA bör uttryckligen namnge vilka vägar som är i omfattning och vilka som inte är, och er personalriktlinje bör göra samma distinktion på rakt språk.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Kan jag stänga av specifika Copilot-funktioner för vissa personalgrupper?</summary>
+      <div class="faq-body">
+        <p>Ja. Microsoft 365-administrationscentret låter er tilldela Copilot-licenser till specifika användare eller grupper snarare än till hela tenanten — det vanligaste mönstret för en fasad utrullning. Inom Copilot Chat kan administratören också avgränsa vilka funktioner som är tillgängliga (filförankring, bildgenerering, plug-ins) via Microsoft Entra och Copilot Control System. En förnuftig standard för en första termins utrullning: ledning och ämnesansvariga får full Microsoft 365 Copilot-licens; övrig personal använder Copilot Chat med arbetskontot (gratis, CDP-täckt) i webbläsaren; elevkonton får ingen Copilot-åtkomst alls tills policyarbetet är gjort. Det här är lättare att justera senare än de flesta skolor antar; den initiala konfigurationen är ingen enkelriktad dörr.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Var får jag hjälp om något går fel?</summary>
+      <div class="faq-body">
+        <p>Börja med Microsoft 365-administrationscentrets egen Copilot-dokumentation och hälsoinstrumentpanel — den snabbaste källan för tenant-nivå-problem, licenstilldelning och funktionstillgänglighet. För den tekniska dokumentationen om CDP och EU Data Boundary publicerar Microsoft Learn-portalen arkitektur- och avtalsdetaljer. För skolspecifika frågor — policybeslut, DPIA-implikationer, utrullning i ett personalrum, anpassning mot EU:s AI-förordning, och den fortfarande öppna frågan om svensk nationell vägledning från Skolverket och IMY — hör av dig via min webbplats (länk i foten). Jag erbjuder konsulting för skolor, främst i Sverige. För MDM-specifik konfiguration har er skolas enhetshanteringsleverantör (Intune, Jamf, Mosyle) Copilot-specifik vägledning och profilalternativ.</p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!--                  DARK CTA BAND                       -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="cta-band" id="download">
+  <h2>Ta med guiden</h2>
+  <p>Ladda ner den portabla PDF:en — samma innehåll, premium-layout, perfekt för offline-läsning eller för att dela med kollegor.</p>
+  <div class="cta-stack">
+    <button class="button button--primary" data-gate="copilot-guide-sv" data-gate-pdf="/assets/pdfs/guides/copilot-guide-sv.pdf">
+      Ladda ner guiden (PDF)
+    </button>
+    <a class="button button--on-dark" href="/assets/pdfs/guides/copilot-quick-start-sv.pdf" download>
+      Ladda ner Quick Start (2 sidor)
+    </a>
+  </div>
+  <p class="cta-fineprint">Uppdaterad april 2026.</p>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!--                   LICENSE BAND                       -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="license-band" aria-label="License">
+  <div class="license-inner">
+    <p class="license-title">Licens</p>
+    <p class="license-body">
+      <strong>Det här verket är licensierat under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>.</strong>
+      Du får kopiera, dela och bearbeta materialet för icke-kommersiella ändamål, så länge du anger Johan Lindström som källa och behåller samma licens på eventuella bearbetningar.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!--                      FOOTER                          -->
+<!-- ═══════════════════════════════════════════════════ -->
+<footer class="footer">
+  <p>© 2026 Johan Lindström · Fri att dela med attribution.<br>
+  <a href="https://choosewise.education">Besök huvudsajten</a> · <a href="https://www.linkedin.com/in/johan-lindstr%C3%B6m-b290a85/">Följ på LinkedIn</a></p>
+</footer>
+
+</div><!-- /.jl-page -->
+
+<div data-include="/assets/partials/footer-sv.html"></div>
+<script src="/assets/js/include.js"></script>
+<script type="module" src="/assets/js/mailerlite-gate.js" defer></script>
+</body>
+</html>
