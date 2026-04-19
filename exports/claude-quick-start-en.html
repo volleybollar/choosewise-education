@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Claude Quick Start — for teachers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Work Sans', -apple-system, sans-serif;
+    color: #1e1e1c;
+    background: #f7f4ec;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 18mm 20mm;
+    display: flex;
+    flex-direction: column;
+  }
+  .page1 { page-break-after: always; }
+  .page2 { page-break-before: always; }
+
+  /* ─── Page header ─── */
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(30, 30, 28, 0.12);
+    margin-bottom: 14px;
+  }
+  .masthead .eyebrow {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: #2f4a3a;
+  }
+  .masthead .page-num {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #a5a59f;
+  }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.7px;
+    color: #1e1e1c;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 17px;
+    font-weight: 300;
+    font-style: italic;
+    color: #5a5a57;
+    margin-bottom: 14px;
+  }
+  .lede {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #3a3a38;
+    max-width: 155mm;
+    margin-bottom: 18px;
+  }
+
+  /* ─── Section ─── */
+  .section { margin-bottom: 14px; }
+  .section h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 18px;
+    font-weight: 450;
+    line-height: 1.2;
+    color: #1e1e1c;
+    margin-bottom: 4px;
+  }
+  .section h2 .num {
+    color: #2f4a3a;
+    font-weight: 500;
+    margin-right: 8px;
+  }
+  .section p {
+    font-size: 11px;
+    line-height: 1.55;
+    color: #3a3a38;
+    margin-bottom: 6px;
+  }
+
+  /* ─── RTF grid ─── */
+  .rtf-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .rtf-card {
+    background: #fbf8f1;
+    border-left: 3px solid #2f4a3a;
+    padding: 10px 12px;
+    border-radius: 2px;
+  }
+  .rtf-card:nth-child(2) { border-color: #a07d2e; }
+  .rtf-card:nth-child(3) { border-color: #b35a3a; }
+  .rtf-card .letter {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1;
+    color: #2f4a3a;
+  }
+  .rtf-card:nth-child(2) .letter { color: #a07d2e; }
+  .rtf-card:nth-child(3) .letter { color: #b35a3a; }
+  .rtf-card .name {
+    display: block;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1e1e1c;
+    margin: 3px 0 3px;
+  }
+  .rtf-card p {
+    font-size: 10.5px;
+    line-height: 1.5;
+    color: #3a3a38;
+    margin: 0;
+  }
+
+  /* ─── Bad/Better/Best ─── */
+  .bbb {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .bbb-card {
+    background: #fbf8f1;
+    border-top: 2px solid #c4c0b2;
+    padding: 8px 10px;
+    border-radius: 2px;
+  }
+  .bbb-card.better { border-color: #c69c3c; }
+  .bbb-card.best   { border-color: #2f4a3a; }
+  .bbb-card .label {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #a5a59f;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .bbb-card.better .label { color: #a07d2e; }
+  .bbb-card.best   .label { color: #2f4a3a; }
+  .bbb-card .sample {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 10.5px;
+    line-height: 1.45;
+    font-style: italic;
+    color: #3a3a38;
+    white-space: pre-wrap;
+  }
+
+  /* ─── Steps list (page 2) ─── */
+  .wins {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 18px;
+    margin-top: 6px;
+  }
+  .win {
+    display: flex;
+    gap: 10px;
+    padding: 4px 0;
+  }
+  .win .idx {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #2f4a3a;
+    min-width: 14px;
+  }
+  .win .text {
+    font-size: 10.5px;
+    line-height: 1.5;
+    color: #3a3a38;
+  }
+  .win .text strong {
+    color: #1e1e1c;
+    font-weight: 600;
+    display: block;
+    font-size: 11px;
+    margin-bottom: 1px;
+  }
+
+  /* ─── Two-column setup ─── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .two-col p { margin-bottom: 4px; }
+
+  /* ─── Watch out ─── */
+  .watchout {
+    background: #f5ecd0;
+    border-left: 3px solid #a07d2e;
+    padding: 10px 14px;
+    border-radius: 2px;
+    margin-top: 6px;
+  }
+  .watchout .label {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #a07d2e;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .watchout p {
+    font-size: 10.5px;
+    line-height: 1.5;
+    color: #3a3a38;
+    margin: 0;
+  }
+
+  /* ─── Footer ─── */
+  .page-footer {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid rgba(30, 30, 28, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 9.5px;
+    color: #a5a59f;
+    letter-spacing: 0.3px;
+  }
+  .page-footer .brand {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 10.5px;
+    color: #5a5a57;
+  }
+
+  /* ─── Closing CTA (page 2) ─── */
+  .closing {
+    background: #1e1e1c;
+    color: #f7f4ec;
+    padding: 14px 18px;
+    border-radius: 3px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .closing .msg {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 13.5px;
+    font-style: italic;
+    color: #f7f4ec;
+    line-height: 1.4;
+  }
+  .closing .url {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #d4e8db;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ PAGE 1 ═══════════════ -->
+<div class="page page1">
+  <div class="masthead">
+    <span class="eyebrow">Claude Quick Start · for teachers</span>
+    <span class="page-num">01 / 02</span>
+  </div>
+
+  <h1>Fifteen minutes from sign-up to your first useful output.</h1>
+  <p class="subtitle">A compressed first hour with Claude — the full guide is at choosewise.education.</p>
+
+  <p class="lede">Claude is a tool. You are the teacher. This page gives you the three things that separate a useful first session from a frustrating one: a working account, a prompt that does not waste your time, and the habit of iterating. Skim it once, apply it today, return for depth tomorrow.</p>
+
+  <div class="section">
+    <h2><span class="num">1</span>Sign in at claude.ai</h2>
+    <p>Go to <em>claude.ai</em> and sign up. You can sign in with Google or Apple, or create an account with any email address. To decide whether Claude is a useful tool for you, start with a free personal account — just don't upload sensitive data. If you conclude that your school should have Claude accounts, there are several steps to work through before you are up and running.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">2</span>Write a prompt that works — the RTF anatomy</h2>
+    <p>Most prompts fail because they are vague, not because the model is weak. A useful prompt names three things: Role, Task, Format.</p>
+    <div class="rtf-grid">
+      <div class="rtf-card">
+        <span class="letter">R</span>
+        <span class="name">Role</span>
+        <p>Who Claude should be. "An experienced Year 4 literacy teacher in a mixed-ability state school" beats "a teacher".</p>
+      </div>
+      <div class="rtf-card">
+        <span class="letter">T</span>
+        <span class="name">Task</span>
+        <p>Exactly what you want done. "A ten-minute retrieval quiz on persuasive techniques from the past three lessons" beats "help with a quiz".</p>
+      </div>
+      <div class="rtf-card">
+        <span class="letter">F</span>
+        <span class="name">Format</span>
+        <p>The shape of the answer. Count, question types, word limit, whether to include an answer key. Say it up front.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">3</span>Iterate — the first draft is never the deliverable</h2>
+    <p>Read the first output. Tell Claude two things to change. Run again. Ask for one more refinement. Two rounds of feedback take three minutes and roughly triple the quality. That iteration loop is the skill — not the perfect opening prompt.</p>
+
+    <div class="bbb">
+      <div class="bbb-card">
+        <span class="label">● Bad</span>
+        <div class="sample">Explain the water cycle.</div>
+      </div>
+      <div class="bbb-card better">
+        <span class="label">● Better</span>
+        <div class="sample">Explain the water cycle for Year 6. Make it easy to understand.</div>
+      </div>
+      <div class="bbb-card best">
+        <span class="label">● Best</span>
+        <div class="sample">Act as a Year 6 Science teacher. Write a 250-word explanation of the water cycle for a mixed-ability class. Include the four stages, one real-world example each, a five-term vocabulary box, and three retrieval questions at the end.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Claude Quick Start</span>
+    <span class="brand">choosewise.education</span>
+    <span>Page 01 / 02</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 2 ═══════════════ -->
+<div class="page page2">
+  <div class="masthead">
+    <span class="eyebrow">Claude Quick Start · after the first hour</span>
+    <span class="page-num">02 / 02</span>
+  </div>
+
+  <h1>Where the real leverage starts.</h1>
+  <p class="subtitle">Set Claude up once. Benefit every conversation after.</p>
+
+  <div class="section">
+    <h2>Set up one Project — your persistent teaching assistant</h2>
+    <p>Pick the subject or year you spend most of your time on. Create a Project in Claude, upload five reference files, and write one custom instruction. Every conversation inside that Project draws on the files and follows the instruction — you stop pasting context and start compounding it.</p>
+    <div class="two-col">
+      <div>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Upload these five:</strong></p>
+        <p>· Your curriculum or syllabus for the subject and year</p>
+        <p>· Your scope and sequence or term planner</p>
+        <p>· Your school's style or communications guide</p>
+        <p>· An assessment rubric you use regularly</p>
+        <p>· Three de-identified student work samples</p>
+      </div>
+      <div>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Add one instruction:</strong></p>
+        <p style="font-family:'Fraunces',Georgia,serif;font-style:italic;color:#3a3a38;">"You are an experienced Year 8 teacher in a mixed-ability school. Outputs should be classroom-ready, follow the uploaded style guide, never produce more than I asked for, and use British English."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Turn on Memory. Save two Styles.</h2>
+    <p><strong style="color:#1e1e1c;font-weight:600;">Memory</strong> lets Claude remember your role, school, and formatting preferences across conversations. Open Settings → Memory, turn it on, and tell Claude about yourself in plain sentences over your first few chats. Every memory is reviewable and deletable.</p>
+    <p><strong style="color:#1e1e1c;font-weight:600;">Styles</strong> are voice presets. Save one called <em>Parent communication — warm, clear, no jargon</em> and another <em>Staff brief — concise, bullet-led</em>. Pick from the dropdown when you start a task. Three or four Styles cover eighty per cent of a teacher's recurring writing.</p>
+  </div>
+
+  <div class="section">
+    <h2>Five first wins — pick one this week</h2>
+    <div class="wins">
+      <div class="win">
+        <span class="idx">1</span>
+        <div class="text"><strong>Differentiate a reading passage</strong>Three versions at two years below, at-level, and two years above — same core ideas, shared key vocabulary.</div>
+      </div>
+      <div class="win">
+        <span class="idx">2</span>
+        <div class="text"><strong>Build a retrieval quiz</strong>Topic, year level, number and mix of questions, answer key. Usable draft in two minutes.</div>
+      </div>
+      <div class="win">
+        <span class="idx">3</span>
+        <div class="text"><strong>Draft a parent communication</strong>Give the context and the tone. Ask for two alternative tones to calibrate before you send.</div>
+      </div>
+      <div class="win">
+        <span class="idx">4</span>
+        <div class="text"><strong>Summarise a long policy document</strong>Upload the PDF. Ask for the three things you actually need, what affects you, and any deadlines buried inside.</div>
+      </div>
+      <div class="win">
+        <span class="idx">5</span>
+        <div class="text"><strong>Create a lesson starter</strong>Three starter options in different formats — vocabulary warm-up, sentence completion, think-pair-share.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="watchout">
+    <span class="label">● Watch out · think before you share</span>
+    <p>Public curriculum documents, policy PDFs, and your own lesson notes are usually fine to upload. Student names, grades, behavioural records, health information, parent contact details — never. De-identify everything. If a document is not clearly safe, treat it as unsafe and ask your school's data protection officer first.</p>
+  </div>
+
+  <div class="closing">
+    <div class="msg">Ready for depth? Read the full <em>Educator's Guide to Claude</em> — or download the premium PDF from the same page.</div>
+    <div class="url">choosewise.education / guides / claude</div>
+  </div>
+
+  <div class="page-footer">
+    <span>Claude Quick Start — Johan Lindström</span>
+    <span class="brand">choosewise.education</span>
+    <span>Page 02 / 02</span>
+  </div>
+</div>
+
+</body>
+</html>
