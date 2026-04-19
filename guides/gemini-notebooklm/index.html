@@ -58,6 +58,32 @@
   <div class="container">
     <span class="eyebrow">Introduction</span>
     <h2>Three principles that shape this guide</h2>
+    <p>Before the how, a word on the why. Anyone can list Gemini's features, and anyone can recite the NotebookLM marketing copy. Few guides take a position on what these tools are actually for in a school — and, just as importantly, what they are not for. This one does. Three principles sit behind every recommendation in the pages that follow, and they are worth reading before you open a single prompt box.</p>
+
+    <h3>The teacher is the expert</h3>
+    <p>Gemini and NotebookLM are tools. You are the teacher. The tools do not set the learning goals. They do not know your students. They have not read the curriculum you are working under, nor do they understand the pedagogical choices you have made and why. You do. Every output either tool produces passes through your professional judgment before it reaches a classroom. That is not a polite idea — it is the working rule of this guide.</p>
+    <p>Your knowledge, your experience, your discernment: these are what make any AI output actually useful. If you understand differentiation deeply, these tools become a genuine force multiplier. If you don't, no model will fill the gap. The tool amplifies what you already bring; it does not replace it.</p>
+
+    <h3>Do the fundamentals better</h3>
+    <p>The temptation with new technology is always to reach for the new: escape rooms, immersive worlds, gamified everything. Most of it is noise. The real opportunity with Gemini and NotebookLM is quieter, and more consequential. It is to do the evidence-based fundamentals more often and more consistently than you currently can.</p>
+    <p>Retrieval practice. Vocabulary work. Text differentiation. Sentence stems. Worked examples. Formative feedback. These are the practices the research keeps pointing to, and the practices teachers have always said they would use more often if they had the time. These tools give you the time. What used to take ninety minutes of lesson preparation now takes five. That is not flashy. It is transformative in the only sense that matters: students learn more.</p>
+
+    <div class="callout callout--johan">
+      <span class="callout__label">Johan's Note</span>
+      <p>After 28 years in classrooms and leadership roles, I have watched a lot of AI tools arrive with the promise of changing education. The ones that stayed were the ones that let teachers do more of what they already knew worked. The ones that vanished were the ones that asked teachers to become something else. Gemini and NotebookLM — used well — belong clearly in the first group. Used badly, they don't.</p>
+      <span class="callout__signature">— JL</span>
+    </div>
+
+    <h3>Include every student</h3>
+    <p>Every classroom has students on the margins. The EAL student who needs key vocabulary pre-taught before she can access the text everyone else is reading. The student with a learning difference who needs the same content at a simplified reading age. The advanced student who is coasting because the work is not stretching her. Meeting all of these students, every lesson, has always been the right thing to do — and has always been too time-consuming to do consistently.</p>
+    <p>Gemini and NotebookLM lower that cost to the point where meeting them becomes realistic. Differentiated texts in five minutes. Translated key terms for a newly arrived student. Scaffolded instructions for a worked example. Audio versions of a written task, recorded by the tool itself. This is not about doing more. It is about doing what matters, for the students who need it most, at a cadence the research has recommended for decades.</p>
+
+    <p>One more thing worth naming before we begin. Under Article 4 of the EU AI Act — which has applied since 2 February 2025 — every organisation that deploys AI, schools included, must ensure its staff have sufficient AI literacy to use these tools responsibly. The guide you are reading is itself a form of that work. Part 4 and the EU bonus chapter return to this obligation in detail; for now, know that your teacher development and your time spent reading this guide IS your school's Article 4 work.</p>
+
+    <div class="callout callout--watch">
+      <span class="callout__label">Watch Out</span>
+      <p>Gemini and NotebookLM can help you create resources faster. They cannot replace the relational work of teaching. Do not let the efficiency of AI trick you into spending less time with students. The time AI saves is for them — not for more admin.</p>
+    </div>
   </div>
 </section>
 
@@ -68,6 +94,46 @@
   <div class="container">
     <span class="eyebrow">Orientation</span>
     <h2>Understanding Gemini and NotebookLM</h2>
+    <p>Gemini and NotebookLM are best understood as two complementary views onto a single Google account. Gemini generates from open knowledge — the whole of the web, Google's search index, and the model's own training. NotebookLM synthesises from a set of sources that you have chosen and uploaded yourself. Since 8 April 2026 the two sync bidirectionally: a Notebook built in one tool now appears in the other, with the same sources and the same chat history behind it.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 640px; margin: 0 auto;">
+        <line x1="40" y1="220" x2="640" y2="220" stroke="#6B7280" stroke-width="0.8" opacity="0.4"/>
+        <rect x="80" y="50" width="220" height="160" rx="12" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
+        <text x="190" y="110" font-family="Playfair Display, serif" font-size="26" font-weight="700" fill="#1B2733" text-anchor="middle">Gemini</text>
+        <text x="190" y="140" font-family="Inter, sans-serif" font-size="11" fill="#6B7280" text-anchor="middle">Generative · open-domain</text>
+        <text x="190" y="168" font-family="Inter, sans-serif" font-size="10" fill="#6B7280" text-anchor="middle">App · Web · Mobile · Workspace</text>
+        <line x1="305" y1="120" x2="375" y2="120" stroke="#C66B3D" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <line x1="305" y1="140" x2="375" y2="140" stroke="#C66B3D" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="340" y="108" font-family="Inter, sans-serif" font-size="9" fill="#C66B3D" text-anchor="middle" letter-spacing="1">TWO-WAY</text>
+        <text x="340" y="158" font-family="Inter, sans-serif" font-size="9" fill="#C66B3D" text-anchor="middle" letter-spacing="1">SYNC</text>
+        <rect x="380" y="50" width="220" height="160" rx="12" fill="#1B2733"/>
+        <text x="490" y="110" font-family="Playfair Display, serif" font-size="24" font-weight="700" fill="white" text-anchor="middle">NotebookLM</text>
+        <text x="490" y="140" font-family="Inter, sans-serif" font-size="11" fill="#C8A86B" text-anchor="middle">Grounded · source-first</text>
+        <text x="490" y="168" font-family="Inter, sans-serif" font-size="10" fill="#C8A86B" text-anchor="middle">Web · Mobile · Gemini app</text>
+      </svg>
+      <p class="diagram__caption">Two views, one Google account. Gemini generates from open knowledge; NotebookLM synthesises from your sources. Since April 2026 the two sync bidirectionally.</p>
+    </div>
+
+    <h3>Gemini — your generative assistant</h3>
+    <p>Gemini is the conversational interface — where you draft, differentiate, research, and ideate. It lives in the Gemini app on Mac, iOS, and Android, at gemini.google.com in a browser, and as a sidebar inside Google Docs, Sheets, Slides, Gmail, Forms, and Vids when your school has the Education Plus or Teaching &amp; Learning add-on. The current flagship model is Gemini 3 Pro, launched 18 November 2025, with a one-million-token context window and strong multimodal reasoning.</p>
+    <p>Inside Gemini you also get Canvas (an interactive workspace for documents, code, and interactive artefacts), Deep Research (a multi-step research agent that plans, searches, and produces cited reports), Gemini Live (a real-time voice mode), and image generation powered by Nano Banana 2. Part 2 walks through each of these in classroom terms and shows when to reach for which.</p>
+
+    <h3>NotebookLM — your grounded research companion</h3>
+    <p>NotebookLM is the mirror image of Gemini. It answers only from sources you upload to it — nothing else. Supported source types are PDFs, Google Docs, Google Slides, websites (by URL), YouTube videos, and copy-pasted text. Matt Miller of Ditch That Textbook (January 2026) captures it well: NotebookLM is <em>"a personal tutor that only knows what you teach"</em>. That single constraint is what makes the tool trustworthy for classroom use.</p>
+    <p>Its Studio features turn those uploaded sources into briefings, mind maps, flashcards, quizzes, study guides, Audio Overviews (podcast-style conversations between two AI hosts) and Video Overviews — each one synthesised from your material with citations rather than hallucinated from general knowledge. Part 2 covers how each Studio output earns its place in a teacher's week.</p>
+
+    <h3>How they now connect</h3>
+    <p>Since 8 April 2026 the two tools sync bidirectionally. A Notebooks section has appeared in the Gemini side panel, sitting between "My stuff" and "Gems", and anything you create in one surface is visible and editable in the other. The workflow this unlocks is genuinely new. A student can upload her class notes in Gemini, generate a cinematic Video Overview of them in NotebookLM, then return to Gemini to draft an essay outline against the same sources — without re-uploading anything.</p>
+    <p>The two sides remain complementary rather than identical. NotebookLM gives you Video Overviews and infographics that Gemini does not offer. Gemini gives you web-search alongside your uploaded sources, which NotebookLM refuses on principle. The integration is rolling out first to Google AI Ultra, Pro, and Plus subscribers; the free tier follows in the weeks after.</p>
+
+    <h3>What you can access</h3>
+    <p>What you actually see depends on your account type. A personal Google account gets you consumer Gemini and NotebookLM at the free tier, with paid AI Plus, AI Pro, and AI Ultra tiers above it. Schools running Google Workspace for Education are on a different path. Core Gemini AI in Classroom — lesson planning, quiz generation, rubric drafting, and similar — is free for all Workspace for Education accounts (confirmed at BETT 2026). Premium Gemini-in-Workspace features inside Docs, Slides, Forms, and Vids require the Education Plus or Teaching &amp; Learning add-on and are restricted to users 18 and over. Part 4 covers the admin and school-leader angle in detail. Exact usage limits are not quoted here because Google updates them monthly — refer to Google's current documentation for the live numbers.</p>
+
+    <div class="callout callout--watch">
+      <span class="callout__label">Watch Out</span>
+      <p>Two age-gates matter for grundskolan and gymnasium. Gemini Live is 18+ only, and the premium Gemini-in-Workspace features inside Docs, Slides, Forms, and Vids are 18+ only. Hands-on student use below that age is therefore constrained — which happens to match Skolverket's August 2025 guidance that students may not use generative AI on their own during instruction. The teacher-as-primary-user framing in this guide reflects that reality. For privacy: inside Workspace for Education the data-protection defaults are stricter than consumer Gemini, but verify the current state in your Google Workspace Admin console and DPA before implementation.</p>
+    </div>
   </div>
 </section>
 
