@@ -144,6 +144,104 @@
   <div class="container">
     <span class="eyebrow">Part 1</span>
     <h2>Getting Started</h2>
+    <img src="assets/part-1-opener.jpg" class="part-opener-image" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;&quot;&gt;Part 1 opener image · drop part-1-opener.jpg into guides/gemini-notebooklm/assets/&lt;/div&gt;';">
+    <p class="lede">If you have never opened Gemini or NotebookLM, start here. By the end of this part you will have accounts for both, you will know the prompt anatomy that actually works, and you will have five concrete things to try this week.</p>
+
+    <h3>Your Google account</h3>
+    <p>Sign in at <em>gemini.google.com</em> and <em>notebooklm.google.com</em> with your Google account. The same account works for both — no separate sign-up, no extra password to forget. A personal Google account is perfectly fine for your early exploration. What it is not fine for is sensitive data: student names, grades, behaviour records, health information, SEN plans, safeguarding notes. None of that belongs in a consumer account. Part 4 and the EU bonus chapter explain the reasons properly; for now, treat the line as absolute.</p>
+    <p>If your school runs Google Workspace for Education, the access path is different. Core Gemini AI inside Google Classroom — lesson planning, quiz generation, rubric drafting — is free to every Workspace for Education account (confirmed at BETT 2026). The premium Gemini-in-Workspace features inside Docs, Slides, Forms, and Vids require either the Education Plus or the Teaching &amp; Learning add-on and are restricted to users 18 and over. NotebookLM is free for Workspace for Education accounts too, and Education Plus / Teaching &amp; Learning customers now get the expanded Plus-tier limits at no additional cost. Part 4 covers the admin angle in full.</p>
+    <p>A practical note for teachers in grundskolan: for most of this guide, a free account is enough. Upgrade only when you hit a real limit mid-task — not before. Google changes features and limits monthly; for current limits and availability, check Google Workspace Admin and your Data Processing Agreement before implementation.</p>
+
+    <h3>Your first Gemini prompt — the RTF anatomy</h3>
+    <p>Most prompts fail not because the model is weak, but because the prompt is vague. A useful prompt names three things: Role, Task, Format. Three letters: R, T, F.</p>
+
+    <h4>R — Role</h4>
+    <p>Tell Gemini who to be. Specific beats generic, every time. "A primary teacher" is weaker than "an experienced Year 4 literacy teacher in a Swedish grundskola with a wide range of reading ages in the class". Why this matters: grounding the role makes every downstream choice better — vocabulary complexity, cultural references, examples, assumed prior knowledge. Gemini cannot read your mind, but it can adopt a stance if you describe one carefully. A sentence on the role is the single cheapest upgrade you can make to any prompt.</p>
+
+    <h4>T — Task</h4>
+    <p>State exactly what you want done. Not "help me with a quiz" — that leaves too much to guess. Instead: "Create a ten-minute retrieval-practice quiz on the persuasive techniques covered in the past three lessons." Pack three things into the task sentence: a time frame, a scope boundary (which lessons, which topic, which year level), and the learning intention. The more the task sentence resembles a line you would write to a colleague covering your class, the better it performs.</p>
+
+    <h4>F — Format</h4>
+    <p>Specify the shape of the answer. Number of questions, mix of question types, word count, heading structure, whether you want an answer key at the end, whether you want it as a table or as prose. Format is where most first drafts go wrong and where most fixes get made — so say it up front. If you cannot picture the output in your head, Gemini cannot either.</p>
+
+    <p>Put the three together and you have a prompt that works on the first try and gets better on the second. Iteration is part of the skill: Gemini's first output is a draft, not a deliverable. Read it, tell Gemini what to change, and run again.</p>
+
+    <div class="callout callout--try">
+      <span class="callout__label">Try This Week</span>
+      <p>Open Gemini. Write one prompt using RTF — Role, Task, Format — for a real task on your desk this week. When the first draft arrives, ask for two changes and run it again. Then ask for one more. Notice what changes between draft one and draft three. That is your skill curve in action.</p>
+    </div>
+
+    <h3>Bad → Better → Best</h3>
+    <p>Same topic, three drafts of the same prompt. Each draft gets more precise about what Gemini needs to know. Output quality climbs with the specificity of the prompt — not with the length of it.</p>
+
+    <div class="card" style="border-left: 5px solid var(--color-warning); margin-bottom: var(--space-2);">
+      <strong style="color: var(--color-warning); letter-spacing: 1px; font-size: 13px;">● BAD</strong>
+      <p style="font-family: var(--font-mono); font-size: 14px; margin-top: 8px; margin-bottom: 0;">Explain the water cycle.</p>
+    </div>
+
+    <div class="card" style="border-left: 5px solid var(--color-accent); margin-bottom: var(--space-2);">
+      <strong style="color: var(--color-accent); letter-spacing: 1px; font-size: 13px;">● BETTER</strong>
+      <p style="font-family: var(--font-mono); font-size: 14px; margin-top: 8px; margin-bottom: 0;">Explain the water cycle for Year 6 students. Make it easy to understand.</p>
+    </div>
+
+    <div class="card" style="border-left: 5px solid #5C8A6D; margin-bottom: var(--space-3);">
+      <strong style="color: #5C8A6D; letter-spacing: 1px; font-size: 13px;">● BEST</strong>
+      <pre style="font-family: var(--font-mono); font-size: 13.5px; line-height: 1.6; margin-top: 8px; margin-bottom: 0; white-space: pre-wrap;">Act as an experienced Year 6 Science teacher.
+
+Task: Write a one-page explanation of the water cycle suitable for a mixed-ability Year 6 class. Include the four core stages and one real-world example for each.
+
+Format:
+- 250–300 words total
+- Plain language, short sentences (≤15 words where possible)
+- One vocabulary box with five key terms and child-friendly definitions
+- End with three retrieval questions (two recall, one application)
+
+Pitch: students reading at Year 5 to Year 7 level.</pre>
+    </div>
+
+    <p style="font-style: italic; color: var(--color-text-light); font-size: 15px;">The Best prompt is not longer for its own sake. Every word earns a place by reducing what Gemini has to guess.</p>
+
+    <h3>Source-first thinking — how NotebookLM is different</h3>
+    <p>NotebookLM flips Gemini's approach on its head. Instead of starting with your intent and asking Gemini to generate from its general knowledge of the world, you start with sources — documents, links, videos, notes you have chosen yourself — and ask NotebookLM to synthesise from them. Three things fall out of that one design choice, and each one matters for a classroom.</p>
+    <p>First, citations. Every answer NotebookLM produces points back to the exact source passage it came from — click the citation, land on the line. Second, hallucination control. Because NotebookLM answers only from what you have uploaded, it cannot invent facts from elsewhere; the worst it can do is misread your own material, which you can immediately check against the source. Third, and most important for a teacher: your curriculum, not "a curriculum". Working on your own documents means the answers reflect your school's actual materials, assessment style, and language — not a generic version pulled from wherever the training data landed.</p>
+    <p>A practical example. Upload your kursplan in samhällskunskap, two lektionsplaneringar, and the bedömningsmatris you use for the unit. Ask: "What learning progressions are implied across these documents, and where do my assessment criteria misalign with the unit plan?" You get a grounded, citable answer in two minutes — the kind of analysis that would have taken an afternoon by hand.</p>
+    <p>Matt Miller (Ditch That Textbook, January 2026) puts it neatly: NotebookLM is <em>"a personal tutor that only knows what you teach"</em>. Most of what teachers actually need sits between the two tools — Gemini for generation, NotebookLM for grounding — and since April 2026 both are accessible from the same interface.</p>
+
+    <h3>Five quick wins for this week</h3>
+    <p>Don't try to use Gemini and NotebookLM for everything at once. Get good at one task, get it into your routine, then add the next.</p>
+
+    <h4>1 · Differentiate a reading passage at three levels (Gemini)</h4>
+    <p>Paste a passage you are planning to use. Ask Gemini to produce three versions of it at reading ages two years below, at-level, and two years above, preserving the core ideas and keeping the shared key vocabulary intact. The whole job takes five minutes instead of forty, and every student in your room reads about the same subject on the same day.</p>
+    <p><strong>Extra example:</strong> a Year 7 geography teacher I work with uses this every week on newspaper articles about current events. One article becomes three versions for three reading groups within fifteen minutes, and current affairs finally enter the classroom on time rather than a term late.</p>
+
+    <h4>2 · Generate a podcast from your unit plan (NotebookLM Audio Overview)</h4>
+    <p>Upload three to five unit documents — your unit plan, a couple of key readings, your rubric. In NotebookLM, click "Audio Overview". You get back a 15–25 minute podcast-style discussion of the material by two AI hosts. Why teachers care: it's excellent for EAL students (they can listen before reading); excellent for commute-time review of unit content; excellent as a catch-up resource for absent students. The interactive mode (currently in beta) lets learners break in and ask the hosts questions mid-podcast.</p>
+    <p><strong>Extra example:</strong> two SO-teachers at Fristadsskolan in Eskilstuna — Viktor Säfström and David Folkebrant — published their workflow on Pedagog Eskilstuna in early 2026. They produce short 1–2 minute audio clips per concept, regenerate them in Arabic and Amharic for newly-arrived students on request, and share them through Google Classroom.</p>
+
+    <h4>3 · Research a topic with cited sources (Gemini Deep Research)</h4>
+    <p>Open Gemini and choose Deep Research. Ask your question; Gemini proposes a research plan (the sources it will look at, the sub-questions it will answer); you approve; it works for 5–15 minutes; you receive a structured, multi-page report with inline citations, delivered as a Canvas artefact or an audio summary. Why teachers care: background reading for a new unit in fifteen minutes instead of an afternoon; comparative analysis across three educational frameworks or five countries' curricula in a single pass; staff-development briefings ready before the meeting. Watch out: citations must be verified — AI can still mis-attribute.</p>
+
+    <h4>4 · Summarise a long policy document as a mind map (NotebookLM)</h4>
+    <p>Upload the PDF. Click "Mind Map". NotebookLM analyses the document and produces a visual, structured map of the key concepts and how they relate, with citations back to the source. Share it with your team. Why teachers care: policy documents are long and few people actually read them properly; a mind map with source citations is a faster way to align your department on what the document actually says.</p>
+    <p><strong>Extra example:</strong> when Skolverket or your huvudman issues an updated assessment policy, upload both the new and the previous version. Ask for a side-by-side of what has changed. You now have a comparison your colleagues do not.</p>
+
+    <h4>5 · Draft a parent email in three tones (Gemini)</h4>
+    <p>You know what you want to say. Writing it well, professionally, and without falling into the six awkward sentences you have used before is what takes time. Give Gemini the context — what happened, what you want the parent to know, what tone you want to strike — and ask for three versions (firmer, warmer, neutral). The three versions give you calibration before you commit to the one you will send. Edit. Send.</p>
+
+    <div class="callout callout--try">
+      <span class="callout__label">Try This Week</span>
+      <p>Pick one of the five. Do it for a real lesson this week. The other four will still be there next week. Mastery happens through repetition on one task, not scatter across all five at once.</p>
+    </div>
+
+    <h3>Part 1 — Before you move on</h3>
+    <ol class="checklist">
+      <li>I have signed in to Gemini and NotebookLM with my Google account</li>
+      <li>I understand the difference between Gemini (generative) and NotebookLM (source-grounded)</li>
+      <li>I have written at least three prompts using the RTF anatomy — Role, Task, Format</li>
+      <li>I have iterated on at least one prompt — improving it through two rounds of feedback — for a real task</li>
+      <li>I have completed at least one of the five quick wins for a lesson or task this week</li>
+      <li>I have decided which categories of data are acceptable to share with Gemini or NotebookLM, and which are not</li>
+    </ol>
   </div>
 </section>
 
