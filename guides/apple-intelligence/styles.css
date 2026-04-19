@@ -806,10 +806,51 @@
   border-radius: 4px;
 }
 .jl-page .explainer-box__title {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 18px;
   color: var(--color-primary);
   margin: 0 0 var(--space-2);
+}
+
+/* Part label ("Part 1", "Part 2" etc. above each section H2) */
+.jl-page .part-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--color-primary-2);
+  margin: 0 0 var(--space-1);
+  display: inline-block;
+}
+
+/* Part lede — opens each Part 1/2/3 section with a larger, softer intro sentence */
+.jl-page .part-lede {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-text-light);
+  margin: 0 0 var(--space-4);
+  max-width: 640px;
+}
+
+/* Hero meta chips (small metadata badges below the lede) */
+.jl-page .hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin: var(--space-2) 0 var(--space-3);
+}
+.jl-page .meta-chip {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-text-light);
+  background: var(--color-surface);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(27, 39, 51, 0.08);
 }
 
 /* Warning box (used for ChatGPT exception in Part 3) */
