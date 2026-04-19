@@ -8,35 +8,36 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 root = Path(__file__).parent.parent
+
+def footer(title: str, page_label: str) -> str:
+    return f"""
+<div style="font-size: 8pt; color: #a5a59f; width: 100%; padding: 0 16mm 0 16mm;
+            display: flex; justify-content: space-between; align-items: center;
+            font-family: 'Inter', -apple-system, sans-serif;">
+  <span>{title}</span>
+  <span>{page_label} <span class="pageNumber"></span></span>
+</div>
+"""
+
 jobs = [
     (
         root / "exports/gemini-notebooklm-print-a4-en.html",
         root / "assets/pdfs/guides/gemini-notebooklm-guide-en.pdf",
+        footer("Gemini &amp; NotebookLM for teachers and school leaders", "Page"),
     ),
     (
         root / "exports/gemini-notebooklm-print-a4-sv.html",
         root / "assets/pdfs/guides/gemini-notebooklm-guide-sv.pdf",
+        footer("Gemini &amp; NotebookLM för lärare och skolledare", "Sida"),
     ),
 ]
-
-# Per-page footer template used by Playwright's display_header_footer.
-# CSS inside the template needs explicit color — Chromium prints these elements
-# independently of the document body.
-FOOTER_TEMPLATE = """
-<div style="font-size: 8pt; color: #a5a59f; width: 100%; padding: 0 16mm 0 16mm;
-            display: flex; justify-content: space-between; align-items: center;
-            font-family: 'Inter', -apple-system, sans-serif;">
-  <span>Gemini &amp; NotebookLM for teachers and school leaders</span>
-  <span>Page <span class="pageNumber"></span></span>
-</div>
-"""
 
 EMPTY_HEADER = "<div></div>"
 
 with sync_playwright() as p:
     browser = p.chromium.launch()
     page = browser.new_page()
-    for src, dst in jobs:
+    for src, dst, footer_template in jobs:
         if not src.exists():
             print(f"Skipping {dst.name} — source {src.name} not found")
             continue
@@ -55,7 +56,7 @@ with sync_playwright() as p:
             prefer_css_page_size=True,
             display_header_footer=True,
             header_template=EMPTY_HEADER,
-            footer_template=FOOTER_TEMPLATE,
+            footer_template=footer_template,
         )
         print(f"  -> {dst.stat().st_size // 1024} KB")
     browser.close()

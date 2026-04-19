@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Gemini &amp; NotebookLM för lärare och skolledare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ─── Page geometry ─── */
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #faf7f2; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1a1a18;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-weight: 400;
+  }
+
+  /* ─── Typography ─── */
+  h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: #1a1a18; }
+  h1 { font-size: 40pt; line-height: 1.05; letter-spacing: -0.8pt; font-weight: 900; }
+  h2 { font-size: 26pt; line-height: 1.1; margin: 0 0 12pt; }
+  h3 { font-size: 16pt; line-height: 1.2; margin: 16pt 0 6pt; }
+  h4 { font-size: 12pt; line-height: 1.25; margin: 12pt 0 4pt; font-weight: 700; }
+  p { margin: 0 0 8pt; }
+  p + p { margin-top: 0; }
+  em { font-style: italic; }
+  strong { font-weight: 600; }
+  a { color: #1a1a18; text-decoration: underline; text-decoration-color: #c66b3d; text-decoration-thickness: 0.5pt; }
+  ul, ol { margin: 6pt 0 10pt 18pt; }
+  li { margin-bottom: 3pt; }
+
+  .eyebrow {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 2.4pt;
+    text-transform: uppercase;
+    color: #c66b3d;
+    margin-bottom: 10pt;
+  }
+
+  p.lede {
+    font-family: 'Playfair Display', serif;
+    font-size: 13pt;
+    line-height: 1.45;
+    font-weight: 400;
+    color: #3a3a38;
+    margin: 0 0 14pt;
+    font-style: italic;
+  }
+
+  /* ─── Page wrappers ─── */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm 22mm;
+    position: relative;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ─── Cover page ─── */
+  .cover {
+    background: linear-gradient(135deg, #c66b3d 0%, #1a1a18 100%);
+    color: #faf7f2;
+    padding: 30mm 26mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 297mm;
+  }
+  .cover .eyebrow {
+    color: rgba(250, 247, 242, 0.82);
+    font-size: 9.5pt;
+    letter-spacing: 3pt;
+  }
+  .cover h1 {
+    color: #faf7f2;
+    font-size: 46pt;
+    line-height: 1.03;
+    font-weight: 900;
+    letter-spacing: -1pt;
+    margin: 14pt 0 16pt;
+    max-width: 160mm;
+  }
+  .cover .cover__lede {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14pt;
+    line-height: 1.45;
+    color: rgba(250, 247, 242, 0.86);
+    max-width: 150mm;
+    margin-bottom: 10pt;
+  }
+  .cover__diagram {
+    margin: 10pt 0;
+    padding: 10pt 0;
+    display: flex;
+    justify-content: center;
+  }
+  .cover__diagram svg { width: 140mm; height: auto; }
+  .cover__signature {
+    border-top: 0.5pt solid rgba(250, 247, 242, 0.35);
+    padding-top: 10pt;
+    font-size: 10pt;
+    letter-spacing: 0.6pt;
+  }
+  .cover__signature strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 14pt;
+    letter-spacing: 1.4pt;
+    text-transform: uppercase;
+    margin-bottom: 2pt;
+  }
+  .cover__signature .cover__attr {
+    display: block;
+    color: rgba(250, 247, 242, 0.75);
+    font-size: 9pt;
+    margin-top: 3pt;
+  }
+
+  /* ─── Table of contents ─── */
+  .toc h2 { margin-bottom: 18pt; }
+  .toc__list { list-style: none; margin: 0; padding: 0; }
+  .toc__list li {
+    display: flex;
+    align-items: baseline;
+    padding: 8pt 0;
+    border-bottom: 0.4pt dotted #c9c6be;
+    font-size: 11pt;
+  }
+  .toc__list li:last-child { border-bottom: none; }
+  .toc__list .toc__title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    flex: 1;
+    color: #1a1a18;
+  }
+  .toc__list .toc__sub {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 400;
+    color: #5a5a57;
+    margin-top: 2pt;
+    font-style: normal;
+  }
+  .toc__list .toc__dots {
+    flex: 0 0 auto;
+    margin: 0 6pt;
+    color: #c9c6be;
+    font-size: 9pt;
+    letter-spacing: 1pt;
+  }
+  .toc__list .toc__page {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: #1a1a18;
+    min-width: 16pt;
+    text-align: right;
+  }
+
+  /* ─── Callouts ─── */
+  .callout {
+    border-left: 3pt solid;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    background: #fbf8f1;
+    border-radius: 2pt;
+    page-break-inside: avoid;
+  }
+  .callout--johan { border-color: #c66b3d; background: #f9ede2; }
+  .callout--johan .callout__label { color: #c66b3d; }
+  .callout--watch { border-color: #c69c3c; background: #f8efd3; }
+  .callout--watch .callout__label { color: #a07d2e; }
+  .callout--try { border-color: #2d5a3f; background: #e3ecdf; }
+  .callout--try .callout__label { color: #2d5a3f; }
+  .callout__label {
+    display: block;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 1.8pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+    font-family: 'Inter', sans-serif;
+  }
+  .callout p { margin-bottom: 6pt; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout__signature {
+    display: block;
+    text-align: right;
+    font-style: italic;
+    color: #5a5a57;
+    margin-top: 4pt;
+    font-size: 9.5pt;
+  }
+
+  /* ─── Cards (Bad/Better/Best, Gem instruction) ─── */
+  .card {
+    border-left: 4pt solid #c66b3d;
+    padding: 9pt 14pt;
+    margin: 8pt 0;
+    background: #fbf8f1;
+    border-radius: 2pt;
+    page-break-inside: avoid;
+  }
+  .card--warning { border-color: #c69c3c; }
+  .card--accent { border-color: #c66b3d; }
+  .card--success { border-color: #5C8A6D; }
+  .card__label {
+    font-size: 9pt;
+    letter-spacing: 1.4pt;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 4pt;
+    font-family: 'Inter', sans-serif;
+  }
+  .card--warning .card__label { color: #c69c3c; }
+  .card--accent .card__label { color: #c66b3d; }
+  .card--success .card__label { color: #5C8A6D; }
+  .card pre, .card .card__text {
+    font-family: 'JetBrains Mono', 'Menlo', 'Courier New', monospace;
+    font-size: 9.5pt;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    color: #2a2a28;
+    margin: 0;
+  }
+  .card p { margin: 0; }
+  .card--italic p { font-style: italic; color: #3a3a38; }
+
+  /* ─── Checklists ─── */
+  ol.checklist {
+    list-style: none;
+    counter-reset: check;
+    padding-left: 0;
+    margin: 10pt 0;
+  }
+  ol.checklist li {
+    counter-increment: check;
+    position: relative;
+    padding-left: 22pt;
+    margin-bottom: 6pt;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+  ol.checklist li::before {
+    content: counter(check);
+    position: absolute;
+    left: 0;
+    top: 1pt;
+    width: 16pt;
+    height: 16pt;
+    border-radius: 50%;
+    background: #c66b3d;
+    color: #faf7f2;
+    font-size: 8.5pt;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ─── Diagram / SVG ─── */
+  .diagram { margin: 14pt 0; text-align: center; page-break-inside: avoid; }
+  .diagram svg { width: 100%; max-width: 160mm; height: auto; }
+  .diagram__caption {
+    font-size: 9pt;
+    color: #5a5a57;
+    font-style: italic;
+    margin-top: 6pt;
+    max-width: 150mm;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+  }
+
+  /* ─── Section dividers ─── */
+  .section-break {
+    page-break-before: always;
+  }
+  .section-break:first-child { page-break-before: auto; }
+
+  /* ─── Prompt cards (all expanded) ─── */
+  .prompts-group { margin-top: 14pt; }
+  .prompt-card {
+    border-left: 3pt solid #2d5a3f;
+    background: #fbf8f1;
+    padding: 9pt 12pt;
+    margin: 8pt 0;
+    border-radius: 2pt;
+    page-break-inside: avoid;
+  }
+  .prompt-card__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 11.5pt;
+    font-weight: 700;
+    color: #1a1a18;
+    margin-bottom: 5pt;
+  }
+  .prompt-card__text {
+    font-family: 'JetBrains Mono', 'Menlo', 'Courier New', monospace;
+    font-size: 8.5pt;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    color: #3a3a38;
+    margin: 0;
+  }
+
+  /* ─── FAQ items (all expanded) ─── */
+  .faq-item {
+    margin-bottom: 10pt;
+    padding: 8pt 0;
+    border-bottom: 0.4pt solid #eceae4;
+    page-break-inside: avoid;
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item__q {
+    font-family: 'Playfair Display', serif;
+    font-size: 12pt;
+    font-weight: 700;
+    color: #1a1a18;
+    margin-bottom: 4pt;
+  }
+  .faq-item__a {
+    font-size: 10pt;
+    line-height: 1.55;
+    color: #3a3a38;
+  }
+  .faq-item__a p { margin-bottom: 5pt; }
+  .faq-item__a p:last-child { margin-bottom: 0; }
+
+  /* ─── Styles grid (NotebookLM styles library) ─── */
+  .styles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10pt;
+    margin: 14pt 0 8pt;
+  }
+  .style-card {
+    background: #fbf8f1;
+    border: 0.4pt solid #eceae4;
+    border-radius: 4pt;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+  .style-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+  }
+  .style-card__label { padding: 6pt 9pt 8pt; }
+  .style-card__label strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 10.5pt;
+    margin-bottom: 2pt;
+    font-weight: 700;
+  }
+  .style-card__label span {
+    display: block;
+    font-size: 8.5pt;
+    color: #5a5a57;
+    line-height: 1.4;
+  }
+  .styles-grid__cta {
+    text-align: center;
+    margin-top: 10pt;
+    font-size: 10pt;
+    color: #3a3a38;
+    font-style: italic;
+  }
+  .styles-grid__cta a { color: #c66b3d; font-weight: 600; }
+
+  /* ─── Closing page ─── */
+  .closing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 30mm 26mm;
+  }
+  .closing__quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 22pt;
+    font-weight: 400;
+    font-style: italic;
+    color: #1a1a18;
+    line-height: 1.3;
+    margin-bottom: 24pt;
+  }
+  .closing__cta {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    color: #3a3a38;
+    margin-bottom: 20pt;
+    line-height: 1.5;
+  }
+  .closing__cta strong { color: #c66b3d; }
+  .closing__signature {
+    font-family: 'Playfair Display', serif;
+    font-size: 13pt;
+    font-style: italic;
+    color: #1a1a18;
+    margin-top: 18pt;
+  }
+  .closing__attr {
+    font-size: 9.5pt;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    color: #5a5a57;
+    margin-top: 6pt;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ─── Orphan / widow control ─── */
+  p, li { orphans: 3; widows: 3; }
+  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  img { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 1 — COVER
+     ══════════════════════════════════════════════════ -->
+<div class="page cover">
+  <div>
+    <span class="eyebrow">Gemini · NotebookLM för skolan</span>
+    <h1>Gemini &amp; NotebookLM för lärare och skolledare</h1>
+    <p class="cover__lede">En praktisk handbok för att använda Googles research- och generativ AI i klassrummet — från din första prompt till en AI-strategi på hela skolan.</p>
+  </div>
+
+  <div class="cover__diagram">
+    <svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
+      <rect x="80" y="50" width="220" height="160" rx="12" fill="#faf7f2" stroke="#f2eee6" stroke-width="1"/>
+      <text x="190" y="110" font-family="Playfair Display, serif" font-size="26" font-weight="700" fill="#1a1a18" text-anchor="middle">Gemini</text>
+      <text x="190" y="140" font-family="Inter, sans-serif" font-size="11" fill="#5a5a57" text-anchor="middle">Generativ · öppen domän</text>
+      <text x="190" y="168" font-family="Inter, sans-serif" font-size="10" fill="#5a5a57" text-anchor="middle">App · Webb · Mobil · Workspace</text>
+      <line x1="305" y1="120" x2="375" y2="120" stroke="#faf7f2" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.95"/>
+      <line x1="305" y1="140" x2="375" y2="140" stroke="#faf7f2" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.95"/>
+      <text x="340" y="108" font-family="Inter, sans-serif" font-size="9" fill="#faf7f2" text-anchor="middle" letter-spacing="1" opacity="0.9">DUBBEL-</text>
+      <text x="340" y="158" font-family="Inter, sans-serif" font-size="9" fill="#faf7f2" text-anchor="middle" letter-spacing="1" opacity="0.9">RIKTAD</text>
+      <rect x="380" y="50" width="220" height="160" rx="12" fill="#1a1a18"/>
+      <text x="490" y="110" font-family="Playfair Display, serif" font-size="24" font-weight="700" fill="#faf7f2" text-anchor="middle">NotebookLM</text>
+      <text x="490" y="140" font-family="Inter, sans-serif" font-size="11" fill="#c69c3c" text-anchor="middle">Förankrad · källor först</text>
+      <text x="490" y="168" font-family="Inter, sans-serif" font-size="10" fill="#c69c3c" text-anchor="middle">Webb · Mobil · Gemini-app</text>
+    </svg>
+  </div>
+
+  <div class="cover__signature">
+    <strong>Johan Lindström</strong>
+    choosewise.education
+    <span class="cover__attr">April 2026</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 2 — CONTENTS
+     ══════════════════════════════════════════════════ -->
+<div class="page toc">
+  <span class="eyebrow">Guiden</span>
+  <h2>Innehåll</h2>
+  <ul class="toc__list">
+    <li>
+      <span class="toc__title">Introduktion
+        <span class="toc__sub">Tre principer som formar guiden</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">3</span>
+    </li>
+    <li>
+      <span class="toc__title">Förstå Gemini och NotebookLM
+        <span class="toc__sub">Två vyer, ett Google-konto</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">5</span>
+    </li>
+    <li>
+      <span class="toc__title">Del 1 · Kom igång
+        <span class="toc__sub">RTF-prompter, källor först, fem snabba vinster</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">8</span>
+    </li>
+    <li>
+      <span class="toc__title">Del 2 · Arbeta smartare
+        <span class="toc__sub">Gems, Canvas, Deep Research, Studio, arbetsflöden</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">13</span>
+    </li>
+    <li>
+      <span class="toc__title">Del 3 · Skala upp &amp; led
+      <span class="toc__sub">Delade Notebooks, delade Gems, kompetensutvecklingsspår</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">20</span>
+    </li>
+    <li>
+      <span class="toc__title">Del 4 · Google Workspace for Education
+        <span class="toc__sub">Licenser, datalagring, admin-kontroller, införande</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">24</span>
+    </li>
+    <li>
+      <span class="toc__title">Bonuskapitel · För EU-läsare
+        <span class="toc__sub">GDPR, EU:s AI-förordning, risknivåer, checklista</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">28</span>
+    </li>
+    <li>
+      <span class="toc__title">Stilbiblioteket
+        <span class="toc__sub">Åtta kurerade ingångar i 140 NotebookLM-stilar</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">32</span>
+    </li>
+    <li>
+      <span class="toc__title">Prompter
+        <span class="toc__sub">25 startprompter för Gemini och NotebookLM</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">34</span>
+    </li>
+    <li>
+      <span class="toc__title">FAQ
+        <span class="toc__sub">Elva vanliga frågor besvarade</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">40</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     INTRODUCTION
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Introduktion</span>
+  <h2>Tre principer som formar guiden</h2>
+  <p>Innan vi kommer till hur, några ord om varför. Vem som helst kan räkna upp Geminis funktioner, och vem som helst kan återge marknadsföringstexten för NotebookLM. Få guider tar ställning till vad verktygen faktiskt är till för i skolan — och, lika viktigt, vad de inte är till för. Den här gör det. Tre principer ligger bakom varje rekommendation på de sidor som följer, och de är värda att läsa innan du öppnar en enda promptruta.</p>
+
+  <h3>Läraren är experten</h3>
+  <p>Gemini och NotebookLM är verktyg. Du är läraren. Verktygen sätter inte målen för lärandet. De känner inte dina elever. De har inte läst kursplanen du undervisar utifrån, och de förstår inte de pedagogiska val du gjort och varför. Det gör du. Varje output verktygen producerar passerar din professionella bedömning innan den når ett klassrum. Det är inte en fin idé — det är arbetsregeln i den här guiden.</p>
+  <p>Din kunskap, din erfarenhet, din omdömesförmåga — det är det som gör AI-output verkligt användbar. Om du förstår differentiering på djupet blir de här verktygen en äkta kraftmultiplikator. Om du inte gör det kommer ingen modell att fylla luckan. Verktyget förstärker det du redan tar med dig; det ersätter det inte.</p>
+
+  <h3>Gör grunderna bättre</h3>
+  <p>Frestelsen med ny teknik är alltid att sträcka sig efter det nya: escape rooms, immersiva världar, gamifiera allting. Det mesta är brus. Den verkliga möjligheten med Gemini och NotebookLM är tystare och mer konsekvent. Det handlar om att göra det evidensbaserade grundarbetet oftare och mer konsekvent än du kan idag.</p>
+  <p>Retrieval practice. Ordförrådsarbete. Differentiering av text. Meningsstöd. Genomarbetade exempel. Formativ återkoppling. Det är de metoder som forskningen pekar på om och om igen, och metoder som lärare alltid sagt att de skulle använda oftare — om de hade tid. De här verktygen ger dig tiden. Det som tidigare krävde nittio minuters lektionsplanering tar nu fem. Det är inte glamoröst. Det är transformativt i den enda mening som faktiskt spelar roll: eleverna lär sig mer.</p>
+
+  <div class="callout callout--johan">
+    <span class="callout__label">Johans anteckning</span>
+    <p>Efter 28 år i klassrum och skolledning har jag sett ett stort antal AI-verktyg komma med löften om att förändra skolan. De som blev kvar var de som lät lärare göra mer av det de redan visste fungerade. De som försvann var de som krävde att läraren skulle bli någon annan. Gemini och NotebookLM — använda väl — hör tydligt hemma i den första kategorin. Använda illa gör de det inte.</p>
+    <span class="callout__signature">— JL</span>
+  </div>
+
+  <h3>Inkludera varje elev</h3>
+  <p>I varje klassrum finns elever i marginalen. Andraspråkseleven som behöver nyckelord förundervisade för att över huvud taget komma in i samma text som de andra läser. Eleven med inlärningssvårigheter som behöver samma innehåll på en enklare lässvårighetsnivå. Den avancerade eleven som cruisar runt för att uppgiften inte utmanar. Att möta alla dessa elever, varje lektion, har alltid varit det rätta — och alltid varit för tidskrävande för att göras konsekvent.</p>
+  <p>Gemini och NotebookLM sänker den kostnaden till en nivå där det blir realistiskt. Differentierade texter på fem minuter. Översatta nyckelbegrepp för en nyanländ elev. Stöttade instruktioner för ett genomarbetat exempel. Ljudversioner av en skriven uppgift, inspelade av verktyget självt. Det handlar inte om att göra mer. Det handlar om att göra det som spelar roll, för de elever som behöver det mest, i den kadens som forskningen rekommenderat i decennier.</p>
+
+  <p>En sak till värd att nämna innan vi börjar. Enligt artikel 4 i EU:s AI-förordning — som gäller sedan 2 februari 2025 — måste varje organisation som tillämpar AI, skolor inräknat, säkerställa att personalen har tillräcklig AI-kompetens för att använda verktygen ansvarsfullt. Guiden du läser är i sig en form av det arbetet. Del 4 och EU-bonuskapitlet återkommer till den skyldigheten i detalj; för nu räcker det att veta att din kompetensutveckling och tiden du lägger på att läsa den här guiden ÄR skolans arbete med artikel 4.</p>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Se upp</span>
+    <p>Gemini och NotebookLM kan hjälpa dig skapa material snabbare. De ersätter inte det relationella arbete som undervisning är. Låt inte AI:ns effektivitet lura dig att lägga mindre tid med eleverna. Den tid AI sparar är till för dem — inte för mer administration.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     ECOSYSTEM
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Orientering</span>
+  <h2>Förstå Gemini och NotebookLM</h2>
+  <p>Gemini och NotebookLM förstås bäst som två kompletterande vyer in i ett och samma Google-konto. Gemini genererar ur öppen kunskap — hela webben, Googles sökindex och modellens egen träning. NotebookLM syntetiserar ur en uppsättning källor som du själv har valt och laddat upp. Sedan 8 april 2026 synkroniseras de två dubbelriktat: en Notebook som byggts i det ena verktyget syns nu i det andra, med samma källor och samma chatthistorik bakom sig.</p>
+
+  <div class="diagram">
+    <svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
+      <line x1="40" y1="220" x2="640" y2="220" stroke="#5a5a57" stroke-width="0.8" opacity="0.4"/>
+      <rect x="80" y="50" width="220" height="160" rx="12" fill="#fbf8f1" stroke="#eceae4" stroke-width="1"/>
+      <text x="190" y="110" font-family="Playfair Display, serif" font-size="26" font-weight="700" fill="#1a1a18" text-anchor="middle">Gemini</text>
+      <text x="190" y="140" font-family="Inter, sans-serif" font-size="11" fill="#5a5a57" text-anchor="middle">Generativ · öppen domän</text>
+      <text x="190" y="168" font-family="Inter, sans-serif" font-size="10" fill="#5a5a57" text-anchor="middle">App · Webb · Mobil · Workspace</text>
+      <line x1="305" y1="120" x2="375" y2="120" stroke="#c66b3d" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <line x1="305" y1="140" x2="375" y2="140" stroke="#c66b3d" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="340" y="108" font-family="Inter, sans-serif" font-size="9" fill="#c66b3d" text-anchor="middle" letter-spacing="1">DUBBEL-</text>
+      <text x="340" y="158" font-family="Inter, sans-serif" font-size="9" fill="#c66b3d" text-anchor="middle" letter-spacing="1">RIKTAD</text>
+      <rect x="380" y="50" width="220" height="160" rx="12" fill="#1a1a18"/>
+      <text x="490" y="110" font-family="Playfair Display, serif" font-size="24" font-weight="700" fill="#faf7f2" text-anchor="middle">NotebookLM</text>
+      <text x="490" y="140" font-family="Inter, sans-serif" font-size="11" fill="#c69c3c" text-anchor="middle">Förankrad · källor först</text>
+      <text x="490" y="168" font-family="Inter, sans-serif" font-size="10" fill="#c69c3c" text-anchor="middle">Webb · Mobil · Gemini-app</text>
+    </svg>
+    <p class="diagram__caption">Två vyer, ett Google-konto. Gemini genererar ur öppen kunskap; NotebookLM syntetiserar ur dina egna källor. Sedan april 2026 synkroniseras de två dubbelriktat.</p>
+  </div>
+
+  <h3>Gemini — din generativa assistent</h3>
+  <p>Gemini är det samtalande gränssnittet — där du skriver utkast, differentierar, researchar och idéutvecklar. Det körs i Gemini-appen på Mac, iOS och Android, på gemini.google.com i webbläsaren, och som en sidopanel inuti Google Docs, Sheets, Slides, Gmail, Forms och Vids när din skola har Education Plus- eller Teaching &amp; Learning-tillägget. Den nuvarande flaggskeppsmodellen är Gemini 3 Pro, lanserad 18 november 2025, med ett kontextfönster på en miljon token och stark multimodal resoneringsförmåga.</p>
+  <p>Inuti Gemini får du också Canvas (ett interaktivt arbetsrum för dokument, kod och interaktiva artefakter), Deep Research (en research-agent i flera steg som planerar, söker och producerar rapporter med källhänvisningar), Gemini Live (ett realtidsläge för röst) och bildgenerering driven av Nano Banana 2. Del 2 går igenom vart och ett av dessa i klassrumstermer och visar när du ska välja vilket.</p>
+
+  <h3>NotebookLM — din förankrade researchkompanjon</h3>
+  <p>NotebookLM är Geminis spegelbild. Det svarar bara utifrån källor som du laddat upp — ingenting annat. Källtyper som stöds är PDF:er, Google Docs, Google Slides, webbplatser (via URL), YouTube-videor och inklistrad text. Matt Miller på Ditch That Textbook (januari 2026) fångar det väl: NotebookLM är <em>"a personal tutor that only knows what you teach"</em> — en privatlärare som bara kan det du lär ut. Just den begränsningen är det som gör verktyget trovärdigt för klassrumsbruk.</p>
+  <p>Studio-funktionerna förvandlar de uppladdade källorna till briefingar, mind maps, flashcards, quiz, studieguider, Audio Overviews (podcast-liknande samtal mellan två AI-värdar) och Video Overviews — var och en syntetiserad ur ditt eget material med källhänvisningar i stället för hallucinerad ur allmän kunskap. Del 2 går igenom hur varje Studio-output förtjänar sin plats i lärarveckan.</p>
+
+  <h3>Så hänger de ihop nu</h3>
+  <p>Sedan 8 april 2026 synkroniseras de två verktygen dubbelriktat. En Notebooks-sektion har dykt upp i Geminis sidopanel, placerad mellan "My stuff" och "Gems", och allt du skapar i det ena gränssnittet är synligt och redigerbart i det andra. Arbetsflödet som låses upp är genuint nytt. En elev kan ladda upp sina klassanteckningar i Gemini, generera en filmisk Video Overview av dem i NotebookLM, och sedan återvända till Gemini för att skissa ett uppsatsupplägg mot samma källor — utan att ladda upp något på nytt.</p>
+  <p>De två sidorna förblir kompletterande snarare än identiska. NotebookLM ger dig Video Overviews och infografik som Gemini inte erbjuder. Gemini ger dig websökning parallellt med dina uppladdade källor, vilket NotebookLM vägrar av princip. Integrationen rullas först ut till Google AI Ultra-, Pro- och Plus-prenumeranter; gratisnivån följer under veckorna efter.</p>
+
+  <h3>Vad du får tillgång till</h3>
+  <p>Vad du faktiskt ser beror på din kontotyp. Ett personligt Google-konto ger dig konsument-Gemini och NotebookLM på gratisnivån, med betalda nivåer AI Plus, AI Pro och AI Ultra ovanför. Skolor som kör Google Workspace for Education är på ett annat spår. Kärn-Gemini AI i Classroom — lektionsplanering, quizgenerering, utkast till bedömningsmatriser och liknande — är gratis för alla Workspace for Education-konton (bekräftat på BETT 2026). Premium-funktionerna för Gemini i Workspace inuti Docs, Slides, Forms och Vids kräver tillägget Education Plus eller Teaching &amp; Learning och är begränsade till användare 18 år och äldre. Del 4 täcker admin- och skolledarperspektivet i detalj. Exakta användningstak citeras inte här eftersom Google uppdaterar dem månadsvis — konsultera Googles aktuella dokumentation för live-siffror.</p>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Se upp</span>
+    <p>Åldersgränser spelar roll, särskilt i grundskolan. Gemini Live är endast för användare 18 år och äldre, och premiumfunktionerna för Gemini i Workspace inuti Docs, Slides, Forms och Vids är endast för användare 18 år och äldre. NotebookLM är tillgängligt i webbläsaren för användare 13 år och äldre, med strängare innehållspolicyer för användare under 18. Elevers egen användning under 18 är därför begränsad — och Skolverkets riktlinjer från augusti 2025 är tydliga: elever får inte använda generativ AI på egen hand i undervisningen, rektors godkännande krävs för all spridning och lärarens tillsyn är obligatorisk. Den lärarcentrerade inramningen i den här guiden återspeglar de förutsättningarna. <strong>Verifiera Skolverkets aktuella riktlinjer</strong> innan du inför någon funktion som beskrivs i guiden — AI i skolan utvecklas snabbt. För integritet: inuti Workspace for Education är dataskyddets standardinställningar striktare än i konsument-Gemini, men verifiera aktuellt läge i Google Workspace Admin och ert personuppgiftsbiträdesavtal (DPA) innan implementation.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PART 1 — GETTING STARTED
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Del 1</span>
+  <h2>Kom igång</h2>
+  <p class="lede">Om du aldrig har öppnat Gemini eller NotebookLM, börja här. När du är klar med denna del har du konton för båda, du kan den prompt-anatomi som faktiskt fungerar, och du har fem konkreta saker att prova den här veckan.</p>
+
+  <h3>Ditt Google-konto</h3>
+  <p>Logga in på <em>gemini.google.com</em> och <em>notebooklm.google.com</em> med ditt Google-konto. Samma konto fungerar för båda — ingen separat registrering, inget extra lösenord att glömma. Ett personligt Google-konto fungerar utmärkt för dina första utforskningar. Vad det inte duger till är känslig data: elevnamn, betyg, ordningsomdömen, hälsoinformation, åtgärdsprogram, anteckningar om anmälningsärenden. Inget av det hör hemma i ett konsumentkonto. Del 4 och EU-bonuskapitlet förklarar skälen ordentligt; för nu, behandla gränsen som absolut.</p>
+  <p>Om din skola kör Google Workspace for Education är åtkomstvägen en annan. Kärn-Gemini AI inuti Google Classroom — lektionsplanering, quizgenerering, utkast till bedömningsmatriser — är gratis för varje Workspace for Education-konto (bekräftat på BETT 2026). Premium-funktionerna för Gemini i Workspace inuti Docs, Slides, Forms och Vids kräver antingen Education Plus- eller Teaching &amp; Learning-tillägget och är begränsade till användare 18 år och äldre. NotebookLM är gratis för Workspace for Education-konton också, och Education Plus- / Teaching &amp; Learning-kunder får nu de utökade Plus-nivåernas tak utan extra kostnad. Del 4 täcker administratörsperspektivet i sin helhet.</p>
+  <p>En praktisk anteckning för de flesta lärare: för det mesta i den här guiden räcker ett gratiskonto. Uppgradera bara när du stöter på en verklig gräns mitt i en uppgift — inte tidigare. Google ändrar funktioner och tak månadsvis; för aktuella gränser och tillgänglighet, kontrollera Google Workspace Admin och ert personuppgiftsbiträdesavtal innan implementation.</p>
+
+  <h3>Din första Gemini-prompt — RTF-anatomin</h3>
+  <p>De flesta prompter misslyckas inte för att modellen är dålig, utan för att prompten är för vag. En användbar prompt namnger tre saker: Roll, Uppgift, Format. Tre bokstäver på engelska: R, T, F.</p>
+
+  <h4>R — Role (Roll)</h4>
+  <p>Säg åt Gemini vem den ska vara. Specifikt slår generiskt, varje gång. "En lärare i de lägre åldrarna" är svagare än "en erfaren klasslärare i åk 4 i en kommunal grundskola med stor spridning i läsnivåer". Varför det spelar roll: att förankra rollen gör varje efterföljande val bättre — ordförrådets komplexitet, kulturella referenser, exempel, antaganden om förkunskaper. Gemini kan inte läsa dina tankar, men kan inta en hållning om du beskriver en noggrant. En mening om rollen är den billigaste uppgraderingen du kan göra av vilken prompt som helst.</p>
+
+  <h4>T — Task (Uppgift)</h4>
+  <p>Berätta exakt vad du vill ha gjort. Inte "hjälp mig med en quiz" — det lämnar för mycket åt gissning. I stället: "Gör en tiominuters retrieval practice-quiz på de retoriska grepp som har gåtts igenom de senaste tre lektionerna." Packa tre saker i uppgiftsmeningen: en tidsram, en avgränsning av omfånget (vilka lektioner, vilket område, vilken årskurs) och lärandemålet. Ju mer uppgiftsmeningen liknar en rad du skulle skriva till en kollega som vikarierar i din klass, desto bättre presterar den.</p>
+
+  <h4>F — Format</h4>
+  <p>Specificera formen på svaret. Antal frågor, blandning av frågetyper, ordantal, rubrikstruktur, om du vill ha ett facit i slutet, om du vill ha det som tabell eller löpande text. Format är där de flesta första utkast går fel och där de flesta rättningarna görs — säg det därför från början. Om du inte kan se outputen framför dig kan inte Gemini det heller.</p>
+
+  <p>Sätt ihop de tre delarna och du har en prompt som fungerar på första försöket och blir bättre på det andra. Iteration är en del av hantverket: Geminis första output är ett utkast, inte en leverabel. Läs det, säg till Gemini vad som ska ändras, kör igen.</p>
+
+  <div class="callout callout--try">
+    <span class="callout__label">Prova den här veckan</span>
+    <p>Öppna Gemini. Skriv en prompt enligt RTF-anatomin — Roll, Uppgift, Format — för en verklig uppgift som ligger på ditt bord den här veckan. När det första utkastet kommer, be om två ändringar och kör igen. Be om ytterligare en. Lägg märke till vad som förändras mellan utkast ett och tre. Det är din kompetensutveckling i praktiken.</p>
+  </div>
+
+  <h3>Dålig → Bättre → Bäst</h3>
+  <p>Samma ämne, tre utkast av samma prompt. Varje utkast blir mer specifikt om vad Gemini behöver veta. Outputkvaliteten stiger med promptens precision — inte med dess längd.</p>
+
+  <div class="card card--warning">
+    <span class="card__label">● DÅLIG</span>
+    <p class="card__text">Förklara vattnets kretslopp.</p>
+  </div>
+
+  <div class="card card--accent">
+    <span class="card__label">● BÄTTRE</span>
+    <p class="card__text">Förklara vattnets kretslopp för elever i årskurs 6. Gör det lätt att förstå.</p>
+  </div>
+
+  <div class="card card--success">
+    <span class="card__label">● BÄST</span>
+    <pre class="card__text">Agera som en erfaren NO-lärare för åk 6.
+
+Uppgift: Skriv en förklaring av vattnets kretslopp på en sida, anpassad för ett klassrum i åk 6 med bred spridning i kunskapsnivå. Ta med de fyra centrala stegen och ett verkligt exempel för varje steg.
+
+Format:
+- 250–300 ord totalt
+- Enkelt språk, korta meningar (≤ 15 ord där det går)
+- En ordlista-ruta med fem nyckeltermer och elevvänliga definitioner
+- Avsluta med tre retrieval-frågor (två minnes-, en tillämpningsfråga)
+
+Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
+  </div>
+
+  <p style="font-style: italic; color: #5a5a57; font-size: 10pt;">Den bästa prompten är inte längre för syns skull. Varje ord förtjänar sin plats genom att minska det Gemini måste gissa.</p>
+
+  <h3>Tänk källor först — så är NotebookLM annorlunda</h3>
+  <p>NotebookLM vänder på Geminis ansats. I stället för att starta med din avsikt och be Gemini generera ur sin allmänna kunskap om världen startar du med källor — dokument, länkar, videor, anteckningar du själv har valt — och ber NotebookLM syntetisera ur dem. Tre saker faller ut ur det enda designvalet, och var och en spelar roll för klassrummet.</p>
+  <p>För det första, källhänvisningar. Varje svar NotebookLM producerar pekar tillbaka till det exakta källavsnitt det kommer från — klicka på hänvisningen, landa på raden. För det andra, hallucinationskontroll. Eftersom NotebookLM bara svarar utifrån det du laddat upp kan det inte uppfinna fakta från annat håll; det värsta det kan göra är att felläsa ditt eget material, vilket du omedelbart kan kontrollera mot källan. För det tredje, och viktigast för en lärare: <em>din</em> kursplan, inte "en" kursplan. Att arbeta med dina egna dokument innebär att svaren speglar din skolas faktiska material, bedömningsstil och språk — inte en generisk version hämtad från var träningsdata nu råkade landa.</p>
+  <p>Ett praktiskt exempel. Ladda upp din kursplan i samhällskunskap, två lektionsplaneringar och bedömningsmatrisen du använder för arbetsområdet. Fråga: "Vilka lärandeprogressioner är implicerade över dessa dokument, och var är mina bedömningskriterier ur fas med arbetsområdesplanen?" Du får ett förankrat, källhänvisat svar på två minuter — den sorts analys som tidigare hade tagit en eftermiddag för hand.</p>
+  <p>Matt Miller (Ditch That Textbook, januari 2026) formulerar det snyggt: NotebookLM är <em>"a personal tutor that only knows what you teach"</em>. Det mesta lärare faktiskt behöver ligger mellan de två verktygen — Gemini för generering, NotebookLM för förankring — och sedan april 2026 är båda åtkomliga från samma gränssnitt.</p>
+
+  <h3>Fem snabba vinster den här veckan</h3>
+  <p>Försök inte använda Gemini och NotebookLM till allt på en gång. Bli bra på en uppgift, få in den i din rutin, lägg sedan till nästa.</p>
+
+  <h4>1 · Differentiera en läsförståelsetext på tre nivåer (Gemini)</h4>
+  <p>Klistra in en text du planerar att använda. Be Gemini producera tre versioner av den — på en läsnivå två år under, i nivå med, och två år över åldersgruppen — med samma grundidéer och med gemensamt nyckelordförråd intakt. Hela arbetet tar fem minuter i stället för fyrtio, och varje elev i rummet läser om samma ämne samma dag.</p>
+  <p><strong>Extra exempel:</strong> en SO-lärare för åk 7 jag arbetar med använder det här varje vecka på DN- och Aftonbladet-artiklar om aktuella händelser. En artikel blir tre versioner för tre läsgrupper inom femton minuter, och samhällsfrågor kommer äntligen in i klassrummet i rätt tid i stället för en termin för sent.</p>
+
+  <h4>2 · Generera en podcast från din arbetsområdesplan (NotebookLM Audio Overview)</h4>
+  <p>Ladda upp tre till fem dokument från arbetsområdet — din planering, ett par nyckeltexter, din bedömningsmatris. I NotebookLM, klicka "Audio Overview". Du får tillbaka en 15–25 minuters podcast-liknande diskussion av materialet av två AI-värdar. Varför lärare bryr sig: utmärkt för nyanlända elever (de kan lyssna innan de läser); utmärkt för repetition av arbetsområdets innehåll under pendling; utmärkt som ikappresurs för frånvarande elever. Det interaktiva läget (för närvarande i beta) låter lärande bryta in och ställa frågor mitt i podden.</p>
+  <p><strong>Extra exempel:</strong> Viktor Säfström och David Folkebrant, två SO-lärare på högstadiet vid Fristadsskolan i Eskilstuna, publicerade sitt arbetsflöde på Pedagog Eskilstuna i början av 2026. De producerar korta 1–2 minuters ljudklipp per begrepp, regenererar dem på arabiska och amhariska för nyanlända elever på begäran, och delar dem via Google Classroom.</p>
+
+  <h4>3 · Researcha ett ämne med källhänvisningar (Gemini Deep Research)</h4>
+  <p>Öppna Gemini och välj Deep Research. Ställ din fråga; Gemini föreslår en researchplan (källorna den ska titta på, delfrågorna den ska besvara); du godkänner; den arbetar i 5–15 minuter; du får en strukturerad flersidig rapport med källhänvisningar i texten, levererad som en Canvas-artefakt eller en ljudsammanfattning. Varför lärare bryr sig: bakgrundsläsning inför ett nytt arbetsområde på femton minuter i stället för en eftermiddag; jämförande analys över tre pedagogiska ramverk eller fem länders kursplaner i en enda körning; kompetensutvecklingsbriefingar klara innan mötet. Se upp: källhänvisningar måste verifieras — AI kan fortfarande felattribuera.</p>
+
+  <h4>4 · Sammanfatta ett långt policydokument som en mind map (NotebookLM)</h4>
+  <p>Ladda upp PDF:en. Klicka "Mind Map". NotebookLM analyserar dokumentet och producerar en visuell, strukturerad karta över nyckelbegreppen och hur de förhåller sig till varandra, med källhänvisningar tillbaka. Dela den med ditt arbetslag. Varför lärare bryr sig: policydokument är långa och få människor läser dem faktiskt ordentligt; en mind map med källhänvisningar är ett snabbare sätt att samla ämneslaget kring vad dokumentet faktiskt säger.</p>
+  <p><strong>Extra exempel:</strong> när Skolverket eller huvudmannen släpper en uppdaterad bedömningsriktlinje, ladda upp både den nya och den föregående versionen. Be om en sida-vid-sida av vad som har förändrats. Du har nu en jämförelse dina kollegor inte har.</p>
+
+  <h4>5 · Skriv utkast till ett föräldrabrev i tre tonlägen (Gemini)</h4>
+  <p>Du vet vad du vill säga. Att skriva det väl, professionellt, och utan att falla i de sex krystade meningar du använt förut är vad som tar tid. Ge Gemini kontexten — vad som hände, vad du vill att vårdnadshavaren ska veta, vilken ton du vill slå an — och be om tre versioner (fastare, varmare, neutral). De tre versionerna ger dig kalibrering innan du bestämmer dig för den du skickar. Redigera. Skicka.</p>
+
+  <div class="callout callout--try">
+    <span class="callout__label">Prova den här veckan</span>
+    <p>Välj en av de fem. Gör den för en verklig lektion den här veckan. De andra fyra finns kvar nästa vecka. Skicklighet uppstår genom upprepning på en uppgift, inte genom spridning över alla fem på en gång.</p>
+  </div>
+
+  <h3>Del 1 — Innan du går vidare</h3>
+  <ol class="checklist">
+    <li>Jag har loggat in på Gemini och NotebookLM med mitt Google-konto</li>
+    <li>Jag förstår skillnaden mellan Gemini (generativ) och NotebookLM (källförankrad)</li>
+    <li>Jag har skrivit minst tre prompter enligt RTF-anatomin — Roll, Uppgift, Format</li>
+    <li>Jag har itererat på minst en prompt — förbättrat den genom två rundor av återkoppling — för en verklig uppgift</li>
+    <li>Jag har genomfört minst en av de fem snabba vinsterna för en lektion eller uppgift den här veckan</li>
+    <li>Jag har bestämt vilka kategorier av data som är okej att dela med Gemini eller NotebookLM, och vilka som inte är det</li>
+  </ol>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PART 2 — WORKING SMARTER
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Del 2</span>
+  <h2>Arbeta smartare</h2>
+  <p class="lede">När du märker att du återvänder till Gemini eller NotebookLM för samma sorts uppgift vecka efter vecka är det dags att sluta starta från noll. Den här delen visar hur du gör verktygen till beständiga assistenter — hur du sätter upp Gems, använder Studio-funktionerna och gör Canvas, Deep Research och Audio Overviews till en del av en veckorytm som redan kan ditt ämne, din skola och hur du föredrar att skriva.</p>
+
+  <h3>Gemini Gems — dina beständiga, egna agenter</h3>
+  <p>Ett Gem är en namngiven uppsättning instruktioner med möjlighet att bifoga filer. Du bygger ett — ger det ett namn, skriver instruktioner, laddar eventuellt upp två eller tre referensdokument — och från och med då läser Gemini in kontexten varje gång du triggar det Gem:et, innan du har skrivit ett ord. Det är här Gemini slutar vara generiskt hjälpsam och börjar vara genuint ditt. Gems går också att dela: du kan skicka ett Gem till en kollega via en länk, eller inuti Google Classroom som en del av utrullningen av Gemini i Classroom.</p>
+
+  <h4>Vad du ska ladda upp till ditt första Gem</h4>
+  <p>Välj ämnet eller årskursen där du lägger mest planeringstid. Skapa ett Gem för det. Ladda upp fem saker som tillsammans beskriver din arbetskontext:</p>
+  <ul>
+    <li>Kursplanen eller ämnesplanen för det ämnet och den årskursen</li>
+    <li>Din arbetsområdesplan eller terminsplanering, om du har en</li>
+    <li>Skolans språkpolicy eller kommunikationsguide, om en finns</li>
+    <li>En bedömningsmatris du ofta använder</li>
+    <li>Tre avidentifierade elevarbeten på olika prestationsnivåer</li>
+  </ul>
+
+  <h4>Instruktionerna som gör skillnad</h4>
+  <p>Under Gem:ets inställningar, skriv en kort uppsättning instruktioner som beskriver vem Gem:et är för dig. Begränsa omfånget; namnge registret; formulera de hårda reglerna. Något i stil med:</p>
+  <div class="card card--italic">
+    <p>"Du är en erfaren svensklärare i åk 8 i en kommunal grundskola med bred spridning i kunskapsnivå. Outputs ska vara klassrumsfärdiga, följa den uppladdade språkpolicyn och aldrig producera mer än jag bett om. Om en uppgift rör elevdata, be mig bekräfta att datan är avidentifierad innan du fortsätter. Använd svensk standard."</p>
+  </div>
+
+  <p>Ett ord om tillförlitlighet. Gems håller inte alltid strikt sig till sin kunskapsbas — om dina instruktioner är vaga driver Gem:et. Ett smalt omfång och ett tydligt syfte är motgiften. Alice Keeler, som skrivit om varför hon älskar konceptet med Gems, formulerar det rakt: ett generiskt AI-verktyg kan inte förstå nyanserna i ditt klassrum eller principerna för effektiv pedagogik. Ett Gem är motgiften mot "generisk AI som inte förstår någonting om ditt klassrum" — men bara om du faktiskt berättar för den vad nyanserna är.</p>
+
+  <p>En praktisk regel: om du märker att du förklarar samma mönster för Gemini mer än tre gånger är det dags att göra det till ett Gem. Tre-upprepningar-regeln är en anmärkningsvärt pålitlig signal. Mötesbriefing för samma ämneslag varannan vecka? Gem. Differentierad läsförståelsetext på tre nivåer för ditt nuvarande arbetsområde? Gem. Utkast till föräldrakommunikation i skolans röst? Gem.</p>
+
+  <p>Du behöver inte bygga varje Gem från noll. Eric Curts, en mångårig Google Certified Trainer, driver edugems.ai — ett gratis bibliotek med ungefär 200 färdiga Gems för utbildning, som växer med omkring arton i månaden. Använd dem som mallar; skriv om för att passa din egen klassrumskontext innan du förlitar dig på dem i drift. Och inuti Classroom specifikt levererar Google nu fyra mall-Gems — Study partner, Quiz me, Brainstorm partner, Real-world connector — som är värda att titta på även om du i slutändan ersätter dem med dina egna.</p>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Se upp · Tänk innan du delar</span>
+    <p>Avidentifiera allt innan det går in i ett Gems kunskapsbas. Elevnamn, betyg, ordningsomdömen, hälsoinformation, åtgärdsprogram, anteckningar om anmälningsärenden, vårdnadshavares kontaktuppgifter — aldrig. Ersätt namn med roller ("Elev A", "Elev B"). Generalisera datum och platser. I samma ögonblick som en fil lämnar ditt skrivbord och landar i en delad Gem-kontext har du förlorat finkornig kontroll över vem som ser den. Om du är osäker på om ett dokument är säkert att ladda upp, behandla det som att det inte är det, och fråga skolans dataskyddsombud innan du fortsätter.</p>
+  </div>
+
+  <div class="callout callout--try">
+    <span class="callout__label">Prova den här veckan</span>
+    <p>Lägg tjugo minuter på att sätta upp ett Gem för din mest använda uppgift. Ladda upp tre dokument. Skriv instruktionerna. Kör sedan gårdagens sämsta prompt inuti Gem:et och lägg märke till skillnaden. De tjugo minuterna är den tid med högst hävstång du kommer att lägga på AI hela året.</p>
+  </div>
+
+  <h3>Canvas — det interaktiva arbetsrummet</h3>
+  <p>Canvas är ett arbetsrum sida vid sida inuti Gemini. Medan en chatt löper till vänster håller Canvas ett dokument, ett stycke kod eller en interaktiv artefakt till höger — redigerbar på plats. Du kan ändra ett stycke inline, be Gemini skriva om ett enskilt avsnitt, regenerera en quiz-fråga utan att förlora resten av quizen, eller formatera om en tabell utan att röra texten runtomkring. Effekten är att Gemini rör sig från engångs-chatt-läge till medredigeringsläge. Utkast slutar vara slit-och-släng.</p>
+
+  <p>För en lärare låser det upp flera mönster som ren chatt har svårt med. Du kan bygga ett arbetsblad tillsammans — Gemini skissar frågorna, du redigerar formuleringen du aldrig själv hade använt, ber om två svårare fördjupningsfrågor i slutet, regenererar bara fråga fyra när den landar illa. Du kan hålla en hel lektionsplanering i Canvas med en översiktstabell, lärandemål, differentierade frågor på tre nivåer och en exitbiljett, alla synliga samtidigt och alla redigerbara utan att börja om. Du kan ta en Deep Research-rapport (mer om dem nedan) och be Canvas förvandla den till något klassrumsfärdigt: en infografik, en interaktiv quiz, en enkelsidig elevhandout, en webbsida, till och med ett litet spel elever kan spela. Du kan generera en anpassad quiz från ett källdokument och iterera på den i samma yta utan att någonsin lämna chatten.</p>
+
+  <h3>Deep Research — research i flera steg med källhänvisningar</h3>
+  <p>Deep Research är en agent i flera steg. Den planerar din research, söker på webben (och, om du ger tillstånd, i din Gmail, Drive och Chat), resonerar över vad den hittar och skriver en strukturerad rapport med källhänvisningar i texten. Den körs på Gemini 3 Pro-ryggraden med ett kontextfönster på en miljon token, vilket är varför den kan hålla flera långa källor i minnet samtidigt och korsreferera dem. I ögonblicket du ställer din fråga föreslår Gemini en researchplan — delfrågorna den ska besvara och vilken sorts källor den ska titta på — och lämnar den till dig för godkännande innan den kör. Den färdiga rapporten anländer som en Canvas-artefakt eller, om du föredrar, en ljudsammanfattning.</p>
+
+  <p>För en lärare kollapsar det researchtiden från timmar till minuter. Bakgrundsläsning inför ett nytt arbetsområde som tidigare åt en eftermiddag tar nu femton minuter av beräkningstid medan du undervisar. Jämförande analys — tre pedagogiska ramverk sida vid sida, eller fem länders kursplaner på samma tema — kommer tillbaka i en körning med källhänvisningar du faktiskt kan följa. Kompetensutvecklingsbriefingar kan levereras som en ljudsammanfattning som förstelärare eller rektor lyssnar på under pendlingen; Kasey Bell beskriver det väl som "a podcast for your commute", och det är en rimlig beskrivning av upplevelsen.</p>
+
+  <p>En disciplin är icke förhandlingsbar. Källhänvisningar måste verifieras. Rapporten ser auktoritativ ut, fotnoterna i texten ser rena ut, men AI kan fortfarande felattribuera — ett påstående hänvisat till en källa som inte riktigt säger det, en siffra lyft ur en äldre upplaga, ett citat omfördelat till fel författare. Klicka igenom innan du citerar. Varje fotnot förtjänar en blick, och de du kommer att citera högt förtjänar en läsning.</p>
+
+  <h3>Gemini Live — röst för arbete på språng</h3>
+  <p>Gemini Live är röstlägesmodellen. Du pratar; Gemini lyssnar och svarar med en naturlig röst. Kameradelning stöds (rikta telefonen mot en figur, en lärobokssida, ett föremål på skrivbordet, och fråga om det); skärmdelning stöds (gå igenom det du tittar på på själva enheten med Gemini). Den integrerar med Google Maps, Calendar, Tasks och Keep. Två hårda begränsningar spelar roll: den är enbart mobil, och åldersgränsen är 18 år och äldre.</p>
+
+  <p>För en lärare är den rätta inramningen "att tänka högt med en kollega som faktiskt lyssnar". Diktera ett utkast till ett föräldrabrev medan du går mellan klassrum och kom fram till skrivbordet med en första version redan skriven. Brainstorma ett områdeskoncept under pendlingen och ha dispositionen väntande när du öppnar laptopen. Öva inför ett svårt vårdnadshavarsamtal genom att rollspela — Gemini spelar vårdnadshavaren, trycker tillbaka i karaktär, och du övar dina svar utan att bränna ett verkligt möte. Vad Gemini Live inte är: en klassrumsanteckningar-tagare med elever närvarande. Det hör hemma i ändamålsbyggda klassrumsverktyg med lämplig dataskyddsbehandling. Begränsningarna "endast mobil" och 18+ är en funktion här, inte en bugg — de definierar detta som ett lärarverktyg, inte ett som riktas mot elever.</p>
+
+  <h3>Nano Banana 2 — bildgenerering inuti Gemini</h3>
+  <p>Nano Banana 2 är Googles bildmodell inuti Gemini. Släppt 26 februari 2026 (även känd som Gemini 3.1 Flash Image), ersätter den Nano Banana Pro som standardbildgenerator i Gemini-appen. Funktioner värda att känna till: webbförankrad rendering av specifika motiv, genuint precis textrendering (vilket gör den bra för affischer, rubriker och översättningsuppgifter — de platser där tidigare bildmodeller producerade obegriplig text), motivkonsistens över upp till fem motiv eller fjorton objekt i samma scen, och utdata-upplösningar från 512 pixlar upp till 4K.</p>
+
+  <p>För lärare är klassrumsanvändningen tyst praktisk. Figurer för begrepp elever kämpar med — varianter av vattnets kretslopp, närbilder av cirkulationssystemet, historiska kartöverlägg, abstrakta matematiska relationer visualiserade. Illustrationer till läsförståelsetexter där stockbilder helt enkelt inte finns — ett vikingalånghus inifrån, en verkstad från industrialismens tid, en scen ur en text din klass läser som aldrig illustrerats. Omslagsbilder för Google Slides-presentationer, så att däcket tillkännager lektionen innan ett ord sagts. Visuella exempel för bild- och designuppgifter, genererade snabbt nog att iterera under lektionen.</p>
+
+  <p>Stilkontroller spelar större roll än de flesta lärare inser. "I stil med en vintage barnbok", "en ren linjeteckning i tusch", "ett tekniskt ingenjörsdiagram", "en akvarellillustration i dämpade toner" — stil-taggen är där en generisk bild förvandlas till en klassrumsfärdig. Johans 140 NotebookLM-stilar handlar om <em>text</em>-stilar (se Stilbiblioteket längre ner i den här guiden); Nano Banana 2 är den visuella motsvarigheten, och de två kombineras väl när du bygger ett polerat handout eller slide-deck.</p>
+
+  <p>Generera inte bilder av specifika verkliga personer, och absolut inte av elever. Generella och anonyma bara. Representationer av enskilda elever — även välmenande — går över en gräns som ingen stil-tagg fixar.</p>
+
+  <h3>NotebookLM Studio — förvandla källor till artefakter</h3>
+  <p>NotebookLM:s Studio är uppsättningen av ett-klicks-verktyg som förvandlar dina uppladdade källor till olika artefaktformat. Notebooken förblir densamma; outputen förändras. Fem av dem förtjänar uppmärksamhet, eftersom var och en förvandlar samma material till en annan sorts klassrumsfärdig resurs — och de flesta lärare jag arbetar med använder bara en av dem innan de upptäcker de andra.</p>
+
+  <h4>Audio Overviews</h4>
+  <p>En podcast-liknande dialog mellan två AI-värdar som sammanfattar dina källor. Fyra format är nu tillgängliga — standarden Deep Dive, plus Brief, Critique och Debate (tillagda september 2025). Ett interaktivt läge (fortfarande i beta) låter lärande bryta in mitt i podden och ställa frågor till värdarna i realtid. Utmärkt för nyanlända elever som lyssnar innan de läser, för ikappning av frånvarande elever och för din egen repetition av ett arbetsområde inför undervisning under pendlingen. Output på andra språk än engelska — inklusive svenska och andra EU-språk — fungerar väl per april 2026, men kvaliteten varierar per språk; generera ett testklipp innan du litar på det för ett helt område. Det svenska anknytningsexempel som är värt att känna till: Viktor Säfström och David Folkebrant, två SO-lärare på högstadiet vid Fristadsskolan i Eskilstuna, genererar 1–2 minuters ljudklipp per begrepp, regenererar dem på arabiska och amhariska för nyanlända elever på begäran, och delar dem via Google Classroom. Arbetsflödet är publicerat på Pedagog Eskilstuna.</p>
+
+  <h4>Video Overviews</h4>
+  <p>Berättarröst-ledda bildspelsbaserade videosammanfattningar byggda av dina källor. Det nyare Cinematic Video Overview-formatet har märkbart högre produktionsvärde — bra för flipped classroom-introvideor kvällen före en lektion. En sak att veta: Video Overviews lever inuti NotebookLM men är inte tillgängliga från Gemini-gränssnittet även om Notebooks nu synkroniserar över. För att generera en, byt till NotebookLM-vyn av ditt arbetsområde.</p>
+
+  <h4>Mind Maps</h4>
+  <p>NotebookLM analyserar dina källor och producerar en visuell begreppskarta som visar hur idéer hänger ihop, med källhänvisningar tillbaka till de passager varje nod kom från. Matt Miller på Ditch That Textbook pekar ut den som en utmärkande lärarfunktion, och jag tycker han har rätt. Tre klassrumsanvändningar förtjänar sin plats direkt: som starteruppgift för elever ("bygg mindmapen i huvudet, jämför sedan med den här, och flagga varje länk du tycker saknas"); som planeringsstöd för arbetsområden som hjälper dig hitta luckor i täckningen innan området startar; som handout vid utvecklingssamtal som visar, utan jargong, var ett ämne sitter i den bredare kursplanen.</p>
+
+  <h4>Briefing Docs och Study Guides</h4>
+  <p>Briefing Docs är enkelsidiga chefssammanfattningar av dina källor — formatet att sträcka sig efter när du vill att kollegor eller vårdnadshavare ska ta in ett långt dokument utan att läsa det. Study Guides är strukturerat inlärningsmaterial: nyckelbegrepp, korta svarsfrågor med facit och en ordlista, alla genererade ur samma notebook. Det nyare Learning Guide-formatet (tillagt september 2025) körs i handledarläge, ställer undersökande, öppna frågor i stället för att ge elever direkta svar. Flashcards och quiz kan produceras direkt ur samma källor, vilket innebär att en notebook nu tyst tjänar fem eller sex olika lektionsartefakter.</p>
+
+  <h4>Kopplingen till de 140 stilarna</h4>
+  <p>NotebookLM:s output kan formas av stil. Johan har byggt ett bibliotek med 140 stilar — formellt akademisk, samtalande podcast, barnvänligt berättande, oral history-intervju, undersökande elevhandout, och 135 till. Varje stil ändrar <em>hur</em> samma notebook-innehåll uttrycks utan att ändra vad innehållet säger. Samma tre uppladdade källor kan bli en torr akademisk briefing, ett varmt föräldrabrev eller en frågestyrd elevhandout, beroende på vilken stil du tillämpar. Se Stilbiblioteket längre ner i den här guiden för utvalda exempel och tillgång till hela biblioteket.</p>
+
+  <div class="callout callout--try">
+    <span class="callout__label">Integration · Dina Notebooks inuti Gemini</span>
+    <p>Sedan 8 april 2026 synkroniseras Notebooks dubbelriktat. En Notebook skapad i Gemini dyker upp i NotebookLM, och en Notebook skapad i NotebookLM dyker upp i Gemini — samma källor, samma chatthistorik, båda ytorna redigerbara. Varför det spelar roll i praktiken: du kan be Gemini arbeta med en Notebooks källor utan att lämna Gemini-chatten. "Sammanfatta vad min åk 9-historia-Notebook säger om orsakerna till första världskriget, och producera tre differentierade exitbiljetter." Du får ett förankrat svar <strong>och</strong> en kreativ klassrumsresurs i en interaktion. De två sidorna förblir kompletterande: NotebookLM ger dig Video Overviews och infografik som Gemini inte erbjuder; Gemini ger dig websökning parallellt med uppladdade källor, vilket NotebookLM vägrar av princip. Integrationen rullas först ut till AI Ultra-, Pro- och Plus-prenumeranter; gratisnivån följer under veckorna efter.</p>
+  </div>
+
+  <h3>Fem klassrumsarbetsflöden som ger ränta på ränta</h3>
+  <p>Enskilda prompter producerar enskilda outputs. Den verkliga hävstången ligger i arbetsflöden — mönster du återanvänder vecka efter vecka, inbäddade i ett Gem eller en Notebook, där filerna och instruktionerna gör halva jobbet åt dig innan du skrivit ett tecken.</p>
+
+  <h4>1 · Veckovis lektionsplanering från lärandemål (Gemini Gem + Canvas)</h4>
+  <p>Börja med veckans mål, årskursen och tiden du har. Trigga ditt <em>veckoplanerar</em>-Gem. Gemini skissar lektionen i Canvas: en femminuters starter, en huvuduppgift differentierad på tre nivåer och en exitbiljett, alla synliga i samma arbetsrum. Du redigerar formuleringen inline, ber om en svårare fördjupningsfråga, regenererar exitbiljetten när den landar illa. Fem minuters arbete ersätter vad som tidigare var ett fyrtiominuters planeringsblock, och outputen passar din klass eftersom Gem:et redan kan din kontext.</p>
+
+  <h4>2 · Återkopplingsmönster från avidentifierade elevarbeten (NotebookLM)</h4>
+  <p>Ladda upp åtta till tio avidentifierade svar på samma uppgift i en ny notebook. Be NotebookLM identifiera de tre återkommande styrkorna, de tre återkommande missuppfattningarna och den enda lärarhandling som ger mest avkastning under nästa lektion. Det som kommer tillbaka är vanligen vad du själv hade kommit fram till — snabbare, med tryggheten av ett andra par ögon, och med passager hänvisade tillbaka till det exakta elevarbetet så att du kan se varför NotebookLM landade där det gjorde. Källhänvisningarna är det som gör detta förtroendeingivande.</p>
+
+  <h4>3 · Differentierad instruktionsgenerator (Gemini Gem, triggermönster)</h4>
+  <p>Vilken undervisningsresurs som helst — en läsförståelsetext, ett arbetsblad, en uppsättning instruktioner — kan differentieras åt tre håll: förenklad för läsare två år under gruppen, utökad för läsare två år över, och en språkstöttning för nyanlända. Sätt upp det en gång inuti ditt <em>differentiera-tre-nivåer</em>-Gem. Från och med då: klistra in en text, säg "differentiera det här", och få tre versioner med gemensamt fetmarkerat nyckelordförråd och en liten ordlista. Fungerar på undervisningsspråket och på nyanländas modersmål.</p>
+
+  <h4>4 · För skolledare — mötesförberedelse (NotebookLM Briefing Doc)</h4>
+  <p>Ladda upp dagordningen, förhandsläsningarna och senaste mötesanteckningarna i en notebook. Generera en Briefing Doc. Du får en enkelsidig mötesbriefing med besluten som ska fattas, tidsfördelning per punkt, frågor att förutse från personalen och förslag på uppföljningsåtgärder. Dela Briefing Doc:en med deltagarna i förväg, så att själva mötet handlar om att besluta snarare än läsa. Det här enda arbetsflödet ger förmodligen tillbaka mer tid per vecka än något av de andra.</p>
+
+  <h4>5 · För skolledare — policyskrivande (Gemini Gem med policymallar)</h4>
+  <p>Ditt <em>policy-skrivar</em>-Gem innehåller skolans policymallar och de ramar som spelar roll — Skollagen och GDPR, huvudmannens direktiv och Skolverkets aktuella riktlinjer. Du beskriver den nya policyns syfte, dess berörda parter och dess gränser. Gemini producerar ett första utkast i skolans röst. Du redigerar, itererar och skickar ut. Ett första utkast är alltid en utgångspunkt för mänsklig bedömning; det är aldrig slutgiltigt, och för kommunal grundskole- eller gymnasiepolicy, kör utkastet förbi dataskyddsombudet innan någon intern spridning. Gem:et accelererar arbetet; det professionella ansvaret stannar där det hör hemma.</p>
+
+  <div class="callout callout--johan">
+    <span class="callout__label">Johans anteckning</span>
+    <p>De lärare jag arbetar med som får ut mest av Gemini och NotebookLM är inte de som använder dem oftast. De är de som byggt in tre eller fyra arbetsflöden i sin veckorutin och sedan slutat lägga till nya. Djup slår bredd varje gång. Välj två av de fem ovan, kör dem en halv termin, och lägg först då till ett tredje.</p>
+    <span class="callout__signature">— JL</span>
+  </div>
+
+  <h3>Del 2 — Innan du går vidare</h3>
+  <ol class="checklist">
+    <li>Jag har byggt minst ett Gemini Gem för en återkommande uppgift</li>
+    <li>Jag har använt Canvas för att iterera på ett dokument eller arbetsblad inuti Gemini</li>
+    <li>Jag har skapat minst en Notebook i NotebookLM och kört en Audio Overview, Mind Map eller Briefing Doc</li>
+    <li>Jag har triggat en Notebook från Gemini (eller ett Gem från en Notebook-kontext) för att uppleva den dubbelriktade synken</li>
+    <li>Jag har valt två av de fem arbetsflödena med ränta-på-ränta-effekt att köra regelbundet den här terminen</li>
+    <li>Jag har läst om avidentifieringsregeln och förbundit mig till den</li>
+  </ol>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PART 3 — SCALE & LEAD
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Del 3</span>
+  <h2>Skala upp &amp; led</h2>
+  <p class="lede">Del 3 är för lärare och skolledare som vill göra mer än att spara personlig tid. Den är för dig som bygger ett system — för ditt klassrum, ditt arbetslag, din skola. Mönstren här förändrar vad en enskild lärare kan ta sig an, och börjar svara på vad skolans skyldighet enligt artikel 4 om AI-kompetens faktiskt ser ut som i praktiken.</p>
+
+  <h3>Delade Notebooks för ämneslag</h3>
+  <p>Personliga Notebooks tjänar en lärare. En delad Notebook tjänar ett ämneslag — och ger ränta på ränta varje gång en kollega lägger till material. Mönstret är enkelt: ett ämneslag skapar en Notebook per arbetsområde och laddar upp kursplanen, avidentifierade exempel på elevarbeten, ämneslagets bedömningsmatris och tidigare områdesplaner. Varje lärare i laget ställer frågor mot samma förankrade sanningskälla. Nya lärare onboardas direkt.</p>
+
+  <p>Ta åk 10-matteteamet. De skapar en notebook som heter <em>ak10-algebra-arbetsomrade</em> och fyller den med områdesplanen, tre års gamla prov (avidentifierade) och ämneslagets delade bedömningsmatris. En lärare som börjar mitt i terminen genererar en Briefing Doc på 30 sekunder och går in på sin första lektion med en förståelse för hur ämneslaget undervisar det här området — inte vad en kollega råkade komma ihåg att nämna. Arbetsflödet av Säfström och Folkebrant vid Fristadsskolan i Eskilstuna (publicerat på Pedagog Eskilstuna i februari 2026) utvidgar det här ytterligare till delat ljudinnehåll: 1–2 minuters Audio Overviews per begrepp, regenererade på undervisningsspråket och på nyanländas modersmål på begäran, och delade via Google Classroom.</p>
+
+  <p>Varför det ger ränta på ränta. En delad Notebook förbättras allteftersom ämneslaget lägger till material. Den tredje läraren som ansluter får en bättre resurs än den första. Kostnaden för att en ny lärare ska komma ikapp sjunker från veckor av skuggning och spridda överlämningssamtal till minuter av förankrade frågor och svar mot material ämneslaget redan skrivit ner. För ämneslag som förlorar en lärare mitt i terminen — vilket sker i varje skola — är den delade Notebooken institutionellt minne som skolan tidigare inte hade.</p>
+
+  <p>Den dubbelriktade synken förtjänar sin plats här. När en delad Notebook är byggd i NotebookLM kan varje medlem i ämneslaget också arbeta med den från Gemini-appen — generera differentierade exitbiljetter, skissa föräldrabrev förankrade i områdets bedömningskriterier, eller producera en Canvas-baserad lektionsplan — allt från samma källor, utan att ladda upp en enda fil på nytt.</p>
+
+  <h3>Delade Gems för arbetslag</h3>
+  <p>Gems kan delas över ett Workspace-team eller via Google Classroom. Bygg ett, dela det, och alla i ämneslaget triggar nu samma standard för differentiering, återkoppling eller föräldrakommunikation. Det är så du löser "mina utkast ser alla olika ut"-problemet på ämneslagsnivå — inte med en språkpolicy ingen läser, utan med ett Gem alla använder.</p>
+
+  <p>Ett konkret exempel. Ett <em>föräldrakommunikation-skolröst</em>-Gem bär skolans språkpolicy och tre exempelmejl (varm, saklig, fast). Varje lärare på skolan skriver föräldrabrev som låter som skolan — inte som en individs bästa insats en torsdag eftermiddag. Konsistensen är inte kosmetisk; det är en kvalitetsribba hela personalen förbinder sig till, upprätthållen av verktyget som nu sitter inne i deras arbetsflöde.</p>
+
+  <p>Ett annat: ett <em>quiz-generator-vår-matris</em>-Gem producerar quiz matchade mot ämneslagets bedömningsmatris och frågestil. Delat över en årskurs får varje klass quiz med samma kognitiva krav. Inte längre parallellklassen som får markant lättare eller svårare frågor för att läraren skrev dem i farten.</p>
+
+  <p>Du behöver inte bygga varje Gem från noll. Eric Curts <em>edugems.ai</em> erbjuder omkring 200 gratis utbildnings-Gems och är värt att bryta loss från som utgångspunkt — skriv om för din egen kontext innan du förlitar dig på dem. Och inuti Classroom specifikt levererar Google nu fyra mall-Gems (Study partner, Quiz me, Brainstorm partner, Real-world connector) som ett splitternytt ämneslag kan pilotera direkt medan det arbetar fram sina egna.</p>
+
+  <h3>Kompetensutvecklingsvägar — stöd för artikel 4</h3>
+  <p>Artikel 4 i AI-förordningen, i kraft sedan 2 februari 2025, kräver att varje organisation som tillämpar AI — skolor inräknat — säkerställer att personalen har tillräcklig AI-kompetens för att använda verktygen ansvarsfullt. Det är inte en framtida skyldighet; den är nuvarande. Och den behöver inte vara smärtsam. Ditt kompetensutvecklingsprogram <em>är</em> din efterlevnad av artikel 4. En konsekvent, lågmäld rytm över en termin gör mer, juridiskt och pedagogiskt, än en engångs-complianceworkshop. Här är en tre-månadersväg som fungerar.</p>
+
+  <h4>Månad 1 — personlig förtrogenhet</h4>
+  <p>Varje lärare sätter upp ett Gem för sin mest upprepade uppgift. Varje lärare skapar en personlig Notebook från områdesmaterial de undervisar på nu. Varje lärare kör en Audio Overview från den Notebooken. Inget delas ännu. Målet är att varje i personalen ska ha känt hur verktygen beter sig på deras eget arbete, innan någon ombeds samarbeta.</p>
+
+  <h4>Månad 2 — dela det bästa</h4>
+  <p>De bästa Gems från månad 1 delas över ämneslaget — via Classroom eller direktlänk. Varje ämne bygger en delad Notebook av det slag som beskrivits ovan. Ämneslaget kör en bi-veckovis 30-minuters "AI-timme" där kollegor provar ett nytt arbetsflöde tillsammans. Kasey Bell ringar in skiftet väl när hon beskriver Gemini i Classroom som "a deeply embedded teaching assistant directly within your workflow" — den inbäddningen sker genom upprepad, kort, delad praktik, inte genom en enskild utbildningsdag.</p>
+
+  <h4>Månad 3 — policy och institutionalisering</h4>
+  <p>Skolan reviderar vad som har lärts. Vilka praktiker är säkra? Vad behöver dokumenteras? Vilka användningar har drivit åt riktningar som behöver en regel? Det är här AI-användning går från experimentell till institutionell. Uppdatera skolans register över behandling (GDPR artikel 30) så att den speglar de nya verktygen. Formalisera de datahanteringsregler som ämneslaget har praktiserat informellt. Namnge vad varje lärare förväntas kunna, och vad varje lärare förväntas aldrig göra.</p>
+
+  <p>En princip att avsluta med. Skolan som lyckas med Gemini och NotebookLM är inte skolan med den största licensbudgeten. Det är skolan som byggde en konsekvent, lågmäld kompetensutvecklingsrytm och höll fast vid den en termin. Artikel 4 kommer att bedömas utifrån vad din personal faktiskt kan göra, inte utifrån vad era inköpsdokument säger att ni köpt.</p>
+
+  <h3>Datahänsyn — kortversionen</h3>
+  <p>Avidentifiera allt. Elevnamn, betyg, beteendedata, hälsoinformation, vårdnadshavares kontaktuppgifter, anteckningar om anmälningsärenden — aldrig. Om din skola kör Google Workspace for Education skiljer sig dataresidens och träningsdatainställningar från konsumentkonton. Verifiera ert personuppgiftsbiträdesavtal (DPA) med Google innan ni implementerar rutinmässig användning över skolan. Detaljer i Del 4 och EU-bonuskapitlet.</p>
+
+  <p>Om er skola inte är på Workspace for Education och era lärare använder konsument-Gemini-konton för skolarbete — stopp. Du bär personligen GDPR-risk som hör hemma hos er organisation. Flytta skolan till en lämplig Workspace-nivå innan ni formaliserar något AI-arbetsflöde.</p>
+
+  <h3>Del 3 — Innan du går vidare</h3>
+  <ol class="checklist">
+    <li>Vårt ämneslag har minst en delad Notebook med avidentifierat källmaterial</li>
+    <li>Vårt ämneslag har minst ett delat Gem med ett tydligt, smalt syfte</li>
+    <li>Vi har en tre-månadersväg för kompetensutveckling som stöder vår skyldighet enligt artikel 4</li>
+    <li>Vi har granskat skolans Workspace for Education-DPA och datahanteringsinställningar</li>
+    <li>Vi har skrivit (eller uppdaterat) regeln för vilka kategorier av data som är okej att dela med AI-verktyg</li>
+  </ol>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PART 4 — GOOGLE WORKSPACE FOR EDUCATION
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Del 4</span>
+  <h2>Google Workspace for Education</h2>
+  <p class="lede">Många skolor kör Google Workspace for Education. Inuti Workspace är AI-funktioner grindade och styrda annorlunda än i konsument-Gemini — admin-kontroller, dataresidens, åldersgränser och den gratis kärn-Gemini AI i Classroom förändrar hela bilden. Den här delen täcker vad lärare behöver veta (kort) och vad skolledare behöver besluta (utförligt).</p>
+
+  <h3>För lärare — vad som är annorlunda inuti Workspace</h3>
+  <p>En kort orientering innan skolledarsektionen. Huvudlinjen är att skolans administratör, inte Google, avgör vad du ser och vad du kan göra. Håll dessa punkter i minnet:</p>
+  <ul>
+    <li>Skolans admin avgör vilka AI-funktioner du kan använda.</li>
+    <li>Dina prompter och data stannar inom skolans Workspace med personuppgiftsbiträdesavtalets dataskyddsvillkor. Konsument-Geminis träningsstandarder gäller inte här.</li>
+    <li>Vissa funktioner (Gemini-sidopanelen i Docs, Slides, Forms och Vids) dyker bara upp om skolan har Education Plus- eller Teaching &amp; Learning-tillägget <em>och</em> du är 18 år eller äldre.</li>
+    <li>Kärn-Gemini AI i Google Classroom är gratis för alla Workspace for Education-konton — det ger dig lektionsplanering, quizgenerering, utkast till bedömningsmatriser, föreslagen återkoppling (engelska först), videoförslag och brainstorming-startpunkter.</li>
+    <li>Gemini Live är endast för användare 18 år och äldre — ett lärarverktyg, inte ett klassrumsverktyg.</li>
+    <li>Om du inte ser en funktion som beskrivs i den här guiden kan den vara inaktiverad på skolnivå. Fråga din admin, inte Googles support.</li>
+    <li>Börja med ett samtal med din Google Workspace-admin innan du laddar upp något till något konto.</li>
+  </ul>
+
+  <h3>För skolledare — vad som ska beslutas innan utrullning</h3>
+  <p>De följande fem underavsnitten täcker de beslut en skolledare-läsare behöver fatta innan Gemini och NotebookLM rullas ut i skala. Vart och ett pekar mot Googles officiella dokumentation för exakta aktuella inställningar — eftersom Google uppdaterar funktioner och tak månadsvis hör specifika siffror hemma i Workspace Admin, inte i den här guiden.</p>
+
+  <h4>Gemini for Education-licensen</h4>
+  <p>Två relevanta licensvägar finns per 2026: Education Plus (per-användare betalt tillägg) och Teaching &amp; Learning-tillägget (per-licensierad-pedagog-tillägg). Premium-funktionerna för Gemini i Workspace — Docs, Slides, Forms, Vids — lanserades i februari 2026 till dessa två licenstyper utan extra kostnad för licensinnehavare. Kärn-Gemini AI i Classroom är gratis för alla Workspace for Education-konton. Hur man väljer: om skolan använder Docs, Slides, Forms och Vids mycket som produktionsmiljö där lärare faktiskt gör sitt material, betalar tilläggen sig själva snabbt. Om ni främst arbetar i Gmail och Drive, vänta tills Google tar premium-funktioner till dessa appar. Verifiera aktuell prissättning och funktionsuppsättning i Google Workspace Admin-konsolen innan implementation.</p>
+
+  <h4>Dataresidens, GDPR och svensk kontext</h4>
+  <p>För svenska skolor spelar det roll var data behandlas. NotebookLM Enterprise (på Google Cloud) stöder EU-endast dataresidens; Workspace for Education-versionens residensåtagande är inte lika tydligt dokumenterat i offentligt material och behöver bekräftas via er skolas personuppgiftsbiträdesavtal (DPA). Verifiera i Google Workspace Admin och ert DPA innan implementation.</p>
+
+  <p>Standard-GDPR-disciplin gäller: skolan (huvudmannen) är personuppgiftsansvarig, Google är personuppgiftsbiträde, och DPA:t styr relationen. Kommunala skolor stödjer sig vanligen på artikel 6(1)(e) (uppgift av allmänt intresse) som rättslig grund, med artikel 9-villkor där känsliga personuppgifter (hälsa, särskilt stöd, anmälningsärenden) är inblandade. När AI blir rutin i skolan, uppdatera er artikel 30-registerförteckning så att den speglar de nya verktygen, kategorierna av data som behandlas, lagring och internationella överföringar.</p>
+
+  <p><strong>Tillsynsmyndighet och nationell vägledning.</strong> IMY (Integritetsskyddsmyndigheten) är den svenska tillsynsmyndigheten för GDPR — det är IMY som upprätthåller GDPR för skolor lokalt och publicerar praktisk vägledning. I Sverige har Skolverket och IMY som av april 2026 ännu inte publicerat detaljerade nationella riktlinjer för AI i skolan — därför blir EU:s AI-förordning den dominerande ramen för svenska skolor tills det förändras. Konsultera IMY:s och Skolverkets aktuella positioner innan ni fattar beslut på skolnivå, och förutsätt inte att dagens frånvaro av detaljerad nationell vägledning befriar er från de underliggande GDPR- och artikel 4-skyldigheterna.</p>
+
+  <h4>Admin-kontroller och elevåtkomst</h4>
+  <p>Gemini i Workspace slås på på domän-, OE- eller gruppnivå. Granulära per-app-reglage (till exempel: tillåt Gemini i Docs men inte i Slides) rullas ut genom 2026 — verifiera aktuellt läge med er admin. NotebookLM-åtkomst är på liknande sätt admin-grindad.</p>
+
+  <p>Elevåtkomst är ett separat beslut. Tonårs-Gemini (13+) kan aktiveras som en ytterligare tjänst med "utökat dataskydd"; premium-funktionerna för Gemini i Workspace inuti Docs, Slides, Forms och Vids förblir 18+. Skolverkets riktlinjer från augusti 2025 är tydliga: elever får inte använda generativ AI på egen hand i undervisningen, rektors godkännande krävs för all spridning, och lärarens tillsyn är obligatorisk. <strong>Verifiera den gällande regeln i Skolverkets aktuella vägledning</strong> innan ni aktiverar elevriktade funktioner. Era admin-kontroller är helt enkelt implementationsskiktet av den policyn — de ersätter inte att veta vad policyn är.</p>
+
+  <h4>Google Classroom AI-funktioner</h4>
+  <p>Gratis med alla Workspace for Education-konton. Lärarfunktioner inkluderar första utkast till lektionsplaner, quizgenerering (exporterbart till Google Forms), generering av bedömningsmatriser, föreslagen återkoppling på skriftliga uppgifter (läraren måste godkänna innan eleven ser det — ett medvetet designval som håller läraren som beslutsfattare och undviker att trigga EU:s AI-förordnings högriskkategori för bedömning), videoförslag, brainstorming-startpunkter, verkliga exempel och ljudlektioner. Elevriktade funktioner som rullas ut genom 2026 inkluderar NotebookLM i Classroom, Gems i Classroom (delade mallar) och Read Along-förbättringar. Admin-analys inkluderar en omdesignad startsida-dashboard, insikter som visar elevernas interaktion med Gems och NotebookLM, samt direkt ljud-/videoinspelning.</p>
+
+  <p>En lucka värd att nämna. Per BETT 2026 stöder "learning standards tagging"-funktionen i Classroom Storbritannien, Australien, Kanada, Japan, Brasilien, Mexiko och Italien. Andra länder (inklusive Sverige och större delen av Europa) finns inte med på listan. Svenska lärare behöver mappa Classroom-uppgifter mot kursplaner och ämnesplaner manuellt tills det förändras.</p>
+
+  <h4>En fasad utrullning som fungerar</h4>
+  <p>Kör inte en skolövergripande utbildningsdag innan lärarna faktiskt har använt verktygen. Starta med en frivillig kohort om 5–10 i personalen. Låt dem bygga Gems och Notebooks för sina egna ämnen i en månad. De blir era interna experter. Månad 2: låt dem köra korta, informella demos för sina ämneslag. Månad 3: skriv skolans AI-användningspolicy utifrån vad kohorten har lärt sig — inte utifrån en mall från internet. Den här ansatsen växlar om er artikel 4-skyldighet till organisk personalutveckling, snarare än att förvandla den till en compliance-kryssrutsövning som inte lämnar någon mer kapabel än förut.</p>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Se upp · Verifiera innan du skalar</span>
+    <p>Google ändrar funktioner, priser och tak månadsvis. Varje specifikt påstående i den här delen — licensnivåers innehåll, elevåtkomstinställningar, granulariteten i admin-reglage, vad som är gratis kontra betalt — förtjänar en verifiering i Google Workspace Admin och ert aktuella DPA innan ni agerar på det. Guiden är en startkarta, inte en live-konfigurationsfil. Bygg in en kvartalsvis granskning i skolans kalender, inte ett engångs utrullningsprojekt.</p>
+  </div>
+
+  <h3>Del 4 — Innan du går vidare</h3>
+  <ol class="checklist">
+    <li>Vår skola har bekräftat vilken Gemini for Education-licens (om någon) vi har</li>
+    <li>Vi har verifierat villkor för dataresidens och DPA för Workspace for Education med vår Google-admin</li>
+    <li>Vår admin har konfigurerat åtkomst till Gemini och NotebookLM på lämplig domän- / OE- / gruppnivå</li>
+    <li>Vi har granskat Google Classrooms AI-funktioner och beslutat vilka som ska aktiveras</li>
+    <li>Vi har en fasad utrullningsplan som startar med en liten frivillig kohort</li>
+    <li>Vi har en kvartalsvis granskning i kalendern för att fånga Googles funktions- och prisändringar</li>
+  </ol>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     BONUS CHAPTER — FOR EU READERS
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Bonuskapitel</span>
+  <h2>För EU-läsare</h2>
+  <p class="lede">Eftersom Sverige är ett EU-land gäller två regelverk för hur du använder Gemini och NotebookLM i skolan: GDPR och EU:s AI-förordning. Det här kapitlet är en praktisk grundintroduktion — inte juridisk rådgivning.</p>
+
+  <h3>GDPR-grunder för skolor som använder AI</h3>
+  <p>Er skola (eller huvudmannen) är personuppgiftsansvarig; Google är personuppgiftsbiträde. Workspace for Education bär ett personuppgiftsbiträdesavtal (DPA) vars villkor skiljer sig meningsfullt från det konsument-Gemini-konto en lärare kan skapa privat — vilket är varför skoldomänkonton spelar roll.</p>
+  <p>För kommunala skolor är den rättsliga grunden för behandling av elevdata vanligen artikel 6(1)(e) — uppgift av allmänt intresse — inte samtycke. "Vi använder AI på skolan" är inte en rättslig grund, och vårdnadshavarens samtycke är inte vägen. Känsliga personuppgifter (hälsoinformation, åtgärdsprogram, anteckningar om anmälningsärenden) kräver ett ytterligare artikel 9-villkor innan det går någonstans nära ett AI-verktyg. Kontrollera med IMY om den precisa tillämpningen i något specifikt fall är oklar.</p>
+  <p>Uppgiftsminimering är den dagliga disciplinen. Ladda inte upp det som inte behövs. Avidentifiera allt där identifiering inte strikt krävs — pseudonymisera elevnamn till "Elev A" i stället för att förlita dig på en vag känsla av att innehållet har anonymiserats.</p>
+  <p>Artikel 30 kräver att skolor upprätthåller skriftliga register över behandling som listar syften, kategorier av personuppgifter, mottagare, internationella överföringar och lagringstider. Att lägga till rutinmässig Gemini- eller NotebookLM-användning i klassrummet triggar en uppdatering av registret — det är inte valfritt.</p>
+  <p>Dataresidens är det enda område där Googles produktportfölj divergerar. NotebookLM Enterprise på Google Cloud stöder EU-endast-residens i vila. Workspace for Education-nivåns residensåtagande är inte lika tydligt dokumenterat i offentliga källor — verifiera i Google Workspace Admin och ert aktuella DPA innan implementation.</p>
+  <p>IMY (Integritetsskyddsmyndigheten) är den svenska tillsynsmyndigheten som ni behöver känna till. Gemensam vägledning från IMY och Skolverket om AI i skolan förväntas men har ännu inte publicerats som av april 2026. Konsultera IMY:s aktuella position innan ni fattar skolövergripande beslut.</p>
+  <p>Den praktiska regeln för lärare är rak: använd bara skoldomänens Workspace-konto för allt som rör elevdata. Placera aldrig elev-identifierbart innehåll i ett konsument-Gemini- eller NotebookLM-konto. Om er skola rutinmässigt använder Gemini eller NotebookLM, ska er registerförteckning spegla det.</p>
+
+  <h3>EU:s AI-förordning — vad den betyder för skolan</h3>
+  <p>EU:s AI-förordning trädde i kraft 1 augusti 2024 och fasas in genom 2026 och framåt. Den klassificerar AI-användning efter risknivå och kopplar skyldigheter till varje nivå. Skola och utbildning omfattas uttryckligen.</p>
+  <p>Två datum spelar större roll än de andra. <strong>2 februari 2025</strong> trädde de förbjudna praktikerna i kraft och AI-kompetensskyldigheterna i artikel 4 började gälla för varje organisation som tillämpar AI — skolor inräknat. <strong>2 augusti 2026</strong> börjar den allmänna tillämpningen, transparensregler gäller, och de flesta högriskskyldigheter träder i kraft.</p>
+  <p>Artikel 4 förtjänar att sägas rakt ut: skolor som tillämpar AI måste säkerställa att personalen har tillräcklig AI-kompetens. Den här guiden — och kompetensutvecklingskadensen beskriven i Del 3 — är den praktiska vägen till efterlevnad av artikel 4. Ett kompetensutvecklingsprogram för AI är inte ett trevligt-att-ha. Det är ett rättsligt krav.</p>
+  <p>Varför EU:s AI-förordning spelar större roll i vissa länder än andra. Flera EU-medlemsstater har publicerat detaljerade nationella AI-i-skolan-riktlinjer som går utöver förordningens grundnivå; andra har inte det. Eftersom Sverige som av april 2026 ännu inte har detaljerade nationella AI-i-skolan-riktlinjer är AI-förordningen den ram du har att arbeta utifrån — den sätter golvet, inte taket. Om och när Skolverket och IMY publicerar gemensam vägledning kan nationella regler gå längre.</p>
+
+  <div class="diagram">
+    <svg viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg">
+      <!-- Minimal risk -->
+      <rect x="80" y="250" width="520" height="50" rx="6" fill="#D4E4D4" stroke="#8AAE8A" stroke-width="0.8"/>
+      <text x="110" y="282" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#1a1a18">Minimal risk</text>
+      <text x="590" y="282" font-family="Inter, sans-serif" font-size="11" fill="#4A6B4A" text-anchor="end">standard — inga nya skyldigheter</text>
+
+      <!-- Limited risk -->
+      <rect x="80" y="185" width="520" height="50" rx="6" fill="#F5ECD0" stroke="#C69C3C" stroke-width="0.8"/>
+      <text x="110" y="217" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#1a1a18">Begränsad risk</text>
+      <text x="590" y="217" font-family="Inter, sans-serif" font-size="11" fill="#A07D2E" text-anchor="end">transparensskyldighet — AI måste redovisas</text>
+
+      <!-- High risk -->
+      <rect x="80" y="120" width="520" height="50" rx="6" fill="#F5D8CC" stroke="#C66B3D" stroke-width="0.8"/>
+      <text x="110" y="152" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#1a1a18">Hög risk</text>
+      <text x="590" y="152" font-family="Inter, sans-serif" font-size="11" fill="#A4482B" text-anchor="end">betygsättning · antagning · beteendebedömning</text>
+
+      <!-- Prohibited -->
+      <rect x="80" y="55" width="520" height="50" rx="6" fill="#8C2F1F" stroke="#5A1E13" stroke-width="0.8"/>
+      <text x="110" y="87" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#F6F3EE">Förbjuden</text>
+      <text x="590" y="87" font-family="Inter, sans-serif" font-size="11" fill="#F6F3EE" text-anchor="end">social scoring · manipulation — får inte användas</text>
+
+      <text x="40" y="80" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="2" fill="#5a5a57" transform="rotate(-90, 40, 180)">RISK →</text>
+    </svg>
+    <p class="diagram__caption">EU:s AI-förordnings fyra risknivåer. De flesta lärares användning av Gemini och NotebookLM ligger i Minimal eller Begränsad. Hög risk börjar när AI påverkar tillgång till utbildning — betygsättning, antagning, beteendebedömning.</p>
+  </div>
+
+  <h3>Att mappa Gemini- och NotebookLM-användning mot risknivåerna</h3>
+  <p><strong>Minimal risk.</strong> Att generera differentierade texter, skissa föräldrabrev, producera studieguider från lektionsmaterial, köra Audio Overviews av områdeskällor, brainstorma lärandemål, skissa personalbriefingar. De flesta lärares användning av Gemini och NotebookLM lever här — standard-dataskyddsdisciplin räcker.</p>
+  <p><strong>Begränsad risk.</strong> En NotebookLM-"handledare" som elever chattar med måste tydligt märkas som AI, och den kan inte ersätta en lärare i en bedömning av lärande. En AI-genererad video som används i undervisning måste redovisas för eleverna som AI-genererad. Transparens är det operativa ordet på den här nivån — skyldigheten är att säkerställa att människan i andra änden vet att hen interagerar med AI eller tittar på AI-genererat innehåll.</p>
+  <p><strong>Hög risk.</strong> Att använda Gemini för att producera summativa betyg; rangordna elever inför urval; klassificera elevbeteende för administrativ åtgärd; automatiserad provrättning. Dessa triggers bär formella förhandsskyldigheter: riskbedömning, kvalitetshantering av dataset, loggning, dokumentation, obligatorisk mänsklig tillsyn. Google Classrooms "föreslagen återkoppling"-funktion är specifikt designad för att undvika den triggern — läraren måste godkänna återkopplingen innan eleven ser den, vilket behåller läraren som beslutsfattare.</p>
+  <p><strong>Förbjuden.</strong> Varje användning som poängsätter elever som personer snarare än på deras arbete — social scoring — är förbjuden rakt av. Det är inte en gråzon.</p>
+
+  <h3>Din praktiska compliance-checklista</h3>
+  <ol class="checklist">
+    <li>Vi har genomfört eller uppdaterat en DPIA (konsekvensbedömning avseende dataskydd) som täcker vår användning av Gemini och NotebookLM</li>
+    <li>Vi har bekräftat att det DPA som täcker Gemini och NotebookLM (konsument- eller Workspace for Education-variant) är i kraft och aktuellt</li>
+    <li>Vi har verifierat villkor för dataresidens för Workspace for Education med vår Google-admin</li>
+    <li>Vi har granskat integritets- och träningsinställningar för varje kontotyp personalen använder</li>
+    <li>Vårt register över behandling (artikel 30) speglar rutinmässig AI-användning i hela skolan</li>
+    <li>Vi har klassificerat våra avsedda användningar mot risknivåerna i EU:s AI-förordning</li>
+    <li>Vi har engagerat vårt dataskyddsombud i varje användning som närmar sig hög risk-nivån</li>
+    <li>Vi har en kompetensutvecklingskadens som stöder vår skyldighet om AI-kompetens enligt artikel 4</li>
+    <li>Vi har en säker kanal för personalen att ta upp oro kring AI-användning utan konsekvenser</li>
+  </ol>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Se upp · En anteckning från Johan</span>
+    <p>Jag är inte jurist. Det här kapitlet ger dig en utgångspunkt, inte juridisk rådgivning. Se till att checklistan harmonierar med er skolas egen tolkning av GDPR och EU:s AI-förordning, och rådgör med ert dataskyddsombud eller juridisk rådgivning för bindande beslut. Regleringen på området utvecklas överallt. Bygg in en granskningscykel i skolans kalender och behandla AI-efterlevnad som en pågående praktik, inte ett engångsprojekt.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     STYLES LIBRARY
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Stilbiblioteket</span>
+  <h2>140 sätt att se vad din Notebook kan</h2>
+
+  <p>Samma notebook och samma prompt kommer producera mycket olika output beroende på vilken stil du väljer. En formell akademisk layout för en ämneslagsbriefing. En samtalande podcast för en elevs pendelrepetition. En barnvänlig berättarform för ett handout på lågstadiet. En oral history-intervju för ett lokalhistoriskt område. Ämnet ändras inte — bara registret, kompositionen och nivån av välkomnande. Stil är skillnaden mellan "NotebookLM säger X" och "NotebookLM lär ut X på det sätt dina elever behöver höra det".</p>
+
+  <p>Jag har byggt 140 sådana stilar. Var och en är en fullständig, färdig-att-kopiera prompt som sätter NotebookLM — och Geminis bildverktyg — i ett specifikt visuellt och tonalt register, från redaktionella infografiker och serietidningsomslag till dokumentära stillbilder och anatomiska affischer. De åtta exemplen nedan är en kurerad ingång. Utforska hela biblioteket på <em>choosewise.education/notebooklm-styles/</em>, där varje stil har en tumnagel, en kort beskrivning och den fullständiga prompten redo för dig att kopiera och klistra in i NotebookLM.</p>
+
+  <div class="styles-grid">
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-001.webp" alt="Brett redaktionellt uppslag med serif-rubrik och naturhistorisk illustration">
+      <div class="style-card__label">
+        <strong>Redaktionellt infografikuppslag</strong>
+        <span>För briefingar till förstelärare och skolledare som ska läsas som en featureartikel.</span>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-002.webp" alt="Filmisk 3D-nyhetsthumbnail med neonbelysning och en reporterfigur">
+      <div class="style-card__label">
+        <strong>Filmisk nyhetsthumbnail</strong>
+        <span>För nyhetskrokar högst upp i en lektion om medie- och informationskunnighet.</span>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-005.webp" alt="Fotorealistisk klassrumsstillbild i mjukt dagsljus ur en elevs synvinkel">
+      <div class="style-card__label">
+        <strong>Dokumentär klassrumsbild</strong>
+        <span>För case-öppnare och kompetensutvecklingsmaterial förankrade i hur ett riktigt klassrum ser ut.</span>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-006.webp" alt="Ljus solstrålebakgrund med utklippsfigur och staplade text-stickers">
+      <div class="style-card__label">
+        <strong>Creator-stickerkort</strong>
+        <span>För meddelanden, elevbelöningskort och högenergiska korridorskyltar som elever faktiskt stannar för att läsa.</span>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-014.webp" alt="Mörk minimalistisk tech-layout med cyan neonglöd och ett raster av figurer">
+      <div class="style-card__label">
+        <strong>Mörk tech-uppdatering</strong>
+        <span>För korta datadashboard-förklaringar och uppdateringar till ledningsgruppen eller digitaliseringsansvarig.</span>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-016.webp" alt="Klassiskt serietidningsomslag med tre hjältar i en dramatisk triangulär komposition">
+      <div class="style-card__label">
+        <strong>Serietidningsomslag</strong>
+        <span>För projektbriefer i lägre åldrar och läsuppdrag som elever vill spara.</span>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-046.webp" alt="Pastellfärgad top-down knolling-layout av skrivmaterial och enheter på en delad bakgrund">
+      <div class="style-card__label">
+        <strong>Pastell knolling-layout</strong>
+        <span>För lugna, organiserade handouts — verktygsjämförelser, lektionskitlistor och rutiner i en blick.</span>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <img src="../assets/notebooklm-images/style-052.webp" alt="Premium mörk anatomiaffisch med en glödande röntgensilhuett i rörelse">
+      <div class="style-card__label">
+        <strong>Röntgenanatomi-poster</strong>
+        <span>För NO- och idrottsmoment där en enda dramatisk bild måste bära hela lektionen.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="styles-grid__cta">Utforska alla 140 stilar på <a href="https://choosewise.education/notebooklm-styles/">choosewise.education/notebooklm-styles/</a></p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PROMPTS
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Prompter</span>
+  <h2>Ett startbibliotek med Gemini-prompter</h2>
+  <p>Kopiera dessa prompter, anpassa dem till din kontext, kör dem. De flesta fungerar direkt; alla blir bättre när du matar dem med dina egna filer — en områdesplan, en läsförståelsetext, en bedömningsmatris. Där en prompt är NotebookLM-specifik förväntar den sig att källor redan är uppladdade i en Notebook. Där den är Gemini-specifik (Gemini Live, Deep Research, Canvas) förväntar den sig att du är i den ytan av Gemini-appen.</p>
+
+  <h3>Kom igång</h3>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">1 · RTF-start — din första användbara prompt</div>
+    <pre class="prompt-card__text">Agera som [roll — t ex en erfaren NO-lärare i åk 6 i en kommunal grundskola med bred spridning i kunskapsnivå].
+
+Uppgift: [vad du behöver — t ex skissa en 250-ords förklaring av vattnets kretslopp för en klass med bred spridning. Inkludera de fyra stegen och ett verkligt exempel för varje.]
+
+Format:
+- [längd]
+- [ton]
+- [struktur — punkter, rubriker, numrerat osv.]
+- [obligatoriska element — ordlista-ruta, facit, retrieval-frågor]
+
+Nivå: [läsåldrar eller förmågeband].</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">2 · Retrieval practice-quizgenerator</div>
+    <pre class="prompt-card__text">Producera en [n]-minuters retrieval practice-quiz om [ämne] för [årskurs].
+
+Täckning: hämtad från de senaste [n] lektionerna.
+
+Format:
+- [n] frågor
+- Blandning av minnes-, förståelse- och tillämpningsfrågor
+- Flerval + kort svar + en öppen fråga
+- Facit i slutet med en förklarande mening per svar
+- Klart att klistra in i Google Forms</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">3 · Differentiera en läsförståelsetext på tre nivåer</div>
+    <pre class="prompt-card__text">Nedan är en läsförståelsetext. Producera tre versioner av den på:
+1. Läsnivå två år under årskursen
+2. På målårskursens nivå
+3. Läsnivå två år över årskursen
+
+Regler:
+- Bevara kärnidéerna i alla tre versionerna
+- Behåll en gemensam uppsättning av 8–10 nyckeltermer, fetmarkerade i varje version
+- Version 1: korta meningar (≤12 ord), konkret språk, högfrekvent ordförråd
+- Version 3: sammansatta meningar OK, Tier 2-ordförråd, max en bisats per stycke
+- Avsluta med en ordlista över de 8–10 gemensamma termerna, elevvänliga definitioner
+
+[klistra in text]</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">4 · Föräldrabrev i tre tonlägen</div>
+    <pre class="prompt-card__text">Hjälp mig skissa ett mejl till en vårdnadshavare om [kontext — t ex en oro kring beteende / en positiv observation / en begäran om möte].
+
+Jag vill ha tre versioner:
+1. Varm — samarbetsinriktad, erkänner vårdnadshavaren som partner
+2. Saklig — neutral, bara information, ingen känsla
+3. Fast — tydlig om förväntningar, utan att vara kall
+
+Kontext: [2–3 meningar om eleven och anledningen]
+
+Varje version: under 150 ord, enkelt språk, svenska, avsluta med "Med vänliga hälsningar, [lärarens namn]".</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">5 · Sammanfatta ett långt dokument — "vad påverkar mig?"</div>
+    <pre class="prompt-card__text">Jag har laddat upp ett [policydokument / kursplan / Skolverkets vägledning / forskningsartikel].
+
+Ge mig:
+1. En ensidig sammanfattning (vad är dokumentet, vad vill det?)
+2. De tre saker som påverkar mig direkt som [roll]
+3. Eventuella deadlines eller datum som nämns
+4. Eventuella motsägelser mot [annan källa / min nuvarande praktik / föregående version] som jag bör flagga
+5. Två frågor jag bör ställa till rektor innan jag agerar på detta
+
+Format: numrerade avsnitt, punktlistor där det är användbart. Håll det under 500 ord totalt.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">6 · Lektionsstart-generator</div>
+    <pre class="prompt-card__text">Generera tre alternativ för lektionsstart för en [ämne]-lektion om [tema], för en [årskurs]-klass på [n] minuter totalt.
+
+De tre startarna ska använda olika angreppssätt:
+1. En ordförråds-uppvärmning (5 minuter)
+2. En meningskompletteringsuppgift kopplad till tidigare lärande (5 minuter)
+3. En think-pair-share-prompt som ställer upp dagens huvuduppgift (5 minuter)
+
+För varje: exakta elevriktade instruktioner + en lärarnotering om vad du söker efter / vanliga missuppfattningar.</pre>
+  </div>
+
+  <h3>Arbeta smartare</h3>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">7 · Gem-uppsättningsprompt — "lär Gemini vem jag är"</div>
+    <pre class="prompt-card__text">Jag ska bygga ett Gem för mitt dagliga undervisningsarbete. Hjälp mig skriva instruktionerna.
+
+Om mig: [roll, årskurs, skolkontext, ämne]
+Om mina elever: [förmågespann, språk som talas, annan relevant kontext]
+Hur jag vill ha outputs: [längdpreferens, svenska, hur direkt eller diskuterande, om jag vill ha tänkande högt eller bara leveransen]
+Vad jag aldrig vill: [specifika saker — t ex emojis, amerikanska kulturreferenser, spekulation bortom det jag bett om]
+
+Producera Gem-instruktionerna som 4–6 täta punkter jag kan klistra in i Gem-inställningarna. Använd andra person ("Du är…") och svenska.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">8 · Deep Research-briefing</div>
+    <pre class="prompt-card__text">Gör en djupresearch-briefing om [ämne].
+
+Målgrupp: [lärare / skolledning / vårdnadshavare / elever].
+Längd på slutrapporten: [kort — 500 ord / medel — 1500 ord / lång — 3000+ ord med källhänvisningar].
+Källor att prioritera: [peer-granskad forskning / officiell vägledning / praktikerbloggar / aktuella nyheter].
+
+Inkludera:
+1. En-paragraf executive summary
+2. Vad forskningen faktiskt säger (inte vad praktiker säger om forskningen)
+3. Praktiska implikationer för en svensk grundskola/gymnasium
+4. Tre specifika frågor som fortfarande är öppna i litteraturen
+5. Källhänvisningar i texten
+
+Om källor är oeniga, visa båda sidorna och flagga vilken som är bättre underbyggd.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">9 · Canvas — lektionsplan med tabell</div>
+    <pre class="prompt-card__text">Bygg en enlektionsplan i Canvas för [ämne] [årskurs], tema [tema], längd [n] minuter.
+
+Producera som:
+- En enkelsidig plan med en tabell över aktiviteter (tid, lärarhandling, elevhandling, material)
+- Differentieringsnoteringar för tre förmågeband (förenklad, på nivå, utökad) i en sidokolumn
+- En exitbiljett med 3 frågor i slutet
+- En mening om "vad att vara uppmärksam på" (vanlig missuppfattning)
+
+Håll den redigerbar i Canvas så jag kan förfina enskilda celler utan att regenerera hela.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">10 · NotebookLM — Study Guide från din notebook</div>
+    <pre class="prompt-card__text">Med källorna i denna Notebook, generera en Study Guide för elever som:
+
+- Inleds med en ensidig översikt
+- Listar 10–15 nyckelbegrepp, var och en med en endagsdefinition
+- Inkluderar 8 kortsvarsfrågor med facit i slutet (svar hämtade från källorna, med passagereferenser)
+- Avslutas med en ordlista över 10 nyckeltermer på [läsnivå]
+
+Format: enkelsidig, utskriftsvänlig, klassrumsfärdig. Använd svenska.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">11 · NotebookLM — audio overview-briefing</div>
+    <pre class="prompt-card__text">Med källorna i denna Notebook, producera en audio overview i "Brief"-format (under 15 minuter). Rama in diskussionen för [nyanlända elever / skolledning / åk 8-elever] som är [nya på ämnet / förbereder sig för bedömning / repeterar inför utvecklingssamtal].
+
+Strukturera diskussionen:
+- Vad handlar detta om, i en mening?
+- De tre saker som spelar störst roll
+- Vad källorna är oeniga om
+- Vad en lyssnare ska göra härnäst
+
+Avsluta med en 30-sekunders sammanfattning.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">12 · Återkopplingsmönster — avidentifierade</div>
+    <pre class="prompt-card__text">Jag laddar upp 8–10 avidentifierade elevsvar på samma uppgift. All identifierande information är borttagen.
+
+Analysera dem och returnera:
+1. Tre återkommande styrkor över klassen
+2. Tre återkommande missuppfattningar över klassen
+3. Den enda lärarhandling med högst hävstång för nästa lektion
+4. En kort, elevvänlig mening av återkoppling som skulle gälla ungefär halva klassen
+
+Format: fyra numrerade avsnitt, under 400 ord totalt.
+
+[klistra in svar eller referera uppladdad fil]</pre>
+  </div>
+
+  <h3>Skala upp &amp; led</h3>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">13 · Policyutkast från en brief</div>
+    <pre class="prompt-card__text">Skissa en enkelsidig skolpolicy om [ämne — t ex "Elevers användning av AI-verktyg i klassarbete" eller "Lärares användning av Gemini för lektionsplanering"].
+
+Kontext:
+- Skoltyp: [grundskola / gymnasium / friskola / kommunal]
+- Huvudman: [namn]
+- Relevant rättslig ram: [Skollagen, GDPR, EU:s AI-förordning, Skolverkets aktuella vägledning]
+- Berörda parter: [lärare / elever / vårdnadshavare / ledning]
+- Befintliga närliggande policyer: [lista alla]
+
+Inkludera:
+1. Syfte (2 meningar)
+2. Omfattning (vem, vad, när)
+3. Regler (vad krävs, tillåts, förbjuds — använd aktiv form)
+4. Ansvar (vem upprätthåller, vem rapporterar oro)
+5. Granskningskadens
+
+Håll den under 600 ord, enkel skolriktad ton, ingen juristjargong utöver det som strikt krävs.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">14 · Mötesbriefing från en Notebook</div>
+    <pre class="prompt-card__text">Med källorna i denna Notebook (dagordning, förhandsläsningar, tidigare mötesanteckningar), producera en mötesbriefing för [mötestyp — t ex "ett ämneslagsledarmöte tisdag morgon"].
+
+Format:
+1. Beslut som ska fattas (lista, med rekommenderat alternativ för varje)
+2. Tidsfördelning per punkt (totalt: [n] minuter)
+3. Tre frågor att förutse från personalen och hur man svarar på var och en
+4. Tre uppföljningsåtgärder och vem som äger dem
+5. En ensidig executive summary för alla som inte kan delta
+
+Håll den under en utskriven sida. Svenska.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">15 · Delat Gem för föräldrakommunikation</div>
+    <pre class="prompt-card__text">Jag sätter upp ett skolövergripande Gem för att skriva utkast till vårdnadshavarmejl. Vår skolröst är: [beskriv — t ex "varm, direkt, elevcentrerad, aldrig defensiv"].
+
+Producera Gem-instruktioner som:
+- Tvingar konsistens med vår skolröst
+- Alltid frågar mig efter skäl och önskat utfall innan utkast
+- Har standard 120–180 ord
+- Har standard svenska
+- Alltid producerar tre tonlägen (varm, saklig, fast) om jag inte anger ett
+- Aldrig spekulerar om vad vårdnadshavaren tänker — bara svarar på vad de sagt
+- Avslutar med "[Lärarens namn]", inte "Med vänliga hälsningar," som läraren lägger till
+
+Output: hela instruktionssetet som ett copy-paste-block.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">16 · Ämneslags-onboarding-dokument</div>
+    <pre class="prompt-card__text">Jag lägger till en ny lärare i [ämne]-ämneslaget i [månad]. Producera ett enkelsidigt onboarding-dokument som täcker:
+
+- De tre viktigaste sakerna om hur vi undervisar detta ämne på vår skola
+- De tre bedömningarna hen kommer behöva leverera under första terminen
+- De två vuxna hen bör träffa först (roller, inte namn)
+- Var vår delade Notebook och Gems finns
+- Vad som förväntas på första personalmötet
+- Vårt svar på frågan "vad är vår hållning till AI i elevarbete?"
+
+Håll det varmt — detta är ett välkomnande, inte en handbok. Under 500 ord.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">17 · Krishanterings-kommunikationsmall</div>
+    <pre class="prompt-card__text">Skissa en första-respons-kommunikation till vårdnadshavare gällande [händelse]. Utgå från att (1) skolans prioritering är elevernas trygghet, (2) transparens är avgörande, och (3) vi har ännu inte alla fakta.
+
+Format: ett mejl. Tydligt, lugnt, sakligt. Undvik spekulation. Berätta vad vi vet, vad vi gör, och när vårdnadshavare får höra mer. Inget juristspråk. Avsluta med: "Med omsorg, [rektors namn]".</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">18 · Kompetensutvecklingsplan från evidens</div>
+    <pre class="prompt-card__text">Planera ett 10-veckors kompetensutvecklingsblock för vårt [ämneslag / hela personalen] om [ämne — t ex "Använda Gemini och NotebookLM för lektionsplanering" eller "Förbättra återkoppling med AI-stöd"].
+
+Basera planen på:
+- 30 minuter per pass, max
+- Hela personalen tillsammans ELLER små tvärämneslagsgrupper (ditt val, motivera det)
+- Använder våra befintliga delade Gems och Notebooks där det är möjligt
+- Kopplar uttryckligen till vår skyldighet om AI-kompetens enligt artikel 4
+- Avslutas med en konkret artefakt — ett Gem, en Notebook, ett delat promptbibliotek
+
+Output: vecka-för-vecka-plan med passtema, producerad artefakt och koppling till artikel 4-inramning.</pre>
+  </div>
+
+  <h3>Universella</h3>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">19 · Första-möte-uppsättningsprompt (Gemini + Gems)</div>
+    <pre class="prompt-card__text">Jag vill att du kommer ihåg några saker om mig, så att du kan vara mer användbar i framtida samtal:
+
+Jag är en [roll, t ex svensklärare i åk 8] på en [typ av skola] i [kommun]. Jag undervisar [n] klasser med runt [n] elever. Min undervisningskontext är [bred spridning i kunskapsnivå / nivågrupperad / specifik kursplan]. Jag värderar [evidensbaserad praktik / kreativitet / specifik pedagogik].
+
+Mina preferenser för outputs:
+- Håll det koncist om jag inte ber om djup
+- Använd svenska
+- Klassrumsfärdiga outputs — minimal redigering krävs
+- Om en uppgift involverar elevdata, be mig bekräfta att den är avidentifierad innan du fortsätter
+
+Bekräfta att du har sparat denna kontext, eller — om jag är inuti ett Gem — föreslå ett instruktionsset på 5 punkter baserat på detta.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">20 · Analysera detta dokument</div>
+    <pre class="prompt-card__text">Jag laddar upp ett [policydokument / kursplan / forskningsartikel / annat]. Ge mig:
+
+1. En ensidig sammanfattning (vad är dokumentet och vad vill det?)
+2. De tre saker som påverkar mig direkt som [roll]
+3. Eventuella deadlines som nämns i dokumentet
+4. Eventuella motsägelser mot [annan källa / min nuvarande praktik / tidigare version] som jag bör flagga
+5. Frågor jag bör ställa innan jag agerar på detta
+
+Format: numrerade avsnitt, punktlistor där det är användbart.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">21 · Gör det här till en bedömningsmatris</div>
+    <pre class="prompt-card__text">Nedan är en beskrivning av en bedömningsuppgift. Producera en fyra-nivås bedömningsmatris för den, med Emerging / Developing / Secure / Extending som nivåer. Identifiera de tre till fem viktigaste kriterierna att bedöma, och skriv en elevriktad beskrivning för varje kriterium på varje nivå.
+
+Format: enkelsidig tabell.
+
+[klistra in bedömningsuppgiften]</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">22 · Lektionssammanfattning &amp; exitbiljett-par</div>
+    <pre class="prompt-card__text">Nedan är en disposition av dagens lektion. Producera (1) en enminuters verbal sammanfattning jag kan läsa upp i klassen, och (2) en tre-frågors exitbiljett som kontrollerar nyckelbudskapen.
+
+Format:
+- Sammanfattning: 4–6 meningar, samtalande, fångar kärnan
+- Exitbiljett: en minnes-, en förklarings-, en reflektionsfråga
+
+[klistra in lektionsdisposition]</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">23 · Läsförståelsefrågegenerator</div>
+    <pre class="prompt-card__text">För läsförståelsetexten nedan, producera en uppsättning förståelsefrågor på tre nivåer:
+
+- 3 minnesfrågor (fakta som anges direkt i texten)
+- 3 slutledningsfrågor (slutsatser dragna från texten)
+- 3 utvärderingsfrågor (bedömningar om texten eller dess implikationer)
+
+Format: tre numrerade avsnitt. Inkludera facit i slutet.
+
+[klistra in text]</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">24 · Förberedelse-brief för utvecklingssamtal</div>
+    <pre class="prompt-card__text">Hjälp mig förbereda ett möte med [elevens namn]s vårdnadshavare om [ämne — t ex studieresultat, oro kring beteende, framgång].
+
+Kontext: [2–3 meningar om eleven och anledningen till mötet]
+
+Producera:
+1. Tre talepunkter jag vill göra, i ordning
+2. Två frågor jag bör ställa till vårdnadshavaren
+3. Ett konkret nästa steg jag kan föreslå
+4. En förväntad oro från vårdnadshavare och ett förberett svar
+
+Håll det fokuserat — 20-minutersmöte.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card__title">25 · Förklara det som om jag är ny</div>
+    <pre class="prompt-card__text">Jag har just fått ansvaret för [uppgift, roll eller område]. Förklara vad jag behöver förstå, på enkelt språk, utan att förutsätta tidigare expertis.
+
+Format:
+- De tre saker jag måste förstå innan jag gör något
+- De två vanligaste misstagen nya personer i denna roll gör
+- En konkret åtgärd jag bör ta under min första vecka
+- En konkret åtgärd jag bör ta under min första månad
+- Hur "bra" ser ut efter sex månader
+
+Undvik jargong. Om en term är oundviklig, definiera den i en mening.</pre>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     FAQ
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">FAQ</span>
+  <h2>Vanliga frågor</h2>
+
+  <div class="faq-item">
+    <div class="faq-item__q">Räcker gratisnivån?</div>
+    <div class="faq-item__a">
+      <p>För de flesta lärare, ja — åtminstone till en början. Den kostnadsfria Gemini-nivån inkluderar Gemini 3 Flash-nivå-tillgång, Gemini-webbappen, mobilappen och grundläggande Canvas. NotebookLM är gratis med generösa käll- och notebook-tak (kontrollera Google för aktuella siffror, eftersom de ändras). Kärn-Gemini AI i Google Classroom är gratis för alla Workspace for Education-konton. Du stöter på den betalda nivån (AI Pro / AI Ultra) när Deep Research-sessioner kör in i tak mitt i en uppgift; Gems börjar kännas långsamma; eller premium-Workspace-funktioner (Gemini i Docs / Slides / Forms / Vids) blir ett dagligt arbetsflöde. Uppgradera då, inte tidigare.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">Vad är skillnaden mellan Gemini och NotebookLM?</div>
+    <div class="faq-item__a">
+      <p>Gemini är generativt — du ger det en fråga eller uppgift, det producerar ett svar från sin öppna kunskap plus websökning. NotebookLM är förankrat — det svarar bara utifrån källor du har laddat upp till en specifik Notebook, med källhänvisningar som pekar tillbaka till källpassagen. Båda körs på Googles Gemini-modellfamilj. Gemini är där du skissar, brainstormar och skapar. NotebookLM är där du researchar, studerar och syntetiserar från ditt eget material. Sedan april 2026 synkroniseras Notebooks dubbelriktat in i Gemini — du kan be Gemini arbeta med en Notebooks källor utan att lämna Gemini-chatten.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">Vad är skillnaden mellan Gemini, ChatGPT och Claude?</div>
+    <div class="faq-item__a">
+      <p>Alla tre är kompetenta AI-assistenter från olika företag (Google, OpenAI, Anthropic) som körs på olika modeller. Praktiska skillnader för lärare: Gemini är tätt integrerat med Google Workspace (Docs, Slides, Forms, Classroom, NotebookLM) — om din skola kör Workspace sparar Gemini flikbytet. ChatGPT och Claude körs på sina egna plattformar och interagerar mindre nativt med skolans dokumentarbetsflöde. Claude beskrivs ofta som skrivande med mindre generisk output; Gemini är stark på Google-yta-integration och multimodalt arbete (video, bildgenerering); ChatGPT har det största tredjeparts-plugin-ekosystemet. Välj den som lever närmast där ditt arbete redan sker.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">Kan jag använda dessa med elevdata?</div>
+    <div class="faq-item__a">
+      <p>Endast med avidentifierad data, och endast om er skolas AI-policy tillåter det. Elevnamn, betyg, ordningsomdömen, hälsoinformation, vårdnadshavares kontaktuppgifter, anteckningar om anmälningsärenden — ladda aldrig upp något av det, till någon kontotyp. Byt ut namn mot roller ("Elev A", "Elev B"). Generalisera datum och platser. Använd bara skoldomänens Workspace for Education-konto (aldrig en personlig Gmail) för allt som rör en elev. Om du är osäker, rådgör med ert dataskyddsombud innan du laddar upp. Skolverkets riktlinjer från augusti 2025 är tydliga: elever får inte använda generativ AI på egen hand i undervisningen, rektors godkännande krävs för all spridning och lärarens tillsyn är obligatorisk. <strong>Verifiera Skolverkets aktuella riktlinjer</strong> innan ni aktiverar elevriktade funktioner. Se Del 4 och EU-bonuskapitlet för hela bilden.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">Vad händer om Gemini eller NotebookLM hittar på något (hallucination)?</div>
+    <div class="faq-item__a">
+      <p>Båda verktygen kan producera innehåll som låter plausibelt och är sakligt fel — särskilt på nischade, tekniska, mycket aktuella eller numeriskt precisa ämnen. NotebookLM hallucinerar mindre än Gemini eftersom det bara svarar utifrån dina uppladdade källor; dess främsta felläge är att felcitera eller felattribuera inuti de källorna. Gemini hallucinerar oftare, särskilt när du frågar om aktuella händelser eller specifika namn och datum. Du är experten — verifiera varje påstående innan det når en elev. Lämna aldrig över en AI-genererad resurs till en elev som du inte har läst noggrant. Varje Deep Research-källhänvisning förtjänar en blick.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">Behöver jag den betalda Gemini-planen?</div>
+    <div class="faq-item__a">
+      <p>Som lärare, börja gratis; uppgradera bara när du stöter på en verklig gräns mitt i en uppgift. De betalda konsumentnivåerna (AI Pro, AI Ultra) låser upp större Deep Research-sessioner, högre tak på NotebookLM:s ljud- och videoöversikter och tillgång till Gemini 3 Pro med Deep Think. För skolövergripande utrullning är den relevanta frågan inte konsument-betalt utan Workspace for Education-licensiering: har er skola Education Plus- eller Teaching &amp; Learning-tillägg? De aktiverar Gemini i Docs / Slides / Forms / Vids och är hur premium-AI dyker upp inuti ert befintliga Google-arbetsflöde. Del 4 täcker detta ordentligt.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">Vad är ett Gem och när ska jag bygga ett?</div>
+    <div class="faq-item__a">
+      <p>Ett Gem är en namngiven, återanvändbar egen assistent med sparade instruktioner och eventuellt bifogade filer. Bygg ett när du märker att du ger Gemini samma kontext tre gånger. Ett årskurs-Gem, ett föräldrakommunikations-Gem, ett quizgenerator-Gem — vart och ett sparar dig fem minuter av kontextsättning per användning. Börja med ett. Lär vad smalt syfte känns som. Lägg till fler bara när du vet varför. Delade Gems är kraftfulla för ämneslag — varje lärare triggar samma standard utan att kopiera instruktioner mellan kollegor. Eric Curts driver edugems.ai med omkring 200 gratis utbildnings-Gems; använd dem som mallar.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">Vad betyder EU:s AI-förordning för mitt klassrum (kort svar)?</div>
+    <div class="faq-item__a">
+      <p>För de flesta undervisningsuppgifter — lektionsplanering, kommunikation, differentiering, studieguide-generering — väldigt lite. Du är i minimal risk-nivån och standard-dataskyddsdisciplin gäller. AI-förordningen spelar störst roll när AI används för att bedöma elever på sätt som påverkar tillgång till utbildning: antagning, betygssättning, automatiserad beteendebedömning. Om er skola överväger något av det, engagera ert dataskyddsombud och juridisk rådgivning. Artikel 4 (AI-kompetens) gäller sedan februari 2025 och innebär att er skola måste säkerställa att personalen har tillräcklig AI-kompetens — ert kompetensutvecklingsprogram är er praktiska efterlevnad. Se bonuskapitlet ovan för hela bilden.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">Vad är det med plagiat och elevers AI-användning?</div>
+    <div class="faq-item__a">
+      <p>Er skola behöver en policy om det, och AI-detektionsverktyg är opålitliga — behandla inte deras utdata som bevis. Fokusera istället på bedömningsdesign: uppgifter som kräver skrivande i klassrummet, muntligt försvar, personlig reflektion eller processdokumentation är svårare att lämna in AI-genererat arbete för. Skolverkets riktlinjer från augusti 2025 är tydliga: elever får inte använda generativ AI på egen hand i undervisningen, rektors godkännande krävs för all spridning och lärarens tillsyn är obligatorisk. Den ärliga positionen är att AI nu är en del av lärmiljön utanför skolan, och er bedömning behöver spegla det snarare än låtsas något annat. Involvera eleverna i samtalet — de vet mer om AI-användning än de flesta policydokument antar.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">Hur får jag med mig mina kollegor?</div>
+    <div class="faq-item__a">
+      <p>Evangelisera inte. Demonstrera. Välj ett arbetsflöde som sparar dig verklig tid — föräldrakommunikations-utkast är vanligen vinnaren, eller Audio Overviews av områdeskällor — och dela dina faktiska besparingar med kollegor som frågar. Kör inte en utbildningsdag. Kör en liten arbetsgrupp där personal tar med verkliga uppgifter och lär tillsammans. Dina mest skeptiska kollegor är ofta dina värdefullaste bidragsgivare till policyn; bjud in dem tidigt. Kom ihåg er skyldighet enligt artikel 4: det här är inte bara trevligt-att-ha — det är ett rättsligt krav för varje skola som tillämpar AI. En måttlig, konsekvent kadens slår en engångs utbildningsdag varje gång.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-item__q">Var får jag hjälp?</div>
+    <div class="faq-item__a">
+      <p>Börja på Googles egna hjälpsidor: <em>support.google.com/gemini</em> och <em>support.google.com/notebooklm</em>. För skolspecifika frågor — AI-policy, implementation på hela skolan, arbetsgruppsdesign, EU AI-förordningsimplementation, svenska grundskole- eller gymnasiesammanhang — hör av dig via min webbplats (länk i sidfoten). Jag erbjuder konsultation för skolor, primärt i Sverige men diskuterar gärna uppdrag i andra länder också, och kan peka dig mot resurser som passar ditt sammanhang. För det svenska pedagog-communityt är Skolverkets vägledningssidor ankaret; Pedagog Eskilstuna och smartaai.se är aktiva källor till praktiskt material. För praktiskt klassrumsmaterial på engelska är lärarbloggarna och podcasters som citeras genom guiden (Matt Miller, Monica Burns, Kasey Bell, Eric Curts, Alice Keeler, Tony Vincent, Jake Miller) en stark utgångspunkt.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     CLOSING PAGE
+     ══════════════════════════════════════════════════ -->
+<div class="page closing">
+  <p class="closing__quote">"Djup slår bredd varje gång. Välj två arbetsflöden, kör dem en halv termin, och lägg först därefter till ett tredje."</p>
+
+  <p class="closing__cta">För senaste versionen av guiden, webbversionen och hela 140-stilarsbiblioteket, besök<br>
+  <strong>choosewise.education/guides/gemini-notebooklm</strong></p>
+
+  <p class="closing__signature">— Johan Lindström, april 2026</p>
+  <p class="closing__attr">choosewise.education</p>
+</div>
+
+</body>
+</html>
