@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Microsoft Copilot for teachers and school leaders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ─── Apple-graphite palette (shared across choosewise guides) ─── */
+  :root {
+    --color-navy:     #1B2733;
+    --color-graphite: #3E4A57;
+    --color-brass:    #C8A86B;
+    --color-cream:    #F6F3EE;
+    --color-text:     #1A1A1F;
+    --color-muted:    #5a5a57;
+    --color-soft:     #8a8a85;
+    --color-hairline: #dcd8d0;
+    --color-rule:     #c9c6be;
+  }
+
+  /* ─── Page geometry ─── */
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: var(--color-cream); }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--color-text);
+    font-size: 10.5pt;
+    line-height: 1.55;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-weight: 400;
+  }
+
+  /* ─── Typography ─── */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    color: var(--color-navy);
+  }
+  h1 { font-size: 40pt; line-height: 1.05; letter-spacing: -0.8pt; font-weight: 900; }
+  h2 { font-size: 26pt; line-height: 1.1; margin: 0 0 12pt; }
+  h3 { font-size: 16pt; line-height: 1.22; margin: 16pt 0 6pt; }
+  h4 { font-size: 12pt; line-height: 1.25; margin: 12pt 0 4pt; font-weight: 700; }
+  p { margin: 0 0 8pt; }
+  p + p { margin-top: 0; }
+  em { font-style: italic; }
+  strong { font-weight: 600; }
+  a {
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-decoration-color: var(--color-brass);
+    text-decoration-thickness: 0.5pt;
+  }
+  ul, ol { margin: 6pt 0 10pt 18pt; }
+  li { margin-bottom: 3pt; }
+
+  .eyebrow {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 2.4pt;
+    text-transform: uppercase;
+    color: var(--color-brass);
+    margin-bottom: 10pt;
+  }
+
+  p.lede {
+    font-family: 'Playfair Display', serif;
+    font-size: 13pt;
+    line-height: 1.45;
+    font-weight: 400;
+    color: var(--color-graphite);
+    margin: 0 0 14pt;
+    font-style: italic;
+  }
+
+  /* ─── Page wrappers ─── */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 18mm 20mm;
+    position: relative;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+  }
+  .page:last-child { page-break-after: auto; }
+  .page > *:last-child { margin-bottom: 0; }
+
+  /* ─── Cover page ─── */
+  .cover {
+    background:
+      radial-gradient(120% 80% at 15% 0%, rgba(200, 168, 107, 0.12) 0%, transparent 55%),
+      linear-gradient(150deg, #0f1620 0%, var(--color-navy) 55%, var(--color-graphite) 100%);
+    color: var(--color-cream);
+    padding: 28mm 24mm;
+    justify-content: space-between;
+    min-height: 297mm;
+  }
+  .cover .eyebrow {
+    color: var(--color-brass);
+    opacity: 0.92;
+    font-size: 9.5pt;
+    letter-spacing: 3pt;
+  }
+  .cover h1 {
+    color: var(--color-cream);
+    font-size: 54pt;
+    line-height: 1.0;
+    font-weight: 900;
+    letter-spacing: -1.2pt;
+    margin: 14pt 0 8pt;
+    max-width: 165mm;
+  }
+  .cover__subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20pt;
+    color: rgba(246, 243, 238, 0.78);
+    margin: 0 0 18pt;
+    font-weight: 400;
+  }
+  .cover__lede {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 13.5pt;
+    line-height: 1.5;
+    color: rgba(246, 243, 238, 0.82);
+    max-width: 155mm;
+    margin: 18pt 0 10pt;
+  }
+
+  .cover__mark {
+    margin: 18pt 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 14pt;
+    align-items: center;
+  }
+  .cover__mark-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8pt 16pt;
+    background: rgba(246, 243, 238, 0.06);
+    border: 0.6pt solid rgba(200, 168, 107, 0.45);
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1.5pt;
+    text-transform: uppercase;
+    color: rgba(246, 243, 238, 0.88);
+  }
+
+  .cover__signature {
+    border-top: 0.5pt solid rgba(246, 243, 238, 0.28);
+    padding-top: 12pt;
+    font-size: 10pt;
+    letter-spacing: 0.6pt;
+  }
+  .cover__signature strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 14pt;
+    letter-spacing: 1.4pt;
+    text-transform: uppercase;
+    margin-bottom: 2pt;
+    color: var(--color-cream);
+  }
+  .cover__signature .cover__attr {
+    display: block;
+    color: rgba(246, 243, 238, 0.7);
+    font-size: 9pt;
+    margin-top: 3pt;
+  }
+
+  /* ─── Table of contents ─── */
+  .toc h2 { margin-bottom: 18pt; }
+  .toc__list { list-style: none; margin: 0; padding: 0; }
+  .toc__list li {
+    display: flex;
+    align-items: baseline;
+    padding: 9pt 0;
+    border-bottom: 0.4pt dotted var(--color-rule);
+    font-size: 11pt;
+  }
+  .toc__list li:last-child { border-bottom: none; }
+  .toc__list .toc__title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    flex: 1;
+    color: var(--color-navy);
+  }
+  .toc__list .toc__sub {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 400;
+    color: var(--color-muted);
+    margin-top: 2pt;
+    font-style: normal;
+  }
+  .toc__list .toc__dots {
+    flex: 0 0 auto;
+    margin: 0 6pt;
+    color: var(--color-rule);
+    font-size: 9pt;
+    letter-spacing: 1pt;
+  }
+  .toc__list .toc__page {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: var(--color-navy);
+    min-width: 22pt;
+    text-align: right;
+  }
+
+  /* ─── Part opener ─── */
+  .part-opener {
+    display: flex;
+    gap: 16pt;
+    align-items: flex-start;
+    margin-bottom: 8pt;
+    padding-bottom: 10pt;
+    border-bottom: 0.4pt solid var(--color-hairline);
+  }
+  .part-opener__number {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 64pt;
+    line-height: 0.85;
+    color: var(--color-brass);
+    flex: 0 0 auto;
+    letter-spacing: -3pt;
+  }
+  .part-opener__eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 2.4pt;
+    text-transform: uppercase;
+    color: var(--color-brass);
+    margin-bottom: 6pt;
+  }
+  .part-opener__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28pt;
+    font-weight: 700;
+    color: var(--color-navy);
+    line-height: 1.05;
+    margin: 0 0 8pt;
+  }
+  .part-opener__lede {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 12.5pt;
+    color: var(--color-graphite);
+    line-height: 1.45;
+  }
+
+  /* ─── Explainer box (CDP) ─── */
+  .explainer-box {
+    background: #efece4;
+    border-left: 4pt solid var(--color-brass);
+    padding: 12pt 16pt;
+    margin: 12pt 0;
+    border-radius: 2pt;
+    page-break-inside: auto;
+  }
+  .explainer-box__title {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 1.8pt;
+    text-transform: uppercase;
+    color: var(--color-brass);
+    margin-bottom: 8pt;
+  }
+  .explainer-box p { margin-bottom: 7pt; }
+  .explainer-box p:last-child { margin-bottom: 0; }
+
+  /* ─── Sidenote ─── */
+  .sidenote {
+    background: #f1ede3;
+    border: 0.5pt solid var(--color-hairline);
+    padding: 11pt 14pt;
+    margin: 14pt 0 0;
+    border-radius: 3pt;
+    font-size: 10pt;
+    page-break-inside: avoid;
+  }
+  .sidenote__title {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 1.4pt;
+    text-transform: uppercase;
+    color: var(--color-graphite);
+    margin-bottom: 6pt;
+  }
+  .sidenote p { margin-bottom: 5pt; }
+  .sidenote p:last-child { margin-bottom: 0; }
+
+  /* ─── Feature card ─── */
+  .feature-card {
+    margin: 14pt 0 18pt;
+    padding-top: 6pt;
+    border-top: 0.4pt solid var(--color-hairline);
+  }
+  .feature-card:first-of-type { border-top: none; padding-top: 0; }
+  .feature-card h3 {
+    color: var(--color-navy);
+    margin: 0 0 6pt;
+  }
+  .feature-card__what {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 11.5pt;
+    color: var(--color-graphite);
+    line-height: 1.5;
+    margin-bottom: 10pt;
+  }
+  .feature-card__mac-note {
+    background: #ecebe4;
+    padding: 7pt 11pt;
+    border-left: 2pt solid var(--color-soft);
+    font-size: 9.5pt;
+    color: var(--color-graphite);
+    margin-top: 8pt;
+    border-radius: 2pt;
+  }
+
+  ul.example-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 6pt 0 10pt;
+  }
+  ul.example-list li {
+    position: relative;
+    padding-left: 16pt;
+    margin-bottom: 5pt;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+  ul.example-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7pt;
+    width: 6pt;
+    height: 1.4pt;
+    background: var(--color-brass);
+  }
+
+  /* ─── Processing callout (where it runs) ─── */
+  .processing-callout {
+    background: #e9e6dd;
+    border-left: 3pt solid var(--color-navy);
+    padding: 9pt 14pt;
+    margin: 10pt 0;
+    border-radius: 2pt;
+    font-size: 10pt;
+    page-break-inside: avoid;
+  }
+  .processing-callout__title {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 1.6pt;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    margin-bottom: 4pt;
+  }
+  .processing-callout p { margin: 0; }
+
+  /* ─── Steps (numbered) ─── */
+  ol.steps {
+    list-style: none;
+    counter-reset: step;
+    padding-left: 0;
+    margin: 8pt 0 10pt;
+  }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 22pt;
+    margin-bottom: 5pt;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 1pt;
+    width: 16pt;
+    height: 16pt;
+    border-radius: 50%;
+    background: var(--color-navy);
+    color: var(--color-cream);
+    font-size: 8.5pt;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ─── Warning box (licensing confusion) ─── */
+  .warning-box {
+    background: #f4ecd9;
+    border-left: 4pt solid var(--color-brass);
+    padding: 14pt 16pt;
+    margin: 14pt 0;
+    border-radius: 2pt;
+    page-break-inside: auto;
+  }
+  .warning-box__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 8pt;
+    font-style: italic;
+  }
+  .warning-box p { margin-bottom: 7pt; }
+  .warning-box p:last-child { margin-bottom: 0; }
+
+  /* ─── SKU table ─── */
+  table.sku-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0 14pt;
+    font-size: 9.5pt;
+  }
+  table.sku-table thead tr {
+    border-bottom: 1.2pt solid var(--color-navy);
+  }
+  table.sku-table th {
+    text-align: left;
+    padding: 8pt 8pt 6pt;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 8.5pt;
+    letter-spacing: 1.4pt;
+    text-transform: uppercase;
+    color: var(--color-navy);
+  }
+  table.sku-table td {
+    padding: 8pt 8pt;
+    border-bottom: 0.4pt solid var(--color-hairline);
+    vertical-align: top;
+    line-height: 1.4;
+    color: var(--color-graphite);
+  }
+  table.sku-table td.sku-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--color-navy);
+    font-size: 10pt;
+  }
+  table.sku-table td.sku-cdp-yes {
+    color: #3b6b3b;
+    font-weight: 600;
+  }
+  table.sku-table td.sku-cdp-no {
+    color: #8a4a2a;
+    font-weight: 600;
+  }
+
+  /* ─── Policy list (5 big numerals) ─── */
+  ol.policy-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 12pt 0;
+    counter-reset: policy;
+  }
+  ol.policy-list li {
+    counter-increment: policy;
+    position: relative;
+    padding-left: 42pt;
+    margin-bottom: 12pt;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    min-height: 32pt;
+    page-break-inside: avoid;
+  }
+  ol.policy-list li::before {
+    content: counter(policy, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: -4pt;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 28pt;
+    line-height: 1;
+    color: var(--color-brass);
+    letter-spacing: -1pt;
+  }
+
+  /* ─── FAQ grid ─── */
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6pt 14pt;
+    margin-top: 6pt;
+  }
+  .faq-item {
+    padding: 4pt 0 5pt;
+    border-top: 0.4pt solid var(--color-hairline);
+    page-break-inside: avoid;
+  }
+  .faq-item__q {
+    font-family: 'Playfair Display', serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 2pt;
+    line-height: 1.25;
+  }
+  .faq-item__a {
+    font-size: 8pt;
+    line-height: 1.4;
+    color: var(--color-graphite);
+  }
+  .faq-item__a p { margin-bottom: 3pt; }
+  .faq-item__a p:last-child { margin-bottom: 0; }
+
+  /* ─── Closing page ─── */
+  .closing {
+    justify-content: center;
+    text-align: center;
+    padding: 30mm 26mm;
+  }
+  .closing__quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 22pt;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-navy);
+    line-height: 1.3;
+    margin-bottom: 24pt;
+  }
+  .closing__cta {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    color: var(--color-graphite);
+    margin-bottom: 20pt;
+    line-height: 1.5;
+  }
+  .closing__cta strong { color: var(--color-brass); }
+  .closing__signature {
+    font-family: 'Playfair Display', serif;
+    font-size: 13pt;
+    font-style: italic;
+    color: var(--color-navy);
+    margin-top: 18pt;
+  }
+  .closing__attr {
+    font-size: 9.5pt;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-top: 6pt;
+    font-family: 'Inter', sans-serif;
+  }
+  .closing__license {
+    margin-top: 32pt;
+    padding-top: 14pt;
+    border-top: 1px solid rgba(27, 39, 51, 0.12);
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    color: var(--color-soft);
+    line-height: 1.5;
+    max-width: 360pt;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  .closing__license strong {
+    color: var(--color-graphite);
+    font-weight: 600;
+  }
+
+  /* ─── Part label (used on FAQ) ─── */
+  .part-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 2.4pt;
+    text-transform: uppercase;
+    color: var(--color-brass);
+    margin-bottom: 8pt;
+  }
+
+  /* ─── Orphan / widow control ─── */
+  p, li { orphans: 3; widows: 3; }
+  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  img { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 1 — COVER
+     ══════════════════════════════════════════════════ -->
+<div class="page cover">
+  <div>
+    <span class="eyebrow">AI in Education · Practical Guide</span>
+    <h1>Microsoft Copilot</h1>
+    <p class="cover__subtitle">for teachers and school leaders</p>
+    <p class="cover__lede">A practical guide for Swedish schools — which Copilot you're actually using, what Commercial Data Protection gives you, and the six features worth building into the teaching week.</p>
+
+    <div class="cover__mark">
+      <span class="cover__mark-chip">Chat</span>
+      <span class="cover__mark-chip">Write</span>
+      <span class="cover__mark-chip">Summarise</span>
+    </div>
+  </div>
+
+  <div class="cover__signature">
+    <strong>Johan Lindström</strong>
+    choosewise.education
+    <span class="cover__attr">April 2026</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 2 — CONTENTS
+     ══════════════════════════════════════════════════ -->
+<div class="page toc">
+  <span class="eyebrow">The guide</span>
+  <h2>Contents</h2>
+  <ul class="toc__list">
+    <li>
+      <span class="toc__title">Why this guide exists
+        <span class="toc__sub">Licensing confusion, CDP as the real differentiator</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">3</span>
+    </li>
+    <li>
+      <span class="toc__title">Part 1 · Get started
+        <span class="toc__sub">Four SKUs, turning it on, and what CDP actually is</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">4</span>
+    </li>
+    <li>
+      <span class="toc__title">Part 2 · Work smarter
+        <span class="toc__sub">Six features that change the teaching week</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">9</span>
+    </li>
+    <li>
+      <span class="toc__title">Part 3 · Compliance &amp; licensing
+        <span class="toc__sub">CDP, EU Data Boundary, student data, five policy decisions</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">18</span>
+    </li>
+    <li>
+      <span class="toc__title">FAQ
+        <span class="toc__sub">Nine questions teachers ask</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">23</span>
+    </li>
+    <li>
+      <span class="toc__title">About this guide
+        <span class="toc__sub">License and attribution</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">25</span>
+    </li>
+  </ul>
+
+  <div class="sidenote" style="margin-top: 24pt;">
+    <p class="sidenote__title">How to read this guide</p>
+    <p>Part 1 names the single most confusing thing about Microsoft's product: four separate things all called "Copilot", with different privacy profiles. Get that straight, then the rest follows. Part 2 is the feature walkthrough — six surfaces that actually land in a teacher's working week, each with classroom examples and a clear note on where the data flows. Part 3 is for anyone responsible for school policy: what Commercial Data Protection gives you, where the EU Data Boundary applies, how to handle student data, and five concrete decisions to make before a staff rollout.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 3 — INTRODUCTION
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Introduction</span>
+  <h2 style="font-size: 22pt;">Why this guide exists</h2>
+  <p class="lede">Most Swedish schools already run their entire admin stack on Microsoft 365. Copilot is the AI that lives inside that stack. The question isn't whether to adopt it — it's whether to use it the way your tenant already protects, or the consumer way that does not.</p>
+
+  <p>Microsoft's naming is the single most confusing thing about this product. A teacher who opens <em>copilot.microsoft.com</em> on a personal browser and a teacher who clicks the Copilot icon inside Word on a work laptop have both used "Copilot". They have not used the same product. One path is a consumer service under Microsoft's consumer terms. The other is an enterprise-bounded service covered by the school's existing Microsoft 365 Data Processing Agreement. The prompts they type go to different places with different retention, training, and audit rules attached.</p>
+
+  <p>That distinction is not a detail. It is the entire compliance story for Copilot in a school setting, and Microsoft's own marketing does not make it easy to see. The rest of this guide is organised around making it visible — so a teacher can choose deliberately, and a rektor can write a policy that the staff will actually follow.</p>
+
+  <p>The genuine differentiator for schools is <strong>Commercial Data Protection (CDP)</strong>. When a user signs in with a work or school account, prompts and responses are bounded to the tenant, are not used to train Microsoft's foundation models, and inherit the school's existing data-processing agreement. That is a meaningful privacy posture — and it only applies when the user is signed in to the correct account. Sign-in is compliance. Everything else in Part 3 is a footnote to that sentence.</p>
+
+  <p>The voice in this guide is the same as the rest of choosewise.education: calm, adult, practical. It tells you where the product earns its keep in the teaching week, and it is honest where the story breaks. A reader-responsibility note before we begin: AI in education is evolving quickly, and national rules differ significantly. Readers outside Sweden should verify their own country's regulations. Sweden in particular lacks national AI-in-school guidance as of April 2026; Skolverket and IMY are working on joint guidance, date unknown.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 4 — PART 1 OPENER + SKU TABLE
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <header class="part-opener">
+    <div class="part-opener__number">01</div>
+    <div>
+      <p class="part-opener__eyebrow">Part 1</p>
+      <h2 class="part-opener__title">Get started</h2>
+      <p class="part-opener__lede">Which Copilot are you actually using, how to turn the right one on, and what Commercial Data Protection does and doesn't do.</p>
+    </div>
+  </header>
+
+  <h3>Which product are you actually using?</h3>
+  <p>Four distinct SKUs share the word "Copilot". They are not the same product and they do not have the same privacy profile. This is the table worth printing and pinning somewhere a teacher can glance at it when the interface looks ambiguous.</p>
+
+  <table class="sku-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Who it's for</th>
+        <th>CDP?</th>
+        <th>Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sku-name">Copilot (free web)<br><span style="font-family: Inter; font-weight: 400; font-size: 8.5pt; color: var(--color-muted);">copilot.microsoft.com</span></td>
+        <td>Anyone with a personal Microsoft Account (MSA)</td>
+        <td class="sku-cdp-no">No — consumer terms</td>
+        <td>Free</td>
+      </tr>
+      <tr>
+        <td class="sku-name">Copilot Chat (with work/school account)</td>
+        <td>Signed-in M365 users at your school</td>
+        <td class="sku-cdp-yes">Yes — CDP enabled</td>
+        <td>Free with M365</td>
+      </tr>
+      <tr>
+        <td class="sku-name">Copilot Pro</td>
+        <td>Individuals upgrading consumer Copilot</td>
+        <td class="sku-cdp-no">No — still consumer</td>
+        <td>Paid, personal</td>
+      </tr>
+      <tr>
+        <td class="sku-name">Microsoft 365 Copilot</td>
+        <td>Tenant-licensed seats (teachers, admins)</td>
+        <td class="sku-cdp-yes">Yes — inside tenant</td>
+        <td>~kr 350/user/mo</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>The practical rule for schools: <strong>sign in with the work/school account</strong> every time. That single behaviour is the difference between a teacher's prompt staying inside your Microsoft 365 tenant and the same prompt flowing into a consumer product covered by different terms. Anywhere you see the Microsoft 365 Copilot icon inside Word, Excel, PowerPoint, or Outlook, CDP is already in effect because you are logged into the tenant. That is the easy case. The harder case is the teacher opening a browser tab and typing copilot.microsoft.com because it's the first Google result — that path lands on the consumer product unless the browser is already signed into the work account.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 5 — TURNING IT ON
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 1 · Setup</span>
+  <h3 style="margin-top: 0;">Turning it on (teacher-first)</h3>
+  <p>Copilot is not a download you install. It is a server-side capability that appears in the apps you already use once the tenant admin has flipped the right switches and, in the case of Microsoft 365 Copilot, assigned the license to the user.</p>
+
+  <h4>Microsoft 365 apps (Word, Excel, PowerPoint, Outlook, OneNote, Teams)</h4>
+  <p>On macOS, iPadOS, and Windows, the Copilot icon appears in the ribbon or the right-hand pane of each app after the admin grants a Microsoft 365 Copilot license to the user. There is no user-side install. If the icon is not there, either the license has not been assigned, or the app client has not yet refreshed — signing out and back in usually resolves it.</p>
+
+  <h4>Copilot Chat (free with a work/school account)</h4>
+  <p>The fastest way to try Copilot Chat is to open <strong>copilot.cloud.microsoft</strong> in a browser and sign in with your work account, or click the Copilot icon in the Teams sidebar or in the Edge browser's right-hand pane. CDP is on by default for this path. No Microsoft 365 Copilot license is required — Copilot Chat with a work/school account is included with any standard M365 plan your school already pays for.</p>
+
+  <h4>Mac and personal-device cases</h4>
+  <p>On a personal Mac that needs to handle school work, download the <strong>Microsoft 365 Copilot</strong> app from the Mac App Store. It provides a standalone chat surface that still uses the work login, so CDP applies. This is useful for teachers whose school-issued device is a PC but whose home setup is a Mac.</p>
+
+  <ol class="steps">
+    <li>Confirm with the tenant admin (or IT lead) that you have a Microsoft 365 Copilot license, if you want the in-app features in Word, Excel, and PowerPoint.</li>
+    <li>Open Word, Excel, PowerPoint, Outlook, or Teams and look for the Copilot icon in the ribbon or right-hand pane.</li>
+    <li>For general chat, visit <strong>copilot.cloud.microsoft</strong> and sign in with the work account, or click the Copilot icon inside Teams.</li>
+    <li>Verify the shield or "Protected" badge at the top right — that is the visual cue that CDP is active.</li>
+  </ol>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">A word on Copilot in a Mac-first staffroom</p>
+    <p>Copilot is desktop- and laptop-first: Windows, Mac, and the web. Phone apps exist but offer a smaller surface area. If your teachers are on iPad, expect a more limited experience than their colleagues on a MacBook or a school-issued Windows laptop.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 6 — CDP EXPLAINER PART 1
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 1 · The big idea</span>
+  <h3 style="margin-top: 0;">Commercial Data Protection — what it actually is</h3>
+
+  <div class="explainer-box">
+    <p class="explainer-box__title">Three claims, three honest qualifications</p>
+    <p>"Commercial Data Protection" is Microsoft's name for the privacy posture that applies when a user is signed in with a work or school account. It is the real differentiator for Copilot in an education setting, and it carries three specific, verifiable claims. It also comes with three honest qualifications that a school DPIA needs to state plainly.</p>
+
+    <p><strong>1. Prompts and responses are not used to train Microsoft's foundation models.</strong> Under CDP, the content you type into Copilot and the content Copilot returns are not added to the training data that shapes future models. This is a contractual commitment under the Microsoft Products and Services Data Processing Addendum (DPA), not a marketing line. <em>Qualification:</em> this covers Microsoft's own training. It does not cover third-party connectors you or the admin explicitly approve — those operate under their own terms.</p>
+
+    <p><strong>2. Data stays within your tenant's trust boundary.</strong> Prompts, responses, and any grounding content Copilot references (your OneDrive, SharePoint, Outlook, Teams data) stay inside the logical boundary of your Microsoft 365 tenant. Microsoft acts as a processor under your existing DPA; the school remains controller. <em>Qualification:</em> "tenant-bounded" is a logical boundary, not a geographic one. Physical storage may still be in an EU region thanks to the EU Data Boundary, but the claim being made here is about access control, not about data residency.</p>
+
+    <p><strong>3. Standard M365 audit and retention rules apply.</strong> Copilot interactions are logged under the same audit, eDiscovery, and retention framework you already use for Exchange and SharePoint. If your school has a retention policy on Outlook mail, it applies to Copilot-generated email drafts that were saved. <em>Qualification:</em> this also means interactions are subject to lawful access requests under the same framework — CDP is not a cloak of invisibility, it is an existing governance fabric extended to a new surface.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 7 — CDP EXPLAINER PART 2
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 1 · The big idea (continued)</span>
+  <h3 style="margin-top: 0;">What CDP is not</h3>
+
+  <div class="explainer-box">
+    <p>CDP is a genuine privacy posture. It is also worth being clear about what it does not do — the school's DPIA will benefit from the precision, and a staff briefing will go better if the language stays honest.</p>
+
+    <p><strong>CDP does not eliminate cloud processing.</strong> Copilot's responses are generated in Microsoft's cloud, not on your laptop. Nothing about CDP changes the fact that prompts leave the device, are transmitted over the internet, and are processed on Microsoft infrastructure. "On-device" is not part of the Copilot story the way it is for Apple Intelligence.</p>
+
+    <p><strong>CDP does not change the legal basis for processing student data.</strong> The school remains controller. You still need a lawful basis under GDPR Article 6, and for any special-category processing, a basis under Article 9. CDP is a technical and contractual mitigation that makes your existing basis cleaner to defend — it does not manufacture one for you.</p>
+
+    <p><strong>CDP does not cover third-party connectors.</strong> If the admin approves a plugin or a custom Copilot Studio agent that reaches into an external system, that integration operates under its own terms. The third party's privacy posture is theirs, not Microsoft's. Catalogue every connector; each one is its own line in the DPIA.</p>
+
+    <p><strong>The EU Data Boundary story.</strong> Microsoft's EU Data Boundary covers most Copilot data storage and processing in EU regions. Some sub-processors are still US-based and limited telemetry may cross the boundary. Verify current regional coverage with your procurement contact; the coverage matrix has expanded steadily since launch and will keep moving.</p>
+
+    <p><strong>Schrems II stays in the picture.</strong> Microsoft is a US-headquartered processor. Standard Contractual Clauses plus supplementary measures cover EU→US transfers; Microsoft is also certified under the EU-US Data Privacy Framework. The EU Data Boundary reduces, but does not eliminate, transfer exposure. This belongs in your DPIA as a residual-risk line.</p>
+  </div>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">The rule of thumb</p>
+    <p><strong>Signed-in with work account = CDP.</strong> Consumer Copilot = no CDP. The rest of this guide assumes you are on the CDP path; Part 3 returns to what that means in practice for school policy.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 8 — WORTH KNOWING + BRIDGE
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 1 · On the margins</span>
+  <h3 style="margin-top: 0;">Worth knowing (but outside this guide's scope)</h3>
+
+  <p>Two adjacent Copilot products get attention in Microsoft's marketing but sit outside what most teachers and school leaders need to read about before a rollout.</p>
+
+  <h4>Copilot Studio</h4>
+  <p>A low-code surface for building custom Copilot agents grounded in your own data — an HR agent, a policy agent, a student-handbook agent. This is IT-department territory, not every-teacher territory. If your school is big enough to have someone in that seat, it is worth an internal session. For the teacher audience this guide is written for, it is a category to know about, not to act on.</p>
+
+  <h4>Copilot Pro (consumer)</h4>
+  <p>A paid upgrade to the consumer Copilot product, with image and video add-ons. Aimed at individual users paying with a personal Microsoft Account. <strong>Not relevant for school-issued work.</strong> If a teacher mentions it, the correct answer is "that's the consumer product — your school-account Copilot Chat gives you more than enough for school tasks, and keeps CDP."</p>
+
+  <div class="sidenote">
+    <p class="sidenote__title">The takeaway for Part 1</p>
+    <p>Four SKUs share the word Copilot. Only two of them — Copilot Chat with a work/school account, and Microsoft 365 Copilot — have CDP. Sign in with the work account, every time, and you land on a CDP path by default. Consumer Copilot and Copilot Pro are a separate product family with a separate privacy model. Part 2 walks through the six features you'll actually use on the CDP path; Part 3 returns to what the policy picture looks like when leadership has to sign off.</p>
+  </div>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">One habit worth building</p>
+    <p>Before you press Enter on any Copilot prompt, glance at the top-right of the window. You should see a shield icon and a "Protected" badge, plus your school email as the signed-in account. No badge? You are probably on consumer Copilot. Close the tab, reopen at copilot.cloud.microsoft, and sign in with the work account.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 9 — PART 2 OPENER + COPILOT CHAT
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <header class="part-opener">
+    <div class="part-opener__number">02</div>
+    <div>
+      <p class="part-opener__eyebrow">Part 2</p>
+      <h2 class="part-opener__title">Work smarter</h2>
+      <p class="part-opener__lede">Six features that change the teaching week, with classroom examples and a clear note on where each one processes your data.</p>
+    </div>
+  </header>
+
+  <article class="feature-card">
+    <h3>1. Copilot Chat (with your work data)</h3>
+    <p class="feature-card__what">General-purpose chat with tenant-bounded CDP. The same kind of conversation surface as Claude or ChatGPT, but signed in to your school's Microsoft 365 tenant and (with the Microsoft 365 Copilot license) able to reference your own OneDrive and SharePoint files when you anchor a prompt.</p>
+
+    <h4>Classroom examples</h4>
+    <ul class="example-list">
+      <li><strong>Drafting lesson plans from existing material:</strong> with M365 Copilot, type <code>/</code> in the chat and pick last year's OneNote section on photosynthesis. Ask for a refreshed plan for this year's group, with a differentiation column added.</li>
+      <li><strong>Extracting action items from a meeting transcript:</strong> paste a long Teams transcript and ask for a numbered list of commitments by person. A forty-minute meeting becomes a ten-line follow-up in a minute.</li>
+      <li><strong>Summarising a curriculum document:</strong> drop in a twenty-page Skolverket module or a school-improvement plan and request a one-page summary pitched for a department briefing.</li>
+      <li><strong>Tone-rewriting a parent email:</strong> paste a terse draft and ask for a warmer version, then a concise version, then one in plain language for a parent with Swedish as a second language.</li>
+      <li><strong>Scaffolding differentiation ideas:</strong> describe a mixed-ability group and ask for three adjustments at the low-support end and three at the extension end. Treat the output as a starting draft, not the final plan.</li>
+    </ul>
+  </article>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 10 — COPILOT CHAT CONT + COPILOT IN WORD
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Copilot Chat &amp; Word</span>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">Where it runs · Copilot Chat</p>
+    <p>Microsoft cloud. CDP is enabled when you are signed in with the work/school account — the shield icon at the top right is the visual cue. Anchoring a prompt to your own OneDrive or SharePoint files requires a Microsoft 365 Copilot license; base Copilot Chat without the license still has CDP but does not see your tenant's files.</p>
+  </div>
+
+  <h4>How to start</h4>
+  <ol class="steps">
+    <li>Open <strong>copilot.cloud.microsoft</strong> in a browser and sign in with your school account, or click the Copilot icon in the Teams sidebar or the Edge browser's right-hand pane.</li>
+    <li>Check for the "Protected" badge at the top right of the window before you start typing.</li>
+    <li>Type your prompt. To reference a specific file (with M365 Copilot), type <code>/</code> and pick the document from OneDrive or SharePoint.</li>
+    <li>Copy the output into Word, Outlook, or wherever you needed it — or ask Copilot to create a Page (see feature 6).</li>
+  </ol>
+
+  <article class="feature-card" style="margin-top: 22pt;">
+    <h3>2. Copilot in Word</h3>
+    <p class="feature-card__what">Draft-from-prompt, rewrite a selection, and summarise a document without leaving the editor. It is not a separate app — it is a pane that slides out of the Home ribbon, and it has access to the document you have open, so its rewrites respect the surrounding context.</p>
+
+    <h4>Classroom examples</h4>
+    <ul class="example-list">
+      <li><strong>Outline to newsletter:</strong> a two-bullet outline ("field trip Friday; money by Wednesday; permission forms out today") becomes a full parent newsletter draft you can trim rather than write.</li>
+      <li><strong>Tone adjustment:</strong> a terse incident report becomes a warmer, more narrative version for a parent-facing summary, without losing the specifics.</li>
+      <li><strong>One-paragraph summary of a long read:</strong> drop a twelve-page research article into Word and ask Copilot for a one-paragraph summary and a bullet list of key points for a staff briefing.</li>
+      <li><strong>Parallel Swedish-English versions:</strong> useful for EAL parents — the same letter in two languages, side by side, checked by you rather than by Copilot alone.</li>
+    </ul>
+  </article>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 11 — COPILOT IN WORD CONT + COPILOT IN OUTLOOK
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Word &amp; Outlook</span>
+
+  <ul class="example-list">
+    <li><strong>Rewriting jargon for students:</strong> paste a paragraph from a technical source and ask for a Year 7 reading-level version that keeps the key concepts intact.</li>
+  </ul>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">Where it runs · Copilot in Word</p>
+    <p>Microsoft cloud. CDP is in effect because Word is signed into the tenant. The feature requires a Microsoft 365 Copilot license — it is the paid add-on surface, not the free Copilot Chat.</p>
+  </div>
+
+  <h4>How to start</h4>
+  <ol class="steps">
+    <li>Open a Word document signed into your work account.</li>
+    <li>Click the <strong>Copilot</strong> icon in the Home ribbon.</li>
+    <li>Either ask Copilot to draft from a prompt, or select a paragraph and use "Rewrite with Copilot" from the pane.</li>
+  </ol>
+
+  <article class="feature-card" style="margin-top: 22pt;">
+    <h3>3. Copilot in Outlook</h3>
+    <p class="feature-card__what">Summarise long threads, draft replies in a specific tone, and coach your writing before you send. Outlook is where most teachers feel Copilot's daily value first — the inbox is relentless, and the cognitive overhead of reading, replying, and softening parent emails is one of the biggest invisible taxes on the teaching week.</p>
+
+    <h4>Classroom examples</h4>
+    <ul class="example-list">
+      <li><strong>Morning parent triage:</strong> thirty parent emails over the weekend. Copilot's "Summarise" on each thread reveals which three actually need a reply today and which twenty-seven are confirmations, thanks, or FYIs.</li>
+      <li><strong>Catching up on a forty-message thread:</strong> a long back-and-forth between department heads you missed while teaching. Summarise gives you what was decided and what was disputed in three paragraphs.</li>
+      <li><strong>Softening a draft before sending:</strong> the "Coaching" feature reviews a reply for tone and suggests edits before you hit send. Useful for the moment when you realise your draft is sharper than it needs to be.</li>
+      <li><strong>Extracting what you owe:</strong> "Summarise what actions I committed to this week" across the Sent folder — a quick self-audit before the Friday staff meeting.</li>
+      <li><strong>Follow-up after a meeting:</strong> drafting a thank-you-and-confirmation email based on the notes already in the thread, without retyping the specifics.</li>
+    </ul>
+  </article>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 12 — COPILOT IN OUTLOOK CONT + COPILOT IN TEAMS
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Outlook &amp; Teams</span>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">Where it runs · Copilot in Outlook</p>
+    <p>Microsoft cloud. CDP is in effect. Requires a Microsoft 365 Copilot license for the in-ribbon features; lightweight summarisation of individual messages is now rolling out more broadly under Copilot Chat access as well — confirm with your admin which surface is live in your tenant.</p>
+  </div>
+
+  <h4>How to start</h4>
+  <ol class="steps">
+    <li>Open Outlook signed into your work account.</li>
+    <li>Click the <strong>Copilot</strong> button in the ribbon, or the sparkle icon inside a compose window.</li>
+    <li>For a thread summary, open any long thread and click "Summarise by Copilot" at the top of the reading pane.</li>
+  </ol>
+
+  <article class="feature-card" style="margin-top: 22pt;">
+    <h3>4. Copilot in Teams (meeting recap &amp; in-chat help)</h3>
+    <p class="feature-card__what">Real-time meeting transcription, post-meeting recap with action items, and in-chat answers about what just happened. For a staff meeting, a department meeting, or a parent-teacher conference, Copilot turns thirty minutes of notes into three minutes of review — provided transcription was enabled and participants were informed.</p>
+
+    <h4>Classroom examples</h4>
+    <ul class="example-list">
+      <li><strong>Action items from a department meeting:</strong> a numbered list of commitments by person, generated from the transcript while people are still putting their coats on.</li>
+      <li><strong>Catch-up for a colleague who missed the staff meeting:</strong> "Summarise what was decided and what is still open" — three minutes instead of half an hour of asking around.</li>
+      <li><strong>Parent-teacher conference recap:</strong> a clean summary of what was discussed, shared back to the parent with agreed next steps. Saves the teacher from typing the same recap ten times across a parents' evening.</li>
+      <li><strong>What did I commit to?</strong> a quick self-audit after a leadership meeting before you move on to teaching the next period.</li>
+      <li><strong>Shared recap for the staff wiki:</strong> one-click generation of a weekly summary for colleagues who were not in the room.</li>
+    </ul>
+
+    <div class="feature-card__mac-note"><strong>Policy flag:</strong> recording and transcripts in Teams must be explicitly enabled — they are not a default. That is a school-policy decision, not a technical one. Part 3 returns to this.</div>
+  </article>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 13 — COPILOT IN TEAMS CONT + COPILOT IN POWERPOINT
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Teams &amp; PowerPoint</span>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">Where it runs · Copilot in Teams</p>
+    <p>Microsoft cloud. CDP is in effect. Requires a Microsoft 365 Copilot license for in-meeting features. Recording and transcription must be explicitly enabled in the meeting — and under school policy, participants must be informed. In Sweden, recording human voice without consent is a GDPR concern that sits independently of CDP.</p>
+  </div>
+
+  <h4>How to start</h4>
+  <ol class="steps">
+    <li>Start or join a Teams meeting with recording/transcription enabled (visible to all participants).</li>
+    <li>Open the <strong>Copilot</strong> pane on the right.</li>
+    <li>During the meeting, ask Copilot in-chat questions ("what was just decided?"). After the meeting, ask for action items or a full recap.</li>
+  </ol>
+
+  <article class="feature-card" style="margin-top: 22pt;">
+    <h3>5. Copilot in PowerPoint</h3>
+    <p class="feature-card__what">Generate slides from a Word document or a short outline, rewrite slide copy, and suggest speaker notes. PowerPoint is where the productivity delta is largest for teachers who build their own decks — a lesson-plan text document becomes a first-draft slide deck in under a minute, ready to be edited rather than built from a blank slate.</p>
+
+    <h4>Classroom examples</h4>
+    <ul class="example-list">
+      <li><strong>Lesson plan to deck in two minutes:</strong> a one-page Word outline becomes a twelve-slide first-draft PowerPoint, with titles, bullets, and speaker notes you can refine rather than invent.</li>
+      <li><strong>Speaker notes for a guest-teacher deck:</strong> generate notes for each slide so a covering teacher can step in without losing the thread of the unit.</li>
+      <li><strong>Jargon rewrite:</strong> select a slide heavy with subject terminology and ask for a student-accessible Swedish version pitched at the year group you teach.</li>
+      <li><strong>Image ideas:</strong> for each slide, ask for three image suggestions that would support the point. Use your own library or a stock service to source them.</li>
+      <li><strong>Tidy an existing deck:</strong> paste a rough deck from a colleague and ask Copilot to make the formatting, tone, and structure consistent across slides.</li>
+    </ul>
+  </article>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 14 — COPILOT IN POWERPOINT CONT + COPILOT PAGES
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · PowerPoint &amp; Pages</span>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">Where it runs · Copilot in PowerPoint</p>
+    <p>Microsoft cloud. CDP is in effect. Requires a Microsoft 365 Copilot license. Grounding the deck in a specific Word file requires the file to be in OneDrive or SharePoint inside your tenant — local files on the desktop do not work for this path.</p>
+  </div>
+
+  <h4>How to start</h4>
+  <ol class="steps">
+    <li>Open PowerPoint signed into your work account.</li>
+    <li>Click the <strong>Copilot</strong> icon in the Home ribbon.</li>
+    <li>Either "Create presentation from a file" (pick a Word doc from OneDrive) or type a short outline directly into the prompt.</li>
+  </ol>
+
+  <article class="feature-card" style="margin-top: 22pt;">
+    <h3>6. Copilot Pages (shared canvas)</h3>
+    <p class="feature-card__what">A multiplayer, AI-native canvas that sits between a chat and a document. It persists — unlike a disposable chat — and it is collaborative, so a teaching partner or an assistant can edit alongside you. Pages is the feature that changes how team planning and shared resource work feels, once the habit sets in.</p>
+
+    <h4>Classroom examples</h4>
+    <ul class="example-list">
+      <li><strong>Unit outline with a teaching partner:</strong> co-draft a six-week unit across two accounts, with Copilot filling in differentiation ideas and assessment prompts as you go.</li>
+      <li><strong>Shared resource bank:</strong> build a running document of classroom activities by topic. Students can contribute if access is age-appropriate and gated by the admin.</li>
+      <li><strong>Pros-and-cons for a decision:</strong> visualise a curriculum-change discussion as a persistent artifact your department can revisit rather than losing it in a disposable chat history.</li>
+      <li><strong>Teaching-assistant briefing:</strong> draft a short brief in Pages that your TA can then refine with their own observations and send back.</li>
+      <li><strong>School-improvement working group:</strong> a running project notebook for a small team, with Copilot on hand to summarise meetings and draft sections as the work evolves.</li>
+    </ul>
+
+    <div class="processing-callout">
+      <p class="processing-callout__title">Where it runs · Copilot Pages</p>
+      <p>Microsoft cloud. CDP is in effect. Reached from any Copilot Chat response via the "Edit in Pages" option. Sharing a Page with someone outside your tenant follows the same sharing rules as any M365 document — set these consciously before distributing.</p>
+    </div>
+  </article>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 15 — FEATURE RECAP AT A GLANCE
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Where each feature runs</span>
+  <h3 style="margin-top: 0;">At a glance</h3>
+  <p>Unlike Apple Intelligence, Copilot does not have an on-device layer. Everything runs in the Microsoft cloud. The privacy question therefore collapses to one binary: is the user signed in with the work/school account, or not? If yes, CDP applies. If no, consumer terms apply.</p>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">Inside the tenant with CDP</p>
+    <p><strong>Copilot Chat (work account) · Copilot in Word · Outlook · Teams · PowerPoint · Pages.</strong> All six features in this guide run in Microsoft's cloud under Commercial Data Protection when the user is signed into the school tenant.</p>
+  </div>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">With Microsoft 365 Copilot license only</p>
+    <p><strong>In-app features in Word, Excel, PowerPoint, Outlook, Teams; grounding Chat prompts in tenant files.</strong> These require a paid Microsoft 365 Copilot seat (~kr 350/user/mo). Base Copilot Chat without the license still has CDP but does not reach into your tenant data.</p>
+  </div>
+
+  <div class="processing-callout" style="background: #f4ecd9; border-left-color: var(--color-brass);">
+    <p class="processing-callout__title" style="color: #8a6f2f;">Consumer Copilot — not covered by this guide's compliance story</p>
+    <p>copilot.microsoft.com on a personal MSA, or Copilot Pro. Different terms, no CDP, no tenant bound, no DPA coverage. Treat it as a separate product category. Part 3 argues for blocking it at tenant level where your admin tooling allows.</p>
+  </div>
+
+  <p>A habit worth building: when the Copilot surface opens, glance at the top-right. Shield icon and school email? You are in CDP territory. No shield? You are probably on the consumer product. Close the tab and start again at copilot.cloud.microsoft.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 16 — PART 2 CLOSE — WEEK IN A CLASSROOM
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Putting it together</span>
+  <h3 style="margin-top: 0;">A week in the classroom, composed</h3>
+
+  <p>Each of the six features is individually modest. Composed across a working week, they change the shape of a teacher's day — in the same direction as Apple Intelligence, but weighted differently. Copilot's strength is inside the productivity stack your school already uses. Its weakness, relative to a general chatbot like Claude or Gemini, is that it is narrower in scope: it is excellent at Microsoft-surface work, and correspondingly less useful for open-ended thinking outside those apps.</p>
+
+  <p>The composition looks like this. Open Outlook first thing Monday. Copilot summarises the weekend inbox into "three replies needed, twenty-seven informational." Write the three replies in Word's Copilot pane, with tone adjustments for each family. Join the department meeting in Teams; Copilot keeps the transcript and generates action items while you are still leaving the room. Back at your desk, ask Copilot Chat to draft a differentiation plan for tomorrow's mixed-ability group. Ask PowerPoint's Copilot to turn last week's lesson outline into slides for the guest teacher on Friday. Drop the shared unit-planning document into Pages so your teaching partner can edit alongside you overnight.</p>
+
+  <p>None of these are headline moments. All of them together free an hour or two from a typical week — time that belongs to students and to planning rather than to formatting and triage.</p>
+
+  <div class="sidenote">
+    <p class="sidenote__title">The one feature to start with</p>
+    <p>If you pick only one feature to build a habit around first, pick <strong>Outlook summarisation</strong>. It is the highest-frequency interaction point for most teachers, the privacy story is clean (CDP from the first tap), and the quality improvement on your inbox — from a firehose to a triage list — is the fastest signal you'll get that Copilot earns its keep.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 17 — PART 2 BRIDGE TO PART 3
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Before you read Part 3</span>
+  <h3 style="margin-top: 0;">What changes when you put the manager's hat on</h3>
+
+  <p>Up to this point the guide has addressed the teacher at the classroom level: individual use, individual habit, individual email rewrite or slide-deck generation. That frame is where most staff will meet Copilot first and where the tool earns its daily value. Part 3 steps back and speaks to the skolchef, the rektor, the digital-lead, and the DPO — the people who have to answer "is this allowed?" before Copilot lands on a hundred staff laptops.</p>
+
+  <p>Part 3 addresses six things specifically. First, what Commercial Data Protection actually gives you — the three contractual claims, the three honest qualifications, and the translation from legalese into something a staff meeting can understand. Second, why sign-in equals compliance: the single biggest point of failure is a teacher drifting onto consumer Copilot by accident. Third, the EU Data Boundary and the residual Schrems II question, which still belong in the DPIA. Fourth, the licensing landscape in practical terms: which seat does what, what a phased rollout looks like, and the cost conversation for a 200-seat school. Fifth, student data and age limits — Microsoft's own 13+ floor for Copilot with work/school accounts, plus the practical case for starting with teacher-only access even when licenses permit student use. Sixth, five concrete policy decisions the digital-lead can carry into a senior-leadership meeting on a single sheet.</p>
+
+  <p>If you are a teacher reading this for your own classroom practice, Part 3 is still worth skimming. The sections on sign-in and student data in particular will make your daily defaults clearer. Part 3 is five pages. The five policy decisions at the end are the takeaway; the rest is the reasoning that supports them.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 18 — PART 3 OPENER + CDP IN PRACTICE
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <header class="part-opener">
+    <div class="part-opener__number">03</div>
+    <div>
+      <p class="part-opener__eyebrow">Part 3</p>
+      <h2 class="part-opener__title">Compliance &amp; licensing in practice</h2>
+      <p class="part-opener__lede">What CDP gives you under Swedish and EU data protection law, how licensing actually lands in a school budget, and the five decisions worth taking before a staff rollout.</p>
+    </div>
+  </header>
+
+  <h3>What CDP actually gives you</h3>
+  <p>Part 1 set out the three contractual claims of Commercial Data Protection: prompts and responses are not used to train Microsoft's foundation models; data stays within your tenant's trust boundary; standard M365 audit and retention rules apply. The honest translation into GDPR language is that Microsoft acts as your processor under the Microsoft Products and Services Data Processing Addendum; the school remains controller, with all the obligations that role implies.</p>
+
+  <p>What that changes in practice: the hard part of a DPIA for a cloud AI product is usually the sub-processor chain and the transfer analysis. CDP does not remove either — Microsoft has sub-processors, and those sub-processors need documenting — but it narrows the picture. Copilot operations fall inside a governance fabric you already run under your existing Microsoft Volume Licensing terms. That is genuinely easier to defend than adopting a new cloud AI vendor with a fresh DPA, a fresh sub-processor chain, and a fresh transfer story to evaluate.</p>
+
+  <p>What CDP does not change: your school is still controller, and the lawful basis for any processing of student data is still yours to establish under GDPR Articles 6 and 9. CDP is a technical and contractual mitigation that makes your existing basis cleaner to evidence. It does not manufacture a basis. Any DPIA write-up should frame it that way — as a mitigation layer inside an existing governance structure, not as a replacement for the analysis the school is obliged to perform.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 19 — SIGN-IN IS COMPLIANCE
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 3 · Sign-in = compliance</span>
+  <h3 style="margin-top: 0;">The single biggest point of failure</h3>
+  <p>The failure mode worth worrying about most is not Copilot being hacked. It is a teacher using consumer Copilot by accident. Somebody searches "Copilot" in a browser, clicks the first result, types a prompt. The top-right of the window shows no shield, no "Protected" badge, and the signed-in account is their personal Microsoft Account from years ago — or no account at all. That teacher has just used Copilot. They have not used the Copilot covered by your school's DPA. The prompt is now in consumer scope, under consumer terms.</p>
+
+  <p>The fix is behavioural and technical. The behavioural fix is a one-sentence staff rule pinned to the wall: <strong>always sign in with the work/school account before you use Copilot.</strong> The visual cue is the shield at the top right and the school email on the profile icon. Train staff to check for it every time. Rehearse the check as part of the first-week onboarding, and include a screenshot in the one-page staff guideline.</p>
+
+  <p>The technical fix is tenant-level. If your admin tooling allows, block consumer Copilot at the tenant boundary — Microsoft has shipped conditional-access controls that let administrators prevent sign-in to consumer products from managed devices and managed browser profiles. Not every school tenant has the licensing tier that exposes every control, but most have enough to make the consumer path inconvenient rather than the default. Ask your admin what is possible in your specific tenant, and make the decision consciously.</p>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">The one-sentence training line</p>
+    <p><strong>"Shield icon at the top right, school email on the profile. If both aren't there, you're on the wrong Copilot."</strong> Every staff member should be able to say that sentence from memory.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 20 — EU DATA BOUNDARY & SCHREMS II
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 3 · EU Data Boundary &amp; Schrems II</span>
+  <h3 style="margin-top: 0;">The geographic and transfer picture</h3>
+  <p>Microsoft's <strong>EU Data Boundary</strong> is the commitment to store and process European customer data inside the European Union and EFTA. For Copilot, that covers most — not all — of the relevant operations. The coverage matrix has expanded steadily since the EU Data Boundary first rolled out, and it keeps moving. Some sub-processors remain US-based; limited telemetry may cross the boundary. The working rule for a DPIA is to cite the EU Data Boundary as a mitigation, verify the current coverage state with your procurement contact, and document the residual crossings rather than claim they are zero.</p>
+
+  <p>The <strong>Schrems II</strong> analysis sits on top of the EU Data Boundary rather than being replaced by it. Microsoft is a US-headquartered processor. Standard Contractual Clauses plus supplementary technical and organisational measures are the baseline; Microsoft is also certified under the EU-US Data Privacy Framework, which provides an adequacy route recognised by the European Commission (subject to ongoing legal review). The EU Data Boundary reduces the volume and sensitivity of what flows westward; it does not make the westward flow zero.</p>
+
+  <p>The honest sentence for a school policy document is this: <em>this is among the best positions of any major cloud AI product — and it is still processing by a US-headquartered provider that should sit in the DPIA as residual risk.</em> That sentence reads well to a school board, to parents, and to an external auditor, because it is accurate. It is not the sentence Microsoft's own marketing would write, which is why it belongs in your document and not in theirs.</p>
+
+  <div class="sidenote">
+    <p class="sidenote__title">In a staff briefing</p>
+    <p>You will rarely be asked the Schrems II question by a teacher. You will often be asked "is my data going to America?" The honest answer is: "most of it stays in Europe, some of it crosses for specific technical reasons, and Microsoft has legal mechanisms in place for those crossings. It is documented in the DPIA, and I can show you the page."</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 21 — LICENSING IN PRACTICE
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 3 · Licensing in practice</span>
+  <h3 style="margin-top: 0;">Which seat does what</h3>
+  <p>The same four SKUs from Part 1, revisited with feature-access detail. This is the version of the table worth giving to someone building a budget.</p>
+
+  <table class="sku-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>What it unlocks</th>
+        <th>Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sku-name">Copilot (free web)</td>
+        <td>Consumer web chat only. No tenant integration. No CDP. Not covered by school DPA.</td>
+        <td>Free</td>
+      </tr>
+      <tr>
+        <td class="sku-name">Copilot Chat (work/school)</td>
+        <td>Free tenant-bounded chat with CDP. No in-app Word/Excel/PPT/Outlook features. No grounding in tenant files.</td>
+        <td>Free with M365</td>
+      </tr>
+      <tr>
+        <td class="sku-name">Copilot Pro</td>
+        <td>Consumer-tier upgrade: image and video add-ons. Not relevant for school work.</td>
+        <td>Paid, personal</td>
+      </tr>
+      <tr>
+        <td class="sku-name">Microsoft 365 Copilot</td>
+        <td>Full integration into Word, Excel, PowerPoint, Outlook, Teams. Tenant-grounded answers (OneDrive, SharePoint, email, Teams content).</td>
+        <td>~kr 350/user/mo</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>The cost sentence: Microsoft 365 Copilot is roughly kr 350 per user per month, varying by Volume Licensing terms and EDU agreements. Verify the current list price through your Microsoft reseller before building a budget — the EDU pricing is sometimes meaningfully better than the commercial rate, and renewal cycles affect the per-seat number. At 200 staff, that is a material line item; at 20 staff, it is a modest one.</p>
+
+  <p>The rollout pattern that consistently works: <strong>phase it.</strong> Term one: leadership, subject leads, and two or three volunteer teachers. Term two: broader staff on the CDP Copilot Chat path, which is free. Later: Microsoft 365 Copilot seats for the staff who measurably gain from the in-app features (Outlook, PowerPoint, Word-heavy roles). Avoid the instinct to license the whole staff on day one. The tenant flip is fast; organisational readiness is not, and a staff that has had three months to absorb Copilot Chat first will use Microsoft 365 Copilot more intelligently when the license arrives.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 22 — STUDENT ACCESS & AGE LIMITS
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 3 · Student data &amp; age limits</span>
+  <h3 style="margin-top: 0;">What this means for student access</h3>
+  <p>Microsoft's own age floor for Copilot with a work/school account is <strong>13+</strong>, aligned with the Microsoft 365 Education terms that most schools already sign. Students under 13 cannot be given direct Copilot access under these terms, even if the admin were willing to enable it. The practical implication: in primary classrooms, teachers use Copilot on their own accounts to prepare materials. Students do not interact with it directly.</p>
+
+  <p>For students 13 and over, access is admin-gated. The tenant admin controls which Copilot surfaces students see, under which licensing terms, and with which guardrails. That is a school-policy question, not a technical inevitability. One concrete recommendation that has aged well across schools that rolled out early: <strong>most schools should start with teacher-only access for at least a full term</strong> before enabling student access — even when licenses permit students from day one. The teacher habit has to settle first. The staff guideline has to exist, have been iterated, and be pinned to a wiki everyone uses. Student access on top of an unfinished teacher rollout is how guidance gets lost.</p>
+
+  <p>On the content side, the rule is the same as for every cloud AI product: <strong>de-identify student data before any Copilot prompt.</strong> CDP reduces the risk of that data being used in Microsoft's training, but it does not change the school's obligations as controller. A teacher sending a SEN plan, a safeguarding note, or a grade list through Copilot has still processed special-category data. That needs a lawful basis and a DPIA entry, irrespective of CDP.</p>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">Reader-responsibility note</p>
+    <p>Age limits and lawful-basis rules interact with national regulations. Readers outside Sweden should verify their own country's AI-in-school guidance — the UK, France, Germany, and the Netherlands have each published national guides with specific local rules. Sweden's Skolverket and IMY are working on joint guidance (April 2026; date unknown). In the meantime, read the 13+ floor as Microsoft's minimum, not as a national permission slip.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 23 — FIVE POLICY DECISIONS
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 3 · Policy</span>
+  <h3 style="margin-top: 0;">Five policy decisions for your school</h3>
+
+  <ol class="policy-list">
+    <li><strong>Require signed-in work/school account for all Copilot use.</strong> Block consumer Copilot via tenant conditional access where your licensing allows. The single behaviour that prevents almost every Copilot compliance problem is signing in with the right account. Make that the first line of the one-page staff guideline and rehearse it in onboarding.</li>
+
+    <li><strong>Document Copilot paths in the school's DPIA.</strong> Three paths need lines: Microsoft 365 Copilot (paid, in-app), Copilot Chat with the work account (free with M365), and — if any staff use consumer Copilot on personal devices for adult-only tasks — the consumer path as a separately documented, narrower scope. Cite the Microsoft Products and Services DPA and the EU Data Boundary as mitigations; cite Schrems II and the EU-US Data Privacy Framework as the transfer story.</li>
+
+    <li><strong>Produce a one-page staff guideline on what to paste and what to avoid.</strong> Three accept examples (generalised parent-email rewrites, Skolverket module summaries, meeting action-item extraction). Three avoid examples (SEN plans without de-identification, safeguarding notes, any grade data tied to named students). Tailor the examples to your school. Pin to the shared staff wiki and reference in onboarding.</li>
+
+    <li><strong>Phase the rollout.</strong> Leadership plus subject leads in term one on Copilot Chat (free with M365). Broader staff onto Copilot Chat in term two. Microsoft 365 Copilot seats (paid, ~kr 350/user/mo) for the staff who measurably need the in-app features — don't default to full-staff licensing. Student access only after the policy is stable and the teacher habit is settled. The tenant admin flip is instant; organisational readiness is not.</li>
+
+    <li><strong>Build in a termly review.</strong> Microsoft ships Copilot updates monthly. Feature availability, tenant controls, and the EU Data Boundary coverage matrix all move. A thirty-minute standing entry each term for the digital-lead to skim Microsoft's release notes and update the staff guideline is enough to stop the policy drifting out of date. More than that is unlikely to stick; less than that is how outdated guidance accumulates.</li>
+  </ol>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 24 — FAQ
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <p class="part-label">FAQ</p>
+  <h2 style="font-size: 20pt; margin-bottom: 3pt;">Questions teachers ask</h2>
+  <p class="lede" style="font-size: 10pt; margin-bottom: 6pt;">Nine of the questions that come up most often from teachers and school leaders working with Microsoft Copilot in a Swedish school context.</p>
+
+  <div class="faq-grid">
+
+    <div class="faq-item">
+      <p class="faq-item__q">Which version of Copilot should my school actually use?</p>
+      <div class="faq-item__a">
+        <p>Copilot Chat with a work/school account for general chat — free with M365, CDP on by default. Microsoft 365 Copilot (paid, ~kr 350/user/month) for staff who measurably benefit from in-app features in Word, Outlook, PowerPoint, Teams. Never consumer Copilot for school work: different terms, no CDP, not covered by your school's DPA. The rule of thumb is "signed in with school account equals safe."</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">Do my prompts train Microsoft's AI?</p>
+      <div class="faq-item__a">
+        <p>Under Commercial Data Protection — which applies to Copilot Chat signed into your work account, and to Microsoft 365 Copilot — no. Prompts and responses are contractually excluded from training Microsoft's foundation models under the Products and Services DPA. Under consumer Copilot on a personal MSA, different terms apply and the consumer privacy statement should be read directly. Sign-in is the difference.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">Is Copilot available in Swedish?</p>
+      <div class="faq-item__a">
+        <p>Yes. Swedish language support rolled out across Copilot surfaces during 2024-2025 and is now stable in Word, Outlook, Teams, and Copilot Chat. Quality on Swedish text is competent — good enough for drafting, rewriting, and summarising — but not a substitute for a language teacher's eye. For parent-facing communication, review every Swedish output before sending rather than trusting the model blind.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">Can I use Copilot with student data?</p>
+      <div class="faq-item__a">
+        <p>De-identify first. Even with CDP, the school is still controller, and special-category student data (SEN, safeguarding, named grades) needs a lawful basis and a DPIA entry. Teacher-work content (generalised plans, staff notes, parent-email drafts) is generally fine on the CDP path. Named student data should be de-identified or avoided in the prompt entirely.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">How does Copilot compare to Claude or Gemini?</p>
+      <div class="faq-item__a">
+        <p>Different tool class. Claude and Gemini are general chatbots for open-ended thinking and research. Copilot is strongest inside the Microsoft 365 productivity stack you already use. Most teachers end up using both: Copilot for in-app and tenant-grounded work where CDP applies, a general chatbot for broader thinking tasks that need a different kind of reasoning surface.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">What about Copilot on my personal computer?</p>
+      <div class="faq-item__a">
+        <p>Fine for adult productivity when you sign in with the work/school account — the Microsoft 365 Copilot app on macOS or the web version in a browser both give you the CDP path on a personal machine. Not fine for student data on a personal device that is outside the school's MDM, because the device itself is outside the managed perimeter. Keep student work on school-issued devices.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">Is Copilot covered by our school's Microsoft DPA?</p>
+      <div class="faq-item__a">
+        <p>Copilot Chat with a work account and Microsoft 365 Copilot are covered under the Microsoft Products and Services DPA you already have as part of your M365 agreement. Consumer Copilot and Copilot Pro are separate products under different terms and are not covered. Verify the current DPA version with your procurement contact; Microsoft updates it on a published cadence.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">Can I turn off specific Copilot features for certain staff groups?</p>
+      <div class="faq-item__a">
+        <p>Yes. The tenant admin can scope features by user group via the Microsoft 365 admin centre — disabling Copilot in Teams for specific groups, restricting Copilot Chat grounding, or gating the feature entirely for specified cohorts. This is how student access is governed in practice, and it is the lever for a phased rollout. Work with your IT lead on the exact policies.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">Where do I get help if something goes wrong?</p>
+      <div class="faq-item__a">
+        <p>Microsoft's own documentation at <em>learn.microsoft.com/copilot</em>; the Microsoft 365 admin centre for tenant-level configuration; your Microsoft reseller or partner for licensing questions. For school-specific policy, DPIA drafting, or staffroom rollout questions, reach out via <em>choosewise.education</em>. Do not skip the release-notes check in your termly review — most "something changed" support tickets trace back to a monthly update.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 25 — CLOSING + LICENSE
+     ══════════════════════════════════════════════════ -->
+<div class="page closing">
+  <p class="closing__quote">"Sign in with the work account. That one behaviour is the entire compliance story."</p>
+
+  <p class="closing__cta">For the latest version of this guide, the web edition, and the companion Quick Start, visit<br>
+  <strong>choosewise.education/guides/copilot</strong></p>
+
+  <p class="closing__signature">— Johan Lindström, April 2026</p>
+  <p class="closing__attr">choosewise.education</p>
+
+  <p class="closing__license">
+    <strong>This work is licensed under Creative Commons BY-NC-SA 4.0.</strong> You may copy, share, and adapt this material for non-commercial purposes — in classrooms, at professional development events, in publications that do not sell this content commercially — provided you credit Johan Lindström as the author, link to choosewise.education, and share any adaptations under the same license. The full license text is available at creativecommons.org/licenses/by-nc-sa/4.0/.
+  </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Microsoft Copilot Quick Start — for teachers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ═══ Microsoft Copilot Quick Start — 2-page A4 ═══
+     Palette: navy #1B2733, graphite #3E4A57, brass #C8A86B, cream #F6F3EE
+     Fonts:   Playfair Display (headings), Inter (body)
+  */
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #1B2733;
+    background: #F6F3EE;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 18mm 20mm;
+    display: flex;
+    flex-direction: column;
+  }
+  .page1 { page-break-after: always; }
+  .page2 { page-break-before: always; }
+
+  /* ─── Page header ─── */
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(27, 39, 51, 0.14);
+    margin-bottom: 14px;
+  }
+  .masthead .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: #C8A86B;
+  }
+  .masthead .page-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #9a9a94;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.6px;
+    color: #1B2733;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: italic;
+    color: #3E4A57;
+    margin-bottom: 14px;
+  }
+  .lede {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #3E4A57;
+    max-width: 160mm;
+    margin-bottom: 16px;
+  }
+
+  /* ─── Section ─── */
+  .section { margin-bottom: 12px; }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1B2733;
+    margin-bottom: 6px;
+  }
+  .section h2 .accent {
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: #C8A86B;
+    vertical-align: middle;
+    margin-right: 10px;
+    position: relative;
+    top: -3px;
+  }
+  .section p {
+    font-size: 10.5px;
+    line-height: 1.55;
+    color: #3E4A57;
+    margin-bottom: 5px;
+  }
+
+  /* ─── Feature grid (2 × 3, 6 cards) ─── */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px 11px;
+    margin-top: 6px;
+  }
+  .feature-mini {
+    background: #faf7f2;
+    border-left: 3px solid #3E4A57;
+    padding: 9px 12px 10px;
+    border-radius: 2px;
+  }
+  .feature-mini .idx {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    color: #3E4A57;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .feature-mini .name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1B2733;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .feature-mini p {
+    font-size: 10px;
+    line-height: 1.5;
+    color: #3E4A57;
+    margin: 0;
+  }
+
+  /* ─── Steps list (page 2) ─── */
+  .wins {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 20px;
+    margin-top: 6px;
+  }
+  .win {
+    display: flex;
+    gap: 10px;
+    padding: 4px 0;
+  }
+  .win .idx {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #3E4A57;
+    min-width: 16px;
+  }
+  .win .text {
+    font-size: 10.5px;
+    line-height: 1.5;
+    color: #3E4A57;
+  }
+  .win .text strong {
+    color: #1B2733;
+    font-weight: 700;
+    display: block;
+    font-size: 11px;
+    margin-bottom: 1px;
+  }
+
+  /* ─── Watch out ─── */
+  .watchout {
+    background: #faf3e2;
+    border-left: 3px solid #C8A86B;
+    padding: 10px 14px;
+    border-radius: 2px;
+    margin-top: 10px;
+  }
+  .watchout .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #a07d2e;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .watchout p {
+    font-size: 10.5px;
+    line-height: 1.5;
+    color: #3E4A57;
+    margin: 0;
+  }
+
+  /* ─── Footer ─── */
+  .page-footer {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid rgba(27, 39, 51, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 9.5px;
+    color: #9a9a94;
+    letter-spacing: 0.3px;
+  }
+  .page-footer .brand {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 10.5px;
+    color: #3E4A57;
+  }
+
+  /* ─── Closing CTA (page 2) ─── */
+  .closing {
+    background: #1B2733;
+    color: #F6F3EE;
+    padding: 14px 18px;
+    border-radius: 3px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .closing .msg {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #F6F3EE;
+    line-height: 1.4;
+  }
+  .closing .url {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #C8A86B;
+    white-space: nowrap;
+  }
+
+  /* ─── License line (bottom of last page) ─── */
+  .license-line {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(27, 39, 51, 0.08);
+    font-size: 8.5px;
+    color: #9a9a94;
+    letter-spacing: 0.25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .license-line strong {
+    color: #3E4A57;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ PAGE 1 ═══════════════ -->
+<div class="page page1">
+  <div class="masthead">
+    <span class="eyebrow">Microsoft Copilot Quick Start · for teachers</span>
+    <span class="page-num">01 / 02</span>
+  </div>
+
+  <h1>The six Copilot features that change classroom work.</h1>
+  <p class="subtitle">Desktop-first, tenant-bounded, takes 10 minutes to learn.</p>
+
+  <p class="lede">Microsoft Copilot runs inside your school's Microsoft 365 tenant — with commercial data protection on by default when you sign in with a work or school account. These six features give you the strongest daily return. Details on the licensing tiers and the compliance boundary are in Part 1 and Part 3 of the full guide.</p>
+
+  <div class="section">
+    <h2><span class="accent"></span>Six features, one tenant</h2>
+
+    <div class="feature-grid">
+      <!-- 1 -->
+      <div class="feature-mini">
+        <span class="idx">1</span>
+        <span class="name">Copilot Chat</span>
+        <p>General-purpose chat with tenant-bounded CDP. Ground in your own OneDrive/SharePoint files.</p>
+      </div>
+
+      <!-- 2 -->
+      <div class="feature-mini">
+        <span class="idx">2</span>
+        <span class="name">Copilot in Word</span>
+        <p>Draft from a prompt, rewrite selections, summarise documents in seconds.</p>
+      </div>
+
+      <!-- 3 -->
+      <div class="feature-mini">
+        <span class="idx">3</span>
+        <span class="name">Copilot in Outlook</span>
+        <p>Summarise long threads, draft replies in tone, coach your writing before sending.</p>
+      </div>
+
+      <!-- 4 -->
+      <div class="feature-mini">
+        <span class="idx">4</span>
+        <span class="name">Copilot in Teams</span>
+        <p>Meeting recap with action items. Catch colleagues up in three minutes.</p>
+      </div>
+
+      <!-- 5 -->
+      <div class="feature-mini">
+        <span class="idx">5</span>
+        <span class="name">Copilot in PowerPoint</span>
+        <p>Generate slides from a Word doc or outline. Rewrite slide copy on the fly.</p>
+      </div>
+
+      <!-- 6 -->
+      <div class="feature-mini">
+        <span class="idx">6</span>
+        <span class="name">Copilot Pages</span>
+        <p>Multiplayer AI-native canvas. Collaborate with colleagues and students in a persistent artifact.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Microsoft Copilot Quick Start — Johan Lindström</span>
+    <span class="brand">choosewise.education</span>
+    <span>Page 01 / 02</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 2 ═══════════════ -->
+<div class="page page2">
+  <div class="masthead">
+    <span class="eyebrow">5 things to try in Microsoft 365 today</span>
+    <span class="page-num">02 / 02</span>
+  </div>
+
+  <h1>Try it: 5 practical tasks.</h1>
+  <p class="subtitle">Ten minutes, five moves, one less thing on your plate tonight.</p>
+
+  <div class="section">
+    <div class="wins">
+      <div class="win">
+        <span class="idx">1</span>
+        <div class="text"><strong>Rewrite a parent email in three tones</strong>In Outlook, open Copilot in compose. Ask for Professional / Friendly / Concise variants. Pick the tone that fits.</div>
+      </div>
+      <div class="win">
+        <span class="idx">2</span>
+        <div class="text"><strong>Summarise a 40-message parent thread</strong>Open the thread in Outlook; tap Summary. Read three bullets in 30 seconds instead of scrolling.</div>
+      </div>
+      <div class="win">
+        <span class="idx">3</span>
+        <div class="text"><strong>Generate a Teams meeting recap</strong>End your department meeting, open Copilot in the Teams meeting pane, request a recap with action items. Share to the staff wiki.</div>
+      </div>
+      <div class="win">
+        <span class="idx">4</span>
+        <div class="text"><strong>Turn a Word outline into slides</strong>Write the plan in Word. In PowerPoint, Copilot → Generate from Word. You get a 12-slide starter deck to polish.</div>
+      </div>
+      <div class="win">
+        <span class="idx">5</span>
+        <div class="text"><strong>Draft a differentiation plan in Copilot Chat</strong>Ask Copilot Chat, signed into your work account, for three differentiation paths for a mixed-ability Year 8 maths lesson on fractions.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="watchout">
+    <span class="label">● Watch out · sign-in and data boundary</span>
+    <p>Sign in with your work or school account every time. Consumer Copilot at copilot.microsoft.com is a different product under different terms — not protected by your school's data agreement. De-identify student data before any prompt. Verify your country's AI-in-education rules — Sweden lacks national guidance as of April 2026.</p>
+  </div>
+
+  <div class="closing">
+    <div class="msg">Want depth? Read the full <em>Microsoft Copilot Guide</em> — or download the 25-page premium PDF from the same page.</div>
+    <div class="url">choosewise.education / guides / copilot</div>
+  </div>
+
+  <div class="license-line">
+    <span><strong>Licensed under CC BY-NC-SA 4.0</strong> — attribution, non-commercial, share-alike.</span>
+    <span>creativecommons.org/licenses/by-nc-sa/4.0</span>
+  </div>
+
+  <div class="page-footer">
+    <span>Microsoft Copilot Quick Start — Johan Lindström</span>
+    <span class="brand">choosewise.education</span>
+    <span>Page 02 / 02</span>
+  </div>
+</div>
+
+</body>
+</html>
