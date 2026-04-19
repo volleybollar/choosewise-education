@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Apple Intelligence for teachers and school leaders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ─── Apple-graphite palette ─── */
+  :root {
+    --color-navy:     #1B2733;
+    --color-graphite: #3E4A57;
+    --color-brass:    #C8A86B;
+    --color-cream:    #F6F3EE;
+    --color-text:     #1A1A1F;
+    --color-muted:    #5a5a57;
+    --color-soft:     #8a8a85;
+    --color-hairline: #dcd8d0;
+    --color-rule:     #c9c6be;
+  }
+
+  /* ─── Page geometry ─── */
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: var(--color-cream); }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--color-text);
+    font-size: 10.5pt;
+    line-height: 1.55;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-weight: 400;
+  }
+
+  /* ─── Typography ─── */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    color: var(--color-navy);
+  }
+  h1 { font-size: 40pt; line-height: 1.05; letter-spacing: -0.8pt; font-weight: 900; }
+  h2 { font-size: 26pt; line-height: 1.1; margin: 0 0 12pt; }
+  h3 { font-size: 16pt; line-height: 1.22; margin: 16pt 0 6pt; }
+  h4 { font-size: 12pt; line-height: 1.25; margin: 12pt 0 4pt; font-weight: 700; }
+  p { margin: 0 0 8pt; }
+  p + p { margin-top: 0; }
+  em { font-style: italic; }
+  strong { font-weight: 600; }
+  a {
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-decoration-color: var(--color-brass);
+    text-decoration-thickness: 0.5pt;
+  }
+  ul, ol { margin: 6pt 0 10pt 18pt; }
+  li { margin-bottom: 3pt; }
+
+  .eyebrow {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 2.4pt;
+    text-transform: uppercase;
+    color: var(--color-brass);
+    margin-bottom: 10pt;
+  }
+
+  p.lede {
+    font-family: 'Playfair Display', serif;
+    font-size: 13pt;
+    line-height: 1.45;
+    font-weight: 400;
+    color: var(--color-graphite);
+    margin: 0 0 14pt;
+    font-style: italic;
+  }
+
+  /* ─── Page wrappers ─── */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 18mm 20mm;
+    position: relative;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+  }
+  .page:last-child { page-break-after: auto; }
+  .page > *:last-child { margin-bottom: 0; }
+
+  /* ─── Cover page ─── */
+  .cover {
+    background:
+      radial-gradient(120% 80% at 15% 0%, rgba(200, 168, 107, 0.12) 0%, transparent 55%),
+      linear-gradient(150deg, #0f1620 0%, var(--color-navy) 55%, var(--color-graphite) 100%);
+    color: var(--color-cream);
+    padding: 28mm 24mm;
+    justify-content: space-between;
+    min-height: 297mm;
+  }
+  .cover .eyebrow {
+    color: var(--color-brass);
+    opacity: 0.92;
+    font-size: 9.5pt;
+    letter-spacing: 3pt;
+  }
+  .cover h1 {
+    color: var(--color-cream);
+    font-size: 54pt;
+    line-height: 1.0;
+    font-weight: 900;
+    letter-spacing: -1.2pt;
+    margin: 14pt 0 8pt;
+    max-width: 165mm;
+  }
+  .cover__subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20pt;
+    color: rgba(246, 243, 238, 0.78);
+    margin: 0 0 18pt;
+    font-weight: 400;
+  }
+  .cover__lede {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 13.5pt;
+    line-height: 1.5;
+    color: rgba(246, 243, 238, 0.82);
+    max-width: 155mm;
+    margin: 18pt 0 10pt;
+  }
+
+  .cover__mark {
+    margin: 18pt 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 14pt;
+    align-items: center;
+  }
+  .cover__mark-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8pt 16pt;
+    background: rgba(246, 243, 238, 0.06);
+    border: 0.6pt solid rgba(200, 168, 107, 0.45);
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1.5pt;
+    text-transform: uppercase;
+    color: rgba(246, 243, 238, 0.88);
+  }
+
+  .cover__signature {
+    border-top: 0.5pt solid rgba(246, 243, 238, 0.28);
+    padding-top: 12pt;
+    font-size: 10pt;
+    letter-spacing: 0.6pt;
+  }
+  .cover__signature strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 14pt;
+    letter-spacing: 1.4pt;
+    text-transform: uppercase;
+    margin-bottom: 2pt;
+    color: var(--color-cream);
+  }
+  .cover__signature .cover__attr {
+    display: block;
+    color: rgba(246, 243, 238, 0.7);
+    font-size: 9pt;
+    margin-top: 3pt;
+  }
+
+  /* ─── Table of contents ─── */
+  .toc h2 { margin-bottom: 18pt; }
+  .toc__list { list-style: none; margin: 0; padding: 0; }
+  .toc__list li {
+    display: flex;
+    align-items: baseline;
+    padding: 9pt 0;
+    border-bottom: 0.4pt dotted var(--color-rule);
+    font-size: 11pt;
+  }
+  .toc__list li:last-child { border-bottom: none; }
+  .toc__list .toc__title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    flex: 1;
+    color: var(--color-navy);
+  }
+  .toc__list .toc__sub {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 400;
+    color: var(--color-muted);
+    margin-top: 2pt;
+    font-style: normal;
+  }
+  .toc__list .toc__dots {
+    flex: 0 0 auto;
+    margin: 0 6pt;
+    color: var(--color-rule);
+    font-size: 9pt;
+    letter-spacing: 1pt;
+  }
+  .toc__list .toc__page {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: var(--color-navy);
+    min-width: 22pt;
+    text-align: right;
+  }
+
+  /* ─── Part opener (at top of a part's first page) ─── */
+  .part-opener {
+    display: flex;
+    gap: 16pt;
+    align-items: flex-start;
+    margin-bottom: 8pt;
+    padding-bottom: 10pt;
+    border-bottom: 0.4pt solid var(--color-hairline);
+  }
+  .part-opener__number {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 64pt;
+    line-height: 0.85;
+    color: var(--color-brass);
+    flex: 0 0 auto;
+    letter-spacing: -3pt;
+  }
+  .part-opener__eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 2.4pt;
+    text-transform: uppercase;
+    color: var(--color-brass);
+    margin-bottom: 6pt;
+  }
+  .part-opener__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28pt;
+    font-weight: 700;
+    color: var(--color-navy);
+    line-height: 1.05;
+    margin: 0 0 8pt;
+  }
+  .part-opener__lede {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 12.5pt;
+    color: var(--color-graphite);
+    line-height: 1.45;
+  }
+
+  /* ─── Explainer box (PCC) ─── */
+  .explainer-box {
+    background: #efece4;
+    border-left: 4pt solid var(--color-brass);
+    padding: 12pt 16pt;
+    margin: 12pt 0;
+    border-radius: 2pt;
+    page-break-inside: auto;
+  }
+  .explainer-box__title {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 1.8pt;
+    text-transform: uppercase;
+    color: var(--color-brass);
+    margin-bottom: 8pt;
+  }
+  .explainer-box p { margin-bottom: 7pt; }
+  .explainer-box p:last-child { margin-bottom: 0; }
+
+  /* ─── Sidenote (worth-knowing) ─── */
+  .sidenote {
+    background: #f1ede3;
+    border: 0.5pt solid var(--color-hairline);
+    padding: 11pt 14pt;
+    margin: 14pt 0 0;
+    border-radius: 3pt;
+    font-size: 10pt;
+    page-break-inside: avoid;
+  }
+  .sidenote__title {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 1.4pt;
+    text-transform: uppercase;
+    color: var(--color-graphite);
+    margin-bottom: 6pt;
+  }
+  .sidenote p { margin-bottom: 5pt; }
+  .sidenote p:last-child { margin-bottom: 0; }
+
+  /* ─── Feature card ─── */
+  .feature-card {
+    margin: 14pt 0 18pt;
+    padding-top: 6pt;
+    border-top: 0.4pt solid var(--color-hairline);
+  }
+  .feature-card:first-of-type { border-top: none; padding-top: 0; }
+  .feature-card h3 {
+    color: var(--color-navy);
+    margin: 0 0 6pt;
+  }
+  .feature-card__what {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 11.5pt;
+    color: var(--color-graphite);
+    line-height: 1.5;
+    margin-bottom: 10pt;
+  }
+  .feature-card__mac-note {
+    background: #ecebe4;
+    padding: 7pt 11pt;
+    border-left: 2pt solid var(--color-soft);
+    font-size: 9.5pt;
+    color: var(--color-graphite);
+    margin-top: 8pt;
+    border-radius: 2pt;
+  }
+
+  ul.example-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 6pt 0 10pt;
+  }
+  ul.example-list li {
+    position: relative;
+    padding-left: 16pt;
+    margin-bottom: 5pt;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+  ul.example-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7pt;
+    width: 6pt;
+    height: 1.4pt;
+    background: var(--color-brass);
+  }
+
+  /* ─── Processing callout (where it runs) ─── */
+  .processing-callout {
+    background: #e9e6dd;
+    border-left: 3pt solid var(--color-navy);
+    padding: 9pt 14pt;
+    margin: 10pt 0;
+    border-radius: 2pt;
+    font-size: 10pt;
+    page-break-inside: avoid;
+  }
+  .processing-callout__title {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 1.6pt;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    margin-bottom: 4pt;
+  }
+  .processing-callout p { margin: 0; }
+
+  /* ─── Steps (numbered) ─── */
+  ol.steps {
+    list-style: none;
+    counter-reset: step;
+    padding-left: 0;
+    margin: 8pt 0 10pt;
+  }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 22pt;
+    margin-bottom: 5pt;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 1pt;
+    width: 16pt;
+    height: 16pt;
+    border-radius: 50%;
+    background: var(--color-navy);
+    color: var(--color-cream);
+    font-size: 8.5pt;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ─── Warning box (ChatGPT exception) ─── */
+  .warning-box {
+    background: #f4ecd9;
+    border-left: 4pt solid var(--color-brass);
+    padding: 14pt 16pt;
+    margin: 14pt 0;
+    border-radius: 2pt;
+    page-break-inside: auto;
+  }
+  .warning-box__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 8pt;
+    font-style: italic;
+  }
+  .warning-box p { margin-bottom: 7pt; }
+  .warning-box p:last-child { margin-bottom: 0; }
+
+  /* ─── Policy list (5 big numerals) ─── */
+  ol.policy-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 12pt 0;
+    counter-reset: policy;
+  }
+  ol.policy-list li {
+    counter-increment: policy;
+    position: relative;
+    padding-left: 42pt;
+    margin-bottom: 12pt;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    min-height: 32pt;
+    page-break-inside: avoid;
+  }
+  ol.policy-list li::before {
+    content: counter(policy, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: -4pt;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 28pt;
+    line-height: 1;
+    color: var(--color-brass);
+    letter-spacing: -1pt;
+  }
+
+  /* ─── FAQ grid ─── */
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6pt 14pt;
+    margin-top: 6pt;
+  }
+  .faq-item {
+    padding: 4pt 0 5pt;
+    border-top: 0.4pt solid var(--color-hairline);
+    page-break-inside: avoid;
+  }
+  .faq-item__q {
+    font-family: 'Playfair Display', serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 2pt;
+    line-height: 1.25;
+  }
+  .faq-item__a {
+    font-size: 8pt;
+    line-height: 1.4;
+    color: var(--color-graphite);
+  }
+  .faq-item__a p { margin-bottom: 3pt; }
+  .faq-item__a p:last-child { margin-bottom: 0; }
+
+  /* ─── Closing page ─── */
+  .closing {
+    justify-content: center;
+    text-align: center;
+    padding: 30mm 26mm;
+  }
+  .closing__quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 22pt;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-navy);
+    line-height: 1.3;
+    margin-bottom: 24pt;
+  }
+  .closing__cta {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    color: var(--color-graphite);
+    margin-bottom: 20pt;
+    line-height: 1.5;
+  }
+  .closing__cta strong { color: var(--color-brass); }
+  .closing__signature {
+    font-family: 'Playfair Display', serif;
+    font-size: 13pt;
+    font-style: italic;
+    color: var(--color-navy);
+    margin-top: 18pt;
+  }
+  .closing__attr {
+    font-size: 9.5pt;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-top: 6pt;
+    font-family: 'Inter', sans-serif;
+  }
+  .closing__license {
+    margin-top: 32pt;
+    padding-top: 14pt;
+    border-top: 1px solid rgba(27, 39, 51, 0.12);
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    color: var(--color-soft);
+    line-height: 1.5;
+    max-width: 360pt;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .closing__license strong {
+    color: var(--color-graphite);
+    font-weight: 600;
+  }
+
+  /* ─── Part label (used on FAQ) ─── */
+  .part-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 2.4pt;
+    text-transform: uppercase;
+    color: var(--color-brass);
+    margin-bottom: 8pt;
+  }
+
+  /* ─── Orphan / widow control ─── */
+  p, li { orphans: 3; widows: 3; }
+  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  img { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 1 — COVER
+     ══════════════════════════════════════════════════ -->
+<div class="page cover">
+  <div>
+    <span class="eyebrow">AI in Education · Practical Guide</span>
+    <h1>Apple Intelligence</h1>
+    <p class="cover__subtitle">for teachers and school leaders</p>
+    <p class="cover__lede">A pedagogically transparent guide — what stays on your device, what doesn't, and why that matters in a Swedish school context.</p>
+
+    <div class="cover__mark">
+      <span class="cover__mark-chip">Write</span>
+      <span class="cover__mark-chip">Ask</span>
+      <span class="cover__mark-chip">See</span>
+    </div>
+  </div>
+
+  <div class="cover__signature">
+    <strong>Johan Lindström</strong>
+    choosewise.education
+    <span class="cover__attr">April 2026</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 2 — CONTENTS
+     ══════════════════════════════════════════════════ -->
+<div class="page toc">
+  <span class="eyebrow">The guide</span>
+  <h2>Contents</h2>
+  <ul class="toc__list">
+    <li>
+      <span class="toc__title">Part 1 · Get started
+        <span class="toc__sub">Hardware, setup, and Private Cloud Compute</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">3</span>
+    </li>
+    <li>
+      <span class="toc__title">Part 2 · Work smarter
+        <span class="toc__sub">Six features that change the teaching week</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">9</span>
+    </li>
+    <li>
+      <span class="toc__title">Part 3 · The GDPR angle
+        <span class="toc__sub">On-device, PCC, ChatGPT — and five policy decisions</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">19</span>
+    </li>
+    <li>
+      <span class="toc__title">FAQ
+        <span class="toc__sub">Ten questions teachers ask</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">24</span>
+    </li>
+    <li>
+      <span class="toc__title">About this guide
+        <span class="toc__sub">License and attribution</span>
+      </span>
+      <span class="toc__dots">· · · · · · · · · · ·</span>
+      <span class="toc__page">25</span>
+    </li>
+  </ul>
+
+  <div class="sidenote" style="margin-top: 24pt;">
+    <p class="sidenote__title">How to read this guide</p>
+    <p>Part 1 orients you: which devices, how to turn it on, and the single most important distinction — on-device vs. Private Cloud Compute vs. ChatGPT. Part 2 is the practical walkthrough, feature by feature, with classroom examples. Part 3 is for anyone responsible for school policy: what the GDPR implications actually are, where Apple's privacy story holds up, and the one place it doesn't.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 3 — PART 1 OPENER + HARDWARE
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <header class="part-opener">
+    <div class="part-opener__number">01</div>
+    <div>
+      <p class="part-opener__eyebrow">Part 1</p>
+      <h2 class="part-opener__title">Get started</h2>
+      <p class="part-opener__lede">What runs Apple Intelligence, what it can actually do today, and — the important bit — how Apple's "on-device" claim actually works when you look closely.</p>
+    </div>
+  </header>
+
+  <h3>Which devices run Apple Intelligence</h3>
+  <p>As of April 2026, Apple Intelligence runs on a narrow slice of the Apple hardware you are likely to meet in a school. On iPad, you need an <strong>M1 chip or later</strong> — so an iPad Pro or iPad Air from 2021 onwards, or any recent iPad mini with Apple-silicon. On Mac, any machine with Apple-silicon (M1 or later) will run it. On iPhone, only the iPhone 15 Pro, iPhone 15 Pro Max, and the full iPhone 16 and 17 lines are supported. The standard iPhone 15 is not.</p>
+  <p>The practical point for Swedish schools: the iPads most commonly found in 1:1 programmes — the 9th and 10th generation standard iPads, and the older iPad Air with A-series chips — <strong>do not run Apple Intelligence</strong>. That is worth being honest about at the front of this guide. If your fleet is in that group, this material is useful for policy and planning, but not something you can hand to staff to try this afternoon.</p>
+  <p>Language support has expanded quarterly since launch. English came first; Swedish became available during 2025 alongside the other main European languages. Because Apple ships new languages and regional features on a rolling basis, verify the current state on your own device rather than trusting a document that is already a few months old. The simplest check: open <strong>Settings → Apple Intelligence &amp; Siri</strong>. If that menu item appears at all, your device is compatible and you can see which languages are currently available to you.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 4 — SETUP
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 1 · Setup</span>
+  <h3 style="margin-top: 0;">Turning it on (iPad-first)</h3>
+  <p>On a compatible iPad, the setup is short but the download is not. You toggle the feature on, and your iPad then pulls down a roughly <strong>4 GB on-device model</strong> in the background. On decent school WiFi this takes thirty to sixty minutes. The settings panel will read "Preparing" during that window; you can keep using the iPad normally while it works.</p>
+
+  <ol class="steps">
+    <li>Open <strong>Settings</strong> on your iPad.</li>
+    <li>Tap <strong>Apple Intelligence &amp; Siri</strong>.</li>
+    <li>Toggle <strong>Apple Intelligence</strong> on and confirm.</li>
+    <li>Leave the iPad connected to WiFi and power while the model downloads.</li>
+    <li>When "Preparing" disappears, Writing Tools, the new Siri, and Mail categorisation are live.</li>
+  </ol>
+
+  <p>On Mac, the path is the same under <strong>System Settings → Apple Intelligence &amp; Siri</strong>, and you need about 4 GB of free disk space. On iPhone, the path is identical to iPad with the same 4 GB footprint. You do not need to sign into anything new: Apple Intelligence runs under the Apple Account you are already using on the device.</p>
+
+  <p>One honest caveat before you proceed. The feature appears in Settings on any compatible device, but <strong>some sub-features are gated by region or by age</strong> — ChatGPT integration, for example, requires the user to be 18 or over and sits behind a separate opt-in. The guide returns to these limits in Part 3, where they matter for school policy.</p>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">A word on the Swedish context</p>
+    <p>The Swedish Data Protection Authority (IMY) has published guidance on AI tools in schools that goes beyond GDPR's general requirements. A termly review of your configuration against the latest national guidance is sensible practice; Apple ships features monthly and national rules evolve alongside them.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 5 — PCC EXPLAINER PART 1
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 1 · The big idea</span>
+  <h3 style="margin-top: 0;">Private Cloud Compute — what it actually is</h3>
+
+  <div class="explainer-box">
+    <p class="explainer-box__title">The distinction that matters</p>
+    <p>Apple talks about Apple Intelligence as an "on-device" product, and for most of what you will do in a classroom that description is accurate. But not for all of it. There are three distinct places your request can be processed, and knowing which one is in play for a given task is the difference between an informed user and one who is trusting a slogan.</p>
+
+    <p><strong>1. On-device processing.</strong> The majority of everyday Apple Intelligence operations run entirely on the iPad, Mac, or iPhone in front of you. Most Writing Tools actions — rewrite, proofread, shorten — fall here, as do basic Siri requests, Mail categorisation, and Notification summaries. Nothing leaves the device. No request, no input, no output touches Apple's servers or anyone else's. For the kind of quick parent-email rewrite a teacher does ten times a week, this is almost always what happens.</p>
+
+    <p><strong>2. Private Cloud Compute (PCC).</strong> When a request exceeds what the on-device model can handle — a long summary, a complex Writing Tools operation, Image Wand generation — the system reaches for a more capable model running on Apple-controlled servers. Apple's published architecture for PCC has several distinctive properties: the request is encrypted end-to-end from your device to a PCC node; the servers run a <strong>published, auditable software image</strong>; the server discards the request data after returning its response, a property Apple calls <em>stateless computation</em>; and Apple publishes the server binary so independent security researchers can verify that what runs in production matches what was described. The full technical whitepaper sits at <em>security.apple.com</em>.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 6 — PCC EXPLAINER PART 2
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 1 · The big idea (continued)</span>
+  <h3 style="margin-top: 0;">Three paths — a quick recap</h3>
+
+  <div class="explainer-box">
+    <p><strong>3. ChatGPT integration.</strong> This is a separate, opt-in path. When a user enables it, specific requests can be forwarded to OpenAI's servers. Apple anonymises the request in transit, but <strong>OpenAI receives the actual content of what was sent</strong>. This is a fundamentally different privacy model from the first two tiers and it deserves its own treatment; Part 3 returns to it in detail.</p>
+
+    <p>Two honest qualifications are worth stating here. First, PCC does have stronger architectural guarantees than a typical SaaS API call — the auditability story is real and it is unusual in the industry. Second, "Apple cannot inspect your request" is nevertheless a <strong>trust assertion</strong> that depends on Apple's implementation matching what they have published. The audit story is what makes that trust somewhat verifiable rather than purely reputational, but it is not the same as the data never leaving the device.</p>
+
+    <p>A useful rule of thumb: a quick rewrite of a two-sentence parent email almost certainly stays on the iPad. Asking Apple Intelligence to summarise a ten-page PDF almost certainly invokes Private Cloud Compute. Anything that touches ChatGPT is clearly signalled in the interface and requires an explicit tap.</p>
+  </div>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">The rule of thumb</p>
+    <p><strong>On-device</strong> for short and routine · <strong>PCC</strong> for heavy lifting · <strong>ChatGPT</strong> only when you tap. Part 2 tells you which path each feature uses; Part 3 tells you what that means for school policy.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 7 — WORTH KNOWING
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 1 · On the margins</span>
+  <h3 style="margin-top: 0;">Worth knowing (but outside this guide's scope)</h3>
+
+  <p>Three features get a lot of attention in Apple's marketing but sit outside the pedagogical core of this guide. Mentioning them briefly so you can answer the inevitable staffroom questions.</p>
+
+  <h4>Image Playground</h4>
+  <p>Image Playground generates images from a text description in three visual styles — Animation, Illustration, and Sketch. It runs through Private Cloud Compute. Classroom relevance is narrow; students will often explore it on their own, and its usefulness for teacher-prepared materials is modest compared to dedicated image tools.</p>
+
+  <h4>Genmoji</h4>
+  <p>Genmoji creates custom emoji from a short text description, also via PCC. Low day-to-day classroom utility, though some teachers use them as personalised stickers in feedback.</p>
+
+  <h4>Clean Up</h4>
+  <p>Clean Up in the Photos app removes unwanted objects from a photograph. This is genuinely practical for tidying classroom photos before sharing them with parents, and most Clean Up operations run on-device.</p>
+
+  <p>The privacy profile of all three is the same as the analysis above: on-device where possible, PCC where the task demands more capacity, never ChatGPT unless the user explicitly invokes it.</p>
+
+  <div class="sidenote">
+    <p class="sidenote__title">The takeaway for Part 1</p>
+    <p>Apple Intelligence is not one thing — it is a stack. On-device for most of what you do. PCC for the heavier tasks. ChatGPT, only when you say so. Keep that three-tier picture in mind as you work through Part 2, and Part 3 will land with far fewer surprises.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 8 — PART 1 CLOSE + BRIDGE
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 1 · Bridge</span>
+  <h3 style="margin-top: 0;">Before you read on</h3>
+
+  <p>Before we move into the feature-by-feature walk, a short checklist. If you can tick these boxes, Part 2 will read as practical guidance you can apply tomorrow. If you can't, come back to Part 1 first.</p>
+
+  <ol class="steps">
+    <li>You know whether the devices in your school meet the hardware bar (iPad M1 or later; iPhone 15 Pro or newer; any Apple-silicon Mac).</li>
+    <li>You have located <strong>Settings → Apple Intelligence &amp; Siri</strong> on at least one device and confirmed Swedish is available for your use case.</li>
+    <li>You can articulate, in one sentence each, what on-device, Private Cloud Compute, and the ChatGPT integration mean — and why they are not the same thing.</li>
+    <li>You understand that "on-device" is a meaningful privacy property but not a magic one: the iPad still syncs, still backs up, still participates in iCloud unless configured otherwise.</li>
+  </ol>
+
+  <p>The rest of the guide assumes that foundation. Part 2 is structured around six features. For each one, you get: a plain description of what it does, five classroom examples drawn from real teacher workflows, a "Where it runs" callout so you always know which of the three paths is in play, and a short how-to for first use. Part 3 then steps back and addresses the policy picture — the DPIA-level questions, the ChatGPT exception, and five concrete decisions for your school.</p>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">One habit worth building</p>
+    <p>Before you press the button on any Apple Intelligence action, take a half-second to ask: does this belong on-device, in PCC, or with ChatGPT? The question gets quick with practice, and it is the single best defence against accidental disclosure.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 9 — PART 2 OPENER + WRITING TOOLS
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <header class="part-opener">
+    <div class="part-opener__number">02</div>
+    <div>
+      <p class="part-opener__eyebrow">Part 2</p>
+      <h2 class="part-opener__title">Work smarter</h2>
+      <p class="part-opener__lede">Six features that change day-to-day teaching work, with practical examples from real classrooms and a clear note on where each one processes your data.</p>
+    </div>
+  </header>
+
+  <article class="feature-card">
+    <h3>1. Writing Tools</h3>
+    <p class="feature-card__what">Writing Tools is the built-in rewrite, proofread, and summarise surface that appears wherever you can edit text on iPadOS — Mail, Notes, Pages, Safari text boxes, the Classroom app's messaging panel. It is not a separate app to open; it is a menu option that appears when you select text.</p>
+
+    <h4>Classroom examples</h4>
+    <ul class="example-list">
+      <li><strong>Rewriting assessment feedback:</strong> a terse "Needs more detail" becomes warmer in two seconds via the Friendly tone option. The student reads it and actually engages with the comment instead of skimming past it.</li>
+      <li><strong>Parent email in three registers:</strong> write the draft once, then generate Professional, Friendly, and Concise variants. Pick the tone that matches the history you already have with that particular parent.</li>
+      <li><strong>Tightening a learning intention:</strong> paste a paragraph from the syllabus, request a summary, end up with one sentence students can reread between activities.</li>
+      <li><strong>Proofreading Swedish:</strong> works on Swedish text and catches common agreement errors and clumsy constructions. Not a substitute for a language teacher's eye, but useful for your own drafts before they go out.</li>
+      <li><strong>Expanding a bullet list:</strong> turn a five-bullet outline into a coherent three-paragraph email for the morning briefing without rewriting from scratch.</li>
+    </ul>
+  </article>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 10 — WRITING TOOLS CONT. + SIRI 2.0 OPENER
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Writing Tools &amp; Siri</span>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">Where it runs · Writing Tools</p>
+    <p>Short operations — rewrite, proofread, brief summarise — run on-device. Longer summaries across multi-page documents invoke Private Cloud Compute. Nothing is sent to ChatGPT unless you explicitly choose the "Compose with ChatGPT" option in the menu.</p>
+  </div>
+
+  <h4>How to start</h4>
+  <ol class="steps">
+    <li>Select any text in any editable field on your iPad.</li>
+    <li>Tap <strong>Writing Tools</strong> in the callout menu that appears above the selection.</li>
+    <li>Choose an action — Proofread, Rewrite, Friendly, Professional, Concise, Summarise, or Key Points.</li>
+    <li>First use will ask you to confirm Apple Intelligence is enabled; after that it is a two-tap operation.</li>
+  </ol>
+
+  <p class="feature-card__mac-note"><strong>On Mac:</strong> Writing Tools is available via right-click on any selected text, or from the Writing Tools icon that appears in the menu bar when text is selected in a supported app.</p>
+
+  <article class="feature-card" style="margin-top: 22pt;">
+    <h3>2. Siri 2.0</h3>
+    <p class="feature-card__what">The refreshed Siri uses on-device intelligence to hold context across requests, understand natural phrasing, and act inside apps — opening specific documents, extracting information, and scheduling follow-ups without you having to switch apps yourself.</p>
+
+    <h4>Classroom examples</h4>
+    <ul class="example-list">
+      <li><strong>Context-aware scheduling:</strong> "Move the Year 9 parent meeting to next Thursday and email the parents." Siri updates Calendar and drafts the Mail message in one step.</li>
+      <li><strong>Cross-app retrieval:</strong> "Find the lesson plan I wrote about photosynthesis last term." Pulls the Notes document without you hunting through folders or searching manually.</li>
+    </ul>
+  </article>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 11 — SIRI 2.0 CONT.
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Siri 2.0 (continued)</span>
+
+  <ul class="example-list">
+    <li><strong>Quick definitions in class:</strong> ask a technical question mid-lesson; the answer arrives without you leaving your lesson slides or breaking the flow for students.</li>
+    <li><strong>Morning briefing:</strong> "What meetings do I have today and are there any unread parent emails?" Returns both in one response, so the first five minutes of the day become a triage rather than a scramble.</li>
+    <li><strong>Confirm before destructive actions:</strong> when you ask Siri to send an email, the draft is shown first for approval. A sensible default for classroom use, where voice commands can easily be overheard by students.</li>
+  </ul>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">Where it runs · Siri 2.0</p>
+    <p>The overwhelming majority of Siri 2.0 requests run on-device. Complex queries may invoke Private Cloud Compute. The ChatGPT handoff is only triggered on an explicit prompt ("Ask ChatGPT about…") and always shows a confirmation screen before sending.</p>
+  </div>
+
+  <h4>How to start</h4>
+  <ol class="steps">
+    <li>Hold the side button on your iPad, or say "Siri" if "Hey Siri" is enabled.</li>
+    <li>Watch for the subtle light that wraps the screen edges — that visual cue indicates the updated Siri is listening.</li>
+    <li>Speak naturally; you do not have to phrase requests as commands any more.</li>
+    <li>Review the response on screen and confirm any action that sends an email, a message, or a calendar invite.</li>
+  </ol>
+
+  <p class="feature-card__mac-note"><strong>On Mac:</strong> Triggered via the menu bar icon or by pressing and holding the Globe key (the default shortcut). Same capabilities and the same on-device-first processing.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 12 — MAIL
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Mail</span>
+
+  <article class="feature-card" style="margin-top: 0;">
+    <h3>3. Mail categorisation and Priority</h3>
+    <p class="feature-card__what">Apple Mail now sorts incoming messages into four categories — Primary, Transactions, Updates, and Promotions — and surfaces time-sensitive Primary messages at the top as Priority Mail. For a teacher with a flooded inbox after a field-trip announcement, the effect is immediate.</p>
+
+    <h4>Classroom examples</h4>
+    <ul class="example-list">
+      <li><strong>Parent day fallout:</strong> after announcing a field trip, eighty parent replies arrive overnight. The Primary inbox surfaces the three that ask actual questions; the rest — confirmations, no-shows, thanks — are grouped below.</li>
+      <li><strong>Finding the email you need:</strong> a parent asks "Did you get my email?" during pickup. Priority Mail has typically pinned it at the top already, so the answer takes five seconds rather than five minutes.</li>
+      <li><strong>Conference notifications:</strong> registration confirmations and receipts from professional development land in Transactions, where you only see them when you go looking.</li>
+      <li><strong>Newsletter triage:</strong> EdTech newsletters accumulate in Promotions, not in your main attention. You can still read them; they just no longer interrupt the working day.</li>
+      <li><strong>Unreading made easy:</strong> swipe left on a Primary item to send it back to unread if it needs a reply later. The context of why you left it is preserved in the Primary category.</li>
+    </ul>
+
+    <div class="processing-callout">
+      <p class="processing-callout__title">Where it runs · Mail categorisation</p>
+      <p>Entirely on-device. Categorisation uses the on-device model on your iPad; no email content is sent to Apple servers or to anyone else. This is one of the features with the cleanest privacy profile in the entire Apple Intelligence suite.</p>
+    </div>
+
+    <h4>How to start</h4>
+    <ol class="steps">
+      <li>Open the <strong>Mail</strong> app on your iPad.</li>
+      <li>Tap the category name at the top of the inbox (it defaults to "Primary") to browse other categories.</li>
+      <li>To turn categorisation off entirely, go to <strong>Settings → Mail → Categorisation</strong> and switch to the flat-list view.</li>
+    </ol>
+  </article>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 13 — NOTIFICATIONS
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Notifications</span>
+
+  <article class="feature-card" style="margin-top: 0;">
+    <h3>4. Notification summaries</h3>
+    <p class="feature-card__what">iPadOS now groups related notifications and shows a one-line summary of each group. A pile of twenty parent messages becomes one readable line that tells you what the group is about, so you can decide whether to open it now or later.</p>
+
+    <h4>Classroom examples</h4>
+    <ul class="example-list">
+      <li><strong>Dawn catch-up:</strong> open the iPad and see "5 messages from parents about tomorrow's trip" instead of five separate lines all demanding attention at once.</li>
+      <li><strong>After-assembly sweep:</strong> a run of Teams messages from the department gets summarised as "Three updates about Year 10 assessment dates" — enough to know whether you need to read now or at lunch.</li>
+      <li><strong>Weekend boundary:</strong> Monday-morning opening reveals "12 notifications, including 2 from the head teacher" — triage becomes obvious at a glance.</li>
+      <li><strong>Group chat awareness:</strong> a long group thread about staff party logistics becomes a one-liner, so you do not have to scroll through forty messages to confirm you are not needed.</li>
+      <li><strong>What it can't do:</strong> summaries occasionally read an urgent message as routine. Apple's own guidance is clear on this point: do not rely on summaries for safeguarding-sensitive categories. Open the messages themselves when the stakes are real.</li>
+    </ul>
+
+    <div class="processing-callout">
+      <p class="processing-callout__title">Where it runs · Notification summaries</p>
+      <p>Entirely on-device. No notification content is processed off the iPad. As with Mail categorisation, this is a feature where the privacy picture is straightforward.</p>
+    </div>
+
+    <h4>How to start</h4>
+    <ol class="steps">
+      <li>Summaries are on by default for most app categories once Apple Intelligence is enabled.</li>
+      <li>To fine-tune, open <strong>Settings → Notifications → Summarise Previews</strong>.</li>
+      <li>Toggle individual apps on or off depending on whether you want their notifications summarised or kept in their raw form.</li>
+    </ol>
+
+    <p class="feature-card__mac-note"><strong>On Mac:</strong> Available but less prominent; macOS notifications are themselves a lower-visibility surface. Most teachers will feel the difference on iPad rather than on the Mac.</p>
+  </article>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 14 — NOTES / IMAGE WAND
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Notes</span>
+
+  <article class="feature-card" style="margin-top: 0;">
+    <h3>5. Notes and Image Wand</h3>
+    <p class="feature-card__what">The Notes app has gained an Image Wand that turns rough sketches or short descriptive text into polished illustrations — for handouts, whiteboard-ready diagrams, or worksheet graphics. It is the first image-generation tool to sit inside a note rather than in a separate app.</p>
+
+    <h4>Classroom examples</h4>
+    <ul class="example-list">
+      <li><strong>Whiteboard diagrams:</strong> a rough circle-and-labels sketch becomes a clean vector-style diagram you can drop straight into a Keynote slide without redrawing it.</li>
+      <li><strong>Handout illustrations:</strong> describe "a friendly robot reading a book" and Image Wand generates a classroom-appropriate illustration in seconds. Useful when you need a consistent visual style across a set of materials.</li>
+      <li><strong>Worksheet headers:</strong> generate a themed illustration for each week's worksheet pack without hunting through stock-image libraries or worrying about licences.</li>
+      <li><strong>Visual anchors for a lesson:</strong> quick, distinctive images make abstract concepts easier for students to reference during follow-up questions later in the unit.</li>
+      <li><strong>Student-shared notes:</strong> when you share a Note with a colleague or a student, Image Wand-generated visuals travel with the document. No separate image files to manage.</li>
+    </ul>
+
+    <div class="processing-callout">
+      <p class="processing-callout__title">Where it runs · Image Wand</p>
+      <p>Image Wand generation runs in Private Cloud Compute. Your sketch or description is transmitted encrypted to Apple's servers, processed, and returned; the request data is discarded after the response. See Part 3 for the full privacy picture, including what this means for school policy.</p>
+    </div>
+
+    <h4>How to start</h4>
+    <ol class="steps">
+      <li>Open <strong>Notes</strong> on your iPad and open a new or existing note.</li>
+      <li>Tap the Apple Pencil circle icon, or the Image Wand button in the toolbar.</li>
+      <li>Sketch a rough shape or type a short description of what you want.</li>
+      <li>Tap <strong>Wand</strong> to generate; pick the version you like best from the results.</li>
+    </ol>
+
+    <p class="feature-card__mac-note"><strong>On Mac:</strong> Same Notes feature; trigger it via the Image Wand menu item. Mac generation feels slightly faster in practice but uses the same Private Cloud Compute path.</p>
+  </article>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 15 — VISUAL INTELLIGENCE
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Visual Intelligence</span>
+
+  <article class="feature-card" style="margin-top: 0;">
+    <h3>6. Visual Intelligence</h3>
+    <p class="feature-card__what">Use the iPad camera — or, on newer iPhones, the Camera Control button — to point at real-world text, objects, or documents and get contextual actions. Translate, summarise, look up, identify. It is the feature that turns the camera into a research tool without you having to open a browser.</p>
+
+    <h4>Classroom examples</h4>
+    <ul class="example-list">
+      <li><strong>Textbook page translations:</strong> point at a paragraph in a Swedish geography textbook and get an English summary pitched for an EAL student in your class.</li>
+      <li><strong>Lab equipment identification:</strong> an unlabelled piece of science equipment in a shared-resources cupboard — point, get the name, and a short description of what it does.</li>
+      <li><strong>Museum-trip companion:</strong> point at an exhibition panel during a school trip and get a summary in plain language pitched for Year 6 reading level.</li>
+      <li><strong>Restaurant menu translation:</strong> staff training day abroad — useful for personal use during travel, with the same on-device mechanics as the classroom cases.</li>
+      <li><strong>What it doesn't do well:</strong> faces, student ID cards, or anything that could constitute personal data — deliberately limited. The guide recommends not pointing Visual Intelligence at anything that contains student names or images.</li>
+    </ul>
+
+    <div class="processing-callout">
+      <p class="processing-callout__title">Where it runs · Visual Intelligence</p>
+      <p>Basic recognition and translation happen on-device. Longer summarisation invokes Private Cloud Compute. If you explicitly tap "Ask ChatGPT" for a deeper explanation, that specific query is forwarded to OpenAI with a confirmation screen. Part 3 addresses the privacy implications of each path.</p>
+    </div>
+
+    <h4>How to start</h4>
+    <ol class="steps">
+      <li>On newer iPhones, hold the <strong>Camera Control</strong> button on the side of the device.</li>
+      <li>On iPad, open the <strong>Camera</strong> app and point it at recognisable content.</li>
+      <li>Look for the Visual Intelligence button that appears in the camera interface when recognisable text or an object is in frame.</li>
+      <li>Tap the button and choose an action — Summarise, Translate, Identify, or Ask.</li>
+    </ol>
+
+    <p class="feature-card__mac-note"><strong>On Mac:</strong> No direct equivalent — Visual Intelligence is a camera-first feature. Mac users get similar text-recognition through Live Text when images are imported, but the full Visual Intelligence surface is iPad and iPhone only.</p>
+  </article>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 16 — FEATURE RECAP
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Where each feature runs</span>
+  <h3 style="margin-top: 0;">At a glance</h3>
+  <p>Before Part 3 takes you into the policy picture, a compact reference. Keep this page to hand when staff ask "but where does that one actually run?" — because the answer is not always obvious from the interface.</p>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">Entirely on-device</p>
+    <p><strong>Mail categorisation · Notification summaries.</strong> These are the cleanest privacy profiles in the suite — no request content leaves the iPad.</p>
+  </div>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">On-device for routine, PCC for heavy lifting</p>
+    <p><strong>Writing Tools · Siri 2.0 · Visual Intelligence.</strong> Short rewrites, quick requests, and basic recognition stay local. Longer summaries, complex queries, and extended Visual Intelligence responses invoke Private Cloud Compute.</p>
+  </div>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">Private Cloud Compute by default</p>
+    <p><strong>Image Wand (Notes) · Image Playground · Genmoji.</strong> Generation is heavier than the on-device model handles, so these consistently reach the PCC layer.</p>
+  </div>
+
+  <div class="processing-callout" style="background: #f4ecd9; border-left-color: var(--color-brass);">
+    <p class="processing-callout__title" style="color: #8a6f2f;">ChatGPT — only on an explicit tap</p>
+    <p>Never invoked silently. Every path to ChatGPT shows a confirmation screen before sending. Can be disabled for school-managed devices at MDM level — Part 3 covers the policy case for doing so by default.</p>
+  </div>
+
+  <p>A habit worth building: when you press the button, name the path in your head. On-device, PCC, ChatGPT. Over a week, the three paths become automatic, and you never again use Apple Intelligence without knowing which one you invoked.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 17 — PART 2 CLOSE / WORKFLOWS
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Putting it together</span>
+  <h3 style="margin-top: 0;">A week in the classroom, composed</h3>
+
+  <p>Individually, each feature is modest. Composed across a working week, they change the shape of a teacher's day. The pattern worth noticing is that every feature sits in a moment where you would otherwise break flow — open a browser, dig through folders, reach for a stock-image site, triage notifications manually. Each one saves thirty seconds to five minutes; several of them save those minutes ten or twenty times a day.</p>
+
+  <p>The composition looks something like this. Open your iPad in the morning. Notification summaries tell you, in one line, what happened overnight. Mail's Priority surface puts the two parent emails that need a reply at the top. Writing Tools rewrites each reply into the register you want. Siri 2.0 finds last term's lesson plan without you scrolling through Notes. Image Wand generates a diagram for tomorrow's lesson while you're on the bus home. Visual Intelligence catches a textbook translation you needed for an EAL student in period three.</p>
+
+  <p>None of these are headline features on their own. All of them together free a measurable chunk of the week — time that, as the introduction to the whole guide says, belongs to students rather than to admin.</p>
+
+  <div class="sidenote">
+    <p class="sidenote__title">The one exception to start with</p>
+    <p>If you pick only one feature to build a habit around first, pick Writing Tools. It's the highest-frequency interaction point, it has the clearest privacy story (most operations on-device, PCC for the longer jobs, ChatGPT only on explicit request), and the quality difference over three weeks of daily use is the fastest signal you'll get that Apple Intelligence is worth your attention.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 18 — PART 2 BRIDGE TO PART 3
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 2 · Before you read Part 3</span>
+  <h3 style="margin-top: 0;">What changes when you put the manager's hat on</h3>
+
+  <p>Up to this point the guide has addressed the teacher at the classroom level: individual use, individual habit, individual rewrite of an individual parent email. That frame is where most staff will encounter Apple Intelligence first, and it is where the tool earns its daily value.</p>
+
+  <p>Part 3 steps back. It speaks to the skolchef, the rektor, the digital-lead, and the DPO — the people who have to answer the question "is this allowed?" before a feature lands on a hundred classroom iPads. It addresses three things specifically. First, what happens to personal data at each of the three processing paths, and what that means under GDPR. Second, the single place the privacy story breaks — the ChatGPT integration — and why that path deserves a separate policy decision. Third, five concrete decisions your school needs to have taken before a staff rollout, written so the digital-lead can carry them into a senior-leadership meeting on a single sheet.</p>
+
+  <p>If you are a teacher reading this for your own classroom use, Part 3 is still worth skimming. The ChatGPT section in particular will make clearer <em>why</em> "Ask ChatGPT" surfaces with a confirmation screen rather than as a silent assumption. That is a design choice Apple got right, and the pedagogical reasons for the design are best understood once you have seen the policy picture the design is solving for.</p>
+
+  <p>Part 3 is five pages. You can read it in under ten minutes. The five policy decisions at the end are the takeaway; the rest is the reasoning.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 19 — PART 3 OPENER + ON-DEVICE
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <header class="part-opener">
+    <div class="part-opener__number">03</div>
+    <div>
+      <p class="part-opener__eyebrow">Part 3</p>
+      <h2 class="part-opener__title">The GDPR angle — in practice</h2>
+      <p class="part-opener__lede">Why on-device processing matters under Swedish and EU data protection law, where Apple's privacy story holds up, and the one place it breaks.</p>
+    </div>
+  </header>
+
+  <h3>What stays on your device</h3>
+  <p>A meaningful share of Apple Intelligence runs without anything leaving the iPad or the Mac in front of you. <strong>Writing Tools</strong> operations on short text — proofreading, tone rewrites, a brief summary of a few hundred words — are handled by the on-device model. <strong>Mail categorisation</strong> and <strong>notification summaries</strong> are entirely on-device. Most everyday <strong>Siri</strong> requests stay local. <strong>Visual Intelligence</strong> performs basic recognition — text detection, common-object identification — without a round-trip to Apple's servers.</p>
+  <p>This matters under GDPR because the regulation defines <strong>processing</strong> very broadly — Article 4(2) covers almost any operation performed on personal data. But if personal data never leaves the controller's own systems (in practice, the teacher's iPad), the question of whether a third-party processor is involved narrows considerably. That does not exempt the operation from GDPR scrutiny, but it reduces the surface area of a Data Protection Impact Assessment (DPIA) in a way cloud-based AI services cannot.</p>
+  <p>That said, "on-device" is not magic. The iPad is a controller-owned device, but it still backs up to iCloud unless the backup is disabled, still syncs across other devices signed into the same Apple Account, and still participates in the broader Apple ecosystem. On-device processing reduces exposure. It does not eliminate it, and a school's policy should treat it as one mitigation among several rather than as a clean answer.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 20 — WHEN PCC IS USED
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 3 · Private Cloud Compute</span>
+  <h3 style="margin-top: 0;">When Private Cloud Compute is used</h3>
+  <p>Some requests exceed the capacity of the on-device model. Rewriting multi-paragraph text, summarising a long document, generating an image with Image Wand, complex Visual Intelligence summarisation, and the more demanding Siri queries all invoke <strong>Private Cloud Compute (PCC)</strong>. Apple's own documentation — published at security.apple.com alongside a technical whitepaper on the PCC architecture — describes the path the data takes once the device decides to hand off.</p>
+  <p>Technically, the request is encrypted end-to-end to Apple's PCC servers. Those servers run a specific software image that Apple has published for independent audit, so researchers can verify that the code running in production matches the code Apple claims to run. The computation is performed, the response is returned, and — according to Apple's stated architecture — the request data is discarded once the response is delivered. There are no persistent server-side logs of request content, and Apple engineers have no privileged back door into live requests.</p>
+  <p>Honestly framed: <strong>PCC is still a data transfer to a processor.</strong> The architectural guarantees are stronger than a typical SaaS API call — most SaaS APIs log requests and could be inspected by engineering staff — but from a GDPR perspective it is processing by Apple, and it is a transfer to Apple's infrastructure (Apple operates PCC regions in Europe, but verify current regional availability with your procurement contact before relying on it in a DPIA). It should be referenced in the school's DPIA and lined up alongside the existing Apple Data Processing Addendum.</p>
+  <p>One pragmatic sentence for your policy document: <em>PCC is probably the strongest privacy architecture any major cloud-AI provider has deployed at scale — and it still isn't the same as nothing leaving the device.</em></p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 21 — CHATGPT EXCEPTION
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 3 · The ChatGPT exception</span>
+  <h3 style="margin-top: 0;">The one place the on-device promise breaks</h3>
+
+  <div class="warning-box">
+    <p class="warning-box__title">This is where the on-device promise breaks</p>
+
+    <p>The ChatGPT handoff is triggered when a user explicitly taps <strong>Ask ChatGPT</strong> — surfaced by Writing Tools, Visual Intelligence, or Siri when the request exceeds what Apple's own models will handle. iPadOS shows a confirmation dialog first, and nothing is forwarded without the user accepting it. That consent step is real, and it is a deliberate design choice by Apple. It is also the point where the privacy architecture of the rest of Apple Intelligence stops applying.</p>
+
+    <p>What actually happens once the user accepts: the specific text or image is sent to OpenAI. Apple anonymises the request at the network and account level — OpenAI does not see the Apple Account identity — but OpenAI receives the content itself. OpenAI's own logging, retention, and training policies then govern that content, not Apple's. The protections described in the PCC whitepaper do not carry over to this path.</p>
+
+    <p>The GDPR dimension is significant. OpenAI is a US-based processor, and transfers of EU personal data to US processors require specific legal mechanisms — Standard Contractual Clauses, adequacy considerations, and the ongoing Schrems II analysis of US surveillance law. An opt-in dialog on an iPad does not substitute for the school's own legal analysis.</p>
+
+    <p>The practical recommendation is therefore blunt: <strong>disable the ChatGPT integration on school-issued iPads by default through Apple School Manager or your MDM</strong>, and train staff to recognise the "Ask ChatGPT" prompt and decline it for anything student-related. This is the single most important configuration decision for any school rolling out Apple Intelligence.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 22 — STUDENT DATA
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 3 · Student data</span>
+  <h3 style="margin-top: 0;">What this means for student data</h3>
+  <p>The working rule is simple: de-identify student data before any Apple Intelligence interaction, even when you believe the operation will run on-device. The distinction worth drawing is between <strong>teacher-work data</strong> — planning documents without student names, generalised parent emails, your own meeting notes — and <strong>student data</strong>, which includes names, grades, behavioural notes, SEN plans, safeguarding concerns, and anything that could identify a child or their family. Teacher-work data is generally fine to process on-device. Student data should be de-identified or kept out of Apple Intelligence entirely.</p>
+
+  <p>Four reasons on-device processing alone does not make student data safe:</p>
+
+  <ul class="example-list">
+    <li><strong>iCloud Backup</strong> may include the document you just processed, and from that point on the data's journey is governed by iCloud's terms rather than the on-device model's architecture.</li>
+    <li>Classroom iPads and cover-teacher devices are often <strong>shared</strong>, so material one teacher processed may be visible to another.</li>
+    <li><strong>Accidental dictation pickup</strong> during a lesson can send snippets of student discussion into a transcript you did not intend to create.</li>
+    <li>The on-device model <strong>does learn usage patterns locally</strong> — not a data breach, but something to be aware of when the same device moves between teachers or across a role change.</li>
+  </ul>
+
+  <p>A plain working heuristic for staff: if the document would be sensitive to send to a cloud service, apply the same discipline to Apple Intelligence interactions — even when you are told they run on-device. The habit is more reliable than a feature-by-feature mental model.</p>
+
+  <div class="processing-callout">
+    <p class="processing-callout__title">One sentence for staff training</p>
+    <p>De-identify first; trust the architecture second. The on-device model is a backstop, not a green light.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 23 — FIVE POLICY DECISIONS
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 3 · Policy</span>
+  <h3 style="margin-top: 0;">Five policy decisions for your school</h3>
+
+  <ol class="policy-list">
+    <li><strong>Disable "Compose with ChatGPT" by default via MDM.</strong> On school-managed iPads and Macs, use Apple School Manager or your MDM provider to set the default for the ChatGPT Extension to off. Staff can be trained to enable it deliberately for specific personal-device use cases, but the default should never be on.</li>
+
+    <li><strong>Document Apple Intelligence in your school's DPIA.</strong> Most processing is on-device, but Private Cloud Compute constitutes a data transfer to Apple and should be referenced alongside your existing Apple Data Processing Addendum. Cite Apple's published PCC architecture — the security.apple.com documentation and the PCC whitepaper — as a risk-mitigation factor, not as a replacement for your own analysis.</li>
+
+    <li><strong>Produce a one-page staff guideline on what to paste.</strong> Teacher-work content is fine; student data should be de-identified or avoided. Include three worked examples of acceptable prompts and three of prompts to avoid, with names and specifics drawn from your own school context. Pin it to your shared staff wiki and reference it in onboarding.</li>
+
+    <li><strong>Make iCloud Backup settings an onboarding topic.</strong> Staff should understand that the iPad's iCloud Backup may include documents processed by Apple Intelligence. For personal devices that also handle school work, this is legitimately a matter of per-teacher judgement — but the default should be conscious, not accidental, and the school should offer a clear recommendation.</li>
+
+    <li><strong>Build in a termly review.</strong> Apple ships Apple Intelligence features monthly; EU feature availability shifts; ChatGPT integration mechanics may evolve. A thirty-minute calendar entry each term for the digital-lead to skim Apple's release notes and update the staff guideline is enough to stop the policy drifting out of date.</li>
+  </ol>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 24 — FAQ
+     ══════════════════════════════════════════════════ -->
+<div class="page">
+  <p class="part-label">FAQ</p>
+  <h2 style="font-size: 20pt; margin-bottom: 3pt;">Questions teachers ask</h2>
+  <p class="lede" style="font-size: 10pt; margin-bottom: 6pt;">Ten of the questions that come up most often from teachers and school leaders working with Apple Intelligence in a Swedish school context.</p>
+
+  <div class="faq-grid">
+
+    <div class="faq-item">
+      <p class="faq-item__q">Does my iPad support Apple Intelligence?</p>
+      <div class="faq-item__a">
+        <p>M1 or later: iPad Pro and iPad Air from 2021, recent iPad mini. Most 1:1 fleet iPads on A-series chips do not qualify. Quick check: Settings → Apple Intelligence &amp; Siri. If the menu is there, your device is in. Rushing to upgrade is rarely the right move — most teachers gain more from Claude or Gemini in a browser than from waiting on a hardware refresh.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">Is Apple Intelligence available in Swedish?</p>
+      <div class="faq-item__a">
+        <p>Swedish rolled out during 2025. Writing Tools and Mail categorisation work on Swedish text competently. Siri 2.0's fully localised voice responses are on a separate release track and keep improving through 2026. Verify the live language matrix on Apple's support pages before planning a staff rollout.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">Should I turn on the ChatGPT integration?</p>
+      <div class="faq-item__a">
+        <p>For personal adult-only use, judgement call. For school-issued iPads with any student-facing use, disable it by default through your MDM. The reason is straightforward: the ChatGPT integration sends specific requests to OpenAI, a US-based processor — not covered by Apple's Data Processing Addendum. Start off, enable consciously.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">Can I use Apple Intelligence with student data?</p>
+      <div class="faq-item__a">
+        <p>De-identify first. Even on-device processing deserves the discipline you'd apply to a cloud service when the content involves names, grades, behavioural notes, SEN plans, or safeguarding concerns. iCloud Backup and shared devices mean material doesn't always stay where you put it. Teacher-work data is generally fine.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">How does this compare to Claude or Gemini?</p>
+      <div class="faq-item__a">
+        <p>Different tool class. Claude and Gemini are general chatbots for open-ended thinking work. Apple Intelligence is an ambient assistant built into the device: Writing Tools, Mail, Siri, Visual Intelligence. Complementary rather than competitors — most teachers use both, chatbot for the hard thinking, AI for in-context nudges.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">What about Apple Intelligence on my personal iPhone?</p>
+      <div class="faq-item__a">
+        <p>Relevant for adult productivity — parent emails on the commute, meeting prep on the bus. Not relevant for student-facing work. Your personal iPhone is generally not covered by your school's data processing agreements with Apple. Keep student data on school-issued devices with proper MDM.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">Does Apple Intelligence train on my data?</p>
+      <div class="faq-item__a">
+        <p>Apple's public stance: no training on user data from Apple Intelligence requests, whether on-device or PCC. PCC requests are stateless and discarded. ChatGPT integration is different — OpenAI's own training and retention policies apply to that opt-in subset, and they evolve. Apple = no training. ChatGPT = depends on plan.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">Is it covered by our existing data processor agreement with Apple?</p>
+      <div class="faq-item__a">
+        <p>Verify with your DPO and procurement. Apple's DPA for Education generally covers on-device and PCC processing. The ChatGPT integration is a separate relationship between user and OpenAI and requires its own analysis. Your DPIA should explicitly address the ChatGPT path as a distinct risk.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">Can I turn off specific features while keeping Writing Tools?</p>
+      <div class="faq-item__a">
+        <p>Yes. Mail categorisation lives under Settings → Mail → Categorisation. Notification summaries under Settings → Notifications → Summarise Previews. ChatGPT Extension has its own setting under Siri &amp; Apple Intelligence. Sensible rollout default: master on, Writing Tools on, Mail categorisation off, ChatGPT off.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-item__q">Where do I get help if something goes wrong?</p>
+      <div class="faq-item__a">
+        <p>Apple's own documentation at <em>support.apple.com/apple-intelligence</em>; the technical privacy architecture at <em>security.apple.com</em>. For school-specific questions — policy, DPIA, rolling out across a staffroom — reach out via <em>choosewise.education</em>. For MDM-specific configuration, your device provider (Jamf, Mosyle, Intune, ASM) has Apple Intelligence documentation and profile options.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 25 — CLOSING + LICENSE
+     ══════════════════════════════════════════════════ -->
+<div class="page closing">
+  <p class="closing__quote">"The honest answer to 'Is it private?' is 'Mostly — here's when it isn't.'"</p>
+
+  <p class="closing__cta">For the latest version of this guide, the web edition, and the companion Quick Start, visit<br>
+  <strong>choosewise.education/guides/apple-intelligence</strong></p>
+
+  <p class="closing__signature">— Johan Lindström, April 2026</p>
+  <p class="closing__attr">choosewise.education</p>
+
+  <p class="closing__license">
+    <strong>This work is licensed under CC BY-NC-SA 4.0.</strong><br>
+    You may copy, share, and adapt this material for non-commercial purposes, provided you credit Johan Lindström and share any adaptations under the same license.<br>
+    creativecommons.org/licenses/by-nc-sa/4.0
+  </p>
+</div>
+
+</body>
+</html>
