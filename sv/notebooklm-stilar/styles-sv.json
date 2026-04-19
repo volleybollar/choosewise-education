@@ -3,6 +3,7 @@
     "id": "style-1",
     "title": "Stil 1",
     "category": "",
+    "description": "För briefer till ämneslag och huvudman som ska läsas som en reportage-artikel.",
     "image": "/assets/notebooklm-images/style-001.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-001-400w.webp 400w",
@@ -16,6 +17,7 @@
     "id": "style-2",
     "title": "Stil 2",
     "category": "",
+    "description": "För nyhets-krokar i inledningen av en lektion om källkritik eller digital medvetenhet.",
     "image": "/assets/notebooklm-images/style-002.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-002-400w.webp 400w",
@@ -29,6 +31,7 @@
     "id": "style-3",
     "title": "Stil 3",
     "category": "",
+    "description": "För lektioner i samhällskunskap och modern historia där en laddad karta sätter scenen.",
     "image": "/assets/notebooklm-images/style-003.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-003-400w.webp 400w",
@@ -42,6 +45,7 @@
     "id": "style-4",
     "title": "Stil 4",
     "category": "",
+    "description": "För introduktionsbriefer och välkomsthandouts som känns vänliga men ändå professionella.",
     "image": "/assets/notebooklm-images/style-004.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-004-400w.webp 400w",
@@ -55,6 +59,7 @@
     "id": "style-5",
     "title": "Stil 5",
     "category": "",
+    "description": "För case-studies och kompetensutvecklingsmaterial som känns förankrade i en riktig skola.",
     "image": "/assets/notebooklm-images/style-005.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-005-400w.webp 400w",
@@ -68,6 +73,7 @@
     "id": "style-6",
     "title": "Stil 6",
     "category": "",
+    "description": "För meddelanden, elev-belöningskort och energifyllda korridorsanslag som elever faktiskt stannar till vid.",
     "image": "/assets/notebooklm-images/style-006.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-006-400w.webp 400w",
@@ -81,6 +87,7 @@
     "id": "style-7",
     "title": "Stil 7",
     "category": "",
+    "description": "För långa förklaringar där ett finans-mörkt tema håller ett tätt ämne läsbart.",
     "image": "/assets/notebooklm-images/style-007.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-007-400w.webp 400w",
@@ -94,6 +101,7 @@
     "id": "style-8",
     "title": "Stil 8",
     "category": "",
+    "description": "För gymnasiearbeten i teknik eller innovation som presenteras med produkt-keynote-finish.",
     "image": "/assets/notebooklm-images/style-008.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-008-400w.webp 400w",
@@ -107,6 +115,7 @@
     "id": "style-9",
     "title": "Stil 9",
     "category": "",
+    "description": "För edtech-lanseringar och AI-verktygsintroduktioner som ska kännas premium för äldre elever.",
     "image": "/assets/notebooklm-images/style-009.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-009-400w.webp 400w",
@@ -120,6 +129,7 @@
     "id": "style-10",
     "title": "Stil 10",
     "category": "",
+    "description": "För gymnasie- och kompetensutvecklingsslides om analys, data eller digital struktur.",
     "image": "/assets/notebooklm-images/style-010.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-010-400w.webp 400w",
@@ -133,6 +143,7 @@
     "id": "style-11",
     "title": "Stil 11",
     "category": "",
+    "description": "För mobilanpassade sociala inlägg från skolan — Instagram stories eller nyhetsbrevskort.",
     "image": "/assets/notebooklm-images/style-011.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-011-400w.webp 400w",
@@ -146,6 +157,7 @@
     "id": "style-12",
     "title": "Stil 12",
     "category": "",
+    "description": "För utställnings-inspirerade en-sidor om ett tema — språk, konst, musik eller kultur.",
     "image": "/assets/notebooklm-images/style-012.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-012-400w.webp 400w",
@@ -159,6 +171,7 @@
     "id": "style-13",
     "title": "Stil 13",
     "category": "",
+    "description": "För NO-lektioner i fysik eller kemi där en enda glödande modell håller ihop förklaringen.",
     "image": "/assets/notebooklm-images/style-013.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-013-400w.webp 400w",
@@ -172,6 +185,7 @@
     "id": "style-14",
     "title": "Stil 14",
     "category": "",
+    "description": "För korta data-dashboard-förklaringar och lägesrapporter till ledningsgruppen eller IT-pedagogen.",
     "image": "/assets/notebooklm-images/style-014.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-014-400w.webp 400w",
@@ -185,6 +199,7 @@
     "id": "style-15",
     "title": "Stil 15",
     "category": "",
+    "description": "För briefer om cybersäkerhet, GDPR eller AI Act riktade till rektorer och IT-ansvariga.",
     "image": "/assets/notebooklm-images/style-015.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-015-400w.webp 400w",
@@ -198,6 +213,7 @@
     "id": "style-16",
     "title": "Stil 16",
     "category": "",
+    "description": "För projektintroduktioner på låg- och mellanstadiet och läsuppdragshandouts eleverna faktiskt vill spara.",
     "image": "/assets/notebooklm-images/style-016.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-016-400w.webp 400w",
@@ -211,6 +227,7 @@
     "id": "style-17",
     "title": "Stil 17",
     "category": "",
+    "description": "För språklektioner som kopplar ihop ordförråd med en liten manga-berättelse.",
     "image": "/assets/notebooklm-images/style-017.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-017-400w.webp 400w",
@@ -224,6 +241,7 @@
     "id": "style-18",
     "title": "Stil 18",
     "category": "",
+    "description": "För dramatiska ögonblick i idrott, historia eller litteratur där en modig serieruta bär scenen.",
     "image": "/assets/notebooklm-images/style-018.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-018-400w.webp 400w",
@@ -237,6 +255,7 @@
     "id": "style-19",
     "title": "Stil 19",
     "category": "",
+    "description": "För satiriska källkritikslektioner som behöver en retro-seriomslags-känsla.",
     "image": "/assets/notebooklm-images/style-019.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-019-400w.webp 400w",
@@ -250,6 +269,7 @@
     "id": "style-20",
     "title": "Stil 20",
     "category": "",
+    "description": "För mellanstadie-berättande byggt kring klassiska action-serierutor.",
     "image": "/assets/notebooklm-images/style-020.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-020-400w.webp 400w",
@@ -263,6 +283,7 @@
     "id": "style-21",
     "title": "Stil 21",
     "category": "",
+    "description": "För högkontrast-klassrumsaffischer som ska skrika ut ett enda tydligt budskap.",
     "image": "/assets/notebooklm-images/style-021.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-021-400w.webp 400w",
@@ -276,6 +297,7 @@
     "id": "style-22",
     "title": "Stil 22",
     "category": "",
+    "description": "För film- och dramalektioner inspirerade av retro-sekventiellt berättande.",
     "image": "/assets/notebooklm-images/style-022.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-022-400w.webp 400w",
@@ -289,6 +311,7 @@
     "id": "style-23",
     "title": "Stil 23",
     "category": "",
+    "description": "För manga-intresserade mellanstadieelever när ett tungt ämne behöver en chibi-berättare.",
     "image": "/assets/notebooklm-images/style-023.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-023-400w.webp 400w",
@@ -302,6 +325,7 @@
     "id": "style-24",
     "title": "Stil 24",
     "category": "",
+    "description": "För datalogi-lektioner och maker-klubbaffischer med nostalgisk arkadkänsla.",
     "image": "/assets/notebooklm-images/style-024.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-024-400w.webp 400w",
@@ -315,6 +339,7 @@
     "id": "style-25",
     "title": "Stil 25",
     "category": "",
+    "description": "För sida-vid-sida-verktygsjämförelser och strukturerade beslutsunderlag till kollegor.",
     "image": "/assets/notebooklm-images/style-025.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-025-400w.webp 400w",
@@ -328,6 +353,7 @@
     "id": "style-26",
     "title": "Stil 26",
     "category": "",
+    "description": "För NO-förklaringar på mellanstadiet där fenomenet ligger tydligt i centrum.",
     "image": "/assets/notebooklm-images/style-026.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-026-400w.webp 400w",
@@ -341,6 +367,7 @@
     "id": "style-27",
     "title": "Stil 27",
     "category": "",
+    "description": "För biologi- och hälsolektioner som vinner på en ren, klinisk diagnostisk stil.",
     "image": "/assets/notebooklm-images/style-027.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-027-400w.webp 400w",
@@ -354,6 +381,7 @@
     "id": "style-28",
     "title": "Stil 28",
     "category": "",
+    "description": "För bokcirkel-handouts och litteraturarbeten med värdig vintage-läroboks-finish.",
     "image": "/assets/notebooklm-images/style-028.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-028-400w.webp 400w",
@@ -367,6 +395,7 @@
     "id": "style-29",
     "title": "Stil 29",
     "category": "",
+    "description": "För utflykter, utomhuspedagogik-guider och naturstudiepaket med nationalpark-charm.",
     "image": "/assets/notebooklm-images/style-029.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-029-400w.webp 400w",
@@ -380,6 +409,7 @@
     "id": "style-30",
     "title": "Stil 30",
     "category": "",
+    "description": "För lektioner om växande tänkesätt, vanor eller övergångar som före-och-efter-berättelse.",
     "image": "/assets/notebooklm-images/style-030.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-030-400w.webp 400w",
@@ -393,6 +423,7 @@
     "id": "style-31",
     "title": "Stil 31",
     "category": "",
+    "description": "För edtech-tutorials och digitala färdighetslektioner där multimodala steg behöver neon-flöde.",
     "image": "/assets/notebooklm-images/style-031.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-031-400w.webp 400w",
@@ -406,6 +437,7 @@
     "id": "style-32",
     "title": "Stil 32",
     "category": "",
+    "description": "För lärar-coach-videor, AI-verktygsintroduktioner och polerade verktygspresentationer på storbildsskärm.",
     "image": "/assets/notebooklm-images/style-032.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-032-400w.webp 400w",
@@ -419,6 +451,7 @@
     "id": "style-33",
     "title": "Stil 33",
     "category": "",
+    "description": "För debattlektionsinledningar som delar en fråga i hoppfull och varnande halva.",
     "image": "/assets/notebooklm-images/style-033.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-033-400w.webp 400w",
@@ -432,6 +465,7 @@
     "id": "style-34",
     "title": "Stil 34",
     "category": "",
+    "description": "För designtänkande-handouts och redaktionella reflektionsuppgifter till gymnasieelever.",
     "image": "/assets/notebooklm-images/style-034.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-034-400w.webp 400w",
@@ -445,6 +479,7 @@
     "id": "style-35",
     "title": "Stil 35",
     "category": "",
+    "description": "För skandinaviskt rena jämförelsebriefer till föräldramöten eller arbetslagsträffar.",
     "image": "/assets/notebooklm-images/style-035.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-035-400w.webp 400w",
@@ -458,6 +493,7 @@
     "id": "style-36",
     "title": "Stil 36",
     "category": "",
+    "description": "För hub-och-eker-handouts om trender, roller eller värderingar — magasin-rena.",
     "image": "/assets/notebooklm-images/style-036.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-036-400w.webp 400w",
@@ -471,6 +507,7 @@
     "id": "style-37",
     "title": "Stil 37",
     "category": "",
+    "description": "För klimat- och geologi-uppslag som eleverna faktiskt vill läsa en gång till.",
     "image": "/assets/notebooklm-images/style-037.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-037-400w.webp 400w",
@@ -484,6 +521,7 @@
     "id": "style-38",
     "title": "Stil 38",
     "category": "",
+    "description": "För edtech- och AI-i-skolan-introduktioner riktade till blandade personalgrupper.",
     "image": "/assets/notebooklm-images/style-038.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-038-400w.webp 400w",
@@ -497,6 +535,7 @@
     "id": "style-39",
     "title": "Stil 39",
     "category": "",
+    "description": "För djärva NO-reportagehandouts med en stark svart banner-ingång som i ett magasin.",
     "image": "/assets/notebooklm-images/style-039.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-039-400w.webp 400w",
@@ -510,6 +549,7 @@
     "id": "style-40",
     "title": "Stil 40",
     "category": "",
+    "description": "För reflektionsdagböcker och filosofilektioner med varm lo-fi-tryckt känsla.",
     "image": "/assets/notebooklm-images/style-040.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-040-400w.webp 400w",
@@ -523,6 +563,7 @@
     "id": "style-41",
     "title": "Stil 41",
     "category": "",
+    "description": "För begreppskarta-handouts och repetitionssammanfattningar som gynnas av lugn teknisk struktur.",
     "image": "/assets/notebooklm-images/style-041.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-041-400w.webp 400w",
@@ -536,6 +577,7 @@
     "id": "style-42",
     "title": "Stil 42",
     "category": "",
+    "description": "För lärandesresa-handouts där en slingrande stig leder eleverna genom stegen.",
     "image": "/assets/notebooklm-images/style-042.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-042-400w.webp 400w",
@@ -549,6 +591,7 @@
     "id": "style-43",
     "title": "Stil 43",
     "category": "",
+    "description": "För klassrumsteknik-briefer och digitala verktygsrullouts med lugn SaaS-struktur.",
     "image": "/assets/notebooklm-images/style-043.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-043-400w.webp 400w",
@@ -562,6 +605,7 @@
     "id": "style-44",
     "title": "Stil 44",
     "category": "",
+    "description": "För tre-alternativs-briefer — verktygsval, rutiner eller lektionsmodeller — i översikt.",
     "image": "/assets/notebooklm-images/style-044.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-044-400w.webp 400w",
@@ -575,6 +619,7 @@
     "id": "style-45",
     "title": "Stil 45",
     "category": "",
+    "description": "För 2x2-jämförelsehandouts som ramar in alternativ på ett personalmöte.",
     "image": "/assets/notebooklm-images/style-045.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-045-400w.webp 400w",
@@ -588,6 +633,7 @@
     "id": "style-46",
     "title": "Stil 46",
     "category": "",
+    "description": "För lugna, organiserade handouts — verktygsjämförelser, material-listor och rutiner i översikt.",
     "image": "/assets/notebooklm-images/style-046.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-046-400w.webp 400w",
@@ -601,6 +647,7 @@
     "id": "style-47",
     "title": "Stil 47",
     "category": "",
+    "description": "För myt-mot-verklighet-handouts i källkritik, AI eller digital hälsa.",
     "image": "/assets/notebooklm-images/style-047.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-047-400w.webp 400w",
@@ -614,6 +661,7 @@
     "id": "style-48",
     "title": "Stil 48",
     "category": "",
+    "description": "För tydliga introduktionsflöden — nya rutiner, digitala plattformar eller läsårsstartsguider.",
     "image": "/assets/notebooklm-images/style-048.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-048-400w.webp 400w",
@@ -627,6 +675,7 @@
     "id": "style-49",
     "title": "Stil 49",
     "category": "",
+    "description": "För databriefer till rektor där ett tekniskt isometriskt diagram bär argumentet.",
     "image": "/assets/notebooklm-images/style-049.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-049-400w.webp 400w",
@@ -640,6 +689,7 @@
     "id": "style-50",
     "title": "Stil 50",
     "category": "",
+    "description": "För Bauhaus-inspirerade bild-, design- eller matematiklektioner byggda på grundformer.",
     "image": "/assets/notebooklm-images/style-050.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-050-400w.webp 400w",
@@ -653,6 +703,7 @@
     "id": "style-51",
     "title": "Stil 51",
     "category": "",
+    "description": "För reseprojekt, språk och global medvetenhet med en pass-inspirerad texturerad känsla.",
     "image": "/assets/notebooklm-images/style-051.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-051-400w.webp 400w",
@@ -666,6 +717,7 @@
     "id": "style-52",
     "title": "Stil 52",
     "category": "",
+    "description": "För NO- och idrottsarbeten där en enda dramatisk bild ska bära hela lektionen.",
     "image": "/assets/notebooklm-images/style-052.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-052-400w.webp 400w",
@@ -679,6 +731,7 @@
     "id": "style-53",
     "title": "Stil 53",
     "category": "",
+    "description": "För ekologi- och biologiaffischer med naturdokumentärens broadcast-känsla.",
     "image": "/assets/notebooklm-images/style-053.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-053-400w.webp 400w",
@@ -692,6 +745,7 @@
     "id": "style-54",
     "title": "Stil 54",
     "category": "",
+    "description": "För ambitiösa NO-uppslag som parar en målad scen med tät data på motstående sida.",
     "image": "/assets/notebooklm-images/style-054.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-054-400w.webp 400w",
@@ -705,6 +759,7 @@
     "id": "style-55",
     "title": "Stil 55",
     "category": "",
+    "description": "För psykologi-, hälso- eller neurovetenskapslektioner byggda kring ett reflekterande porträtt.",
     "image": "/assets/notebooklm-images/style-055.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-055-400w.webp 400w",
@@ -718,6 +773,7 @@
     "id": "style-56",
     "title": "Stil 56",
     "category": "",
+    "description": "För marinbiologi- och anatomiförklaringar som behöver tyst redaktionellt djup.",
     "image": "/assets/notebooklm-images/style-056.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-056-400w.webp 400w",
@@ -731,6 +787,7 @@
     "id": "style-57",
     "title": "Stil 57",
     "category": "",
+    "description": "För akvarell-naturstudier där annoteringar hänger på ett enda vackert motiv.",
     "image": "/assets/notebooklm-images/style-057.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-057-400w.webp 400w",
@@ -744,6 +801,7 @@
     "id": "style-58",
     "title": "Stil 58",
     "category": "",
+    "description": "För geografiarbeten som väver ihop karta, diagram och 3D-rendering till ett sammanhängande uppslag.",
     "image": "/assets/notebooklm-images/style-058.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-058-400w.webp 400w",
@@ -757,6 +815,7 @@
     "id": "style-59",
     "title": "Stil 59",
     "category": "",
+    "description": "För litteratur- och historieuppslag där ett porträtt-rubrik sätter tonen.",
     "image": "/assets/notebooklm-images/style-059.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-059-400w.webp 400w",
@@ -770,6 +829,7 @@
     "id": "style-60",
     "title": "Stil 60",
     "category": "",
+    "description": "För biologi- och zoologilektioner där djuret är sidans hjälte.",
     "image": "/assets/notebooklm-images/style-060.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-060-400w.webp 400w",
@@ -783,6 +843,7 @@
     "id": "style-61",
     "title": "Stil 61",
     "category": "",
+    "description": "För hav- och ekosystemlektioner berättade som ett målat panorama med vetenskapliga bildtexter.",
     "image": "/assets/notebooklm-images/style-061.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-061-400w.webp 400w",
@@ -796,6 +857,7 @@
     "id": "style-62",
     "title": "Stil 62",
     "category": "",
+    "description": "För klimatförändringsförklaringar byggda kring en enda fotorealistisk geologi-snitt.",
     "image": "/assets/notebooklm-images/style-062.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-062-400w.webp 400w",
@@ -809,6 +871,7 @@
     "id": "style-63",
     "title": "Stil 63",
     "category": "",
+    "description": "För samhällsorienterade briefer där en heatmap över Europa berättar hela historien.",
     "image": "/assets/notebooklm-images/style-063.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-063-400w.webp 400w",
@@ -822,6 +885,7 @@
     "id": "style-64",
     "title": "Stil 64",
     "category": "",
+    "description": "För klassiska griffeltavel-sammanfattningar när en lektion ska kännas gammaldags pedagogisk.",
     "image": "/assets/notebooklm-images/style-064.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-064-400w.webp 400w",
@@ -835,6 +899,7 @@
     "id": "style-65",
     "title": "Stil 65",
     "category": "",
+    "description": "För varma klassrumssammanfattningar som ändå känns som något en lärare ritat för hand.",
     "image": "/assets/notebooklm-images/style-065.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-065-400w.webp 400w",
@@ -848,6 +913,7 @@
     "id": "style-66",
     "title": "Stil 66",
     "category": "",
+    "description": "För studietekniklektioner och journalingsuppgifter modellerade på en perfekt flat-lay-anteckningsbok.",
     "image": "/assets/notebooklm-images/style-066.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-066-400w.webp 400w",
@@ -861,6 +927,7 @@
     "id": "style-67",
     "title": "Stil 67",
     "category": "",
+    "description": "För workshop-sammanfattningar, projekt-kickoff-tavlor och facilitator-handouts med handritad energi.",
     "image": "/assets/notebooklm-images/style-067.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-067-400w.webp 400w",
@@ -874,6 +941,7 @@
     "id": "style-68",
     "title": "Stil 68",
     "category": "",
+    "description": "För matematik- och NO-genomgångar som härmar en fotograferad universitets-whiteboard.",
     "image": "/assets/notebooklm-images/style-068.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-068-400w.webp 400w",
@@ -887,6 +955,7 @@
     "id": "style-69",
     "title": "Stil 69",
     "category": "",
+    "description": "För matematik-steg-för-steg-genomgångar som känns precis som läraren skrivit på tavlan.",
     "image": "/assets/notebooklm-images/style-069.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-069-400w.webp 400w",
@@ -900,6 +969,7 @@
     "id": "style-70",
     "title": "Stil 70",
     "category": "",
+    "description": "För lågstadie-litteratur och fantasiprojekt med en mjuk Ghibli-inspirerad hand.",
     "image": "/assets/notebooklm-images/style-070.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-070-400w.webp 400w",
@@ -913,6 +983,7 @@
     "id": "style-71",
     "title": "Stil 71",
     "category": "",
+    "description": "För lektioner om social-emotionellt lärande där en doodle-maskot bär budskapet.",
     "image": "/assets/notebooklm-images/style-071.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-071-400w.webp 400w",
@@ -926,6 +997,7 @@
     "id": "style-72",
     "title": "Stil 72",
     "category": "",
+    "description": "För kreativt skrivande och sagoboksprojekt inspirerade av Ghiblis akvarellvärme.",
     "image": "/assets/notebooklm-images/style-072.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-072-400w.webp 400w",
@@ -939,6 +1011,7 @@
     "id": "style-73",
     "title": "Stil 73",
     "category": "",
+    "description": "För STEM-handouts byggda på ritningspapper med knivskarpa ingenjörs-kort.",
     "image": "/assets/notebooklm-images/style-073.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-073-400w.webp 400w",
@@ -952,6 +1025,7 @@
     "id": "style-74",
     "title": "Stil 74",
     "category": "",
+    "description": "För gymnasie-tekniska förklaringar där tre rena paneler visar orsak och verkan.",
     "image": "/assets/notebooklm-images/style-074.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-074-400w.webp 400w",
@@ -965,6 +1039,7 @@
     "id": "style-75",
     "title": "Stil 75",
     "category": "",
+    "description": "För handouts i tekniska ämnen presenterade som rena arkitektoniska linjeritningar.",
     "image": "/assets/notebooklm-images/style-075.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-075-400w.webp 400w",
@@ -978,6 +1053,7 @@
     "id": "style-76",
     "title": "Stil 76",
     "category": "",
+    "description": "För förskole- och lågstadielektioner som behöver värmen av en stop-motion-lerfigurvärld.",
     "image": "/assets/notebooklm-images/style-076.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-076-400w.webp 400w",
@@ -991,6 +1067,7 @@
     "id": "style-77",
     "title": "Stil 77",
     "category": "",
+    "description": "För stads- och geografiprojekt med en miniatyr-tilt-shift-diorama-känsla.",
     "image": "/assets/notebooklm-images/style-077.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-077-400w.webp 400w",
@@ -1004,6 +1081,7 @@
     "id": "style-78",
     "title": "Stil 78",
     "category": "",
+    "description": "För pastellfärgade affirmationsaffischer och lågstadie-välmående-anslag.",
     "image": "/assets/notebooklm-images/style-078.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-078-400w.webp 400w",
@@ -1017,6 +1095,7 @@
     "id": "style-79",
     "title": "Stil 79",
     "category": "",
+    "description": "För studieteknik- och anteckningslektioner i stil av en välanvänd personlig anteckningsbok.",
     "image": "/assets/notebooklm-images/style-079.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-079-400w.webp 400w",
@@ -1030,6 +1109,7 @@
     "id": "style-80",
     "title": "Stil 80",
     "category": "",
+    "description": "För hem- och konsumentkunskap, kemi eller processlektioner berättade i sex varma recept-steg.",
     "image": "/assets/notebooklm-images/style-080.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-080-400w.webp 400w",
@@ -1043,6 +1123,7 @@
     "id": "style-81",
     "title": "Stil 81",
     "category": "",
+    "description": "För policybriefer och samhällskunskapslektioner där en akvarellkarta ankrar diskussionen.",
     "image": "/assets/notebooklm-images/style-081.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-081-400w.webp 400w",
@@ -1056,6 +1137,7 @@
     "id": "style-82",
     "title": "Stil 82",
     "category": "",
+    "description": "För symmetriska designteori- eller filosofihandouts med en meditativ mittpunkt.",
     "image": "/assets/notebooklm-images/style-082.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-082-400w.webp 400w",
@@ -1069,6 +1151,7 @@
     "id": "style-83",
     "title": "Stil 83",
     "category": "",
+    "description": "För mid-century-retroaffischer — läsveckor, bespisningsteman eller vintagehistoriearbeten.",
     "image": "/assets/notebooklm-images/style-083.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-083-400w.webp 400w",
@@ -1082,6 +1165,7 @@
     "id": "style-84",
     "title": "Stil 84",
     "category": "",
+    "description": "För strategibriefer som ställer gamla och nya arbetssätt i skolan mot varandra.",
     "image": "/assets/notebooklm-images/style-084.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-084-400w.webp 400w",
@@ -1095,6 +1179,7 @@
     "id": "style-85",
     "title": "Stil 85",
     "category": "",
+    "description": "För historietidslinjer där fyra målade epok-scener bär lektionen.",
     "image": "/assets/notebooklm-images/style-085.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-085-400w.webp 400w",
@@ -1108,6 +1193,7 @@
     "id": "style-86",
     "title": "Stil 86",
     "category": "",
+    "description": "För fantasy-litteratur och rollspelsinspirerade läsuppdrag på en handmålad äventyrskarta.",
     "image": "/assets/notebooklm-images/style-086.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-086-400w.webp 400w",
@@ -1121,6 +1207,7 @@
     "id": "style-87",
     "title": "Stil 87",
     "category": "",
+    "description": "För lärandesresa-affischer som leder eleverna steg-för-steg genom en läsårstermin.",
     "image": "/assets/notebooklm-images/style-087.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-087-400w.webp 400w",
@@ -1134,6 +1221,7 @@
     "id": "style-88",
     "title": "Stil 88",
     "category": "",
+    "description": "För studie- och yrkesvägledning berättad som en svävande pastellfärgad fantasikarta.",
     "image": "/assets/notebooklm-images/style-088.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-088-400w.webp 400w",
@@ -1147,6 +1235,7 @@
     "id": "style-89",
     "title": "Stil 89",
     "category": "",
+    "description": "För spelifierade introduktioner och studiestarter med isometrisk spel-brädes-charm.",
     "image": "/assets/notebooklm-images/style-089.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-089-400w.webp 400w",
@@ -1160,6 +1249,7 @@
     "id": "style-90",
     "title": "Stil 90",
     "category": "",
+    "description": "För geografi- eller geovetenskapshandouts byggda kring en glob och sammankopplade bubbel-paneler.",
     "image": "/assets/notebooklm-images/style-090.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-090-400w.webp 400w",
@@ -1173,6 +1263,7 @@
     "id": "style-91",
     "title": "Stil 91",
     "category": "",
+    "description": "För lågstadie-matte-klassrumsaffischer med kawaii-sagoboksvärme.",
     "image": "/assets/notebooklm-images/style-091.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-091-400w.webp 400w",
@@ -1186,6 +1277,7 @@
     "id": "style-92",
     "title": "Stil 92",
     "category": "",
+    "description": "För romantikens litteratur- och konsthistoriehandouts med Mucha-inspirerad elegans.",
     "image": "/assets/notebooklm-images/style-092.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-092-400w.webp 400w",
@@ -1199,6 +1291,7 @@
     "id": "style-93",
     "title": "Stil 93",
     "category": "",
+    "description": "För vintageskolaffischer om grammatik, natur eller klassiska faktakunskaper.",
     "image": "/assets/notebooklm-images/style-093.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-093-400w.webp 400w",
@@ -1212,6 +1305,7 @@
     "id": "style-94",
     "title": "Stil 94",
     "category": "",
+    "description": "För slöjd-, hantverks- eller tekniklektioner med broderad-denim-verkstads-finish.",
     "image": "/assets/notebooklm-images/style-094.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-094-400w.webp 400w",
@@ -1225,6 +1319,7 @@
     "id": "style-95",
     "title": "Stil 95",
     "category": "",
+    "description": "För rese-liknande handouts som delar en lång process i fyra namngivna etapper.",
     "image": "/assets/notebooklm-images/style-095.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-095-400w.webp 400w",
@@ -1238,6 +1333,7 @@
     "id": "style-96",
     "title": "Stil 96",
     "category": "",
+    "description": "För workshop-färdplaner och projektplans-sketchnotes som känns facilitator-gjorda.",
     "image": "/assets/notebooklm-images/style-096.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-096-400w.webp 400w",
@@ -1251,6 +1347,7 @@
     "id": "style-97",
     "title": "Stil 97",
     "category": "",
+    "description": "För klassisk litteratur, mytologi eller poesiprojekt i stil av en målad berättelseatlas.",
     "image": "/assets/notebooklm-images/style-097.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-097-400w.webp 400w",
@@ -1264,6 +1361,7 @@
     "id": "style-98",
     "title": "Stil 98",
     "category": "",
+    "description": "För lektioner om upptäcktsresor, handelsvägar eller migration på en antik väggkarta.",
     "image": "/assets/notebooklm-images/style-098.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-098-400w.webp 400w",
@@ -1277,6 +1375,7 @@
     "id": "style-99",
     "title": "Stil 99",
     "category": "",
+    "description": "För jugend-konsthistoria och salongspoesi-handouts med aristokratisk finish.",
     "image": "/assets/notebooklm-images/style-099.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-099-400w.webp 400w",
@@ -1290,6 +1389,7 @@
     "id": "style-100",
     "title": "Stil 100",
     "category": "",
+    "description": "För lektioner om myter och uppfinningar där teknisk precision möter allegoriskt berättande.",
     "image": "/assets/notebooklm-images/style-100.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-100-400w.webp 400w",
@@ -1303,6 +1403,7 @@
     "id": "style-101",
     "title": "Stil 101",
     "category": "",
+    "description": "För museiliknande temautställningar — arter, artefakter eller historiska figurer i nischer.",
     "image": "/assets/notebooklm-images/style-101.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-101-400w.webp 400w",
@@ -1316,6 +1417,7 @@
     "id": "style-102",
     "title": "Stil 102",
     "category": "",
+    "description": "För renässans-uppfinningshistoriehandouts med nostalgisk uppfinnar-anteckningsbok-känsla.",
     "image": "/assets/notebooklm-images/style-102.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-102-400w.webp 400w",
@@ -1329,6 +1431,7 @@
     "id": "style-103",
     "title": "Stil 103",
     "category": "",
+    "description": "För historie- och mytologilektioner som kräver en dramatisk svart-och-guld-scen.",
     "image": "/assets/notebooklm-images/style-103.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-103-400w.webp 400w",
@@ -1342,6 +1445,7 @@
     "id": "style-104",
     "title": "Stil 104",
     "category": "",
+    "description": "För lanseringsaffischer, läsveckor och tematiska evenemang med taktil lager-papper-glans.",
     "image": "/assets/notebooklm-images/style-104.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-104-400w.webp 400w",
@@ -1355,6 +1459,7 @@
     "id": "style-105",
     "title": "Stil 105",
     "category": "",
+    "description": "För bok-lansering och kurs-promobilder för Johans egen utgivning och kompetensutveckling.",
     "image": "/assets/notebooklm-images/style-105.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-105-400w.webp 400w",
@@ -1368,6 +1473,7 @@
     "id": "style-106",
     "title": "Stil 106",
     "category": "",
+    "description": "För teknik- och arkitekturlektioner renderade som djupblå tekniska ritningar.",
     "image": "/assets/notebooklm-images/style-106.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-106-400w.webp 400w",
@@ -1381,6 +1487,7 @@
     "id": "style-107",
     "title": "Stil 107",
     "category": "",
+    "description": "För tekniska ämnesbriefer där vita linjeritningar på blått bär auktoriteten.",
     "image": "/assets/notebooklm-images/style-107.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-107-400w.webp 400w",
@@ -1394,6 +1501,7 @@
     "id": "style-108",
     "title": "Stil 108",
     "category": "",
+    "description": "För STEM-lektioner som använder CAD-liknande kugghjul och flödesscheman för att visa system.",
     "image": "/assets/notebooklm-images/style-108.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-108-400w.webp 400w",
@@ -1407,6 +1515,7 @@
     "id": "style-109",
     "title": "Stil 109",
     "category": "",
+    "description": "För edtech-produktguider i stil av en isometrisk premium-teknisk handbok.",
     "image": "/assets/notebooklm-images/style-109.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-109-400w.webp 400w",
@@ -1420,6 +1529,7 @@
     "id": "style-110",
     "title": "Stil 110",
     "category": "",
+    "description": "För analytiska databriefer där en ren teknisk palett håller fokus på siffrorna.",
     "image": "/assets/notebooklm-images/style-110.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-110-400w.webp 400w",
@@ -1433,6 +1543,7 @@
     "id": "style-111",
     "title": "Stil 111",
     "category": "",
+    "description": "För teknik-, uppfinnings- eller patent-tema-arbeten som penna-och-bläck-ritningar.",
     "image": "/assets/notebooklm-images/style-111.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-111-400w.webp 400w",
@@ -1446,6 +1557,7 @@
     "id": "style-112",
     "title": "Stil 112",
     "category": "",
+    "description": "För högenergikvällsevenemang, fritidsklubbar och disco-tema-affischer.",
     "image": "/assets/notebooklm-images/style-112.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-112-400w.webp 400w",
@@ -1459,6 +1571,7 @@
     "id": "style-113",
     "title": "Stil 113",
     "category": "",
+    "description": "För framtidsteknik- och AI-lektioner med brådskande neon-holografisk auktoritet.",
     "image": "/assets/notebooklm-images/style-113.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-113-400w.webp 400w",
@@ -1472,6 +1585,7 @@
     "id": "style-114",
     "title": "Stil 114",
     "category": "",
+    "description": "För AI-i-skolan-personalbriefer som vill ha en futuristisk HUD-entré i toppklass.",
     "image": "/assets/notebooklm-images/style-114.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-114-400w.webp 400w",
@@ -1485,6 +1599,7 @@
     "id": "style-115",
     "title": "Stil 115",
     "category": "",
+    "description": "För gymnasie-ekonomi, företagsekonomi eller dataanalys med terminalskärms-känsla.",
     "image": "/assets/notebooklm-images/style-115.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-115-400w.webp 400w",
@@ -1498,6 +1613,7 @@
     "id": "style-116",
     "title": "Stil 116",
     "category": "",
+    "description": "För datalogi-lektioner berättade över ett glödande kretskorts-stadslandskap.",
     "image": "/assets/notebooklm-images/style-116.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-116-400w.webp 400w",
@@ -1511,6 +1627,7 @@
     "id": "style-117",
     "title": "Stil 117",
     "category": "",
+    "description": "För AI-kunskap och digital färdighets-briefer med glasig isometrisk finish.",
     "image": "/assets/notebooklm-images/style-117.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-117-400w.webp 400w",
@@ -1524,6 +1641,7 @@
     "id": "style-118",
     "title": "Stil 118",
     "category": "",
+    "description": "För videofeedback och sociala-medier-källkritiklektioner renderade som neon-UI-wireframe.",
     "image": "/assets/notebooklm-images/style-118.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-118-400w.webp 400w",
@@ -1537,6 +1655,7 @@
     "id": "style-119",
     "title": "Stil 119",
     "category": "",
+    "description": "För AI- och maskininlärnings-kompetensutvecklingsslides där svävande wireframe-hjärnor sätter tonen.",
     "image": "/assets/notebooklm-images/style-119.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-119-400w.webp 400w",
@@ -1550,6 +1669,7 @@
     "id": "style-120",
     "title": "Stil 120",
     "category": "",
+    "description": "För snabba gymnasie-teknikarbeten med brådskande holografisk energi.",
     "image": "/assets/notebooklm-images/style-120.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-120-400w.webp 400w",
@@ -1563,6 +1683,7 @@
     "id": "style-121",
     "title": "Stil 121",
     "category": "",
+    "description": "För singelslide-tipskort och AI-verktygs-snabbreferenser med glasig app-känsla.",
     "image": "/assets/notebooklm-images/style-121.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-121-400w.webp 400w",
@@ -1576,6 +1697,7 @@
     "id": "style-122",
     "title": "Stil 122",
     "category": "",
+    "description": "För fusionstema-jämförelseslides — gamla mot nya verktyg, metoder eller paradigm.",
     "image": "/assets/notebooklm-images/style-122.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-122-400w.webp 400w",
@@ -1589,6 +1711,7 @@
     "id": "style-123",
     "title": "Stil 123",
     "category": "",
+    "description": "För digitaliserings-transformationsberättelser visade som en tydlig före-till-efter-resa.",
     "image": "/assets/notebooklm-images/style-123.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-123-400w.webp 400w",
@@ -1602,6 +1725,7 @@
     "id": "style-124",
     "title": "Stil 124",
     "category": "",
+    "description": "För ungdomskultur- och hiphop-lektioner med rå stencil-och-sprayenergi.",
     "image": "/assets/notebooklm-images/style-124.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-124-400w.webp 400w",
@@ -1615,6 +1739,7 @@
     "id": "style-125",
     "title": "Stil 125",
     "category": "",
+    "description": "För retro-serie-mashup-affischer när en lektion vill ha pastell-nostalgi med kraft.",
     "image": "/assets/notebooklm-images/style-125.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-125-400w.webp 400w",
@@ -1628,6 +1753,7 @@
     "id": "style-126",
     "title": "Stil 126",
     "category": "",
+    "description": "För läsvecko- och bespisningstema-affischer med mid-century-popkultur-värme.",
     "image": "/assets/notebooklm-images/style-126.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-126-400w.webp 400w",
@@ -1641,6 +1767,7 @@
     "id": "style-127",
     "title": "Stil 127",
     "category": "",
+    "description": "För cybersäkerhet, kryptografi eller programmeringsarbeten med äkta terminal-estetik.",
     "image": "/assets/notebooklm-images/style-127.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-127-400w.webp 400w",
@@ -1654,6 +1781,7 @@
     "id": "style-128",
     "title": "Stil 128",
     "category": "",
+    "description": "För hacker-klubb, CTF-event och retrodator-lektioner med Matrix-atmosfär.",
     "image": "/assets/notebooklm-images/style-128.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-128-400w.webp 400w",
@@ -1667,6 +1795,7 @@
     "id": "style-129",
     "title": "Stil 129",
     "category": "",
+    "description": "För programmeringshistoria och vintagedator-arbeten renderade som en CRT-terminal.",
     "image": "/assets/notebooklm-images/style-129.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-129-400w.webp 400w",
@@ -1680,6 +1809,7 @@
     "id": "style-130",
     "title": "Stil 130",
     "category": "",
+    "description": "För upprop-affischer — säkerhetskampanjer, närvarosatsningar eller hela-skolan-initiativ.",
     "image": "/assets/notebooklm-images/style-130.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-130-400w.webp 400w",
@@ -1693,6 +1823,7 @@
     "id": "style-131",
     "title": "Stil 131",
     "category": "",
+    "description": "För verkstads- och säkerhetsbriefer i slöjd, trä eller kemi med industriell varningsenergi.",
     "image": "/assets/notebooklm-images/style-131.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-131-400w.webp 400w",
@@ -1706,6 +1837,7 @@
     "id": "style-132",
     "title": "Stil 132",
     "category": "",
+    "description": "För hårdvaru-inriktade tekniklektioner med riktiga komponenter och kopplingsscheman.",
     "image": "/assets/notebooklm-images/style-132.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-132-400w.webp 400w",
@@ -1719,6 +1851,7 @@
     "id": "style-133",
     "title": "Stil 133",
     "category": "",
+    "description": "För geovetenskap och astronomi där ett planet-snitt bär hela lektionen.",
     "image": "/assets/notebooklm-images/style-133.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-133-400w.webp 400w",
@@ -1732,6 +1865,7 @@
     "id": "style-134",
     "title": "Stil 134",
     "category": "",
+    "description": "För konsthistoria och expressionism-arbeten med texturerad impasto-energi.",
     "image": "/assets/notebooklm-images/style-134.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-134-400w.webp 400w",
@@ -1745,6 +1879,7 @@
     "id": "style-135",
     "title": "Stil 135",
     "category": "",
+    "description": "För steampunk-tema-kreativt skrivande och uppfinningshistoriska projekt med retrofuturistisk prägel.",
     "image": "/assets/notebooklm-images/style-135.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-135-400w.webp 400w",
@@ -1758,6 +1893,7 @@
     "id": "style-136",
     "title": "Stil 136",
     "category": "",
+    "description": "För arbetsflödes-briefer som visar verktyg-till-resultat-resa med neon-flödes-rörelse.",
     "image": "/assets/notebooklm-images/style-136.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-136-400w.webp 400w",
@@ -1771,6 +1907,7 @@
     "id": "style-137",
     "title": "Stil 137",
     "category": "",
+    "description": "För AI-verktygs-översiktsaffischer — en kakel-grid över klassrummets mest använda appar.",
     "image": "/assets/notebooklm-images/style-137.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-137-400w.webp 400w",
@@ -1784,6 +1921,7 @@
     "id": "style-138",
     "title": "Stil 138",
     "category": "",
+    "description": "För astronomi och datavisualiseringsarbeten berättade som minimalistiska siden-omloppsband.",
     "image": "/assets/notebooklm-images/style-138.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-138-400w.webp 400w",
@@ -1797,6 +1935,7 @@
     "id": "style-139",
     "title": "Stil 139",
     "category": "",
+    "description": "För litteratur-, designhistorie- och tvärkulturella arbeten som parar Sumi-e-teknik med isometrisk precision.",
     "image": "/assets/notebooklm-images/style-139.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-139-400w.webp 400w",
@@ -1810,6 +1949,7 @@
     "id": "style-140",
     "title": "Stil 140",
     "category": "",
+    "description": "För sprängskisse-tekniska briefer där ett centralt objekt delas upp i märkta komponenter.",
     "image": "/assets/notebooklm-images/style-140.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-140-400w.webp 400w",

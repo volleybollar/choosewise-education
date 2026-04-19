@@ -23,6 +23,7 @@ const TEMPLATES = {
           <img src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async">
           <div class="flipcard__overlay">
             <h3 class="flipcard__title">${escapeHtml(item.title)}</h3>
+            ${item.description ? `<p class="flipcard__description">${escapeHtml(item.description)}</p>` : ''}
             <span class="flipcard__category">${escapeHtml(item.category || '')}</span>
           </div>
         </div>

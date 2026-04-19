@@ -3,6 +3,7 @@
     "id": "style-1",
     "title": "[TRANSLATE] Stil 1",
     "category": "",
+    "description": "For briefings to department heads and governors that need to read like a feature article.",
     "image": "/assets/notebooklm-images/style-001.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-001-400w.webp 400w",
@@ -16,6 +17,7 @@
     "id": "style-2",
     "title": "[TRANSLATE] Stil 2",
     "category": "",
+    "description": "For current-affairs hooks at the top of a media-literacy or digital-citizenship lesson.",
     "image": "/assets/notebooklm-images/style-002.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-002-400w.webp 400w",
@@ -29,6 +31,7 @@
     "id": "style-3",
     "title": "[TRANSLATE] Stil 3",
     "category": "",
+    "description": "For geopolitics and modern-history lessons where a tense map sets the scene.",
     "image": "/assets/notebooklm-images/style-003.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-003-400w.webp 400w",
@@ -42,6 +45,7 @@
     "id": "style-4",
     "title": "[TRANSLATE] Stil 4",
     "category": "",
+    "description": "For onboarding briefs and welcome handouts that feel friendly but still businesslike.",
     "image": "/assets/notebooklm-images/style-004.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-004-400w.webp 400w",
@@ -55,6 +59,7 @@
     "id": "style-5",
     "title": "[TRANSLATE] Stil 5",
     "category": "",
+    "description": "For case-study openers and CPD materials grounded in the look and feel of a real school.",
     "image": "/assets/notebooklm-images/style-005.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-005-400w.webp 400w",
@@ -68,6 +73,7 @@
     "id": "style-6",
     "title": "[TRANSLATE] Stil 6",
     "category": "",
+    "description": "For announcements, pupil reward cards, and high-energy corridor displays children actually stop to read.",
     "image": "/assets/notebooklm-images/style-006.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-006-400w.webp 400w",
@@ -81,6 +87,7 @@
     "id": "style-7",
     "title": "[TRANSLATE] Stil 7",
     "category": "",
+    "description": "For long-form explainers where a finance-explainer dark theme keeps a dense topic readable.",
     "image": "/assets/notebooklm-images/style-007.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-007-400w.webp 400w",
@@ -94,6 +101,7 @@
     "id": "style-8",
     "title": "[TRANSLATE] Stil 8",
     "category": "",
+    "description": "For upper-secondary tech or innovation units presented with product-keynote polish.",
     "image": "/assets/notebooklm-images/style-008.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-008-400w.webp 400w",
@@ -107,6 +115,7 @@
     "id": "style-9",
     "title": "[TRANSLATE] Stil 9",
     "category": "",
+    "description": "For edtech launches and AI-tool introductions that need to feel premium to older pupils.",
     "image": "/assets/notebooklm-images/style-009.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-009-400w.webp 400w",
@@ -120,6 +129,7 @@
     "id": "style-10",
     "title": "[TRANSLATE] Stil 10",
     "category": "",
+    "description": "For upper-secondary and CPD slides on analytics, data, or digital structure.",
     "image": "/assets/notebooklm-images/style-010.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-010-400w.webp 400w",
@@ -133,6 +143,7 @@
     "id": "style-11",
     "title": "[TRANSLATE] Stil 11",
     "category": "",
+    "description": "For mobile-first social posts from the school — Instagram stories or newsletter cards.",
     "image": "/assets/notebooklm-images/style-011.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-011-400w.webp 400w",
@@ -146,6 +157,7 @@
     "id": "style-12",
     "title": "[TRANSLATE] Stil 12",
     "category": "",
+    "description": "For exhibition-style one-pagers on a theme — language, art, music, or culture.",
     "image": "/assets/notebooklm-images/style-012.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-012-400w.webp 400w",
@@ -159,6 +171,7 @@
     "id": "style-13",
     "title": "[TRANSLATE] Stil 13",
     "category": "",
+    "description": "For physics or chemistry lessons that need a single glowing model to anchor the explanation.",
     "image": "/assets/notebooklm-images/style-013.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-013-400w.webp 400w",
@@ -172,6 +185,7 @@
     "id": "style-14",
     "title": "[TRANSLATE] Stil 14",
     "category": "",
+    "description": "For short data-dashboard explainers and updates to the senior team or digitalisation lead.",
     "image": "/assets/notebooklm-images/style-014.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-014-400w.webp 400w",
@@ -185,6 +199,7 @@
     "id": "style-15",
     "title": "[TRANSLATE] Stil 15",
     "category": "",
+    "description": "For cyber-security, GDPR, or AI-act briefings aimed at principals and IT leads.",
     "image": "/assets/notebooklm-images/style-015.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-015-400w.webp 400w",
@@ -198,6 +213,7 @@
     "id": "style-16",
     "title": "[TRANSLATE] Stil 16",
     "category": "",
+    "description": "For primary-years project briefs and reading-quest handouts pupils actually want to keep.",
     "image": "/assets/notebooklm-images/style-016.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-016-400w.webp 400w",
@@ -211,6 +227,7 @@
     "id": "style-17",
     "title": "[TRANSLATE] Stil 17",
     "category": "",
+    "description": "For language lessons that pair vocabulary with a small manga-style narrative.",
     "image": "/assets/notebooklm-images/style-017.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-017-400w.webp 400w",
@@ -224,6 +241,7 @@
     "id": "style-18",
     "title": "[TRANSLATE] Stil 18",
     "category": "",
+    "description": "For dramatic PE, history, or literature moments where one bold panel carries the scene.",
     "image": "/assets/notebooklm-images/style-018.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-018-400w.webp 400w",
@@ -237,6 +255,7 @@
     "id": "style-19",
     "title": "[TRANSLATE] Stil 19",
     "category": "",
+    "description": "For satirical media-literacy lessons that need a retro comic-book cover feel.",
     "image": "/assets/notebooklm-images/style-019.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-019-400w.webp 400w",
@@ -250,6 +269,7 @@
     "id": "style-20",
     "title": "[TRANSLATE] Stil 20",
     "category": "",
+    "description": "For middle-school storytelling exercises built around classic action-comic panels.",
     "image": "/assets/notebooklm-images/style-020.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-020-400w.webp 400w",
@@ -263,6 +283,7 @@
     "id": "style-21",
     "title": "[TRANSLATE] Stil 21",
     "category": "",
+    "description": "For high-contrast classroom posters that need to shout a single clear message.",
     "image": "/assets/notebooklm-images/style-021.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-021-400w.webp 400w",
@@ -276,6 +297,7 @@
     "id": "style-22",
     "title": "[TRANSLATE] Stil 22",
     "category": "",
+    "description": "For film-analysis and drama lessons inspired by retro sequential storytelling.",
     "image": "/assets/notebooklm-images/style-022.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-022-400w.webp 400w",
@@ -289,6 +311,7 @@
     "id": "style-23",
     "title": "[TRANSLATE] Stil 23",
     "category": "",
+    "description": "For manga-loving tweens when a tough topic needs a chibi narrator to soften it.",
     "image": "/assets/notebooklm-images/style-023.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-023-400w.webp 400w",
@@ -302,6 +325,7 @@
     "id": "style-24",
     "title": "[TRANSLATE] Stil 24",
     "category": "",
+    "description": "For computer-science units and maker-club posters with a nostalgic arcade vibe.",
     "image": "/assets/notebooklm-images/style-024.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-024-400w.webp 400w",
@@ -315,6 +339,7 @@
     "id": "style-25",
     "title": "[TRANSLATE] Stil 25",
     "category": "",
+    "description": "For side-by-side tool comparisons and structured decision briefs to colleagues.",
     "image": "/assets/notebooklm-images/style-025.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-025-400w.webp 400w",
@@ -328,6 +353,7 @@
     "id": "style-26",
     "title": "[TRANSLATE] Stil 26",
     "category": "",
+    "description": "For mid-primary science explainers where the phenomenon sits clearly at the centre.",
     "image": "/assets/notebooklm-images/style-026.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-026-400w.webp 400w",
@@ -341,6 +367,7 @@
     "id": "style-27",
     "title": "[TRANSLATE] Stil 27",
     "category": "",
+    "description": "For biology and health lessons that benefit from a clean clinical diagnostic feel.",
     "image": "/assets/notebooklm-images/style-027.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-027-400w.webp 400w",
@@ -354,6 +381,7 @@
     "id": "style-28",
     "title": "[TRANSLATE] Stil 28",
     "category": "",
+    "description": "For book-club handouts and literature units that want a dignified vintage-textbook finish.",
     "image": "/assets/notebooklm-images/style-028.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-028-400w.webp 400w",
@@ -367,6 +395,7 @@
     "id": "style-29",
     "title": "[TRANSLATE] Stil 29",
     "category": "",
+    "description": "For field trips, outdoor-learning guides, and nature-study packs with a parks-and-rec charm.",
     "image": "/assets/notebooklm-images/style-029.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-029-400w.webp 400w",
@@ -380,6 +409,7 @@
     "id": "style-30",
     "title": "[TRANSLATE] Stil 30",
     "category": "",
+    "description": "For growth-mindset, habit-change, or transition lessons told as a before-and-after character story.",
     "image": "/assets/notebooklm-images/style-030.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-030-400w.webp 400w",
@@ -393,6 +423,7 @@
     "id": "style-31",
     "title": "[TRANSLATE] Stil 31",
     "category": "",
+    "description": "For edtech tutorials and digital-skills lessons where multimedia steps need a neon flow.",
     "image": "/assets/notebooklm-images/style-031.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-031-400w.webp 400w",
@@ -406,6 +437,7 @@
     "id": "style-32",
     "title": "[TRANSLATE] Stil 32",
     "category": "",
+    "description": "For teacher-coach videos, AI-verktyg intros, and polished tool showcases on big screens.",
     "image": "/assets/notebooklm-images/style-032.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-032-400w.webp 400w",
@@ -419,6 +451,7 @@
     "id": "style-33",
     "title": "[TRANSLATE] Stil 33",
     "category": "",
+    "description": "For debate-lesson openers that split a question into hopeful and cautionary halves.",
     "image": "/assets/notebooklm-images/style-033.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-033-400w.webp 400w",
@@ -432,6 +465,7 @@
     "id": "style-34",
     "title": "[TRANSLATE] Stil 34",
     "category": "",
+    "description": "For design-thinking handouts and editorial reflection prompts for upper-secondary pupils.",
     "image": "/assets/notebooklm-images/style-034.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-034-400w.webp 400w",
@@ -445,6 +479,7 @@
     "id": "style-35",
     "title": "[TRANSLATE] Stil 35",
     "category": "",
+    "description": "For Nordic-clean comparison briefs used in parent evenings or staff meetings.",
     "image": "/assets/notebooklm-images/style-035.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-035-400w.webp 400w",
@@ -458,6 +493,7 @@
     "id": "style-36",
     "title": "[TRANSLATE] Stil 36",
     "category": "",
+    "description": "For hub-and-spoke handouts on trends, roles, or values — magazine-clean.",
     "image": "/assets/notebooklm-images/style-036.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-036-400w.webp 400w",
@@ -471,6 +507,7 @@
     "id": "style-37",
     "title": "[TRANSLATE] Stil 37",
     "category": "",
+    "description": "For climate and geology spreads pupils will actually want to read twice.",
     "image": "/assets/notebooklm-images/style-037.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-037-400w.webp 400w",
@@ -484,6 +521,7 @@
     "id": "style-38",
     "title": "[TRANSLATE] Stil 38",
     "category": "",
+    "description": "For edtech and AI-in-school introductions aimed at mixed staff groups.",
     "image": "/assets/notebooklm-images/style-038.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-038-400w.webp 400w",
@@ -497,6 +535,7 @@
     "id": "style-39",
     "title": "[TRANSLATE] Stil 39",
     "category": "",
+    "description": "For bold science-feature handouts with a strong black-banner magazine entrance.",
     "image": "/assets/notebooklm-images/style-039.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-039-400w.webp 400w",
@@ -510,6 +549,7 @@
     "id": "style-40",
     "title": "[TRANSLATE] Stil 40",
     "category": "",
+    "description": "For reflection journals and philosophy lessons with a warm lo-fi printed feel.",
     "image": "/assets/notebooklm-images/style-040.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-040-400w.webp 400w",
@@ -523,6 +563,7 @@
     "id": "style-41",
     "title": "[TRANSLATE] Stil 41",
     "category": "",
+    "description": "For concept-map handouts and revision summaries that benefit from calm technical structure.",
     "image": "/assets/notebooklm-images/style-041.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-041-400w.webp 400w",
@@ -536,6 +577,7 @@
     "id": "style-42",
     "title": "[TRANSLATE] Stil 42",
     "category": "",
+    "description": "For learning-journey handouts where a winding path guides pupils through stages.",
     "image": "/assets/notebooklm-images/style-042.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-042-400w.webp 400w",
@@ -549,6 +591,7 @@
     "id": "style-43",
     "title": "[TRANSLATE] Stil 43",
     "category": "",
+    "description": "For classroom-tech briefs and digital-tool rollouts with a calm SaaS-style structure.",
     "image": "/assets/notebooklm-images/style-043.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-043-400w.webp 400w",
@@ -562,6 +605,7 @@
     "id": "style-44",
     "title": "[TRANSLATE] Stil 44",
     "category": "",
+    "description": "For three-option briefs — tool choices, routines, or lesson models — at a glance.",
     "image": "/assets/notebooklm-images/style-044.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-044-400w.webp 400w",
@@ -575,6 +619,7 @@
     "id": "style-45",
     "title": "[TRANSLATE] Stil 45",
     "category": "",
+    "description": "For 2x2 comparison handouts used to frame options in a staff meeting.",
     "image": "/assets/notebooklm-images/style-045.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-045-400w.webp 400w",
@@ -588,6 +633,7 @@
     "id": "style-46",
     "title": "[TRANSLATE] Stil 46",
     "category": "",
+    "description": "For calm, organised handouts — tool comparisons, lesson kit lists, and routines at a glance.",
     "image": "/assets/notebooklm-images/style-046.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-046-400w.webp 400w",
@@ -601,6 +647,7 @@
     "id": "style-47",
     "title": "[TRANSLATE] Stil 47",
     "category": "",
+    "description": "For myth-versus-reality handouts in media-literacy, AI, or digital-wellbeing units.",
     "image": "/assets/notebooklm-images/style-047.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-047-400w.webp 400w",
@@ -614,6 +661,7 @@
     "id": "style-48",
     "title": "[TRANSLATE] Stil 48",
     "category": "",
+    "description": "For clear onboarding flows — new routines, digital platforms, or year-start guides.",
     "image": "/assets/notebooklm-images/style-048.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-048-400w.webp 400w",
@@ -627,6 +675,7 @@
     "id": "style-49",
     "title": "[TRANSLATE] Stil 49",
     "category": "",
+    "description": "For data-driven briefings to principals when a technical isometric diagram carries the argument.",
     "image": "/assets/notebooklm-images/style-049.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-049-400w.webp 400w",
@@ -640,6 +689,7 @@
     "id": "style-50",
     "title": "[TRANSLATE] Stil 50",
     "category": "",
+    "description": "For Bauhaus-inspired art, design, or maths lessons built from primary shapes.",
     "image": "/assets/notebooklm-images/style-050.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-050-400w.webp 400w",
@@ -653,6 +703,7 @@
     "id": "style-51",
     "title": "[TRANSLATE] Stil 51",
     "category": "",
+    "description": "For travel, languages, and global-citizenship units with a passport-like textured feel.",
     "image": "/assets/notebooklm-images/style-051.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-051-400w.webp 400w",
@@ -666,6 +717,7 @@
     "id": "style-52",
     "title": "[TRANSLATE] Stil 52",
     "category": "",
+    "description": "For science and PE units where a single dramatic visual has to carry the lesson.",
     "image": "/assets/notebooklm-images/style-052.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-052-400w.webp 400w",
@@ -679,6 +731,7 @@
     "id": "style-53",
     "title": "[TRANSLATE] Stil 53",
     "category": "",
+    "description": "For ecology and biology posters with a nature-documentary broadcast look.",
     "image": "/assets/notebooklm-images/style-053.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-053-400w.webp 400w",
@@ -692,6 +745,7 @@
     "id": "style-54",
     "title": "[TRANSLATE] Stil 54",
     "category": "",
+    "description": "For ambitious science spreads that pair a painted scene with dense data on the facing page.",
     "image": "/assets/notebooklm-images/style-054.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-054-400w.webp 400w",
@@ -705,6 +759,7 @@
     "id": "style-55",
     "title": "[TRANSLATE] Stil 55",
     "category": "",
+    "description": "For psychology, health, or neuroscience lessons built around a reflective portrait.",
     "image": "/assets/notebooklm-images/style-055.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-055-400w.webp 400w",
@@ -718,6 +773,7 @@
     "id": "style-56",
     "title": "[TRANSLATE] Stil 56",
     "category": "",
+    "description": "For marine-biology and anatomy explainers that need quiet editorial depth.",
     "image": "/assets/notebooklm-images/style-056.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-056-400w.webp 400w",
@@ -731,6 +787,7 @@
     "id": "style-57",
     "title": "[TRANSLATE] Stil 57",
     "category": "",
+    "description": "For watercolour-style nature studies where annotations hang off a single beautiful subject.",
     "image": "/assets/notebooklm-images/style-057.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-057-400w.webp 400w",
@@ -744,6 +801,7 @@
     "id": "style-58",
     "title": "[TRANSLATE] Stil 58",
     "category": "",
+    "description": "For geography units that weave map, diagram, and 3D render into one coherent spread.",
     "image": "/assets/notebooklm-images/style-058.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-058-400w.webp 400w",
@@ -757,6 +815,7 @@
     "id": "style-59",
     "title": "[TRANSLATE] Stil 59",
     "category": "",
+    "description": "For literature and history spreads where a portrait headline sets the tone.",
     "image": "/assets/notebooklm-images/style-059.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-059-400w.webp 400w",
@@ -770,6 +829,7 @@
     "id": "style-60",
     "title": "[TRANSLATE] Stil 60",
     "category": "",
+    "description": "For biology and zoology lessons that treat the animal as the hero of the page.",
     "image": "/assets/notebooklm-images/style-060.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-060-400w.webp 400w",
@@ -783,6 +843,7 @@
     "id": "style-61",
     "title": "[TRANSLATE] Stil 61",
     "category": "",
+    "description": "For ocean and ecosystem units told as a painted panorama with scientific captions.",
     "image": "/assets/notebooklm-images/style-061.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-061-400w.webp 400w",
@@ -796,6 +857,7 @@
     "id": "style-62",
     "title": "[TRANSLATE] Stil 62",
     "category": "",
+    "description": "For climate-change explainers built around a single fotorealistic geology slice.",
     "image": "/assets/notebooklm-images/style-062.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-062-400w.webp 400w",
@@ -809,6 +871,7 @@
     "id": "style-63",
     "title": "[TRANSLATE] Stil 63",
     "category": "",
+    "description": "For current-affairs briefings where a heatmap of Europe tells the whole story.",
     "image": "/assets/notebooklm-images/style-063.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-063-400w.webp 400w",
@@ -822,6 +885,7 @@
     "id": "style-64",
     "title": "[TRANSLATE] Stil 64",
     "category": "",
+    "description": "For classic chalkboard-style summaries when a lesson should feel like old-school teaching.",
     "image": "/assets/notebooklm-images/style-064.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-064-400w.webp 400w",
@@ -835,6 +899,7 @@
     "id": "style-65",
     "title": "[TRANSLATE] Stil 65",
     "category": "",
+    "description": "For warm classroom summaries that still feel like something a teacher drew by hand.",
     "image": "/assets/notebooklm-images/style-065.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-065-400w.webp 400w",
@@ -848,6 +913,7 @@
     "id": "style-66",
     "title": "[TRANSLATE] Stil 66",
     "category": "",
+    "description": "For study-technique lessons and journaling prompts modelled on a perfect flat-lay notebook.",
     "image": "/assets/notebooklm-images/style-066.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-066-400w.webp 400w",
@@ -861,6 +927,7 @@
     "id": "style-67",
     "title": "[TRANSLATE] Stil 67",
     "category": "",
+    "description": "For workshop summaries, project-kickoff boards, and facilitator handouts with hand-drawn energy.",
     "image": "/assets/notebooklm-images/style-067.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-067-400w.webp 400w",
@@ -874,6 +941,7 @@
     "id": "style-68",
     "title": "[TRANSLATE] Stil 68",
     "category": "",
+    "description": "For maths and science walk-throughs that mimic a photographed university whiteboard.",
     "image": "/assets/notebooklm-images/style-068.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-068-400w.webp 400w",
@@ -887,6 +955,7 @@
     "id": "style-69",
     "title": "[TRANSLATE] Stil 69",
     "category": "",
+    "description": "For numeracy step-by-steps that feel exactly like a teacher writing on the board.",
     "image": "/assets/notebooklm-images/style-069.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-069-400w.webp 400w",
@@ -900,6 +969,7 @@
     "id": "style-70",
     "title": "[TRANSLATE] Stil 70",
     "category": "",
+    "description": "For primary-years literature and imagination projects with a soft Ghibli-inspired hand.",
     "image": "/assets/notebooklm-images/style-070.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-070-400w.webp 400w",
@@ -913,6 +983,7 @@
     "id": "style-71",
     "title": "[TRANSLATE] Stil 71",
     "category": "",
+    "description": "For SEL and wellbeing lessons where a doodle-style mascot carries the message.",
     "image": "/assets/notebooklm-images/style-071.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-071-400w.webp 400w",
@@ -926,6 +997,7 @@
     "id": "style-72",
     "title": "[TRANSLATE] Stil 72",
     "category": "",
+    "description": "For creative-writing and storybook projects inspired by Ghibli's watercolour warmth.",
     "image": "/assets/notebooklm-images/style-072.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-072-400w.webp 400w",
@@ -939,6 +1011,7 @@
     "id": "style-73",
     "title": "[TRANSLATE] Stil 73",
     "category": "",
+    "description": "For STEM handouts built on blueprint paper with crisp engineering cards.",
     "image": "/assets/notebooklm-images/style-073.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-073-400w.webp 400w",
@@ -952,6 +1025,7 @@
     "id": "style-74",
     "title": "[TRANSLATE] Stil 74",
     "category": "",
+    "description": "For upper-secondary engineering explainers where three clean panels show cause and effect.",
     "image": "/assets/notebooklm-images/style-074.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-074-400w.webp 400w",
@@ -965,6 +1039,7 @@
     "id": "style-75",
     "title": "[TRANSLATE] Stil 75",
     "category": "",
+    "description": "For technical subject handouts presented as clean architectural line-drawings.",
     "image": "/assets/notebooklm-images/style-075.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-075-400w.webp 400w",
@@ -978,6 +1053,7 @@
     "id": "style-76",
     "title": "[TRANSLATE] Stil 76",
     "category": "",
+    "description": "For early-years and primary lessons that need the warmth of a stop-motion claymation world.",
     "image": "/assets/notebooklm-images/style-076.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-076-400w.webp 400w",
@@ -991,6 +1067,7 @@
     "id": "style-77",
     "title": "[TRANSLATE] Stil 77",
     "category": "",
+    "description": "For urban-studies and geography projects with a miniature tilt-shift diorama feel.",
     "image": "/assets/notebooklm-images/style-077.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-077-400w.webp 400w",
@@ -1004,6 +1081,7 @@
     "id": "style-78",
     "title": "[TRANSLATE] Stil 78",
     "category": "",
+    "description": "For pastel affirmation posters and primary-years wellbeing displays.",
     "image": "/assets/notebooklm-images/style-078.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-078-400w.webp 400w",
@@ -1017,6 +1095,7 @@
     "id": "style-79",
     "title": "[TRANSLATE] Stil 79",
     "category": "",
+    "description": "For study-skills and note-taking lessons styled as a well-loved personal notebook.",
     "image": "/assets/notebooklm-images/style-079.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-079-400w.webp 400w",
@@ -1030,6 +1109,7 @@
     "id": "style-80",
     "title": "[TRANSLATE] Stil 80",
     "category": "",
+    "description": "For home-ec, chemistry, or process-lesson handouts told in six warm recipe steps.",
     "image": "/assets/notebooklm-images/style-080.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-080-400w.webp 400w",
@@ -1043,6 +1123,7 @@
     "id": "style-81",
     "title": "[TRANSLATE] Stil 81",
     "category": "",
+    "description": "For policy briefs and civics lessons where a watercolour map anchors the discussion.",
     "image": "/assets/notebooklm-images/style-081.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-081-400w.webp 400w",
@@ -1056,6 +1137,7 @@
     "id": "style-82",
     "title": "[TRANSLATE] Stil 82",
     "category": "",
+    "description": "For symmetric design-theory or philosophy handouts with a meditative centerpiece.",
     "image": "/assets/notebooklm-images/style-082.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-082-400w.webp 400w",
@@ -1069,6 +1151,7 @@
     "id": "style-83",
     "title": "[TRANSLATE] Stil 83",
     "category": "",
+    "description": "For mid-century retro posters — reading weeks, cafeteria themes, or vintage history units.",
     "image": "/assets/notebooklm-images/style-083.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-083-400w.webp 400w",
@@ -1082,6 +1165,7 @@
     "id": "style-84",
     "title": "[TRANSLATE] Stil 84",
     "category": "",
+    "description": "For strategy briefs contrasting old and new ways of working in schools.",
     "image": "/assets/notebooklm-images/style-084.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-084-400w.webp 400w",
@@ -1095,6 +1179,7 @@
     "id": "style-85",
     "title": "[TRANSLATE] Stil 85",
     "category": "",
+    "description": "For history timelines where four painted epoch scenes carry the lesson.",
     "image": "/assets/notebooklm-images/style-085.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-085-400w.webp 400w",
@@ -1108,6 +1193,7 @@
     "id": "style-86",
     "title": "[TRANSLATE] Stil 86",
     "category": "",
+    "description": "For fantasy-literature and D&D-style reading quests on a hand-painted adventure map.",
     "image": "/assets/notebooklm-images/style-086.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-086-400w.webp 400w",
@@ -1121,6 +1207,7 @@
     "id": "style-87",
     "title": "[TRANSLATE] Stil 87",
     "category": "",
+    "description": "For learning-journey posters that guide pupils step-by-step through a school term.",
     "image": "/assets/notebooklm-images/style-087.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-087-400w.webp 400w",
@@ -1134,6 +1221,7 @@
     "id": "style-88",
     "title": "[TRANSLATE] Stil 88",
     "category": "",
+    "description": "For career-education and future-self units told as a floating pastel fantasy map.",
     "image": "/assets/notebooklm-images/style-088.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-088-400w.webp 400w",
@@ -1147,6 +1235,7 @@
     "id": "style-89",
     "title": "[TRANSLATE] Stil 89",
     "category": "",
+    "description": "For gamified onboarding and study-skills kickoffs with isometric game-board charm.",
     "image": "/assets/notebooklm-images/style-089.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-089-400w.webp 400w",
@@ -1160,6 +1249,7 @@
     "id": "style-90",
     "title": "[TRANSLATE] Stil 90",
     "category": "",
+    "description": "For geography or earth-science handouts built around a globe and connected bubble panels.",
     "image": "/assets/notebooklm-images/style-090.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-090-400w.webp 400w",
@@ -1173,6 +1263,7 @@
     "id": "style-91",
     "title": "[TRANSLATE] Stil 91",
     "category": "",
+    "description": "For primary-maths classroom posters with kawaii storybook warmth.",
     "image": "/assets/notebooklm-images/style-091.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-091-400w.webp 400w",
@@ -1186,6 +1277,7 @@
     "id": "style-92",
     "title": "[TRANSLATE] Stil 92",
     "category": "",
+    "description": "For romance-era literature and art-history handouts with Mucha-inspired elegance.",
     "image": "/assets/notebooklm-images/style-092.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-092-400w.webp 400w",
@@ -1199,6 +1291,7 @@
     "id": "style-93",
     "title": "[TRANSLATE] Stil 93",
     "category": "",
+    "description": "For vintage schoolroom posters on grammar, nature, or classic facts.",
     "image": "/assets/notebooklm-images/style-093.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-093-400w.webp 400w",
@@ -1212,6 +1305,7 @@
     "id": "style-94",
     "title": "[TRANSLATE] Stil 94",
     "category": "",
+    "description": "For craft, sloyd, or design-tech units with an embroidered denim-workshop finish.",
     "image": "/assets/notebooklm-images/style-094.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-094-400w.webp 400w",
@@ -1225,6 +1319,7 @@
     "id": "style-95",
     "title": "[TRANSLATE] Stil 95",
     "category": "",
+    "description": "For journey-style handouts dividing a long process into four named stages.",
     "image": "/assets/notebooklm-images/style-095.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-095-400w.webp 400w",
@@ -1238,6 +1333,7 @@
     "id": "style-96",
     "title": "[TRANSLATE] Stil 96",
     "category": "",
+    "description": "For workshop roadmaps and project-plan sketchnotes that feel facilitator-made.",
     "image": "/assets/notebooklm-images/style-096.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-096-400w.webp 400w",
@@ -1251,6 +1347,7 @@
     "id": "style-97",
     "title": "[TRANSLATE] Stil 97",
     "category": "",
+    "description": "For classical literature, mythology, or poetry projects styled as a painted story atlas.",
     "image": "/assets/notebooklm-images/style-097.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-097-400w.webp 400w",
@@ -1264,6 +1361,7 @@
     "id": "style-98",
     "title": "[TRANSLATE] Stil 98",
     "category": "",
+    "description": "For exploration, trade-route, or migration lessons on an antique wall-chart.",
     "image": "/assets/notebooklm-images/style-098.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-098-400w.webp 400w",
@@ -1277,6 +1375,7 @@
     "id": "style-99",
     "title": "[TRANSLATE] Stil 99",
     "category": "",
+    "description": "For art-nouveau art-history and salon-poetry handouts with aristocratic polish.",
     "image": "/assets/notebooklm-images/style-099.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-099-400w.webp 400w",
@@ -1290,6 +1389,7 @@
     "id": "style-100",
     "title": "[TRANSLATE] Stil 100",
     "category": "",
+    "description": "For myth-and-invention lessons where technical precision meets allegorical storytelling.",
     "image": "/assets/notebooklm-images/style-100.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-100-400w.webp 400w",
@@ -1303,6 +1403,7 @@
     "id": "style-101",
     "title": "[TRANSLATE] Stil 101",
     "category": "",
+    "description": "For museum-style themed exhibits — species, artefacts, or historical figures in niches.",
     "image": "/assets/notebooklm-images/style-101.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-101-400w.webp 400w",
@@ -1316,6 +1417,7 @@
     "id": "style-102",
     "title": "[TRANSLATE] Stil 102",
     "category": "",
+    "description": "For Renaissance-invention history handouts with a nostalgic inventor's notebook feel.",
     "image": "/assets/notebooklm-images/style-102.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-102-400w.webp 400w",
@@ -1329,6 +1431,7 @@
     "id": "style-103",
     "title": "[TRANSLATE] Stil 103",
     "category": "",
+    "description": "For history and mythology lessons that demand a dramatic black-and-gold stage.",
     "image": "/assets/notebooklm-images/style-103.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-103-400w.webp 400w",
@@ -1342,6 +1445,7 @@
     "id": "style-104",
     "title": "[TRANSLATE] Stil 104",
     "category": "",
+    "description": "For launch posters, reading weeks, and themed events with tactile layered-papercut shine.",
     "image": "/assets/notebooklm-images/style-104.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-104-400w.webp 400w",
@@ -1355,6 +1459,7 @@
     "id": "style-105",
     "title": "[TRANSLATE] Stil 105",
     "category": "",
+    "description": "For book-launch and course-promo images for Johan's own publishing and CPD.",
     "image": "/assets/notebooklm-images/style-105.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-105-400w.webp 400w",
@@ -1368,6 +1473,7 @@
     "id": "style-106",
     "title": "[TRANSLATE] Stil 106",
     "category": "",
+    "description": "For engineering and architecture lessons rendered as deep-blue technical blueprints.",
     "image": "/assets/notebooklm-images/style-106.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-106-400w.webp 400w",
@@ -1381,6 +1487,7 @@
     "id": "style-107",
     "title": "[TRANSLATE] Stil 107",
     "category": "",
+    "description": "For technical subject briefs where white line-drawings on blue carry the authority.",
     "image": "/assets/notebooklm-images/style-107.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-107-400w.webp 400w",
@@ -1394,6 +1501,7 @@
     "id": "style-108",
     "title": "[TRANSLATE] Stil 108",
     "category": "",
+    "description": "For STEM lessons that use CAD-style gears and flow-charts to show how systems work.",
     "image": "/assets/notebooklm-images/style-108.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-108-400w.webp 400w",
@@ -1407,6 +1515,7 @@
     "id": "style-109",
     "title": "[TRANSLATE] Stil 109",
     "category": "",
+    "description": "For edtech product guides styled as an isometric premium tech handbook.",
     "image": "/assets/notebooklm-images/style-109.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-109-400w.webp 400w",
@@ -1420,6 +1529,7 @@
     "id": "style-110",
     "title": "[TRANSLATE] Stil 110",
     "category": "",
+    "description": "For analytical data briefs where a clean technical palette keeps attention on the numbers.",
     "image": "/assets/notebooklm-images/style-110.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-110-400w.webp 400w",
@@ -1433,6 +1543,7 @@
     "id": "style-111",
     "title": "[TRANSLATE] Stil 111",
     "category": "",
+    "description": "For design-tech, invention-history, or patent-themed units rendered as pen-and-ink blueprints.",
     "image": "/assets/notebooklm-images/style-111.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-111-400w.webp 400w",
@@ -1446,6 +1557,7 @@
     "id": "style-112",
     "title": "[TRANSLATE] Stil 112",
     "category": "",
+    "description": "For high-energy evening events, after-school clubs, and disco-themed posters.",
     "image": "/assets/notebooklm-images/style-112.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-112-400w.webp 400w",
@@ -1459,6 +1571,7 @@
     "id": "style-113",
     "title": "[TRANSLATE] Stil 113",
     "category": "",
+    "description": "For future-tech and AI lessons with urgent neon holographic authority.",
     "image": "/assets/notebooklm-images/style-113.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-113-400w.webp 400w",
@@ -1472,6 +1585,7 @@
     "id": "style-114",
     "title": "[TRANSLATE] Stil 114",
     "category": "",
+    "description": "For AI-in-school staff briefings that want a high-end futuristic HUD entrance.",
     "image": "/assets/notebooklm-images/style-114.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-114-400w.webp 400w",
@@ -1485,6 +1599,7 @@
     "id": "style-115",
     "title": "[TRANSLATE] Stil 115",
     "category": "",
+    "description": "For upper-secondary economics, business, or data-analysis units with a terminal-screen look.",
     "image": "/assets/notebooklm-images/style-115.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-115-400w.webp 400w",
@@ -1498,6 +1613,7 @@
     "id": "style-116",
     "title": "[TRANSLATE] Stil 116",
     "category": "",
+    "description": "For computer-science lessons told across a glowing circuit-board cityscape.",
     "image": "/assets/notebooklm-images/style-116.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-116-400w.webp 400w",
@@ -1511,6 +1627,7 @@
     "id": "style-117",
     "title": "[TRANSLATE] Stil 117",
     "category": "",
+    "description": "For AI-literacy and digital-skills briefs with glassy isometric polish.",
     "image": "/assets/notebooklm-images/style-117.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-117-400w.webp 400w",
@@ -1524,6 +1641,7 @@
     "id": "style-118",
     "title": "[TRANSLATE] Stil 118",
     "category": "",
+    "description": "For video-feedback and social-media-literacy lessons rendered as a neon UI wireframe.",
     "image": "/assets/notebooklm-images/style-118.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-118-400w.webp 400w",
@@ -1537,6 +1655,7 @@
     "id": "style-119",
     "title": "[TRANSLATE] Stil 119",
     "category": "",
+    "description": "For AI and machine-learning CPD slides where floating wireframe brains set the tone.",
     "image": "/assets/notebooklm-images/style-119.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-119-400w.webp 400w",
@@ -1550,6 +1669,7 @@
     "id": "style-120",
     "title": "[TRANSLATE] Stil 120",
     "category": "",
+    "description": "For fast-paced upper-secondary tech units with urgent holographic energy.",
     "image": "/assets/notebooklm-images/style-120.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-120-400w.webp 400w",
@@ -1563,6 +1683,7 @@
     "id": "style-121",
     "title": "[TRANSLATE] Stil 121",
     "category": "",
+    "description": "For single-slide tip cards and AI-tool quick-reference with a glassy app feel.",
     "image": "/assets/notebooklm-images/style-121.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-121-400w.webp 400w",
@@ -1576,6 +1697,7 @@
     "id": "style-122",
     "title": "[TRANSLATE] Stil 122",
     "category": "",
+    "description": "For fusion-themed comparison slides — old vs new tools, teaching methods, or paradigms.",
     "image": "/assets/notebooklm-images/style-122.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-122-400w.webp 400w",
@@ -1589,6 +1711,7 @@
     "id": "style-123",
     "title": "[TRANSLATE] Stil 123",
     "category": "",
+    "description": "For digitalisation-transformation stories shown as a clear before-to-after journey.",
     "image": "/assets/notebooklm-images/style-123.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-123-400w.webp 400w",
@@ -1602,6 +1725,7 @@
     "id": "style-124",
     "title": "[TRANSLATE] Stil 124",
     "category": "",
+    "description": "For youth-culture and hip-hop lessons with raw stencil-and-spray energy.",
     "image": "/assets/notebooklm-images/style-124.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-124-400w.webp 400w",
@@ -1615,6 +1739,7 @@
     "id": "style-125",
     "title": "[TRANSLATE] Stil 125",
     "category": "",
+    "description": "For retro-comic mashup posters when a lesson wants pastel nostalgia with a punch.",
     "image": "/assets/notebooklm-images/style-125.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-125-400w.webp 400w",
@@ -1628,6 +1753,7 @@
     "id": "style-126",
     "title": "[TRANSLATE] Stil 126",
     "category": "",
+    "description": "For reading-week and cafeteria-theme posters with mid-century pop-culture warmth.",
     "image": "/assets/notebooklm-images/style-126.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-126-400w.webp 400w",
@@ -1641,6 +1767,7 @@
     "id": "style-127",
     "title": "[TRANSLATE] Stil 127",
     "category": "",
+    "description": "For cybersecurity, cryptography, or programming units with authentic terminal aesthetics.",
     "image": "/assets/notebooklm-images/style-127.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-127-400w.webp 400w",
@@ -1654,6 +1781,7 @@
     "id": "style-128",
     "title": "[TRANSLATE] Stil 128",
     "category": "",
+    "description": "For hacker-club, CTF-event, and retro computing lessons with Matrix-style atmosphere.",
     "image": "/assets/notebooklm-images/style-128.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-128-400w.webp 400w",
@@ -1667,6 +1795,7 @@
     "id": "style-129",
     "title": "[TRANSLATE] Stil 129",
     "category": "",
+    "description": "For programming-history and vintage-computing units rendered as a CRT terminal.",
     "image": "/assets/notebooklm-images/style-129.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-129-400w.webp 400w",
@@ -1680,6 +1809,7 @@
     "id": "style-130",
     "title": "[TRANSLATE] Stil 130",
     "category": "",
+    "description": "For call-to-action posters — safety campaigns, attendance drives, or whole-school initiatives.",
     "image": "/assets/notebooklm-images/style-130.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-130-400w.webp 400w",
@@ -1693,6 +1823,7 @@
     "id": "style-131",
     "title": "[TRANSLATE] Stil 131",
     "category": "",
+    "description": "For workshop and safety briefings in sloyd, woodwork, or chemistry with industrial warning energy.",
     "image": "/assets/notebooklm-images/style-131.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-131-400w.webp 400w",
@@ -1706,6 +1837,7 @@
     "id": "style-132",
     "title": "[TRANSLATE] Stil 132",
     "category": "",
+    "description": "For hardware-focused tech lessons showing real components paired with schematic diagrams.",
     "image": "/assets/notebooklm-images/style-132.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-132-400w.webp 400w",
@@ -1719,6 +1851,7 @@
     "id": "style-133",
     "title": "[TRANSLATE] Stil 133",
     "category": "",
+    "description": "For earth-science and astronomy units where a planet cutaway carries the whole lesson.",
     "image": "/assets/notebooklm-images/style-133.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-133-400w.webp 400w",
@@ -1732,6 +1865,7 @@
     "id": "style-134",
     "title": "[TRANSLATE] Stil 134",
     "category": "",
+    "description": "For art-history and expressionism units with textured impasto energy.",
     "image": "/assets/notebooklm-images/style-134.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-134-400w.webp 400w",
@@ -1745,6 +1879,7 @@
     "id": "style-135",
     "title": "[TRANSLATE] Stil 135",
     "category": "",
+    "description": "For steampunk-themed creative-writing and invention-history projects with retro-future flair.",
     "image": "/assets/notebooklm-images/style-135.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-135-400w.webp 400w",
@@ -1758,6 +1893,7 @@
     "id": "style-136",
     "title": "[TRANSLATE] Stil 136",
     "category": "",
+    "description": "For workflow briefs showing a tool-to-result journey with neon-flow momentum.",
     "image": "/assets/notebooklm-images/style-136.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-136-400w.webp 400w",
@@ -1771,6 +1907,7 @@
     "id": "style-137",
     "title": "[TRANSLATE] Stil 137",
     "category": "",
+    "description": "For AI-tool collection posters — a tile-grid showcase of the classroom's go-to apps.",
     "image": "/assets/notebooklm-images/style-137.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-137-400w.webp 400w",
@@ -1784,6 +1921,7 @@
     "id": "style-138",
     "title": "[TRANSLATE] Stil 138",
     "category": "",
+    "description": "For astronomy and data-visualisation units told in minimalist silken orbit ribbons.",
     "image": "/assets/notebooklm-images/style-138.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-138-400w.webp 400w",
@@ -1797,6 +1935,7 @@
     "id": "style-139",
     "title": "[TRANSLATE] Stil 139",
     "category": "",
+    "description": "For literature, design-history, and cross-cultural units pairing Sumi-e brushwork with isometric precision.",
     "image": "/assets/notebooklm-images/style-139.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-139-400w.webp 400w",
@@ -1810,6 +1949,7 @@
     "id": "style-140",
     "title": "[TRANSLATE] Stil 140",
     "category": "",
+    "description": "For exploded-view engineering briefs where a central object breaks into labelled components.",
     "image": "/assets/notebooklm-images/style-140.webp",
     "image_sources": [
       "/assets/notebooklm-images/style-140-400w.webp 400w",
