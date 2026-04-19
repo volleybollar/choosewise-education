@@ -33,21 +33,21 @@
   gsap.registerPlugin(ScrollTrigger);
 
   if (narrow) {
-    // Stagger letters in when the diagram enters the viewport, then fade each
-    // panel in as it scrolls into view below it.
+    // Mobile fallback: fade in the whole diagram when it enters the viewport,
+    // then fade each panel in as it scrolls into view below it. We animate the
+    // diagram as a single CSS container (not per-letter SVG transforms) because
+    // iOS Safari is unreliable with GSAP scale on SVG <g> elements.
     const diagram = document.querySelector('.wise-signature__diagram');
-    gsap.set(letters, { opacity: 0, scale: 0.6, transformOrigin: '50% 50%' });
-    gsap.set(panels, { opacity: 0, y: 20 });
     if (diagram) {
-      gsap.to(letters, {
-        opacity: 1, scale: 1,
-        duration: 0.5, ease: 'power2.out', stagger: 0.12,
-        scrollTrigger: { trigger: diagram, start: 'top 85%', toggleActions: 'play none none none' },
+      gsap.set(diagram, { opacity: 0, y: 12 });
+      gsap.to(diagram, {
+        opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+        scrollTrigger: { trigger: diagram, start: 'top 90%', toggleActions: 'play none none none' },
       });
-    } else {
-      gsap.set(letters, { opacity: 1, scale: 1 });
     }
+    letters.forEach(l => { l.style.opacity = '1'; });
     panels.forEach((p) => {
+      gsap.set(p, { opacity: 0, y: 20 });
       gsap.to(p, {
         opacity: 1, y: 0, duration: 0.5, ease: 'power2.out',
         onStart: () => p.classList.add('is-visible'),
