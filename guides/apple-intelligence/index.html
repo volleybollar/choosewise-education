@@ -67,6 +67,63 @@
   </div>
 </nav>
 
+<!-- ═══════════════════════════════════════════════════ -->
+<!--                     PART 1                           -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="section section--surface" id="part-1">
+  <div class="section__inner">
+    <p class="part-label">Part 1</p>
+    <h2>Get started</h2>
+    <p class="part-lede">What runs Apple Intelligence, what it can actually do today, and — the important bit — how Apple's "on-device" claim actually works when you look closely.</p>
+
+    <!-- 1.1 Hardware + language -->
+    <h3 id="p1-hardware">Which devices run Apple Intelligence</h3>
+    <p>As of April 2026, Apple Intelligence runs on a narrow slice of the Apple hardware you are likely to meet in a school. On iPad, you need an <strong>M1 chip or later</strong> — so an iPad Pro or iPad Air from 2021 onwards, or any recent iPad mini with Apple-silicon. On Mac, any machine with Apple-silicon (M1 or later) will run it. On iPhone, only the iPhone 15 Pro, iPhone 15 Pro Max, and the full iPhone 16 and 17 lines are supported. The standard iPhone 15 is not.</p>
+    <p>The practical point for Swedish schools: the iPads most commonly found in 1:1 programmes — the 9th and 10th generation standard iPads, and the older iPad Air with A-series chips — <strong>do not run Apple Intelligence</strong>. That is worth being honest about at the front of this guide. If your fleet is in that group, this material is useful for policy and planning, but not something you can hand to staff to try this afternoon.</p>
+    <p>Language support has expanded quarterly since launch. English came first; Swedish became available during 2025 alongside the other main European languages. Because Apple ships new languages and regional features on a rolling basis, verify the current state on your own device rather than trusting a document that is already a few months old. The simplest check: open <strong>Settings → Apple Intelligence &amp; Siri</strong>. If that menu item appears at all, your device is compatible and you can see which languages are currently available to you.</p>
+
+    <!-- 1.2 First setup -->
+    <h3 id="p1-setup">Turning it on (iPad-first)</h3>
+    <p>On a compatible iPad, the setup is short but the download is not. You toggle the feature on, and your iPad then pulls down a roughly <strong>4 GB on-device model</strong> in the background. On decent school WiFi this takes thirty to sixty minutes. The settings panel will read "Preparing" during that window; you can keep using the iPad normally while it works.</p>
+    <ol class="steps">
+      <li>Open <strong>Settings</strong> on your iPad.</li>
+      <li>Tap <strong>Apple Intelligence &amp; Siri</strong>.</li>
+      <li>Toggle <strong>Apple Intelligence</strong> on and confirm.</li>
+      <li>Leave the iPad connected to WiFi and power while the model downloads.</li>
+      <li>When "Preparing" disappears, Writing Tools, the new Siri, and Mail categorisation are live.</li>
+    </ol>
+    <p>On Mac, the path is the same under <strong>System Settings → Apple Intelligence &amp; Siri</strong>, and you need about 4 GB of free disk space. On iPhone, the path is identical to iPad with the same 4 GB footprint. You do not need to sign into anything new: Apple Intelligence runs under the Apple Account you are already using on the device.</p>
+    <p>One honest caveat before you proceed. The feature appears in Settings on any compatible device, but <strong>some sub-features are gated by region or by age</strong> — ChatGPT integration, for example, requires the user to be 18 or over and sits behind a separate opt-in. The guide returns to these limits in Part 3, where they matter for school policy.</p>
+
+    <!-- 1.3 PCC explainer -->
+    <h3 id="p1-pcc">Private Cloud Compute — what it actually is</h3>
+    <div class="explainer-box">
+      <p class="explainer-box__title">The distinction that matters</p>
+      <p>Apple talks about Apple Intelligence as an "on-device" product, and for most of what you will do in a classroom that description is accurate. But not for all of it. There are three distinct places your request can be processed, and knowing which one is in play for a given task is the difference between an informed user and one who is trusting a slogan.</p>
+
+      <p><strong>1. On-device processing.</strong> The majority of everyday Apple Intelligence operations run entirely on the iPad, Mac, or iPhone in front of you. Most Writing Tools actions — rewrite, proofread, shorten — fall here, as do basic Siri requests, Mail categorisation, and Notification summaries. Nothing leaves the device. No request, no input, no output touches Apple's servers or anyone else's. For the kind of quick parent-email rewrite a teacher does ten times a week, this is almost always what happens.</p>
+
+      <p><strong>2. Private Cloud Compute (PCC).</strong> When a request exceeds what the on-device model can handle — a long summary, a complex Writing Tools operation, Image Wand generation — the system reaches for a more capable model running on Apple-controlled servers. Apple's published architecture for PCC has several distinctive properties: the request is encrypted end-to-end from your device to a PCC node; the servers run a <strong>published, auditable software image</strong>; the server discards the request data after returning its response, a property Apple calls <em>stateless computation</em>; and Apple publishes the server binary so independent security researchers can verify that what runs in production matches what was described. The full technical whitepaper sits at <em>security.apple.com</em>.</p>
+
+      <p><strong>3. ChatGPT integration.</strong> This is a separate, opt-in path. When a user enables it, specific requests can be forwarded to OpenAI's servers. Apple anonymises the request in transit, but <strong>OpenAI receives the actual content of what was sent</strong>. This is a fundamentally different privacy model from the first two tiers and it deserves its own treatment; Part 3 returns to it in detail.</p>
+
+      <p>Two honest qualifications are worth stating here. First, PCC does have stronger architectural guarantees than a typical SaaS API call — the auditability story is real and it is unusual in the industry. Second, "Apple cannot inspect your request" is nevertheless a <strong>trust assertion</strong> that depends on Apple's implementation matching what they have published. The audit story is what makes that trust somewhat verifiable rather than purely reputational, but it is not the same as the data never leaving the device.</p>
+
+      <p>A useful rule of thumb: a quick rewrite of a two-sentence parent email almost certainly stays on the iPad. Asking Apple Intelligence to summarise a ten-page PDF almost certainly invokes Private Cloud Compute. Anything that touches ChatGPT is clearly signalled in the interface and requires an explicit tap.</p>
+    </div>
+
+    <!-- 1.4 Värt att veta -->
+    <aside class="sidenote">
+      <p class="sidenote__title">Worth knowing (but outside this guide's scope)</p>
+      <p>Three features get a lot of attention in Apple's marketing but sit outside the pedagogical core of this guide. Mentioning them briefly so you can answer the inevitable staffroom questions.</p>
+      <p><strong>Image Playground</strong> generates images from a text description in three visual styles — Animation, Illustration, and Sketch. It runs through Private Cloud Compute. Classroom relevance is narrow; students will often explore it on their own, and its usefulness for teacher-prepared materials is modest compared to dedicated image tools.</p>
+      <p><strong>Genmoji</strong> creates custom emoji from a short text description, also via PCC. Low day-to-day classroom utility, though some teachers use them as personalised stickers in feedback.</p>
+      <p><strong>Clean Up</strong> in the Photos app removes unwanted objects from a photograph. This is genuinely practical for tidying classroom photos before sharing them with parents, and most Clean Up operations run on-device.</p>
+      <p>The privacy profile of all three is the same as the analysis above: on-device where possible, PCC where the task demands more capacity, never ChatGPT unless the user explicitly invokes it.</p>
+    </aside>
+  </div>
+</section>
+
 </div><!-- /.jl-page -->
 
 <div data-include="/assets/partials/footer-en.html"></div>
