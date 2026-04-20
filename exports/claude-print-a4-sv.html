@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Guide till Claude för lärare och skolledare — Johan Lindström</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ────────────────────────────────────────────────
+     DESIGN TOKENS — Nordic Editorial palette
+     ──────────────────────────────────────────────── */
+  :root {
+    --color-primary:    #1B2733;
+    --color-secondary:  #2E4057;
+    --color-accent:     #C8A86B;
+    --color-light:      #E8E4DC;
+    --color-surface:    #F6F3EE;
+    --color-bg:         #FFFFFF;
+    --color-text:       #1A1A1F;
+    --color-text-light: #6B7280;
+    --color-warning:    #B8553F;
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* ────────────────────────────────────────────────
+     PAGE & RESET
+     ──────────────────────────────────────────────── */
+  html { background: var(--color-bg); }
+  * { box-sizing: border-box; }
+
+  @page {
+    size: A4;
+    margin: 14mm 0 18mm 0;   /* 14mm top, 18mm bottom for footer zone */
+
+    /* Footer rendered by the page engine itself — always at the bottom */
+    @bottom-center {
+      content: "JOHAN LINDSTRÖM · GUIDE TILL CLAUDE FÖR LÄRARE OCH SKOLLEDARE";
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 8pt;
+      font-weight: 400;
+      color: #6B7280;
+      letter-spacing: 1.5px;
+      border-top: 1px solid #E8E4DC;
+      padding-top: 4mm;
+      vertical-align: top;
+    }
+  }
+
+  /* Full-bleed named page for cover, TOC, and part-headers — no footer */
+  @page full-bleed {
+    size: A4;
+    margin: 0;
+
+    @bottom-center { content: none; }
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 11pt;
+    line-height: 1.75;
+    color: var(--color-text);
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    orphans: 3;
+    widows: 3;
+  }
+  p, li { orphans: 2; widows: 2; }
+  h1, h2, h3 { break-after: avoid; }
+
+  /* Note: the page footer is rendered by the @page @bottom-center rule above,
+     not by a fixed-position element. This is the reliable approach for PDF. */
+
+  /* ────────────────────────────────────────────────
+     COVER — full-bleed A4, photo + navy text block
+     ──────────────────────────────────────────────── */
+  .cover {
+    width: 210mm;
+    height: 297mm;
+    background: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+    break-after: page;
+    overflow: hidden;
+    page: full-bleed;
+  }
+  .cover-footer-mask {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 12mm;
+    background: var(--color-primary);
+    z-index: 10;
+  }
+  .cover-top-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 12mm;
+    background: var(--color-accent);
+    z-index: 5;
+  }
+  .cover-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 185mm;
+    width: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+  }
+  .cover-text {
+    position: absolute;
+    top: 185mm;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 18mm 28mm 28mm 28mm;
+    background: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 5;
+  }
+  .cover-accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--color-accent);
+  }
+  .cover-tag {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 4mm;
+  }
+  .cover h1 {
+    font-family: var(--font-display);
+    font-size: 34pt;
+    font-weight: 900;
+    line-height: 1.05;
+    color: white;
+    margin: 0 0 4mm 0;
+    border: none;
+    letter-spacing: -0.5px;
+  }
+  .cover-subtitle {
+    font-size: 12pt;
+    font-weight: 300;
+    color: var(--color-light);
+    margin-bottom: 6mm;
+    line-height: 1.45;
+    max-width: 130mm;
+  }
+  .cover-divider {
+    width: 24mm;
+    height: 2px;
+    background: var(--color-accent);
+    margin-bottom: 4mm;
+  }
+  .cover-brand {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-light);
+  }
+
+  /* ────────────────────────────────────────────────
+     CONTENT — @page provides 14mm top/bottom breathing room;
+     .content adds modest internal spacing for first/last page
+     ──────────────────────────────────────────────── */
+  .content {
+    padding: 8mm 22mm 10mm 22mm;
+  }
+
+  .pagebreak { break-before: page; }
+
+  /* ────────────────────────────────────────────────
+     PART HEADER — full-width navy block, text aligned with body.
+     Starts within the normal content area (14mm below page top) so
+     nothing bleeds to the previous page. A small strip of page
+     background remains above the navy — acceptable tradeoff for a
+     clean break behaviour.
+     ──────────────────────────────────────────────── */
+  .part-header {
+    background: var(--color-primary);
+    color: white;
+    padding: 14mm 22mm 12mm 22mm;
+    margin: 0 0 6mm 0;
+    break-before: page;
+    break-inside: avoid;
+  }
+  .part-header .part-label {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 4mm;
+  }
+  .part-header h1 {
+    font-family: var(--font-display);
+    font-size: 32pt;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 4mm 0;
+    border: none;
+    line-height: 1.1;
+  }
+  .part-header .part-desc {
+    font-size: 11pt;
+    color: var(--color-light);
+    font-weight: 300;
+    max-width: 130mm;
+    line-height: 1.6;
+  }
+
+  /* ────────────────────────────────────────────────
+     TYPOGRAPHY
+     ──────────────────────────────────────────────── */
+  h1 {
+    font-family: var(--font-display);
+    color: var(--color-primary);
+    font-size: 22pt;
+    font-weight: 700;
+    margin: 8mm 0 4mm;
+    line-height: 1.2;
+    border: none;
+  }
+  h2 {
+    font-family: var(--font-display);
+    color: var(--color-secondary);
+    font-size: 14pt;
+    font-weight: 700;
+    margin: 6mm 0 2mm;
+    padding-bottom: 1.5mm;
+    border-bottom: 1px solid var(--color-accent);
+    break-after: avoid;
+  }
+  h3 {
+    font-family: var(--font-display);
+    color: var(--color-primary);
+    font-size: 12pt;
+    font-weight: 700;
+    margin: 4mm 0 1.5mm;
+    break-after: avoid;
+  }
+  p { margin: 0 0 3mm 0; }
+  strong { color: var(--color-primary); font-weight: 700; }
+  em { font-style: italic; }
+  ul, ol { margin: 0 0 3mm 0; padding-left: 6mm; }
+  li { margin-bottom: 1.5mm; }
+
+  /* ────────────────────────────────────────────────
+     CALLOUTS — only three types allowed
+     ──────────────────────────────────────────────── */
+  .callout {
+    padding: 4mm 6mm;
+    margin: 4mm 0;
+    border-radius: 0 3mm 3mm 0;
+    break-inside: avoid;
+    border-left-width: 1.5mm;
+    border-left-style: solid;
+  }
+  .callout .callout-label {
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5mm;
+    display: block;
+  }
+  .callout p { margin-bottom: 2mm; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout-johan {
+    border-left-color: var(--color-accent);
+    background: var(--color-surface);
+  }
+  .callout-johan .callout-label { color: var(--color-accent); }
+  .callout-johan .signature {
+    display: block;
+    margin-top: 2mm;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 10pt;
+    color: var(--color-accent);
+    text-align: right;
+  }
+
+  .callout-try {
+    border-left-color: var(--color-primary);
+    background: white;
+    border: 1px solid var(--color-light);
+    border-left-width: 1.5mm;
+    border-left-color: var(--color-primary);
+  }
+  .callout-try .callout-label { color: var(--color-primary); }
+
+  .callout-watch {
+    border-left-color: var(--color-warning);
+    background: #FFF8F4;
+  }
+  .callout-watch .callout-label { color: var(--color-warning); }
+
+  /* ────────────────────────────────────────────────
+     IMAGES & FIGURES
+     ──────────────────────────────────────────────── */
+  .image-figure {
+    width: 100%;
+    height: auto;
+    margin: 0 0 6mm 0;
+    border-radius: 1.5mm;
+    display: block;
+  }
+  .image-figure-full {
+    width: calc(100% + 44mm);
+    margin: 0 -22mm 6mm -22mm;
+    height: 80mm;
+    object-fit: cover;
+    display: block;
+  }
+
+  .screenshot-placeholder {
+    border: 2px dashed var(--color-text-light);
+    background: #F8F9FA;
+    height: 60mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    font-size: 9pt;
+    font-style: italic;
+    margin: 4mm 0 6mm;
+    text-align: center;
+    padding: 4mm;
+  }
+
+  /* ────────────────────────────────────────────────
+     TABLES
+     ──────────────────────────────────────────────── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2mm 0 3mm 0;
+    font-size: 9pt;
+    break-inside: avoid;
+  }
+  th {
+    background: var(--color-primary);
+    color: white;
+    padding: 2mm 2.5mm;
+    text-align: left;
+    font-weight: 700;
+    font-size: 8.5pt;
+    letter-spacing: 0.5px;
+  }
+  td {
+    padding: 1.8mm 2.5mm;
+    border-bottom: 1px solid var(--color-light);
+    vertical-align: top;
+    line-height: 1.45;
+  }
+  tr:nth-child(even) td { background: var(--color-surface); }
+
+  /* ────────────────────────────────────────────────
+     PROMPT CARDS (used in appendix)
+     ──────────────────────────────────────────────── */
+  .prompt-card {
+    background: var(--color-surface);
+    border-left: 1mm solid var(--color-accent);
+    padding: 3mm 5mm;
+    margin: 2mm 0 4mm 0;
+    border-radius: 0 1.5mm 1.5mm 0;
+    break-inside: avoid;
+  }
+  .prompt-card-title {
+    font-family: var(--font-display);
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0 0 2mm 0;
+  }
+  .prompt-card-text {
+    font-family: 'SF Mono', 'Monaco', monospace;
+    font-size: 9pt;
+    line-height: 1.55;
+    color: var(--color-text);
+    white-space: pre-wrap;
+    margin: 0;
+  }
+
+  /* ────────────────────────────────────────────────
+     BAD / BETTER / BEST PROMPT CARDS
+     ──────────────────────────────────────────────── */
+  .bbb-card {
+    border: 1px solid var(--color-light);
+    border-left-width: 1.5mm;
+    border-radius: 0 2mm 2mm 0;
+    padding: 4mm 5mm;
+    margin: 3mm 0;
+    break-inside: avoid;
+  }
+  .bbb-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5mm;
+  }
+  .bbb-dot {
+    width: 4mm;
+    height: 4mm;
+    border-radius: 50%;
+    margin-right: 3mm;
+  }
+  .bbb-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13pt;
+  }
+  .bbb-body {
+    font-family: 'SF Mono', 'Monaco', monospace;
+    font-size: 9.5pt;
+    line-height: 1.6;
+    color: var(--color-text);
+    white-space: pre-wrap;
+    background: var(--color-surface);
+    padding: 3mm 4mm;
+    border-radius: 1mm;
+  }
+  .bbb-bad    { border-left-color: var(--color-warning); }
+  .bbb-bad .bbb-dot   { background: var(--color-warning); }
+  .bbb-bad .bbb-label { color: var(--color-warning); }
+  .bbb-better { border-left-color: var(--color-accent); }
+  .bbb-better .bbb-dot   { background: var(--color-accent); }
+  .bbb-better .bbb-label { color: var(--color-accent); }
+  .bbb-best   { border-left-color: #5C8A6D; }
+  .bbb-best .bbb-dot   { background: #5C8A6D; }
+  .bbb-best .bbb-label { color: #5C8A6D; }
+
+  /* ────────────────────────────────────────────────
+     CHECKLIST
+     ──────────────────────────────────────────────── */
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 5mm 0;
+  }
+  .checklist li {
+    padding: 2.5mm 0 2.5mm 9mm;
+    position: relative;
+    border-bottom: 1px solid var(--color-light);
+    font-size: 11pt;
+  }
+  .checklist li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3.5mm;
+    width: 5mm;
+    height: 5mm;
+    border: 1.5px solid var(--color-accent);
+    border-radius: 1mm;
+    background: white;
+  }
+  .checklist-numbered {
+    list-style: none;
+    counter-reset: chk;
+    padding: 0;
+    margin: 5mm 0;
+  }
+  .checklist-numbered li {
+    counter-increment: chk;
+    display: flex;
+    align-items: center;                 /* reliable vertical centring for single- and multi-line items */
+    gap: 4mm;
+    padding: 2mm 0;
+    border-bottom: 1px solid var(--color-light);
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+  .checklist-numbered.compact {
+    margin: 3mm 0;
+  }
+  .checklist-numbered.compact li {
+    padding: 1.4mm 0;                     /* left padding no longer needed — flex gap handles spacing */
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+  .checklist-numbered li:before {
+    content: counter(chk);
+    flex: 0 0 auto;                       /* number sits as a normal flex item — align-items on parent centres it */
+    width: 7mm;
+    height: 7mm;
+    background: var(--color-accent);
+    color: white;
+    border-radius: 1mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: 11pt;
+    line-height: 1;
+    padding-bottom: 0.4mm;                /* optical nudge: Playfair digits sit ~0.2mm below box centre without this */
+  }
+  .checklist-numbered.compact li:before {
+    width: 6mm;
+    height: 6mm;
+    font-size: 10pt;
+  }
+
+  /* ────────────────────────────────────────────────
+     COLOPHON — uses default .content padding for consistent top spacing
+     ──────────────────────────────────────────────── */
+  .colophon-page {
+    min-height: 240mm;
+  }
+  .colophon-meta {
+    font-size: 10pt;
+    color: var(--color-text-light);
+    margin: 4mm 0 2mm;
+  }
+  .colophon-meta strong { color: var(--color-text); }
+
+  /* ────────────────────────────────────────────────
+     TABLE OF CONTENTS — full-bleed cream page
+     ──────────────────────────────────────────────── */
+  .toc-page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--color-surface);
+    box-sizing: border-box;
+    padding: 22mm 28mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;     /* vertically centre h1 + list for symmetry */
+    break-before: page;
+    break-after: page;
+    overflow: hidden;
+    position: relative;
+    page: full-bleed;
+  }
+  .toc-page h1 {
+    margin: 0 0 4mm 0;
+    padding-bottom: 4mm;
+    font-size: 26pt;
+    color: var(--color-primary);
+    position: relative;
+  }
+  .toc-page h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 20mm;
+    height: 2px;
+    background: var(--color-accent);
+  }
+
+  .toc-list { list-style: none; padding: 0; margin: 4mm 0 0 0; }
+
+  /* Base list item — used by top-level items (Intro, Ecosystem, Appendix, Closing) */
+  .toc-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 2.8mm 0;
+    border-bottom: 1px dotted rgba(107, 114, 128, 0.35);
+    font-size: 11pt;
+  }
+  .toc-list li .toc-title {
+    color: var(--color-text);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12pt;
+  }
+  .toc-list li .toc-page-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-accent);
+    font-size: 12pt;
+    padding-right: 3mm;            /* consistent breathing room; keeps all numbers in one column */
+  }
+
+  /* Part row — navy block, white text, brass accent border.
+     Right padding = 0 so the page number aligns vertically with
+     the numbers on regular and sub rows. */
+  .toc-list li.toc-part-row {
+    background: var(--color-primary);
+    padding: 4.5mm 0 4.5mm 6mm;
+    margin: 4mm 0 2mm 0;
+    border-bottom: none;
+    border-left: 2.5mm solid var(--color-accent);
+    border-radius: 0 1.5mm 1.5mm 0;
+  }
+  .toc-list li.toc-part-row .toc-title {
+    color: white;
+    font-size: 14pt;
+    font-weight: 700;
+  }
+  .toc-list li.toc-part-row .toc-page-num {
+    color: var(--color-accent);
+    font-size: 15pt;
+  }
+
+  /* Sub-item (nested under Parts) */
+  .toc-list li.toc-sub {
+    padding: 2mm 0 2mm 8mm;
+    font-size: 10pt;
+    border-bottom: 1px dotted rgba(107, 114, 128, 0.25);
+  }
+  .toc-list li.toc-sub .toc-title {
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 10.5pt;
+  }
+  .toc-list li.toc-sub .toc-page-num {
+    font-size: 10.5pt;
+  }
+
+  /* ────────────────────────────────────────────────
+     ABOUT JOHAN — portrait placeholder
+     ──────────────────────────────────────────────── */
+  .author-portrait {
+    width: 24mm;
+    height: 24mm;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 2px solid var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    font-size: 7pt;
+    margin: 3mm 0;
+    font-style: italic;
+  }
+  .references-list {
+    font-size: 9pt;
+    line-height: 1.5;
+    padding-left: 5mm;
+    margin: 2mm 0 2mm 0;
+  }
+  .references-list li {
+    margin-bottom: 0.8mm;
+  }
+
+  /* ────────────────────────────────────────────────
+     DIAGRAM HELPERS
+     ──────────────────────────────────────────────── */
+  .diagram-figure {
+    margin: 5mm 0 4mm;
+    text-align: center;
+    break-inside: avoid;
+  }
+  .diagram-caption {
+    font-size: 9pt;
+    color: var(--color-text-light);
+    font-style: italic;
+    margin-top: 2mm;
+  }
+</style>
+</head>
+<body>
+
+<!-- Page footer is rendered by the @page @bottom-center CSS rule. -->
+
+
+<!-- ═══════════════════════════════════════════════════
+     COVER — editorial photo + navy text block
+     ═══════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-top-bar"></div>
+  <img src="../sv/guider/claude/assets/cover.jpg" class="cover-photo" alt="">
+  <div class="cover-footer-mask"></div>
+  <div class="cover-text">
+    <div class="cover-accent-line"></div>
+    <div class="cover-tag">Claude inom skolsektorn</div>
+    <h1>Guide till Claude för lärare och skolledare</h1>
+    <div class="cover-subtitle">En praktisk handbok för dig som undervisar eller leder en skola</div>
+    <div class="cover-divider"></div>
+    <div class="cover-brand">Johan Lindström</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     COLOPHON
+     ═══════════════════════════════════════════════════ -->
+<div class="content colophon-page">
+  <h1>Kolofon</h1>
+  <p class="colophon-meta"><strong>Titel:</strong> Guide till Claude för lärare och skolledare — En praktisk handbok för dig som undervisar eller leder en skola</p>
+  <p class="colophon-meta"><strong>Författare:</strong> Johan Lindström</p>
+  <p class="colophon-meta"><strong>Utgåva:</strong> Första upplagan, april 2026</p>
+  <p class="colophon-meta"><strong>Utgivare:</strong> Johan Lindström</p>
+  <p class="colophon-meta"><strong>Webbplats:</strong> <a href="https://choosewise.education" style="color: inherit; text-decoration: underline; text-decoration-color: var(--color-accent);">choosewise.education</a></p>
+
+  <h2 style="margin-top: 14mm;">Användning &amp; rättigheter</h2>
+  <p>Guiden får spridas fritt med angivande av författare. Skriv gärna ut den, skicka den till kollegor och distribuera den inom din skola. Den får däremot inte säljas, ommärkas som någon annans verk eller publiceras utan författaransvisning. Om du tycker den är användbar — dela källänken i stället för en kopierad fil. Då når guiden dem den är skriven för, och innehållet hålls aktuellt.</p>
+
+  <h2 style="margin-top: 10mm;">Om hur guiden har tagits fram</h2>
+  <p>Guiden är skriven med hjälp av Claude. Strukturen, ståndpunkterna, argumenten och den redaktionella bedömningen är författarens. AI har bidragit med utkast, formatering och själva byggandet av dokumentet. Varje sida har granskats och redigerats av en människa före publicering — samma krav som guiden själv rekommenderar för all användning av AI i klassrummet.</p>
+
+  <h2 style="margin-top: 10mm;">Om priser och funktioner</h2>
+  <p>Priser och funktioner stämmer per april 2026. Anthropic uppdaterar planer, priser och funktioner löpande. För aktuell information, se <em>claude.ai</em>.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     TABLE OF CONTENTS — full-bleed cream page
+     ═══════════════════════════════════════════════════ -->
+<div class="toc-page">
+  <h1>Innehåll</h1>
+  <ul class="toc-list">
+    <li><span class="toc-title">Tre principer som formar guiden</span><span class="toc-page-num">04</span></li>
+    <li><span class="toc-title">Förstå Claudes ekosystem</span><span class="toc-page-num">06</span></li>
+
+    <li class="toc-part-row"><span class="toc-title">Del 1 — Kom igång</span><span class="toc-page-num">08</span></li>
+    <li class="toc-sub"><span class="toc-title">Skapa ett konto · RTF-anatomin</span><span class="toc-page-num">08</span></li>
+    <li class="toc-sub"><span class="toc-title">Dålig → Bättre → Bäst</span><span class="toc-page-num">11</span></li>
+    <li class="toc-sub"><span class="toc-title">Fem snabba vinster den här veckan</span><span class="toc-page-num">12</span></li>
+
+    <li class="toc-part-row"><span class="toc-title">Del 2 — Arbeta smartare</span><span class="toc-page-num">15</span></li>
+    <li class="toc-sub"><span class="toc-title">Projects · Artifacts · Filer</span><span class="toc-page-num">15</span></li>
+    <li class="toc-sub"><span class="toc-title">Styles, Memory &amp; fem arbetsflöden för klassrummet</span><span class="toc-page-num">20</span></li>
+
+    <li class="toc-part-row"><span class="toc-title">Del 3 — Skala upp &amp; led</span><span class="toc-page-num">24</span></li>
+    <li class="toc-sub"><span class="toc-title">Cowork · Skills · Claude Code</span><span class="toc-page-num">24</span></li>
+    <li class="toc-sub"><span class="toc-title">Införande på hela skolan &amp; etik</span><span class="toc-page-num">29</span></li>
+
+    <li class="toc-part-row"><span class="toc-title">Bonus — Europeiska regler styr</span><span class="toc-page-num">33</span></li>
+
+    <li><span class="toc-title">Bilaga — Promptbibliotek</span><span class="toc-page-num">37</span></li>
+    <li><span class="toc-title">Avslutning · Om författaren · Källor</span><span class="toc-page-num">42</span></li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     INTRODUCTION — Three principles
+     ═══════════════════════════════════════════════════ -->
+<div class="content pagebreak">
+  <h1>Tre principer som formar guiden</h1>
+
+  <p>Innan vi kommer till hur, några ord om varför. Vem som helst kan räkna upp Claudes funktioner. Få guider tar ställning till vad verktyget faktiskt är till för — och vad det inte är till för. Den här gör det. Tre principer ligger bakom varje rekommendation på de sidor som följer.</p>
+
+  <h2>Läraren är experten</h2>
+  <p>Claude är ett verktyg. Du är läraren. Verktyget sätter inte målen för lärandet. Det känner inte dina elever. Det förstår inte de pedagogiska val du har gjort, och varför du gjort dem. Det gör du. Varje output Claude producerar passerar din professionella bedömning innan den når ett klassrum. Det är inte en fin idé — det är arbetsregeln.</p>
+  <p>Din kunskap, din erfarenhet, din omdömesförmåga — det är det som gör AI-output verkligt användbar. Om du förstår differentiering på djupet blir Claude en kraftmultiplikator. Om du inte gör det kommer ingen AI att fylla luckan. Verktyget förstärker det du redan tar med dig; det ersätter det inte.</p>
+
+  <h2>Gör grunderna bättre</h2>
+  <p>Frestelsen med ny teknik är alltid att göra nya saker — escape rooms, VR-exkursioner, gamifiera allting. Det mesta är brus. Den verkliga möjligheten är subtilare. Den handlar om att göra det evidensbaserade grundarbetet oftare och mer konsekvent än du gör i dag.</p>
+  <p>Retrieval practice. Ordförrådsarbete. Differentiering av text. Meningsstöd. Genomarbetade exempel. Formativ återkoppling. Det är de metoder som forskningen pekar på om och om igen, och metoder som lärare alltid sagt att de skulle använda oftare — om de hade tid. Claude ger dig tiden. Det som tidigare krävde nittio minuters förberedelse tar nu fem. Det är inte glamoröst. Det är transformativt i den enda mening som faktiskt spelar roll: eleverna lär sig mer.</p>
+
+  <div class="callout callout-johan">
+    <span class="callout-label">Johans anteckning</span>
+    <p>Efter snart tre decennier i klassrum och skolledning har jag sett ett stort antal verktyg komma med löften om att förändra skolan. De som blev kvar var de som lät lärare göra mer av det de redan visste fungerade. De som försvann var de som krävde att läraren skulle bli någon annan. Claude är ett av de bästa AI-verktyg jag sett som tydligt hör hemma i den första kategorin — förutsatt att du använder det väl.</p>
+    <span class="signature">— JL</span>
+  </div>
+
+  <h2>Inkludera varje elev</h2>
+  <p>I varje klassrum finns elever i marginalen. Andraspråkseleven som behöver nyckelord förundervisade för att över huvud taget komma in i samma text som de andra läser. Eleven med inlärningssvårigheter som behöver samma innehåll på en enklare lässvårighetsnivå. Den avancerade eleven som cruisar runt för att uppgiften inte utmanar. Att möta alla dessa elever, varje lektion, har alltid varit det rätta — och alltid varit för tidskrävande för att göras konsekvent.</p>
+  <p>Claude sänker tidskostnaden till en nivå där det blir realistiskt. Differentierade texter på fem minuter. Översatta nyckelbegrepp. Stöttade instruktioner. Ljudversioner av skrivna uppgifter. Det handlar inte om att göra mer. Det handlar om att göra det som spelar roll, för de elever som behöver det mest, i den kadens som forskningen rekommenderat i decennier.</p>
+
+  <div class="callout callout-watch">
+    <span class="callout-label">Se upp</span>
+    <p>Claude hjälper dig att skapa material snabbare. Det ersätter inte det relationella arbete som undervisning är. Låt inte AI:ns effektivitet lura dig att lägga mindre tid med eleverna. Den tid AI sparar är till för dem — inte för mer administration.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     UNDERSTANDING THE CLAUDE ECOSYSTEM
+     ═══════════════════════════════════════════════════ -->
+<div class="content pagebreak">
+  <h1>Förstå Claudes ekosystem</h1>
+
+  <p>Claude är inte en enda produkt. De flesta lärare kommer att tillbringa den största delen av tiden på en och samma plats — i chatten — men det är värt att känna till de andra ytorna, eftersom de fyller olika syften och vissa kräver en betald plan. Fem minuter på den här sidan sparar mycket förvirring längre fram.</p>
+
+  <!-- Ecosystem diagram -->
+  <div class="diagram-figure">
+    <svg viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 170mm; height: auto;">
+      <!-- Baseline -->
+      <line x1="40" y1="200" x2="640" y2="200" stroke="#6B7280" stroke-width="0.8" opacity="0.4"/>
+
+      <!-- Node 1 — Chat -->
+      <rect x="40" y="60" width="130" height="130" rx="10" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
+      <text x="105" y="112" font-family="Playfair Display, serif" font-size="22" font-weight="700" fill="#1B2733" text-anchor="middle">Chat</text>
+      <text x="105" y="144" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#6B7280" text-anchor="middle">GRATIS + BETALD</text>
+
+      <!-- Node 2 — Cowork -->
+      <rect x="200" y="60" width="130" height="130" rx="10" fill="#1B2733"/>
+      <text x="265" y="112" font-family="Playfair Display, serif" font-size="22" font-weight="700" fill="white" text-anchor="middle">Cowork</text>
+      <text x="265" y="144" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#C8A86B" text-anchor="middle">ENDAST BETALD</text>
+      <!-- Accent badge -->
+      <rect x="231" y="74" width="68" height="14" rx="7" fill="#C8A86B"/>
+      <text x="265" y="84" font-family="Inter, sans-serif" font-size="7" font-weight="700" letter-spacing="1.2" fill="#1B2733" text-anchor="middle">NY 2026</text>
+
+      <!-- Node 3 — Code -->
+      <rect x="360" y="60" width="130" height="130" rx="10" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
+      <text x="425" y="112" font-family="Playfair Display, serif" font-size="22" font-weight="700" fill="#1B2733" text-anchor="middle">Code</text>
+      <text x="425" y="144" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#6B7280" text-anchor="middle">BETALD · TEKNISK</text>
+
+      <!-- Node 4 — Mobile -->
+      <rect x="520" y="60" width="130" height="130" rx="10" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
+      <text x="585" y="112" font-family="Playfair Display, serif" font-size="22" font-weight="700" fill="#1B2733" text-anchor="middle">Mobil</text>
+      <text x="585" y="144" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#6B7280" text-anchor="middle">GRATIS + BETALD</text>
+    </svg>
+    <p class="diagram-caption">Fyra ytor, en modellfamilj. Det mesta av ditt arbete sker till en början i Chat.</p>
+  </div>
+
+  <h2>Chat — det samtalande gränssnittet</h2>
+  <p>Chat är Claude så som de flesta känner till verktyget: du skriver en prompt, får ett svar, itererar. Den körs på claude.ai i webbläsaren, i Claude Desktop-appen på macOS och Windows, samt i mobilapparna. Den kostnadsfria nivån ger dig tillgång till Claude Sonnet, filuppladdning, webbsökning, minne mellan samtal och möjlighet att skapa nedladdningsbara dokument. Det är här en stor del av lärarna kommer att göra majoriteten av sitt arbete till en början.</p>
+
+  <h2>Cowork — agentiskt läge i Claude Desktop (betald)</h2>
+  <p>Cowork är nyare, och värt att lära sig eftersom det ändrar vad Claude kan uträtta åt dig på en enda förfrågan. Anthropic beskriver det så här: "Claude Cowork använder samma agentiska arkitektur som driver Claude Code, nu tillgänglig inne i Claude Desktop utan att du behöver öppna terminalen. I stället för att svara på en prompt i taget kan Claude ta sig an komplexa uppgifter i flera steg och utföra dem åt dig." Cowork ligger som en flik inne i Claude Desktop på betalda planer. Du möter verktyget ordentligt i Del 3.</p>
+
+  <h2>Claude Code — utvecklarverktyget (betald, tekniskt)</h2>
+  <p>Claude Code är ett kommandoradsverktyg för utvecklare och IT-nyfiken personal. Det låter Claude läsa och skriva filer på din dator och köra program. För de flesta lärare är det inte ett verktyg för vardagen, men det är här Claude blir som mest kraftfullt — och det är där skolans tekniker eller utvecklingsledare kan vilja lägga sin tid. Del 3 innehåller en kort översikt så att du vet vad det är.</p>
+
+  <h2>Mobil — Claude på språng</h2>
+  <p>iOS- och Android-apparna ger dig samma Chat på en mindre skärm. Röstinmatning är särskilt användbar: en lärare jag arbetar med skriver utkasten till veckans föräldrabrev under arbetsresan genom att diktera, och redigerar sedan på laptopen hemma. Mobilen är inte där du bygger; det är där du fångar upp och granskar.</p>
+
+  <h2>Vad som ingår i respektive plan</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 18%;">Plan</th>
+        <th style="width: 16%;">Pris</th>
+        <th style="width: 28%;">Bäst för</th>
+        <th style="width: 38%;">Innehåller</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Free</strong></td>
+        <td>0 kr</td>
+        <td>Att prova verktyget; lätt privat användning</td>
+        <td>Chat (Sonnet), webbsökning, minne, filuppladdning, filskapande, mobilappar</td>
+      </tr>
+      <tr>
+        <td><strong>Pro</strong></td>
+        <td>ca 200 kr / månad</td>
+        <td>En lärares dagliga arbetshäst</td>
+        <td>Allt i Free, plus tillgång till Opus, <em>Cowork</em>, högre användningstak, obegränsat antal Projects, extended thinking</td>
+      </tr>
+      <tr>
+        <td><strong>Max</strong></td>
+        <td>ca 1 000 kr+ / månad</td>
+        <td>Storanvändare, arbetslag</td>
+        <td>Allt i Pro, plus 5–20× användning, högre outputgränser, tidig tillgång till nya funktioner</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size: 9pt; color: var(--color-text-light); font-style: italic;">Priserna stämmer per april 2026 och är omräknade från Anthropics dollarpriser. Se <em>claude.ai</em> för aktuella priser. Det är Anthropics planer för enskilda användare; team- och enterpriseplaner skiljer sig både i pris och innehåll.</p>
+
+  <div class="callout callout-watch">
+    <span class="callout-label">Se upp · Integritet</span>
+    <p>På planerna för enskilda användare kan dina samtal användas för att träna modellen, som standard. Öppna Inställningar → Privacy och granska alternativet. Om du skriver något om elever — även avidentifierat — gå igenom skolans AI-policy innan du fortsätter, och stäng av modellträningen om du är osäker.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PART 1 — GETTING STARTED
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+  <div class="part-label">Del 1</div>
+  <h1>Kom igång</h1>
+  <div class="part-desc">Om du aldrig har öppnat Claude förut, börja här. När du är klar med denna del har du ett konto, du vet hur man skriver en prompt som inte slösar din tid, och du har fem konkreta saker du kan använda med dina klasser redan den här veckan.</div>
+</div>
+
+<div class="content">
+  <img src="../sv/guider/claude/assets/part-1-opener.jpg" class="image-figure" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;height: 70mm;&quot;&gt;Part 1 opener image · drop part-1-opener.jpg into pdf/assets/&lt;/div&gt;';">
+
+  <h1>Skapa ett konto</h1>
+  <p>Gå till <em>claude.ai</em> och registrera dig. Du kan logga in via Google eller Apple, eller skapa konto med valfri e-postadress. För att avgöra om Claude är ett användbart verktyg för dig kan du inledningsvis prova ett gratis privatkonto — ladda bara inte upp känslig data. Om du bedömer att din skola bör ha Claude-konton åt er finns det flera steg som behöver hanteras och lösas innan ni är igång.</p>
+  <p>Den kostnadsfria nivån är på riktigt användbar. Du får Claude Sonnet, minne mellan samtal, webbsökning, filuppladdning och filskapande, samt mobilapparna. Det mesta i den här guiden fungerar på den kostnadsfria nivån. Börja där. Uppgradera först när du märker att användningen tar slut mitt i en produktiv session — inte tidigare.</p>
+
+  <h3>Webb (claude.ai)</h3>
+  <p>Snabbast igång. Ingen installation, inga behörigheter, ingen IT-ärende. Öppna webbläsaren, logga in, börja skriva. Om du bara vill prova Claude innan du bestämmer dig för något är det här du ska börja.</p>
+
+  <h3>Desktopappen (macOS och Windows)</h3>
+  <p>Rekommenderas för daglig användning. Desktopappen körs utanför webbläsaren, vilket innebär att du inte behöver kämpa mot trettio öppna flikar när du vill tänka. Dessutom är det där Cowork finns på betalda planer, så om du uppgraderar är det där du kommer att arbeta.</p>
+
+  <h3>Mobil (iOS och Android)</h3>
+  <p>Installera båda. Röstinmatning är den dolda produktivitetsfunktionen. En tiominuters promenad mellan klassrum räcker för att diktera ett utkast till ett föräldrabrev, en sammanfattning av återkoppling eller en grov lektionsstruktur. Texten redigerar du senare, på ett ordentligt tangentbord. Det som skrivs under promenaden skulle annars aldrig bli skrivet.</p>
+
+  <h1>Din första prompt — RTF-anatomin</h1>
+  <p>De flesta prompter misslyckas inte för att modellen är dålig, utan för att prompten är för vag. En användbar prompt har tre delar: Roll, Uppgift, Format. Tre bokstäver på engelska: R, T, F. Gör det till en vana, så höjs kvaliteten på det Claude levererar omedelbart.</p>
+
+  <h3>R — Role (Roll)</h3>
+  <p>Säg åt Claude vem den ska vara. Du gör redan det med kollegor och VFU-studenter: "Tänk att du är svensklärare i åk 8 i ett klassrum med bred spridning i kunskapsnivå." Ju mer specifik rollen är, desto mer jordnära blir outputen. "En lärare i de lägre åldrarna" är svagare än "en erfaren klasslärare i åk 4 som undervisar i en kommunal skola med stor spridning i läsnivåer".</p>
+
+  <h3>T — Task (Uppgift)</h3>
+  <p>Berätta exakt vad du vill ha gjort. Inte "hjälp mig med en quiz" — det lämnar för mycket åt gissning. I stället: "Gör en tiominuters retrieval practice-quiz på de retoriska grepp som har gåtts igenom de senaste tre lektionerna." Precision i uppgiften ger precision i outputen.</p>
+
+  <h3>F — Format</h3>
+  <p>Specificera formen på svaret. Antal frågor, blandning av frågetyper, ordantal, rubrikstruktur, om du vill ha ett facit, om det ska passa på en presentationsbild eller som en utdelad papperskopia. Formatet är där de flesta första utkast går fel — och där de flesta rättningarna görs. Säg det därför från början.</p>
+
+  <p>Sätt ihop de tre delarna och du har en prompt som fungerar på första försöket och blir bättre på det andra. Iteration — d v s att gå tillbaka och förfina utkastet i flera steg — är en del av hantverket: Claudes första output är ett utkast, inte en leverabel. Läs det, säg till Claude vad som ska ändras, kör igen. Det andra utkastet är alltid bättre än det första, och det tredje är vanligen klart för klassrummet.</p>
+
+  <div class="callout callout-try">
+    <span class="callout-label">Prova den här veckan</span>
+    <p>Öppna Claude. Skriv en prompt enligt RTF-anatomin — Roll, Uppgift, Format — för en verklig uppgift som ligger på ditt bord just nu. När det första utkastet kommer, be om två ändringar och kör igen. Be om ytterligare en. Lägg märke till vad som förändras mellan utkast ett och tre. Det är din kompetensutveckling i praktiken.</p>
+  </div>
+</div>
+
+<!-- ─── BAD / BETTER / BEST SPREAD ─── -->
+<div class="content pagebreak">
+  <h1>Dålig → Bättre → Bäst</h1>
+  <p>Samma ämne, tre utkast av samma prompt. Varje utkast blir mer specifikt om vad Claude behöver veta. Outputkvaliteten stiger med promptens precision — inte med dess längd.</p>
+
+  <div class="bbb-card bbb-bad">
+    <div class="bbb-header">
+      <div class="bbb-dot"></div>
+      <div class="bbb-label">Dålig</div>
+    </div>
+    <div class="bbb-body">Förklara vattnets kretslopp.</div>
+  </div>
+
+  <div class="bbb-card bbb-better">
+    <div class="bbb-header">
+      <div class="bbb-dot"></div>
+      <div class="bbb-label">Bättre</div>
+    </div>
+    <div class="bbb-body">Förklara vattnets kretslopp för elever i årskurs 6. Gör det lätt att förstå.</div>
+  </div>
+
+  <div class="bbb-card bbb-best">
+    <div class="bbb-header">
+      <div class="bbb-dot"></div>
+      <div class="bbb-label">Bäst</div>
+    </div>
+    <div class="bbb-body">Agera som en erfaren NO-lärare för åk 6.
+
+Uppgift: Skriv en förklaring av vattnets kretslopp på en sida, anpassad för ett klassrum i åk 6 med bred spridning i kunskapsnivå. Ta med de fyra centrala stegen och ett verkligt exempel för varje steg.
+
+Format:
+- 250–300 ord totalt
+- Enkelt språk, korta meningar (≤ 15 ord där det går)
+- En ordlista-ruta med fem nyckeltermer och elevvänliga definitioner
+- Avsluta med tre retrieval-frågor (två minnes-, en tillämpningsfråga)
+
+Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</div>
+  </div>
+
+  <p style="font-style: italic; color: var(--color-text-light); font-size: 10pt; margin-top: 4mm;">Den bästa prompten är inte längre för syns skull. Varje ord förtjänar sin plats genom att minska det Claude måste gissa.</p>
+</div>
+
+<!-- ─── FIVE QUICK WINS ─── -->
+<div class="content pagebreak">
+  <h1>Fem snabba vinster den här veckan</h1>
+  <p>Försök inte använda Claude till allt på en gång. Bli bra på en uppgift, få in den i din rutin, lägg sedan till nästa. De fem nedan är högavkastande utgångspunkter med låg risk. Var och en sparar minst en halvtimmes arbete första gången du gör den, och besparingen växer i takt med att du blir snabbare.</p>
+
+  <h2>1 · Differentiera en läsförståelsetext på tre nivåer</h2>
+  <p>Klistra in en text du planerar att använda. Be Claude producera tre versioner av den — på en läsnivå två år under, i nivå med, och två år över åldersgruppen — med samma grundidéer och med gemensamt ordförråd intakt. Hela arbetet tar fem minuter i stället för fyrtio, och varje elev i rummet läser om samma ämne samma dag.</p>
+  <p><em>Prova:</em> "Agera som svensklärare för åk 7. Nedan kommer en läsförståelsetext om den industriella revolutionen. Gör tre versioner med läsnivåer motsvarande 10, 12 och 14 år. Håll de sex fetade nyckeltermerna identiska i alla tre."</p>
+
+  <h2>2 · Bygg en retrieval practice-quiz</h2>
+  <p>Retrieval practice fungerar. Det som hindrar de flesta lärare från att köra det varje lektion är tidskostnaden för att ta fram nya frågor. Claude tar bort den kostnaden. Ge ämnet, årskursen, blandningen av frågetyper och antalet frågor. Be om ett facit i slutet. Du har ett användbart utkast inom två minuter.</p>
+  <p><em>Prova:</em> "Agera som NO-lärare för åk 9. Skapa en tiominuters retrieval practice-quiz på cellandning. Fem flervalsfrågor, fem kortsvarsfrågor, blandad svårighetsgrad. Inkludera facit."</p>
+
+  <h2>3 · Skriv utkast till ett föräldrabrev</h2>
+  <p>Du vet vad du vill säga. Det som tar tid är att skriva det väl, professionellt, och utan att falla tillbaka i de sex hackiga meningar du har använt förr. Ge Claude kontexten — vad som hände, vad du vill att föräldern ska veta, vilken ton du vill träffa — och låt verktyget ta fram ett första utkast. Redigera. Skicka. Du kommer aldrig att börja från ett blankt ark igen.</p>
+  <p><em>Prova:</em> "Skriv ett kort brev till vårdnadshavare för elever i åk 8 om de kommande prov- och bedömningsveckorna. Professionellt, varmt, tydligt. Två stycken. Ta med en mening som lugnar vårdnadshavare om de anpassningar, t ex extra tid, som finns för elever med åtgärdsprogram."</p>
+
+  <h2>4 · Sammanfatta ett långt policydokument</h2>
+  <p>Lärare drunknar i policydokument de inte hinner läsa ordentligt. Ladda upp PDF:en och be Claude om de tre saker du faktiskt behöver veta, de delar som påverkar dig direkt, och eventuella deadlines som gömmer sig i texten. Läs dem. Skumma resten. Du är nu bättre inläst än kollegan som försökte läsa pärm till pärm vid midnatt. Försäkra dig om att du får ladda upp dokumentet i Claude innan du laddar upp det.</p>
+  <p><em>Prova:</em> "Här är kommunens uppdaterade bedömningspolicy. Sammanfatta i tre avsnitt: (1) vad som har ändrats sedan förra året, (2) vad jag som klasslärare behöver göra annorlunda, (3) eventuella deadlines i dokumentet."</p>
+
+  <h2>5 · Skapa en lektionsstart</h2>
+  <p>De första fem minuterna av en lektion spelar större roll än de flesta av de femtio följande. En bra start aktiverar förkunskaper, introducerar dagens nyckelord, eller föder en fråga som lektionen ska besvara. Be Claude om tre alternativ i olika format — en ordförrådsuppvärmning, en meningskompletteringsuppgift och en fråga för think-pair-share — och välj det som passar din klass.</p>
+  <p><em>Prova:</em> "Agera som historielärare för åk 9. Dagens lektion handlar om orsakerna till första världskriget. Ge mig tre fem-minutersalternativ för lektionsstart: en ordförrådsuppvärmning, en lucktextuppgift och en think-pair-share-fråga. Alla anpassade för ett klassrum med bred spridning."</p>
+
+  <div class="callout callout-try">
+    <span class="callout-label">Prova den här veckan</span>
+    <p>Välj en av de fem. Gör den på en verklig lektion den här veckan. De andra fyra finns kvar nästa vecka. Du utvecklar din kunskapsnivå mer om du upprepar samma uppgift flera gånger jämfört med om du gör många olika uppgifter samtidigt.</p>
+  </div>
+</div>
+
+<!-- ─── PART 1 CHECKLIST ─── -->
+<div class="content pagebreak">
+  <h1>Del 1 — Innan du går vidare</h1>
+  <p>Om du kan svara ja på var och en av punkterna nedan är du redo för Del 2.</p>
+
+  <ul class="checklist">
+    <li>Jag har skapat ett Claude-konto och loggat in på claude.ai</li>
+    <li>Jag vet vilken yta (Chat, Cowork, Code, Mobil) som är vilken, och vilka som kräver en betald plan</li>
+    <li>Jag har skrivit minst tre prompter enligt RTF-anatomin — Roll, Uppgift, Format</li>
+    <li>Jag har itererat på minst en prompt — förbättrat den genom två rundor av återkoppling — för en verklig uppgift</li>
+    <li>Jag har genomfört minst en av de fem snabba vinsterna för en lektion eller uppgift den här veckan</li>
+    <li>Jag har bestämt vilka kategorier av data som är okej att dela med Claude, och vilka som inte är det</li>
+  </ul>
+
+  <p style="margin-top: 8mm; font-style: italic; color: var(--color-text-light);">Om du svarar nej på någon av punkterna, stanna kvar här ett tag till innan du går vidare till Del 2.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PART 2 — WORKING SMARTER
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+  <div class="part-label">Del 2</div>
+  <h1>Arbeta smartare</h1>
+  <div class="part-desc">När du märker att du återvänder till Claude för samma typ av uppgift vecka efter vecka, är det dags att sluta börja från noll. Den här delen visar hur du gör Claude till en bestående assistent — en som redan känner ditt ämne, din skola, och hur du vill att texten ska låta.</div>
+</div>
+
+<div class="content">
+  <img src="../sv/guider/claude/assets/part-2-opener.jpg" class="image-figure" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;height: 70mm;&quot;&gt;Part 2 opener image · drop part-2-opener.jpg into pdf/assets/&lt;/div&gt;';">
+
+  <h1>Projects — din bestående lärarassistent</h1>
+  <p>Projects är en arbetsyta inne i Claude. Du skapar en, ger den ett namn, laddar upp referensfiler och skriver en uppsättning egna instruktioner. Varje samtal du startar inne i det projektet bygger på de filerna och följer de instruktionerna — utan att du behöver klistra in dem igen.</p>
+  <p>Det är här Claude slutar vara allmänt hjälpsam och börjar bli din kompetenta assistent. Samma prompt som producerade ett kompetent-men-blekt arbetsblad utanför ett Projekt producerar ett arbetsblad som passar dina elever när det körs inne i en. Skillnaden handlar inte om att Claude arbetar hårdare; den handlar om att Claude arbetar med mer kontext.</p>
+
+  <img src="../sv/guider/claude/assets/screenshot-projects-sidebar.png" class="image-figure" alt="Claude Desktop med sidomenyn för Projects" style="margin: 6mm 0; border: 1px solid var(--color-light); border-radius: 2mm;" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Skärmbild saknas: screenshot-projects-sidebar.png&lt;/div&gt;';">
+
+  <h2>Vad du ska ladda upp till ditt första Projekt</h2>
+  <p>Välj ditt huvudsakliga undervisningsområde — det ämne eller den årskurs där du lägger mest tid. Skapa ett Projekt för det. Ladda upp fem saker som tillsammans beskriver din arbetssituation:</p>
+  <ul>
+    <li><strong>Kursplan eller ämnesplan</strong> för ämnet och årskursen</li>
+    <li><strong>Din grovplanering</strong> eller terminsplan, om du har en</li>
+    <li><strong>Skolans språkliga stilguide</strong> eller kommunikationsguide, om en sådan finns</li>
+    <li><strong>En bedömningsmatris</strong> du ofta använder</li>
+    <li><strong>Tre avidentifierade elevarbeten</strong> på olika prestationsnivåer, så att Claude har en kalibrerad bild av hur starkt, medel och svagt arbete ser ut i ditt klassrum</li>
+  </ul>
+
+  <div class="callout callout-watch">
+    <span class="callout-label">Se upp · Tänk innan du delar</span>
+    <p>Innan du laddar upp något till Claude, bestäm vilka kategorier av data som är okej att dela — och vilka som inte är det.</p>
+  </div>
+
+  <h2>Instruktionerna som gör skillnaden</h2>
+  <p>Under Projektets inställningar lägger du till en egen instruktion som beskriver vem Claude är för dig. Något i stil med:</p>
+  <p><em>"Du är en erfaren svensklärare i åk 8 i en kommunal skola med bred spridning i kunskapsnivå. Outputen ska vara klassrumsklar, följa den uppladdade stilguiden och aldrig producera mer än jag har bett om. Om en uppgift rör elevdata, be mig bekräfta att datan har avidentifierats innan du fortsätter. Använd svensk språkriktighet enligt Svenska skrivregler."</em></p>
+  <p>Det stycket är skillnaden mellan att lägga två minuter på att förklara din kontext i varje samtal och att aldrig behöva förklara den igen.</p>
+
+  <div class="callout callout-try">
+    <span class="callout-label">Prova den här veckan</span>
+    <p>Lägg tjugo minuter på att sätta upp ditt första Projekt. Ladda upp tre dokument. Skriv instruktionerna. Kör sedan gårdagens sämsta prompt inne i Projectet och lägg märke till skillnaden. De tjugo minuterna kan vara den största tidsbesparingen som du gör med AI under hela läsåret.</p>
+  </div>
+</div>
+
+<div class="content pagebreak">
+  <h1>Artifacts — gör samtal till nedladdningsbara dokument</h1>
+  <p>När du ber Claude skapa något — ett arbetsblad, en matris, en quiz, ett brev hem, en ordlista — kan verktyget producera en nedladdningsbar fil direkt i samtalet. Dessa dyker upp bredvid chatten som artifacts. Du laddar ner dem, redigerar dem och itererar, utan att lämna webbläsaren.</p>
+  <p>Vanliga outputformat: Word-dokument, PDF, PowerPoint-presentationer, Excel-kalkyler med formler, ren text, HTML, Markdown. För det mesta klassrumsmaterialet är det Word eller PDF du vill ha.</p>
+
+  <h2>Ett arbetsflöde som ackumuleras</h2>
+  <p>Be om resursen. Granska den artifact Claude producerar. Be om två specifika ändringar ("Gör typsnittet större; byt ut det tredje exemplet mot ett som rör primärkällor"). Kör igen. Ladda ner slutversionen. Total tid från "jag behöver en matris" till "matrisen ligger på mitt skrivbord": fyra minuter första gången, två minuter tionde.</p>
+
+  <h1 style="margin-top: 8mm;">Filer — låt Claude läsa din kursplan</h1>
+  <p>Claude hanterar långa dokument exceptionellt bra. Du kan ladda upp PDF:er, Word-dokument, kalkyler, bilder och presentationer. Filuppladdning är där Claude förtjänar sin mest underskattade plats: att läsa de dokument du aldrig själv hinner läsa.</p>
+  <p>Tre högvärdesanvändningar för lärare och skolledare:</p>
+  <ul>
+    <li><strong>Sammanfatta ett långt policydokument.</strong> Ladda upp det, be om de tre saker som faktiskt påverkar dig, alla deadlines som gömmer sig i texten, och eventuella förändringar från en tidigare version som du också laddar upp.</li>
+    <li><strong>Mappa en befintlig arbetsområdesplanering mot styrdokument.</strong> Ladda upp din arbetsområdesplan och kurs- eller ämnesplanen, och be Claude identifiera luckor, överlapp och möjligheter.</li>
+    <li><strong>Analysera avidentifierade elevarbeten för återkopplingsmönster.</strong> Ladda upp åtta till tio anonymiserade svar och be Claude identifiera återkommande styrkor och återkommande missuppfattningar, och sedan föreslå de tre lärarhandlingar som ger mest avkastning under nästa lektion.</li>
+  </ul>
+
+  <div class="callout callout-watch">
+    <span class="callout-label">Se upp · Tänk innan du delar</span>
+    <p><strong>Innan du laddar upp något till Claude, bestäm vilka kategorier av data som är okej att dela — och vilka som inte är det.</strong> Offentliga styrdokument, policy-PDF:er, dina egna lektionsanteckningar och presentationer är vanligen okej. Elevnamn, betyg, ordningsomdömen, hälsoinformation, vårdnadshavares kontaktuppgifter, allt som identifierar en ung människa — aldrig. Avidentifiera allt. Byt ut namn mot roller ("Elev A", "Elev B"). Generalisera datum och platser. Om du är osäker på om ett dokument är säkert att ladda upp, behandla det som att det inte är det, och fråga skolans dataskyddsombud innan du fortsätter.</p>
+  </div>
+</div>
+
+<div class="content pagebreak">
+  <h1>Styles &amp; Memory — få Claude att låta som dig</h1>
+  <p>Två små funktioner som dramatiskt minskar upprepningsarbetet.</p>
+
+  <h2>Styles</h2>
+  <p>Styles är röst-presets. Du sparar en som heter "Föräldrakommunikation — varmt, tydligt, professionellt, ingen jargong" och en annan som heter "Lärarkonferens-brief — koncist, handlingsorienterat, med punktlistor". När du startar en relevant uppgift väljer du Stylen ur en rullista, och outputen kommer fram redan i den röst du vill ha.</p>
+  <p>De flesta lärare landar i tre eller fyra Styles. Det räcker vanligen för att täcka åttio procent av skrivuppgifterna.</p>
+
+  <h2>Memory</h2>
+  <p>Claude kan komma ihåg saker om dig mellan samtal — din roll, årskursen du undervisar i, din skolkontext, hur du vill att outputen ska formateras. Du aktiverar funktionen en gång, och den jobbar sedan i bakgrunden.</p>
+
+  <h3>Att sätta upp Memory</h3>
+  <p>Öppna Inställningar, hitta Memory-avsnittet och slå på det. Berätta om dig själv i vanliga meningar i de första samtalen:</p>
+  <p><em>"Jag är svensklärare i åk 8 i en kommunal skola i Malmö med bred spridning i kunskapsnivå. Jag undervisar fyra klasser med runt tjugofem elever. Jag värderar evidensbaserad praktik, jag vill ha output som är ren och klassrumsklar, och jag föredrar svensk språkriktighet enligt Svenska skrivregler."</em></p>
+  <p>Claude kommer ihåg det mellan samtal. Du kan granska varje minne som sparats — och radera vilket som helst — i Inställningar när som helst.</p>
+
+  <img src="../sv/guider/claude/assets/screenshot-memory-settings.png" class="image-figure" alt="Inställningspanelen för Memory i Claude" style="margin: 6mm 0; border: 1px solid var(--color-light); border-radius: 2mm;" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Skärmbild saknas: screenshot-memory-settings.png&lt;/div&gt;';">
+
+  <!-- Project architecture diagram -->
+  <div class="diagram-figure">
+    <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 150mm; height: auto;">
+      <!-- Connecting lines (drawn first so circles sit on top) -->
+      <line x1="300" y1="220" x2="300" y2="60" stroke="#C8A86B" stroke-width="1.3"/>
+      <line x1="300" y1="220" x2="161" y2="300" stroke="#C8A86B" stroke-width="1.3"/>
+      <line x1="300" y1="220" x2="439" y2="300" stroke="#C8A86B" stroke-width="1.3"/>
+
+      <!-- Top: Instructions -->
+      <circle cx="300" cy="60" r="55" fill="#F6F3EE" stroke="#C8A86B" stroke-width="1.5"/>
+      <text x="300" y="58" font-family="Playfair Display, serif" font-size="14" font-weight="700" fill="#1B2733" text-anchor="middle">Instruktioner</text>
+      <text x="300" y="76" font-family="Inter, sans-serif" font-size="9" fill="#6B7280" text-anchor="middle">vem Claude är</text>
+
+      <!-- Centre: Project -->
+      <circle cx="300" cy="220" r="60" fill="#1B2733"/>
+      <text x="300" y="218" font-family="Playfair Display, serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">Project</text>
+      <text x="300" y="238" font-family="Inter, sans-serif" font-size="9" fill="#C8A86B" text-anchor="middle">bestående kontext</text>
+
+      <!-- Lower-left: Files -->
+      <circle cx="161" cy="300" r="55" fill="#F6F3EE" stroke="#C8A86B" stroke-width="1.5"/>
+      <text x="161" y="298" font-family="Playfair Display, serif" font-size="14" font-weight="700" fill="#1B2733" text-anchor="middle">Filer</text>
+      <text x="161" y="316" font-family="Inter, sans-serif" font-size="9" fill="#6B7280" text-anchor="middle">det Claude läser</text>
+
+      <!-- Lower-right: Conversations -->
+      <circle cx="439" cy="300" r="55" fill="#F6F3EE" stroke="#C8A86B" stroke-width="1.5"/>
+      <text x="439" y="298" font-family="Playfair Display, serif" font-size="13" font-weight="700" fill="#1B2733" text-anchor="middle">Samtal</text>
+      <text x="439" y="316" font-family="Inter, sans-serif" font-size="9" fill="#6B7280" text-anchor="middle">där arbetet sker</text>
+    </svg>
+    <p class="diagram-caption">Project är den minsta enhet av ackumulerat värde i Claude. Sätt upp den en gång; dra nytta av den i varje samtal.</p>
+  </div>
+</div>
+
+<div class="content pagebreak">
+  <h1>Fem arbetsflöden för klassrummet som ackumuleras</h1>
+  <p>Enskilda prompter ger enskilda outputs. Den verkliga hävstången ligger i arbetsflöden — promptmönster du återanvänder vecka efter vecka, inbäddade inne i ett Projekt, där filerna och instruktionerna gör halva arbetet åt dig. Här är fem som snabbt lönar sig i form av tidsbesparingar.</p>
+
+  <h2>1 · Veckans lektionsplanering utifrån lärandemål</h2>
+  <p>Utgå från veckans mål, din årskurs och den tid du har. Be Claude om ett lektionsskelett: en fem-minutersstart, en huvuduppgift med differentiering på tre nivåer, en exit ticket. Fem minuters arbete ersätter det som tidigare var ett fyrtio-minuters planeringspass. Du behåller de pedagogiska besluten; Claude tar hand om utkastet.</p>
+
+  <h2>2 · Återkopplingsmönster från avidentifierade elevarbeten</h2>
+  <p>Ladda upp åtta till tio avidentifierade svar på samma uppgift. Be Claude identifiera de tre återkommande styrkorna, de tre återkommande missuppfattningarna, och den enskilt mest avkastande saken att undervisa om härnäst. Det som kommer tillbaka är vanligen det du själv skulle ha kommit fram till, men snabbare och med bekvämligheten att ha haft ett andra par ögon på samma hög. Använd det som en impuls för ditt eget omdöme, inte som en ersättare för det.</p>
+
+  <h2>3 · Differentieringsgenerator</h2>
+  <p>Vilken undervisningsresurs som helst — en läsförståelsetext, ett arbetsblad, en instruktionstext — kan differentieras i tre riktningar: förenklad, utvidgad och med ordförrådsstöttning för andraspråkselever. Sätt upp det en gång inne i ditt Projekt, så blir prompten ett återkommande mönster: "Producera de tre versionerna av den bifogade resursen, enligt den stöttning jag beskrivit i Projektets instruktioner."</p>
+
+  <h2>4 · För skolledare — förberedelse inför APT eller ledningsgruppsmöte</h2>
+  <p>Ladda upp dagordningen, eventuellt inläsningsmaterial och senaste mötesanteckningarna. Be Claude producera en enkelsidig mötesbrief med de beslut som ska fattas, tidsdisposition per punkt, frågor att förvänta sig från personalen, och förslag på uppföljningsåtgärder om besluten landar åt ena eller andra hållet. Du kommer in i mötet bättre förberedd än de tre senaste gångerna du ledde ett.</p>
+
+  <h2>5 · För skolledare — utkast till policydokument</h2>
+  <p>Claude producerar ett första utkast av en policy från en brief. Du bidrar med kontexten — problemet, begränsningarna, intressenterna, det juridiska ramverket — och ber om ett utkast. Redigera, iterera, cirkulera. Ett första utkast är alltid en utgångspunkt för mänskligt omdöme; det är aldrig det slutgiltiga. Men ett bra första utkast får en policy att röra sig framåt veckor tidigare än den annars skulle göra.</p>
+
+  <div class="callout callout-johan">
+    <span class="callout-label">Johans anteckning</span>
+    <p>De lärare jag arbetar med som får ut mest av Claude är inte de som använder verktyget oftast. Det är de som har byggt in tre eller fyra arbetsflöden i sin veckorutin och sedan slutat lägga till nya. Djup slår bredd varje gång. Välj en eller två av de fem ovan, kör den/dem tills du är bekväm innan du lägger till ytterligare en.</p>
+    <span class="signature">— JL</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PART 3 — SCALE & LEAD
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+  <div class="part-label">Del 3</div>
+  <h1>Skala upp &amp; led</h1>
+  <div class="part-desc">Del 3 är för dig som vill göra mer än att spara personlig tid. Det är för dig som bygger ett system — för ditt klassrum, ditt arbetslag, din skola. Verktygen och mönstren här ändrar vad en enskild pedagog kan ta sig an.</div>
+</div>
+
+<div class="content">
+  <img src="../sv/guider/claude/assets/part-3-opener.jpg" class="image-figure" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;height: 70mm;&quot;&gt;Part 3 opener image · drop part-3-opener.jpg into pdf/assets/&lt;/div&gt;';">
+
+  <h1>Cowork — agentiska arbetsflöden utan terminalen</h1>
+  <p>Cowork är en flik inne i Claude Desktop på betalda planer. Anthropics egen beskrivning är värd att citera: "Claude Cowork använder samma agentiska arkitektur som driver Claude Code, nu tillgänglig inne i Claude Desktop utan att du behöver öppna terminalen. I stället för att svara på en prompt i taget kan Claude ta sig an komplexa uppgifter i flera steg och utföra dem åt dig."</p>
+  <p>Den praktiska skillnaden: i Chat kör du en prompt, väntar på svaret, avgör sedan nästa steg. I Cowork beskriver du en uppgift i flera steg och Claude arbetar sig igenom den, använder verktyg under vägen, tills uppgiften är klar. Du är kvar i loopen — du kan se på, avbryta och omdirigera — men du gör inte den manuella orkestreringen.</p>
+
+  <img src="../sv/guider/claude/assets/screenshot-cowork-tab.png" class="image-figure" alt="Claude Desktop med Cowork-fliken öppen" style="margin: 6mm 0; border: 1px solid var(--color-light); border-radius: 2mm;" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Skärmbild saknas: screenshot-cowork-tab.png&lt;/div&gt;';">
+
+  <h2>När du ska greppa efter Cowork i stället för Chat</h2>
+  <p>Cowork förtjänar sin plats på uppgifter som annars skulle kräva att du skriver tre, fem eller tio kedjade prompter själv. T ex:</p>
+  <ul>
+    <li>"Planera ett arbetsområde om fotosyntes som sträcker sig över fem veckor. Inkludera lärandemål per vecka, en lektionsstruktur per vecka, en formativ bedömning vecka tre, en summativ projektbeskrivning för vecka fem, och en enkelsidig översikt riktad till vårdnadshavare."</li>
+    <li>"Skriv utkast till den här månadens veckobrev till vårdnadshavare. Hämta händelserna från den bifogade skolkalendern, lägg till en kort text från rektor, en hyllning av tre elevers prestationer (jag fyller i namnen som platshållare), och en påminnelse om den kommande provveckan. Formatera som en utskriftsbar A4-sida."</li>
+    <li>"Producera ett konsekvent set av differentierade resurser för arbetsområdet Industriella revolutionen i åk 9: en förenklad läsförståelsetext, en på nivå, en utvidgad, ett ordförrådsblad med elevvänliga definitioner, och en retrieval-quiz, för vart och ett av de fyra lektionsämnena."</li>
+  </ul>
+  <p>Var och en av dessa skulle ha varit en förmiddag med kedjade prompter i Chat. I Cowork är var och en en enda förfrågan.</p>
+
+  <h2>Ett exempel från en skolledare</h2>
+  <p>En rektor jag arbetade med nyligen använde Cowork för att ta fram ett första utkast av en personalhandbok. Hon laddade upp skolans befintliga policyer, en mall från en partnerskola, och ledningsgruppens anteckningar från en planeringsdag. Hon bad Cowork att producera ett samlat utkast, behålla skolans röst, flagga eventuella motsägelser mellan de befintliga policyerna, och ta fram en enkelsidig sammanfattning av de viktigaste förändringarna. Cowork tog ungefär sex minuter. Att redigera utkastet till slutversion tog ytterligare två timmar. Alternativet — att börja från noll — hade tagit flera dagar.</p>
+
+  <div class="callout callout-watch">
+    <span class="callout-label">Se upp · Autonomi</span>
+    <p>Cowork är mer autonomt än Chat. Det tar flera steg i följd utan att stämma av emellan varje. Den hastigheten är själva poängen — men den innebär också att fel kan propagera längre innan du fångar dem. Läs allt som produceras innan du skickar det någonstans eller agerar på det. Behandla varje Cowork-output som ett utkast från en junior kollega som arbetar mycket snabbt och ibland har självsäkert fel.</p>
+  </div>
+</div>
+
+<div class="content pagebreak">
+  <h1>Custom Skills — dina återanvändbara undervisningsagenter</h1>
+  <p>Skills är små, namngivna instruktioner som Claude laddar in när den känner igen en relevant uppgift. Du bygger en, ger den ett namn, och från och med då triggas Skillen automatiskt i varje samtal där uppgiften passar. Det är ett sätt att lära Claude de specifika mönster du använder, så att du inte behöver förklara dem varje gång.</p>
+
+  <h2>En Skill värd att bygga</h2>
+  <p>Tänk dig en Skill som heter <em>differentiera-tre-nivåer</em>. Du skriver den en gång. Den beskriver exakt hur du vill att vilken text som helst ska skrivas om på en enklare läsnivå, på nivå, och i en utvidgad version, med gemensamt fetad nyckelvokabulär, en ordlista, och utan förändring av grundidéerna. Från och med då, varje gång du klistrar in en text och ber om "differentiera den här", tillämpar Claude Skillen exakt — utan att du behöver specificera stöttningen igen.</p>
+  <p>En annan kandidat: <em>föräldrabrev-mall</em>. Skolans ton, din föredragna struktur, den vanliga avslutningen, påminnelser om bilagor. Skriven en gång, anropad när den behövs.</p>
+
+  <h2>När Skills är värt mödan</h2>
+  <p>Tregångsregeln. Om du märker att du förklarar samma mönster för Claude mer än tre gånger är det dags att göra det till en Skill. Under den gränsen — fortsätt använda Chat och iterera. Över den — investera de femton minuterna för att kodifiera mönstret.</p>
+
+  <p>Ett växande bibliotek av utbildnings-Skills har publicerats öppet — Gareth Mannings repo <em>claude-education-skills</em> på GitHub är en utgångspunkt, och finns med i källförteckningen. Du behöver inte börja från ett blankt ark; anpassa det andra har byggt.</p>
+
+  <h1 style="margin-top: 10mm;">Claude Code — en inblick</h1>
+  <p>För de flesta lärare är Claude Code inte ett verktyg för vardagen. Men det är värt att veta att det finns, eftersom det är där Claude blir som mest kraftfullt, och där skolans IT-personal eller utvecklingsledare kan vilja lägga sin tid.</p>
+  <p>Claude Code är ett kommandoradsverktyg som körs på macOS, Windows och Linux. Claude kan läsa och skriva filer på din dator, köra program, och genomföra planer i flera steg tvärs över filsystemet. Tre exempel på vad det låser upp:</p>
+  <ul>
+    <li>Massbyte av namn och omstrukturering av en mapp med hundratals klassrumsresurser enligt en ny namnstandard, på minuter i stället för en eftermiddag</li>
+    <li>Bygga en liten webbplats för ett klassprojekt, endast utifrån beskrivningar i vanligt språk om vad webbplatsen ska göra</li>
+    <li>Automatisera produktionen av ett helt års differentierade arbetsblad utifrån ett styrdokument och en bedömningsmatris</li>
+  </ul>
+  <p>Om din skola har en tekniknyfiken lärare, en skoladministratör med en teknisk ådra, eller en IT-ansvarig — peka ut Claude Code för dem. Det är där deras kompetens ackumuleras.</p>
+</div>
+
+<div class="content pagebreak">
+  <h1>Införande på hela skolan — fortbildning, policy, styrning</h1>
+  <p>För skolledare som överväger Claude bortom personlig användning spelar tre saker större roll än allt annat: hur ni fortbildar, vad ni kodifierar, och vem som bär ansvaret. Att få någon av dem fel är skillnaden mellan AI som höjer golvet över hela skolan och AI som skapar ojämnhet, risk och irritation.</p>
+
+  <h2>Fortbildning</h2>
+  <p>De flesta skolor gör som standard en engångsworkshop: en besökande expert, två timmar på en studiedag, en presentation som cirkuleras efteråt. Två veckor senare har ingenting förändrats i klassrummen. Det mönstret fungerar inte bättre för AI än det fungerar för någon annan form av kompetensutveckling.</p>
+  <p>Det som fungerar är en liten arbetsgrupp som träffas regelbundet — varannan vecka under en termin räcker — där personalen tar med sig verkliga uppgifter, lär sig tillsammans, och dokumenterar de mönster som fungerar i skolans specifika kontext. Gruppen leds av en lärare eller skolledare som är ett steg före, inte tre. Alla utvecklas tillsammans. Dokumentationen gruppen producerar blir skolans egen guide, förankrad i skolans egen praktik.</p>
+
+  <h2>Policy</h2>
+  <p>Varje skola som använder AI behöver en skriven AI-policy. Inte visionär, inte abstrakt, utan tillräckligt specifik för att en medarbetare i en verklig situation ska kunna slå upp vad hen ska göra. Som ett minimum ska policyn besvara:</p>
+  <ul>
+    <li>Vilka kategorier av data som får delas med Claude, och vilka som inte får det</li>
+    <li>Vem man ska fråga när svaret är oklart</li>
+    <li>Hur personalen ska dokumentera AI-användning i lektionsplanering, bedömning eller kommunikation</li>
+    <li>Vad personalen ska göra när en elev misstänks ha lämnat in AI-genererat arbete</li>
+    <li>Skolans hållning kring elevernas AI-användning, per årskurs</li>
+    <li>Hur skolan kommer att granska och uppdatera policyn — och hur ofta</li>
+  </ul>
+  <p>Policyn är ett levande dokument. Granska den varje termin. Räkna med att den första versionen är fel på minst ett ställe; poängen är att den är skriven, känd, och möjlig att förbättra.</p>
+
+  <h2>Styrning</h2>
+  <p>Någon äger AI på skolan. Det kan vara en enskild skolledare eller ett litet team, men en tydlig ägare är icke-förhandlingsbar. Utan en sådan splittras ansvar och besluten blir oklara. Ägarens uppdrag: hålla sig uppdaterad om Claude och det regulatoriska landskapet, informera skolledningen, driva personalens arbetsgrupp, eskalera frågor till huvudmannen, och hålla policyn aktuell.</p>
+
+  <div class="callout callout-johan">
+    <span class="callout-label">Johans anteckning</span>
+    <p>Jag har rådgivit skolor över hela Sverige och Norden genom AI-införandets tidiga år. De skolor som gör det bra delar en sak gemensamt, och det är inte att de köpt det verktyg som blänker mest just nu. Det är att någon i skolledningen gjort AI till en del av sin befattningsbeskrivning — uttryckligen, på papper — och skyddat tid för det. Varje skola som kämpat har haft AI som "allas ansvar", d v s ingens.</p>
+    <span class="signature">— JL</span>
+  </div>
+</div>
+
+<div class="content pagebreak">
+  <h1>Etik — när du INTE ska använda Claude</h1>
+  <p>Varje verktyg talar om för dig vad det är till för. Få talar om vad det inte är till för. Det här avsnittet är det senare.</p>
+
+  <h2>Hallucinationer</h2>
+  <p>Claude kan producera innehåll som låter helt rimligt och är faktamässigt fel. Verktyget kan fabricera källor, feluppge fakta och lägga fram säkra slutsatser baserade på ingenting. Det är som mest benäget att göra så på smala, tekniska, mycket färska eller numeriskt precisa ämnen. Du kan ditt ämne. Du vet hur bra ser ut. Använd den expertisen för att kontrollera allt innan det når en elev.</p>
+  <div class="callout callout-watch">
+    <span class="callout-label">Se upp</span>
+    <p>Ge aldrig en elev en AI-genererad resurs du inte själv har läst noggrant. Flyt i språket gör fel svårare att upptäcka, inte lättare. Ett faktafel formulerat med självsäkerhet i en klassrumsresurs undergräver både lektionen och din trovärdighet på samma gång.</p>
+  </div>
+
+  <h2>Datadisciplin</h2>
+  <p>Regeln från Del 2 återkommer här, på skolnivå: bestäm i förväg vilka kategorier av data som är okej att dela med Claude och vilka som inte är det. Offentliga styrdokument och dina egna lektionsanteckningar är vanligen okej. Elevnamn, betyg, hälsoinformation, ordningsomdömen, vårdnadshavares kontaktuppgifter, allt som identifierar en ung människa — aldrig.</p>
+  <p>Tillämpa samma disciplin på <strong>att ge Claude tillgång till mappar och kopplade tjänster</strong>. Cowork, Claude Code och MCP-integrationer kan nå ditt filsystem, din e-post, din molnlagring. Ge bara tillgång till mappar och verktyg som innehåller data du skulle vara bekväm med att dela i en chatt. Behandla mapptillgång så som du skulle behandla att lämna ut nyckeln till ett arkivskåp: bara när det är nödvändigt, bara till den specifika låda som innehåller det uppgiften kräver, och aldrig hela skåpet som standard.</p>
+
+  <h2>Att automatisera fel saker</h2>
+  <p>Den sämsta användningen av AI i skolan är inte fusk. Det är lärare som använder AI för att producera arbete som inte borde existera, till elever som använder AI för att göra klart det, till lärare som använder AI för att rätta det. En återkopplingsloop av automatisering på båda sidor av en uppgift som har förlorat sitt syfte.</p>
+  <p>Innan du ber Claude hjälpa till med en uppgift, ställ två frågor först. Är den här uppgiften värd att göras över huvud taget? Och: är det ett arbete jag borde göra själv, för min egen utveckling som professionell? Om de ärliga svaren är nej och ja, är Claude fel verktyg. Uppgiften är problemet, inte hastigheten den utförs i.</p>
+
+  <h2>Bildningsfrågan</h2>
+  <p>Inte varje uppgift ska outsourcas — även när det skulle gå. Att skriva, tänka, planera, reflektera är inte bara uppgifter. Det är så lärare växer som professionella. Om AI gör allt ditt tänkande slutar du utvecklas. Samma sak gäller dina elever. Använd AI för det mekaniska. Behåll det meningsbärande.</p>
+  <p>Det långsiktiga måttet på om AI hjälper din skola är inte hur många timmar verktyget sparar. Det är om lärarna som använder det blir skickligare på att undervisa — eller mindre skickliga. Håll upp det måttet varje termin. Agera på det du ser.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     BONUS CHAPTER — FOR EU READERS
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+  <div class="part-label">Bonuskapitel</div>
+  <h1>Europeiska regler styr</h1>
+  <div class="part-desc">Eftersom Sverige är ett EU-land gäller två regelverk för hur du använder Claude i skolan: dataskyddsförordningen (GDPR) och EU:s AI-förordning (AI Act). Det här kapitlet är en praktisk grundintroduktion — inte juridisk rådgivning.</div>
+</div>
+
+<div class="content">
+  <h1>GDPR-grunder för skolan</h1>
+  <p>GDPR har gällt sedan 2018. De flesta lärare och skolledare har gått minst en utbildning i den. Det som ofta tappas bort är hur principerna tillämpas specifikt på ett verktyg som Claude — en generell AI-tjänst som ligger utanför skolans egna system. Fyra punkter väger tyngst i den dagliga användningen.</p>
+
+  <h2>Rättslig grund</h2>
+  <p>Skolor stödjer sig vanligen på myndighetsutövning, uppgift av allmänt intresse eller berättigat intresse som rättslig grund för behandling av elevdata. Förutsätt inte att du har elevens eller vårdnadshavarens samtycke om du inte aktivt inhämtat det för ett specifikt, tydligt beskrivet ändamål. "Vi använder AI på skolan" är inte samtycke. "Vi använder Claude för att generera återkoppling på ditt barns arbete, så här hanteras datan" är det.</p>
+
+  <h2>Uppgiftsminimering</h2>
+  <p>Dela bara det du behöver dela. Om du ber Claude analysera ett stycke ur en elevtext, klistra in det stycket — inte hela uppsatsen, och definitivt inte uppsatsen med elevens namn. Om du sammanfattar en policy, plocka ut de relevanta sidorna i stället för att ladda upp hela dokumentet. Frågan är alltid: vad är den minsta mängd data som ändå låter Claude göra uppgiften väl?</p>
+
+  <h2>Elevdata är personuppgifter</h2>
+  <p>Ja, även när du tror att den är anonymiserad. Äkta anonymisering — den sort där data aldrig skulle kunna åter-identifieras — är svårare än det ser ut. Pseudonymisering (d v s att ersätta namn med koder som "Elev A") är mer realistisk och är det säkrare standardvalet i klassrumsbruk. Behandla pseudonymiserad data som personuppgifter ändå — eftersom det är det den är.</p>
+
+  <h2>Registerförteckning (artikel 30)</h2>
+  <p>Om din skola använder Claude rutinmässigt — för lektionsplanering, kommunikation, analys av elevarbeten — bör skolans registerförteckning spegla det. Skolans dataskyddsombud har registren. När du inför en ny rutinmässig användning av Claude, berätta det för dataskyddsombudet. Håll registren aktuella.</p>
+
+  <h1 style="margin-top: 10mm;">EU:s AI-förordning — vad den betyder för skolan</h1>
+  <p>EU:s AI-förordning trädde i kraft 2024 och fasas in under 2026 och framåt. Den klassificerar AI-användning efter risknivå och kopplar skyldigheter till varje nivå. Skola och utbildning omfattas uttryckligen, och flera vanliga användningar i skolan klassas som högrisk.</p>
+
+  <!-- Risk pyramid diagram -->
+  <div class="diagram-figure">
+    <svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 140mm; height: auto;">
+      <!-- Tier 1 (top — Unacceptable) -->
+      <polygon points="300,30 380,30 400,90 280,90" fill="#B8553F"/>
+      <text x="340" y="57" font-family="Playfair Display, serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">Oacceptabel</text>
+      <text x="340" y="75" font-family="Inter, sans-serif" font-size="8" fill="white" text-anchor="middle">förbjuden</text>
+      <!-- Example callout -->
+      <text x="415" y="65" font-family="Inter, sans-serif" font-size="9" fill="#1B2733">t ex social poängsättning av elever</text>
+
+      <!-- Tier 2 — High -->
+      <polygon points="280,90 400,90 430,180 250,180" fill="#1B2733"/>
+      <text x="340" y="130" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="white" text-anchor="middle">Hög risk</text>
+      <text x="340" y="150" font-family="Inter, sans-serif" font-size="8" fill="#C8A86B" text-anchor="middle">stränga skyldigheter</text>
+      <text x="445" y="140" font-family="Inter, sans-serif" font-size="9" fill="#1B2733">t ex antagning, betygssättning, ordningsomdöme</text>
+
+      <!-- Tier 3 — Limited -->
+      <polygon points="250,180 430,180 470,280 210,280" fill="#2E4057"/>
+      <text x="340" y="225" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="white" text-anchor="middle">Begränsad risk</text>
+      <text x="340" y="245" font-family="Inter, sans-serif" font-size="8" fill="#C8A86B" text-anchor="middle">transparenskrav</text>
+      <text x="485" y="235" font-family="Inter, sans-serif" font-size="9" fill="#1B2733">t ex chatbottar riktade till elever</text>
+
+      <!-- Tier 4 — Minimal -->
+      <polygon points="210,280 470,280 510,360 170,360" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
+      <text x="340" y="315" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#1B2733" text-anchor="middle">Minimal risk</text>
+      <text x="340" y="335" font-family="Inter, sans-serif" font-size="8" fill="#6B7280" text-anchor="middle">allmän användning</text>
+      <text x="525" y="325" font-family="Inter, sans-serif" font-size="9" fill="#1B2733">t ex lektionsplanering, sammanfattning</text>
+    </svg>
+    <p class="diagram-caption">Riskklassificeringen avgör skyldigheterna. De flesta lärares dagliga Claude-användning ligger i de två nedre nivåerna; skolledare som inför AI för antagning, betygssättning eller ordningsomdömen måste förhålla sig till skyldigheterna för högrisk.</p>
+  </div>
+
+  <h2>Var skolans användning vanligen hamnar</h2>
+  <p><strong>Minimal risk:</strong> lektionsplanering, utkast till kommunikation, sammanfattning av egna anteckningar, differentiering av texter, framtagande av bedömningsmatriser. Det är där det mesta klassrumsarbetet ligger. Vanlig dataskyddsdisciplin gäller; de specifika skyldigheterna i AI-förordningen är lätta.</p>
+  <p><strong>Begränsad risk:</strong> chatbottar riktade till elever, eller Claude-drivna verktyg som interagerar med elever direkt. Transparenskrav gäller: eleverna måste få veta att de interagerar med en AI, inte en människa.</p>
+  <p><strong>Hög risk:</strong> AI som används för att bedöma elever på sätt som avgör tillgången till utbildning — antagningsbeslut, betygssättning, bedömning av uppförande som påverkar placering. Stränga skyldigheter gäller: riskhanteringssystem, dokumentation, mänsklig översyn, loggning, noggrannhetskrav. Involvera skolans dataskyddsombud och juridisk rådgivning innan du sätter något i drift i den här kategorin.</p>
+  <p><strong>Oacceptabel risk:</strong> förbjudet rakt av. Social poängsättning av elever, känsloigenkänningssystem i skolan som används för att sluta sig till elevers psykiska tillstånd för bedömning, alla system som utnyttjar sårbarheter hos en specifik grupp barn. Använd inte AI på det sättet. Punkt.</p>
+</div>
+
+<div class="content pagebreak">
+  <h1>En praktisk efterlevnadschecklista</h1>
+  <p>Om du kan svara ja på var och en av dessa punkter har du en försvarbar utgångspunkt — inte en färdig efterlevnadsposition.</p>
+
+  <ol class="checklist-numbered">
+    <li>Vi har en skriven AI-policy som personalen har läst och kvitterat</li>
+    <li>Policyn utser en enskild ägare med ansvar för AI-användningen på skolan</li>
+    <li>Vi har bestämt vilka kategorier av data som är okej att dela med Claude — och vilka som inte är det</li>
+    <li>Personalen vet hur man avidentifierar elevdata före uppladdning</li>
+    <li>Vi har gått igenom Claudes integritetsinställningar, inklusive möjligheten att avstå från att samtal används för modellträning</li>
+    <li>Vår registerförteckning (artikel 30) speglar all rutinmässig användning av Claude</li>
+    <li>Vi har klassificerat våra avsedda användningar av Claude mot risknivåerna i EU:s AI-förordning</li>
+    <li>Vi har involverat vårt dataskyddsombud i eventuella högrisk-användningar (antagning, betygssättning, ordningsomdömen)</li>
+    <li>Vi har en process där personalen kan lyfta farhågor om AI-användning utan negativa följder</li>
+    <li>Vi granskar policyn minst en gång per termin, samt efter varje betydande regulatorisk förändring</li>
+  </ol>
+
+  <div class="callout callout-watch">
+    <span class="callout-label">Se upp · En anteckning från Johan</span>
+    <p>Jag är inte jurist. Den här guiden ger dig en utgångspunkt, inte juridisk rådgivning. Se till att checklistan harmonierar med din egen organisations tolkning av GDPR och EU:s AI-förordning, och rådgör med ert dataskyddsombud eller juridisk rådgivning för bindande beslut.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     APPENDIX — PROMPT LIBRARY
+     ═══════════════════════════════════════════════════ -->
+<div class="content pagebreak">
+  <h1>Bilaga — Promptbibliotek</h1>
+  <p>Femton prompter du kan kopiera, klistra in och anpassa. Var och en använder RTF-anatomin — Roll, Uppgift, Format. Delarna inom [hakparentes] är där du anpassar utifrån din egen kontext. Onlineversionen av guiden innehåller tio extra prompter och hålls löpande uppdaterad.</p>
+
+  <h2>För lärare</h2>
+
+  <div class="prompt-card">
+    <div class="prompt-card-title">1 · Differentiera en läsförståelsetext på tre nivåer</div>
+    <pre class="prompt-card-text">Agera som en erfaren lärare i [ämne] för [årskurs] i ett klassrum med bred spridning i kunskapsnivå.
+
+Uppgift: Nedanför den här prompten finns en läsförståelsetext. Producera tre versioner av den — på läsnivåer motsvarande [ålder − 2 år], [åldersnivå] och [ålder + 2 år] — med grundidéerna bevarade och de sex fetade nyckeltermerna identiska i alla tre versionerna.
+
+Format: Märk varje version tydligt. 150–250 ord per version. Enkelt språk i den förenklade; utvidgat ordförråd i den avancerade.
+
+[klistra in läsförståelsetexten här]</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card-title">2 · Generator för retrieval practice-quiz</div>
+    <pre class="prompt-card-text">Agera som en erfaren lärare i [ämne] för [årskurs].
+
+Uppgift: Skapa en [10]-minuters retrieval practice-quiz om [ämnesområde], som täcker stoffet från de senaste [tre] lektionerna.
+
+Format:
+- [5] flervalsfrågor (fyra alternativ vardera)
+- [5] kortsvarsfrågor
+- Blandad svårighetsgrad
+- Facit i slutet med korta förklaringar för varje svar</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card-title">3 · Återkopplingsmönster från avidentifierade elevarbeten</div>
+    <pre class="prompt-card-text">Agera som en erfaren lärare i [ämne] för [årskurs].
+
+Uppgift: Nedan finns [8] avidentifierade elevsvar på samma uppgift. Identifiera (1) de tre återkommande styrkorna, (2) de tre återkommande missuppfattningarna, och (3) den enskilt mest avkastande saken jag bör undervisa om härnäst. Kommentera inte enskilda elever — aggregera endast.
+
+Format: Tre numrerade avsnitt, punktlistor under varje.
+
+[klistra in de avidentifierade svaren]</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card-title">4 · Bedömningsmatris-byggare</div>
+    <pre class="prompt-card-text">Agera som en erfaren lärare i [ämne].
+
+Uppgift: Ta fram en fyrnivås bedömningsmatris för en [uppgiftstyp, t ex argumenterande text] i [årskurs]. Matrisen ska bedöma [kriterium 1], [kriterium 2], [kriterium 3] och [kriterium 4].
+
+Format:
+- Enkelsidig tabell
+- Fyra nivåer: På väg, Utvecklande, Säker, Utvidgande
+- En deskriptor per kriterium per nivå, i ett språk som eleven förstår
+- Avsluta med ett exempel på hur "Säker"-nivå ser ut i praktiken</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card-title">5 · Mall för föräldrakommunikation</div>
+    <pre class="prompt-card-text">Skriv ett kort brev till vårdnadshavare för elever i [årskurs] om [ämne].
+
+Ton: professionell, varm, tydlig — ingen jargong. Utgå från att vårdnadshavaren har ont om tid.
+
+Format: två korta stycken plus en avslutande mening. Inkludera en mening som lugnar vårdnadshavare om det stöd som finns för elever som behöver det. Avsluta med: "Med vänliga hälsningar, [mitt namn]".
+
+Kontext:
+[1–3 meningar om vad som har hänt eller vad vårdnadshavare behöver veta]</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card-title">6 · Omskrivare av läsförståelsetext</div>
+    <pre class="prompt-card-text">Skriv om läsförståelsetexten nedan för elever med en läsnivå motsvarande [ålder] år. Bevara varje faktapåstående. Korta meningarna (≤ 15 ord där det går). Byt ut lågfrekvent ordförråd mot mer tillgängliga alternativ, utom de fetade nyckeltermerna, som ska stå kvar.
+
+[klistra in originaltexten]</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card-title">7 · Ordförrådslista med elevvänliga definitioner</div>
+    <pre class="prompt-card-text">Ta fram en ordförrådslista för [ämnesområde] för elever i [årskurs]. Inkludera [10] nyckeltermer. För varje term: en barnvänlig definition, en mening som visar termen i sitt sammanhang, och en fråga som kontrollerar förståelsen.
+
+Format: tabell med fyra kolumner — Term · Definition · Exempel · Kontrollfråga.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card-title">8 · Generator för exit tickets</div>
+    <pre class="prompt-card-text">Agera som en erfaren lärare i [ämne].
+
+Uppgift: Ta fram tre exit ticket-alternativ för dagens lektion om [ämnesområde]. Varje alternativ ska ta högst 3 minuter att göra.
+
+Format: (1) en tvåfrågors minneskontroll, (2) en förklaringsfråga i en mening, (3) en reflektionsfråga: "Vad är en sak du fortfarande är osäker på?". Märk varje tydligt.</pre>
+  </div>
+
+  <h2>För skolledare</h2>
+
+  <div class="prompt-card">
+    <div class="prompt-card-title">9 · Mötesbrief från dagordning</div>
+    <pre class="prompt-card-text">Nedan finns dagordningen och eventuellt inläsningsmaterial för morgondagens personalmöte. Ta fram en enkelsidig brief till mig (ordförande) som täcker:
+
+1. De viktigaste besluten som ska fattas, i prioritetsordning
+2. Tidsram jag bör rikta in mig på per punkt
+3. Två eller tre frågor jag bör förvänta mig från personalen per punkt, och ett kort svar på varje
+4. Förslag på uppföljningsåtgärder beroende på hur varje beslut landar
+
+[klistra in dagordning och inläsningsmaterial]</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card-title">10 · Första utkast till policy från brief</div>
+    <pre class="prompt-card-text">Ta fram ett första utkast till en policy på skolan om [ämne].
+
+Kontext: [2–3 meningar om problemet policyn adresserar, berörda intressenter, och eventuellt rättsligt eller regulatoriskt ramverk]
+
+Format:
+- Syfte (ett stycke)
+- Omfattning (vem och vad policyn gäller för)
+- Grundprinciper (3–5 punkter)
+- Konkreta rutiner (numrerade steg)
+- Revisionscykel (hur ofta, av vem)
+- Högst två A4-sidor
+
+Röst: tydlig, tillgänglig för icke-specialister, undviker jargong.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card-title">11 · Veckobrev till vårdnadshavare från källmaterial</div>
+    <pre class="prompt-card-text">Skriv utkast till den här månadens föräldrabrev för [skolans namn]. Använd den bifogade kalendern, rektors utkast till hälsning, och listan över elevprestationer.
+
+Format:
+- En utskriftsbar A4-sida
+- Varm, inte korporativ, ton
+- Avsnitt: Rektors hälsning, Månadens höjdpunkter, Viktiga datum, Hyllningar (elevprestationer)
+- Håll kalenderhändelserna faktabaserade; väv in rektors hälsning i Höjdpunkter-avsnittet
+
+[bifoga källmaterial]</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card-title">12 · Syntes av lektionsobservationer</div>
+    <pre class="prompt-card-text">Nedan finns mina anteckningar från [n] lektionsobservationer den här terminen. Identifiera de tre återkommande styrkorna över hela arbetslaget och de tre återkommande utvecklingsområdena. För varje utvecklingsområde, föreslå ett konkret coachande samtal en arbetslagsledare kan inleda med.
+
+Format: två numrerade avsnitt. Aggregera endast — referera inte till enskilda lärare.
+
+[klistra in observationsanteckningarna]</pre>
+  </div>
+
+  <h2>Universella</h2>
+
+  <div class="prompt-card">
+    <div class="prompt-card-title">13 · Uppstartsprompten för första mötet med Claude</div>
+    <pre class="prompt-card-text">Jag vill att du kommer ihåg några saker om mig:
+
+Jag är [roll, t ex svensklärare i åk 8] på en [typ av skola] i [kommun/ort]. Jag undervisar [n] klasser med runt [n] elever i en [klass med bred spridning / nivågrupperad] miljö. Jag värderar [evidensbaserad praktik / kreativitet / specifik pedagogik].
+
+Mina önskemål om output:
+- Koncist, om jag inte ber om djup
+- Svensk språkriktighet enligt Svenska skrivregler
+- Klassrumsklart — minimal redigering ska krävas
+- Be mig bekräfta avidentifiering före varje uppgift som rör elevdata
+
+Bekräfta att du har sparat detta.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card-title">14 · Analysera det här dokumentet</div>
+    <pre class="prompt-card-text">Jag laddar upp ett [dokumenttyp]. Ge mig:
+
+1. En sammanfattning på ett stycke
+2. De tre saker som påverkar mig direkt i rollen som [roll]
+3. Eventuella deadlines i dokumentet
+4. Eventuella motsägelser med [annan källa / min praktik] att flagga
+5. Frågor jag bör ställa innan jag agerar på detta
+
+Format: numrerade avsnitt, punktlistor där det hjälper.</pre>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-card-title">15 · Förklara det som om jag är ny</div>
+    <pre class="prompt-card-text">Jag har just fått ansvar för [uppgift, roll eller område]. Förklara vad jag behöver förstå, på ett enkelt språk, utan att anta tidigare expertis.
+
+Format:
+- De tre saker jag måste förstå innan jag gör någonting
+- De två vanligaste misstagen som nya personer i den här rollen gör
+- En konkret handling jag ska ta under min första vecka
+- En konkret handling jag ska ta under min första månad
+- Hur "bra" ser ut efter sex månader
+
+Undvik jargong. Om en term är oundviklig, definiera den i en mening.</pre>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     CLOSING — GO WELL
+     ═══════════════════════════════════════════════════ -->
+<div class="content pagebreak">
+  <h1>Välj RÄTT</h1>
+
+  <p>Guiden är en utgångspunkt, inte ett slutmål. Du vet nu var Claude befinner sig i utbildningslandskapet, hur du skriver prompter som inte slösar din tid, och hur du använder Claude som en bestående följeslagare snarare än en engångsnyhet. Du vet vad du ska se upp med. Du har fem uppgifter du kan prova den här veckan, femton prompter du kan klistra in i vilken chatt som helst, och — eftersom Sverige är ett EU-land — en efterlevnadschecklista som är mer specifik än många andra checklistor på internet.</p>
+
+  <p>AI rör sig fort. Grunderna i god undervisning gör det inte. Känn dina elever. Planera med syfte. Använd evidens. Var närvarande. Claude kan hjälpa dig att göra en del av det bättre än du kunde förut. Det kan inte ersätta någon del av det.</p>
+
+  <p>Det mest användbara jag har lärt mig under tjugoåtta år i skolan är det här: de verktyg som består är de som låter lärare göra mer av det de redan visste fungerade, med mindre friktion. Claude, välanvänt, hör hemma i den kategorin. Dåligt använt hamnar det i högen av saker som skolor köpt och aldrig använt. Skillnaden ligger nästan helt i händerna på dem som använder det.</p>
+
+  <p style="margin-top: 10mm;">Välj RÄTT.</p>
+
+  <p style="margin-top: 12mm; padding-top: 6mm; border-top: 1px solid var(--color-accent); font-style: italic; color: var(--color-text-light);">För uppdateringar, en utökad onlineversion av guiden, fler prompter och övriga AI-nyheter och resurser — besök min webbplats: <strong style="color: var(--color-primary); font-style: normal;"><a href="https://choosewise.education" style="color: inherit; text-decoration: underline; text-decoration-color: var(--color-accent);">choosewise.education</a></strong></p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     ABOUT JOHAN LINDSTRÖM
+     ═══════════════════════════════════════════════════ -->
+<div class="content pagebreak">
+  <h1>Om författaren</h1>
+
+  <h2 style="border: none; margin-top: 2mm;">Johan Lindström</h2>
+
+  <p>Johan har tillbringat tjugoåtta år i den svenska skolsektorn: tio år som klasslärare, sju som biträdande rektor, och mer än ett decennium inom EdTech på Advania Skolpartner. Han är en etablerad röst i frågor om AI och digitalisering i svensk skola, och arbetar främst med skolchefer, rektorer och lärare för att översätta snabbrörlig teknik till praktisk klassrums- och ledningspraxis.</p>
+
+  <p>Han är grundare av JL Skolutveckling AB, genom vilket han skriver, föreläser och rådgiver om AI i skolan, källkritik, EU:s AI-förordning, och vad som faktiskt får AI-införande på hela skolan att fungera. Hans texter utmanar medienarrativ och prioriterar evidensbaserad praktik framför nyhetsvärde. Johan skriver och talar på både svenska och engelska, och fördelar tiden mellan skolbesök, ledarcoachning, och det långsiktiga arbete som blir till guider som denna.</p>
+
+  <p style="margin-top: 6mm; font-size: 10pt;"><strong style="color: var(--color-primary);">Webbplats:</strong> <a href="https://choosewise.education" style="color: inherit; text-decoration: underline; text-decoration-color: var(--color-accent);">choosewise.education</a><br>
+  <strong style="color: var(--color-primary);">LinkedIn:</strong> <a href="https://www.linkedin.com/in/johan-lindstr%C3%B6m-b290a85/" style="color: inherit; text-decoration: underline; text-decoration-color: var(--color-accent);">linkedin.com/in/johan-lindström</a></p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     REFERENCES & CREDITS — flows on same page as About the author
+     ═══════════════════════════════════════════════════ -->
+<div class="content">
+  <h2 style="margin-top: 6mm; border: none; font-size: 13pt; color: var(--color-primary);">Källor &amp; krediteringar</h2>
+
+  <ul class="references-list">
+    <li><strong>Paul Matthews</strong> — <em>Claude Quick Start Guide for Teachers (K–12)</em>. De tre principerna som ramverk är bearbetade med tack från hans arbete. <em>paulmatthews.ai</em></li>
+    <li><strong>Anthropic</strong> — den officiella dokumentationen på claude.ai, samt tillkännagivandena om <em>Claude for Education</em> och Cowork. <em>anthropic.com</em></li>
+    <li><strong>AJ Juliani</strong> — <em>Practical Ways to Get Started Using Claude for Educators</em>. <em>ajjuliani.com</em></li>
+    <li><strong>Saint Leo University</strong> — Claude-guide för lärarkåren. <em>faculty.saintleo.edu/claude</em></li>
+    <li><strong>Gareth Manning</strong> — <em>claude-education-skills</em>, ett öppet bibliotek för pedagoger. <em>github.com/GarethManning/claude-education-skills</em></li>
+    <li><strong>AJ Tracy</strong> — <em>Using Claude for Teaching English</em>. Publicerad på Medium.</li>
+    <li><strong>Sikha Denge</strong> — <em>Complete Guide to Claude AI for Teachers in 2026</em>. <em>sikhadenge.in</em></li>
+    <li><strong>Codecademy</strong> — <em>How to Build Claude Skills</em>. <em>codecademy.com</em></li>
+  </ul>
+
+  <p style="margin-top: 3mm; font-size: 9pt; color: var(--color-text-light); text-align: center; padding-top: 2.5mm; border-top: 1px solid var(--color-light);">Första upplagan · april 2026 · © Johan Lindström</p>
+</div>
+
+</body>
+</html>
