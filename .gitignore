@@ -17,3 +17,20 @@ Thumbs.db
 
 # Superpowers brainstorm state (not part of the shippable site)
 .superpowers/
+
+# Playwright MCP screenshot scratchpad
+.playwright-mcp/
+
+# Python bytecode caches (generated during PDF builds)
+__pycache__/
+*.pyc
+
+# Loose screenshots and scratch HTMLs in the repo root (verification-only
+# artifacts — produce fresh ones if needed, don't commit them)
+/iphone-*.png
+/flipcards-*.png
+/wise-*.png
+/ratt-*.png
+/gemini-guide-*.png
+/research-presentation.html
+/excalidraw.log
