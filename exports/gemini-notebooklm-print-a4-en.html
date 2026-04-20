@@ -60,11 +60,14 @@
   .page {
     width: 210mm;
     min-height: 297mm;
-    padding: 26mm 22mm 28mm;
+    padding: 30mm 22mm 34mm;
     position: relative;
     page-break-after: always;
   }
   .page:last-child { page-break-after: auto; }
+
+  /* Keep checklists together so a single item doesn't orphan onto a new page */
+  ol.checklist { page-break-inside: avoid; break-inside: avoid; }
 
   /* ─── Cover page ─── */
   .cover {

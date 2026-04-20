@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
 """Regenerate Gemini & NotebookLM (EN + SV) A4 guide PDFs from the print HTML sources.
 
+Two-pass render to keep the cover page free of the running footer:
+  1. Render page 1 (the cover) with `display_header_footer=False`.
+  2. Render pages 2+ with the running footer template.
+  3. Concatenate the two via pypdf.
+
 EN build is the canonical deliverable. SV source may not exist yet; if missing we
 skip rather than fail — same pattern as build-claude-quickstart-pdf.py.
 """
 from pathlib import Path
 from playwright.sync_api import sync_playwright
+import pypdf
 
 root = Path(__file__).parent.parent
+
 
 def footer(title: str, page_label: str) -> str:
     return f"""
@@ -18,6 +25,9 @@ def footer(title: str, page_label: str) -> str:
   <span>{page_label} <span class="pageNumber"></span></span>
 </div>
 """
+
+
+EMPTY_HEADER = "<div></div>"
 
 jobs = [
     (
@@ -32,7 +42,26 @@ jobs = [
     ),
 ]
 
-EMPTY_HEADER = "<div></div>"
+
+def render(page, src_uri: str, dst: Path, *, page_ranges: str, with_footer: bool,
+           footer_template: str) -> None:
+    """Render a PDF slice with or without the running footer."""
+    page.goto(src_uri, wait_until="networkidle")
+    page.emulate_media(media="print")
+    pdf_kwargs = dict(
+        path=str(dst),
+        format="A4",
+        print_background=True,
+        margin={"top": "0", "bottom": "14mm", "left": "0", "right": "0"},
+        prefer_css_page_size=True,
+        page_ranges=page_ranges,
+    )
+    if with_footer:
+        pdf_kwargs["display_header_footer"] = True
+        pdf_kwargs["header_template"] = EMPTY_HEADER
+        pdf_kwargs["footer_template"] = footer_template
+    page.pdf(**pdf_kwargs)
+
 
 with sync_playwright() as p:
     browser = p.chromium.launch()
@@ -41,23 +70,37 @@ with sync_playwright() as p:
         if not src.exists():
             print(f"Skipping {dst.name} — source {src.name} not found")
             continue
-        url = src.as_uri()
+
+        uri = src.as_uri()
         print(f"Building {dst.name} from {src.name}")
-        page.goto(url, wait_until="networkidle")
-        page.emulate_media(media="print")
+
+        cover_tmp = src.with_suffix(".cover.tmp.pdf")
+        rest_tmp = src.with_suffix(".rest.tmp.pdf")
+
+        # Page 1: the cover — no running footer
+        render(page, uri, cover_tmp, page_ranges="1",
+               with_footer=False, footer_template=footer_template)
+
+        # Pages 2+: body of the guide — with footer
+        render(page, uri, rest_tmp, page_ranges="2-",
+               with_footer=True, footer_template=footer_template)
+
+        writer = pypdf.PdfWriter()
+        for pg in pypdf.PdfReader(str(cover_tmp)).pages:
+            writer.add_page(pg)
+        for pg in pypdf.PdfReader(str(rest_tmp)).pages:
+            writer.add_page(pg)
+
         dst.parent.mkdir(parents=True, exist_ok=True)
-        page.pdf(
-            path=str(dst),
-            format="A4",
-            print_background=True,
-            # Small top/bottom margins create the room the footer template needs;
-            # left/right stay flush because the print HTML has its own 20mm padding.
-            margin={"top": "0", "bottom": "14mm", "left": "0", "right": "0"},
-            prefer_css_page_size=True,
-            display_header_footer=True,
-            header_template=EMPTY_HEADER,
-            footer_template=footer_template,
-        )
-        print(f"  -> {dst.stat().st_size // 1024} KB")
+        with open(dst, "wb") as fh:
+            writer.write(fh)
+
+        cover_tmp.unlink(missing_ok=True)
+        rest_tmp.unlink(missing_ok=True)
+
+        pages = len(pypdf.PdfReader(str(dst)).pages)
+        print(f"  -> {dst.name}: {pages} pages, {dst.stat().st_size // 1024} KB")
+
     browser.close()
+
 print("Done.")
