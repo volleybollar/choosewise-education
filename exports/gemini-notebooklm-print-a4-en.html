@@ -8,11 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   /* ─── Page geometry ─── */
-  /* Reserve 16mm at the bottom of every page for the running footer so
-     content can never overlap it. The cover page is special-cased to
-     margin:0 via @page :first so its gradient fills the full A4 and no
-     footer is drawn on it (no margin box = nowhere for the footer to go). */
-  @page { size: A4; margin: 0 0 16mm 0; }
+  /* @page margins apply to every physical page, including continuation
+     pages when a .page div overflows. 22mm top keeps the first line clear
+     of the top edge on every page. 16mm bottom reserves room for the
+     running footer. The cover is special-cased to margin:0 so its gradient
+     fills the full A4 and no footer is drawn on it. */
+  @page { size: A4; margin: 22mm 0 16mm 0; }
   @page :first { margin: 0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { background: #faf7f2; }
@@ -62,13 +63,14 @@
   }
 
   /* ─── Page wrappers ─── */
-  /* min-height uses the printable area (297 - 16mm footer margin = 281mm).
-     The cover overrides this back to 297mm because @page :first gives it
-     margin:0. */
+  /* Content area is 259mm (297 − 22mm top − 16mm bottom). .page only needs
+     horizontal padding now since @page handles top/bottom breathing room.
+     The cover overrides min-height back to 297mm because @page :first
+     gives it margin:0 (full A4). */
   .page {
     width: 210mm;
-    min-height: 281mm;
-    padding: 22mm 22mm 10mm;
+    min-height: 259mm;
+    padding: 0 22mm;
     position: relative;
     page-break-after: always;
   }
