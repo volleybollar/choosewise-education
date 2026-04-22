@@ -77,10 +77,18 @@ def extract_parts(text: str) -> list[dict]:
         for i, m in enumerate(del_markers):
             start = m.end()
             end = del_markers[i + 1].start() if i + 1 < len(del_markers) else len(body)
-            prompts = split_prompts(body[start:end])
+            part_body = body[start:end]
+            # Pull off any title-continuation lines at the top of the body —
+            # PDF layout wraps long titles across two lines (e.g. "Del 2:
+            # Promptar som kopplar ihop lärande med specifika / inlärningsmetoder").
+            extra_title, part_body = _pull_title_continuation(part_body)
+            title = m.group(2).strip()
+            if extra_title:
+                title = f"{title} {extra_title}"
+            prompts = split_prompts(part_body)
             parts.append({
                 "number": int(m.group(1)),
-                "title": m.group(2).strip(),
+                "title": title,
                 "prompts": prompts,
             })
         return parts
@@ -91,6 +99,46 @@ def extract_parts(text: str) -> list[dict]:
     title = simple.group(1).strip() if simple else ""
     prompts = split_prompts(body[start:])
     return [{"number": 1, "title": title, "prompts": prompts}] if prompts else []
+
+
+def _pull_title_continuation(body: str) -> tuple:
+    """Pull title-continuation lines off the top of a Del-part body.
+
+    The source PDFs wrap long Del titles across two lines. The first line
+    was already captured by PART_HEADER_RE; anything that looks like a
+    continuation word (short, non-blank, not a parenthetical note, not a
+    prompt) is joined onto the title. Leading blank lines (produced by
+    the regex's $ stopping before the newline) are skipped.
+
+    Returns (extra_title_text, remaining_body).
+    """
+    lines = body.split("\n")
+    continuation = []
+    idx = 0
+    seen_content = False
+    for i, raw in enumerate(lines):
+        line = raw.strip()
+        if not line:
+            if seen_content:
+                # Blank line after title continuation — end of title zone
+                idx = i
+                break
+            # Leading blank — skip past the newline after the Del header
+            idx = i + 1
+            continue
+        if line.startswith("(") or line.startswith("["):
+            idx = i
+            break
+        first_word = line.split(None, 1)[0]
+        if first_word in IMPERATIVE_OPENERS:
+            idx = i
+            break
+        continuation.append(line)
+        seen_content = True
+        idx = i + 1
+    extra_title = " ".join(continuation).strip()
+    remaining = "\n".join(lines[idx:])
+    return extra_title, remaining
 
 
 def split_prompts(body: str) -> list[str]:

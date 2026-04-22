@@ -84,7 +84,7 @@
     },
     {
       "number": 2,
-      "title": "Promptar som kopplar ihop lärande med specifika",
+      "title": "Promptar som kopplar ihop lärande med specifika inlärningsmetoder",
       "prompts": [
         "Skapa en lektionsplan för [ämne] för en klass i [årskurs X] där eleverna lär sig [specifikt nytt ämnesmoment, t.ex. grunderna i programmering], med tre steg för att introducera, utforska och befästa kunskapen.",
         "Ge mig ett exempel på hur en klass i [årskurs X] i [ämne] kan använda minnestekniker för att lära sig [specifikt innehåll, t.ex. historiska årtal], med fem olika tekniker och en tillämpning för varje teknik.",
