@@ -59,6 +59,10 @@ Rules:
    "Religious Studies" for Religion.
 5. Part titles: translate naturally, keep it short and professional.
 6. Tone: clear, direct, practical — written for teachers and school leaders.
+7. DO NOT add translator notes, editorial framings, or meta-commentary about
+   why English terms are used. Translate only what's in the source. Never add
+   sentences like "these terms are kept in English because..." — they didn't
+   exist in the source and must not appear in the translation.
 
 Return ONLY the JSON object, nothing else."""
 

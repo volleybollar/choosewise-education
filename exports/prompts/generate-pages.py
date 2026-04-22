@@ -160,8 +160,11 @@ LANDING_EN = """<!DOCTYPE html>
 """
 
 
-def _parts_summary_sv(parts: list) -> str:
-    """Render a 'What's inside' section summarising each Del + first three prompts."""
+def _parts_summary_sv(data: dict) -> str:
+    """'Så är det uppbyggt' section — adapts to regular packs vs. megaprompts."""
+    if "megaprompts" in data:
+        return _megaprompts_summary_sv(data["megaprompts"])
+    parts = data.get("parts", [])
     if not parts or (len(parts) == 1 and not parts[0].get("title")):
         return ""
     blocks = []
@@ -183,7 +186,28 @@ def _parts_summary_sv(parts: list) -> str:
 '''
 
 
-def _parts_summary_en(parts: list) -> str:
+def _megaprompts_summary_sv(megaprompts: list) -> str:
+    blocks = []
+    for mp in megaprompts:
+        blocks.append(f'''
+        <article class="prompt-part">
+          <span class="prompt-part__count">Megaprompt #{mp["number"]}</span>
+          <h3>{_html.escape(mp["title"])}</h3>
+        </article>''')
+    return f'''
+    <section class="section container" data-reveal>
+      <h2 class="section__title">Så är det uppbyggt</h2>
+      <p class="prose">Varje megaprompt är en längre, strukturerad prompt uppdelad i sektioner — sammanhang, mål, svarsriktlinjer, informationskrav och output. Tänkt för uppgifter där du vill ha ett mer genomarbetat resultat än vad en kortare prompt ger.</p>
+      <div class="prompt-parts">{"".join(blocks)}
+      </div>
+    </section>
+'''
+
+
+def _parts_summary_en(data: dict) -> str:
+    if "megaprompts" in data:
+        return _megaprompts_summary_en(data["megaprompts"])
+    parts = data.get("parts", [])
     if not parts or (len(parts) == 1 and not parts[0].get("title")):
         return ""
     blocks = []
@@ -199,6 +223,25 @@ def _parts_summary_en(parts: list) -> str:
     <section class="section container" data-reveal>
       <h2 class="section__title">What's inside</h2>
       <p class="prose">Every prompt is written as a template with bracketed placeholders <em>[like this]</em> for you to swap in your own context.</p>
+      <div class="prompt-parts">{"".join(blocks)}
+      </div>
+    </section>
+'''
+
+
+def _megaprompts_summary_en(megaprompts: list) -> str:
+    blocks = []
+    for mp in megaprompts:
+        title = mp.get("title_en") or mp["title"]
+        blocks.append(f'''
+        <article class="prompt-part">
+          <span class="prompt-part__count">Megaprompt #{mp["number"]}</span>
+          <h3>{_html.escape(title)}</h3>
+        </article>''')
+    return f'''
+    <section class="section container" data-reveal>
+      <h2 class="section__title">What's inside</h2>
+      <p class="prose">Each megaprompt is a longer, structured prompt split into sections — context, goal, response guidelines, information requirements and output. Intended for tasks where you want a more considered result than a short prompt provides.</p>
       <div class="prompt-parts">{"".join(blocks)}
       </div>
     </section>
@@ -262,8 +305,19 @@ def _vol(pack: dict) -> str:
 
 def generate_landing_sv(pack: dict, data: dict) -> str:
     audience = pack["eyebrow_sv"]
-    # Normalise "För X" → "för X" for mid-sentence use
     audience_lower = audience[0].lower() + audience[1:] if audience else ""
+    is_mega = pack.get("special") and "megaprompts" in data
+    if is_mega:
+        n = len(data["megaprompts"])
+        template = MEGA_LANDING_SV
+        return template.format(
+            title=_html.escape(pack["title_sv"].rstrip(".")),
+            count=n,
+            slug_sv=pack["slug_sv"],
+            vol=_vol(pack),
+            parts_summary=_parts_summary_sv(data),
+            related_section=_related_sv(pack),
+        )
     return LANDING_SV.format(
         title=_html.escape(pack["title_sv"].rstrip(".")),
         subtitle=_html.escape(pack.get("subtitle_sv") or "Färdiga promptar att utgå från i planering, undervisning och reflektion."),
@@ -271,7 +325,7 @@ def generate_landing_sv(pack: dict, data: dict) -> str:
         count=data["total_prompts"],
         slug_sv=pack["slug_sv"],
         vol=_vol(pack),
-        parts_summary=_parts_summary_sv(data["parts"]),
+        parts_summary=_parts_summary_sv(data),
         related_section=_related_sv(pack),
     )
 
@@ -279,6 +333,17 @@ def generate_landing_sv(pack: dict, data: dict) -> str:
 def generate_landing_en(pack: dict, data: dict) -> str:
     audience = pack["eyebrow_en"]
     audience_lower = audience[0].lower() + audience[1:] if audience else ""
+    is_mega = pack.get("special") and "megaprompts" in data
+    if is_mega:
+        n = len(data["megaprompts"])
+        return MEGA_LANDING_EN.format(
+            title=_html.escape(pack["title_en"].rstrip(".")),
+            count=n,
+            slug_en=pack["slug_en"],
+            vol=_vol(pack),
+            parts_summary=_parts_summary_en(data),
+            related_section=_related_en(pack),
+        )
     return LANDING_EN.format(
         title=_html.escape(pack["title_en"].rstrip(".")),
         subtitle=_html.escape(pack.get("subtitle_en") or "Ready-to-use prompts for planning, teaching and reflection."),
@@ -286,9 +351,126 @@ def generate_landing_en(pack: dict, data: dict) -> str:
         count=data["total_prompts"],
         slug_en=pack["slug_en"],
         vol=_vol(pack),
-        parts_summary=_parts_summary_en(data["parts"]),
+        parts_summary=_parts_summary_en(data),
         related_section=_related_en(pack),
     )
+
+
+# Megapromptar-specific landing page template — different framing on the lede
+# (deep-dive, for when basic prompts feel too simple) and download copy.
+MEGA_LANDING_SV = """<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title} — choosewise.education</title>
+  <meta name="description" content="{count} megapromptar — längre, strukturerade promptar för fördjupning. Fri nedladdningsbar PDF.">
+  <meta property="og:title" content="{title} — choosewise.education">
+  <meta property="og:description" content="{count} megapromptar — fördjupning för den som tycker att de vanliga promptarna är för enkla.">
+  <meta property="og:image" content="/assets/images/brand/og-default.svg">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+</head>
+<body>
+  <div data-include="/assets/partials/header-sv.html"></div>
+
+  <main>
+    <section class="page-hero container">
+      <span class="eyebrow" data-reveal>Prompt Library · Vol. {vol} · Fördjupning</span>
+      <h1 data-reveal>{title}</h1>
+      <p class="lede" data-reveal>{count} megapromptar — längre, strukturerade promptar för när de vanliga känns för enkla. Varje megaprompt är uppdelad i sektioner (sammanhang, mål, svarsriktlinjer) och fungerar som en färdig mall du kan kopiera, fylla i och iterera med.</p>
+    </section>
+
+    <section class="section section--alt" data-reveal>
+      <div class="container download-section">
+        <div>
+          <h2>Ladda ner PDF</h2>
+          <p>A4 · {count} strukturerade megapromptar med ordlista och promptramverk</p>
+        </div>
+        <a class="btn btn--primary" href="/assets/pdfs/prompts/{slug_sv}-sv.pdf" download>
+          Ladda ner PDF
+        </a>
+      </div>
+    </section>
+{parts_summary}
+    <section class="section container" data-reveal>
+      <h2 class="section__title">Så här använder du dem</h2>
+      <p class="prose">Kopiera hela megaprompten, klistra in i chattbotten, byt ut <em>[HAKPARENTESER]</em> mot din kontext (målgrupp, ämne, nyckelbegrepp osv), och iterera sedan som vanligt tills du är nöjd. Megapromptar ger långa svar — dubbelkolla detaljerna.</p>
+      <p class="prose">Vill du komma igång enklare, börja med <a href="/sv/promptar/">promptpaketen för din roll</a> först. Megapromptarna är tänkta som ett steg djupare.</p>
+    </section>
+
+{related_section}
+  </main>
+
+  <div data-include="/assets/partials/footer-sv.html"></div>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/include.js"></script>
+  <script defer src="/assets/js/scroll-reveals.js"></script>
+</body>
+</html>
+"""
+
+MEGA_LANDING_EN = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title} — choosewise.education</title>
+  <meta name="description" content="{count} megaprompts — longer, structured prompts for deep-dive use. Free downloadable PDF.">
+  <meta property="og:title" content="{title} — choosewise.education">
+  <meta property="og:description" content="{count} megaprompts — a deep dive for when the basic prompts feel too simple.">
+  <meta property="og:image" content="/assets/images/brand/og-default.svg">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <section class="page-hero container">
+      <span class="eyebrow" data-reveal>Prompt Library · Vol. {vol} · Deep Dive</span>
+      <h1 data-reveal>{title}</h1>
+      <p class="lede" data-reveal>{count} megaprompts — longer, structured prompts for when the basic ones feel too simple. Each megaprompt is split into labelled sections (context, goal, response guidelines) and works as a ready-to-use template you can copy, fill in, and iterate on.</p>
+    </section>
+
+    <section class="section section--alt" data-reveal>
+      <div class="container download-section">
+        <div>
+          <h2>Download the PDF</h2>
+          <p>A4 · {count} structured megaprompts with glossary and prompt framework</p>
+        </div>
+        <a class="btn btn--primary" href="/assets/pdfs/prompts/{slug_en}-en.pdf" download>
+          Download PDF
+        </a>
+      </div>
+    </section>
+{parts_summary}
+    <section class="section container" data-reveal>
+      <h2 class="section__title">How to use them</h2>
+      <p class="prose">Copy the whole megaprompt, paste it into the chatbot, replace the <em>[BRACKETS]</em> with your own context (audience, subject, key concepts, etc.), and iterate as usual until you're happy. Megaprompts produce long responses — double-check the details.</p>
+      <p class="prose">If you'd rather ease in, start with a <a href="/prompts/">role-specific prompt set</a> first. The megaprompts are designed as a step deeper.</p>
+    </section>
+
+{related_section}
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/include.js"></script>
+  <script defer src="/assets/js/scroll-reveals.js"></script>
+</body>
+</html>
+"""
 
 
 # ══════════════════════════════════════════════════════════════════════
@@ -461,12 +643,13 @@ def _library_cards_sv(pack_counts: dict) -> str:
         if not slug_sv:
             continue
         count = pack_counts.get(slug_sv, 0)
+        unit = "megapromptar" if pack.get("special") else "promptar"
         has_en = pack.get("slug_en") and not pack.get("sv_only")
         langs = '<span>SV</span>' + (f' <span>EN</span>' if has_en else '')
         cards.append(f'''        <a class="prompt-card" href="/sv/promptar/{slug_sv}/" data-category="{pack["category"]}">
           <span class="prompt-card__eyebrow">{_html.escape(pack["eyebrow_sv"])}</span>
           <h2 class="prompt-card__title">{_html.escape(pack["title_sv"].rstrip("."))}</h2>
-          <p class="prompt-card__count">{count} promptar</p>
+          <p class="prompt-card__count">{count} {unit}</p>
           <div class="prompt-card__langs">{langs}</div>
         </a>''')
     return "\n".join(cards)
@@ -479,6 +662,7 @@ def _library_cards_en(pack_counts: dict, has_en_data: set) -> str:
         if not slug_en or pack.get("sv_only"):
             continue
         count = pack_counts.get(pack["slug_sv"], 0)
+        unit = "megaprompts" if pack.get("special") else "prompts"
         available = slug_en in has_en_data
         # Before translation: every card still appears but with a "Coming soon" state
         if available:
@@ -496,7 +680,7 @@ def _library_cards_en(pack_counts: dict, has_en_data: set) -> str:
             f'        {open_tag}\n'
             f'          <span class="prompt-card__eyebrow">{_html.escape(pack["eyebrow_en"])}</span>\n'
             f'          <h2 class="prompt-card__title">{_html.escape(pack["title_en"].rstrip("."))}</h2>\n'
-            f'          <p class="prompt-card__count">{count} prompts</p>\n'
+            f'          <p class="prompt-card__count">{count} {unit}</p>\n'
             f'          <div class="prompt-card__langs">{lang_line}</div>\n'
             f'        {close_tag}'
         )

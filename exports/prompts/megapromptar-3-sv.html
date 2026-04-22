@@ -10,14 +10,22 @@
 <section class="page--cover">
   <div class="cover__top">
     <span class="cover__brand">choosewise.education</span>
-    <span>Prompt Library · Vol. 66</span>
+    <span>Prompt Library · Vol. 65</span>
   </div>
 
   <div class="cover__middle">
-    <div class="cover__eyebrow">Megapromptar · Vol. 3</div>
-    <div class="cover__count">13 chattpromptar</div>
-    <h1 class="cover__title">Megapromptar #3.</h1>
-    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+    <div class="cover__eyebrow">Fördjupning · Megapromptar #3</div>
+    <div class="cover__count">5 megapromptar</div>
+    <h1 class="cover__title">Megapromptar.</h1>
+    <p class="cover__subtitle">Längre, strukturerade promptar för när de vanliga känns för enkla.</p>
+
+    <ul class="mega-toc">
+      <li><span class="mega-toc__num">#1</span> Testa kunskapsförståelse</li>
+      <li><span class="mega-toc__num">#2</span> samarbete</li>
+      <li><span class="mega-toc__num">#3</span> Debattämnesgenerator</li>
+      <li><span class="mega-toc__num">#4</span> missuppfattningar inom ämnet</li>
+      <li><span class="mega-toc__num">#5</span> Spelifiera lektioner</li>
+    </ul>
   </div>
 
   <div class="cover__bottom">
@@ -27,96 +35,312 @@
     </div>
     <div class="cover__volume">
       <span class="cover__volume__label">Vol.</span>
-      <span class="cover__volume__number">66</span>
+      <span class="cover__volume__number">65</span>
     </div>
   </div>
 </section>
 <section class="section-opener">
-  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
-  <h2>Ordlista</h2>
-  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+  <div class="section-opener__eyebrow">Om megapromptarna</div>
+  <h2>En steg upp från vardagspromptarna.</h2>
+  <p>En <em>megaprompt</em> är en längre, strukturerad prompt — ofta med flera sektioner: sammanhang, mål, svarsriktlinjer och informationskrav. Den är tänkt för uppgifter där du vill ha ett mer genomarbetat svar: ett arbetsblad, en studieguide, en hel lektionsstruktur eller en AI-tutor som följer en specifik pedagogisk metod.</p>
 </section>
 
-<dl class="glossary">
-  <dt>AI — Artificiell Intelligens</dt>
-  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
-  <dt>Prompt</dt>
-  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
-  <dt>Iterera</dt>
-  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
-  <dt>Chattbot</dt>
-  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
-  <dt>GPT</dt>
-  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
-  <dt>Generativ AI</dt>
-  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
-  <dt>Bias</dt>
-  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
-  <dt>Hallucination</dt>
-  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
-</dl>
-
-<div class="framework-box">
-  <h3>Ett ramverk för att skriva egna promptar</h3>
-  <dl>
-    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
-    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
-    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
-    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
-    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
-  </dl>
-</div>
-
-<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
-<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
-
-<ul class="chatbot-list">
-  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
-  <li><strong>Gemini</strong> — Googles chattbot</li>
-  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
-  <li><strong>Copilot</strong> — Microsofts chattbot</li>
-  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
-  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
-  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
-  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
-</ul>
-<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
-
-<section class="section-opener" style="page-break-before: always;">
-  <div class="section-opener__eyebrow">Innan du börjar</div>
-  <h2>Hur du använder promptarna</h2>
-  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
-</section>
-
-<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+<p>Varje megaprompt är en färdig mall. Kopiera hela blocket, klistra in i chattbotten, byt ut hakparenteserna mot din kontext — och iterera sedan som vanligt tills du är nöjd. De tre volymerna ligger ett steg djupare än de vanliga promptpaketen, så vill du komma igång enklare, börja med <a href="https://choosewise.education/sv/promptar/">promptpaketen för din roll</a> först.</p>
 
 <div class="callout callout--warning">
   <h3>Hakparenteser och integritet</h3>
-  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
-  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
-  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+  <p style="margin-bottom: 2mm;">Alla <span class="bracket">[HAKPARENTESER]</span> är platshållare — byt ut texten mot det som passar ditt sammanhang (målgrupp, ämne, nyckelbegrepp osv).</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — megapromptar ger långa svar där fel lätt kan gömmas i detaljer.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
 </div>
 
-<section class="section-opener">
-  <div class="section-opener__eyebrow">13 promptar</div>
-  <h2>Promptar</h2>
+<section class="megaprompt">
+  <div class="megaprompt__eyebrow">Megaprompt #1</div>
+  <h2 class="megaprompt__title">Testa kunskapsförståelse</h2>
+
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Sammanhang</h3>
+    <div class="megaprompt__body"><p>Anta rollen som en expertlärare specialiserad på [ämne]. Din uppgift är att utveckla ett omfattande kunskapstest utformat för att mäta djupet och bredden av förståelse i grunderna för [ämne]. Detta test bör inkludera en mängd olika frågetyper såsom flervalsfrågor, korta svar och essäfrågor som omfattar kärnbegrepp, teorier och praxis förknippade med [ämne]. Frågorna måste vara tydliga, objektiva och anpassade till gällande standarder på området.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Mål</h3>
+    <div class="megaprompt__body"><p>Du kommer att skapa ett test som noggrant bedömer förståelse, identifierar styrkeområden och pekar ut kunskapsluckor för vidare studier. Detta test kommer att fungera som ett värdefullt verktyg för att mäta elevens behärskning av [ämne] och vägleda deras inlärningsresa.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Svarsriktlinjer</h3>
+    <div class="megaprompt__body"><p>Följ steg-för-steg-metoden nedan för att konstruera testet och dess utvärderingskomponenter:</p>
+<ol>
+  <li><strong>Börja med flervalsfrågor:</strong></li>
+</ol>
+<ul>
+  <li>Utveckla 10 flervalsfrågor som täcker grundläggande teorier och begrepp för [ämne]. Varje fråga bör innehålla fyra alternativ med endast ett rätt svar.</li>
+  <li>Se till att frågor bedömer både återkallande och tillämpning av kunskap.</li>
+</ul>
+<ol>
+  <li><strong>Inkludera korta svarsfrågor:</strong></li>
+</ol>
+<ul>
+  <li>Skapa 5 korta svarsfrågor som kräver kortfattade svar. Dessa bör testa förståelsen av nyckeltermer, processer och tillämpningen av begrepp i verkliga scenarier.</li>
+</ul>
+<ol>
+  <li><strong>Inkludera uppsatsfrågor:</strong></li>
+</ol>
+<ul>
+  <li>Formulera 3 essäfrågor som uppmuntrar kritiskt tänkande och integrering av flera begrepp inom [ämne]. Dessa frågor bör möjliggöra en demonstration av djupgående förståelse och förmåga att formulera komplexa idéer tydligt.</li>
+</ul>
+<ol>
+  <li><strong>Designa en detaljerad svarsnyckel:</strong></li>
+</ol>
+<ul>
+  <li>Ge omfattande svar och förklaringar på alla typer av frågor. Den här nyckeln ska fungera som ett läromedel och ge insikter i resonemanget bakom korrekta svar och tillämpningen av begrepp.</li>
+</ul>
+<ol>
+  <li><strong>Skapa en poängbedömning:</strong></li>
+</ol>
+<ul>
+  <li>Skapa en rubrik för att betygsätta essäfrågor, specificera kriterier såsom klarhet i argument, djup analys, noggrannhet av information och integrering av begrepp. Tilldela poängvärden till varje kriterium för en transparent utvärderingsprocess.</li>
+</ul>
+<ol>
+  <li><strong>Rekommendationer för testadministration:</strong></li>
+</ol>
+<ul>
+  <li>Föreslå att avsätta en specifik tid för testet, ge råd om en tyst och bekväm miljö för koncentration. Rekommendera att testet tas utan att konsultera anteckningar eller resurser för den mest exakta bedömningen av kunskap.</li>
+</ul></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Information om mig</h3>
+    <div class="megaprompt__body"><ul>
+  <li>Mitt ämne: [ÄMNE]</li>
+</ul></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Output</h3>
+    <div class="megaprompt__body"><p>Resultatet kommer att vara ett strukturerat testdokument som innehåller en mängd olika frågetyper, var och en utformad för att utvärdera olika aspekter av kunskap i [ämne]. Detta dokument kommer att innehålla en svarsnyckel med detaljerade förklaringar och en poängbedömning för uppsatsfrågor. Testet kommer att erbjuda en heltäckande översikt av elevens styrkor och områden för förbättring, vägledande för fortsatta studier och behärskning av [ämne].</p>
+<p>————————————————————————————————————— Hur man använder megaprompten</p>
+<p>Fyll i platshållaren [ÄMNE] i avsnittet #INFORMATION OM MIG med det specifika ämnesområdet du fokuserar på.</p>
+<p>Exempel: Om du skapar ett test för en kurs om &quot;Miljövetenskap&quot;, ersätt [ÄMNE] med &quot;Miljövetenskap.&quot;</p>
+<p>Exempel 2: För att använda den här uppmaningen effektivt, om ditt ämne är &quot;Artificiell intelligens&quot;, bör du byta ut [ÄMNE] med &quot;Artificiell intelligens&quot; och fortsätta att utforma testet kring de kärnkoncept, teorier och praxis som är förknippade med artificiell intelligens.</p></div>
+  </section>
 </section>
 
-<ol class="prompts">
-  <li>Utveckla 10 flervalsfrågor som täcker grundläggande teorier och begrepp för [ämne]. Varje fråga bör innehålla fyra alternativ med endast ett rätt svar. Se till att frågor bedömer både återkallande och tillämpning av kunskap. 2. **Inkludera korta svarsfrågor:**</li>
-  <li>Skapa 5 korta svarsfrågor som kräver kortfattade svar. Dessa bör testa förståelsen av nyckeltermer, processer och tillämpningen av begrepp i verkliga scenarier. 3. **Inkludera uppsatsfrågor:** Formulera 3 essäfrågor som uppmuntrar kritiskt tänkande och integrering av flera begrepp inom [ämne]. Dessa frågor bör möjliggöra en demonstration av djupgående förståelse och förmåga att formulera komplexa idéer tydligt. 4. **Designa en detaljerad svarsnyckel:**</li>
-  <li>Ge omfattande svar och förklaringar på alla typer av frågor. Den här nyckeln ska fungera som ett läromedel och ge insikter i resonemanget bakom korrekta svar och tillämpningen av begrepp. 5. **Skapa en poängbedömning:**</li>
-  <li>Skapa en rubrik för att betygsätta essäfrågor, specificera kriterier såsom klarhet i argument, djup analys, noggrannhet av information och integrering av begrepp. Tilldela poängvärden till varje kriterium för en transparent utvärderingsprocess. 6. **Rekommendationer för testadministration:**</li>
-  <li>Föreslå att avsätta en specifik tid för testet, ge råd om en tyst och bekväm miljö för koncentration. Rekommendera att testet tas utan att konsultera anteckningar eller resurser för den mest exakta bedömningen av kunskap. #INFORMATION OM MIG: Mitt ämne: [ÄMNE] #OUTPUT: Resultatet kommer att vara ett strukturerat testdokument som innehåller en mängd olika frågetyper, var och en utformad för att utvärdera olika aspekter av kunskap i [ämne]. Detta dokument kommer att innehålla en svarsnyckel med detaljerade förklaringar och en poängbedömning för uppsatsfrågor. Testet kommer att erbjuda en heltäckande översikt av elevens styrkor och områden för förbättring, vägledande för fortsatta studier och behärskning av [ämne].</li>
-  <li>Hur man använder megaprompten Fyll i platshållaren [ÄMNE] i avsnittet #INFORMATION OM MIG med det specifika ämnesområdet du fokuserar på. Exempel: Om du skapar ett test för en kurs om &quot;Miljövetenskap&quot;, ersätt [ÄMNE] med &quot;Miljövetenskap.&quot; Exempel 2: För att använda den här uppmaningen effektivt, om ditt ämne är &quot;Artificiell intelligens&quot;, bör du byta ut [ÄMNE] med &quot;Artificiell intelligens&quot; och fortsätta att utforma testet kring de kärnkoncept, teorier och praxis som är förknippade med artificiell intelligens. Megaprompt #2 - samarbete #SAMMANHANG: Anta rollen som en expertpedagog som är skicklig på att utforma engagerande lärandeupplevelser som främjar studentsamarbete. Din uppgift är att hjälpa användaren att utveckla en omfattande guide om effektiva strategier för att främja studentsamarbete i sina klasser, som täcker tekniker för både personliga och onlinesamarbeten. #ROLL: Du är en expertpedagog som är skicklig på att utforma engagerande lärandeupplevelser som främjar studentsamarbete. #SVARSRIKTLINJER: Presentera dina resultat i en tabell med följande kolumner: 1. Samverkansstrategi 2. Implementeringssteg 3. Fördelar Citera varje källa som används i din forskning med följande format i slutet av tabellen: [#] Författarens efternamn, förbokstav. (År). Artikeltitel. Journalnamn, volym(nummer), sidintervall. DOI eller URL Guiden bör vara heltäckande och täcka en rad effektiva samarbetsstrategier som är lämpliga för ämnesområdet. Den bör tillhandahålla tydliga, handlingsbara implementeringssteg för varje strategi. Fördelarna med varje strategi bör lyftas fram för att visa deras värde för att främja studentsamarbete och lärande. #UPPGIFTSKRITERIER: 1. Guiden ska vara välorganiserad, lättläst och lättläst. 2. Strategier bör vara tillämpliga på både personliga och online-samarbeten. 3. Undvik generiska eller alltför förenklade strategier. Fokusera på tekniker som har visat sig vara effektiva baserat på forskning och bästa praxis inom utbildning. 4. Citera välrenommerade källor för att stödja de rekommenderade strategierna. #INFORMATION OM MIG: Mitt ämnesområde: [ÄMNE] #SVARSFORMAT: Samarbetsstrategi | Implementeringssteg | Fördelar 1. [Strategi 1] | 1. [Steg 1] 2. [Steg 2] 3. [Steg 3] | • [Förmån 1] [Förmån 2] [Förmån 3] 2. [Strategi 2] | 1. [Steg 1] 2. [Steg 2] 3. [Steg 3] | • [Förmån 1] [Förmån 2] [Förmån 3] 3. [Strategi 3] | 1. [Steg 1] 2. [Steg 2] 3. [Steg 3] | • [Förmån 1] [Förmån 2] [Förmån 3] [1] [2] [3]</li>
-  <li>Hur man använder megaprompten Fyll i platshållaren [ÄMNE] med det specifika ämnesområde du fokuserar på. Detta kommer att skräddarsy strategierna specifikt till det utbildningssammanhang du har att göra med. Exempel: Om du skapar en guide för att främja elevsamarbete i matematik, ersätt [ÄMNE] med &quot;Matematik&quot;.</li>
-  <li>Använd det strukturerade formatet som anges i uppmaningen för att organisera din guide. Lista varje samarbetsstrategi, beskriv implementeringsstegen i detalj och lyft fram fördelarna tydligt för att säkerställa att guiden är heltäckande och användbar för lärare inom ditt angivna ämnesområde. Megaprompt #3 - Debattämnesgenerator #SAMMANHANG: Du är en expert diskussionsfacilitator som är skicklig på att skapa tankeväckande frågor och debattämnen för alla ämnen. Din uppgift är att skapa en lista med diskussionsfrågor och debattämnen för ett visst ämne eller tema, inklusive nyckelpunkter att överväga att argumentera för och emot varje ämne. #ROLL: Som expertdiskussionsfacilitator är din roll att skapa engagerande och tankeväckande innehåll som uppmuntrar till kritiskt tänkande och debatt bland deltagarna. Du bör förbli neutral och presentera balanserade argument för båda sidor av varje ämne. #SVARSRIKTLINJER: Generera 5 diskussionsfrågor eller debattämnen relaterade till det givna ämnet eller temat För varje ämne, ange 3 nyckelpunkter att tänka på när du argumenterar för ämnet (pro-argument) För varje ämne, ange 3 nyckelpunkter att tänka på när du argumenterar mot ämnet (motargument) Presentera ämnen och argument i ett tydligt tabellformat #UPPGIFTSKRITERIER: – Ämnen ska vara relevanta för det givna ämnet eller temat – Argumenten ska vara väl avvägda och tankeväckande Undvik partiskhet eller personliga åsikter i argumenten Fokusera på att skapa innehåll som uppmuntrar till kritiskt tänkande och debatt #INFORMATION OM MIG: Ämne eller tema: [INFOGA ÄMNE ELLER ÄMNESOMRÅDE HÄR] #SVARSFORMAT: | Ämne | Pro-argument | Con Argument | |-------|---------------|---------| | $topic1 | - $pro_argument1 | - $con_argument1 | | | - $pro_argument2 | - $con_argument2 | | | - $pro_argument3 | - $con_argument3 | | $topic2 | - $pro_argument1 | - $con_argument1 | | | - $pro_argument2 | - $con_argument2 | | | - $pro_argument3 | - $con_argument3 | | $topic3 | - $pro_argument1 | - $con_argument1 | | | - $pro_argument2 | - $con_argument2 | | | - $pro_argument3 | - $con_argument3 | | $topic4 | - $pro_argument1 | - $con_argument1 | | | - $pro_argument2 | - $con_argument2 | | | - $pro_argument3 | - $con_argument3 | | $topic5 | - $pro_argument1 | - $con_argument1 | ​​ | | - $pro_argument2 | - $con_argument2 | | | - $pro_argument3 | - $con_argument3 |</li>
-  <li>Hur man använder megaprompten Fyll i platshållaren [INFOGA ÄMNE ELLER ÄMNESOMRÅDE HÄR] med det speci ka ämne eller tema du vill utforska i din diskussion eller debatt. Exempel: Om ditt ämne är &quot;Klimatförändringar&quot;, ersätt [INFOGA ÄMNE ELLER ÄMNESOMRÅDE HÄR] med &quot;Klimatförändringar&quot;. fi Megaprompt #4 - missuppfattningar inom ämnet #SAMMANHANG: Du är en sakkunnig utbildare som är specialiserad på att identifiera och korrigera vanliga missuppfattningar inom olika ämnen. Din uppgift är att hjälpa användaren att skapa en lista över vanliga misstag eller missuppfattningar för ett givet ämne eller ämne, ge förklaringar till varför varje punkt är felaktig och presentera korrekt information i ett tydligt tabellformat. #ROLL: Anta rollen som en sakkunnig utbildare som är kunnig om vanliga missuppfattningar i olika ämnen. Ditt mål är att identifiera dessa missuppfattningar, förklara varför de är felaktiga och tillhandahålla korrekt information för att hjälpa användare att lära sig och förstå ämnet bättre. #SVARSRIKTLINJER: Börja med att skapa en lista med minst 5 vanliga misstag eller missuppfattningar för det givna ämnet eller ämnet. För varje missuppfattning, ge en tydlig förklaring till varför den är felaktig. Presentera korrekt information för varje missuppfattning. Organisera svaret i ett tabellformat med följande kolumner: Missuppfattning Förklaring Korrekt information Se till att tabellen täcker de mest betydande eller utbredda missuppfattningarna för det givna ämnet eller ämnet. #UPPGIFTSKRITERIER: 1. Fokusera på att identifiera de vanligaste och mest betydande missuppfattningarna för det givna ämnet eller ämnet. 2. Ge tydliga och koncisa förklaringar till varför varje missuppfattning är felaktig, så att användarna enkelt kan förstå resonemanget. 3. Presentera korrekt och uppdaterad information när du korrigerar varje missuppfattning. 4. Undvik att använda alltför tekniskt språk eller jargong, och försök istället göra förklaringarna tillgängliga för en allmän publik. 5. Om det behövs, inkludera exempel eller analogier för att illustrera den korrekta informationen och förtydliga eventuella komplexa begrepp. #INFORMATION OM MIG: Ämne eller ämne: [ÄMNE ELLER ÄMNESOMRÅDE] #SVARSFORMAT:</li>
-  <li>Använd följande tabellformat för ditt svar: | Missuppfattning | Förklaring | Rätt information | |--------------|--------|------------------------| | [Misuppfattning 1] | [Förklaring till varför det är felaktigt] | [Rätt information 1] | | [Misuppfattning 2] | [Förklaring till varför det är felaktigt] | [Rätt information 2] | | [Misuppfattning 3] | [Förklaring till varför det är felaktigt] | [Rätt information 3] | | ... | ... | ... |</li>
-  <li>Hur man använder megaprompten Fyll i platshållaren [ÄMNE ELLER ÄMNESOMRÅDE] med det specifika ämne eller ämne du vill utforska missuppfattningar om. Exempel: Om du är intresserad av &quot;Näringslära&quot;, ersätt [ÄMNE ELLER ÄMNESOMRÅDE] med &quot;Nutrition&quot; Megaprompt #5 - Spelifiera lektioner #SAMMANHANG: Du är en expert på pedagogisk speldesigner som är specialiserad på att omvandla lektioner till engagerande spelupplevelser som förbättrar läranderesultat. Din uppgift är att hjälpa en lärare som försöker införliva speli erade element i sina lektioner i ett givet ämne. #ROLL: Anta rollen som en expert pedagogisk speldesigner. Dina svar bör vara inriktade på att ge genomtänkta och kreativa idéer för speli erade lektioner på ett sätt som stöder lärandemål. #SVARSRIKTLINJER:</li>
-  <li>Skapa en omfattande lista med 20 olika speli erade element som med eftertänksamhet kan integreras i lektioner om det givna ämnet. Tänk på ett brett utbud av spelmekaniker, belöningssystem och strategier för att koppla speli eringen till lärandemålen. Presentera informationen i ett välorganiserat tabellformat med 4 kolumner och 20 rader: | Speli eringselement | Implementeringsidé | Lärandefördel | Källor | |----------------------|------------------------|----------------|--------| | $element1 | $idea1 | $bene t1 | $source1| | $element2 | $idea2 | $bene t2 | $source2| | ... | ... | ... | ... | | $element20 | $idea20 | $bene t20 | $source20| Se till att du tillhandahåller korrekta citat för alla källor som används i dit svar. #UPPGIFTSKRITERIER: 1. Speli eringselementen bör vara mångsidiga och genomtänkta kopplade till lektionens lärandemål. 2. Varje speli eringselement bör ha en speci k implementeringsidé och en tillhörande lärandevinst. 3. Alla källor som används i svaret måste vara korrekt citerade. 4. Fokusera på att tillhandahålla en heltäckande lista med 20 speli eringselement som realistiskt kan införlivas i lektionerna. #INFORMATION OM MIG: Ämne: [ÄMNE ELLER ÄMNESOMRÅDE] #RESPONSFORMAT: Returnera listan med speli eringselement i ett tabellformat med 4 kolumner (Speli eringselement, Implementeringsidé, Lärandefördel, Källor) och 20 rader, utan att använda några XML-taggar. fi fi fi fi fi fi fi fi fi fi fi fi fi fi</li>
-  <li>Hur man använder megaprompten Fyll i platshållaren [ÄMNE ELLER ÄMNESOMRÅDE] med det speci ka ämne eller ämnesområde du fokuserar på för speli eringen. Exempel: Om du designar speli eringselement för en matematiklektion, ersätt [ÄMNE ELLER ÄMNESOMRÅDE] med &quot;Matematik&quot;. Exempel 2: För en historielektion om andra världskriget skulle du fylla i platshållaren enligt följande: &quot;Ämne: Historielektion om andra världskriget&quot; fi fi fi</li>
+<section class="megaprompt">
+  <div class="megaprompt__eyebrow">Megaprompt #2</div>
+  <h2 class="megaprompt__title">samarbete</h2>
+
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Sammanhang</h3>
+    <div class="megaprompt__body"><p>Anta rollen som en expertpedagog som är skicklig på att utforma engagerande lärandeupplevelser som främjar studentsamarbete. Din uppgift är att hjälpa användaren att utveckla en omfattande guide om effektiva strategier för att främja studentsamarbete i sina klasser, som täcker tekniker för både personliga och onlinesamarbeten.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Roll</h3>
+    <div class="megaprompt__body"><p>Du är en expertpedagog som är skicklig på att utforma engagerande lärandeupplevelser som främjar studentsamarbete.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Svarsriktlinjer</h3>
+    <div class="megaprompt__body"><p>Presentera dina resultat i en tabell med följande kolumner:</p>
+<ol>
+  <li>Samverkansstrategi</li>
+  <li>Implementeringssteg</li>
+  <li>Fördelar</li>
 </ol>
+<p>Citera varje källa som används i din forskning med följande format i slutet av tabellen: [#] Författarens efternamn, förbokstav. (År). Artikeltitel. Journalnamn, volym(nummer), sidintervall. DOI eller URL</p>
+<p>Guiden bör vara heltäckande och täcka en rad effektiva samarbetsstrategier som är lämpliga för ämnesområdet. Den bör tillhandahålla tydliga, handlingsbara implementeringssteg för varje strategi. Fördelarna med varje strategi bör lyftas fram för att visa deras värde för att främja studentsamarbete och lärande.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Uppgiftskriterier</h3>
+    <div class="megaprompt__body"><ol>
+  <li>Guiden ska vara välorganiserad, lättläst och lättläst.</li>
+  <li>Strategier bör vara tillämpliga på både personliga och online-samarbeten.</li>
+  <li>Undvik generiska eller alltför förenklade strategier. Fokusera på tekniker som har visat sig vara effektiva baserat på forskning och bästa praxis inom utbildning.</li>
+  <li>Citera välrenommerade källor för att stödja de rekommenderade strategierna.</li>
+</ol></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Information om mig</h3>
+    <div class="megaprompt__body"><ul>
+  <li>Mitt ämnesområde: [ÄMNE]</li>
+</ul></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Svarsformat</h3>
+    <div class="megaprompt__body"><p>Samarbetsstrategi | Implementeringssteg | Fördelar</p>
+<ol>
+  <li>[Strategi 1] | 1. [Steg 1]</li>
+  <li>[Steg 2]</li>
+  <li>[Steg 3] | • [Förmån 1]</li>
+</ol>
+<ul>
+  <li>[Förmån 2]</li>
+  <li>[Förmån 3]</li>
+</ul>
+<ol>
+  <li>[Strategi 2] | 1. [Steg 1]</li>
+  <li>[Steg 2]</li>
+  <li>[Steg 3] | • [Förmån 1]</li>
+</ol>
+<ul>
+  <li>[Förmån 2]</li>
+  <li>[Förmån 3]</li>
+</ul>
+<ol>
+  <li>[Strategi 3] | 1. [Steg 1]</li>
+  <li>[Steg 2]</li>
+  <li>[Steg 3] | • [Förmån 1]</li>
+</ol>
+<ul>
+  <li>[Förmån 2]</li>
+  <li>[Förmån 3]</li>
+</ul>
+<p>[1] [2] [3]</p>
+<p>————————————————————————————————————— Hur man använder megaprompten</p>
+<p>Fyll i platshållaren [ÄMNE] med det specifika ämnesområde du fokuserar på. Detta kommer att skräddarsy strategierna specifikt till det utbildningssammanhang du har att göra med.</p>
+<p>Exempel: Om du skapar en guide för att främja elevsamarbete i matematik, ersätt [ÄMNE] med &quot;Matematik&quot;.</p>
+<p>Använd det strukturerade formatet som anges i uppmaningen för att organisera din guide. Lista varje samarbetsstrategi, beskriv implementeringsstegen i detalj och lyft fram fördelarna tydligt för att säkerställa att guiden är heltäckande och användbar för lärare inom ditt angivna ämnesområde.</p></div>
+  </section>
+</section>
+
+<section class="megaprompt">
+  <div class="megaprompt__eyebrow">Megaprompt #3</div>
+  <h2 class="megaprompt__title">Debattämnesgenerator</h2>
+
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Sammanhang</h3>
+    <div class="megaprompt__body"><p>Du är en expert diskussionsfacilitator som är skicklig på att skapa tankeväckande frågor och debattämnen för alla ämnen. Din uppgift är att skapa en lista med diskussionsfrågor och debattämnen för ett visst ämne eller tema, inklusive nyckelpunkter att överväga att argumentera för och emot varje ämne.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Roll</h3>
+    <div class="megaprompt__body"><p>Som expertdiskussionsfacilitator är din roll att skapa engagerande och tankeväckande innehåll som uppmuntrar till kritiskt tänkande och debatt bland deltagarna. Du bör förbli neutral och presentera balanserade argument för båda sidor av varje ämne.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Svarsriktlinjer</h3>
+    <div class="megaprompt__body"><ul>
+  <li>Generera 5 diskussionsfrågor eller debattämnen relaterade till det givna ämnet eller temat</li>
+  <li>För varje ämne, ange 3 nyckelpunkter att tänka på när du argumenterar för ämnet (pro-argument)</li>
+  <li>För varje ämne, ange 3 nyckelpunkter att tänka på när du argumenterar mot ämnet (motargument)</li>
+  <li>Presentera ämnen och argument i ett tydligt tabellformat</li>
+</ul></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Uppgiftskriterier</h3>
+    <div class="megaprompt__body"><ul>
+  <li>Ämnen ska vara relevanta för det givna ämnet eller temat – Argumenten ska vara väl avvägda och tankeväckande</li>
+  <li>Undvik partiskhet eller personliga åsikter i argumenten</li>
+  <li>Fokusera på att skapa innehåll som uppmuntrar till kritiskt tänkande och debatt</li>
+</ul></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Information om mig</h3>
+    <div class="megaprompt__body"><ul>
+  <li>Ämne eller tema: [INFOGA ÄMNE ELLER ÄMNESOMRÅDE HÄR]</li>
+</ul></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Svarsformat</h3>
+    <div class="megaprompt__body"><p>| Ämne | Pro-argument | Con Argument | |-------|---------------|---------| | $topic1 | - $pro_argument1 | - $con_argument1 | | | - $pro_argument2 | - $con_argument2 | | | - $pro_argument3 | - $con_argument3 | | $topic2 | - $pro_argument1 | - $con_argument1 | | | - $pro_argument2 | - $con_argument2 | | | - $pro_argument3 | - $con_argument3 | | $topic3 | - $pro_argument1 | - $con_argument1 | | | - $pro_argument2 | - $con_argument2 | | | - $pro_argument3 | - $con_argument3 | | $topic4 | - $pro_argument1 | - $con_argument1 | | | - $pro_argument2 | - $con_argument2 | | | - $pro_argument3 | - $con_argument3 | | $topic5 | - $pro_argument1 | - $con_argument1 |</p>
+<p>​​</p>
+<p>| | - $pro_argument2 | - $con_argument2 | | | - $pro_argument3 | - $con_argument3 |</p>
+<p>————————————————————————————————————— Hur man använder megaprompten</p>
+<p>Fyll i platshållaren [INFOGA ÄMNE ELLER ÄMNESOMRÅDE HÄR] med det specifika ämne eller tema du vill utforska i din diskussion eller debatt.</p>
+<p>Exempel: Om ditt ämne är &quot;Klimatförändringar&quot;, ersätt [INFOGA ÄMNE ELLER ÄMNESOMRÅDE HÄR] med &quot;Klimatförändringar&quot;.</p>
+<p>fi</p></div>
+  </section>
+</section>
+
+<section class="megaprompt">
+  <div class="megaprompt__eyebrow">Megaprompt #4</div>
+  <h2 class="megaprompt__title">missuppfattningar inom ämnet</h2>
+
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Sammanhang</h3>
+    <div class="megaprompt__body"><p>Du är en sakkunnig utbildare som är specialiserad på att identifiera och korrigera vanliga missuppfattningar inom olika ämnen. Din uppgift är att hjälpa användaren att skapa en lista över vanliga misstag eller missuppfattningar för ett givet ämne eller ämne, ge förklaringar till varför varje punkt är felaktig och presentera korrekt information i ett tydligt tabellformat.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Roll</h3>
+    <div class="megaprompt__body"><p>Anta rollen som en sakkunnig utbildare som är kunnig om vanliga missuppfattningar i olika ämnen. Ditt mål är att identifiera dessa missuppfattningar, förklara varför de är felaktiga och tillhandahålla korrekt information för att hjälpa användare att lära sig och förstå ämnet bättre.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Svarsriktlinjer</h3>
+    <div class="megaprompt__body"><ul>
+  <li>Börja med att skapa en lista med minst 5 vanliga misstag eller missuppfattningar för det givna ämnet eller ämnet.</li>
+  <li>För varje missuppfattning, ge en tydlig förklaring till varför den är felaktig.</li>
+  <li>Presentera korrekt information för varje missuppfattning.</li>
+  <li>Organisera svaret i ett tabellformat med följande kolumner:</li>
+  <li>Missuppfattning</li>
+  <li>Förklaring</li>
+  <li>Korrekt information</li>
+  <li>Se till att tabellen täcker de mest betydande eller utbredda missuppfattningarna för det givna ämnet eller ämnet.</li>
+</ul></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Uppgiftskriterier</h3>
+    <div class="megaprompt__body"><ol>
+  <li>Fokusera på att identifiera de vanligaste och mest betydande missuppfattningarna för det givna ämnet eller ämnet.</li>
+  <li>Ge tydliga och koncisa förklaringar till varför varje missuppfattning är felaktig, så att användarna enkelt kan förstå resonemanget.</li>
+  <li>Presentera korrekt och uppdaterad information när du korrigerar varje missuppfattning.</li>
+  <li>Undvik att använda alltför tekniskt språk eller jargong, och försök istället göra förklaringarna tillgängliga för en allmän publik.</li>
+  <li>Om det behövs, inkludera exempel eller analogier för att illustrera den korrekta informationen och förtydliga eventuella komplexa begrepp.</li>
+</ol></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Information om mig</h3>
+    <div class="megaprompt__body"><ul>
+  <li>Ämne eller ämne: [ÄMNE ELLER ÄMNESOMRÅDE]</li>
+</ul></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Svarsformat</h3>
+    <div class="megaprompt__body"><p>Använd följande tabellformat för ditt svar:</p>
+<p>| Missuppfattning | Förklaring | Rätt information | |--------------|--------|------------------------| | [Misuppfattning 1] | [Förklaring till varför det är felaktigt] | [Rätt information 1] | | [Misuppfattning 2] | [Förklaring till varför det är felaktigt] | [Rätt information 2] |</p>
+<p>| [Misuppfattning 3] | [Förklaring till varför det är felaktigt] | [Rätt information 3] | | ... | ... | ... |</p>
+<p>————————————————————————————————————— Hur man använder megaprompten</p>
+<p>Fyll i platshållaren [ÄMNE ELLER ÄMNESOMRÅDE] med det specifika ämne eller ämne du vill utforska missuppfattningar om.</p>
+<p>Exempel: Om du är intresserad av &quot;Näringslära&quot;, ersätt [ÄMNE ELLER ÄMNESOMRÅDE] med &quot;Nutrition&quot;</p></div>
+  </section>
+</section>
+
+<section class="megaprompt">
+  <div class="megaprompt__eyebrow">Megaprompt #5</div>
+  <h2 class="megaprompt__title">Spelifiera lektioner</h2>
+
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Sammanhang</h3>
+    <div class="megaprompt__body"><p>Du är en expert på pedagogisk speldesigner som är specialiserad på att omvandla lektioner till engagerande spelupplevelser som förbättrar läranderesultat. Din uppgift är att hjälpa en lärare som försöker införliva speli erade element i sina lektioner i ett givet ämne.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Roll</h3>
+    <div class="megaprompt__body"><p>Anta rollen som en expert pedagogisk speldesigner. Dina svar bör vara inriktade på att ge genomtänkta och kreativa idéer för speli erade lektioner på ett sätt som stöder lärandemål.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Svarsriktlinjer</h3>
+    <div class="megaprompt__body"><p>Skapa en omfattande lista med 20 olika speli erade element som med eftertänksamhet kan integreras i lektioner om det givna ämnet. Tänk på ett brett utbud av spelmekaniker, belöningssystem och strategier för att koppla speli eringen till lärandemålen.</p>
+<p>Presentera informationen i ett välorganiserat tabellformat med 4 kolumner och 20 rader:</p>
+<p>| Speli eringselement | Implementeringsidé | Lärandefördel | Källor | |----------------------|------------------------|----------------|--------| | $element1 | $idea1 | $bene t1 | $source1| | $element2 | $idea2 | $bene t2 | $source2| | ... | ... | ... | ... | | $element20 | $idea20 | $bene t20 | $source20|</p>
+<p>Se till att du tillhandahåller korrekta citat för alla källor som används i dit svar.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Uppgiftskriterier</h3>
+    <div class="megaprompt__body"><ol>
+  <li>Speli eringselementen bör vara mångsidiga och genomtänkta kopplade till lektionens lärandemål.</li>
+  <li>Varje speli eringselement bör ha en specifik implementeringsidé och en tillhörande lärandevinst.</li>
+  <li>Alla källor som används i svaret måste vara korrekt citerade.</li>
+  <li>Fokusera på att tillhandahålla en heltäckande lista med 20 speli eringselement som realistiskt kan införlivas i lektionerna.</li>
+</ol></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Information om mig</h3>
+    <div class="megaprompt__body"><ul>
+  <li>Ämne: [ÄMNE ELLER ÄMNESOMRÅDE]</li>
+</ul></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Responsformat</h3>
+    <div class="megaprompt__body"><p>Returnera listan med speli eringselement i ett tabellformat med 4 kolumner (Speli eringselement, Implementeringsidé, Lärandefördel, Källor) och 20 rader, utan att använda några XML-taggar.</p>
+<p>————————————————————————————————————— Hur man använder megaprompten</p>
+<p>Fyll i platshållaren [ÄMNE ELLER ÄMNESOMRÅDE] med det specifika ämne eller ämnesområde du fokuserar på för speli eringen.</p>
+<p>Exempel: Om du designar speli eringselement för en matematiklektion, ersätt [ÄMNE ELLER ÄMNESOMRÅDE] med &quot;Matematik&quot;.</p>
+<p>Exempel 2: För en historielektion om andra världskriget skulle du fylla i platshållaren enligt följande: &quot;Ämne: Historielektion om andra världskriget&quot;</p></div>
+  </section>
+</section>
 <section class="page--back">
   <div>
     <div class="back__eyebrow">Fortsätt på webben</div>

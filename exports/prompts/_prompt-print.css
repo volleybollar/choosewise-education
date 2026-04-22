@@ -297,6 +297,82 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
 }
 
 /* ══════════════════════════════════════════════════════════
+   MEGAPROMPTS (volumes 61–63)
+   ══════════════════════════════════════════════════════════ */
+
+/* Cover's table-of-contents list */
+.mega-toc {
+  list-style: none;
+  margin-top: 8mm;
+  padding: 0;
+  max-width: 70ch;
+}
+.mega-toc li {
+  font-family: var(--font-display);
+  font-size: 12pt;
+  color: var(--color-text);
+  padding: 2mm 0;
+  border-top: 0.5pt solid var(--color-border);
+}
+.mega-toc li:last-child { border-bottom: 0.5pt solid var(--color-border); }
+.mega-toc__num {
+  color: var(--color-highlight);
+  font-weight: 500;
+  margin-right: 3mm;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Each megaprompt gets its own page with a structured layout */
+.megaprompt {
+  page-break-before: always;
+  padding-top: 2mm;
+}
+.megaprompt__eyebrow {
+  font-size: 8pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-highlight);
+  font-weight: 500;
+  margin-bottom: 3mm;
+}
+.megaprompt__title {
+  font-family: var(--font-display);
+  font-size: 22pt;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 8mm;
+  color: var(--color-text);
+  font-weight: 500;
+  padding-bottom: 4mm;
+  border-bottom: 0.5pt solid var(--color-border);
+}
+.megaprompt__section { margin-bottom: 6mm; break-inside: avoid-page; }
+.megaprompt__section-heading {
+  font-family: var(--font-display);
+  font-size: 10pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 2mm;
+  border-left: 2pt solid var(--color-highlight);
+  padding-left: 3mm;
+}
+.megaprompt__body {
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--color-text);
+  padding-left: 5mm;   /* aligns body with heading text after the terracotta rule */
+}
+.megaprompt__body p { margin-bottom: 2.5mm; max-width: 75ch; }
+.megaprompt__body ol, .megaprompt__body ul {
+  margin: 2mm 0 3mm 5mm;
+  padding: 0;
+}
+.megaprompt__body li { margin-bottom: 1.5mm; }
+.megaprompt__body strong { font-weight: 600; color: var(--color-accent); }
+
+/* ══════════════════════════════════════════════════════════
    BACK COVER
    ══════════════════════════════════════════════════════════ */
 .page--back {

@@ -283,10 +283,8 @@ PACKS = [
      "title_en": "Prompts for Digital Tools in Education.", "title_sv": "Promptar om digitala verktyg i skolan.",
      "eyebrow_en": "Thematic · Digital Tools", "eyebrow_sv": "Tematiskt · Digitala verktyg",
      "category": "themes"},
-    {"folder": "56 AI i undervisningen", "slug_en": "ai-in-teaching", "slug_sv": "ai-i-undervisningen",
-     "title_en": "Prompts for AI in Teaching.", "title_sv": "Promptar om AI i undervisningen.",
-     "eyebrow_en": "Thematic · AI in Teaching", "eyebrow_sv": "Tematiskt · AI i undervisningen",
-     "category": "themes"},
+    # 56 AI i undervisningen — source has only a .pages template, no finished PDF.
+    # Excluded by the user from this batch.
     {"folder": "57 Ämnesövergripande arbete", "slug_en": "cross-curricular", "slug_sv": "amnesovergripande",
      "title_en": "Prompts for Cross-Curricular Work.", "title_sv": "Promptar om ämnesövergripande arbete.",
      "eyebrow_en": "Thematic · Cross-Curricular", "eyebrow_sv": "Tematiskt · Ämnesövergripande",

@@ -358,6 +358,266 @@ def render_parts_en(parts: list[dict]) -> str:
     return "\n".join(out)
 
 
+# ══════════════════════════════════════════════════════════════════════
+# MEGAPROMPTAR — own cover (table-of-contents style), own intro,
+# and per-megaprompt rendering with structured labelled sections.
+# Each megaprompt starts on a new page.
+# ══════════════════════════════════════════════════════════════════════
+
+def _mega_contents_list(megaprompts: list) -> str:
+    """Bullet list of the 5 megaprompt titles for the cover."""
+    return "\n".join(
+        f'      <li><span class="mega-toc__num">#{mp["number"]}</span> {_html.escape(mp["title"])}</li>'
+        for mp in megaprompts
+    )
+
+
+def cover_mega_sv(pack: dict, megaprompts: list) -> str:
+    vol = _volume_number(pack)
+    return f'''
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. {vol}</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">Fördjupning · {_html.escape(pack["title_sv"].rstrip("."))}</div>
+    <div class="cover__count">{len(megaprompts)} megapromptar</div>
+    <h1 class="cover__title">Megapromptar.</h1>
+    <p class="cover__subtitle">Längre, strukturerade promptar för när de vanliga känns för enkla.</p>
+
+    <ul class="mega-toc">
+{_mega_contents_list(megaprompts)}
+    </ul>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">{vol}</span>
+    </div>
+  </div>
+</section>'''
+
+
+def cover_mega_en(pack: dict, megaprompts: list) -> str:
+    vol = _volume_number(pack)
+    return f'''
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. {vol}</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">Deep Dive · {_html.escape(pack["title_en"].rstrip("."))}</div>
+    <div class="cover__count">{len(megaprompts)} megaprompts</div>
+    <h1 class="cover__title">Megaprompts.</h1>
+    <p class="cover__subtitle">Longer, structured prompts for when the basic ones feel too simple.</p>
+
+    <ul class="mega-toc">
+{_mega_contents_list(megaprompts)}
+    </ul>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      The right tool at the right time.<br>
+      Part of the WISE framework at choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">{vol}</span>
+    </div>
+  </div>
+</section>'''
+
+
+# Intro page (after cover) replaces the regular glossary boilerplate for megaprompts.
+# Shorter — assumes the reader already knows the basics and wants the deep-dive content.
+MEGA_INTRO_SV = """
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Om megapromptarna</div>
+  <h2>En steg upp från vardagspromptarna.</h2>
+  <p>En <em>megaprompt</em> är en längre, strukturerad prompt — ofta med flera sektioner: sammanhang, mål, svarsriktlinjer och informationskrav. Den är tänkt för uppgifter där du vill ha ett mer genomarbetat svar: ett arbetsblad, en studieguide, en hel lektionsstruktur eller en AI-tutor som följer en specifik pedagogisk metod.</p>
+</section>
+
+<p>Varje megaprompt är en färdig mall. Kopiera hela blocket, klistra in i chattbotten, byt ut hakparenteserna mot din kontext — och iterera sedan som vanligt tills du är nöjd. De tre volymerna ligger ett steg djupare än de vanliga promptpaketen, så vill du komma igång enklare, börja med <a href="https://choosewise.education/sv/promptar/">promptpaketen för din roll</a> först.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Alla <span class="bracket">[HAKPARENTESER]</span> är platshållare — byt ut texten mot det som passar ditt sammanhang (målgrupp, ämne, nyckelbegrepp osv).</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — megapromptar ger långa svar där fel lätt kan gömmas i detaljer.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+"""
+
+MEGA_INTRO_EN = """
+<section class="section-opener">
+  <div class="section-opener__eyebrow">About megaprompts</div>
+  <h2>A step up from everyday prompts.</h2>
+  <p>A <em>megaprompt</em> is a longer, structured prompt — typically split into several sections: context, goal, response guidelines, and information requirements. It's built for tasks where you want a more considered result: a worksheet, a study guide, a full lesson structure, or an AI tutor that follows a specific pedagogical method.</p>
+</section>
+
+<p>Each megaprompt is a ready-to-use template. Copy the whole block, paste it into the chatbot, swap in your own text for the bracketed placeholders — then iterate as usual until you're happy. These three volumes sit a step deeper than the regular prompt sets, so if you want to ease in, start with a <a href="https://choosewise.education/prompts/">role-specific prompt set</a> first.</p>
+
+<div class="callout callout--warning">
+  <h3>Brackets and privacy</h3>
+  <p style="margin-bottom: 2mm;">All <span class="bracket">[BRACKETS]</span> are placeholders — replace the text with whatever fits your context (audience, subject, key concepts, etc.).</p>
+  <p style="margin-bottom: 2mm;"><strong>Always double-check the responses</strong> — megaprompts produce long answers in which errors can easily hide in the details.</p>
+  <p style="margin: 0;"><strong>Note:</strong> Never upload personal data or sensitive information. Mind GDPR.</p>
+</div>
+"""
+
+
+# Swedish section headings normalised to Title Case for display (source uses UPPER)
+_SECTION_LABEL_SV = {
+    "SAMMANHANG":              "Sammanhang",
+    "MÅL":                     "Mål",
+    "ROLL":                    "Roll",
+    "SVARSRIKTLINJER":         "Svarsriktlinjer",
+    "INSTRUKTION":             "Instruktion",
+    "INFORMATION OM MIG":      "Information om mig",
+    "INFORMATIONSKRAV":        "Informationskrav",
+    "OUTPUT":                  "Output",
+    "SVARSFORMAT":             "Svarsformat",
+    "SVARSSFORMAT":            "Svarsformat",  # PDF typo in source
+    "UPPGIFTSKRITERIER":       "Uppgiftskriterier",
+    "KRITERIER FÖR KONCEPTKARTA": "Kriterier för konceptkartan",
+    "OMFÅNG":                  "Omfång",
+}
+
+
+def _format_section_body(body: str) -> str:
+    """Turn a section body's plain text into structured HTML.
+
+    - Numbered lines "1. ..." become an <ol>
+    - Dash-bullet lines "- ..." or "– ..." become a <ul>
+    - Other paragraphs become <p>
+    - **bold** markdown is converted to <strong>
+    - [BRACKETS] stay as-is; they'll be wrapped by the on-load JS
+    """
+    import re as _re
+
+    def inline(text: str) -> str:
+        text = _html.escape(text)
+        # **bold** → <strong>
+        text = _re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
+        return text
+
+    lines = body.split("\n")
+    out = []
+    buffer_list = None   # "ol" / "ul" / None
+    buffer_items = []
+
+    def flush_list():
+        nonlocal buffer_list, buffer_items
+        if buffer_list and buffer_items:
+            out.append(f"<{buffer_list}>")
+            for item in buffer_items:
+                out.append(f"  <li>{inline(item)}</li>")
+            out.append(f"</{buffer_list}>")
+        buffer_list, buffer_items = None, []
+
+    buffer_para = []
+
+    def flush_para():
+        nonlocal buffer_para
+        if buffer_para:
+            out.append(f"<p>{inline(' '.join(buffer_para))}</p>")
+            buffer_para = []
+
+    for raw_line in lines:
+        line = raw_line.strip()
+        if not line:
+            flush_para()
+            flush_list()
+            continue
+
+        m_ol = _re.match(r"^(\d+)\.\s+(.+)$", line)
+        m_ul = _re.match(r"^[\-–●•◦‣⁃]\s+(.+)$", line)
+
+        if m_ol:
+            flush_para()
+            if buffer_list != "ol":
+                flush_list()
+                buffer_list = "ol"
+            buffer_items.append(m_ol.group(2))
+        elif m_ul:
+            flush_para()
+            if buffer_list != "ul":
+                flush_list()
+                buffer_list = "ul"
+            buffer_items.append(m_ul.group(1))
+        else:
+            flush_list()
+            buffer_para.append(line)
+
+    flush_para()
+    flush_list()
+    return "\n".join(out)
+
+
+def _render_megaprompts(megaprompts: list, label_map: dict, fallback_lang: str) -> str:
+    """Render every megaprompt as a .megaprompt block. Each starts a new page."""
+    blocks = []
+    for mp in megaprompts:
+        num = mp["number"]
+        title = mp.get("title_en") if fallback_lang == "en" and mp.get("title_en") else mp["title"]
+        sections_html = []
+        for s in mp["sections"]:
+            # English data may carry translated headings under "heading_en"
+            src_heading = s["heading"]
+            if fallback_lang == "en" and s.get("heading_en"):
+                display = s["heading_en"]
+            else:
+                display = label_map.get(src_heading, src_heading.title())
+            body_html = _format_section_body(s["body"])
+            sections_html.append(f'''
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">{_html.escape(display)}</h3>
+    <div class="megaprompt__body">{body_html}</div>
+  </section>''')
+        label = "Megaprompt" if fallback_lang == "en" else "Megaprompt"
+        blocks.append(f'''
+<section class="megaprompt">
+  <div class="megaprompt__eyebrow">{label} #{num}</div>
+  <h2 class="megaprompt__title">{_html.escape(title)}</h2>
+{"".join(sections_html)}
+</section>''')
+    return "\n".join(blocks)
+
+
+def render_megaprompts_sv(megaprompts: list) -> str:
+    return _render_megaprompts(megaprompts, _SECTION_LABEL_SV, "sv")
+
+
+def render_megaprompts_en(megaprompts: list) -> str:
+    # English section headings — the translator fills in heading_en per section.
+    # If missing we fall back to a titlecased version of the Swedish heading.
+    _SECTION_LABEL_EN_DEFAULT = {
+        "SAMMANHANG":              "Context",
+        "MÅL":                     "Goal",
+        "ROLL":                    "Role",
+        "SVARSRIKTLINJER":         "Response guidelines",
+        "INSTRUKTION":             "Instruction",
+        "INFORMATION OM MIG":      "About me",
+        "INFORMATIONSKRAV":        "Information requirements",
+        "OUTPUT":                  "Output",
+        "SVARSFORMAT":             "Response format",
+        "SVARSSFORMAT":            "Response format",
+        "UPPGIFTSKRITERIER":       "Task criteria",
+        "KRITERIER FÖR KONCEPTKARTA": "Concept-map criteria",
+        "OMFÅNG":                  "Scope",
+    }
+    return _render_megaprompts(megaprompts, _SECTION_LABEL_EN_DEFAULT, "en")
+
+
 PAGE_TEMPLATE = """<!DOCTYPE html>
 <html lang="{lang}">
 <head>
@@ -377,6 +637,16 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 
 
 def build_sv(pack: dict, data: dict) -> str:
+    if pack.get("special") and "megaprompts" in data:
+        return PAGE_TEMPLATE.format(
+            lang="sv",
+            title=_html.escape(pack["title_sv"].rstrip(".")),
+            cover=cover_mega_sv(pack, data["megaprompts"]),
+            boilerplate=MEGA_INTRO_SV.strip(),
+            parts=render_megaprompts_sv(data["megaprompts"]),
+            back=BACK_COVER_SV.strip(),
+            script=SCRIPT_SNIPPET.strip(),
+        )
     return PAGE_TEMPLATE.format(
         lang="sv",
         title=_html.escape(pack["title_sv"].rstrip(".")),
@@ -389,6 +659,16 @@ def build_sv(pack: dict, data: dict) -> str:
 
 
 def build_en(pack: dict, data: dict) -> str:
+    if pack.get("special") and "megaprompts" in data:
+        return PAGE_TEMPLATE.format(
+            lang="en",
+            title=_html.escape(pack["title_en"].rstrip(".")),
+            cover=cover_mega_en(pack, data["megaprompts"]),
+            boilerplate=MEGA_INTRO_EN.strip(),
+            parts=render_megaprompts_en(data["megaprompts"]),
+            back=BACK_COVER_EN.strip(),
+            script=SCRIPT_SNIPPET.strip(),
+        )
     return PAGE_TEMPLATE.format(
         lang="en",
         title=_html.escape(pack["title_en"].rstrip(".")),

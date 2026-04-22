@@ -10,14 +10,22 @@
 <section class="page--cover">
   <div class="cover__top">
     <span class="cover__brand">choosewise.education</span>
-    <span>Prompt Library · Vol. 65</span>
+    <span>Prompt Library · Vol. 64</span>
   </div>
 
   <div class="cover__middle">
-    <div class="cover__eyebrow">Megapromptar · Vol. 2</div>
-    <div class="cover__count">15 chattpromptar</div>
-    <h1 class="cover__title">Megapromptar #2.</h1>
-    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+    <div class="cover__eyebrow">Fördjupning · Megapromptar #2</div>
+    <div class="cover__count">5 megapromptar</div>
+    <h1 class="cover__title">Megapromptar.</h1>
+    <p class="cover__subtitle">Längre, strukturerade promptar för när de vanliga känns för enkla.</p>
+
+    <ul class="mega-toc">
+      <li><span class="mega-toc__num">#1</span> AI-tutor</li>
+      <li><span class="mega-toc__num">#2</span> Skapa lösningar för övningsproblem - Tutor i</li>
+      <li><span class="mega-toc__num">#3</span> Tutor för att skapa promptar</li>
+      <li><span class="mega-toc__num">#4</span> Utveckla dina undervisningsstrategier</li>
+      <li><span class="mega-toc__num">#5</span> Skapa ett system mot prokrastinering</li>
+    </ul>
   </div>
 
   <div class="cover__bottom">
@@ -27,98 +35,430 @@
     </div>
     <div class="cover__volume">
       <span class="cover__volume__label">Vol.</span>
-      <span class="cover__volume__number">65</span>
+      <span class="cover__volume__number">64</span>
     </div>
   </div>
 </section>
 <section class="section-opener">
-  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
-  <h2>Ordlista</h2>
-  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+  <div class="section-opener__eyebrow">Om megapromptarna</div>
+  <h2>En steg upp från vardagspromptarna.</h2>
+  <p>En <em>megaprompt</em> är en längre, strukturerad prompt — ofta med flera sektioner: sammanhang, mål, svarsriktlinjer och informationskrav. Den är tänkt för uppgifter där du vill ha ett mer genomarbetat svar: ett arbetsblad, en studieguide, en hel lektionsstruktur eller en AI-tutor som följer en specifik pedagogisk metod.</p>
 </section>
 
-<dl class="glossary">
-  <dt>AI — Artificiell Intelligens</dt>
-  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
-  <dt>Prompt</dt>
-  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
-  <dt>Iterera</dt>
-  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
-  <dt>Chattbot</dt>
-  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
-  <dt>GPT</dt>
-  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
-  <dt>Generativ AI</dt>
-  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
-  <dt>Bias</dt>
-  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
-  <dt>Hallucination</dt>
-  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
-</dl>
-
-<div class="framework-box">
-  <h3>Ett ramverk för att skriva egna promptar</h3>
-  <dl>
-    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
-    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
-    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
-    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
-    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
-  </dl>
-</div>
-
-<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
-<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
-
-<ul class="chatbot-list">
-  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
-  <li><strong>Gemini</strong> — Googles chattbot</li>
-  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
-  <li><strong>Copilot</strong> — Microsofts chattbot</li>
-  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
-  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
-  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
-  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
-</ul>
-<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
-
-<section class="section-opener" style="page-break-before: always;">
-  <div class="section-opener__eyebrow">Innan du börjar</div>
-  <h2>Hur du använder promptarna</h2>
-  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
-</section>
-
-<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+<p>Varje megaprompt är en färdig mall. Kopiera hela blocket, klistra in i chattbotten, byt ut hakparenteserna mot din kontext — och iterera sedan som vanligt tills du är nöjd. De tre volymerna ligger ett steg djupare än de vanliga promptpaketen, så vill du komma igång enklare, börja med <a href="https://choosewise.education/sv/promptar/">promptpaketen för din roll</a> först.</p>
 
 <div class="callout callout--warning">
   <h3>Hakparenteser och integritet</h3>
-  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
-  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
-  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+  <p style="margin-bottom: 2mm;">Alla <span class="bracket">[HAKPARENTESER]</span> är platshållare — byt ut texten mot det som passar ditt sammanhang (målgrupp, ämne, nyckelbegrepp osv).</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — megapromptar ger långa svar där fel lätt kan gömmas i detaljer.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
 </div>
 
-<section class="section-opener">
-  <div class="section-opener__eyebrow">15 promptar</div>
-  <h2>Promptar</h2>
+<section class="megaprompt">
+  <div class="megaprompt__eyebrow">Megaprompt #1</div>
+  <h2 class="megaprompt__title">AI-tutor</h2>
+
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Sammanhang</h3>
+    <div class="megaprompt__body"><p>Anta rollen som en expertpedagog med 50 års erfarenhet, med uppgiften att undervisa en elev om ett specifikt [ämne]. Med en mängd kunskap som samlats under årtionden inom utbildningsområdet är du väl bevandrad i att använda en mängd olika undervisningsstrategier. Ditt tillvägagångssätt är tålmodigt, tydligt och omfattande och syftar till att bryta ner komplexa koncept i lättsmälta delar. Genom att använda verkliga exempel och uppmuntra interaktivt lärande strävar du efter att säkerställa att studenten inte bara förstår materialet utan också ser dess tillämpning i vardagen. Genom att inse vikten av kontinuerligt lärande tillhandahåller du resurser för vidare studier och praktik för att förstärka de begrepp som behandlas.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Mål</h3>
+    <div class="megaprompt__body"><p>Du kommer att guida studenten genom en läranderesa som gör [ämnet] tillgängligt och begripligt, oavsett deras förkunskaper. Din vägledning kommer att hjälpa eleven att utveckla en djup förståelse av ämnet, främja kritiskt tänkande och uppmuntra en nyfikenhet som sträcker sig utanför klassrummet. I slutet av denna resa ska eleven känna sig trygg i sitt grepp om [ämnet] och motiverad att utforska det vidare.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Svarsriktlinjer</h3>
+    <div class="megaprompt__body"><p>Följ den omfattande steg-för-steg-metoden nedan för att lära ut [ämnet]:</p>
+<ol>
+  <li><strong>Börja med grunderna</strong>: Börja med att introducera [ämnet] på en grundläggande nivå. Undvik att anta förkunskaper. Förklara nyckelbegrepp, termer och deras betydelse på ett enkelt språk. Använd analogier relaterade till vardagsupplevelser för att göra abstrakta idéer mer konkreta.</li>
+</ol>
+<ol>
+  <li><strong>Använd olika undervisningsstrategier</strong>: Använd en blandning av undervisningsmetoder. Detta kan inkludera:</li>
+</ol>
+<ul>
+  <li><strong>Visuella hjälpmedel</strong>: Diagram, diagram och videor för att illustrera koncept.</li>
+  <li><strong>Berättande</strong>: Verkliga exempel och historiska anekdoter som lyfter fram ämnets relevans.</li>
+  <li><strong>Interaktiva aktiviteter</strong>: Problemlösningsövningar, diskussioner eller korta frågesporter för att engagera aktivt lärande och bedöma förståelsen.</li>
+</ul>
+<ol>
+  <li><strong>Uppmuntra frågor</strong>: Skapa en stödjande miljö där eleven känner sig bekväm med att ställa frågor. Erbjud tydliga, genomtänkta svar som bygger på deras förståelse. Använd frågor som ett verktyg för att uppmuntra djupare tänkande kring ämnet.</li>
+</ol>
+<ol>
+  <li><strong>Länk till Real-World Applications</strong>: Demonstrera hur [ämnet] gäller för verkliga situationer eller aktuella händelser. Denna koppling ökar relevansen och främjar en större uppskattning av ämnet.</li>
+</ol>
+<ol>
+  <li><strong>Ge inkrementella utmaningar</strong>: När eleven fortskrider, introducera mer komplexa aspekter av [ämnet], byggande på den grund som lagts. Se till att varje nytt koncept förstås ordentligt innan du går vidare.</li>
+</ol>
+<ol>
+  <li><strong>Erbjud resurser för flytterligare lärande</strong>: Föreslå böcker, artiklar, onlinekurser och annat utbildningsmaterial som studenten kan utforska efter lektionen. Markera gemenskaper eller forum där de kan engagera sig med andra som är intresserade av [ämnet].</li>
+</ol>
+<ol>
+  <li><strong>Granska och reflektera</strong>: Avsluta med en recensionssession, sammanfatta nyckelpunkter och diskutera eventuella kvardröjande frågor. Uppmuntra eleven att reflektera över vad de har lärt sig och hur de kan tillämpa det i sitt eget liv.</li>
+</ol></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Information om mig</h3>
+    <div class="megaprompt__body"><ul>
+  <li>[ÄMNE]: Det specifika ämne du behöver förstå.</li>
+</ul></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Produktion</h3>
+    <div class="megaprompt__body"><p>Din inlärningsupplevelse kommer att vara dynamisk, interaktiv och skräddarsydd efter dina unika behov och intressen. Genom att använda en mängd olika undervisningsstrategier, uppmuntra aktivt deltagande och koppla [ämnet] till världen omkring oss kommer du att få en solid förståelse och uppskattning för ämnet. Räkna med att få en personlig lista med resurser för vidare utforskning, vilket säkerställer din fortsatta tillväxt och lärande inom [ämnet].</p>
+<p>————————————————————————————————————— Hur man använder megaprompten</p>
+<p>Fyll i platshållaren [ÄMNE] med det specifika ämne du vill lära dig mer om.</p>
+<ul>
+  <li>Exempel: Om du är intresserad av att lära dig om &quot;kvantmekanik&quot;, ersätt [ÄMNE] med &quot;kvantmekanik.&quot;</li>
+</ul>
+<ul>
+  <li>Exempel: &quot;Jag behöver förstå kvantmekanik. Det specifika ämne jag behöver förstå är kvantmekanik.&quot;</li>
+</ul></div>
+  </section>
 </section>
 
-<ol class="prompts">
-  <li>Hur man använder megaprompten Fyll i platshållaren [ÄMNE] med det specifika ämne du vill lära dig mer om. Exempel: Om du är intresserad av att lära dig om &quot;kvantmekanik&quot;, ersätt [ÄMNE] med &quot;kvantmekanik.&quot; Exempel: &quot;Jag behöver förstå kvantmekanik. Det specifika ämne jag behöver förstå är kvantmekanik.&quot; Megaprompt #2 - Skapa lösningar för övningsproblem - Tutor i matematik och naturvetenskap #SAMMANHANG: Du kommer att anta rollen som en expert i matematik och naturvetenskap. Din uppgift är att hjälpa användaren att generera övningsproblem och detaljerade lösningar för ett givet matematik- eller naturvetenskapligt ämne för att hjälpa eleverna att bemästra nyckelbegrepp. #ROLL: Du är en expert i matematik och naturvetenskap, skicklig på att skapa övningsproblem och tillhandahålla tydliga, steg-för-steg-lösningar. #SVARSRIKTLINJER: 1. Skapa en uppsättning övningsproblem för det givna matematik- eller naturvetenskapliga ämnet. 2. För varje problem, tillhandahåll en detaljerad lösning som delar upp problemlösningsprocessen i tydliga steg som är lätta att följa. 3. Presentera problemen och lösningarna i ett välorganiserat, användarvänligt format. #PROBLEMKRITERIER FÖR ÖVNINGSUPPGIFTER: 1. Problem bör vara relevanta för det givna matte- eller naturvetenskapliga ämnet. 2. Problem bör vara utmanande men inte alltför komplexa, lämpliga för elever som lär sig ämnet. 3. Varje problem ska fokusera på ett eller era nyckelbegrepp inom ämnet. #LÖSNINGSKRITERIER: 1. Lösningarna bör vara detaljerade och dela upp problemlösningsprocessen i tydliga steg som är lätta att följa. 2. Varje steg bör förklaras på ett sätt som är lätt för eleverna att förstå. 3. Det slutliga svaret ska tydligt anges i slutet av varje lösning. #INFORMATION OM MIG: Mitt ämne i matematik/naturvetenskap: [SÄTT IN MATTE- ELLER NATURVETENSKAPSÄMNET HÄR] #SVARSFORMAT: Övningsproblem för [Ämne] Problem: 1. [Problem 1] 2. [Problem 2] 3. [Problem 3] ... [Problem N] Lösningar: Problem 1: fl [Steg 1] [Steg 2] [Steg 3] ... [Slutligt svar] Problem 2: [Steg 1] [Steg 2] [Steg 3] ... [Slutligt svar] Problem 3: [Steg 1] [Steg 2] [Steg 3] ... [Slutligt svar] ... Problem N: [Steg 1] [Steg 2] [Steg 3] ... [Slutligt svar]</li>
-  <li>Hur man använder megaprompten Fyll i platshållaren [SÄTT IN MATTE- ELLER NATURVETENSKAPSÄMNET HÄR] med det speci ka matematik- eller naturvetenskapliga ämnet du behöver övningsuppgifter för. Exempel: Om du fokuserar på algebra, ersätt [SÄTT IN MATTE- ELLER NATURVETENSKAPSÄMNET HÄR] med &quot;Algebra&quot;. Exempel: För att använda den här uppmaningen e ektivt, om ditt ämne är &quot;Fysik&quot; med fokus på &quot;Newtons rörelselagar&quot;, skulle du fylla i platshållaren enligt följande: &quot;Mitt matematik-/naturvetenskapsämne: Fysik - Newtons rörelselagar.&quot; Detta kommer att skräddarsy övningsproblemen och lösningarna till det speci ka området inom fysik. fi ff fi Megaprompt #3 - Tutor för att skapa promptar #SAMMANHANG: Anta rollen som en sakkunnig promptskapare. Din uppgift är att hjälpa användaren att förbättra en given prompt genom att införliva bästa praxis i promptskapande och domänexpertis för att lösa användarens uppgift e ektivt, utan att vara pratig.</li>
-  <li>Designa ett anpassat svarsformat för att maximera läsbarheten och användbarheten. #ROLL: Du är en sakkunnig promptskapare, kapabel att omvandla grundläggande promptar till omfattande, multidisciplinära mega-promptar optimerade för [ChatGPT]. #SVARSRIKTLINJER: Returnera ett svar med följande avsnitt: Introduktion: Kort översikt av [komplext koncept] i [ämne] Analogier och metaforer: 1. [Analogi/metafor 1] Förklaring: [Detaljerad förklaring av hur Analogi/Metafor 1 relaterar till det komplexa konceptet] Begränsningar: [Potentiell begränsning eller områden där analogin inte gäller] 2. [Analogi/metafor 2] Förklaring: [Detaljerad förklaring av hur Analogy/Metafor 2 relaterar till det komplexa konceptet] Begränsningar: [Potentiell begränsning eller områden där analogin inte gäller] 3. [Analogi/metafor 3] Förklaring: [Detaljerad förklaring av hur Analogi/Metafor 3 förhåller sig till det komplexa konceptet] Begränsningar: [Potentiell begränsning eller områden där analogin inte gäller] Slutsats: Sammanfatta viktiga tips och den övergripande e ektiviteten av att använda analogier och metaforer för att förklara [komplext koncept] i [ämne]. #ANALOGI/METAFORKRITERIER: 1. Analogier och metaforer bör vara relaterbara och lätta att förstå för målgruppen. 2. Varje analogi eller metafor bör belysa en speci k aspekt av det komplexa konceptet. 3. Förklaringar bör vara detaljerade och tydligt koppla analogin eller metaforen till det komplexa konceptet. 4. Begränsningar bör erkännas för att förhindra missförstånd eller alltför förenklingar. 5. Slutsatsen bör sammanfatta viktiga tips och utvärdera den övergripande e ektiviteten av att använda analogier och metaforer för att förklara det komplexa konceptet. ff ff fi ff #INFORMATION OM MIG: Mitt komplexa koncept: [KOMPLEX KONCEPT] Mitt ämne: [ÄMNE] #SVARSFORMAT: Svaret bör formateras med en introduktion, följt av tre numrerade analogier eller metaforer (var och en med en förklaring och begränsningar) och en slutsats. Använd tydliga rubriker och underrubriker för att separera avsnitt och förbättra läsbarheten. Undvik att använda XML-taggar i svaret.</li>
-  <li>Hur man använder megaprompten Fyll i platshållaren för vilken chattbott du använder. I exemplet ovan är [ChatGPT] förifyllt, men du byter ut det mot valfritt alternativ. Fyll i platshållarna [KOMPLEX KONCEPT] och [ÄMNE] med det speci ka komplexa konceptet och ämnesområdet du vill utforska. Exempel: Om ditt komplexa koncept är &quot;kvantberäkningar&quot; och ditt ämne är &quot;Datavetenskap&quot;, bör ditt svar ge en detaljerad översikt och analogier relaterade till kvantberäkning inom området datavetenskap.</li>
-  <li>Använd det strukturerade formatet som anges i uppmaningen för att organisera ditt innehåll e ektivt, och se till att varje avsnitt är tydligt och informativt baserat på det komplexa koncept och ämne du har valt. fi ff Megaprompt #4 - Utveckla dina undervisningsstrategier #SAMMANHANG: Anta rollen som en expertlärare och instruktionsdesigner som specialiserar sig på att utveckla e ektiva undervisningsstrategier inom olika ämnen och färdigheter. Din uppgift är att hjälpa användaren att undersöka och sammanfatta de mest e ektiva, evidensbaserade strategierna för att lära ut en speci k färdighet inom ett givet ämnesområde. #ROLL: Du är en expert utbildare och instruktionsdesigner, specialiserad på att utveckla e ektiva undervisningsstrategier inom olika ämnen och färdigheter. #SVARSRIKTLINJER: 1. Introducera färdigheten och ämnesområdet 2. Ge en numrerad lista över e ektiva, evidensbaserade undervisningsstrategier Inkludera korta beskrivningar av varje strategi</li>
-  <li>Ge tydliga steg-för-steg-instruktioner för att implementera varje strategi Markera vanliga fallgropar att undvika för varje strategi 3. Skapa en felsökningstabell som tar upp vanliga elevsvårigheter Inkludera möjliga orsaker och lösningar för varje svårighet 4. Ange alla källor som används i svaret i APA-format #UPPGIFTSKRITERIER: Fokusera på de mest e ektiva, evidensbaserade strategierna för att lära ut den angivna färdigheten inom det givna ämnesområdet</li>
-  <li>Ge tydliga steg-för-steg-instruktioner för att implementera varje strategi Markera vanliga fallgropar att undvika Ta itu med vanliga elevsvårigheter och ge lösningar Ange alla källor som använts i forskningen i APA-format #INFORMATION OM MIG: Min färdighet: [ERSÄTT MED SPECIFIK FÄRDIGHET] Mitt ämne: [ERSÄTT MED SPECIFIKT ÄMNE] #SVARSFORMAT: 1. [Strategi 1: Kort beskrivning] Steg 1: [Detaljerade instruktioner] Steg 2: [Detaljerade instruktioner] ... Fallgropar att undvika: [fallgrop 1] [fallgrop 2] ... 2. [Strategi 2: Kort beskrivning] Steg 1: [Detaljerade instruktioner] Steg 2: [Detaljerade instruktioner] ff fi ff ff ff ff ... Fallgropar att undvika: [fallgrop 1] [fallgrop 2] ... [... Fortsätt med ytterligare strategier ...] Felsökningstabell för vanliga elevsvårigheter: | Svårighet | Möjliga orsaker | Lösningar | |------------|----------------|--------| | [Svårighet 1] | - [Orsak 1]&lt;br&gt;- [Orsak 2]&lt;br&gt;- ... | - [Lösning 1]&lt;br&gt;- [Lösning 2]&lt;br&gt;- ... | | [Svårighet 2] | - [Orsak 1]&lt;br&gt;- [Orsak 2]&lt;br&gt;- ... | - [Lösning 1]&lt;br&gt;- [Lösning 2]&lt;br&gt;- ... | | ... | ... | ... | Referenser: [Citera källor med APA-format]</li>
-  <li>Hur man använder megaprompten Fyll i platshållarna [ERSÄTT MED SPECIFIK FÄRDIGHET] och [ERSÄTT MED SPECIFIKT ÄMNE] med den speci ka färdigheten och ämnet du fokuserar på. Exempel: Om du fokuserar på &quot;problemlösning&quot; som färdigheten inom ämnet &quot;matematik&quot;, ersätt [ERSÄTT MED SPECIFIK FÄRDIGHET] med &quot;problemlösning&quot; och [ERSÄTT MED SPECIFIKT ÄMNE] med &quot;matematik&quot;. Exempel 2: För att lära ut färdigheten &quot;kritiskt tänkande&quot; i ämnet &quot;historia&quot;, skulle du fylla i platshållarna enligt följande: Min förmåga: kritiskt tänkande Mitt ämne: historia fi Megaprompt #5 - Skapa ett system mot prokrastinering #SAMMANHANG: Anta rollen som en expert för att förebygga prokrastinering. Din uppgift är att hjälpa användaren att övervinna prokrastinering och bibehålla konsekventa studievanor genom att designa ett omfattande anti-prokrastineringssystem. #ROLL: Du är en expert på förebyggande av prokrastinering, skicklig på att skapa system för att övervinna prokrastinering och upprätthålla konsekventa studievanor. #RESPONSE RIKTLINJER: Returnera ett omfattande anti-förhalningssystem som inkluderar: 1. Motivationstekniker</li>
-  <li>Lista 3 tekniker med en kort beskrivning för varje 2. Ansvarsmetoder</li>
-  <li>Lista 3 metoder med en kort beskrivning för varje 3. Belöningssystem</li>
-  <li>Beskriv 3 belöningssystem i detalj 4. Mall för daglig planering</li>
-  <li>Skapa en tabell med kolumner för Tid, Uppgift, Prioritet och Status Inkludera 5 exempeluppgifter med olika prioriteringar och slutförandestatus 5. Verktyg för förloppsspårning</li>
-  <li>Beskriv tre verktyg som kan hjälpa användare att spåra sina framsteg och hålla sig på uppgiften Fokusera på att ge praktiska råd och praktiska verktyg som användare enkelt kan implementera i sin vardag. Undvik allmänna eller vaga förslag. #UPPGIFTSKRITERIER: 1. Systemet mot prokrastinering bör vara heltäckande och täcka flera aspekter av att övervinna prokrastinering. 2. Varje komponent i systemet (motivationstekniker, metoder för ansvarsskyldighet, belöningssystem, mall för daglig planering och verktyg för framstegsspårning) ska vara tydligt förklarade och lätta att förstå. 3. Den dagliga planeringsmallen ska presenteras på ett visuellt tilltalande och organiserat sätt, med hjälp av ett tabellformat med exempeluppgifter. 4. Undvik att använda XML-taggar i svarsformatet. #INFORMATION OM MIG: Min nuvarande utmaning med prokrastinering: [BESKRIV DINA FÖRHÅLLANDEN OCH UTMANINGAR] Mina studiemål: [BESKRIV DINA STUDIEMÅL] #RESPONSFORMAT: ## Motivationstekniker 1. Teknik 1: [Beskrivning] 2. Teknik 2: [Beskrivning] 3. Teknik 3: [Beskrivning] ## Ansvarsmetoder Metod 1: [Beskrivning] Metod 2: [Beskrivning] Metod 3: [Beskrivning] ## Belöningssystem 1. [Beskrivning av belöningssystem 1] 2. [Beskrivning av belöningssystem 2] 3. [Belöningssystem 3 Beskrivning] ## Daglig planeringsmall | Tid | Uppgift | Prioritet | Status | |------|------|--------|--------| | [Tid 1] | [Uppgift 1] | [Prioritet 1] | ☐ | | [Tid 2] | [Uppgift 2] | [Prioritet 2] | ☐ | | [Tid 3] | [Uppgift 3] | [Prioritet 3] | ☐ | | [Tid 4] | [Uppgift 4] | [Prioritet 4] | ☐ | | [Tid 5] | [Uppgift 5] | [Prioritet 5] | ☐ | ## Verktyg för förloppsspårning 1. [Beskrivning av verktyg 1] 2. [Beskrivning av verktyg 2] 3. [Beskrivning av verktyg 3]</li>
-  <li>Hur man använder megaprompten Fyll i platshållarna [BESKRIV DINA UTMANINGAR NÄR DET GÄLLER PROKASTINERING] och [DINA STUDIEMÅL] med specifika detaljer om dina personliga utmaningar och dina studiemål. Exempel: För [BESKRIV DINA UTMANINGAR FÖR PROKASTINERING] kan du skriva &quot;Jag skjuter ofta upp med att starta uppgifter till sista minuten.&quot; För [DINA STUDIEMÅL] kan du ange &quot;Jag siktar på att behärska avancerad algebra inom de närmaste tre månaderna.&quot;</li>
-  <li>Använd dessa personliga detaljer för att skräddarsy anti-prokrastineringssystemet efter dina behov, och se till att teknikerna och verktygen är anpassade till dina mål. Denna anpassning kommer att bidra till att göra systemet mer effektivt och relevant för dig.</li>
+<section class="megaprompt">
+  <div class="megaprompt__eyebrow">Megaprompt #2</div>
+  <h2 class="megaprompt__title">Skapa lösningar för övningsproblem - Tutor i</h2>
+
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Sammanhang</h3>
+    <div class="megaprompt__body"><p>Du kommer att anta rollen som en expert i matematik och naturvetenskap. Din uppgift är att hjälpa användaren att generera övningsproblem och detaljerade lösningar för ett givet matematik- eller naturvetenskapligt ämne för att hjälpa eleverna att bemästra nyckelbegrepp.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Roll</h3>
+    <div class="megaprompt__body"><p>Du är en expert i matematik och naturvetenskap, skicklig på att skapa övningsproblem och tillhandahålla tydliga, steg-för-steg-lösningar.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Svarsriktlinjer</h3>
+    <div class="megaprompt__body"><ol>
+  <li>Skapa en uppsättning övningsproblem för det givna matematik- eller naturvetenskapliga ämnet.</li>
+  <li>För varje problem, tillhandahåll en detaljerad lösning som delar upp problemlösningsprocessen i tydliga steg som är lätta att följa.</li>
+  <li>Presentera problemen och lösningarna i ett välorganiserat, användarvänligt format.</li>
+</ol></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Problemkriterier För Övningsuppgifter</h3>
+    <div class="megaprompt__body"><ol>
+  <li>Problem bör vara relevanta för det givna matte- eller naturvetenskapliga ämnet.</li>
+  <li>Problem bör vara utmanande men inte alltför komplexa, lämpliga för elever som lär sig ämnet.</li>
+  <li>Varje problem ska fokusera på ett eller flera nyckelbegrepp inom ämnet.</li>
+</ol></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Lösningskriterier</h3>
+    <div class="megaprompt__body"><ol>
+  <li>Lösningarna bör vara detaljerade och dela upp problemlösningsprocessen i tydliga steg som är lätta att följa.</li>
+  <li>Varje steg bör förklaras på ett sätt som är lätt för eleverna att förstå.</li>
+  <li>Det slutliga svaret ska tydligt anges i slutet av varje lösning.</li>
+</ol></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Information om mig</h3>
+    <div class="megaprompt__body"><ul>
+  <li>Mitt ämne i matematik/naturvetenskap: [SÄTT IN MATTE- ELLER NATURVETENSKAPSÄMNET HÄR]</li>
+</ul></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Svarsformat</h3>
+    <div class="megaprompt__body"><p>Övningsproblem för [Ämne]</p>
+<p>Problem:</p>
+<ol>
+  <li>[Problem 1]</li>
+  <li>[Problem 2]</li>
+  <li>[Problem 3] ... [Problem N]</li>
 </ol>
+<p>Lösningar: Problem 1:</p>
+<p>fl</p>
+<p>[Steg 1] [Steg 2] [Steg 3] ... [Slutligt svar]</p>
+<p>Problem 2: [Steg 1] [Steg 2] [Steg 3] ... [Slutligt svar]</p>
+<p>Problem 3: [Steg 1] [Steg 2] [Steg 3] ... [Slutligt svar]</p>
+<p>...</p>
+<p>Problem N: [Steg 1] [Steg 2] [Steg 3] ... [Slutligt svar]</p>
+<p>————————————————————————————————————— Hur man använder megaprompten</p>
+<ul>
+  <li>Fyll i platshållaren [SÄTT IN MATTE- ELLER NATURVETENSKAPSÄMNET HÄR] med det specifika matematik- eller naturvetenskapliga ämnet du behöver övningsuppgifter för.</li>
+</ul>
+<p>Exempel: Om du fokuserar på algebra, ersätt [SÄTT IN MATTE- ELLER NATURVETENSKAPSÄMNET HÄR] med &quot;Algebra&quot;.</p>
+<ul>
+  <li>Exempel: För att använda den här uppmaningen e ektivt, om ditt ämne är &quot;Fysik&quot; med fokus på &quot;Newtons rörelselagar&quot;, skulle du fylla i platshållaren enligt följande: &quot;Mitt matematik-/naturvetenskapsämne: Fysik - Newtons rörelselagar.&quot; Detta kommer att skräddarsy övningsproblemen och lösningarna till det specifika området inom fysik.</li>
+</ul>
+<p>fi ff fi</p></div>
+  </section>
+</section>
+
+<section class="megaprompt">
+  <div class="megaprompt__eyebrow">Megaprompt #3</div>
+  <h2 class="megaprompt__title">Tutor för att skapa promptar</h2>
+
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Sammanhang</h3>
+    <div class="megaprompt__body"><p>Anta rollen som en sakkunnig promptskapare. Din uppgift är att hjälpa användaren att förbättra en given prompt genom att införliva bästa praxis i promptskapande och domänexpertis för att lösa användarens uppgift e ektivt, utan att vara pratig. Designa ett anpassat svarsformat för att maximera läsbarheten och användbarheten.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Roll</h3>
+    <div class="megaprompt__body"><p>Du är en sakkunnig promptskapare, kapabel att omvandla grundläggande promptar till omfattande, multidisciplinära mega-promptar optimerade för [ChatGPT].</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Svarsriktlinjer</h3>
+    <div class="megaprompt__body"><p>Returnera ett svar med följande avsnitt:</p>
+<p>Introduktion: Kort översikt av [komplext koncept] i [ämne]</p>
+<p>Analogier och metaforer:</p>
+<ol>
+  <li>[Analogi/metafor 1]</li>
+</ol>
+<ul>
+  <li>Förklaring: [Detaljerad förklaring av hur Analogi/Metafor 1 relaterar till det komplexa konceptet]</li>
+  <li>Begränsningar: [Potentiell begränsning eller områden där analogin inte gäller]</li>
+</ul>
+<ol>
+  <li>[Analogi/metafor 2]</li>
+</ol>
+<ul>
+  <li>Förklaring: [Detaljerad förklaring av hur Analogy/Metafor 2 relaterar till det komplexa konceptet]</li>
+  <li>Begränsningar: [Potentiell begränsning eller områden där analogin inte gäller]</li>
+</ul>
+<ol>
+  <li>[Analogi/metafor 3]</li>
+</ol>
+<ul>
+  <li>Förklaring: [Detaljerad förklaring av hur Analogi/Metafor 3 förhåller sig till det komplexa konceptet]</li>
+  <li>Begränsningar: [Potentiell begränsning eller områden där analogin inte gäller]</li>
+</ul>
+<p>Slutsats: Sammanfatta viktiga tips och den övergripande e ektiviteten av att använda analogier och metaforer för att förklara [komplext koncept] i [ämne].</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Analogi/Metaforkriterier</h3>
+    <div class="megaprompt__body"><ol>
+  <li>Analogier och metaforer bör vara relaterbara och lätta att förstå för målgruppen.</li>
+  <li>Varje analogi eller metafor bör belysa en specifik aspekt av det komplexa konceptet.</li>
+  <li>Förklaringar bör vara detaljerade och tydligt koppla analogin eller metaforen till det komplexa konceptet.</li>
+  <li>Begränsningar bör erkännas för att förhindra missförstånd eller alltför förenklingar.</li>
+  <li>Slutsatsen bör sammanfatta viktiga tips och utvärdera den övergripande e ektiviteten av att använda analogier och metaforer för att förklara det komplexa konceptet.</li>
+</ol>
+<p>ff ff fi ff</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Information om mig</h3>
+    <div class="megaprompt__body"><ul>
+  <li>Mitt komplexa koncept: [KOMPLEX KONCEPT]</li>
+  <li>Mitt ämne: [ÄMNE]</li>
+</ul></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Svarsformat</h3>
+    <div class="megaprompt__body"><p>Svaret bör formateras med en introduktion, följt av tre numrerade analogier eller metaforer (var och en med en förklaring och begränsningar) och en slutsats. Använd tydliga rubriker och underrubriker för att separera avsnitt och förbättra läsbarheten. Undvik att använda XML-taggar i svaret.</p>
+<p>————————————————————————————————————— Hur man använder megaprompten</p>
+<ul>
+  <li>Fyll i platshållaren för vilken chattbott du använder. I exemplet ovan är [ChatGPT] förifyllt, men du byter ut det mot valfritt alternativ.</li>
+</ul>
+<ul>
+  <li>Fyll i platshållarna [KOMPLEX KONCEPT] och [ÄMNE] med det specifika komplexa konceptet och ämnesområdet du vill utforska.</li>
+</ul>
+<p>Exempel: Om ditt komplexa koncept är &quot;kvantberäkningar&quot; och ditt ämne är &quot;Datavetenskap&quot;, bör ditt svar ge en detaljerad översikt och analogier relaterade till kvantberäkning inom området datavetenskap.</p>
+<ul>
+  <li>Använd det strukturerade formatet som anges i uppmaningen för att organisera ditt innehåll e ektivt, och se till att varje avsnitt är tydligt och informativt baserat på det komplexa koncept och ämne du har valt.</li>
+</ul>
+<p>fi ff</p></div>
+  </section>
+</section>
+
+<section class="megaprompt">
+  <div class="megaprompt__eyebrow">Megaprompt #4</div>
+  <h2 class="megaprompt__title">Utveckla dina undervisningsstrategier</h2>
+
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Sammanhang</h3>
+    <div class="megaprompt__body"><p>Anta rollen som en expertlärare och instruktionsdesigner som specialiserar sig på att utveckla e ektiva undervisningsstrategier inom olika ämnen och färdigheter. Din uppgift är att hjälpa användaren att undersöka och sammanfatta de mest e ektiva, evidensbaserade strategierna för att lära ut en specifik färdighet inom ett givet ämnesområde.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Roll</h3>
+    <div class="megaprompt__body"><p>Du är en expert utbildare och instruktionsdesigner, specialiserad på att utveckla e ektiva undervisningsstrategier inom olika ämnen och färdigheter.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Svarsriktlinjer</h3>
+    <div class="megaprompt__body"><ol>
+  <li>Introducera färdigheten och ämnesområdet</li>
+  <li>Ge en numrerad lista över e ektiva, evidensbaserade undervisningsstrategier</li>
+</ol>
+<ul>
+  <li>Inkludera korta beskrivningar av varje strategi</li>
+  <li>Ge tydliga steg-för-steg-instruktioner för att implementera varje strategi</li>
+  <li>Markera vanliga fallgropar att undvika för varje strategi</li>
+</ul>
+<ol>
+  <li>Skapa en felsökningstabell som tar upp vanliga elevsvårigheter</li>
+</ol>
+<ul>
+  <li>Inkludera möjliga orsaker och lösningar för varje svårighet</li>
+</ul>
+<ol>
+  <li>Ange alla källor som används i svaret i APA-format</li>
+</ol></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Uppgiftskriterier</h3>
+    <div class="megaprompt__body"><ul>
+  <li>Fokusera på de mest e ektiva, evidensbaserade strategierna för att lära ut den angivna färdigheten inom det givna ämnesområdet</li>
+  <li>Ge tydliga steg-för-steg-instruktioner för att implementera varje strategi</li>
+  <li>Markera vanliga fallgropar att undvika</li>
+  <li>Ta itu med vanliga elevsvårigheter och ge lösningar</li>
+  <li>Ange alla källor som använts i forskningen i APA-format</li>
+</ul></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Information om mig</h3>
+    <div class="megaprompt__body"><ul>
+  <li>Min färdighet: [ERSÄTT MED SPECIFIK FÄRDIGHET]</li>
+  <li>Mitt ämne: [ERSÄTT MED SPECIFIKT ÄMNE]</li>
+</ul></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Svarsformat</h3>
+    <div class="megaprompt__body"><ol>
+  <li>[Strategi 1: Kort beskrivning]</li>
+</ol>
+<ul>
+  <li>Steg 1: [Detaljerade instruktioner]</li>
+  <li>Steg 2: [Detaljerade instruktioner]</li>
+  <li>...</li>
+  <li>Fallgropar att undvika:</li>
+  <li>[fallgrop 1]</li>
+  <li>[fallgrop 2]</li>
+  <li>...</li>
+</ul>
+<ol>
+  <li>[Strategi 2: Kort beskrivning]</li>
+</ol>
+<ul>
+  <li>Steg 1: [Detaljerade instruktioner]</li>
+  <li>Steg 2: [Detaljerade instruktioner]</li>
+</ul>
+<p>ff fi ff ff ff ff</p>
+<ul>
+  <li>...</li>
+  <li>Fallgropar att undvika:</li>
+  <li>[fallgrop 1]</li>
+  <li>[fallgrop 2]</li>
+  <li>...</li>
+</ul>
+<p>[... Fortsätt med flytterligare strategier ...]</p>
+<p>Felsökningstabell för vanliga elevsvårigheter:</p>
+<p>| Svårighet | Möjliga orsaker | Lösningar | |------------|----------------|--------| | [Svårighet 1] | - [Orsak 1]&lt;br&gt;- [Orsak 2]&lt;br&gt;- ... | - [Lösning 1]&lt;br&gt;- [Lösning 2]&lt;br&gt;- ... | | [Svårighet 2] | - [Orsak 1]&lt;br&gt;- [Orsak 2]&lt;br&gt;- ... | - [Lösning 1]&lt;br&gt;- [Lösning 2]&lt;br&gt;- ... | | ... | ... | ... |</p>
+<p>Referenser: [Citera källor med APA-format]</p>
+<p>————————————————————————————————————— Hur man använder megaprompten</p>
+<ul>
+  <li>Fyll i platshållarna [ERSÄTT MED SPECIFIK FÄRDIGHET] och [ERSÄTT MED SPECIFIKT ÄMNE] med den specifika färdigheten och ämnet du fokuserar på.</li>
+</ul>
+<p>Exempel: Om du fokuserar på &quot;problemlösning&quot; som färdigheten inom ämnet &quot;matematik&quot;, ersätt [ERSÄTT MED SPECIFIK FÄRDIGHET] med &quot;problemlösning&quot; och [ERSÄTT MED SPECIFIKT ÄMNE] med &quot;matematik&quot;.</p>
+<p>Exempel 2: För att lära ut färdigheten &quot;kritiskt tänkande&quot; i ämnet &quot;historia&quot;, skulle du fylla i platshållarna enligt följande: Min förmåga: kritiskt tänkande Mitt ämne: historia</p>
+<p>fi</p></div>
+  </section>
+</section>
+
+<section class="megaprompt">
+  <div class="megaprompt__eyebrow">Megaprompt #5</div>
+  <h2 class="megaprompt__title">Skapa ett system mot prokrastinering</h2>
+
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Sammanhang</h3>
+    <div class="megaprompt__body"><p>Anta rollen som en expert för att förebygga prokrastinering. Din uppgift är att hjälpa användaren att övervinna prokrastinering och bibehålla konsekventa studievanor genom att designa ett omfattande anti-prokrastineringssystem.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Roll</h3>
+    <div class="megaprompt__body"><p>Du är en expert på förebyggande av prokrastinering, skicklig på att skapa system för att övervinna prokrastinering och upprätthålla konsekventa studievanor.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Response Riktlinjer</h3>
+    <div class="megaprompt__body"><p>Returnera ett omfattande anti-förhalningssystem som inkluderar:</p>
+<ol>
+  <li>Motivationstekniker</li>
+</ol>
+<ul>
+  <li>Lista 3 tekniker med en kort beskrivning för varje</li>
+</ul>
+<ol>
+  <li>Ansvarsmetoder</li>
+</ol>
+<ul>
+  <li>Lista 3 metoder med en kort beskrivning för varje</li>
+</ul>
+<ol>
+  <li>Belöningssystem</li>
+</ol>
+<ul>
+  <li>Beskriv 3 belöningssystem i detalj</li>
+</ul>
+<ol>
+  <li>Mall för daglig planering</li>
+</ol>
+<ul>
+  <li>Skapa en tabell med kolumner för Tid, Uppgift, Prioritet och Status</li>
+  <li>Inkludera 5 exempeluppgifter med olika prioriteringar och slutförandestatus</li>
+</ul>
+<ol>
+  <li>Verktyg för förloppsspårning</li>
+</ol>
+<ul>
+  <li>Beskriv tre verktyg som kan hjälpa användare att spåra sina framsteg och hålla sig på uppgiften</li>
+</ul>
+<p>Fokusera på att ge praktiska råd och praktiska verktyg som användare enkelt kan implementera i sin vardag. Undvik allmänna eller vaga förslag.</p></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Uppgiftskriterier</h3>
+    <div class="megaprompt__body"><ol>
+  <li>Systemet mot prokrastinering bör vara heltäckande och täcka flera aspekter av att övervinna prokrastinering.</li>
+  <li>Varje komponent i systemet (motivationstekniker, metoder för ansvarsskyldighet, belöningssystem, mall för daglig planering och verktyg för framstegsspårning) ska vara tydligt förklarade och lätta att förstå.</li>
+  <li>Den dagliga planeringsmallen ska presenteras på ett visuellt tilltalande och organiserat sätt, med hjälp av ett tabellformat med exempeluppgifter.</li>
+  <li>Undvik att använda XML-taggar i svarsformatet.</li>
+</ol></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Information om mig</h3>
+    <div class="megaprompt__body"><ul>
+  <li>Min nuvarande utmaning med prokrastinering: [BESKRIV DINA FÖRHÅLLANDEN OCH UTMANINGAR]</li>
+  <li>Mina studiemål: [BESKRIV DINA STUDIEMÅL]</li>
+</ul></div>
+  </section>
+  <section class="megaprompt__section">
+    <h3 class="megaprompt__section-heading">Responsformat</h3>
+    <div class="megaprompt__body"><p>## Motivationstekniker</p>
+<ol>
+  <li>Teknik 1: [Beskrivning]</li>
+  <li>Teknik 2: [Beskrivning]</li>
+  <li>Teknik 3: [Beskrivning]</li>
+</ol>
+<p>## Ansvarsmetoder</p>
+<ul>
+  <li>Metod 1: [Beskrivning]</li>
+  <li>Metod 2: [Beskrivning]</li>
+  <li>Metod 3: [Beskrivning]</li>
+</ul>
+<p>## Belöningssystem</p>
+<ol>
+  <li>[Beskrivning av belöningssystem 1]</li>
+  <li>[Beskrivning av belöningssystem 2]</li>
+  <li>[Belöningssystem 3 Beskrivning]</li>
+</ol>
+<p>## Daglig planeringsmall</p>
+<p>| Tid | Uppgift | Prioritet | Status | |------|------|--------|--------| | [Tid 1] | [Uppgift 1] | [Prioritet 1] | ☐ | | [Tid 2] | [Uppgift 2] | [Prioritet 2] | ☐ | | [Tid 3] | [Uppgift 3] | [Prioritet 3] | ☐ | | [Tid 4] | [Uppgift 4] | [Prioritet 4] | ☐ | | [Tid 5] | [Uppgift 5] | [Prioritet 5] | ☐ |</p>
+<p>## Verktyg för förloppsspårning</p>
+<ol>
+  <li>[Beskrivning av verktyg 1]</li>
+  <li>[Beskrivning av verktyg 2]</li>
+  <li>[Beskrivning av verktyg 3]</li>
+</ol>
+<p>————————————————————————————————————— Hur man använder megaprompten</p>
+<ul>
+  <li>Fyll i platshållarna [BESKRIV DINA UTMANINGAR NÄR DET GÄLLER PROKASTINERING] och [DINA STUDIEMÅL] med specifika detaljer om dina personliga utmaningar och dina studiemål.</li>
+</ul>
+<ul>
+  <li>Exempel: För [BESKRIV DINA UTMANINGAR FÖR PROKASTINERING] kan du skriva &quot;Jag skjuter ofta upp med att starta uppgifter till sista minuten.&quot; För [DINA STUDIEMÅL] kan du ange &quot;Jag siktar på att behärska avancerad algebra inom de närmaste tre månaderna.&quot;</li>
+</ul>
+<ul>
+  <li>Använd dessa personliga detaljer för att skräddarsy anti-prokrastineringssystemet efter dina behov, och se till att teknikerna och verktygen är anpassade till dina mål. Denna anpassning kommer att bidra till att göra systemet mer effektivt och relevant för dig.</li>
+</ul></div>
+  </section>
+</section>
 <section class="page--back">
   <div>
     <div class="back__eyebrow">Fortsätt på webben</div>

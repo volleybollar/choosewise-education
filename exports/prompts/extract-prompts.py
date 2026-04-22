@@ -201,6 +201,11 @@ def extract_pack(pack: dict) -> dict:
 
     text = pdftotext(pdf)
 
+    # Megapromptar have their own structure — long multi-section prompts,
+    # not a flat list. Hand them off to the dedicated extractor.
+    if pack.get("special"):
+        return extract_megapromptar_pack(pack, text)
+
     count_match = COVER_COUNT_RE.search(text)
     cover_count = int(count_match.group(1)) if count_match else None
 
@@ -214,6 +219,163 @@ def extract_pack(pack: dict) -> dict:
         "total_prompts": sum(len(p["prompts"]) for p in parts),
         "parts": parts,
     }
+
+
+# ══════════════════════════════════════════════════════════════════════
+# MEGAPROMPTAR EXTRACTION
+#
+# Each Megaprompt volume has 5 Megaprompts. Each is a long structured
+# prompt with labelled sections (#SAMMANHANG, #MÅL, #SVARSRIKTLINJER …).
+# Output schema differs from regular packs:
+#   {megaprompts: [{number, title, sections: [{heading, body}, ...]}]}
+# ══════════════════════════════════════════════════════════════════════
+
+MEGA_TITLE_RE = re.compile(
+    r"^\s*Megaprompt\s*#(\d+)\s*[-–—]\s*(.+?)\s*$",
+    re.MULTILINE,
+)
+# Section headers look like "#SAMMANHANG:", possibly with trailing spaces
+SECTION_HEADER_RE = re.compile(r"^\s*#([A-ZÅÄÖ][A-ZÅÄÖ0-9 \-/]*?):\s*$", re.MULTILINE)
+
+
+def extract_megapromptar_pack(pack: dict, text: str) -> dict:
+    """Parse the Megapromptar volume into a list of structured megaprompts."""
+    # Skip boilerplate — start from the first "Megaprompt #N - Title" marker
+    title_marks = list(MEGA_TITLE_RE.finditer(text))
+    megaprompts = []
+    for i, m in enumerate(title_marks):
+        number = int(m.group(1))
+        title = m.group(2).strip()
+        body_start = m.end()
+        body_end = title_marks[i + 1].start() if i + 1 < len(title_marks) else len(text)
+        body = text[body_start:body_end]
+        megaprompts.append({
+            "number": number,
+            "title": title,
+            "sections": parse_megaprompt_sections(body),
+        })
+
+    return {
+        "folder": pack["folder"],
+        "slug_sv": pack.get("slug_sv"),
+        "slug_en": pack.get("slug_en"),
+        "cover_count": len(megaprompts),  # e.g. "5 Megaprompts"
+        "total_prompts": len(megaprompts),
+        "megaprompts": megaprompts,
+    }
+
+
+def parse_megaprompt_sections(body: str) -> list:
+    """Split a single Megaprompt body on #HEADING: markers."""
+    marks = list(SECTION_HEADER_RE.finditer(body))
+    if not marks:
+        # No structured sections found — return body as one unnamed section
+        cleaned = _clean_body(body)
+        return [{"heading": "", "body": cleaned}] if cleaned else []
+
+    sections = []
+    for i, m in enumerate(marks):
+        heading = m.group(1).strip()
+        start = m.end()
+        end = marks[i + 1].start() if i + 1 < len(marks) else len(body)
+        raw = body[start:end]
+        cleaned = _clean_body(raw)
+        if cleaned:
+            sections.append({"heading": heading, "body": cleaned})
+    return sections
+
+
+# The Megapromptar PDFs were typeset in a font whose fi/fl ligatures aren't
+# decomposed by pdftotext — e.g. "reflektion" comes out as "re ektion".
+# Apply a targeted replacement dictionary. Swedish ligature-breaking is
+# mechanical: just reinsert "fi" or "fl" at the stripped location.
+_LIGATURE_FIXES = {
+    # fl
+    "re ektion":      "reflektion",
+    "re ektera":      "reflektera",
+    "re ekter":       "reflekter",
+    "själv ektion":   "självreflektion",
+    " ervals":        " flervals",
+    " yt":            " flyt",
+    " öde":           " flöde",
+    " öden":          " flöden",
+    " exibel":        " flexibel",
+    " exibla":        " flexibla",
+    " exibilitet":    " flexibilitet",
+    "in uens":        "influens",
+    " era ":          " flera ",
+    # fi
+    "speci k":        "specifik",
+    "speci ka":       "specifika",
+    "de niera":       "definiera",
+    "de nition":      "definition",
+    "identi era":     "identifiera",
+    "identi kation":  "identifikation",
+    "klassi cera":    "klassificera",
+    "klassi kation":  "klassifikation",
+    "certi era":      "certifiera",
+    "fotogra er":     "fotografier",
+    "fotogra ": "fotografi",  # Fotografier less common; this catches "gra ..." starting
+    "gra k":          "grafik",
+    "gra sk":         "grafisk",
+    "gra ska":        "grafiska",
+    " nns":           "finns",
+    " nna":           "finna",
+    " nner":          "finner",
+    " gur":           "figur",
+    "verk ga":        "verkliga",
+    " ktiv":          "fiktiv",
+    " ende ":         "fiende ",
+}
+
+
+def _fix_ligatures(text: str) -> str:
+    for broken, fixed in _LIGATURE_FIXES.items():
+        text = text.replace(broken, fixed)
+    # Drop stray ligature-remnant lines like "fl fl fi fl fl fl fl"
+    text = re.sub(r"(?m)^\s*(?:fi|fl)(?:\s+(?:fi|fl))+\s*$", "", text)
+    return text
+
+
+def _clean_body(raw: str) -> str:
+    """Normalise a Megaprompt section body.
+
+    - Fix soft-wrapped lines: join within paragraphs, preserve numbered/bullet items
+    - Drop page-number noise and footer repetition
+    - Collapse runs of whitespace; keep explicit double newlines (paragraph breaks)
+    - Reconstruct missing Swedish fi/fl ligatures introduced by pdftotext
+    """
+    raw = _fix_ligatures(raw)
+    lines = [l.rstrip() for l in raw.splitlines()]
+    # Drop the chattpromptar footer if it leaks in ("    N" at bottom of page)
+    lines = [l for l in lines if not re.fullmatch(r"\s*\d{1,3}\s*", l)]
+
+    # Rejoin wrapped lines: a line that doesn't start with a numbered bullet
+    # or sub-bullet is a continuation of the previous line.
+    out = []
+    for line in lines:
+        stripped = line.lstrip()
+        if not stripped:
+            # Blank line — paragraph separator. Keep at most one blank.
+            if out and out[-1] != "":
+                out.append("")
+            continue
+        is_bullet = bool(
+            re.match(r"^(\d+\.\s+|\-\s+|\*\*|\*\s+|[•●◦‣⁃]\s+|#[A-ZÅÄÖ])", stripped)
+        )
+        if is_bullet or not out or out[-1] == "":
+            out.append(stripped)
+        else:
+            # Continuation of the previous line
+            out[-1] = out[-1] + " " + stripped
+
+    # Drop leading/trailing blanks
+    while out and out[0] == "":
+        out.pop(0)
+    while out and out[-1] == "":
+        out.pop()
+
+    return "\n".join(out)
 
 
 def main():
@@ -233,9 +395,12 @@ def main():
         out = DATA_DIR / f"{pack.get('slug_sv') or pack.get('slug_en')}.json"
         out.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
         sv_lbl = "SV-only" if pack.get("sv_only") else "translatable"
-        sp = " [SPECIAL]" if pack.get("special") else ""
+        sp = " [MEGA]" if pack.get("special") else ""
+        # Megapromptar packs have `megaprompts`, regular packs have `parts`
+        n_blocks = len(data.get("parts", data.get("megaprompts", [])))
+        block_lbl = "megaprompts" if pack.get("special") else "parts"
         print(f"  ✓ {pack['folder']:<40s} → {out.name}  "
-              f"({data['total_prompts']} prompts · {len(data['parts'])} parts · {sv_lbl}{sp})")
+              f"({data['total_prompts']} prompts · {n_blocks} {block_lbl} · {sv_lbl}{sp})")
     return 0
 
 
