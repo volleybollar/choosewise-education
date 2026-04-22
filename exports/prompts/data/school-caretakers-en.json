@@ -1,0 +1,35 @@
+{
+  "folder": "48 skolvaktmästare",
+  "slug_sv": "skolvaktmastare",
+  "slug_en": "school-caretakers",
+  "cover_count": 20,
+  "total_prompts": 20,
+  "parts": [
+    {
+      "number": 1,
+      "title": "Caretaker",
+      "prompts": [
+        "Write a short checklist for inspecting [specific area, e.g. playground equipment or classrooms] at a [primary school], with three points to check.",
+        "Create a daily plan for a caretaker at a [primary school] covering [specific tasks, e.g. repairs and grounds maintenance], with three priorities and a time frame.",
+        "Give me five strategies for quickly handling [specific problem, e.g. broken lights] at a [primary school] without disrupting lessons.",
+        "Suggest three ways to collaborate with school staff at a [primary school] to resolve [specific issue, e.g. furniture arrangement or snow clearance], with one idea for each.",
+        "Create a list of five quick fixes for common urgent problems (e.g. [specific problem, e.g. leaking tap]) at an [Upper Secondary school].",
+        "Give me an example of a routine for preparing a [primary school] for [specific event, e.g. start of term or sports day], with three steps.",
+        "Suggest three ways to maintain the school's outdoor environment at a [primary school] for [specific purpose, e.g. play or safety], with one action for each.",
+        "Write a short guide for repairing [specific item, e.g. a door or desk] at a [primary school], with three steps and one safety measure.",
+        "Give me five ideas for making the school premises more welcoming at a [primary school], focusing on [specific area, e.g. corridors or the dining hall].",
+        "Create a list of three short messages to the principal at a [primary school] about [specific matter, e.g. completed work or needs], with a positive tone.",
+        "Suggest three ways to collaborate with catering staff at a [primary school] to manage [specific task, e.g. waste or inventory], with one idea for each.",
+        "Give me an example of a routine for checking and restocking [specific resource, e.g. toilet paper or tools] at a [primary school], with three steps.",
+        "Write a list of five tools or materials a caretaker at an [Upper Secondary school] should always have on hand for [specific purpose, e.g. repairs].",
+        "Suggest three ways to manage a busy day at a [primary school] with multiple urgent tasks (e.g. [specific tasks]), with one prioritisation strategy for each.",
+        "Create a template for a weekly plan for a caretaker at a [primary school], with three sections (e.g. maintenance, inspections, projects).",
+        "Give me five ideas for reducing energy consumption at a [primary school], focusing on [specific area, e.g. lighting or heating], with one action for each.",
+        "Suggest three ways to prepare a [primary school] for [specific weather event, e.g. snowstorm], with one preventive measure for each.",
+        "Write a short guide for introducing a new caretaker to [specific routine, e.g. the locking system] at a [primary school], with three steps.",
+        "Give me an example of a routine for inspecting and reporting safety hazards (e.g. [specific hazard]) at a [primary school], with three steps.",
+        "Create a list of three short ways to show appreciation to students and staff at a [primary school] for keeping things tidy, with one example for each."
+      ]
+    }
+  ]
+}

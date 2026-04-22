@@ -43,7 +43,7 @@ BOILERPLATE_SV = """
   <dt>AI — Artificiell Intelligens</dt>
   <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
   <dt>Prompt</dt>
-  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd.</dd>
   <dt>Iterera</dt>
   <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
   <dt>Chattbot</dt>
@@ -111,7 +111,7 @@ BOILERPLATE_EN = """
   <dt>AI — Artificial Intelligence</dt>
   <dd>An attempt to make machines mimic brain functions — to "think" and learn roughly the way humans do. We don't fully understand how the brain works, but we can try to replicate the parts we do understand.</dd>
   <dt>Prompt</dt>
-  <dd>An instruction given to a chatbot to get a desired response or task performed. Some chatbots can be spoken to, but most are still driven by written text commands.</dd>
+  <dd>An instruction given to a chatbot to get a desired response or task performed.</dd>
   <dt>Iterate</dt>
   <dd>After receiving a response from a chatbot, you refine and clarify the parts you're not satisfied with — sharpening the answer until it's what you want. The better your starting prompt, the fewer iterations you'll need.</dd>
   <dt>Chatbot</dt>

@@ -79,13 +79,14 @@ def translate_pack(client, pack: dict, data: dict) -> dict:
         "parts": parts_payload,
     }, ensure_ascii=False)
 
-    response = client.messages.create(
+    with client.messages.stream(
         model=MODEL,
         max_tokens=MAX_TOKENS,
         system=SYSTEM,
         messages=[{"role": "user", "content": user_msg}],
-    )
-    out_text = response.content[0].text.strip()
+    ) as stream:
+        chunks = [text for text in stream.text_stream]
+    out_text = "".join(chunks).strip()
 
     # Strip code fences if the model added them
     if out_text.startswith("```"):
@@ -115,6 +116,63 @@ def translate_pack(client, pack: dict, data: dict) -> dict:
         "cover_count": data.get("cover_count"),
         "total_prompts": sum(len(p["prompts"]) for p in new_parts),
         "parts": new_parts,
+    }
+
+
+def translate_megaprompts(client, pack: dict, data: dict) -> dict:
+    """Translate a megapromptar pack (different schema: structured sections)."""
+    mps_payload = [
+        {
+            "number": mp["number"],
+            "title": mp["title"],
+            "sections": [{"heading": s["heading"], "body": s["body"]} for s in mp["sections"]],
+        }
+        for mp in data["megaprompts"]
+    ]
+    user_msg = json.dumps({
+        "target_audience": pack.get("eyebrow_en", ""),
+        "note": "Keep the 'heading' field EXACTLY as the Swedish source (do not translate). Translate only 'title' and each section's 'body'. The renderer maps Swedish headings to English labels.",
+        "megaprompts": mps_payload,
+    }, ensure_ascii=False)
+
+    with client.messages.stream(
+        model=MODEL,
+        max_tokens=16000,
+        system=SYSTEM,
+        messages=[{"role": "user", "content": user_msg}],
+    ) as stream:
+        chunks = [text for text in stream.text_stream]
+    out_text = "".join(chunks).strip()
+
+    if out_text.startswith("```"):
+        out_text = out_text.strip("`")
+        if out_text.lstrip().startswith("json"):
+            out_text = out_text.lstrip()[4:].lstrip()
+        out_text = out_text.rstrip("`").strip()
+
+    translated = json.loads(out_text)
+
+    new_mps = []
+    for src_mp, t_mp in zip(data["megaprompts"], translated.get("megaprompts", [])):
+        new_sections = []
+        for s_src, s_t in zip(src_mp["sections"], t_mp.get("sections", [])):
+            new_sections.append({
+                "heading": s_src["heading"],
+                "body": s_t.get("body", "").strip(),
+            })
+        new_mps.append({
+            "number": src_mp["number"],
+            "title": t_mp.get("title", "").strip(),
+            "sections": new_sections,
+        })
+
+    return {
+        "folder": pack["folder"],
+        "slug_sv": pack.get("slug_sv"),
+        "slug_en": pack.get("slug_en"),
+        "cover_count": data.get("cover_count"),
+        "total_prompts": len(new_mps),
+        "megaprompts": new_mps,
     }
 
 
@@ -169,10 +227,15 @@ def main():
                 continue
 
             t0 = time.time()
-            en_data = translate_pack(client, pack, sv_data)
+            if "megaprompts" in sv_data:
+                en_data = translate_megaprompts(client, pack, sv_data)
+                count_label = f"{en_data['total_prompts']:>3} megaprompts"
+            else:
+                en_data = translate_pack(client, pack, sv_data)
+                count_label = f"{en_data['total_prompts']:>3} prompts"
             en_path.write_text(json.dumps(en_data, ensure_ascii=False, indent=2), encoding="utf-8")
             dt = time.time() - t0
-            print(f"  ✓ {slug_en:<35s} ({en_data['total_prompts']:>3} prompts, {dt:.1f}s)")
+            print(f"  ✓ {slug_en:<35s} ({count_label}, {dt:.1f}s)")
             done += 1
         except Exception as e:
             print(f"  ✗ {slug_en}: {type(e).__name__}: {e}")

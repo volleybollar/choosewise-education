@@ -1,0 +1,35 @@
+{
+  "folder": "46 Kuratorer",
+  "slug_sv": "kuratorer",
+  "slug_en": "school-counselors",
+  "cover_count": 20,
+  "total_prompts": 20,
+  "parts": [
+    {
+      "number": 1,
+      "title": "School Counselors",
+      "prompts": [
+        "Create a plan for a 30-minute session with a student in [grade X] who is experiencing [specific situation, e.g. stress or bullying], with three steps and a follow-up.",
+        "Give me five strategies for supporting a teacher at a [primary school] in managing [specific student situation, e.g. conflicts in the classroom], with one idea for each.",
+        "Write a brief guide for introducing a [grade X] student to relaxation techniques for managing [specific problem, e.g. anxiety], with three simple exercises.",
+        "Suggest three ways to collaborate with the student health team at a [primary school] to prevent [specific problem, e.g. loneliness], with one action for each.",
+        "Create a list of five short phrases for calming a student in [grade X] during an acute moment of stress at a [primary school].",
+        "Give me an example of a routine for following up with a [grade X] student after a difficult event (e.g. [specific event]), with three steps.",
+        "Suggest three ways to facilitate a group session for a [grade X] class on [specific theme, e.g. friendship or self-esteem], with one activity for each.",
+        "Write a brief template for documenting a student case for a [grade X] student at a [primary school], with three sections (e.g. background, actions, follow-up).",
+        "Give me five ideas for building a [grade X] student's self-confidence in [specific situation, e.g. social contexts], with one method for each.",
+        "Create a list of three short questions for opening a conversation with a [grade X] student about their experience of [specific subject, e.g. the school environment].",
+        "Suggest three ways to collaborate with the parents of a [grade X] student to support the child with [specific challenge, e.g. school refusal], with one strategy for each.",
+        "Give me an example of a simple plan for mapping a [grade X] student's needs in [specific area, e.g. social relationships], with three observations.",
+        "Write a list of five resources (e.g. websites or materials) for a school counselor at a [primary school] supporting [specific subject, e.g. stress management].",
+        "Suggest three ways to handle an acute conflict situation between students in [grade X] at a [primary school], with one method for each.",
+        "Create a template for a short workshop for teachers at a [lower secondary school] on [specific theme, e.g. identifying mental health difficulties], with three key points.",
+        "Give me five ideas for promoting a positive school environment for a [grade X] class at a [primary school], with a focus on [specific goal, e.g. a sense of community].",
+        "Suggest three ways to introduce a [grade X] student to strategies for managing [specific problem, e.g. anger], with one activity for each.",
+        "Write a brief guide for supporting a [grade X] student who feels excluded, with three steps and one suggested social activity.",
+        "Give me an example of a routine for following up on the wellbeing of an entire [grade X] class after [specific event, e.g. changing schools], with three steps.",
+        "Create a list of three short ways to collaborate with the principal at a [primary school] to strengthen [specific goal, e.g. a sense of safety], with one example for each."
+      ]
+    }
+  ]
+}

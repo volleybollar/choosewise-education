@@ -218,6 +218,8 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
   padding: 5mm 7mm;
   margin-block: 6mm;
   font-size: 10pt;
+  page-break-before: always;
+  break-before: page;
 }
 .framework-box h3 { margin-bottom: 2mm; color: var(--color-accent); }
 .framework-box dt { font-family: var(--font-display); font-weight: 600; color: var(--color-text); display: inline; }

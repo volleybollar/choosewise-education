@@ -1,0 +1,35 @@
+{
+  "folder": "44 SYV",
+  "slug_sv": "syv",
+  "slug_en": "career-counselors",
+  "cover_count": 20,
+  "total_prompts": 20,
+  "parts": [
+    {
+      "number": 1,
+      "title": "Career Counseling",
+      "prompts": [
+        "Create a plan for an individual guidance session with a student in [grade X] ahead of [a specific decision, e.g. Upper Secondary school choice], with three steps and a follow-up.",
+        "Give me five strategies for supporting teachers at a [primary/secondary school] in integrating [a specific theme, e.g. working life] into their teaching, with one idea for each.",
+        "Write a short guide for introducing a [grade X] student to [a specific resource, e.g. the Swedish Public Employment Service's Career Compass], with three steps and an example.",
+        "Suggest three ways to collaborate with the student welfare team at a [primary/secondary school] to support students with [a specific need, e.g. uncertainty around choices], with one initiative for each.",
+        "Create a list of five short questions to open a conversation with a [grade X] student about their interests and future aspirations.",
+        "Give me an example of a routine for following up with a [grade X] student after a guidance session on [a specific topic, e.g. study plan], with three steps.",
+        "Suggest three ways to run a group lesson for a [grade X] class on [a specific theme, e.g. the labour market or Upper Secondary programmes], with one activity for each.",
+        "Write a short template for documenting a guidance session with a [grade X] student at a K-12 school, with three sections (e.g. goals, reflection, next steps).",
+        "Give me five ideas for inspiring a [grade X] student to explore [a specific field, e.g. technical careers], with one method for each.",
+        "Create a list of three short reflection questions for a [grade X] student after a guidance activity on [a specific topic, e.g. career choices].",
+        "Suggest three ways to collaborate with the parents of a [grade X] student to discuss [a specific decision, e.g. Upper Secondary programme choice], with one strategy for each.",
+        "Give me an example of a simple mapping of a [grade X] student's strengths and interests ahead of [a specific decision, e.g. choice of study path], with three bullet points.",
+        "Write a list of five resources (e.g. websites or materials) for a career counselor at a [primary/secondary school] that support [a specific topic, e.g. the future labour market].",
+        "Suggest three ways to support a [grade X] student who feels pressure around [a specific decision, e.g. education choices], with one method for each.",
+        "Create a template for a short presentation to teachers at a [primary/secondary school] on [a specific theme, e.g. broadened career guidance], with three key points.",
+        "Give me five ideas for introducing a [grade X] class to different careers within [a specific field, e.g. healthcare or technology].",
+        "Suggest three ways to use [a specific tool, e.g. SACO's Career Selector] to guide a [grade X] student in [a specific decision, e.g. future plans], with one idea for each.",
+        "Write a short guide for supporting a [grade X] student who is uncertain about their choices after [a specific event, e.g. work experience placement], with three steps.",
+        "Give me an example of a routine for planning a guidance day for a [grade X] class at a [primary/secondary school], with three activities.",
+        "Create a list of three short ways to collaborate with the principal at a [primary/secondary school] to strengthen [a specific goal, e.g. career guidance in lower grades], with one example for each."
+      ]
+    }
+  ]
+}

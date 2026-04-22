@@ -1,0 +1,35 @@
+{
+  "folder": "47 skolpsykologer",
+  "slug_sv": "skolpsykologer",
+  "slug_en": "school-psychologists",
+  "cover_count": 20,
+  "total_prompts": 20,
+  "parts": [
+    {
+      "number": 1,
+      "title": "School Psychologists",
+      "prompts": [
+        "Create a plan for an individual session with a student in [grade X] who is struggling with [specific challenge, e.g. concentration or anxiety], including three steps and a follow-up strategy.",
+        "Give me five strategies for supporting a teacher at a [primary school] in understanding and managing [specific student behaviour, e.g. acting out], with one idea for each.",
+        "Write a brief guide for introducing a [grade X] student to strategies for managing [specific issue, e.g. performance anxiety], with three simple techniques.",
+        "Suggest three ways to collaborate with the student health team at a [primary school] to map [specific issue, e.g. mental health concerns], with one method for each.",
+        "Create a list of five short questions to open a conversation with a [grade X] student about their feelings regarding [specific situation, e.g. family problems].",
+        "Give me an example of a routine for conducting a psychological assessment of a [grade X] student's [specific area, e.g. learning difficulties], with three steps.",
+        "Suggest three ways to lead a workshop for a [grade X] class on [specific theme, e.g. stress management or emotional regulation], with one activity for each.",
+        "Write a brief template for documenting a psychological observation of a [grade X] student at a [primary school], with three sections (e.g. background, behaviour, recommendations).",
+        "Give me five ideas for strengthening a [grade X] student's coping strategies in [specific situation, e.g. changing schools], with one method for each.",
+        "Create a list of three short reflection questions for a [grade X] student after a session on [specific topic, e.g. self-image], to capture their thoughts.",
+        "Suggest three ways to collaborate with the parents of a [grade X] student to support the child's [specific need, e.g. structure at home], with one strategy for each.",
+        "Give me an example of a straightforward analysis of a [grade X] student's mental wellbeing in [specific context, e.g. the classroom], with three observations and one recommendation.",
+        "Write a list of five resources (e.g. books, apps) for a school psychologist at a [primary school] supporting [specific topic, e.g. neuropsychiatric diagnoses].",
+        "Suggest three ways to manage a crisis response in a [grade X] student following [specific event, e.g. bereavement], with one action for each.",
+        "Create a template for a short staff presentation at a [primary school] on [specific theme, e.g. brain development], with three key points.",
+        "Give me five ideas for promoting a positive classroom climate for a [grade X] class at a [primary school], with a focus on [specific goal, e.g. a sense of safety].",
+        "Suggest three ways to introduce a [grade X] student to mindfulness exercises for managing [specific issue, e.g. worry], with one exercise for each.",
+        "Write a brief guide for supporting a teacher at a [primary school] in adapting instruction for a [grade X] student with [specific need, e.g. ADHD], with three tips.",
+        "Give me an example of a routine for evaluating the psychosocial environment of a [grade X] class following [specific event, e.g. a conflict], with three steps.",
+        "Create a list of three brief ways to collaborate with the school counsellor and special education teacher at a [primary school] to support [specific goal, e.g. students' self-regulation], with one example for each."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "folder": "59 Studier om lärande",
+  "slug_sv": "studier-om-larande",
+  "slug_en": "research-on-learning",
+  "cover_count": 20,
+  "total_prompts": 20,
+  "parts": [
+    {
+      "number": 1,
+      "title": "Studies and research on learning",
+      "prompts": [
+        "What does research on learning say about the benefits of spaced repetition compared to massed repetition (cramming) for improving students' long-term memory, and give three examples of how this can be applied in [subject] for a [grade X] class?",
+        "Based on studies on learning, how does active recall improve retention compared to passive review, and how can I use this in a [grade X] class in [subject] to teach [specific unit, e.g. vocabulary]?",
+        "What does research show about interleaved practice and its effect on long-term learning and problem-solving ability, and how can I implement this in a [grade X] class in [subject] with [specific units, e.g. math operations]?",
+        "According to research on learning, how does elaborative interrogation contribute to deeper understanding, and what three research-based questions can I use to get a [grade X] class in [subject] to explain [specific theme, e.g. democracy]?",
+        "What do studies say about self-explanation and its impact on conceptual understanding, and how can I use this method in a [grade X] class in [subject] to connect [specific new concept, e.g. fractions] to prior knowledge?",
+        "Based on research on dual coding, how does combining text and visual elements improve learning, and how can I apply this in a [grade X] class in [subject] to explain [specific concept, e.g. ecosystems]?",
+        "What does research show about the effect of concrete examples on understanding abstract concepts, and give three research-based examples I can use in a [grade X] class in [subject] to explain [specific abstract concept, e.g. probability]?",
+        "According to Hattie's research on feedback, how can effective feedback improve student learning, and how can I create three research-based feedback loops for a [grade X] class in [subject] to reinforce [specific unit, e.g. writing]?",
+        "What does research say about metacognitive strategies and their impact on self-regulated learning, and how can I use this in a [grade X] class in [subject] to get students to reflect on [specific goal, e.g. problem-solving]?",
+        "Based on research on peer learning, how does collaboration between students improve their learning, and what three research-based group tasks can I use in a [grade X] class in [subject] to deepen [specific theme, e.g. historical analysis]?",
+        "What does research show about chunking and its effect on reducing cognitive load, and how can I use this method in a [grade X] class in [subject] to break down [specific complex content, e.g. chemical reactions] into three parts?",
+        "According to research on scaffolding, how can structured support improve students' independent learning, and what three research-based support structures can I use in a [grade X] class in [subject] to teach [specific unit, e.g. problem-solving]?",
+        "What do studies say about memory techniques (e.g. mnemonics) and their impact on retention, and how can I implement three research-based techniques in a [grade] class in [subject] to learn [specific content, e.g. historical dates]?",
+        "Based on research on interleaved practice, how does mixed practice improve long-term learning compared to blocked practice, and how can I use this in a [grade X] class in [subject] to mix [specific units, e.g. geometry and algebra]?",
+        "What does research show about peer learning and its effect on both understanding and motivation, and what three research-based group tasks can I use in a [grade X] class in [subject] to deepen [specific theme, e.g. social issues]?",
+        "According to research on self-explanation, how can self-explanation improve conceptual understanding, and how can I get a [grade X] class in [subject] to explain [specific new concept, e.g. density] using three research-based steps?",
+        "What do studies say about dual coding and its effect on memory retention compared to text-only learning, and how can I apply this in a [grade X] class in [subject] to teach [specific concept, e.g. circuits] using both text and images?",
+        "Based on research on elaborative interrogation, how can probing questions deepen students' understanding, and what three research-based questions can I use in a [grade X] class in [subject] to explore [specific theme, e.g. sustainability]?",
+        "What does research show about feedback according to Hattie's Visible Learning, and how can I use three research-based feedback methods in a [grade X] class in [subject] to improve [specific unit, e.g. writing]?",
+        "According to research on metacognitive strategies, how can reflection on one's own learning improve performance, and how can I implement this in a [grade X] class in [subject] to get students to reflect on [specific goal, e.g. problem-solving] using three steps?"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "folder": "45 skolsköterskor",
+  "slug_sv": "skolskoterskor",
+  "slug_en": "school-nurses",
+  "cover_count": 20,
+  "total_prompts": 20,
+  "parts": [
+    {
+      "number": 1,
+      "title": "School Nurses",
+      "prompts": [
+        "Create a plan for a health consultation with a student in [grade X] following the Swedish National Agency for Education guidelines, with three focus areas (e.g. nutrition, sleep, wellbeing) and a follow-up.",
+        "Give me five strategies for supporting a teacher at a [primary school] in identifying [specific health challenge, e.g. fatigue in students], with one idea for each.",
+        "Write a short guide for talking with a [grade X] student about [specific health issue, e.g. headaches or stress], with three steps and one simple piece of advice.",
+        "Suggest three ways to collaborate with the student health team at a [primary school] to prevent [specific problem, e.g. the spread of infection], with one action for each.",
+        "Create a list of five short questions for quickly assessing a [grade X] student's health during an unplanned visit to the school nurse.",
+        "Give me an example of a routine for following up with a [grade X] student after [specific event, e.g. an injury or absence due to illness], with three steps.",
+        "Suggest three ways to carry out a health-promoting initiative for a [grade X] class on [specific theme, e.g. hygiene or physical activity], with one activity for each.",
+        "Write a short template for documenting a health visit for a [grade X] student at a [primary school], with three sections (e.g. reason for visit, observations, actions taken).",
+        "Give me five ideas for encouraging a [grade X] student to improve [specific habit, e.g. eating breakfast], with one method for each.",
+        "Create a list of three short questions to open a conversation with a [grade X] student about their physical and mental wellbeing during a health visit.",
+        "Suggest three ways to collaborate with the parents of a [grade X] student to manage [specific health issue, e.g. allergies], with one strategy for each.",
+        "Give me an example of a simple health screening for a [grade X] student covering [specific area, e.g. vision or hearing], with three steps and one recommendation.",
+        "Write a list of five resources (e.g. websites or materials) for a school nurse at a [primary school] that support [specific topic, e.g. vaccinations].",
+        "Suggest three ways to handle an acute situation involving a [grade X] student (e.g. [specific situation, e.g. allergic reaction]), with one action for each.",
+        "Create a template for a short staff presentation at a [primary school] on [specific theme, e.g. first aid], with three key points.",
+        "Give me five ideas for promoting physical activity among [grade X] students at a [primary school], with a focus on [specific goal, e.g. movement breaks or play].",
+        "Suggest three ways to introduce a [grade X] student to simple health routines for [specific issue, e.g. handwashing], with one activity for each.",
+        "Write a short guide for supporting a [grade X] student with [specific health condition, e.g. diabetes], with three tips for day-to-day management at school.",
+        "Give me an example of a routine for following up on a [grade X] class's health after [specific event, e.g. a flu outbreak], with three steps.",
+        "Create a list of three brief ways to collaborate with the school counsellor and psychologist at a [primary school] to support [specific goal, e.g. mental health], with one example for each."
+      ]
+    }
+  ]
+}

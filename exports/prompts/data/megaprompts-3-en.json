@@ -1,0 +1,155 @@
+{
+  "folder": "63 Megapromptar 3",
+  "slug_sv": "megapromptar-3",
+  "slug_en": "megaprompts-3",
+  "cover_count": 5,
+  "total_prompts": 5,
+  "megaprompts": [
+    {
+      "number": 1,
+      "title": "Test Knowledge Understanding",
+      "sections": [
+        {
+          "heading": "SAMMANHANG",
+          "body": "Assume the role of an expert teacher specialising in [subject]. Your task is to develop a comprehensive knowledge test designed to measure the depth and breadth of understanding of the fundamentals of [subject]. This test should include a variety of question types such as multiple-choice questions, short-answer questions, and essay questions covering core concepts, theories, and practices associated with [subject]. Questions must be clear, objective, and aligned with current standards in the field."
+        },
+        {
+          "heading": "MÅL",
+          "body": "You will create a test that thoroughly assesses understanding, identifies areas of strength, and pinpoints knowledge gaps for further study. This test will serve as a valuable tool for measuring the student's mastery of [subject] and guiding their learning journey."
+        },
+        {
+          "heading": "SVARSRIKTLINJER",
+          "body": "Follow the step-by-step approach below to construct the test and its evaluation components:\n\n1. **Begin with multiple-choice questions:**\n- Develop 10 multiple-choice questions covering the fundamental theories and concepts of [subject]. Each question should include four options with only one correct answer.\n- Ensure that questions assess both recall and application of knowledge.\n\n2. **Include short-answer questions:**\n- Create 5 short-answer questions that require concise responses. These should test understanding of key terms, processes, and the application of concepts in real-world scenarios.\n\n3. **Include essay questions:**\n- Formulate 3 essay questions that encourage critical thinking and the integration of multiple concepts within [subject]. These questions should allow for a demonstration of in-depth understanding and the ability to articulate complex ideas clearly.\n\n4. **Design a detailed answer key:**\n- Provide comprehensive answers and explanations for all question types. This key should function as a learning resource, offering insights into the reasoning behind correct answers and the application of concepts.\n\n5. **Create a scoring rubric:**\n- Develop a rubric for grading essay questions, specifying criteria such as clarity of argument, depth of analysis, accuracy of information, and integration of concepts. Assign point values to each criterion for a transparent evaluation process.\n\n6. **Recommendations for test administration:**\n- Suggest allocating a specific time limit for the test, and advise on a quiet and comfortable environment to support concentration. Recommend that the test be taken without consulting notes or resources for the most accurate assessment of knowledge."
+        },
+        {
+          "heading": "INFORMATION OM MIG",
+          "body": "- My subject: [SUBJECT]"
+        },
+        {
+          "heading": "OUTPUT",
+          "body": "The result will be a structured test document containing a variety of question types, each designed to evaluate different aspects of knowledge in [subject]. This document will include an answer key with detailed explanations and a scoring rubric for essay questions. The test will offer a comprehensive overview of the student's strengths and areas for improvement, guiding further study and mastery of [subject].\n\n---\n\nHow to use the megaprompt\n\nFill in the [SUBJECT] placeholder in the #INFORMATION ABOUT ME section with the specific subject area you are focusing on.\n\nExample: If you are creating a test for a course on \"Environmental Science\", replace [SUBJECT] with \"Environmental Science.\"\n\nExample 2: To use this prompt effectively, if your subject is \"Artificial Intelligence\", you should replace [SUBJECT] with \"Artificial Intelligence\" and proceed to design the test around the core concepts, theories, and practices associated with artificial intelligence."
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Collaboration",
+      "sections": [
+        {
+          "heading": "SAMMANHANG",
+          "body": "Assume the role of an expert educator skilled at designing engaging learning experiences that promote student collaboration. Your task is to help the user develop a comprehensive guide on effective strategies for fostering student collaboration in their classes, covering techniques for both in-person and online collaboration."
+        },
+        {
+          "heading": "ROLL",
+          "body": "You are an expert educator skilled at designing engaging learning experiences that promote student collaboration."
+        },
+        {
+          "heading": "SVARSRIKTLINJER",
+          "body": "Present your findings in a table with the following columns:\n1. Collaboration Strategy\n2. Implementation Steps\n3. Benefits\n\nCite each source used in your research using the following format at the end of the table: [#] Author's surname, initial. (Year). Article title. Journal name, volume(number), page range. DOI or URL\n\nThe guide should be comprehensive, covering a range of effective collaboration strategies appropriate for the subject area. It should provide clear, actionable implementation steps for each strategy. The benefits of each strategy should be highlighted to demonstrate their value in promoting student collaboration and learning."
+        },
+        {
+          "heading": "UPPGIFTSKRITERIER",
+          "body": "1. The guide should be well-organised, easy to read, and easy to navigate.\n2. Strategies should be applicable to both in-person and online collaboration.\n3. Avoid generic or overly simplified strategies. Focus on techniques that have been shown to be effective based on research and best practice in education.\n4. Cite reputable sources to support the recommended strategies."
+        },
+        {
+          "heading": "INFORMATION OM MIG",
+          "body": "- My subject area: [SUBJECT]"
+        },
+        {
+          "heading": "SVARSFORMAT",
+          "body": "Collaboration Strategy | Implementation Steps | Benefits\n1. [Strategy 1] | 1. [Step 1]\n2. [Step 2]\n3. [Step 3] | • [Benefit 1]\n• [Benefit 2]\n• [Benefit 3]\n2. [Strategy 2] | 1. [Step 1]\n2. [Step 2]\n3. [Step 3] | • [Benefit 1]\n\n• [Benefit 2]\n• [Benefit 3]\n3. [Strategy 3] | 1. [Step 1]\n2. [Step 2]\n3. [Step 3] | • [Benefit 1]\n• [Benefit 2]\n• [Benefit 3]\n\n[1] [2] [3]\n\n---\n\nHow to use the megaprompt\n\nFill in the [SUBJECT] placeholder with the specific subject area you are focusing on. This will tailor the strategies specifically to the educational context you are working with.\n\nExample: If you are creating a guide for promoting student collaboration in mathematics, replace [SUBJECT] with \"Mathematics\".\n\nUse the structured format provided in the prompt to organise your guide. List each collaboration strategy, describe the implementation steps in detail, and highlight the benefits clearly to ensure the guide is comprehensive and useful for teachers within your specified subject area."
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Debate Topic Generator",
+      "sections": [
+        {
+          "heading": "SAMMANHANG",
+          "body": "You are an expert discussion facilitator skilled at creating thought-provoking questions and debate topics for any subject. Your task is to generate a list of discussion questions and debate topics for a given subject or theme, including key points to consider when arguing for and against each topic."
+        },
+        {
+          "heading": "ROLL",
+          "body": "As an expert discussion facilitator, your role is to create engaging and thought-provoking content that encourages critical thinking and debate among participants. You should remain neutral and present balanced arguments for both sides of each topic."
+        },
+        {
+          "heading": "SVARSRIKTLINJER",
+          "body": "- Generate 5 discussion questions or debate topics related to the given subject or theme\n- For each topic, provide 3 key points to consider when arguing in favour of the topic (pro arguments)\n- For each topic, provide 3 key points to consider when arguing against the topic (counter arguments)\n- Present topics and arguments in a clear table format"
+        },
+        {
+          "heading": "UPPGIFTSKRITERIER",
+          "body": "– Topics should be relevant to the given subject or theme – Arguments should be well-balanced and thought-provoking\n- Avoid bias or personal opinions in the arguments\n- Focus on creating content that encourages critical thinking and debate"
+        },
+        {
+          "heading": "INFORMATION OM MIG",
+          "body": "- Subject or theme: [INSERT SUBJECT OR SUBJECT AREA HERE]"
+        },
+        {
+          "heading": "SVARSFORMAT",
+          "body": "| Topic | Pro Argument | Con Argument |\n\n---\n\n| $topic1 | - $pro_argument1 | - $con_argument1 | | | - $pro_argument2 | - $con_argument2 | | | - $pro_argument3 | - $con_argument3 | | $topic2 | - $pro_argument1 | - $con_argument1 | | | - $pro_argument2 | - $con_argument2 | | | - $pro_argument3 | - $con_argument3 | | $topic3 | - $pro_argument1 | - $con_argument1 | | | - $pro_argument2 | - $con_argument2 | | | - $pro_argument3 | - $con_argument3 | | $topic4 | - $pro_argument1 | - $con_argument1 | | | - $pro_argument2 | - $con_argument2 | | | - $pro_argument3 | - $con_argument3 | | $topic5 | - $pro_argument1 | - $con_argument1 |\n\n​​\n\n| | - $pro_argument2 | - $con_argument2 | | | - $pro_argument3 | - $con_argument3 |\n\n---\n\nHow to use the megaprompt\n\nFill in the [INSERT SUBJECT OR SUBJECT AREA HERE] placeholder with the specific subject or theme you want to explore in your discussion or debate.\n\nExample: If your subject is \"Climate Change\", replace [INSERT SUBJECT OR SUBJECT AREA HERE] with \"Climate Change\".\n\nfi"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Misconceptions in the Subject",
+      "sections": [
+        {
+          "heading": "SAMMANHANG",
+          "body": "You are a knowledgeable educator specialising in identifying and correcting common misconceptions across a range of subjects. Your task is to help the user create a list of common mistakes or misconceptions for a given subject or topic, provide explanations for why each point is incorrect, and present accurate information in a clear table format."
+        },
+        {
+          "heading": "ROLL",
+          "body": "Assume the role of a knowledgeable educator well-versed in common misconceptions across various subjects. Your goal is to identify these misconceptions, explain why they are incorrect, and provide accurate information to help users learn and understand the subject more effectively."
+        },
+        {
+          "heading": "SVARSRIKTLINJER",
+          "body": "- Begin by generating a list of at least 5 common mistakes or misconceptions for the given subject or topic.\n- For each misconception, provide a clear explanation of why it is incorrect.\n- Present accurate information for each misconception.\n- Organise the response in a table format with the following columns:\n- Misconception\n- Explanation\n- Correct Information\n- Ensure that the table covers the most significant or widespread misconceptions for the given subject or topic."
+        },
+        {
+          "heading": "UPPGIFTSKRITERIER",
+          "body": "1. Focus on identifying the most common and significant misconceptions for the given subject or topic.\n2. Provide clear and concise explanations of why each misconception is incorrect, so that users can easily understand the reasoning.\n3. Present accurate and up-to-date information when correcting each misconception.\n4. Avoid using overly technical language or jargon; instead, aim to make explanations accessible to a general audience.\n5. Where necessary, include examples or analogies to illustrate the correct information and clarify any complex concepts."
+        },
+        {
+          "heading": "INFORMATION OM MIG",
+          "body": "- Subject or topic: [SUBJECT OR SUBJECT AREA]"
+        },
+        {
+          "heading": "SVARSFORMAT",
+          "body": "Use the following table format for your response:\n\n| Misconception | Explanation | Correct Information |\n\n---\n\n| [Misconception 1] | [Explanation of why it is incorrect] | [Correct Information 1] | | [Misconception 2] | [Explanation of why it is incorrect] | [Correct Information 2] |\n\n| [Misconception 3] | [Explanation of why it is incorrect] | [Correct Information 3] | | ... | ... | ... |\n\n---\n\nHow to use the megaprompt\n\nFill in the [SUBJECT OR SUBJECT AREA] placeholder with the specific subject or topic you want to explore misconceptions about.\n\nExample: If you are interested in \"Nutrition\", replace [SUBJECT OR SUBJECT AREA] with \"Nutrition\"."
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Gamify Lessons",
+      "sections": [
+        {
+          "heading": "SAMMANHANG",
+          "body": "You are an expert educational game designer specialising in transforming lessons into engaging game-based learning experiences that improve learning outcomes. Your task is to help a teacher who wants to incorporate gamified elements into their lessons in a given subject."
+        },
+        {
+          "heading": "ROLL",
+          "body": "Assume the role of an expert educational game designer. Your responses should focus on providing thoughtful and creative ideas for gamified lessons in a way that supports learning objectives."
+        },
+        {
+          "heading": "SVARSRIKTLINJER",
+          "body": "Create a comprehensive list of 20 different gamified elements that can be thoughtfully integrated into lessons on the given subject. Consider a broad range of game mechanics, reward systems, and strategies for connecting gamification to learning objectives.\n\nPresent the information in a well-organised table format with 4 columns and 20 rows:\n\n| Gamification Element | Implementation Idea | Learning Benefit | Sources |\n\n---\n\n| $element1 | $idea1 | $benefit1 | $source1| | $element2 | $idea2 | $benefit2 | $source2| | ... | ... | ... | ... | | $element20 | $idea20 | $benefit20 | $source20|\n\nEnsure that you provide accurate citations for all sources used in your response."
+        },
+        {
+          "heading": "UPPGIFTSKRITERIER",
+          "body": "1. Gamification elements should be varied and thoughtfully connected to the lesson's learning objectives.\n2. Each gamification element should have a specific implementation idea and an associated learning benefit.\n3. All sources used in the response must be correctly cited.\n4. Focus on providing a comprehensive list of 20 gamification elements that can realistically be incorporated into lessons."
+        },
+        {
+          "heading": "INFORMATION OM MIG",
+          "body": "- Subject: [SUBJECT OR SUBJECT AREA]"
+        },
+        {
+          "heading": "RESPONSFORMAT",
+          "body": "Return the list of gamification elements in a table format with 4 columns (Gamification Element, Implementation Idea, Learning Benefit, Sources) and 20 rows, without using any XML tags.\n\n---\n\nHow to use the megaprompt\n\nFill in the [SUBJECT OR SUBJECT AREA] placeholder with the specific subject or subject area you are focusing on for gamification.\n\nExample: If you are designing gamification elements for a mathematics lesson, replace [SUBJECT OR SUBJECT AREA] with \"Mathematics\".\n\nExample 2: For a history lesson on the Second World War, fill in the placeholder as follows: \"Subject: History lesson on the Second World War\"."
+        }
+      ]
+    }
+  ]
+}
