@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Johan Lindström — Rätt verktyg vid rätt tillfälle</title>
-  <meta name="description" content="En lugnare röst i AI-samtalet om skolan. RÄTT-modellen, guider och promptar för lärare och skolledare.">
+  <meta name="description" content="En balanserad röst i AI-samtalet om skolan. RÄTT-modellen, guider och promptar för lärare och skolledare.">
   <meta property="og:title" content="choosewise.education — Rätt verktyg vid rätt tillfälle">
-  <meta property="og:description" content="En lugnare röst i AI-samtalet om skolan.">
+  <meta property="og:description" content="En balanserad röst i AI-samtalet om skolan.">
   <meta property="og:image" content="/assets/images/brand/og-default.svg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://choosewise.education/sv/">
@@ -21,15 +21,33 @@
 
   <main>
     <section class="hero">
-      <video class="hero__video" autoplay muted loop playsinline poster="/assets/images/hero-video/ambient-poster.svg">
-        <source src="/assets/images/hero-video/ambient.webm" type="video/webm">
-        <source src="/assets/images/hero-video/ambient.mp4" type="video/mp4">
-      </video>
+      <!-- Animerad RÄTT-signatur i bakgrunden. Ringen ritas från norr (R)
+           och medurs, pilarna pekar med spetsen mitt emellan varje par av
+           bokstäver, och cirklarna "klipper ut" den grå ringen där de
+           landar via fill="#1a1a18" (matchar hero-bakgrunden). -->
+      <svg class="hero__svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <marker id="hero-arr-sv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#e8e2d5"/>
+          </marker>
+        </defs>
+        <circle class="ring-dashed" cx="300" cy="300" r="220" fill="none" stroke="#e8e2d5" stroke-width="1.5" stroke-dasharray="4 8" transform="rotate(-90 300 300)"/>
+        <g class="arrow-group" fill="none" stroke="#e8e2d5" stroke-width="2">
+          <path class="arrow-path p1" d="M 392.98 100.61 A 220 220 0 0 1 455.56 144.44" marker-end="url(#hero-arr-sv)"/>
+          <path class="arrow-path p2" d="M 499.39 392.98 A 220 220 0 0 1 455.56 455.56" marker-end="url(#hero-arr-sv)"/>
+          <path class="arrow-path p3" d="M 207.02 499.39 A 220 220 0 0 1 144.44 455.56" marker-end="url(#hero-arr-sv)"/>
+          <path class="arrow-path p4" d="M 100.61 207.02 A 220 220 0 0 1 144.44 144.44" marker-end="url(#hero-arr-sv)"/>
+        </g>
+        <g class="letter-circle letter-1"><circle cx="300" cy="80"  r="54" fill="#1a1a18" stroke="#2d5a3f" stroke-width="2"/><text x="300" y="95"  text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#2d5a3f">R</text></g>
+        <g class="letter-circle letter-2"><circle cx="520" cy="300" r="54" fill="#1a1a18" stroke="#2d5a3f" stroke-width="2"/><text x="520" y="315" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#2d5a3f">Ä</text></g>
+        <g class="letter-circle letter-3"><circle cx="300" cy="520" r="54" fill="#1a1a18" stroke="#c66b3d" stroke-width="2"/><text x="300" y="535" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#c66b3d">T</text></g>
+        <g class="letter-circle letter-4"><circle cx="80"  cy="300" r="54" fill="#1a1a18" stroke="#2d5a3f" stroke-width="2"/><text x="80"  y="315" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#2d5a3f">T</text></g>
+      </svg>
       <div class="hero__overlay"></div>
       <div class="container hero__content">
-        <h1 class="hero__headline" data-reveal>Rätt verktyg<br>vid rätt tillfälle.</h1>
-        <p class="hero__sub" data-reveal>En lugnare röst i AI-samtalet om skolan.<br>28 år i skolan. 10 som lärare. 7 som biträdande rektor. 11 som EdTech-konsult.</p>
-        <div class="hero__cta" data-reveal>
+        <h1 class="hero__headline">RÄTT verktyg<br>vid RÄTT tillfälle.</h1>
+        <p class="hero__sub">En balanserad röst i AI-samtalet om skolan.<br>27 år i skolan. 10 som lärare, 6 som skolledare och 11 inom EdTech.</p>
+        <div class="hero__cta">
           <a class="btn btn--primary" href="/sv/ratt/">Läs om RÄTT-modellen</a>
           <a class="btn btn--ghost" href="/sv/om/">Om Johan</a>
         </div>

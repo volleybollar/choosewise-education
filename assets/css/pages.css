@@ -1,4 +1,7 @@
-/* ───── Hero (homepage) ───── */
+/* ───── Hero (homepage) ─────
+   Startsidans hero har en animerad WISE/RÄTT-signatur i bakgrunden
+   istället för en videobakgrund. Innehållet centreras i mitten av
+   cirkeln. Se detaljer under "Hero — WISE/RÄTT animerad signatur". */
 .hero {
   position: relative;
   min-height: 88vh;
@@ -7,22 +10,102 @@
   color: var(--color-dark-text);
   background: var(--color-dark-bg);
 }
-.hero__video {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  opacity: 0.55;
-}
 .hero__overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(26,26,24,0.3) 0%, rgba(26,26,24,0.7) 100%);
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(26,26,24,0.0) 0%, rgba(26,26,24,0.55) 70%, rgba(26,26,24,0.85) 100%);
+  pointer-events: none;
 }
-.hero__content { position: relative; padding-block: var(--space-8); }
-.hero__headline { font-size: var(--fs-display); font-weight: 400; max-width: 20ch; color: var(--color-dark-text); }
+.hero__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 88vh;
+  padding: var(--space-6) var(--space-5);
+  width: 100%;
+}
+.hero__headline { font-size: var(--fs-display); font-weight: 400; max-width: 16ch; color: var(--color-dark-text); }
 .hero__sub { color: rgba(247,243,237,0.85); font-size: 1.25rem; margin-top: var(--space-5); max-width: 42ch; }
-.hero__cta { display: flex; gap: var(--space-4); margin-top: var(--space-7); flex-wrap: wrap; }
+.hero__cta { display: flex; gap: var(--space-4); margin-top: var(--space-7); flex-wrap: wrap; justify-content: center; }
 .hero__cta .btn--ghost { color: var(--color-dark-text); }
 .hero__cta .btn--ghost:hover { color: var(--color-highlight); }
+
+/* ───── Hero — WISE/RÄTT animerad signatur ─────
+   SVG-diagram ligger absolut bakom text-innehållet. Vid sidladdning
+   animeras ringen in (0.2–2.2 s), pilarna ritas medurs (1.0–3.1 s),
+   och de fyra bokstavscirklarna droppar in staggered (0.6–2.7 s).
+   Texten tonar in sist (2.4–4.0 s) så rubriken är helt läsbar när
+   besökaren hinner fokusera. */
+.hero__svg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  opacity: 0.48;
+  pointer-events: none;
+}
+.hero__svg .ring-dashed {
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: hero-draw-ring 2s var(--ease-out) 0.2s forwards;
+}
+@keyframes hero-draw-ring { to { stroke-dashoffset: 0; } }
+
+.hero__svg .arrow-path {
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80;
+  opacity: 0;
+  animation: hero-draw-arrow 0.9s var(--ease-out) forwards;
+}
+.hero__svg .arrow-path.p1 { animation-delay: 1.0s; }
+.hero__svg .arrow-path.p2 { animation-delay: 1.4s; }
+.hero__svg .arrow-path.p3 { animation-delay: 1.8s; }
+.hero__svg .arrow-path.p4 { animation-delay: 2.2s; }
+@keyframes hero-draw-arrow {
+  0%   { stroke-dashoffset: 80; opacity: 0; }
+  15%  { opacity: 0.7; }
+  100% { stroke-dashoffset: 0; opacity: 0.7; }
+}
+
+.hero__svg .letter-circle {
+  opacity: 0;
+  transform: translateY(-14px) scale(0.85);
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: hero-letter-drop 0.9s var(--ease-out) forwards;
+}
+.hero__svg .letter-1 { animation-delay: 0.6s; }  /* W / R — norr */
+.hero__svg .letter-2 { animation-delay: 1.0s; }  /* I / Ä — öster */
+.hero__svg .letter-3 { animation-delay: 1.4s; }  /* S / T — söder (accent) */
+.hero__svg .letter-4 { animation-delay: 1.8s; }  /* E / T — väster */
+@keyframes hero-letter-drop {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Text tonar in efter att bokstäverna har landat */
+.hero__content > * {
+  opacity: 0;
+  animation: hero-content-fade 1s ease-out forwards;
+}
+.hero__headline { animation-delay: 2.4s; }
+.hero__sub      { animation-delay: 2.7s; }
+.hero__cta      { animation-delay: 3.0s; }
+@keyframes hero-content-fade { to { opacity: 1; } }
+
+/* Respektera användare som valt reduced motion — visa allt direkt */
+@media (prefers-reduced-motion: reduce) {
+  .hero__svg .ring-dashed,
+  .hero__svg .arrow-path,
+  .hero__svg .letter-circle,
+  .hero__content > * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+  .hero__svg .arrow-path { opacity: 0.7 !important; }
+}
 
 /* ───── Sections ───── */
 .section { padding-block: var(--space-9); }
@@ -42,6 +125,20 @@
 .page-hero { padding-block: var(--space-9) var(--space-7); }
 .page-hero h1 { margin-bottom: var(--space-5); }
 .page-hero .lede { font-size: 1.25rem; color: var(--color-text-soft); max-width: none; }
+
+/* Pedagogisk not som förklarar att det avvikande (terrakotta) steget i
+   WISE/RÄTT-diagrammet är beslutsögonblicket. Terrakotta vänsterkant
+   förstärker kopplingen visuellt mellan text och diagram. */
+.framework-note {
+  border-left: 3px solid var(--color-highlight);
+  padding-left: var(--space-5);
+  margin-top: var(--space-6);
+  max-width: 60ch;
+  font-size: 1rem;
+  color: var(--color-text-soft);
+  font-style: italic;
+}
+.framework-note strong { color: var(--color-text); font-style: normal; font-weight: 500; }
 .eyebrow { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-highlight); font-weight: 500; display: block; margin-bottom: var(--space-3); }
 .eyebrow--framework { font-size: 1.125rem; letter-spacing: 0.1em; margin-bottom: var(--space-4); }
 
