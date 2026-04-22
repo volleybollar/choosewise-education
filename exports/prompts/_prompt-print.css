@@ -1,0 +1,373 @@
+/* ════════════════════════════════════════════════════════
+   Shared A4 print styling for choosewise.education prompt PDFs.
+   Used by every prompt set. One-file source of truth.
+   ════════════════════════════════════════════════════════ */
+
+/* ── Design tokens (mirror tokens.css on the live site) ── */
+:root {
+  --color-bg:           #faf7f2;
+  --color-bg-alt:       #f2ede2;
+  --color-text:         #1a1a18;
+  --color-text-soft:    #6b6b65;
+  --color-accent:       #2d5a3f;
+  --color-highlight:    #c66b3d;
+  --color-border:       #e8e2d5;
+  --color-dark-bg:      #1a1a18;
+  --color-dark-text:    #f7f3ed;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Work Sans', -apple-system, sans-serif;
+}
+
+/* ── Fonts: same as the site ── */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: var(--color-bg); }
+body {
+  font-family: var(--font-body);
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── @page: default (inner pages) with running footer + page number ── */
+@page {
+  size: A4;
+  margin: 18mm 18mm 20mm 18mm;
+
+  @bottom-left {
+    content: "choosewise.education";
+    font-family: 'Work Sans', sans-serif;
+    font-size: 8pt;
+    color: #6b6b65;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  @bottom-right {
+    content: counter(page);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 10pt;
+    color: #1a1a18;
+  }
+}
+
+/* ── Named pages with no running footer (cover + back) ── */
+@page full-bleed {
+  size: A4;
+  margin: 0;
+  @bottom-left  { content: none; }
+  @bottom-right { content: none; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   COVER PAGE
+   ══════════════════════════════════════════════════════════ */
+.page--cover {
+  page: full-bleed;
+  page-break-after: always;
+  width: 210mm; height: 297mm;
+  background: var(--color-bg);
+  position: relative;
+  padding: 26mm 22mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cover__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 8pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-highlight);
+  font-weight: 500;
+}
+.cover__top a { color: inherit; text-decoration: none; }
+.cover__brand { font-family: var(--font-display); font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--color-text); font-size: 10pt; }
+
+.cover__middle { padding-block: 14mm; }
+.cover__eyebrow {
+  font-size: 9pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-highlight);
+  font-weight: 500;
+  margin-bottom: 8mm;
+}
+.cover__count {
+  font-family: var(--font-display);
+  font-size: 18pt;
+  font-weight: 300;
+  color: var(--color-text-soft);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 3mm;
+}
+.cover__title {
+  font-family: var(--font-display);
+  font-size: 52pt;
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  max-width: 16ch;
+}
+.cover__subtitle {
+  font-family: var(--font-display);
+  font-size: 15pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text-soft);
+  margin-top: 7mm;
+  max-width: 28ch;
+  line-height: 1.35;
+}
+
+/* The "RÄTT verktyg" tagline + volume badge at the bottom */
+.cover__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.cover__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 11pt;
+  color: var(--color-text-soft);
+  max-width: 40ch;
+  line-height: 1.4;
+}
+.cover__volume {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 24mm; height: 24mm;
+  border: 1.2pt solid var(--color-highlight);
+  border-radius: 50%;
+  color: var(--color-highlight);
+  font-family: var(--font-display);
+  line-height: 1;
+}
+.cover__volume__label { font-size: 7pt; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.5mm; }
+.cover__volume__number { font-size: 20pt; font-weight: 500; }
+
+/* ══════════════════════════════════════════════════════════
+   INNER PAGES
+   ══════════════════════════════════════════════════════════ */
+h1, h2, h3 { font-family: var(--font-display); color: var(--color-text); font-weight: 500; }
+h1 { font-size: 28pt; line-height: 1.1; letter-spacing: -0.01em; }
+h2 { font-size: 18pt; line-height: 1.15; letter-spacing: -0.01em; }
+h3 { font-size: 12pt; font-weight: 600; }
+
+p { margin-bottom: 3mm; max-width: 68ch; }
+
+a { color: var(--color-accent); text-decoration: underline; text-decoration-thickness: 0.5pt; text-underline-offset: 1.5pt; }
+
+/* ── Section opener: page-breaking heading with terracotta accent ── */
+.section-opener {
+  page-break-before: always;
+  margin-bottom: 10mm;
+}
+.section-opener__eyebrow {
+  font-size: 8pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-highlight);
+  font-weight: 500;
+  margin-bottom: 4mm;
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+}
+.section-opener__eyebrow::before {
+  content: "";
+  width: 8mm; height: 1.2pt;
+  background: var(--color-highlight);
+  display: inline-block;
+}
+.section-opener h2 { max-width: 22ch; }
+.section-opener p  { color: var(--color-text-soft); margin-top: 4mm; max-width: 56ch; font-size: 10.5pt; }
+
+/* ── Glossary list ── */
+.glossary { margin-block: 6mm; }
+.glossary dt {
+  font-family: var(--font-display);
+  font-size: 12pt;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-top: 4mm;
+}
+.glossary dd {
+  font-size: 10pt;
+  color: var(--color-text);
+  margin-left: 0;
+  margin-top: 0.5mm;
+  max-width: 66ch;
+}
+
+/* ── Framework box: small structured table for role/task/context etc. ── */
+.framework-box {
+  background: var(--color-bg-alt);
+  border-left: 3pt solid var(--color-highlight);
+  padding: 5mm 7mm;
+  margin-block: 6mm;
+  font-size: 10pt;
+}
+.framework-box h3 { margin-bottom: 2mm; color: var(--color-accent); }
+.framework-box dt { font-family: var(--font-display); font-weight: 600; color: var(--color-text); display: inline; }
+.framework-box dd { display: inline; color: var(--color-text-soft); margin-inline-start: 2mm; }
+.framework-box dd::after { content: ""; display: block; margin-bottom: 2mm; }
+
+/* ── Chatbot list (two-column) ── */
+.chatbot-list {
+  columns: 2;
+  column-gap: 10mm;
+  margin-block: 4mm;
+  font-size: 10pt;
+  list-style: none;
+}
+.chatbot-list li {
+  break-inside: avoid;
+  margin-bottom: 3mm;
+}
+.chatbot-list strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+/* ── Usage block (callout) ── */
+.callout {
+  background: var(--color-bg-alt);
+  padding: 5mm 7mm;
+  margin-block: 6mm;
+  font-size: 10pt;
+  border-radius: 2pt;
+}
+.callout h3 { color: var(--color-accent); margin-bottom: 2mm; }
+.callout--warning { border-left: 3pt solid var(--color-highlight); }
+
+/* ══════════════════════════════════════════════════════════
+   PROMPTS LIST
+   ══════════════════════════════════════════════════════════ */
+.prompts {
+  list-style: none;
+  counter-reset: prompt var(--start-count, 0);
+  margin-top: 6mm;
+}
+.prompts > li {
+  counter-increment: prompt;
+  position: relative;
+  padding: 4mm 5mm 4mm 14mm;
+  margin-bottom: 3mm;
+  font-size: 10pt;
+  line-height: 1.5;
+  background: #fff;
+  border: 0.5pt solid var(--color-border);
+  border-radius: 1.5pt;
+  break-inside: avoid;
+  max-width: none;
+}
+.prompts > li::before {
+  content: counter(prompt, decimal-leading-zero);
+  position: absolute;
+  left: 4mm;
+  top: 4mm;
+  font-family: var(--font-display);
+  font-size: 10pt;
+  font-weight: 500;
+  color: var(--color-highlight);
+  letter-spacing: 0.02em;
+}
+
+/* Terracotta highlight on bracket placeholders — inserted via JS at load */
+.bracket {
+  color: var(--color-highlight);
+  font-style: italic;
+  background: rgba(198, 107, 61, 0.06);
+  padding: 0 1.5pt;
+  border-radius: 1pt;
+  font-weight: 500;
+}
+
+/* ══════════════════════════════════════════════════════════
+   BACK COVER
+   ══════════════════════════════════════════════════════════ */
+.page--back {
+  page: full-bleed;
+  page-break-before: always;
+  width: 210mm; height: 297mm;
+  background: var(--color-dark-bg);
+  color: var(--color-dark-text);
+  padding: 30mm 22mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.page--back .back__eyebrow {
+  font-size: 9pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-highlight);
+  font-weight: 500;
+  margin-bottom: 8mm;
+}
+.page--back h1 {
+  font-family: var(--font-display);
+  font-size: 42pt;
+  line-height: 1.05;
+  color: var(--color-dark-text);
+  font-weight: 400;
+  max-width: 14ch;
+}
+.page--back p {
+  color: rgba(247, 243, 237, 0.8);
+  font-size: 11pt;
+  max-width: 40ch;
+  margin-top: 6mm;
+}
+.back__cta-list {
+  list-style: none;
+  margin-top: 12mm;
+  display: grid;
+  gap: 5mm;
+  font-size: 10pt;
+  max-width: 50ch;
+}
+.back__cta-list li {
+  padding: 5mm 7mm;
+  background: rgba(247, 243, 237, 0.06);
+  border-left: 2pt solid var(--color-highlight);
+}
+.back__cta-list strong {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--color-dark-text);
+  font-size: 11pt;
+  display: block;
+  margin-bottom: 1.5mm;
+}
+.back__cta-list a { color: var(--color-dark-text); text-decoration: underline; text-decoration-color: var(--color-highlight); }
+
+.back__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: rgba(247, 243, 237, 0.55);
+  font-size: 8pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.back__brand {
+  font-family: var(--font-display);
+  font-size: 10pt;
+  color: var(--color-dark-text);
+  text-transform: none;
+  letter-spacing: 0;
+}

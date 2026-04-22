@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för lärare i moderna språk på gymnasiet — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 31</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">För moderna språk på gymnasiet</div>
+    <div class="cover__count">80 chattpromptar</div>
+    <h1 class="cover__title">Promptar för lärare i moderna språk på gymnasiet.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">31</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">80 promptar</div>
+  <h2>lärare i moderna språk på gymnasiet</h2>
+</section>
+
+<ol class="prompts">
+  <li>Skriv en text på 200 ord på [språk] om en typisk dag i en stad i ett [språk]-talande land för Moderna språk 1 och skapa 5 läsförståelsefrågor som fokuserar på detaljer och nya ord.</li>
+  <li>Skapa en text på 150 ord på [språk] om en populär högtid i ett [språk]-talande land för Moderna språk 2 och skriv 4 frågor som uppmuntrar eleverna att identifiera kulturella aspekter och vokabulär.</li>
+  <li>Skriv en text på 200 ord på [språk] om ungdomskultur i ett [språk]-talande land för Moderna språk 3 och skapa 5 frågor som testar elevernas förmåga att dra slutsatser och förstå sammanhang.</li>
+  <li>Skapa en lista med 10 [språk]-ord relaterade till mat och ge en uppgift för Moderna språk 1 där eleverna skriver meningar med 5 av orden på [språk].</li>
+  <li>Skriv en text på 150 ord på [språk] om en känd person från ett [språk]-talande land för Moderna språk 2 och skapa 4 frågor som fokuserar på att förstå personens betydelse och nya ord.</li>
+  <li>Skapa en text på 200 ord på [språk] om en resa till ett [språk]-talande land för Moderna språk 1 och skriv 5 frågor som testar elevernas förståelse av handlingen.</li>
+  <li>Skriv en text på 150 ord på [språk] om hur man studerar i ett [språk]-talande land för Moderna språk 3 och skapa 4 frågor som uppmuntrar eleverna att reflektera över textens budskap och vokabulär.</li>
+  <li>Skapa en lista med 10 [språk]-uttryck som används i vardagliga samtal och ge en uppgift för Moderna språk 2 där eleverna skriver en kort dialog på [språk] med 5 av uttrycken.</li>
+  <li>Skriv en text på 200 ord på [språk] om naturen i ett [språk]-talande land för Moderna språk 1 och skapa 5 frågor som fokuserar på att förstå nya ord och beskrivningar.</li>
+  <li>Skapa en text på 150 ord på [språk] om en historisk händelse i ett [språk]-talande land för Moderna språk 3 och skriv 4 frågor som testar elevernas förmåga att analysera orsaker och konsekvenser. Skrivande</li>
+  <li>Skapa en skrivuppgift för Moderna språk 1 där eleverna skriver e n text på 150 ord på [språk] om sin familj och ge 5 vägledande frågor på svenska för att strukturera texten.</li>
+  <li>Skriv en mall på [språk] för ett informellt brev för Moderna språk 2 och ge en uppgift där eleverna skriver ett brev på [språk] till en vän om en semester.</li>
+  <li>Skapa en skrivuppgift för Moderna språk 3 där eleverna skriver en text på 200 ord på [språk] om sina framtidsplaner och ge 5 tips på [språk] för att uttrycka framtida planer.</li>
+  <li>Skriv en lista med 10 [språk]-adjektiv som beskriver personligheter och ge en uppgift för Moderna språk 1 där eleverna skriver en kort text på [språk] om en vän med 5 av adjektiven.</li>
+  <li>Skapa en skrivuppgift för Moderna språk 2 där eleverna skriver en dagboksanteckning på 150 ord på [språk] om en dag i skolan och ge 5 exempel på meningar på [språk] de kan använda.</li>
+  <li>Skriv en mall på [språk] för en enkel berättelse med inledning, handling och avslutning för Moderna språk 1 och ge en uppgift där eleverna skriver om en rolig händelse.</li>
+  <li>Skapa en skrivuppgift för Moderna språk 3 där eleverna skriver en text på 200 ord på [språk] om en samhällsfråga i ett [språk]-talande land och ge 5 vägledande frågor på svenska.</li>
+  <li>Skriv en lista med 10 [språk]-verb som används i vardagen och ge en uppgift för Moderna språk 2 där eleverna skriver 5 meningar på [språk] om sin morgonrutin.</li>
+  <li>Skapa en skrivuppgift för Moderna språk 1 där eleverna skriver en text på 150 ord på [språk] om sitt favoritställe och ge 5 vägledande frågor på svenska för att strukturera texten.</li>
+  <li>Skriv en mall på [språk] för en recension av en film eller bok för Moderna språk 3 och ge en uppgift där eleverna skriver en recension på 200 ord på [språk] av en film från ett [språk]-talande land. Muntlig kommunikation</li>
+  <li>Skriv 5 diskussionsfrågor på [språk] för Moderna språk 1 baserade på en text på 150 ord på [språk] om att resa i ett [språk]-talande land och fokusera på upplevelser och utmaningar.</li>
+  <li>Skapa en rollspelsuppgift för Moderna språk 2 där två elever låtsas beställa mat på en restaurang i ett [språk]-talande land och ge 5 exempel på fraser på [språk] de kan använda.</li>
+  <li>Skapa en lista med 5 ämnen för gruppdiskussioner på [språk] om livet i ett [språk]- talande land för Moderna språk 3 och skriv 4 frågor på [språk] för varje ämne som uppmuntrar till reflektion.</li>
+  <li>Skriv en text på 150 ord på [språk] om en marknad i ett [språk]-talande land för Moderna språk 1 och skapa 5 frågor på [språk] för en klassdiskussion om shopping och kultur.</li>
+  <li>Skapa en uppgift för Moderna språk 2 där eleverna förbereder en 2-minuters presentation på [språk] om sin favoritstad i ett [språk]-talande land och ge 5 tips på [språk] för att tala tydligt.</li>
+  <li>Skriv 5 diskussionsfrågor på [språk] för Moderna språk 3 baserade på en text på 200 ord på [språk] om miljöproblem i ett [språk]-talande land och fokusera på lösningar.</li>
+  <li>Skapa en rollspelsuppgift för Moderna språk 1 där eleverna låtsas boka ett hotellrum på [språk] och ge 5 exempel på vardagliga fraser på [språk] de kan använda.</li>
+  <li>Skriv en text på 150 ord på [språk] om vikten av att lära sig [språk] för Moderna språk 2 och skapa 5 frågor på [språk] för en gruppdiskussion om språk och jobb.</li>
+  <li>Skapa en uppgift för Moderna språk 3 där eleverna förbereder en 3-minuters presentation på [språk] om en nyhet från ett [språk]-talande land och ge 5 frågor på svenska för att guida deras research.</li>
+  <li>Skriv 5 diskussionsfrågor på [språk] för Moderna språk 1 baserade på en text på 150 ord på [språk] om traditionell mat i ett [språk]-talande land och fokusera på matvanor. Kulturell förståelse</li>
+  <li>Skriv en text på 200 ord på [språk] om en traditionell högtid i ett [språk]-talande land för Moderna språk 1 och skapa 5 frågor på [språk] som uppmuntrar eleverna att reflektera över traditioner.</li>
+  <li>Skapa en text på 150 ord på [språk] om familjelivet i ett [språk]-talande land för Moderna språk 2 och skriv 4 frågor på [språk] som fokuserar på kulturella skillnader och likheter.</li>
+  <li>Skapa en uppgift för Moderna språk 3 där eleverna skriver en text på 200 ord på [språk] om hur de upplever kulturen i ett [språk]-talande land och ge 5 vägledande frågor på svenska.</li>
+  <li>Skriv en text på 200 ord på [språk] om en känd festival i ett [språk]-talande land för Moderna språk 1 och skapa 5 diskussionsfrågor på [språk] om festligheter och traditioner.</li>
+  <li>Skapa en text på 150 ord på [språk] om en historisk plats i ett [språk]-talande land för Moderna språk 2 och skriv 4 frågor på [språk] som fokuserar på platsens betydelse.</li>
+  <li>Skapa en lista med 5 kulturella traditioner i ett [språk]-talande land och ge en uppgift för Moderna språk 1 där eleverna skriver en text på 150 ord på [språk] om en tradition.</li>
+  <li>Skriv en text på 200 ord på [språk] om hur unga lever i ett [språk]-talande land för Moderna språk 2 och skapa 5 frågor på [språk] som uppmuntrar eleverna att jämföra med Sverige.</li>
+  <li>Skapa en text på 150 ord på [språk] om en konstnär eller musiker från ett [språk]- talande land för Moderna språk 3 och skriv 4 frågor på [språk] som fokuserar på konstnärens påverkan.</li>
+  <li>Skapa en uppgift för Moderna språk 1 där eleverna ritar och beskriver en typisk miljö i ett [språk]-talande land på [språk] och ge 5 vägledande frågor på svenska för att strukturera deras arbete.</li>
+  <li>Skriv en text på 200 ord på [språk] om hur man firar nyår i ett [språk]-talande land för Moderna språk 2 och skapa 5 frågor på [språk] som uppmuntrar eleverna att diskutera traditioner. Grammatik och språkstruktur</li>
+  <li>Skriv en text på 150 ord på [språk] om en dag i parken för Moderna språk 1 och markera 5 verb i presens, och skapa en uppgift där eleverna skriver 5 egna meningar på [språk] med dessa verb.</li>
+  <li>Skapa en lista med 10 [språk]-prepositioner som används i vardagen och ge en uppgift för Moderna språk 2 där eleverna skriver en kort text på [språk] om sin stad med 5 prepositioner.</li>
+  <li>Skriv en text på 200 ord på [språk] om en semester för Moderna språk 1 och markera 5 adjektiv, och skapa en uppgift där eleverna beskriver en plats på [språk] med 5 egna adjektiv.</li>
+  <li>Skapa en lista med 10 [språk]-ord som ofta används i plural och ge en uppgift för Moderna språk 2 där eleverna skriver meningar på [språk] med 5 av orden i pluralform.</li>
+  <li>Skriv en text på 200 ord på [språk] om ett besök på en marknad för Moderna språk 3 och markera 5 exempel på bisatser, och skapa en uppgift där eleverna skriver 5 egna meningar på [språk] med bisatser.</li>
+  <li>Skapa en lista med 10 [språk]-ord som ändrar form i bestämd form och ge en uppgift för Moderna språk 1 där eleverna skriver meningar på [språk] med 5 av orden i bestämd form.</li>
+  <li>Skriv en text på 150 ord på [språk] om en familjemiddag för Moderna språk 2 och markera 5 verb i preteritum, och skapa en uppgift där eleverna skriver om gårdagen på [språk] med 5 verb i preteritum.</li>
+  <li>Skapa en lista med 5 vanliga [språk]-uttryck med verb och ge en uppgift för Moderna språk 3 där eleverna skriver en dialog på 200 ord på [språk] med 3 av uttrycken.</li>
+  <li>Skriv en text på 200 ord på [språk] om en utflykt för Moderna språk 1 och markera 5 exempel på ordningstal, och skapa en uppgift där eleverna skriver 5 meningar på [språk] med ordningstal.</li>
+  <li>Skapa en lista med 10 [språk]-adverb som beskriver hur något görs och ge en uppgift för Moderna språk 2 där eleverna skriver en text på [språk] om en idrottsaktivitet med 5 adverb. Samhällsorientering</li>
+  <li>Skriv en text på 200 ord på [språk] om hur utbildningssystemet fungerar i ett [språk]- talande land för Moderna språk 3 och skapa 5 diskussionsfrågor på [språk] som fokuserar på likheter och skillnader med Sverige.</li>
+  <li>Skapa en text på 150 ord på [språk] om hur man firar en nationaldag i ett [språk]- talande land för Moderna språk 2 och skriv 4 frågor på [språk] som uppmuntrar eleverna att reflektera över patriotism.</li>
+  <li>Skriv en text på 200 ord på [språk] om arbetslivet i ett [språk]-talande land för Moderna språk 1 och skapa 5 frågor på [språk] som testar elevernas förståelse av arbetskultur.</li>
+  <li>Skapa en lista med 5 samhällsstrukturer i ett [språk]-talande land och ge en uppgift för Moderna språk 3 där eleverna skriver en text på 200 ord på [språk] om en av strukturerna.</li>
+  <li>Skriv en text på 150 ord på [språk] om miljöutmaningar i ett [språk]-talande land för Moderna språk 2 och skapa 4 frågor på [språk] som fokuserar på hållbarhet och lösningar.</li>
+  <li>Skapa en uppgift för Moderna språk 1 där eleverna skriver en text på 150 ord på [språk] om hur man reser med kollektivtrafik i ett [språk]-talande land och ge 5 vägledande frågor på svenska.</li>
+  <li>Skriv en text på 200 ord på [språk] om hur man söker jobb i ett [språk]-talande land för Moderna språk 3 och skapa 5 diskussionsfrågor på [språk] om arbetsmarknaden.</li>
+  <li>Skapa en text på 150 ord på [språk] om hur familjer bor i ett [språk]-talande land för Moderna språk 2 och skriv 4 frågor på [språk] som uppmuntrar eleverna att diskutera boendekultur.</li>
+  <li>Skriv en lista med 5 rättigheter för invånare i ett [språk]-talande land och ge en uppgift för Moderna språk 1 där eleverna skriver en text på 150 ord på [språk] om en rättighet.</li>
+  <li>Skapa en text på 200 ord på [språk] om hur man kan engagera sig i samhället i ett [språk]-talande land för Moderna språk 3 och skapa 5 frågor på [språk] som fokuserar på medborgarskap. Litteratur och media</li>
+  <li>Skriv en text på 200 ord på [språk] om en känd barnbok från ett [språk]-talande land för Moderna språk 1 och skapa 5 läsförståelsefrågor på [språk] som fokuserar på handling och karaktärer.</li>
+  <li>Skapa en text på 150 ord på [språk] om en nyhetsartikel från ett [språk]-talande land om teknik för Moderna språk 2 och skriv 4 frågor på [språk] som uppmuntrar eleverna att analysera budskapet.</li>
+  <li>Skriv en text på 200 ord på [språk] om en film från ett [språk]-talande land för Moderna språk 3 och skapa 5 diskussionsfrågor på [språk] som fokuserar på teman och kulturella aspekter.</li>
+  <li>Skapa en lista med 5 författare från ett [språk]-talande land och ge en uppgift för Moderna språk 2 där eleverna skriver en text på 200 ord på [språk] om en författare och hens verk.</li>
+  <li>Skriv en text på 150 ord på [språk] om en populär TV-serie från ett [språk]-talande land för Moderna språk 1 och skapa 5 frågor på [språk] som testar elevernas förståelse av handlingen.</li>
+  <li>Skapa en uppgift för Moderna språk 3 där eleverna skriver en recension på 200 ord på [språk] av en bok från ett [språk]-talande land och ge 5 vägledande frågor på svenska.</li>
+  <li>Skriv en text på 200 ord på [språk] om hur sociala medier används i ett [språk]- talande land för Moderna språk 2 och skapa 5 frågor på [språk] som uppmuntrar eleverna att diskutera för- och nackdelar.</li>
+  <li>Skapa en text på 150 ord på [språk] om en tidning eller nyhetskanal från ett [språk]- talande land för Moderna språk 1 och skriv 4 frågor på [språk] som fokuserar på hur man kan använda media för att lära sig [språk].</li>
+  <li>Skriv en lista med 5 låtar på [språk] och ge en uppgift för Moderna språk 2 där eleverna skriver en text på 200 ord på [språk] om en låt och dess budskap.</li>
+  <li>Skapa en text på 200 ord på [språk] om en känd poet från ett [språk]-talande land för Moderna språk 3 och skapa 5 frågor på [språk] som uppmuntrar eleverna att analysera poetens stil. Kreativitet och uttryck</li>
+  <li>Skapa en skrivuppgift för Moderna språk 1 där eleverna skriver en dikt på 10 rader på [språk] om sommaren och ge 5 exempel på beskrivande ord på [språk] de kan använda.</li>
+  <li>Skriv en mall på [språk] för en kort berättelse om en vänskap för Moderna språk 2 och ge en uppgift där eleverna skriver en berättelse på 200 ord på [språk] om två vänner.</li>
+  <li>Skapa en uppgift för Moderna språk 3 där eleverna skriver en text på 200 ord på [språk] om en påhittad resa till ett [språk]-talande land och ge 5 vägledande frågor på svenska.</li>
+  <li>Skriv en lista med 10 [språk]-ord som beskriver naturen och ge en uppgift för Moderna språk 1 där eleverna skriver en kort text på [språk] om en strand med 5 av orden.</li>
+  <li>Skapa en skrivuppgift för Moderna språk 2 där eleverna skriver en dialog på 200 ord på [språk] mellan två personer som planerar en utflykt och ge 5 exempel på fraser på [språk].</li>
+  <li>Skriv en lista med 5 teman för kreativa berättelser och ge en uppgift för Moderna språk 1 där eleverna skriver en berättelse på 150 ord på [språk] om ett av temana.</li>
+  <li>Skapa en uppgift för Moderna språk 3 där eleverna skriver en text på 200 ord på [språk] om en påhittad nyhetshändelse i ett [språk]-talande land och ge 5 tips på [språk] för att skriva en nyhetsartikel.</li>
+  <li>Skriv en text på 150 ord på [språk] om en festival i ett [språk]-talande land för Moderna språk 2 och skapa en uppgift där eleverna ritar och beskriver sin egen festival på [språk] med 5 meningar.</li>
+  <li>Skapa en lista med 10 [språk]-ord som beskriver känslor och ge en uppgift för Moderna språk 1 där eleverna skriver en kort text på [språk] om en dag då de kände sig glada.</li>
+  <li>Skapa en skrivuppgift för Moderna språk 2 där eleverna skriver en text på 200 ord på [språk] om ett påhittat äventyr i ett [språk]-talande land och ge 5 exempel på beskrivande meningar på [språk].</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

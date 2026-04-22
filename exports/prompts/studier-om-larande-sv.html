@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar grundade i forskning om lärande — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 62</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">Tematiskt · Studier om lärande</div>
+    <div class="cover__count">20 chattpromptar</div>
+    <h1 class="cover__title">Promptar grundade i forskning om lärande.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">62</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">20 promptar</div>
+  <h2>studier och forskning om lärande</h2>
+</section>
+
+<ol class="prompts">
+  <li>Vad säger forskning om lärande om fördelarna med spaced repetition jämfört med massed repetition (cramming) för att förbättra långtidsminnet hos elever, och ge tre exempel på hur detta kan tillämpas i [ämne] för en [årskurs X]-klass?</li>
+  <li>Baserat på studier om inlärning, hur förbättrar active recall retention jämfört med passiv genomgång, och hur kan jag använda detta i en [årskurs X]-klass i [ämne] för att lära ut [specifikt ämnesmoment, t.ex. glosor]?</li>
+  <li>Vad visar forskning om interleaved practice och dess effekt på långsiktig inlärning och problemlösningsförmåga, och hur kan jag implementera detta i en [årskurs X]- klass i [ämne] med [specifika moment, t.ex. matteoperationer]?</li>
+  <li>Enligt forskning om lärande, hur bidrar elaborative interrogation till djupare förståelse, och vilka tre forskningsbaserade frågor kan jag använda för att få en [årskurs X]-klass i [ämne] att förklara [specifikt tema, t.ex. demokrati]?</li>
+  <li>Vad säger studier om self-explanation och dess påverkan på begreppsförståelse, och hur kan jag använda denna metod i en [årskurs X]-klass i [ämne] för att koppla [specifikt nytt begrepp, t.ex. bråk] till känd kunskap?</li>
+  <li>Baserat på forskning om dual coding, hur förbättrar kombinationen av text och visuella element inlärning, och hur kan jag tillämpa detta i en [årskurs X]-klass i [ämne] för att förklara [specifikt begrepp, t.ex. ekosystem]?</li>
+  <li>Vad visar forskning om effekten av konkreta exempel på att förstå abstrakta begrepp, och ge tre forskningsbaserade exempel jag kan använda i en [årskurs X]- klass i [ämne] för att förklara [specifikt abstrakt begrepp, t.ex. sannolikhet]?</li>
+  <li>Enligt Hatties forskning om feedback, hur kan effektiv feedback förbättra elevers lärande, och hur kan jag skapa tre forskningsbaserade feedback-loopar för en [årskurs X]-klass i [ämne] för att förstärka [specifikt moment, t.ex. skrivning]?</li>
+  <li>Vad säger forskning om metakognitiva strategier och deras påverkan på självreglerat lärande, och hur kan jag använda detta i en [årskurs X]-klass i [ämne] för att få elever att reflektera över [specifikt mål, t.ex. problemlösning]?</li>
+  <li>Baserat på forskning om peer learning, hur förbättrar samarbete mellan elever deras inlärning, och vilka tre forskningsbaserade gruppuppgifter kan jag använda i en[årskurs X]-klass i [ämne] för att fördjupa [specifikt tema, t.ex. historieanalys]?</li>
+  <li>Vad visar forskning om chunking och dess effekt på att minska kognitiv belastning, och hur kan jag använda denna metod i en [årskurs X]-klass i [ämne] för att bryta ner [specifikt komplext innehåll, t.ex. kemiska reaktioner] i tre delar?</li>
+  <li>Enligt forskning om scaffolding, hur kan strukturerat stöd förbättra elevernas självständiga lärande, och vilka tre forskningsbaserade stödstrukturer kan jag använda i en [årskurs X]-klass i [ämne] för att lära ut [specifikt moment, t.ex. problemlösning]?</li>
+  <li>Vad säger studier om minnestekniker (t.ex. mnemonics) och deras påverkan på retention, och hur kan jag implementera tre forskningsbaserade tekniker i en [årskurs]-klass i [ämne] för att lära sig [specifikt innehåll, t.ex. historiska årtal]?</li>
+  <li>Baserat på forskning om interleaved practice, hur förbättrar blandad övning långsiktig inlärning jämfört med blockad övning, och hur kan jag använda detta i en [årskurs X]-klass i [ämne] för att blanda [specifika moment, t.ex. geometri och algebra]?</li>
+  <li>Vad visar forskning om peer learning och dess effekt på både förståelse och motivation, och vilka tre forskningsbaserade gruppuppgifter kan jag använda i en [årskurs X]-klass i [ämne] för att fördjupa [specifikt tema, t.ex. samhällsfrågor]?</li>
+  <li>Enligt forskning om self-explanation, hur kan självförklaring förbättra begreppsförståelse, och hur kan jag få en [årskurs X]-klass i [ämne] att förklara [specifikt nytt begrepp, t.ex. densitet] med tre forskningsbaserade steg?</li>
+  <li>Vad säger studier om dual coding och dess effekt på minnesretention jämfört med enbart textbaserat lärande, och hur kan jag tillämpa detta i en [årskurs X]-klass i [ämne] för att lära ut [specifikt begrepp, t.ex. kretsar] med både text och bilder?</li>
+  <li>Baserat på forskning om elaborative interrogation, hur kan utvecklingsfrågor fördjupa elevernas förståelse, och vilka tre forskningsbaserade frågor kan jag använda i en [årskurs X]-klass i [ämne] för att utforska [specifikt tema, t.ex. hållbarhet]?</li>
+  <li>Vad visar forskning om feedback enligt Hatties Visible Learning, och hur kan jag använda tre forskningsbaserade feedback-metoder i en [årskurs X]-klass i [ämne] för att förbättra [specifikt moment, t.ex. skrivning]?</li>
+  <li>Enligt forskning om metakognitiva strategier, hur kan reflektion över sitt eget lärande förbättra prestationer, och hur kan jag implementera detta i en [årskurs X]-klass i [ämne] för att få elever att reflektera över [specifikt mål, t.ex. problemlösning] med tre steg?</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

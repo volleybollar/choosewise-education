@@ -1,0 +1,35 @@
+{
+  "folder": "44 SYV",
+  "slug_sv": "syv",
+  "slug_en": "career-counselors",
+  "cover_count": 20,
+  "total_prompts": 20,
+  "parts": [
+    {
+      "number": 1,
+      "title": "SYV",
+      "prompts": [
+        "Skapa en plan för ett individuellt vägledningssamtal med en elev i [årskurs X] inför [specifikt val, t.ex. gymnasieval], med tre steg och en uppföljning.",
+        "Ge mig fem strategier för att stötta lärare på en [grundskola] i att integrera [specifikt tema, t.ex. yrkesliv] i undervisningen, med en idé för varje.",
+        "Skriv en kort guide för att introducera en [årskurs X]-elev till [specifik resurs, t.ex. Arbetsförmedlingens Yrkeskompass], med tre steg och ett exempel.",
+        "Föreslå tre sätt att samarbeta med elevhälsoteamet på en [grundskola] för att stötta elever i [specifikt behov, t.ex. osäkerhet kring val], med en insats för varje.",
+        "Skapa en lista med fem korta frågor för att inleda ett samtal med en [årskurs X]-elev om deras intressen och framtidsdrömmar.",
+        "Ge mig ett exempel på en rutin för att följa upp en elev i [årskurs X] efter ett vägledningssamtal om [specifikt ämne, t.ex. studieplan], med tre steg.",
+        "Föreslå tre sätt att genomföra en grupplektion för en [årskurs X]-klass om [specifikt tema, t.ex. arbetsmarknad eller gymnasieprogram], med en aktivitet för varje.",
+        "Skriv en kort mall för att dokumentera ett vägledningssamtal med en [årskurs X]- elev på en K-12-skola, med tre sektioner (t.ex. mål, reflektion, nästa steg).",
+        "Ge mig fem idéer för att inspirera en elev i [årskurs X] att utforska [specifikt område, t.ex. tekniska yrken], med en metod för varje",
+        "Skapa en lista med tre korta reflektionsfrågor för en [årskurs X]-elev efter en vägledningsaktivitet om [specifikt ämne, t.ex. karriärval].",
+        "Föreslå tre sätt att samarbeta med föräldrar till en [årskurs X]-elev för att diskutera [specifikt val, t.ex. gymnasieinriktning], med en strategi för varje.",
+        "Ge mig ett exempel på en enkel kartläggning av en [årskurs X]-elevs styrkor och intressen inför [specifikt val, t.ex. studieväg], med tre punkter.",
+        "Skriv en lista med fem resurser (t.ex. webbplatser eller material) för en SYV på en [grundskola] som stödjer [specifikt ämne, t.ex. framtida arbetsmarknad].",
+        "Föreslå tre sätt att hantera en elev i [årskurs X] som känner press kring [specifikt val, t.ex. utbildning], med en metod för varje.",
+        "Skapa en mall för en kort presentation för lärare på en [grundskola] om [specifikt tema, t.ex. breddad vägledning], med tre nyckelpunkter.",
+        "Ge mig fem idéer för att introducera en [årskurs X]-klass till olika yrken inom [specifikt område, t.ex. vård eller teknik].",
+        "Föreslå tre sätt att använda [specifikt verktyg, t.ex. SACO:s Yrkesväljaren] för att guida en [årskurs X]-elev i [specifikt val, t.ex. framtidsplaner], med en idé för varje.",
+        "Skriv en kort guide för att stötta en elev i [årskurs X] som är osäker på sina val efter [specifik händelse, t.ex. PRAO], med tre steg.",
+        "Ge mig ett exempel på en rutin för att planera en vägledningsdag för en [årskurs X]- klass på en [grundskola], med tre aktiviteter.",
+        "Skapa en lista med tre korta sätt att samarbeta med rektor på en [grundskola] för att stärka [specifikt mål, t.ex. studievägledning i lägre årskurser], med ett exempel för varje."
+      ]
+    }
+  ]
+}

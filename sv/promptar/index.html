@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Promptbibliotek — choosewise.education</title>
-  <meta name="description" content="Gratis nedladdningsbara promptpaket för lärare, skolledare och andra yrkesgrupper i skolan.">
+  <meta name="description" content="Ett fritt bibliotek av AI-chattpromptar för alla yrkesroller i skolan — lärare, rektorer, ämneslärare, stödpersonal. Nedladdningsbara PDF:er.">
+  <meta property="og:title" content="Promptbibliotek — choosewise.education">
+  <meta property="og:description" content="Ett fritt bibliotek av AI-chattpromptar för alla yrkesroller i skolan.">
   <meta property="og:image" content="/assets/images/brand/og-default.svg">
   <link rel="stylesheet" href="/assets/css/fonts.css">
   <link rel="stylesheet" href="/assets/css/tokens.css">
@@ -17,34 +19,428 @@
 
   <main>
     <section class="page-hero container">
-      <span class="eyebrow" data-reveal>Promptar</span>
-      <h1 data-reveal>Promptbibliotek</h1>
-      <p class="lede" data-reveal>Gratis promptpaket. Ladda ner. Använd. Dela. Fler läggs till regelbundet.</p>
+      <span class="eyebrow" data-reveal>Promptbibliotek</span>
+      <h1 data-reveal>Promptar för alla i skolan.</h1>
+      <p class="lede" data-reveal>65 promptpaket för lärare, ämneslärare, skolledare och stödpersonal — 3457 promptar totalt, grundade i pedagogik. Varje paket är en nedladdningsbar PDF.</p>
     </section>
 
-    <section class="container section">
-      <div class="filters" data-reveal>
-        <label>Roll:
-          <select id="filter-role">
-            <option value="">Alla</option>
-            <option>Lärare</option>
-            <option>Rektor</option>
-            <option>Skolledare</option>
-            <option>Specialpedagog</option>
-          </select>
-        </label>
-        <label>Tema:
-          <select id="filter-topic">
-            <option value="">Alla</option>
-            <option>Pedagogik</option>
-            <option>Bedömning</option>
-            <option>Planering</option>
-            <option>Ledarskap</option>
-          </select>
-        </label>
+    <section class="section container" data-reveal>
+      <div class="prompt-filters" role="group" aria-label="Filtrera promptpaket">
+        <span class="prompt-filters__group-label">Filtrera</span>
+        <button type="button" class="prompt-filter is-active" data-filter="all">Alla</button>
+        <button type="button" class="prompt-filter" data-filter="teachers">Lärare</button>
+        <button type="button" class="prompt-filter" data-filter="subject">Ämneslärare</button>
+        <button type="button" class="prompt-filter" data-filter="leaders">Skolledare</button>
+        <button type="button" class="prompt-filter" data-filter="support">Stödpersonal</button>
+        <button type="button" class="prompt-filter" data-filter="themes">Tematiskt</button>
       </div>
-      <div class="prompts-grid" id="prompts-grid" data-source="/sv/promptar/prompts-sv.json" data-template="prompt"></div>
-      <p id="prompts-empty" class="blog-empty" style="display:none;margin-top:var(--space-6);">Promptpaket läggs till löpande. Kom tillbaka snart.</p>
+
+      <div class="prompt-grid">
+        <a class="prompt-card" href="/sv/promptar/larare/" data-category="teachers">
+          <span class="prompt-card__eyebrow">För lärare</span>
+          <h2 class="prompt-card__title">Promptar för lärare</h2>
+          <p class="prompt-card__count">120 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/lar-dig-nya-saker/" data-category="themes">
+          <span class="prompt-card__eyebrow">För den som vill lära sig</span>
+          <h2 class="prompt-card__title">Promptar för att lära dig nya saker</h2>
+          <p class="prompt-card__count">79 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/rektorer/" data-category="leaders">
+          <span class="prompt-card__eyebrow">För rektorer</span>
+          <h2 class="prompt-card__title">Promptar för rektorer</h2>
+          <p class="prompt-card__count">62 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/skolchefer/" data-category="leaders">
+          <span class="prompt-card__eyebrow">För skolchefer</span>
+          <h2 class="prompt-card__title">Promptar för skolchefer</h2>
+          <p class="prompt-card__count">62 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/forskola/" data-category="teachers">
+          <span class="prompt-card__eyebrow">För förskolan</span>
+          <h2 class="prompt-card__title">Promptar för förskolan</h2>
+          <p class="prompt-card__count">90 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/forskoleklass/" data-category="teachers">
+          <span class="prompt-card__eyebrow">För förskoleklass</span>
+          <h2 class="prompt-card__title">Promptar för förskoleklass</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/bild/" data-category="subject">
+          <span class="prompt-card__eyebrow">För bildlärare</span>
+          <h2 class="prompt-card__title">Promptar för bildlärare</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/biologi/" data-category="subject">
+          <span class="prompt-card__eyebrow">För biologilärare</span>
+          <h2 class="prompt-card__title">Promptar för biologilärare</h2>
+          <p class="prompt-card__count">80 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/engelska/" data-category="subject">
+          <span class="prompt-card__eyebrow">För engelsklärare</span>
+          <h2 class="prompt-card__title">Promptar för engelsklärare</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/fysik/" data-category="subject">
+          <span class="prompt-card__eyebrow">För fysiklärare</span>
+          <h2 class="prompt-card__title">Promptar för fysiklärare</h2>
+          <p class="prompt-card__count">80 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/geografi/" data-category="subject">
+          <span class="prompt-card__eyebrow">För geografilärare</span>
+          <h2 class="prompt-card__title">Promptar för geografilärare</h2>
+          <p class="prompt-card__count">60 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/hkk/" data-category="subject">
+          <span class="prompt-card__eyebrow">För HKK-lärare</span>
+          <h2 class="prompt-card__title">Promptar för HKK-lärare</h2>
+          <p class="prompt-card__count">41 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/historia/" data-category="subject">
+          <span class="prompt-card__eyebrow">För historielärare</span>
+          <h2 class="prompt-card__title">Promptar för historielärare</h2>
+          <p class="prompt-card__count">60 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/idh/" data-category="subject">
+          <span class="prompt-card__eyebrow">För IDH-lärare</span>
+          <h2 class="prompt-card__title">Promptar för IDH-lärare</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/kemi/" data-category="subject">
+          <span class="prompt-card__eyebrow">För kemilärare</span>
+          <h2 class="prompt-card__title">Promptar för kemilärare</h2>
+          <p class="prompt-card__count">80 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/matematik/" data-category="subject">
+          <span class="prompt-card__eyebrow">För matematiklärare</span>
+          <h2 class="prompt-card__title">Promptar för matematiklärare</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/lara-sig-rakna/" data-category="subject">
+          <span class="prompt-card__eyebrow">För tidig räkneinlärning</span>
+          <h2 class="prompt-card__title">Promptar för tidig matematikinlärning</h2>
+          <p class="prompt-card__count">56 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/moderna-sprak/" data-category="subject">
+          <span class="prompt-card__eyebrow">För lärare i moderna språk</span>
+          <h2 class="prompt-card__title">Promptar för lärare i moderna språk</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/musik/" data-category="subject">
+          <span class="prompt-card__eyebrow">För musiklärare</span>
+          <h2 class="prompt-card__title">Promptar för musiklärare</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/naturkunskap/" data-category="subject">
+          <span class="prompt-card__eyebrow">För lärare i naturkunskap</span>
+          <h2 class="prompt-card__title">Promptar för lärare i naturkunskap</h2>
+          <p class="prompt-card__count">68 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/no/" data-category="subject">
+          <span class="prompt-card__eyebrow">För NO-lärare</span>
+          <h2 class="prompt-card__title">Promptar för NO-lärare</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/religion/" data-category="subject">
+          <span class="prompt-card__eyebrow">För religionslärare</span>
+          <h2 class="prompt-card__title">Promptar för religionslärare</h2>
+          <p class="prompt-card__count">60 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/samhallskunskap/" data-category="subject">
+          <span class="prompt-card__eyebrow">För samhällskunskapslärare</span>
+          <h2 class="prompt-card__title">Promptar för SH-lärare</h2>
+          <p class="prompt-card__count">60 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/slojd/" data-category="subject">
+          <span class="prompt-card__eyebrow">För slöjdlärare</span>
+          <h2 class="prompt-card__title">Promptar för slöjdlärare</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/so/" data-category="subject">
+          <span class="prompt-card__eyebrow">För SO-lärare</span>
+          <h2 class="prompt-card__title">Promptar för SO-lärare</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/teknik/" data-category="subject">
+          <span class="prompt-card__eyebrow">För tekniklärare</span>
+          <h2 class="prompt-card__title">Promptar för tekniklärare</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/engelska-gymnasiet/" data-category="subject">
+          <span class="prompt-card__eyebrow">För engelsklärare på gymnasiet</span>
+          <h2 class="prompt-card__title">Promptar för engelsklärare på gymnasiet</h2>
+          <p class="prompt-card__count">56 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/historia-gymnasiet/" data-category="subject">
+          <span class="prompt-card__eyebrow">För historielärare på gymnasiet</span>
+          <h2 class="prompt-card__title">Promptar för historielärare på gymnasiet</h2>
+          <p class="prompt-card__count">80 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/idh-gymnasiet/" data-category="subject">
+          <span class="prompt-card__eyebrow">För IDH-lärare på gymnasiet</span>
+          <h2 class="prompt-card__title">Promptar för IDH-lärare på gymnasiet</h2>
+          <p class="prompt-card__count">80 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/matematik-gymnasiet/" data-category="subject">
+          <span class="prompt-card__eyebrow">För matematiklärare på gymnasiet</span>
+          <h2 class="prompt-card__title">Promptar för matematiklärare på gymnasiet</h2>
+          <p class="prompt-card__count">80 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/moderna-sprak-gymnasiet/" data-category="subject">
+          <span class="prompt-card__eyebrow">För moderna språk på gymnasiet</span>
+          <h2 class="prompt-card__title">Promptar för lärare i moderna språk på gymnasiet</h2>
+          <p class="prompt-card__count">80 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/religion-gymnasiet/" data-category="subject">
+          <span class="prompt-card__eyebrow">För religionslärare på gymnasiet</span>
+          <h2 class="prompt-card__title">Promptar för religionslärare på gymnasiet</h2>
+          <p class="prompt-card__count">80 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/samhallskunskap-gymnasiet/" data-category="subject">
+          <span class="prompt-card__eyebrow">För samhällskunskapslärare på gymnasiet</span>
+          <h2 class="prompt-card__title">Promptar för SH-lärare på gymnasiet</h2>
+          <p class="prompt-card__count">80 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/modersmal/" data-category="subject">
+          <span class="prompt-card__eyebrow">För modersmålslärare</span>
+          <h2 class="prompt-card__title">Promptar för modersmålslärare</h2>
+          <p class="prompt-card__count">80 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/svenska/" data-category="subject">
+          <span class="prompt-card__eyebrow">För svensklärare</span>
+          <h2 class="prompt-card__title">Promptar för svensklärare</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/las-och-skrivinlarning/" data-category="subject">
+          <span class="prompt-card__eyebrow">För läs- och skrivinlärning</span>
+          <h2 class="prompt-card__title">Promptar för läs- och skrivinlärning</h2>
+          <p class="prompt-card__count">49 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/svenska-gymnasiet/" data-category="subject">
+          <span class="prompt-card__eyebrow">För svensklärare på gymnasiet</span>
+          <h2 class="prompt-card__title">Promptar för svensklärare på gymnasiet</h2>
+          <p class="prompt-card__count">80 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/sva/" data-category="subject">
+          <span class="prompt-card__eyebrow">För SVA-lärare</span>
+          <h2 class="prompt-card__title">Promptar för SVA-lärare</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/sva-gymnasiet/" data-category="subject">
+          <span class="prompt-card__eyebrow">För SVA-lärare på gymnasiet</span>
+          <h2 class="prompt-card__title">Promptar för SVA-lärare på gymnasiet</h2>
+          <p class="prompt-card__count">80 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/ikt-pedagoger/" data-category="teachers">
+          <span class="prompt-card__eyebrow">För IKT-pedagoger</span>
+          <h2 class="prompt-card__title">Promptar för IKT-pedagoger</h2>
+          <p class="prompt-card__count">60 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/forstelarare/" data-category="teachers">
+          <span class="prompt-card__eyebrow">För förstelärare</span>
+          <h2 class="prompt-card__title">Promptar för förstelärare</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/fritids/" data-category="support">
+          <span class="prompt-card__eyebrow">För personal på fritids</span>
+          <h2 class="prompt-card__title">Promptar för personal på fritids</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/speciallarare/" data-category="support">
+          <span class="prompt-card__eyebrow">För speciallärare</span>
+          <h2 class="prompt-card__title">Promptar för speciallärare</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/elevassistenter/" data-category="support">
+          <span class="prompt-card__eyebrow">För elevassistenter</span>
+          <h2 class="prompt-card__title">Promptar för elevassistenter</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/syv/" data-category="support">
+          <span class="prompt-card__eyebrow">För studie- och yrkesvägledare</span>
+          <h2 class="prompt-card__title">Promptar för SYV</h2>
+          <p class="prompt-card__count">20 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/specialpedagoger/" data-category="support">
+          <span class="prompt-card__eyebrow">För specialpedagoger</span>
+          <h2 class="prompt-card__title">Promptar för specialpedagoger</h2>
+          <p class="prompt-card__count">80 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/skolskoterskor/" data-category="support">
+          <span class="prompt-card__eyebrow">För skolsköterskor</span>
+          <h2 class="prompt-card__title">Promptar för skolsköterskor</h2>
+          <p class="prompt-card__count">20 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/kuratorer/" data-category="support">
+          <span class="prompt-card__eyebrow">För kuratorer</span>
+          <h2 class="prompt-card__title">Promptar för kuratorer</h2>
+          <p class="prompt-card__count">20 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/skolpsykologer/" data-category="support">
+          <span class="prompt-card__eyebrow">För skolpsykologer</span>
+          <h2 class="prompt-card__title">Promptar för skolpsykologer</h2>
+          <p class="prompt-card__count">20 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/skolvaktmastare/" data-category="support">
+          <span class="prompt-card__eyebrow">För skolvaktmästare</span>
+          <h2 class="prompt-card__title">Promptar för skolvaktmästare</h2>
+          <p class="prompt-card__count">20 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/skolmaltidspersonal/" data-category="support">
+          <span class="prompt-card__eyebrow">För skolmåltidspersonal</span>
+          <h2 class="prompt-card__title">Promptar för skolmåltidspersonal</h2>
+          <p class="prompt-card__count">60 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/it-ansvariga-skola/" data-category="support">
+          <span class="prompt-card__eyebrow">För IT-ansvariga på skolan</span>
+          <h2 class="prompt-card__title">Promptar för IT-ansvariga på skolan</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/it-ansvariga-central/" data-category="support">
+          <span class="prompt-card__eyebrow">För IT-ansvariga på central nivå</span>
+          <h2 class="prompt-card__title">Promptar för IT-ansvariga på central nivå</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/skolbibliotekarier/" data-category="support">
+          <span class="prompt-card__eyebrow">För skolbibliotekarier</span>
+          <h2 class="prompt-card__title">Promptar för skolbibliotekarier</h2>
+          <p class="prompt-card__count">110 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/strateger/" data-category="leaders">
+          <span class="prompt-card__eyebrow">För strateger</span>
+          <h2 class="prompt-card__title">Promptar för strateger</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/administratorer/" data-category="support">
+          <span class="prompt-card__eyebrow">För skoladministratörer</span>
+          <h2 class="prompt-card__title">Promptar för skoladministratörer</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/admin-central/" data-category="support">
+          <span class="prompt-card__eyebrow">För administratörer på central nivå</span>
+          <h2 class="prompt-card__title">Promptar för administratörer på central nivå</h2>
+          <p class="prompt-card__count">61 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/digitala-verktyg/" data-category="themes">
+          <span class="prompt-card__eyebrow">Tematiskt · Digitala verktyg</span>
+          <h2 class="prompt-card__title">Promptar om digitala verktyg i skolan</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/ai-i-undervisningen/" data-category="themes">
+          <span class="prompt-card__eyebrow">Tematiskt · AI i undervisningen</span>
+          <h2 class="prompt-card__title">Promptar om AI i undervisningen</h2>
+          <p class="prompt-card__count">0 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/amnesovergripande/" data-category="themes">
+          <span class="prompt-card__eyebrow">Tematiskt · Ämnesövergripande</span>
+          <h2 class="prompt-card__title">Promptar om ämnesövergripande arbete</h2>
+          <p class="prompt-card__count">80 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/utomhuspedagogik/" data-category="themes">
+          <span class="prompt-card__eyebrow">Tematiskt · Utomhuspedagogik</span>
+          <h2 class="prompt-card__title">Promptar om utomhuspedagogik</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/studier-om-larande/" data-category="themes">
+          <span class="prompt-card__eyebrow">Tematiskt · Studier om lärande</span>
+          <h2 class="prompt-card__title">Promptar grundade i forskning om lärande</h2>
+          <p class="prompt-card__count">20 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/tidsutnyttjande/" data-category="themes">
+          <span class="prompt-card__eyebrow">Tematiskt · Tidsutnyttjande</span>
+          <h2 class="prompt-card__title">Promptar för effektivt tidsutnyttjande</h2>
+          <p class="prompt-card__count">40 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/megapromptar-1/" data-category="themes">
+          <span class="prompt-card__eyebrow">Megapromptar · Vol. 1</span>
+          <h2 class="prompt-card__title">Megapromptar #1</h2>
+          <p class="prompt-card__count">15 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/megapromptar-2/" data-category="themes">
+          <span class="prompt-card__eyebrow">Megapromptar · Vol. 2</span>
+          <h2 class="prompt-card__title">Megapromptar #2</h2>
+          <p class="prompt-card__count">15 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+        <a class="prompt-card" href="/sv/promptar/megapromptar-3/" data-category="themes">
+          <span class="prompt-card__eyebrow">Megapromptar · Vol. 3</span>
+          <h2 class="prompt-card__title">Megapromptar #3</h2>
+          <p class="prompt-card__count">13 promptar</p>
+          <div class="prompt-card__langs"><span>SV</span> <span>EN</span></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section section--alt" data-reveal>
+      <div class="container">
+        <h2 class="section__title">Om biblioteket</h2>
+        <p class="prose">Varje promptpaket är fritt att ladda ner, använda, anpassa och dela. Designen är avsiktligt konsekvent mellan alla volymer — samma omslag, samma typografi, samma struktur — så biblioteket känns som en sammanhållen samling istället för spridda handouts.</p>
+        <p class="prose">Promptarna fungerar naturligt tillsammans med <a href="/sv/ratt/">RÄTT-modellen</a>: modellen hjälper dig avgöra <em>om</em> ett AI-verktyg hör hemma i klassrummet; promptarna hjälper dig använda det väl när svaret är ja.</p>
+      </div>
     </section>
   </main>
 
@@ -53,25 +449,18 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
   <script defer src="/assets/js/include.js"></script>
-  <script defer src="/assets/js/render-grid.js"></script>
   <script defer src="/assets/js/scroll-reveals.js"></script>
+
   <script>
-    const grid = document.getElementById('prompts-grid');
-    grid.addEventListener('grid:rendered', (e) => {
-      if (e.detail.count === 0) { document.getElementById('prompts-empty').style.display = 'block'; return; }
-      const role = document.getElementById('filter-role');
-      const topic = document.getElementById('filter-topic');
-      const cards = document.querySelectorAll('.card--prompt');
-      function apply() {
-        cards.forEach(c => {
-          const meta = c.querySelector('.card__meta').textContent;
-          const roleOk = !role.value || meta.includes(role.value);
-          const topicOk = !topic.value || meta.includes(topic.value);
-          c.style.display = (roleOk && topicOk) ? '' : 'none';
+    document.querySelectorAll('.prompt-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.prompt-filter').forEach(b => b.classList.toggle('is-active', b === btn));
+        document.querySelectorAll('.prompt-card').forEach(card => {
+          const cat = card.dataset.category;
+          card.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
         });
-      }
-      role.addEventListener('change', apply);
-      topic.addEventListener('change', apply);
+      });
     });
   </script>
 </body>

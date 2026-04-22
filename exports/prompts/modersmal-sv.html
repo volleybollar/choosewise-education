@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för modersmålslärare — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 34</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">För modersmålslärare</div>
+    <div class="cover__count">80 chattpromptar</div>
+    <h1 class="cover__title">Promptar för modersmålslärare.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">34</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">80 promptar</div>
+  <h2>lärare i modersmål</h2>
+</section>
+
+<ol class="prompts">
+  <li>Skriv en text på 200 ord på [modersmål] om en traditionell högtid i [modersmålsland] för elever i årskurs 4–6 och skapa 5 läsförståelsefrågor på [modersmål] som fokuserar på detaljer och nya ord.</li>
+  <li>Skapa en text på 150 ord på [modersmål] om en dag i skolan i [modersmålsland] för elever i årskurs 7–9 och skriv 4 frågor på [modersmål] som uppmuntrar eleverna att identifiera kulturella skillnader och vokabulär.</li>
+  <li>Skriv en text på 200 ord på [modersmål] om en historisk händelse i [modersmålsland] för gymnasieelever och skapa 5 frågor på [modersmål] som testar elevernas förmåga att analysera orsaker och konsekvenser.</li>
+  <li>Skapa en lista med 10 [modersmål]-ord relaterade till familjeliv och ge en uppgift för elever i årskurs 4–6 där de skriver meningar på [modersmål] med 5 av orden.</li>
+  <li>Skriv en text på 150 ord på [modersmål] om en traditionell maträtt från [modersmålsland] för elever i årskurs 7–9 och skapa 4 frågor på [modersmål] som fokuserar på kulturella aspekter och nya ord.</li>
+  <li>Skapa en text på 200 ord på [modersmål] om en ung persons liv i [modersmålsland] för elever i årskurs 4–6 och skriv 5 frågor på [modersmål] som testar elevernas förståelse av handlingen.</li>
+  <li>Skriv en text på 150 ord på [modersmål] om hur man firar ett bröllop i [modersmålsland] för gymnasieelever och skapa 4 frågor på [modersmål] som uppmuntrar eleverna att reflektera över traditioner.</li>
+  <li>Skapa en lista med 10 [modersmål]-uttryck som används i vardagliga samtal och ge en uppgift för elever i årskurs 7–9 där de skriver en kort dialog på [modersmål] med 5 av uttrycken.</li>
+  <li>Skriv en text på 200 ord på [modersmål] om naturen i [modersmålsland] för elever i årskurs 4–6 och skapa 5 frågor på [modersmål] som fokuserar på att förstå nya ord och beskrivningar.</li>
+  <li>Skapa en text på 150 ord på [modersmål] om en känd person från [modersmålsland] för gymnasieelever och skriv 4 frågor på [modersmål] som fokuserar på personens betydelse och vokabulär. Skrivande</li>
+  <li>Skapa en skrivuppgift för elever i årskurs 4–6 där de skriver en text på 150 ord på [modersmål] om sin favoritdag och ge 5 vägledande frågor på svenska för att strukturera texten.</li>
+  <li>Skriv en mall på [modersmål] för ett brev till en släkting för elever i årskurs 7–9 och ge en uppgift där de skriver ett brev på [modersmål] om sina upplevelser i Sverige.</li>
+  <li>Skapa en skrivuppgift för gymnasieelever där de skriver en text på 200 ord på [modersmål] om hur de upplever sin kulturella identitet och ge 5 vägledande frågor på svenska.</li>
+  <li>Skriv en lista med 10 [modersmål]-adjektiv som beskriver känslor och ge en uppgift för elever i årskurs 4–6 där de skriver en kort text på [modersmål] om en dag då de kände sig glada.</li>
+  <li>Skapa en skrivuppgift för elever i årskurs 7–9 där de skriver en dagboksanteckning på 150 ord på [modersmål] om en resa till [modersmålsland] och ge 5 exempel på meningar på [modersmål].</li>
+  <li>Skriv en mall på [modersmål] för en enkel berättelse med inledning, handling och avslutning för elever i årskurs 4–6 och ge en uppgift där de skriver om en rolig händelse.</li>
+  <li>Skapa en skrivuppgift för gymnasieelever där de skriver en text på 200 ord på [modersmål] om en samhällsfråga i [modersmålsland] och ge 5 vägledande frågor på svenska.</li>
+  <li>Skriv en lista med 10 [modersmål]-verb som används i vardagen och ge en uppgift för elever i årskurs 7–9 där de skriver 5 meningar på [modersmål] om sin morgonrutin.</li>
+  <li>Skapa en skrivuppgift för elever i årskurs 4–6 där de skriver en text på 150 ord på [modersmål] om sitt favoritdjur och ge 5 vägledande frågor på svenska för att strukturera texten.</li>
+  <li>Skriv en mall på [modersmål] för en recension av en bok eller film för gymnasieelever och ge en uppgift där de skriver en recension på 200 ord på [modersmål] av en film från [modersmålsland]. Muntlig kommunikation</li>
+  <li>Skriv 5 diskussionsfrågor på [modersmål] för elever i årskurs 4–6 baserade på en text på 150 ord på [modersmål] om att bo i [modersmålsland] och fokusera på upplevelser och traditioner.</li>
+  <li>Skapa en rollspelsuppgift för elever i årskurs 7–9 där två elever låtsas handla på en marknad i [modersmålsland] och ge 5 exempel på fraser på [modersmål] de kan använda.</li>
+  <li>Skapa en lista med 5 ämnen för gruppdiskussioner på [modersmål] om livet i [modersmålsland] för gymnasieelever och skriv 4 frågor på [modersmål] för varje ämne som uppmuntrar till reflektion.</li>
+  <li>Skriv en text på 150 ord på [modersmål] om en festival i [modersmålsland] för elever i årskurs 4–6 och skapa 5 frågor på [modersmål] för en klassdiskussion om festligheter och kultur.</li>
+  <li>Skapa en uppgift för elever i årskurs 7–9 där de förbereder en 2-minuters presentation på [modersmål] om sin favorittradition i [modersmålsland] och ge 5 tips på [modersmål] för att tala tydligt.</li>
+  <li>Skriv 5 diskussionsfrågor på [modersmål] för gymnasieelever baserade på en text på 200 ord på [modersmål] om utbildning i [modersmålsland] och fokusera på skillnader med Sverige.</li>
+  <li>Skapa en rollspelsuppgift för elever i årskurs 4–6 där de låtsas ringa en släkting i [modersmålsland] och ge 5 exempel på vardagliga fraser på [modersmål] de kan använda.</li>
+  <li>Skriv en text på 150 ord på [modersmål] om vikten av att behålla sitt modersmål för elever i årskurs 7–9 och skapa 5 frågor på [modersmål] för en gruppdiskussion om språk och identitet.</li>
+  <li>Skapa en uppgift för gymnasieelever där de förbereder en 3-minuters presentation på [modersmål] om en nyhet från [modersmålsland] och ge 5 frågor på svenska för att guida deras research.</li>
+  <li>Skriv 5 diskussionsfrågor på [modersmål] för elever i årskurs 4–6 baserade på en text på 150 ord på [modersmål] om traditionella kläder i [modersmålsland] och fokusera på kulturella skillnader. Kulturell identitet</li>
+  <li>Skriv en text på 200 ord på [modersmål] om en traditionell saga från [modersmålsland] för elever i årskurs 4–6 och skapa 5 frågor på [modersmål] som uppmuntrar eleverna att reflektera över budskapet.</li>
+  <li>Skapa en text på 150 ord på [modersmål] om hur man firar nyår i [modersmålsland] för elever i årskurs 7–9 och skriv 4 frågor på [modersmål] som fokuserar på kulturella skillnader och likheter.</li>
+  <li>Skapa en uppgift för gymnasieelever där de skriver en text på 200 ord på [modersmål] om hur de balanserar sin kultur från [modersmålsland] med livet i Sverige och ge 5 vägledande frågor på svenska.</li>
+  <li>Skriv en text på 200 ord på [modersmål] om en känd musiker eller konstnär från [modersmålsland] för elever i årskurs 4–6 och skapa 5 diskussionsfrågor på [modersmål] om konst och kultur.</li>
+  <li>Skapa en text på 150 ord på [modersmål] om en historisk plats i [modersmålsland] för elever i årskurs 7–9 och skriv 4 frågor på [modersmål] som fokuserar på platsens betydelse.</li>
+  <li>Skapa en lista med 5 kulturella traditioner i [modersmålsland] och ge en uppgift för elever i årskurs 4–6 där de skriver en text på 150 ord på [modersmål] om en tradition de gillar.</li>
+  <li>Skriv en text på 200 ord på [modersmål] om hur familjer firar högtider i [modersmålsland] för elever i årskurs 7–9 och skapa 5 frågor på [modersmål] som uppmuntrar eleverna att jämföra med Sverige.</li>
+  <li>Skapa en text på 150 ord på [modersmål] om en känd festival i [modersmålsland] för gymnasieelever och skriv 4 frågor på [modersmål] som fokuserar på festivalens kulturella betydelse.</li>
+  <li>Skapa en uppgift för elever i årskurs 4–6 där de ritar och beskriver en typisk miljö i [modersmålsland] på [modersmål] och ge 5 vägledande frågor på svenska för att strukturera deras arbete.</li>
+  <li>Skriv en text på 200 ord på [modersmål] om hur unga uttrycker sin identitet i [modersmålsland] för gymnasieelever och skapa 5 frågor på [modersmål] som fokuserar på språk och kultur. Grammatik och språkstruktur</li>
+  <li>Skriv en text på 150 ord på [modersmål] om en dag med familjen för elever i årskurs 4–6 och markera 5 verb i presens, och skapa en uppgift där eleverna skriver 5 egna meningar på [modersmål] med dessa verb.</li>
+  <li>Skapa en lista med 10 [modersmål]-prepositioner som används i vardagen och ge en uppgift för elever i årskurs 7–9 där de skriver en kort text på [modersmål] om sin väg till skolan med 5 prepositioner.</li>
+  <li>Skriv en text på 200 ord på [modersmål] om en festival för elever i årskurs 4–6 och markera 5 adjektiv, och skapa en uppgift där eleverna beskriver en plats på [modersmål] med 5 egna adjektiv.</li>
+  <li>Skapa en lista med 10 [modersmål]-ord som ofta används i plural och ge en uppgift för elever i årskurs 7–9 där de skriver meningar på [modersmål] med 5 av orden i pluralform.</li>
+  <li>Skriv en text på 200 ord på [modersmål] om en resa till [modersmålsland] för gymnasieelever och markera 5 exempel på bisatser, och skapa en uppgift där de skriver 5 egna meningar på [modersmål] med bisatser.</li>
+  <li>Skapa en lista med 10 [modersmål]-ord som ändrar form i bestämd form och ge en uppgift för elever i årskurs 4–6 där de skriver meningar på [modersmål] med 5 av orden i bestämd form.</li>
+  <li>Skriv en text på 150 ord på [modersmål] om en familjehögtid för elever i årskurs 7– 9 och markera 5 verb i preteritum, och skapa en uppgift där de skriver om gårdagen på [modersmål] med 5 verb i preteritum.</li>
+  <li>Skapa en lista med 5 vanliga [modersmål]-uttryck med verb och ge en uppgift för gymnasieelever där de skriver en dialog på 200 ord på [modersmål] med 3 av uttrycken.</li>
+  <li>Skriv en text på 200 ord på [modersmål] om en marknad i [modersmålsland] för elever i årskurs 4–6 och markera 5 exempel på ordningstal, och skapa en uppgift där de skriver 5 meningar på [modersmål] med ordningstal.</li>
+  <li>Skapa en lista med 10 [modersmål]-adverb som beskriver hur något görs och ge en uppgift för elever i årskurs 7–9 där de skriver en text på [modersmål] om en idrottsaktivitet med 5 adverb. Samhällsorientering och historia</li>
+  <li>Skriv en text på 200 ord på [modersmål] om hur utbildningssystemet fungerar i [modersmålsland] för gymnasieelever och skapa 5 diskussionsfrågor på [modersmål] som fokuserar på skillnader med Sverige.</li>
+  <li>Skapa en text på 150 ord på [modersmål] om en viktig historisk händelse i [modersmålsland] för elever i årskurs 7–9 och skriv 4 frågor på [modersmål] som uppmuntrar eleverna att reflektera över dess påverkan.</li>
+  <li>Skriv en text på 200 ord på [modersmål] om hur familjer lever i [modersmålsland] för elever i årskurs 4–6 och skapa 5 frågor på [modersmål] som testar elevernas förståelse av vardagslivet.</li>
+  <li>Skapa en lista med 5 historiska platser i [modersmålsland] och ge en uppgift för gymnasieelever där de skriver en text på 200 ord på [modersmål] om en av platserna och dess betydelse.</li>
+  <li>Skriv en text på 150 ord på [modersmål] om hur man firar nationaldagen i [modersmålsland] för elever i årskurs 7–9 och skapa 4 frågor på [modersmål] som fokuserar på traditioner och patriotism.</li>
+  <li>Skapa en uppgift för elever i årskurs 4–6 där de skriver en text på 150 ord på [modersmål] om hur man reser i [modersmålsland] och ge 5 vägledande frågor på svenska.</li>
+  <li>Skriv en text på 200 ord på [modersmål] om hur unga engagerar sig i samhället i [modersmålsland] för gymnasieelever och skapa 5 diskussionsfrågor på [modersmål] om medborgarskap.</li>
+  <li>Skapa en text på 150 ord på [modersmål] om miljöutmaningar i [modersmålsland] för elever i årskurs 7–9 och skriv 4 frågor på [modersmål] som uppmuntrar eleverna att diskutera hållbarhet.</li>
+  <li>Skriv en lista med 5 viktiga historiska personer från [modersmålsland] och ge en uppgift för elever i årskurs 4–6 där de skriver en text på 150 ord på [modersmål] om en person.</li>
+  <li>Skapa en text på 200 ord på [modersmål] om hur arbetslivet fungerar i [modersmålsland] för gymnasieelever och skapa 5 frågor på [modersmål] som fokuserar på arbetskultur och utmaningar. Litteratur och media</li>
+  <li>Skriv en text på 200 ord på [modersmål] om en känd barnbok från [modersmålsland] för elever i årskurs 4–6 och skapa 5 läsförståelsefrågor på [modersmål] som fokuserar på handling och karaktärer.</li>
+  <li>Skapa en text på 150 ord på [modersmål] om en nyhetsartikel från [modersmålsland] om miljö för elever i årskurs 7–9 och skriv 4 frågor på [modersmål] som uppmuntrar eleverna att analysera budskapet.</li>
+  <li>Skriv en text på 200 ord på [modersmål] om en film från [modersmålsland] för gymnasieelever och skapa 5 diskussionsfrågor på [modersmål] som fokuserar på teman och kulturella aspekter.</li>
+  <li>Skapa en lista med 5 författare från [modersmålsland] och ge en uppgift för elever i årskurs 7–9 där de skriver en text på 200 ord på [modersmål] om en författare och hens verk.</li>
+  <li>Skriv en text på 150 ord på [modersmål] om en populär TV-serie från [modersmålsland] för elever i årskurs 4–6 och skapa 5 frågor på [modersmål] som testar elevernas förståelse av handlingen.</li>
+  <li>Skapa en uppgift för gymnasieelever där de skriver en recension på 200 ord på [modersmål] av en bok från [modersmålsland] och ge 5 vägledande frågor på svenska.</li>
+  <li>Skriv en text på 200 ord på [modersmål] om hur sociala medier används i [modersmålsland] för elever i årskurs 7–9 och skapa 5 frågor på [modersmål] som uppmuntrar eleverna att diskutera för- och nackdelar.</li>
+  <li>Skapa en text på 150 ord på [modersmål] om en tidning eller nyhetskanal från [modersmålsland] för elever i årskurs 4–6 och skriv 4 frågor på [modersmål] som fokuserar på hur man kan använda media för att lära sig [modersmål].</li>
+  <li>Skriv en lista med 5 låtar på [modersmål] och ge en uppgift för elever i årskurs 7–9 där de skriver en text på 200 ord på [modersmål] om en låt och dess budskap.</li>
+  <li>Skapa en text på 200 ord på [modersmål] om en känd poet från [modersmålsland] för gymnasieelever och skapa 5 frågor på [modersmål] som uppmuntrar eleverna att analysera poetens stil. Kreativitet och uttryck</li>
+  <li>Skapa en skrivuppgift för elever i årskurs 4–6 där de skriver en dikt på 10 rader på [modersmål] om naturen i [modersmålsland] och ge 5 exempel på beskrivande ord på [modersmål].</li>
+  <li>Skriv en mall på [modersmål] för en kort berättelse om en vänskap för elever i årskurs 7–9 och ge en uppgift där de skriver en berättelse på 200 ord på [modersmål] om två vänner.</li>
+  <li>Skapa en uppgift för gymnasieelever där de skriver en text på 200 ord på [modersmål] om en påhittad resa till [modersmålsland] och ge 5 vägledande frågor på svenska.</li>
+  <li>Skriv en lista med 10 [modersmål]-ord som beskriver naturen och ge en uppgift för elever i årskurs 4–6 där de skriver en kort text på [modersmål] om en skog med 5 av orden.</li>
+  <li>Skapa en skrivuppgift för elever i årskurs 7–9 där de skriver en dialog på 200 ord på [modersmål] mellan två personer som planerar en fest och ge 5 exempel på fraser på [modersmål].</li>
+  <li>Skriv en lista med 5 teman för kreativa berättelser och ge en uppgift för elever i årskurs 4–6 där de skriver en berättelse på 150 ord på [modersmål] om ett av temana.</li>
+  <li>Skapa en uppgift för gymnasieelever där de skriver en text på 200 ord på [modersmål] om en påhittad nyhetshändelse i [modersmålsland] och ge 5 tips på [modersmål] för att skriva en nyhetsartikel.</li>
+  <li>Skriv en text på 150 ord på [modersmål] om en marknad i [modersmålsland] för elever i årskurs 7–9 och skapa en uppgift där de ritar och beskriver sin egen marknad på [modersmål] med 5 meningar.</li>
+  <li>Skapa en lista med 10 [modersmål]-ord som beskriver känslor och ge en uppgift för elever i årskurs 4–6 där de skriver en kort text på [modersmål] om en dag då de kände sig nervösa.</li>
+  <li>Skapa en skrivuppgift för elever i årskurs 7–9 där de skriver en text på 200 ord på [modersmål] om ett påhittat äventyr i [modersmålsland] och ge 5 exempel på beskrivande meningar på [modersmål].</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för förskolan — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 05</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">För förskolan</div>
+    <div class="cover__count">90 chattpromptar</div>
+    <h1 class="cover__title">Promptar för förskolan.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">05</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">90 promptar</div>
+  <h2>förskollärare och barnskötare</h2>
+</section>
+
+<ol class="prompts">
+  <li>Skriv en kort berättelse eller ramsa för en förskolegrupp [specifik ålder] som introducerar [specifikt tema, t.ex. vänskap eller årstider], med två följdfrågor.</li>
+  <li>Skapa en dagsplan för en förskolegrupp [specifik ålder, t.ex. 3-5 år] som integrerar lek och lärande enligt Lpfö 18, med tre aktiviteter kopplade till [specifikt mål, t.ex. språk eller natur].</li>
+  <li>Ge mig fem strategier för att uppmuntra ett blygt barn [specifik ålder] att delta i grupplekar på förskolan, med en enkel idé för varje.</li>
+  <li>Föreslå tre utomhusaktiviteter för en förskolegrupp [specifik ålder] som kopplar till [specifikt mål i Lpfö 18, t.ex. motorik eller hållbarhet], med enkel utrustning.</li>
+  <li>Skapa en lista med fem korta fraser för att lugna en konfliktsituation mellan barn [specifik ålder] på förskolan, med fokus på empati.</li>
+  <li>Ge mig ett exempel på en enkel rutin för att introducera en ny aktivitet (t.ex. [specifik aktivitet]) för en förskolegrupp [specifik ålder], med tre steg.</li>
+  <li>Föreslå tre sätt att använda vardagsmaterial (t.ex. [specifikt material, t.ex. kartong eller pinnar]) för att stödja kreativ lek hos en förskolegrupp [specifik ålder].</li>
+  <li>Skriv en kort handledning för att lära en förskolegrupp [specifik ålder] en ny sång eller rörelselek kopplad till [specifikt tema], med tre steg.</li>
+  <li>Ge mig fem idéer för att göra samlingen på förskolan mer engagerande för en grupp [specifik ålder], med fokus på [specifikt mål, t.ex. delaktighet].</li>
+  <li>Skapa en lista med tre korta reflektionsfrågor för en förskolegrupp [specifik ålder] efter en aktivitet om [specifikt tema, t.ex. naturen], för att fånga deras tankar.</li>
+  <li>Föreslå tre sätt att samarbeta med föräldrar på en förskola för att stärka barns lärande i [specifikt område, t.ex. språk eller självständighet], med tre idéer för varje.</li>
+  <li>Ge mig ett exempel på en enkel dokumentation av barns lärande i [specifikt område, t.ex. matematik] för en förskolegrupp [specifik ålder], med tre observationer.</li>
+  <li>Skriv en lista med fem uppmuntrande fraser för att stärka ett barns [specifik ålder] självkänsla under en aktivitet på förskolan.</li>
+  <li>Föreslå tre sätt att anpassa en aktivitet (t.ex. [specifik aktivitet]) för ett barn med [specifikt behov, t.ex. koncentrationssvårigheter] i en förskolegrupp [specifik ålder].</li>
+  <li>Skapa en mall för en veckoplanering för en förskolegrupp [specifik ålder], med tre fokusområden från Lpfö 18 (t.ex. omsorg, lek, lärande).</li>
+  <li>Ge mig fem idéer för att använda naturen på förskolans gård för att lära en grupp [specifik ålder] om [specifikt tema, t.ex. djur eller växter].</li>
+  <li>Föreslå tre sätt att hantera en stressig morgon på förskolan för en grupp [specifik ålder], med en lugnande rutin för varje.</li>
+  <li>Skriv en kort guide för att introducera ett barn [specifik ålder] till en ny kamrat på förskolan, med tre steg och en lekförslag.</li>
+  <li>Ge mig ett exempel på en enkel rörelseaktivitet för en förskolegrupp (ålder [specifik ålder]) som stärker [specifikt mål, t.ex. koordination], med tre moment.</li>
+  <li>Skapa en lista med tre korta sätt att visa uppskattning till kollegor på förskolan efter en hektisk dag, med ett exempel för varje.</li>
+  <li>Skapa en veckoaktivitet för en förskolegrupp [specifik ålder, t.ex. 2-4 år] som kopplar till [specifikt mål i Lpfö 18, t.ex. språk eller matematik], med tre moment.</li>
+  <li>Ge mig fem sätt att lugna en orolig förskolegrupp [specifik ålder] under en övergång, t.ex. [specifik situation, t.ex. lunch], med en idé för varje.</li>
+  <li>Skriv en kort saga för en förskolegrupp [specifik ålder] om [specifikt tema, t.ex. känslor eller naturen], med en enkel aktivitet som följd.</li>
+  <li>Föreslå tre enkla inomhusaktiviteter för en förskolegrupp [specifik ålder] som stärker [specifikt mål, t.ex. samarbete eller finmotorik], med minimal förberedelse.</li>
+  <li>Skapa en lista med fem positiva fraser för att uppmuntra ett barn [specifik ålder] som kämpar med [specifik uppgift, t.ex. påklädning] på förskolan.</li>
+  <li>Ge mig ett exempel på en rutin för att välkomna ett nytt barn [specifik ålder] till förskolan, med tre steg och en lek för inkludering.</li>
+  <li>Föreslå tre sätt att använda återvunnet material (t.ex. [specifikt material, t.ex. plastflaskor]) i en förskolegrupp [specifik ålder] för att utforska [specifikt tema].</li>
+  <li>Skriv en kort handledning för att introducera en ny regel ([specifik regel]) för en förskolegrupp [specifik ålder], med tre steg och ett exempel.</li>
+  <li>Ge mig fem idéer för att skapa en lugn stund på förskolan för en grupp [specifik ålder], med fokus på [specifikt behov, t.ex. vila eller koncentration].</li>
+  <li>Skapa en lista med tre korta frågor för att prata med ett barn [specifik ålder] om deras dag på förskolan och fånga deras upplevelser.</li>
+  <li>Föreslå tre sätt att inkludera barns intressen [specifikt intresse, t.ex. dinosaurier] i en förskoleaktivitet för en grupp [specifik ålder].</li>
+  <li>Ge mig ett exempel på en enkel observation av ett barns [specifik ålder] utveckling i [specifikt område, t.ex. socialt samspel], med tre noteringar.</li>
+  <li>Skriv en lista med fem sånger eller ramsor för en förskolegrupp [specifik ålder] som kopplar till [specifikt tema, t.ex. djur eller rörelse].</li>
+  <li>Föreslå tre sätt att hantera ett gråtande förskolebarn [specifik ålder] under [specifik situation, t.ex. lämning], med två tröstande metoder för varje.</li>
+  <li>Skapa en mall för en daglig reflektion för en förskollärare, med tre frågor om barns lärande och välbefinnande i en grupp [specifik ålder].</li>
+  <li>Ge mig fem idéer för att använda förskolans innemiljö för att lära en grupp [specifik ålder] om [specifikt tema, t.ex. former eller färger].</li>
+  <li>Föreslå tre sätt att förbereda en förskolegrupp [specifik ålder] för en utflykt (t.ex. [specifik plats]), med en aktivitet för varje.</li>
+  <li>Skriv en kort guide för att lära en förskolegrupp [specifik ålder] att ta hand om [specifikt föremål, t.ex. växter], med tre steg.</li>
+  <li>Ge mig ett exempel på en enkel lek för en förskolegrupp [specifik ålder] som stärker [specifikt mål, t.ex. problemlösning], med tre moment.</li>
+  <li>Skapa en lista med tre korta sätt att samarbeta med kollegor på förskolan för att planera en temadag (t.ex. [specifikt tema]), med ett exempel för varje.</li>
+  <li>Skapa en aktivitetsplan för en förskolegrupp [specifik ålder] som utforskar [specifikt tema, t.ex. vatten eller rörelse], med tre enkla moment.</li>
+  <li>Ge mig fem sätt att stötta ett barn [specifik ålder] som har svårt att säga hejdå vid lämning på förskolan, med en tröstande idé för varje.</li>
+  <li>Skriv en kort sång för en förskolegrupp [specifik ålder] om [specifikt ämne, t.ex. vänskap eller väder], med en rörelse till.</li>
+  <li>Föreslå tre naturinspirerade aktiviteter för en förskolegrupp [specifik ålder] som stärker [specifikt mål i Lpfö 18, t.ex. nyfikenhet eller motorik], med enkla material.</li>
+  <li>Skapa en lista med fem korta fraser för att hjälpa ett barn [specifik ålder] att lösa en konflikt med en kompis på förskolan.</li>
+  <li>Ge mig ett exempel på en rutin för att avsluta dagen på förskolan för en grupp [specifik ålder], med tre steg och en lugn aktivitet.</li>
+  <li>Föreslå tre sätt att använda vardagliga föremål (t.ex. [specifikt föremål, t.ex. hushållspappersrullar]) i en förskolegrupp [specifik ålder] för att utforska [specifikt tema].</li>
+  <li>Skriv en kort handledning för att lära en förskolegrupp [specifik ålder] en enkel dans kopplad till [specifikt tema, t.ex. djur], med tre steg.</li>
+  <li>Ge mig fem idéer för att göra vilostunden på förskolan mer avslappnande för en grupp [specifik ålder], med fokus på [specifikt behov, t.ex. lugn].</li>
+  <li>Skapa en lista med tre korta frågor för att uppmuntra ett barn [specifik ålder] att berätta om sin lek på förskolan.</li>
+  <li>Föreslå tre sätt att inkludera ett barns kultur eller språk (t.ex. [specifik kultur]) i en aktivitet för en förskolegrupp [specifik ålder].</li>
+  <li>Ge mig ett exempel på en enkel dokumentation av en grupps [specifik ålder] lärande i [specifikt område, t.ex. naturkunskap], med tre punkter.</li>
+  <li>Skriv en lista med fem sånger eller lekar för en förskolegrupp [specifik ålder] som lär ut [specifikt begrepp, t.ex. former eller siffror].</li>
+  <li>Föreslå tre sätt att hantera en högljudd situation i en förskolegrupp [specifik ålder] under [specifik tid, t.ex. samling], med en metod för varje.</li>
+  <li>Skapa en mall för en kort veckouppföljning för en förskollärare, med tre punkter om barns framsteg i en grupp [specifik ålder].</li>
+  <li>Ge mig fem idéer för att använda förskolans gård för att stötta en grupp [specifik ålder] i [specifikt tema, t.ex. balans eller fantasi].</li>
+  <li>Föreslå tre sätt att förbereda en förskolegrupp [specifik ålder] för en ny rutin (t.ex. [specifik rutin]), med en aktivitet för varje.</li>
+  <li>Skriv en kort guide för att stötta ett barn [specifik ålder] som precis börjat på förskolan, med tre steg och en trygghetslek.</li>
+  <li>Skapa en lista med tre korta sätt att stärka samarbete med vårdnadshavare på förskolan för en grupp [specifik ålder], med ett exempel för varje.</li>
+  <li>Skapa en dagsplan för en förskolegrupp [specifik ålder] som integrerar lek och lärande enligt Lpfö 18, med tre aktiviteter kopplade till [specifikt mål, t.ex. språk], och en kort reflektion.</li>
+  <li>Ge mig fem strategier för att stötta ett blygt barn [specifik ålder] att delta i en [specifik aktivitet, t.ex. grupplek] på förskolan, med en enkel idé för varje.</li>
+  <li>Skriv en kort guide för att introducera en ny [specifik färdighet, t.ex. klä på sig själv] till en förskolegrupp [specifik ålder], med tre steg och en lekfull metod.</li>
+  <li>Skapa en lista med fem korta uppmuntrande fraser för att stärka ett barns [specifik ålder] självkänsla under en [specifik aktivitet, t.ex. måla] på förskolan.</li>
+  <li>Ge mig ett exempel på en rutin för att starta dagen på förskolan för en grupp [specifik ålder], med tre steg och en enkel [specifik aktivitet, t.ex. sångsamling].</li>
+  <li>Föreslå tre sätt att använda vardagsmaterial (t.ex. [specifikt material, t.ex. kartong]) för en förskolegrupp [specifik ålder] för att utforska [specifikt mål, t.ex. kreativitet], med en idé för varje.</li>
+  <li>Skapa en plan för en förskolegrupp [specifik ålder] där de lär sig en [specifik sång eller ramsa, t.ex. om vänskap], med tre moment (introduktion, sång, reflektion).</li>
+  <li>Ge mig fem idéer för rörelseaktiviteter på förskolan för en grupp [specifik ålder], med fokus på [specifikt mål, t.ex. motorik], och en kort beskrivning för varje.</li>
+  <li>Skriv en kort mall för att dokumentera barns lärande av [specifikt mål, t.ex. samarbete] i en förskolegrupp [specifik ålder], med tre observationspunkter enligt Lpfö 18.</li>
+  <li>Föreslå tre sätt att samarbeta med föräldrar för att inkludera deras idéer i en [specifik aktivitet, t.ex. temadag] för en förskolegrupp [specifik ålder], med en idé för varje.</li>
+  <li>Ge mig ett exempel på en utomhuslek för en förskolegrupp (ålder [1–5]) som stärker [specifikt mål, t.ex. fantasi], med tre steg för att genomföra den.</li>
+  <li>Skapa en lista med fem enkla pysselaktiviteter för en förskolegrupp (ålder [1–5]) som kopplar till [specifikt tema, t.ex. årstider], med en kort beskrivning för varje.</li>
+  <li>Föreslå tre sätt att använda sagor i en förskolegrupp [specifik ålder] för att främja [specifikt mål, t.ex. språk], med en sagoidé för varje och en enkel uppföljning.</li>
+  <li>Ge mig fem idéer för lugna aktiviteter för en förskolegrupp [specifik ålder] som främjar [specifikt mål, t.ex. koncentration], med en aktivitet för varje och minimala resurser.</li>
+  <li>Skapa en plan för en förskolegrupp [specifik ålder] där de lär sig en [specifik praktisk färdighet, t.ex. knyta skor], med tre steg och en lekfull metod.</li>
+  <li>Ge mig ett exempel på en gruppaktivitet för en förskolegrupp [specifik ålder] där de spelar en [specifik lek, t.ex. ’Vad är det?’], med tre steg och ett fokus på [specifikt mål, t.ex. språk].</li>
+  <li>Skriv en lista med tre korta sätt att använda musik i en förskoleaktivitet för en grupp [specifik ålder] för att främja [specifikt mål, t.ex. rörelse], med ett förslag för varje.</li>
+  <li>Skapa en aktivitet för en förskolegrupp [specifik ålder] där de utforskar [specifikt tema, t.ex. färger] genom lek, med tre steg och en enkel reflektion.</li>
+  <li>Ge mig fem sätt att använda naturen på förskolan för en grupp [specifik ålder] för att stärka [specifikt mål, t.ex. nyfikenhet], med en idé för varje.</li>
+  <li>Skriv en kort guide för att introducera en [specifik vardagsrutin, t.ex. handtvätt] till en förskolegrupp [specifik ålder], med tre steg och en sång eller ramsa.</li>
+  <li>Skapa en lista med fem enkla utomhusaktiviteter för en förskolegrupp [specifik ålder] som kopplar till [specifikt tema, t.ex. väder], med en beskrivning för varje.</li>
+  <li>Ge mig ett exempel på en rutin för att avsluta dagen på förskolan för en grupp [specifik ålder], med tre steg och en lugn [specifik aktivitet, t.ex. saga].</li>
+  <li>Föreslå tre sätt att använda enkla material (t.ex. [specifikt material, t.ex. lera]) för en förskolegrupp [specifik ålder] för att utforska [specifikt mål, t.ex. kreativitet], med en idé för varje.</li>
+  <li>Skriv en kort mall för en förskollärare att planera en [specifik aktivitet, t.ex. rörelselek] för en grupp [specifik ålder], med tre moment (introduktion, lek, reflektion).</li>
+  <li>Ge mig fem idéer för hur en iPad kan användas på förskolan för en grupp [specifik ålder] som kopplar till [specifikt tema, t.ex. sagor], med en aktivitet för varje.</li>
+  <li>Skapa en plan för en förskolegrupp [specifik ålder] där de utforskar [specifikt tema, t.ex. vatten] genom lek, med tre steg och en enkel uppföljning.</li>
+  <li>Ge mig ett exempel på en enkel uteaktivitet för en förskolegrupp [specifik ålder] som tränar [specifikt mål, t.ex. motorik], med tre steg.</li>
+  <li>Skapa en plan för en förskollärare att leda en [specifik aktivitet, t.ex. sångstund] för en grupp [specifik ålder], med tre steg och ett fokus på [specifikt mål, t.ex. språk].</li>
+  <li>Ge mig fem idéer för inomhusaktiviteter för en förskolegrupp [specifik ålder] som främjar [specifikt mål, t.ex. finmotorik], med en aktivitet för varje.</li>
+  <li>Skriv en kort guide för att introducera en [specifik lek, t.ex. ’Följa John’] till en förskolegrupp [specifik ålder], med tre steg och ett tema som [specifikt tema, t.ex. rörelse].</li>
+  <li>Skapa en lista med tre korta sätt att använda naturen för att lära en förskolegrupp [specifik ålder] om [specifikt tema, t.ex. årstider], med ett förslag för varje och en koppling till Lpfö 18.</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

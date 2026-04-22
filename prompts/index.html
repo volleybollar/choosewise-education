@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Prompt Library — choosewise.education</title>
-  <meta name="description" content="Free downloadable prompt packs for teachers, school leaders, and other roles in education.">
+  <meta name="description" content="A free library of AI chat prompts for every role in the school — teachers, principals, subject specialists, support staff. Downloadable PDFs.">
   <meta property="og:title" content="Prompt Library — choosewise.education">
-  <meta property="og:description" content="Free downloadable prompt packs for teachers, school leaders, and other roles in education.">
+  <meta property="og:description" content="A free library of AI chat prompts for every role in the school.">
   <meta property="og:image" content="/assets/images/brand/og-default.svg">
   <link rel="stylesheet" href="/assets/css/fonts.css">
   <link rel="stylesheet" href="/assets/css/tokens.css">
@@ -19,33 +19,392 @@
 
   <main>
     <section class="page-hero container">
-      <span class="eyebrow" data-reveal>Prompts</span>
-      <h1 data-reveal>Prompt Library</h1>
-      <p class="lede" data-reveal>Free prompt packs. Download. Use. Share. More added regularly.</p>
+      <span class="eyebrow" data-reveal>Prompt Library</span>
+      <h1 data-reveal>Prompts for everyone in the school.</h1>
+      <p class="lede" data-reveal>65 prompt sets for teachers, subject specialists, school leaders and support staff — 3457 prompts in total, grounded in pedagogy. Every set is a downloadable PDF.</p>
     </section>
 
-    <section class="container section">
-      <div class="filters" data-reveal>
-        <label>Role:
-          <select id="filter-role">
-            <option value="">All</option>
-            <option>Teacher</option>
-            <option>Principal</option>
-            <option>School Leader</option>
-            <option>Special Education</option>
-          </select>
-        </label>
-        <label>Topic:
-          <select id="filter-topic">
-            <option value="">All</option>
-            <option>Pedagogy</option>
-            <option>Assessment</option>
-            <option>Planning</option>
-            <option>Leadership</option>
-          </select>
-        </label>
+    <section class="section container" data-reveal>
+      <div class="prompt-filters" role="group" aria-label="Filter prompt sets">
+        <span class="prompt-filters__group-label">Filter</span>
+        <button type="button" class="prompt-filter is-active" data-filter="all">All</button>
+        <button type="button" class="prompt-filter" data-filter="teachers">Classroom teachers</button>
+        <button type="button" class="prompt-filter" data-filter="subject">Subject specialists</button>
+        <button type="button" class="prompt-filter" data-filter="leaders">School leaders</button>
+        <button type="button" class="prompt-filter" data-filter="support">Support staff</button>
+        <button type="button" class="prompt-filter" data-filter="themes">Thematic</button>
       </div>
-      <div class="prompts-grid" id="prompts-grid" data-source="/prompts/prompts-en.json" data-template="prompt"></div>
+
+      <div class="prompt-grid">
+        <div class="prompt-card" data-category="teachers" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Teachers</h2>
+          <p class="prompt-card__count">120 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="themes" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Anyone Learning</span>
+          <h2 class="prompt-card__title">Prompts for Learning New Skills</h2>
+          <p class="prompt-card__count">79 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="leaders" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Principals</span>
+          <h2 class="prompt-card__title">Prompts for Principals</h2>
+          <p class="prompt-card__count">62 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="leaders" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Superintendents</span>
+          <h2 class="prompt-card__title">Prompts for Superintendents</h2>
+          <p class="prompt-card__count">62 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="teachers" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Preschool Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Preschool Teachers</h2>
+          <p class="prompt-card__count">90 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="teachers" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Reception Teachers · Ages 6–7</span>
+          <h2 class="prompt-card__title">Prompts for Reception Teachers</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Art Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Art Teachers</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Biology Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Biology Teachers</h2>
+          <p class="prompt-card__count">80 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For English Teachers</span>
+          <h2 class="prompt-card__title">Prompts for English Teachers</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Physics Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Physics Teachers</h2>
+          <p class="prompt-card__count">80 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Geography Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Geography Teachers</h2>
+          <p class="prompt-card__count">60 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Home Economics Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Home Economics Teachers</h2>
+          <p class="prompt-card__count">41 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For History Teachers</span>
+          <h2 class="prompt-card__title">Prompts for History Teachers</h2>
+          <p class="prompt-card__count">60 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For PE Teachers</span>
+          <h2 class="prompt-card__title">Prompts for PE Teachers</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Chemistry Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Chemistry Teachers</h2>
+          <p class="prompt-card__count">80 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Mathematics Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Mathematics Teachers</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Early-Numeracy Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Early Numeracy</h2>
+          <p class="prompt-card__count">56 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Modern Languages Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Modern Languages Teachers</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Music Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Music Teachers</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Science Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Science Teachers</h2>
+          <p class="prompt-card__count">68 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Science Teachers (Biology · Physics · Chemistry)</span>
+          <h2 class="prompt-card__title">Prompts for Science Teachers (General)</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Religious Studies Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Religious Studies Teachers</h2>
+          <p class="prompt-card__count">60 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Social Studies Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Social Studies Teachers</h2>
+          <p class="prompt-card__count">60 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Crafts Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Crafts Teachers</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Social Studies Teachers (History · Geography · Civics · Religion)</span>
+          <h2 class="prompt-card__title">Prompts for Social Studies Teachers (General)</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Technology Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Technology Teachers</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Teachers · Ages 16–19</span>
+          <h2 class="prompt-card__title">Prompts for English Teachers · Upper Secondary</h2>
+          <p class="prompt-card__count">56 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Teachers · Ages 16–19</span>
+          <h2 class="prompt-card__title">Prompts for History Teachers · Upper Secondary</h2>
+          <p class="prompt-card__count">80 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Teachers · Ages 16–19</span>
+          <h2 class="prompt-card__title">Prompts for PE Teachers · Upper Secondary</h2>
+          <p class="prompt-card__count">80 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Teachers · Ages 16–19</span>
+          <h2 class="prompt-card__title">Prompts for Mathematics Teachers · Upper Secondary</h2>
+          <p class="prompt-card__count">80 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Teachers · Ages 16–19</span>
+          <h2 class="prompt-card__title">Prompts for Modern Languages Teachers · Upper Secondary</h2>
+          <p class="prompt-card__count">80 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Teachers · Ages 16–19</span>
+          <h2 class="prompt-card__title">Prompts for Religious Studies Teachers · Upper Secondary</h2>
+          <p class="prompt-card__count">80 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="subject" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Teachers · Ages 16–19</span>
+          <h2 class="prompt-card__title">Prompts for Social Studies Teachers · Upper Secondary</h2>
+          <p class="prompt-card__count">80 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="teachers" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For EdTech Coaches</span>
+          <h2 class="prompt-card__title">Prompts for EdTech Coaches</h2>
+          <p class="prompt-card__count">60 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="teachers" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Lead Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Lead Teachers</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="support" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For After-School Care Staff</span>
+          <h2 class="prompt-card__title">Prompts for After-School Care Staff</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="support" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Special Education Teachers</span>
+          <h2 class="prompt-card__title">Prompts for Special Education Teachers</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="support" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Student Assistants</span>
+          <h2 class="prompt-card__title">Prompts for Student Assistants</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="support" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Career Counselors</span>
+          <h2 class="prompt-card__title">Prompts for Career Counselors</h2>
+          <p class="prompt-card__count">20 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="support" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Special Education Specialists</span>
+          <h2 class="prompt-card__title">Prompts for Special Education Specialists</h2>
+          <p class="prompt-card__count">80 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="support" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For School Nurses</span>
+          <h2 class="prompt-card__title">Prompts for School Nurses</h2>
+          <p class="prompt-card__count">20 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="support" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For School Counselors</span>
+          <h2 class="prompt-card__title">Prompts for School Counselors</h2>
+          <p class="prompt-card__count">20 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="support" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For School Psychologists</span>
+          <h2 class="prompt-card__title">Prompts for School Psychologists</h2>
+          <p class="prompt-card__count">20 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="support" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For School Caretakers</span>
+          <h2 class="prompt-card__title">Prompts for School Caretakers</h2>
+          <p class="prompt-card__count">20 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="support" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For School Catering Staff</span>
+          <h2 class="prompt-card__title">Prompts for School Catering Staff</h2>
+          <p class="prompt-card__count">60 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="support" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For School IT Managers</span>
+          <h2 class="prompt-card__title">Prompts for School IT Managers</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="support" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For District IT Managers</span>
+          <h2 class="prompt-card__title">Prompts for District IT Managers</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="support" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For School Librarians</span>
+          <h2 class="prompt-card__title">Prompts for School Librarians</h2>
+          <p class="prompt-card__count">110 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="leaders" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For Education Strategists</span>
+          <h2 class="prompt-card__title">Prompts for Education Strategists</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="support" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For School Administrators</span>
+          <h2 class="prompt-card__title">Prompts for School Administrators</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="support" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">For District Administrators</span>
+          <h2 class="prompt-card__title">Prompts for District Administrators</h2>
+          <p class="prompt-card__count">61 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="themes" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">Thematic · Digital Tools</span>
+          <h2 class="prompt-card__title">Prompts for Digital Tools in Education</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="themes" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">Thematic · AI in Teaching</span>
+          <h2 class="prompt-card__title">Prompts for AI in Teaching</h2>
+          <p class="prompt-card__count">0 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="themes" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">Thematic · Cross-Curricular</span>
+          <h2 class="prompt-card__title">Prompts for Cross-Curricular Work</h2>
+          <p class="prompt-card__count">80 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="themes" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">Thematic · Outdoor Education</span>
+          <h2 class="prompt-card__title">Prompts for Outdoor Education</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="themes" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">Thematic · Research on Learning</span>
+          <h2 class="prompt-card__title">Prompts Grounded in Research on Learning</h2>
+          <p class="prompt-card__count">20 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="themes" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">Thematic · Time Management</span>
+          <h2 class="prompt-card__title">Prompts for Effective Time Use</h2>
+          <p class="prompt-card__count">40 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="themes" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">Megaprompts · Vol. 1</span>
+          <h2 class="prompt-card__title">Megaprompts #1</h2>
+          <p class="prompt-card__count">15 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="themes" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">Megaprompts · Vol. 2</span>
+          <h2 class="prompt-card__title">Megaprompts #2</h2>
+          <p class="prompt-card__count">15 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+        <div class="prompt-card" data-category="themes" style="opacity: 0.55; cursor: default; background: var(--color-bg-alt); border-style: dashed;">
+          <span class="prompt-card__eyebrow">Megaprompts · Vol. 3</span>
+          <h2 class="prompt-card__title">Megaprompts #3</h2>
+          <p class="prompt-card__count">13 prompts</p>
+          <div class="prompt-card__langs"><span>Coming soon</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" data-reveal>
+      <div class="container">
+        <h2 class="section__title">About the library</h2>
+        <p class="prose">Every prompt set is free to download, use, adapt, and share. The design is intentionally consistent across all volumes — same cover, same typography, same structure — so the library feels like one collection rather than scattered handouts.</p>
+        <p class="prose">These prompts pair with the <a href="/wise/">WISE framework</a>: the framework helps you decide <em>whether</em> a given AI tool belongs in the classroom; the prompts help you use it well once the answer is yes.</p>
+      </div>
     </section>
   </main>
 
@@ -54,25 +413,18 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
   <script defer src="/assets/js/include.js"></script>
-  <script defer src="/assets/js/render-grid.js"></script>
   <script defer src="/assets/js/scroll-reveals.js"></script>
-  <script>
-    // Simple client-side filter on Role x Topic
-    document.getElementById('prompts-grid').addEventListener('grid:rendered', () => {
-      const role = document.getElementById('filter-role');
-      const topic = document.getElementById('filter-topic');
-      const cards = document.querySelectorAll('.card--prompt');
 
-      function apply() {
-        cards.forEach(c => {
-          const meta = c.querySelector('.card__meta').textContent;
-          const roleOk = !role.value || meta.includes(role.value);
-          const topicOk = !topic.value || meta.includes(topic.value);
-          c.style.display = (roleOk && topicOk) ? '' : 'none';
+  <script>
+    document.querySelectorAll('.prompt-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.prompt-filter').forEach(b => b.classList.toggle('is-active', b === btn));
+        document.querySelectorAll('.prompt-card').forEach(card => {
+          const cat = card.dataset.category;
+          card.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
         });
-      }
-      role.addEventListener('change', apply);
-      topic.addEventListener('change', apply);
+      });
     });
   </script>
 </body>

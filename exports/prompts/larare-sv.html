@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för lärare — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 01</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">För lärare</div>
+    <div class="cover__count">120 chattpromptar</div>
+    <h1 class="cover__title">Promptar för lärare.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">01</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 1 · 71 promptar</div>
+  <h2>Generella promptar för lärare</h2>
+</section>
+
+<ol class="prompts">
+  <li>Förklara [begrepp/historiskt skeende/teknik] för mig som om jag vore [7] år gammal.</li>
+  <li>Skapa en lektionsplanering för en lektion i [ämne/ämnesområde] för elever i [årskurs X]. Lektionen är [50 minuter lång] och jag har 23 elever.</li>
+  <li>Skapa en serie lektionsplaneringar för fyra lektioner i [ämne/ämnesområde] för elever i [årskurs X]. Lektionerna är [60 minuter långa] och jag har 27 elever.</li>
+  <li>Skriv en lista med fem korta repetitionsfrågor i [ämne] för [årskurs X] som kan användas som exit tickets i slutet av en lektion om [specifikt tema].</li>
+  <li>Skriv en steg-för-steg-guide för att lära elever i [årskurs X] [specifik färdighet, t.ex. att skriva en argumenterande text] i [ämne/ämnesområde], med exempel och ett sätt att ge konstruktiv feedback.</li>
+  <li>Skapa en lista med 10 korta, engagerande uppvärmningsaktiviteter för [årskurs] som kan användas i början av en lektion i [ämne] för att fånga elevernas uppmärksamhet.</li>
+  <li>Skapa en lektionsplan för en lektion i [ämne] för [årskurs] som integrerar interaktiva aktiviteter. Inkludera mål, tidsramar och en kort bedömningsaktivitet.</li>
+  <li>Ge mig fem engagerande diskussionsfrågor om [specifikt ämne eller bok] för [årskurs] som uppmuntrar kritiskt tänkande och kopplar till elevernas vardag.</li>
+  <li>Föreslå tre praktiska grupparbeten för [årskurs] som lär ut [specifik färdighet, t.ex. samarbete eller problemlösning] inom [ämne], inklusive tydliga instruktioner och ett enkelt sätt att utvärdera resultaten.</li>
+  <li>Ge mig ett exempel på en differentierad uppgift inom [ämne] för [årskurs] med tre nivåer (grundläggande, medel, avancerad) som alla kopplar till samma lärandemål.</li>
+  <li>Skriv en kort, kreativ berättelse eller scenario kopplat till [ämne] som kan användas för att introducera ett nytt moment för [årskurs], och föreslå två följdfrågor för att väcka nyfikenhet.</li>
+  <li>Föreslå fem sätt att koppla [specifikt ämne eller tema] till aktuella händelser för [årskurs] för att göra undervisningen mer relevant.</li>
+  <li>Skapa en checklista med fem reflektionsfrågor som elever i [årskurs X] kan svara på efter en lektion i [ämne] för att utvärdera sitt eget lärande.</li>
+  <li>Ge mig ett exempel på en kort, praktisk hemuppgift i [ämne] för [årskurs] som är enkel att bedöma och som uppmuntrar kreativitet.</li>
+  <li>Skapa en 20-minuters lektionsaktivitet i [ämne] för [årskurs] som använder vardagsmaterial (t.ex. papper, pennor, enkla föremål) och kopplar till [specifikt lärandemål].</li>
+  <li>Föreslå tre sätt att använda storytelling i [ämne] för [årskurs] för att förklara [specifikt begrepp], inklusive ett exempel på en kort berättelse.</li>
+  <li>Ge mig fem enkla strategier för att hantera en stökig klass i [årskurs X] under en lektion i [ämne], med fokus på positiva och förebyggande metoder.</li>
+  <li>Skriv en kort instruktion för en individuell skrivuppgift i [ämne] för [årskurs] som kopplar till [tema] och inkluderar en checklista för självbedömning.</li>
+  <li>Föreslå tre praktiska sätt att integrera teknik (t.ex. appar, webbplatser eller digitala verktyg) i en lektion i [ämne] för [årskurs] utan att kräva avancerad utrustning.</li>
+  <li>Skapa en lista med fem öppna frågor i [ämne] för [årskurs] som kan användas för en klassdebatt eller gruppdiskussion om [specifikt tema].</li>
+  <li>Ge mig ett exempel på en lekfull tävling i [ämne] för [årskurs X] som repeterar [specifikt moment] och inkluderar tydliga regler och ett poängsystem.</li>
+  <li>Skriv en mall för en veckoplanering i [ämne] för [årskurs] med dagliga mål, aktiviteter och en kort utvärderingsmetod.</li>
+  <li>Föreslå fem sätt att ge positiv feedback till elever i [årskurs] i [ämne] som stärker deras självförtroende och specifikt lyfter deras insatser.</li>
+  <li>Skapa en kort rollspelsaktivitet i [ämne] för [årskurs] där eleverna får utforska [specifikt ämne eller historisk händelse] genom att ta olika perspektiv.</li>
+  <li>Ge mig tio idéer för ämnesövergripande projekt mellan [ämne 1] och [ämne 2] för [årskurs] som kopplar till verkliga problem eller situationer.</li>
+  <li>Skriv en enkel förklaring av [komplext begrepp] i [ämne] anpassad för elever i [årskurs X], tillsammans med en analogi och en visuell beskrivning som stöd.</li>
+  <li>Föreslå fem korta utomhusaktiviteter i [ämne] för [årskurs] som kan göras på skolgården och kopplar till [specifikt tema].</li>
+  <li>Skapa en lista med fem alternativa bedömningsmetoder för en lektion i [ämne] för [årskurs] som går bortom traditionella prov, t.ex. portfolio eller presentation.</li>
+  <li>Ge mig ett exempel på en problemlösningsuppgift i [ämne] för elever i [årskurs X] som uppmuntrar samarbete och kan lösas på flera sätt, inklusive en kort handledning för läraren.</li>
+  <li>Skapa en 15-minuters introduktionsaktivitet i [ämne] för elever i [årskurs X] som använder en vardaglig fråga eller situation för att väcka intresse för [specifikt tema].</li>
+  <li>Skriv en kort guide för att lära elever i [årskurs X] att ge konstruktiv kamratrespons i [ämne], inklusive tio exempel på bra feedback-fraser.</li>
+  <li>Föreslå tre enkla experiment i [ämne] för elever i [årskurs X] som kan göras med minimal utrustning och kopplar till [specifikt lärandemål].</li>
+  <li>Skapa en lista med fem icebreaker-aktiviteter för elever i [årskurs X] som kan användas i början av terminen för att bygga gemenskap i en [ämne]-klass.</li>
+  <li>Ge mig fem exempel på kreativa skrivuppgifter i [ämne] för [årskurs X] som kopplar till [specifikt tema] och inkluderar [xxxxxxxxx].</li>
+  <li>Ge mig fem idéer för att använda rörelsepauser i en lektion i [ämne] för [årskurs X] som kopplar till [specifikt ämnesmoment].</li>
+  <li>Ge mig fem idéer för att använda aktuella nyheter under en lektion i [ämne] för [årskurs] som kopplar till [specifikt lärandemål].</li>
+  <li>Skapa en enkel mall för ett projekt i [ämne] för [årskurs X] som eleverna kan slutföra under en vecka, inklusive mål, steg och presentationsförslag.</li>
+  <li>Föreslå fem sätt att anpassa en lektion i [ämne] för [årskurs] för elever med särskilda behov, t.ex. extra stöd eller svårare utmaningar.</li>
+  <li>Ge mig ett exempel på en ämnesövergripande lektion för [årskurs] som kombinerar [ämne 1] och [ämne 2] med fokus på [specifikt tema].</li>
+  <li>Föreslå tre sätt att använda konst eller bild i en lektion i [ämne] för [årskurs X] för att fördjupa förståelsen av [specifikt begrepp].</li>
+  <li>Skapa en steg-för-steg-plan för en 10-minuters gruppuppgift i [ämne] för [årskurs] som lär ut [specifik färdighet] genom samarbete.</li>
+  <li>Ge mig fem idéer för att fira små framsteg i [ämne] för [årskurs], t.ex. genom uppmuntran eller små belöningar.</li>
+  <li>Skriv en kort beskrivning av ett fiktivt problem i [ämne] för [årskurs] som eleverna kan lösa individuellt eller i grupp, med ett exempel på en lösning.</li>
+  <li>Föreslå tre sätt att använda naturen eller utomhusmiljön i en lektion i [ämne] för [årskurs X] utan att lämna skolområdet.</li>
+  <li>Skapa en lista med fem enkla digitala resurser eller spel för [ämne] som passar [årskurs X] och kopplar till [specifikt tema].</li>
+  <li>Ge mig ett exempel på en kort muntlig presentationsuppgift i [ämne] för [årskurs X] som övar [specifik färdighet], med ett bedömningsförslag.</li>
+  <li>Föreslå fem sätt att koppla [ämne] för [årskurs X] till elevernas fritidsintressen eller hobbyer för att öka engagemanget.</li>
+  <li>Skriv en enkel handledning för att introducera [specifikt verktyg eller metod] i [ämne] för [årskurs X], med ett praktiskt exempel.</li>
+  <li>Ge mig tre idéer för att använda återvinning eller hållbarhet som tema i en lektion i [ämne] för [årskurs X].</li>
+  <li>Skapa en lista med fem korta, [humoristiska] quizfrågor i [ämne] för [årskurs X] som repeterar [specifikt moment].&quot;</li>
+  <li>Föreslå fem sätt att samarbeta med en annan lärare för en gemensam lektion i [ämne] för [årskurs X], inklusive tre exempel på aktiviteter inom varje sätt.</li>
+  <li>Skapa en 30-minuters lektionsaktivitet i [ämne] för [årskurs] som kombinerar [specifik metod, t.ex. grupparbete eller storytelling] med ett [tydligt lärandemål] och en kort reflektionsuppgift.</li>
+  <li>Ge mig fem snabba sätt att återfå elevernas fokus i en klass i [årskurs X] under en lektion i [ämne] utan att använda extra material.</li>
+  <li>Skriv en kort guide för att introducera ett nytt ämnesmoment (t.ex. [specifikt moment]) i [ämne] för [årskurs X], med en uppmärksamhetskrok, ett exempel och en checkfråga.</li>
+  <li>Föreslå tre kreativa sätt att använda [vardagligt föremål, t.ex. papperstallrikar eller gem] i en [ämne]-lektion för [årskurs] för att förklara [specifikt begrepp].</li>
+  <li>Skapa en lista med fem korta, positiva uppmuntringsfraser anpassade för elever i [årskurs] i [ämne] som lyfter deras ansträngning eller framsteg.</li>
+  <li>Ge mig ett exempel på en enkel hemuppgift i [ämne] för [årskurs] som kopplar till [specifikt tema] och som kan bedömas på 5 minuter.</li>
+  <li>Föreslå tre sätt att inkludera elevernas intressen (t.ex. [specifikt intresse]) i en lektion i [ämne] för [årskurs] för att öka deras delaktighet.</li>
+  <li>Skriv en kort mall för en 10-minuters avslutningsaktivitet i [ämne] för [årskurs X] som sammanfattar dagen och låter eleverna reflektera över vad de lärt sig.</li>
+  <li>Skapa en lektionsplan för en [ämne] för en klass i [årskurs X] där eleverna lär sig [specifikt nytt ämnesmoment, t.ex. grunderna i programmering], med tre steg för att introducera, utforska och befästa kunskapen.</li>
+  <li>Ge mig fem sätt att motivera en elev i [årskurs X] att lära sig [specifik ny färdighet, t.ex. skriva på ett nytt språk], med en engagerande strategi för varje.</li>
+  <li>Skapa en lista med fem korta uppmuntrande fraser för att stötta en elev i [årskurs X] som känner sig osäker när eleven lär sig [specifik ny färdighet, t.ex. läsa noter] i [ämne].</li>
+  <li>Ge mig ett exempel på en rutin för att introducera [specifikt nytt ämnesmoment, t.ex. källkritik] till en klass i [årskurs X] i [ämne], med tre steg och en kort uppvärmningsaktivitet.</li>
+  <li>Skapa en lektion för en klass i [årskurs X] i [ämne] där eleverna lär sig [specifik ny färdighet, t.ex. skriva en dikt] genom att bryta ner processen i tre mindre delar.</li>
+  <li>Ge mig ett exempel på hur en klass i [årskurs X] i [ämne] kan använda repetition över tid för att befästa [specifikt nytt innehåll, t.ex. historiska händelser], med tre repetitionstillfällen.</li>
+  <li>Skapa en lista med fem digitala verktyg för att underlätta inlärning av [specifik ny färdighet, t.ex. programmering] i en klass i [årskurs X] i [ämne], med en kort beskrivning för varje verktyg.</li>
+  <li>Föreslå tre sätt att anpassa inlärningen av [specifikt nytt ämnesmoment, t.ex. algebra] för en elev med [specifikt behov, t.ex. språkliga svårigheter] i [årskurs x], med en metod för varje.</li>
+  <li>Skriv en kort guide för att använda frågor för att introducera [specifikt nytt begrepp, t.ex. ekosystem] till en klass i [årskurs X] i [ämne], med tre forskningsbaserade frågor.</li>
+  <li>Ge mig fem idéer för att använda grupparbete för att lära en klass i [årskurs X] i [ämne] ett [specifikt nytt ämnesmoment, t.ex. källkritik], med en gruppuppgift för varje.</li>
+  <li>Föreslå tre sätt att använda berättelser för att introducera [specifikt nytt innehåll, t.ex. vikingatiden] till en klass i [årskurs X] i [ämne], med en berättelseidé för varje.</li>
+  <li>Skriv en lista med tre korta sätt att använda visuella och verbala förklaringar för att lära en klass i [årskurs X] i [ämne] ett [specifikt nytt begrepp, t.ex. energi], med två exempel för varje sätt.</li>
+</ol>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 2 · 49 promptar</div>
+  <h2>Promptar som kopplar ihop lärande med specifika</h2>
+</section>
+
+<ol class="prompts" style="counter-reset: prompt 71;">
+  <li>Skapa en lektionsplan för [ämne] för en klass i [årskurs X] där eleverna lär sig [specifikt nytt ämnesmoment, t.ex. grunderna i programmering], med tre steg för att introducera, utforska och befästa kunskapen.</li>
+  <li>Ge mig ett exempel på hur en klass i [årskurs X] i [ämne] kan använda minnestekniker för att lära sig [specifikt innehåll, t.ex. historiska årtal], med fem olika tekniker och en tillämpning för varje teknik.</li>
+  <li>Skapa en lektionsplan för en klass i [årskurs X] i [ämne] där du använder spaced repetition för att repetera [specifikt ämnesmoment, t.ex. multiplikationstabellen], med tre repetitionstillfällen över en vecka.</li>
+  <li>Ge mig fem sätt att använda interleaved practice i en matematiklektion för en klass i [årskurs X] för att blanda [specifika moment, t.ex. addition och subtraktion], med en övning för varje.</li>
+  <li>Skapa en aktivitet för en klass i [årskurs] i [ämne] där du kombinerar interfoliering för att blanda [specifika moment, t.ex. vokabulär och grammatik] med repetitioner över tid, med tre steg.</li>
+  <li>Föreslå tio sätt att använda active recall i en klass i [årskurs X] i [ämne] för att återkalla [specifikt innehåll, t.ex. historiska händelser], med en fråga eller uppgift för varje.</li>
+  <li>Skriv en kort guide för att använda elaborative interrogation i en klass i [årskurs X] i [ämne], där eleverna får utveckla frågor om [specifikt tema, t.ex. ekosystem], med tre exempel på frågor.</li>
+  <li>Ge mig ett exempel på hur en klass i [årskurs X] i [ämne] kan använda self- explanation för att förklara hur [specifikt nytt begrepp, t.ex. procent] hänger ihop med kända begrepp, med tre steg.</li>
+  <li>Föreslå tre sätt att använda dual coding i en klass [årskurs X] i [ämne], där du blandar text och visuellt material för att lära ut [specifikt ämnesmoment, t.ex. fotosyntes], med en idé för varje.</li>
+  <li>Skapa en lektion för en klass i [årskurs X] i [ämne] där du använder konkreta exempel för att förklara [specifikt abstrakt begrepp, t.ex. demokrati], med tre exempel och en diskussion.</li>
+  <li>Ge mig fem idéer för att använda feedback loopar i en klass i [årskurs X] i [ämne], där utfallet från en uppgift om [specifikt moment, t.ex. skrivning] blir input till nästa, med en loop för varje.</li>
+  <li>Skriv en kort mall för att använda metakognitiva strategier i en klass i [årskurs X] i [ämne], där elever reflekterar över sitt lärande av [specifikt ämnesmoment, t.ex. algebra], med tre reflektionssteg.</li>
+  <li>Föreslå tre sätt att använda peer learning i en klass i [årskurs X] i [ämne], där elever reflekterar tillsammans om [specifikt tema, t.ex. miljö], med en gruppuppgift för varje.</li>
+  <li>Skapa en lektionsplan för en klass i [årskurs X] i [ämne] där du använder chunking för att bryta ner [specifikt komplext innehåll], med tre mindre delar och en övning.</li>
+  <li>Föreslå tre sätt att använda scaffolding i en klass i [årskurs X] i [ämne] för att stödja elever i att lära sig [specifikt moment, t.ex. skriva en uppsats], med ett stöd för varje.</li>
+  <li>Skriv en kort guide för att kombinera spaced repetition och active recall i en klass i [årskurs X] i [ämne] för att repetera [specifikt ämnesmoment, t.ex. vokabulär], med tre steg.</li>
+  <li>Ge mig fem idéer för att använda interleaved practice i en [årskurs]-klass i [ämne] för att blanda [specifika moment, t.ex. geometri och algebra], med en övning för varje.</li>
+  <li>Föreslå tre sätt att använda dual coding och konkreta exempel i en klass i [årskurs X] i [ämne] för att förklara [specifikt begrepp, t.ex. kretsar], med en kombination för varje.</li>
+  <li>Skapa en lektion för en klass i [årskurs X] i [ämne] där du använder elaborative interrogation för att få elever att ställa frågor om [specifikt tema, t.ex. hållbarhet], med tre exempel.</li>
+  <li>Ge mig ett exempel på hur en klass i [årskurs X] i [ämne] kan använda self- explanation för att koppla [specifikt nytt begrepp, t.ex. procent] till vardagen, med tre steg.</li>
+  <li>Skriv en kort mall för att använda metakognitiva strategier och peer learning i en klass i [årskurs X] i [ämne], där elever reflekterar i par om [specifikt ämnesmoment], med tre steg.</li>
+  <li>Skapa en lektion för en klass i [årskurs X] i [ämne] där du använder feedback loopar för att förbättra [specifikt moment, t.ex. problemlösning], med tre loopar och ett mål.</li>
+  <li>Ge mig fem sätt att använda active recall i en klass i [årskurs X] i [ämne] för att repetera [specifikt innehåll, t.ex. historiska fakta], med en fråga för varje.</li>
+  <li>Skriv en kort guide för att använda chunking i en klass i [årskurs X] i [ämne] för att bryta ner [specifikt komplext ämne, t.ex. kemiska reaktioner], med tre delar och en tillämpning.</li>
+  <li>Föreslå tre sätt att använda scaffolding i en klass i [årskurs X] i [ämne] för att stödja elever i att lösa [specifikt problem, t.ex. matematiska ekvationer], med en stödstruktur för varje.</li>
+  <li>Skapa en lista med fem korta övningar för en klass i [årskurs X] i [ämne] som använder minnestekniker för att lära sig [specifikt innehåll, t.ex. glosor], med en teknik för varje.</li>
+  <li>Ge mig ett exempel på en rutin för att använda peer learning i en [årskurs]-klass i [ämne], där elever reflekterar tillsammans om [specifikt ämnesmoment, t.ex. geometri], med tre steg.</li>
+  <li>Föreslå tre sätt att använda dual coding i en klass i [årskurs X] i [ämne] för att förklara [specifikt begrepp], med en visuell och textbaserad idé för varje.</li>
+  <li>Ge mig fem idéer för att använda konkreta exempel i en klass i [årskurs X] i [ämne] för att förklara [specifikt abstrakt begrepp, t.ex. procent], med ett exempel för varje.</li>
+  <li>Skapa en lista med tre korta sätt att använda spaced repetition i en klass i [årskurs X] i [ämne] för att repetera [specifikt innehåll, t.ex. grammatik], med ett exempel för varje.</li>
+  <li>Föreslå tre sätt att samarbeta med andra lärare för att använda interleaved practice i en klass i [årskurs X] i [ämne], med blandade moment från [specifika ämnen, t.ex. matte och SO], och en övning för varje.</li>
+  <li>Ge mig ett exempel på en plan för att använda active recall och feedback loopar i en klass i [årskurs X] i [ämne] för att förbättra [specifikt moment, t.ex. skrivning].</li>
+  <li>Skriv en lista med fem enkla sätt att använda self-explanation i en klass i [årskurs X] i [ämne] för att förklara [specifikt innehåll, t.ex. ekvationer], med en fråga för varje.</li>
+  <li>Föreslå tre sätt att använda metakognitiva strategier i en klass i [årskurs X] i [ämne] för att reflektera över [specifikt mål, t.ex. problemlösning], med en metod för varje.</li>
+  <li>Skapa en mall för en terminsplanering i [ämne] för en klass i [årskurs X], där du använder scaffolding och spaced repetition för att lära ut [specifikt ämnesmoment, t.ex. grammatik], med tre fokusområden.</li>
+  <li>Föreslå tre sätt att använda chunking och dual coding i [ämne] för en klass i [årskurs X] för att bryta ner och visualisera [specifikt begrepp, t.ex. vattnets kretslopp], med en kombination för varje.</li>
+  <li>Ge mig ett exempel på en lektion i [ämne] för en klass i [årskurs X] som kombinerar interfoliering och konkreta exempel för att lära ut [specifikt tema, t.ex. algebra], med tre moment.</li>
+  <li>Skriv en kort guide för att använda minnestekniker i [ämne] för en klass i [årskurs X] för att lära sig [specifikt innehåll, t.ex. årtal], med tre tekniker.</li>
+  <li>Skapa en lista med tre korta sätt att använda feedback loopar och peer learning i en [ämne] för en klass i [årskurs X] för att förbättra [specifikt mål, t.ex. skrivfärdigheter], med ett exempel för varje.</li>
+  <li>Ge mig fem sätt att använda active recall i [ämne] för en klass i [årskurs X] för att förbättra inlärning av [specifikt innehåll, t.ex. matematiska formler], baserat på forskning om minnesretention, med en övning för varje.</li>
+  <li>Skapa en aktivitet för [ämne] för en klass i [årskurs X] där du använder interleaved practice för att blanda [specifika moment, t.ex. addition och multiplikation], med tre steg och en forskningsbaserad motivering.</li>
+  <li>Föreslå tre sätt att använda elaborative interrogation i [ämne] för en klass i [årskurs X] för att fördjupa förståelsen av [specifikt tema, t.ex. ekosystem], med en fråga per metod och en koppling till forskning om djupinlärning.</li>
+  <li>Skriv en kort guide för att använda self-explanation i [ämne] för en klass i [årskurs X], där elever förklarar [specifikt begrepp, t.ex. procent] för sig själva, med tre steg och en forskningsbaserad motivering.</li>
+  <li>Ge mig ett exempel på hur en klass i [årskurs X] kan använda dual coding för att kombinera text och bilder om [specifikt innehåll, t.ex. kemiska reaktioner], med tre steg och en hänvisning till forskning.</li>
+  <li>Föreslå tre sätt att använda konkreta exempel i [ämne] för en klass i [årskurs X] för att förklara [specifikt abstrakt begrepp, t.ex. demokrati], med ett exempel per metod och en forskningsbaserad motivering.</li>
+  <li>Skapa en lektion för en [årskurs]-klass i [ämne] där du använder feedback loopar för att förbättra [specifikt moment, t.ex. skrivning], med tre loopar och en koppling till Hatties forskning om feedback.</li>
+  <li>Skriv en kort mall för att använda peer learning i [ämne] för en klass i [årskurs X], där elever diskuterar [specifikt ämnesmoment, t.ex. geometri] i par, med tre steg och en hänvisning till forskning.</li>
+  <li>Skapa en lektionsplan för en klass i [årskurs X] i [ämne] där du använder scaffolding för att lära ut [specifikt moment, t.ex. skrivprocessen], med tre stödstrukturer och en forskningsmotivering.</li>
+  <li>Skriv en kort mall för att använda metakognitiva strategier i [ämne] för en klass i [årskurs X], där elever reflekterar över sitt lärande av [specifikt ämnesmoment, t.ex. problemlösning], med tre steg och en forskningsmotivering.</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

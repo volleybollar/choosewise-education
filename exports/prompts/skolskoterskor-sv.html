@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för skolsköterskor — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 47</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">För skolsköterskor</div>
+    <div class="cover__count">20 chattpromptar</div>
+    <h1 class="cover__title">Promptar för skolsköterskor.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">47</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">20 promptar</div>
+  <h2>skolsköterskor</h2>
+</section>
+
+<ol class="prompts">
+  <li>Skapa en plan för ett hälsosamtal med en elev i [årskurs X] enligt Skolverkets riktlinjer, med tre fokusområden (t.ex. kost, sömn, välmående) och en uppföljning.</li>
+  <li>Ge mig fem strategier för att stödja en lärare på en [grundskola] i att identifiera [specifik hälsoutmaning, t.ex. trötthet hos elever], med en idé för varje.</li>
+  <li>Skriv en kort guide för att prata med en [årskurs X]-elev om [specifikt hälsoproblem, t.ex. huvudvärk eller stress], med tre steg och ett enkelt råd.</li>
+  <li>Föreslå tre sätt att samarbeta med elevhälsoteamet på en [grundskola] för att förebygga [specifikt problem, t.ex. smittspridning], med en insats för varje.</li>
+  <li>Skapa en lista med fem korta frågor för att snabbt bedöma en [årskurs X]-elevs hälsa vid ett spontant besök hos skolsköterskan.</li>
+  <li>Ge mig ett exempel på en rutin för att följa upp en elev i [årskurs X] efter [specifik händelse, t.ex. skada eller sjukfrånvaro], med tre steg.</li>
+  <li>Föreslå tre sätt att genomföra en hälsofrämjande insats för en [årskurs X]-klass om [specifikt tema, t.ex. hygien eller rörelse], med en aktivitet för varje.</li>
+  <li>Skriv en kort mall för att dokumentera ett hälsobesök för en [årskurs X]-elev på en [grundskola], med tre sektioner (t.ex. anledning, observationer, åtgärder).</li>
+  <li>Ge mig fem idéer för att uppmuntra en elev i [årskurs X] att förbättra [specifik vana, t.ex. frukostintag], med en metod för varje.</li>
+  <li>Skapa en lista med tre korta frågor för att inleda ett samtal med en [årskurs X]-elev om deras fysiska och psykiska mående under ett hälsobesök.</li>
+  <li>Föreslå tre sätt att samarbeta med föräldrar till en [årskurs X]-elev för att hantera [specifikt hälsoproblem, t.ex. allergier], med en strategi för varje.</li>
+  <li>Ge mig ett exempel på en enkel hälsokontroll av en [årskurs X]-elev för [specifikt område, t.ex. syn eller hörsel], med tre steg och en rekommendation.</li>
+  <li>Skriv en lista med fem resurser (t.ex. webbplatser eller material) för en skolsköterska på en [grundskola] som stödjer [specifikt ämne, t.ex. vaccinationer].</li>
+  <li>Föreslå tre sätt att hantera en akut situation med en [årskurs X]-elev (t.ex. [specifik situation, t.ex. allergisk reaktion]), med en åtgärd för varje.</li>
+  <li>Skapa en mall för en kort presentation för personalen på en [grundskola] om [specifikt tema, t.ex. första hjälpen], med tre nyckelpunkter.</li>
+  <li>Ge mig fem idéer för att främja fysisk aktivitet bland elever i [årskurs X] på en [grundskola], med fokus på [specifikt mål, t.ex. pauser eller lek].</li>
+  <li>Föreslå tre sätt att introducera en [årskurs X]-elev till enkla hälsorutiner för [specifikt problem, t.ex. handtvätt], med en aktivitet för varje.</li>
+  <li>Skriv en kort guide för att stötta en elev i [årskurs X] med [specifikt hälsotillstånd, t.ex. diabetes], med tre tips för daglig hantering i skolan.</li>
+  <li>Ge mig ett exempel på en rutin för att följa upp en [årskurs X]-klass hälsa efter [specifik händelse, t.ex. influensautbrott], med tre steg.</li>
+  <li>Skapa en lista med tre korta sätt att samarbeta med kurator och psykolog på en [grundskola] för att stötta [specifikt mål, t.ex. psykisk hälsa], med ett exempel för varje.</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

@@ -80,8 +80,12 @@
       </div>
     </section>
 
-    <!-- Summary for teachers: the complete framework in one view -->
-    <section class="wise-summary container" data-reveal>
+    <!-- Summary for teachers: the complete framework in one view.
+         Har tonad bakgrund (bg-alt) så sektionen bryter av den visuella
+         repetitionen mellan diagrammen. .container är flyttad till inre
+         wrapper så bakgrunden kan gå full-bleed. -->
+    <section class="wise-summary wise-summary--tinted" data-reveal>
+      <div class="container">
       <h2 class="wise-summary__title">The WISE Framework for Teachers</h2>
       <div class="wise-summary__layout">
         <svg class="wise-summary__diagram" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -107,6 +111,7 @@
           <div class="wise-summary__step"><h3>S — Select the right tool</h3><p>Choose the tool that best serves learning for the students you have: pen and paper, a physical book, a digital book, other digital tools, an AI tool, no tool at all, or something entirely different?</p></div>
           <div class="wise-summary__step"><h3>E — Evaluate the outcome</h3><p>Did it work well? Did students learn better with this tool than they would have with a different one? Adjust and run the cycle again.</p></div>
         </div>
+      </div>
       </div>
     </section>
 

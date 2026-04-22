@@ -1,0 +1,35 @@
+{
+  "folder": "48 skolvaktmästare",
+  "slug_sv": "skolvaktmastare",
+  "slug_en": "school-caretakers",
+  "cover_count": 20,
+  "total_prompts": 20,
+  "parts": [
+    {
+      "number": 1,
+      "title": "vaktmästare",
+      "prompts": [
+        "Skriv en kort checklista för att inspektera [specifikt område, t.ex. lekredskap eller klassrum] på en [grundskola], med tre punkter att kontrollera.",
+        "Skapa en dagsplan för en vaktmästare på en [grundskola] som täcker [specifika uppgifter, t.ex. reparationer och gårdsskötsel], med tre prioriteringar och en tidsram.",
+        "Ge mig fem strategier för att snabbt hantera [specifikt problem, t.ex. trasiga lampor] på en [grundskola] utan att störa undervisningen.",
+        "Föreslå tre sätt att samarbeta med skolpersonal på en [grundskola] för att lösa [specifik fråga, t.ex. möblering eller snöröjning], med en idé för varje.",
+        "Skapa en lista med fem snabba lösningar för vanliga akuta problem (t.ex. [specifikt problem, t.ex. läckande kran]) på en [gymnasieskola].",
+        "Ge mig ett exempel på en rutin för att förbereda en [grundskola] inför [specifik händelse, t.ex. terminsstart eller idrottsdag], med tre steg.",
+        "Föreslå tre sätt att underhålla skolans utemiljö på en [grundskola] för [specifikt syfte, t.ex. lek eller säkerhet], med en åtgärd för varje.",
+        "Skriv en kort guide för att reparera [specifikt föremål, t.ex. en dörr eller bänk] på en [grundskola], med tre steg och en säkerhetsåtgärd.",
+        "Ge mig fem idéer för att göra skolans lokaler mer trivsamma på en [grundskola], med fokus på [specifikt område, t.ex. korridorer eller matsal].",
+        "Skapa en lista med tre korta meddelanden till rektor på en [grundskola] om [specifik fråga, t.ex. slutfört arbete eller behov], med en positiv ton.",
+        "Föreslå tre sätt att samarbeta med skolmatspersonal på en [grundskola] för att hantera [specifik uppgift, t.ex. avfall eller inventarier], med en idé för varje.",
+        "Ge mig ett exempel på en rutin för att kontrollera och fylla på [specifik resurs, t.ex. toalettpapper eller verktyg] på en [grundskola], med tre steg.",
+        "Skriv en lista med fem verktyg eller material en vaktmästare på en [gymnasieskola] alltid bör ha till hands för [specifikt ändamål, t.ex. reparationer].",
+        "Föreslå tre sätt att hantera en hektisk dag på en [grundskola] med flera akuta ärenden (t.ex. [specifika ärenden]), med en prioriteringsstrategi för varje.",
+        "Skapa en mall för en veckoplanering för en vaktmästare på en [grundskola], med tre sektioner (t.ex. underhåll, inspektioner, projekt).",
+        "Ge mig fem idéer för att minska energiförbrukningen på en [grundskola], med fokus på [specifikt område, t.ex. belysning eller värme], och en åtgärd för varje.",
+        "Föreslå tre sätt att förbereda en [grundskola] inför [specifik väderhändelse, t.ex. snöstorm], med en förebyggande insats för varje.",
+        "Skriv en kort handledning för att introducera en ny vaktmästare till [specifik rutin, t.ex. låssystem] på en [grundskola], med tre steg.",
+        "Ge mig ett exempel på en rutin för att inspektera och rapportera säkerhetsrisker (t.ex. [specifik risk]) på en [grundskola], med tre steg.",
+        "Skapa en lista med tre korta sätt att visa uppskattning till elever och personal på en [grundskola] för att de håller ordning, med ett exempel för varje."
+      ]
+    }
+  ]
+}

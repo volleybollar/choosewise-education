@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för engelsklärare på gymnasiet — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 27</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">För engelsklärare på gymnasiet</div>
+    <div class="cover__count">56 chattpromptar</div>
+    <h1 class="cover__title">Promptar för engelsklärare på gymnasiet.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">27</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">56 promptar</div>
+  <h2>lärare i engelska på gymnasiet</h2>
+</section>
+
+<ol class="prompts">
+  <li>Write a 200-word article in English about the impact of social media on teenagers for English 5 and create 5 comprehension questions focusing on main ideas and details. Generate a 150-word short story in English about a young person facing a moral dilemma for English 6 and write 4 questions that encourage students to analyze the character’s motivations.</li>
+  <li>Create a 200-word text in English about the history of the English language for English 7 and develop 5 questions that test students’ understanding of linguistic evolution and influences.</li>
+  <li>Write a 150-word news report in English about a recent environmental issue in an English-speaking country for English 5 and create 5 questions focusing on cause and effect. Generate a 200-word text in English about cultural diversity in London for English 6 and write 4 questions that encourage students to reflect on the benefits and challenges of multiculturalism.</li>
+  <li>Create a 150-word excerpt from a novel set in the United States during the 1960s for English 7 and develop 5 questions that focus on historical context and character development.</li>
+  <li>Write a 200-word article in English about the importance of learning a second language for English 5 and create 5 comprehension questions that test vocabulary and inference skills. Generate a 150-word text in English about a famous British festival for English 6 and write 4 questions that encourage students to identify cultural traditions and their significance.</li>
+  <li>Create a 200-word speech in English about gender equality delivered by a young activist for English 7 and develop 5 questions that focus on rhetorical devices and persuasive techniques.</li>
+  <li>Write a 150-word blog post in English about the effects of globalization on youth culture for English 5 and create 5 questions that test students’ understanding of global influences. Skrivande</li>
+  <li>Create a writing task for English 5 where students write a 200-word essay about the advantages and disadvantages of online learning and provide 5 guiding questions to help them structure their essay. Generate a prompt for English 6 where students write a 250-word short story about a journey that changes the main character’s perspective and give 4 examples of descriptive language they can use.</li>
+  <li>Write a task for English 7 where students write a 300-word argumentative essay about whether social media does more harm than good and provide 5 tips for constructing a strong argument.</li>
+  <li>Create a writing prompt for English 5 where students write a 200-word letter to a friend describing a memorable holiday in an English-speaking country and give 3 examples of informal language to include. Generate a task for English 6 where students write a 250-word review of a book or movie set in an English-speaking country and provide 5 questions to help them analyze the plot and themes.</li>
+  <li>Write a prompt for English 7 where students write a 300-word speech about the importance of protecting the environment and give 4 examples of persuasive techniques they can use.</li>
+  <li>Create a writing task for English 5 where students write a 200-word narrative about a day in the life of a teenager in the UK and provide 5 vocabulary words related to daily routines. Generate a prompt for English 6 where students write a 250-word article about the impact of technology on communication and give 4 examples of linking words to help them structure their text.</li>
+  <li>Write a task for English 7 where students write a 300-word analysis of a famous English poem and provide 5 questions to guide their interpretation of themes and literary devices.</li>
+  <li>Create a writing prompt for English 5 where students write a 200-word email to a teacher explaining why they missed a deadline and give 3 examples of polite expressions to use. Muntlig kommunikation</li>
+  <li>Write 5 discussion questions for English 5 based on a 200-word article about the effects of climate change in English-speaking countries and focus on solutions and individual responsibility. Generate a role-play scenario for English 6 where two students debate the pros and cons of studying abroad in an English-speaking country and provide 5 key phrases for expressing opinions.</li>
+  <li>Create a list of 5 topics for English 7 students to discuss in small groups about global issues affecting English-speaking nations and write 4 questions for each topic to guide the discussion.</li>
+  <li>Write a 150-word text in English for English 5 about a cultural misunderstanding between two people from different English-speaking countries and create 5 questions for a class discussion about cultural differences. Generate 5 debate topics for English 6 about modern challenges in English-speaking societies and provide 4 arguments for each side of one topic as an example.</li>
+  <li>Create a task for English 7 where students prepare a 3-minute presentation about a famous English-speaking historical figure and give 5 tips for effective public speaking.</li>
+  <li>Write 5 discussion questions for English 5 based on a 200-word text about the importance of diversity in schools and focus on inclusion and equality. Generate a group activity for English 6 where students discuss a 150-word text about the influence of British music globally and provide 5 questions to encourage critical thinking.</li>
+  <li>Create a task for English 7 where students prepare a 2-minute speech about the role of English as a global language and give 4 examples of rhetorical questions they can use.</li>
+  <li>Write a scenario for English 5 where students role-play a job interview in English and provide 5 common interview questions along with sample answers. Kulturell förståelse</li>
+  <li>Write a 200-word text in English about the history of Thanksgiving in the United States for English 5 and create 5 questions that encourage students to reflect on cultural traditions. Generate a 150-word text in English about the impact of British colonialism on modern English-speaking countries for English 6 and write 4 questions that focus on historical and cultural effects.</li>
+  <li>Create a task for English 7 where students write a 300-word essay comparing a cultural festival in two English-speaking countries and provide 5 guiding questions to help them analyze similarities and differences.</li>
+  <li>Write a 200-word text in English about the influence of American pop culture on global youth for English 5 and create 5 discussion questions about cultural globalization. Generate a 150-word text in English about Indigenous cultures in Australia for English 6 and write 4 questions that encourage students to reflect on cultural preservation and challenges.</li>
+  <li>Create a task for English 7 where students research and present a 3-minute talk about a social issue in an English-speaking country and provide 5 questions to guide their research.</li>
+  <li>Write a 200-word text in English about the education system in the UK for English 5 and create 5 questions that encourage students to compare it with the Swedish system. Generate a 150-word text in English about the history of the English monarchy for English 6 and write 4 questions that focus on its cultural and political significance.</li>
+  <li>Create a task for English 7 where students write a 300-word analysis of a famous English-speaking author’s work and its cultural context and provide 5 questions to guide their analysis.</li>
+  <li>Write a 200-word text in English about the role of sports in Australian culture for English 5 and create 5 questions that encourage students to discuss the importance of sports in society. Litteratur och analys</li>
+  <li>Write a 200-word excerpt from a dystopian novel set in a future English-speaking society for English 7 and create 5 questions that encourage students to analyze themes and symbolism. Generate a 150-word summary of Shakespeare’s Romeo and Juliet for English 6 and write 4 questions that focus on the characters’ motivations and the play’s cultural impact.</li>
+  <li>Create a 200-word text in English about the themes of identity in Toni Morrison’s Beloved for English 7 and develop 5 questions that encourage students to explore historical and social contexts.</li>
+  <li>Write a 150-word poem in English about freedom for English 5 and create 5 questions that help students analyze the poem’s imagery and tone. Generate a 200-word text in English about the role of nature in Romantic poetry for English 6 and write 4 questions that focus on literary devices and historical background.</li>
+  <li>Create a task for English 7 where students write a 300-word analysis of a short story by an English-speaking author and provide 5 guiding questions to help them explore themes and narrative techniques.</li>
+  <li>Write a 150-word excerpt from a novel about the American Dream for English 6 and create 5 questions that encourage students to discuss the concept’s relevance today. Generate a 200-word text in English about the influence of Charles Dickens on modern literature for English 7 and write 4 questions that focus on his social commentary and writing style.</li>
+  <li>Create a 150-word summary of George Orwell’s 1984 for English 6 and develop 5 questions that encourage students to reflect on surveillance and power in today’s society.</li>
+  <li>Write a 200-word text in English about the role of female characters in Jane Austen’s novels for English 7 and create 5 questions that focus on gender roles and societal expectations. Språklig utveckling</li>
+  <li>Create a list of 10 advanced English idioms related to emotions and give a task for English 6 where students write a 200-word story using at least 3 idioms. Generate 5 sentences in English with common grammatical errors for English 5 and create a task where students correct the errors and explain their reasoning.</li>
+  <li>Write a 150-word text in English with 5 examples of formal language for English 7 and create a task where students rewrite the text using informal language.</li>
+  <li>Create a list of 10 English phrasal verbs related to communication and give a task for English 6 where students write 5 sentences using different phrasal verbs. Generate a 200-word text in English with 5 examples of academic vocabulary for English 7 and write 4 questions that encourage students to use the vocabulary in their own sentences.</li>
+  <li>Create a task for English 5 where students write a 200-word dialogue between two friends using at least 5 slang expressions and provide a list of 10 slang terms they can choose from.</li>
+  <li>Write a 150-word text in English with 5 examples of linking words for English 6 and create a task where students write a short essay using at least 3 of the linking words. Generate a list of 10 English words with multiple meanings and give a task for English 5 where students write sentences showing the different meanings of 3 words.</li>
+  <li>Create a 200-word text in English with 5 examples of passive voice for English 7 and write 4 questions that encourage students to rewrite the sentences in active voice.</li>
+  <li>Write a task for English 6 where students improve a 150-word text by adding descriptive adjectives and adverbs and provide 10 examples of descriptive words they can use. Samhällsfrågor</li>
+  <li>Write a 200-word article in English about the impact of immigration on English- speaking countries for English 6 and create 5 discussion questions focusing on social and economic effects. Generate a 150-word text in English about the Black Lives Matter movement for English 7 and write 4 questions that encourage students to reflect on systemic racism and activism.</li>
+  <li>Create a task for English 5 where students write a 200-word essay about the effects of poverty in an English-speaking country and provide 5 guiding questions to help them structure their essay.</li>
+  <li>Write a 200-word speech in English about the importance of mental health awareness for English 6 and create 5 questions that encourage students to discuss societal attitudes toward mental health. Generate a 150-word text in English about the gender pay gap in the UK for English 7 and write 4 questions that focus on causes, consequences, and potential solutions.</li>
+  <li>Create a task for English 5 where students prepare a 2-minute presentation about a social issue in an English-speaking country and provide 5 research questions to guide their preparation.</li>
+  <li>Write a 200-word article in English about the effects of Brexit on young people for English 6 and create 5 questions that encourage students to discuss political and cultural impacts. Generate a 150-word text in English about the opioid crisis in the United States for English 7 and write 4 questions that focus on public health and government responses.</li>
+  <li>Create a list of 5 social issues affecting English-speaking countries and give a task for English 5 where students write a 200-word letter to a politician about one issue.</li>
+  <li>Write a 200-word text in English about the role of education in reducing inequality for English 6 and create 5 discussion questions about access to education and its societal impact. Kreativitet och uttryck</li>
+  <li>Create a writing prompt for English 5 where students write a 200-word poem about a city in an English-speaking country and provide 5 examples of sensory language they can use. Generate a task for English 6 where students write a 250-word script for a short scene set in a historical period in an English-speaking country and give 4 examples of period-specific language.</li>
+  <li>Write a prompt for English 7 where students create a 300-word fictional interview with a famous English-speaking celebrity and provide 5 questions they can include in the interview.</li>
+  <li>Create a task for English 5 where students write a 200-word story inspired by a famous English proverb and provide a list of 5 proverbs they can choose from. Generate a prompt for English 6 where students write a 250-word diary entry from the perspective of a teenager living in an English-speaking country during a major historical event and give 4 historical details to include.</li>
+  <li>Write a task for English 7 where students create a 300-word advertisement for a fictional product aimed at English-speaking youth and provide 5 examples of persuasive language to use.</li>
+  <li>Create a writing prompt for English 5 where students write a 200-word description of a festival in an English-speaking country and provide 5 vocabulary words related to celebrations. Generate a task for English 6 where students write a 250-word alternate ending to a famous English novel and give 4 examples of how to maintain the original tone and style.</li>
+  <li>Write a prompt for English 7 where students create a 300-word podcast script about a cultural trend in an English-speaking country and provide 5 tips for engaging the audience.</li>
+  <li>Create a task for English 5 where students write a 200-word story about a magical object found in an English-speaking country and provide 5 descriptive words to inspire their writing.</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

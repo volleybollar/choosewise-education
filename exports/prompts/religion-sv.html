@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för religionslärare — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 22</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">För religionslärare</div>
+    <div class="cover__count">60 chattpromptar</div>
+    <h1 class="cover__title">Promptar för religionslärare.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">22</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">60 promptar</div>
+  <h2>lärare i religion</h2>
+</section>
+
+<ol class="prompts">
+  <li>Skapa en lektionsserie om [speci kt tema, t.ex. religion och samhälle] för en årskurs [x]- klass, med tre lektioner som utforskar kulturella in uenser, etiska dilemman och nutida relevans, och en koppling till Lgr 22.</li>
+  <li>Ge mig fem strategier för att lära årskurs [x]-elever om [speci kt tema, t.ex. världsreligioner], med en praktisk övning för varje och en re ektion över religionsförståelse.</li>
+  <li>Skapa en lektionsplan för en religionslektion i årskurs [x] om [speci kt tema, t.ex. etik och moral], med tre moment som fokuserar på begrepp, dilemman och re ektion, och en koppling till Lgr 22.</li>
+  <li>Skriv en kort guide för att introducera [speci kt tema, t.ex. religion och identitet] för en årskurs [x]-klass, med tre steg och en engagerande uppvärmningsaktivitet.</li>
+  <li>Föreslå tre sätt att använda digitala verktyg för att undervisa om [speci kt tema, t.ex. heliga texter] i årskurs [x], med en aktivitet för varje och en koppling till digital kompetens i Lgr 22.</li>
+  <li>Skapa en lista med fem analysuppgifter för en årskurs [x]-klass om [speci kt tema, t.ex. religion och samhälle], med en källa för varje och en re ektionsfråga.</li>
+  <li>Ge mig ett exempel på en rutin för att starta en religionslektion i årskurs [x] om [speci kt tema, t.ex. högtider], med tre steg och en koppling till kulturella uttryck.</li>
+  <li>Föreslå tre sätt att integrera [speci kt tema, t.ex. etiska dilemman] i en årskurs [x]-klass med diskussion, med en etisk fråga för varje och en re ektion över perspektiv.</li>
+  <li>Skapa en bedömningsmatris för en religionslektion i årskurs [x] om [speci kt tema, t.ex. livsåskådningar], med tre kunskapskrav från Lgr 22 och kriterier för olika nivåer.</li>
+  <li>Ge mig fem idéer för att undervisa om [speci kt tema, t.ex. religion och kon ikter] i årskurs [x], med en kreativ aktivitet för varje och en koppling till etiska perspektiv.</li>
+  <li>Skriv en kort mall för att planera en religionslektion i årskurs [x] om [speci kt tema, t.ex. religion och vetenskap], med tre moment (introduktion, analys, re ektion) och en källkritisk uppgift.</li>
+  <li>Föreslå tre sätt att samarbeta med en [SO-lärare] för ett ämnesövergripande projekt om [speci kt tema, t.ex. religion och samhälle] i årskurs [x], med en idé för varje och ett mål.</li>
+  <li>Ge mig ett exempel på en lektion i årskurs [x] om [speci kt tema, t.ex. världsreligioner], med tre steg som fokuserar på likheter och skillnader och en diskussionsuppgift.</li>
+  <li>Skapa en lista med fem diskussionsfrågor för en årskurs [x]-klass om [speci kt tema, t.ex. etik], med fokus på moraliska dilemman och en nutidskoppling.</li>
+  <li>Föreslå tre sätt att använda primärkällor för att undervisa om [speci kt tema, t.ex. heliga texter] i årskurs [x], med en källa för varje och en analysuppgift. fi fl fi fi fi fi fi fl fi fi fl fi fl fi fl fl fl fi fi fi fi fi</li>
+  <li>Skriv en kort guide för att undervisa om [speci kt tema, t.ex. religion och identitet] i årskurs [x], med tre steg och en koppling till etiska resonemang enligt Lgr 22.</li>
+  <li>Ge mig fem idéer för att göra [speci kt tema, t.ex. livsåskådningar] mer engagerande för en årskurs [x]-klass, med en praktisk aktivitet för varje och en motivering.</li>
+  <li>Föreslå tre sätt att bedöma elevernas förståelse av [speci kt tema, t.ex. religion och kon ikter] i årskurs [x], med en metod för varje och en koppling till Lgr 22:s kunskapskrav.</li>
+  <li>Skapa en plan för en religionslektion i årskurs [x] om [speci kt tema, t.ex. högtider], med tre moment och en avslutande re ektionsuppgift om kulturella uttryck.</li>
+  <li>Ge mig ett exempel på en källkritisk övning för en årskurs [x]-klass om [speci kt tema, t.ex. religion och media], med tre steg och en analys av källans trovärdighet.</li>
+  <li>Skriv en lista med tre korta sätt att koppla [speci kt tema, t.ex. etik och moral] till elevernas vardag i en årskurs [x]-klass, med en fråga för varje och en koppling till Lgr 22.</li>
+  <li>Skapa en detaljerad plan för ett projekt om [speci kt tema, t.ex. religion och samhälle] för en årskurs [x]-klass, med tre lektioner som fokuserar på kulturella in uenser och etiska perspektiv.</li>
+  <li>Ge mig fem strategier för att undervisa om [speci kt tema, t.ex. heliga texter] i årskurs [x], med en källbaserad aktivitet för varje och en koppling till religionsförståelse.</li>
+  <li>Skriv en kort guide för att använda debatt i en religionslektion om [speci kt tema, t.ex. etiska dilemman] i årskurs [x], med tre steg och en analys av perspektiv.</li>
+  <li>Föreslå tre sätt att integrera [speci kt tema, t.ex. livsåskådningar] med svenska i en årskurs [x]-klass, med en ämnesövergripande aktivitet för varje och ett mål.</li>
+  <li>Skapa en lista med fem kreativa skrivuppgifter för en årskurs [x]-klass om [speci kt tema, t.ex. högtider], med en instruktion för varje och en koppling till kulturella uttryck.</li>
+  <li>Ge mig ett exempel på en rutin för att avsluta en religionslektion om [speci kt tema, t.ex. religion och vetenskap] i årskurs [x], med tre steg och en re ektionsfråga.</li>
+  <li>Föreslå tre sätt att använda rollspel för att undervisa om [speci kt tema, t.ex. religion och kon ikter] i årskurs [x], med ett scenario för varje och en re ektion över etik.</li>
+  <li>Skriv en bedömningsuppgift för en årskurs [x]-klass om [speci kt tema, t.ex. världsreligioner], med tre nivåer och kriterier kopplade till Lgr 22:s kunskapskrav.</li>
+  <li>Ge mig fem idéer för att undervisa om [speci kt tema, t.ex. etik och moral] i årskurs [x], med en praktisk aktivitet för varje och en re ektion över etiska resonemang.</li>
+  <li>Skriv en kort mall för att planera en religionslektion i årskurs [x] om [speci kt tema, t.ex. religion och identitet], med tre moment och en koppling till nutida frågor i Lgr 22.</li>
+  <li>Föreslå tre sätt att samarbeta med en historielärare för ett ämnesövergripande tema om [speci kt tema, t.ex. religion och samhälle] i årskurs [x], med en idé för varje och ett mål. fi fi fi fi fi fl fi fi fl fl fi fi fi fi fi fi fi fl fi fi fl fi fl fl</li>
+  <li>Ge mig ett exempel på en diskussion om [speci kt tema, t.ex. livsåskådningar] för en årskurs [x]-klass, med tre frågor och en metod för att bedöma delaktighet.</li>
+  <li>Skapa en lista med fem analysuppgifter för en årskurs [x]-klass om [speci kt tema, t.ex. religion och media], med en källa för varje och en källkritisk fråga.</li>
+  <li>Föreslå tre sätt att använda berättelser för att undervisa om [speci kt tema, t.ex. heliga texter] i årskurs [x], med en narrativ aktivitet för varje och en re ektion över betydelse.</li>
+  <li>Skriv en kort guide för att undervisa om [speci kt tema, t.ex. religion och kon ikter] i årskurs [x], med tre steg och en koppling till etiska perspektiv enligt Lgr 22.</li>
+  <li>Ge mig fem idéer för att koppla [speci kt tema, t.ex. etik] till nutida frågor i en årskurs [x]- klass, med en fråga för varje och en motivering.</li>
+  <li>Föreslå tre sätt att bedöma elevernas religionsförståelse i en årskurs [x]-klass om [speci kt tema, t.ex. högtider], med en metod för varje och en koppling till Lgr 22.</li>
+  <li>Skapa en plan för en religionslektion i årskurs [x] om [speci kt tema, t.ex. världsreligioner], med tre moment och en diskussion om kulturella uttryck.</li>
+  <li>Ge mig ett exempel på en källkritisk analysuppgift för en årskurs [x]-klass om [speci kt tema, t.ex. religion och vetenskap], med tre steg och en utvärdering av källans trovärdighet.</li>
+  <li>Skriv en lista med tre korta sätt att använda digitala resurser för att undervisa om [speci kt tema, t.ex. religion och identitet] i årskurs [x], med en resurs för varje och en koppling till Lgr 22.</li>
+  <li>Ge mig fem idéer för att undervisa om [speci kt tema, t.ex. världsreligioner] i årskurs [x], med en källbaserad aktivitet för varje och en re ektion över religionsförståelse.</li>
+  <li>Skriv en kort guide för att introducera [speci kt tema, t.ex. etik och moral] för en årskurs [x]-klass, med tre steg och en engagerande etisk fråga som uppvärmning.</li>
+  <li>Föreslå tre sätt att använda digitala verktyg för att undervisa om [speci kt tema, t.ex. religion och identitet] i årskurs [x], med en aktivitet för varje och en koppling till Lgr 22.</li>
+  <li>Skapa en lista med fem diskussionsuppgifter för en årskurs [x]-klass om [speci kt tema, t.ex. högtider], med en fråga för varje och en koppling till kulturella uttryck.</li>
+  <li>Ge mig ett exempel på en rutin för att avsluta en religionslektion om [speci kt tema, t.ex. livsåskådningar] i årskurs [x], med tre steg och en re ektionsuppgift.</li>
+  <li>Föreslå tre sätt att integrera [speci kt tema, t.ex. religion och kon ikter] med historia i en årskurs [x]-klass, med en ämnesövergripande aktivitet för varje och ett mål.</li>
+  <li>Skapa en bedömningsuppgift för en årskurs [x]-klass om [speci kt tema, t.ex. heliga texter], med tre nivåer och kriterier kopplade till Lgr 22:s kunskapskrav.</li>
+  <li>Ge mig fem strategier för att göra [speci kt tema, t.ex. religion och vetenskap] engagerande för en årskurs [x]-klass, med en praktisk aktivitet för varje och en motivering. fi fi fi fi fl fi fi fi fl fi fi fl fi fl fi fl fi fi fi fi fi fi</li>
+  <li>Skriv en kort mall för att planera en religionslektion i årskurs [x] om [speci kt tema, t.ex. etiska dilemman], med tre moment och en källkritisk analysuppgift.</li>
+  <li>Föreslå tre sätt att samarbeta med en [svensklärare] för ett projekt om [speci kt tema, t.ex. religion och media] i årskurs [x], med en idé för varje och en koppling till Lgr 22.</li>
+  <li>Ge mig ett exempel på en lektion om [speci kt tema, t.ex. religion och identitet] för en årskurs [x]-klass, med tre steg och en diskussion om personliga perspektiv.</li>
+  <li>Skapa en lista med fem källkritiska övningar för en årskurs [x]-klass om [speci kt tema, t.ex. religion och samhälle], med en källa för varje och en analys av trovärdighet.</li>
+  <li>Föreslå tre sätt att använda rollspel för att undervisa om [speci kt tema, t.ex. etik] i årskurs [x], med ett scenario för varje och en re ektion över moraliska val.</li>
+  <li>Skriv en kort guide för att undervisa om [speci kt tema, t.ex. högtider] i årskurs [x], med tre steg och en koppling till kulturella uttryck i Lgr 22.</li>
+  <li>Ge mig fem idéer för att koppla [speci kt tema, t.ex. livsåskådningar] till nutida frågor i en årskurs 9-klass, med en fråga för varje och en motivering.</li>
+  <li>Föreslå tre sätt att bedöma elevernas etiska resonemang i en årskurs [x]-klass om [speci kt tema, t.ex. religion och vetenskap], med en metod för varje och ett mål.</li>
+  <li>Skapa en plan för en religionslektion i årskurs [x] om [speci kt tema, t.ex. världsreligioner], med tre moment och en avslutande re ektion om likheter och skillnader.</li>
+  <li>Ge mig ett exempel på en analysuppgift för en årskurs [x]-klass om [speci kt tema, t.ex. religion och kon ikter], med tre steg och en utvärdering av källors trovärdighet.</li>
+  <li>Skriv en lista med tre korta sätt att använda digitala resurser för undervisa om [speci kt tema, t.ex. heliga texter] i årskurs [x], med en resurs för varje och en koppling till Lgr 22. fi fi fi fi fi fi fi fl fl fi fi fi fl fi</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

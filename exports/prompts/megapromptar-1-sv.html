@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Megapromptar #1 — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 64</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">Megapromptar · Vol. 1</div>
+    <div class="cover__count">15 chattpromptar</div>
+    <h1 class="cover__title">Megapromptar #1.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">64</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">15 promptar</div>
+  <h2>Promptar</h2>
+</section>
+
+<ol class="prompts">
+  <li>Hur man använder megaprompten Fyll i platshållarna [MÅLGRUPP], [ÄMNE], [VISUELLA HJÄLPMEDEL] och [NYCKELBEGREPP] med speci k information om ditt utbildningsblad. Ange till exempel åldersgrupp eller typ av elever som din målgrupp, de niera ämnet för arbetsbladet, lista vilka typer av visuella hjälpmedel du har tillgängliga och beskriv nyckelbegreppen som kommer att täckas i arbetsbladet. Exempel: &quot;Min målgrupp är mellanstadieelever i Sverige i åldrarna 10-13 år. Ämnet för arbetsbladet är Grundläggande principer för ekologi. Tillgängliga visuella hjälpmedel inkluderar diagram över näringskedjor och diagram som visar energi ödet i ekosystem. Nyckelbegrepp som ska täckas är ekosystem, näringskedjor och energi öde.&quot; fl fl fi fi fl fl Megaprompt #2 - Skapa utbildningsinnehåll #SAMMANHANG: Anta rollen som en erfaren kursskapare med en djup förståelse för att skapa övertygande utbildningsinnehåll. Din uppgift är att skapa ett manus för en föreläsning eller video som handlar om ett speci kt ämne. Det här manuset kommer att utformas för att fängsla publiken från början, behålla deras intresse hela tiden och ge dem en grundlig förståelse för ämnet i slutet. Manuset bör vara strukturerat på ett sätt så att det naturligt guidar tittaren genom informationen, genom att använda en konversationston för att avmysti era komplexa begrepp och införliva verkliga exempel eller fallstudier för bättre illustration. #MÅL: Du kommer att producera ett manus som inte bara utbildar utan också engagerar tittaren och uppmuntrar dem att utforska ämnet ytterligare. Målet är att skapa innehåll som är tillgängligt, informativt och stimulerande, som kan hålla kvar tittarens uppmärksamhet och väcka deras ny kenhet om ämnet. #SVARSRIKTLINJER: Följ steg-för-steg-metoden nedan för att skapa ett utkast till skriptet: 1. **Börja med en introduktion:**</li>
+  <li>Skapa en övertygande öppningslinje som fångar uppmärksamhet. Överväg att använda ett överraskande faktum, en provocerande fråga eller en relaterbar anekdot relaterad till ämnet. Ange tydligt syftet med föreläsningen/videon. Vad kommer tittaren att lära sig?</li>
+  <li>Varför är detta viktigt? 2. **Skissa nyckelbegrepp:** Dela upp ämnet i nyckelbegrepp eller avsnitt. Var och en bör bygga på det sista och skapa ett logiskt öde av information.</li>
+  <li>Använd tydliga rubriker för varje avsnitt för att hjälpa till att organisera innehållet och vägleda tittaren genom föreläsningen/videon. 3. **Förklara begrepp i en konversationston:**</li>
+  <li>Använd ett enkelt, vardagligt språk för att förklara varje begrepp. Undvik jargong eller, när det är nödvändigt, ta dig tid att förklara specialiserade termer i lekmannatermer. Inkludera frågor du förväntar dig från publiken och svara på dem. Detta interaktiva element håller innehållet dynamiskt. 4. **Inkludera verkliga exempel eller fallstudier:** För varje nyckelbegrepp, inkludera minst ett exempel eller fallstudie som illustrerar poängen i ett praktiskt sammanhang. Detta hjälper till att grunda abstrakta begrepp i verkligheten, vilket gör dem lättare att förstå. 5. **Engagera med publiken:** Ställ retoriska frågor till tittarna för att uppmuntra dem att tänka djupt över materialet. fi fi fi fl Bjud in tittarna att dela sina tankar eller erfarenheter relaterade till ämnet i kommentarerna eller på sociala medier. Detta engagemang främjar en känsla av gemenskap och dialog. 6. **Avsluta med en sammanfattning och uppmaning:**</li>
+  <li>Sammanfatta de viktigaste tipsen från föreläsningen/videon. Vad ska tittaren komma ihåg? Avsluta med en uppmaning. Detta kan vara en uppmuntran att tillämpa kunskapen, utforska ämnet vidare genom rekommenderade läsningar eller engagera sig i en relaterad uppgift eller aktivitet. #INFORMATION OM MIG: Föreläsning/videoämne: [ÄMNE] Målgruppens kunskapsnivå: [KUNSKAPSNIVÅ] Eventuella särskilda instruktioner eller önskemål: [SPECIALINSTRUKTIONER] #OUTPUT: Det slutliga manuset bör vara strukturerat med tydliga avsnitt, markerade med rubriker och underrubriker där så är tillämpligt. Den bör inledas med en övertygande introduktion, följa en logisk utveckling genom materialet och avslutas med en kortfattad sammanfattning och en uppmuntrande uppmaning till handling. Tonen ska vara konversativ och engagerande genomgående, med komplex information uppdelad i begripliga segment, med stöd av relevanta exempel eller fallstudier.</li>
+  <li>Hur man använder megaprompten Fyll i platshållarna [ÄMNE], [KUNSKAPSNIVÅ] och [SPECIALINSTRUKTIONER] med speci ka detaljer om föreläsningen eller videon du planerar. Välj till exempel ett speci kt ämne för [ÄMNE], de niera om din publik är nybörjare, medel eller avancerad för [KUNSKAPSNIVÅ] och ange några speciella fokuspunkter eller metoder som du vill betona i [SPECIALINSTRUKTIONER]. Exempel: Om ditt föreläsningsämne är &quot;E ekten av förnybar energi på globala ekonomier&quot;, kan du ställa in kunskapsnivån till &quot;melldel&quot; och inkludera särskilda instruktioner som t ex &quot;Fokusera på ekonomiska fördelar och inkludera fallstudier från Europa och Asien.&quot; ff fi fi fi Megaprompt #3 - Skapa en studieguide #SAMMANHANG: Anta rollen som en sakkunnig utbildare som specialiserar sig på att skapa omfattande studieguider för vilket ämne eller ämne som helst. Din uppgift är att hjälpa användaren att skapa en detaljerad studieguide som innehåller alla nyckelbegrepp, definitioner, formler och illustrativa exempel. #ROLL: Du är en sakkunnig utbildare som är specialiserad på att skapa omfattande studieguider för vilket ämne eller ämne som helst. #SVARSRIKTLINJER:</li>
+  <li>Identifiera och lista alla nyckelbegrepp relaterade till ämnet/ämnet</li>
+  <li>Ge tydliga, koncisa definitioner för varje begrepp Inkludera relevanta formler, ekvationer eller algoritmer Hitta eller skapa illustrativa exempel för att förtydliga komplexa begrepp Organisera information i en logisk, strukturerad disposition</li>
+  <li>Använd punktlistor för huvudämnen och numrerade listor för underämnen Citera alla källor med lämplig citeringsstil (t.ex. APA, MLA, Chicago) #UPPGIFTSKRITERIER: Se till att studieguiden täcker alla nyckelbegrepp, definitioner, formler och exempel Strukturera informationen i ett tydligt, lätt att följa dispositionsformat</li>
+  <li>Använd en kombination av punktlistor och numrerade listor för optimal läsbarhet Citera alla källor som används i forskningen med hjälp av lämplig citeringsstil Fokusera på att tillhandahålla heltäckande och korrekt information #INFORMATION OM MIG: Ämne eller ämne: [INFOGA ÄMNE ELLER ÄMNESOMRÅDE] #SVARSFORMAT: Studieguide: [ÄMNE/ÄMNESOMRÅDE] I. [Huvudämne 1] A. [Underämne 1] 1. [Nyckelkoncept 1] Definition: [Definition 1] Exempel: [Exempel 1] Källa: [Citat 1] 2. [Nyckelkoncept 2] Definition: [Definition 2] Exempel: [Exempel 2] Källa: [Citat 2] B. [Underämne 2] 1. [Nyckelkoncept 3] Definition: [Definition 3] Exempel: [Exempel 3] Källa: [Citat 3] 2. [Nyckelkoncept 4] Definition: [Definition 4] Exempel: [Exempel 4] Källa: [Citat 4] II. [Huvudämne 2] A. [Underämne 3] 1. [Nyckelkoncept 5] Definition: [Definition 5] Exempel: [Exempel 5] Källa: [Citat 5] 2. [Nyckelkoncept 6] Definition: [Definition 6] Exempel: [Exempel 6] Källa: [Citat 6] B. [Underämne 4] 1. [Nyckelkoncept 7] Definition: [Definition 7] Exempel: [Exempel 7] Källa: [Citat 7] 2. [Nyckelkoncept 8] Definition: [Definition 8] Exempel: [Exempel 8] Källa: [Citat 8] [Fortsätt med ytterligare huvudämnen, underämnen och nyckelbegrepp efter behov]</li>
+  <li>Hur man använder megaprompten Fyll i platshållaren [INFOGA ÄMNE ELLER ÄMNESOMRÅDE] i avsnittet #INFORMATION OM MIG med det specifika ämne eller ämne du behöver studieguiden för. Exempel: Om du skapar en studieguide för en kurs om &quot;Organisk kemi&quot;, ersätt [INFOGA ÄMNE ELLER ÄMNESOMRÅDE] med &quot;Organisk kemi.&quot; Megaprompt #4 - Skapa konceptkartor #SAMMANHANG: Anta rollen som expertkonceptkartläggare. Din uppgift är att hjälpa användaren att skapa en heltäckande konceptkarta för ett visst ämne eller ämne, som lyfter fram nyckelbegrepp och deras relationer. #ROLL: Du är en expert på konceptkartläggning som kan visualisera komplexa ämnen och deras sammankopplingar i ett intuitivt hierarkiskt format. #SVARSRIKTLINJER: – Börja med huvudkoncept på toppnivå Indrag relaterade underbegrepp under huvudbegrepp</li>
+  <li>Använd kortfattade etiketter för koncept Upprätthålla ett logiskt öde mellan idéer Strukturera begreppskartan som en hierarkisk punktlista: [Huvudkoncept] [Underkoncept] ▪ [Underunderkoncept] [Sub-sub-sub-concept] #KRITERIER FÖR KONCEPTKARTA: 1. Fokusera på de viktigaste begreppen och deras relationer 2. Undvik att ta med triviala eller irrelevanta detaljer 3. Se till att varje koncept är tydligt och koncist märkt 4. Upprätthåll en konsekvent hierarkisk struktur genomgående 5. Sikta på en heltäckande men ändå intuitiv representation av ämnet eller ämnet #INFORMATION OM MIG: Mitt ämne eller ämnesområde: [ANGE ÄMNE ELLER ÄMNESOMRÅDE] #SVARSSFORMAT: [Huvudkoncept 1] [Underkoncept 1a] ▪ [Underdelkoncept 1a1] ▪ [Underdelkoncept 1a2] [Underbegrepp 1b] [Huvudkoncept 2] [Underkoncept 2a] ▪ [Underdelkoncept 2a1] [Sub-sub-sub-concept 2a1a] [Sub-sub-sub-concept 2a1b] ▪ [Underdelkoncept 2a2] [Underkoncept 2b] ▪ [Underunderkoncept 2b1] [Huvudkoncept 3] [Underkoncept 3a] fl [Underkoncept 3b] ▪ [Underunderkoncept 3b1] ▪ [Underdelkoncept 3b2] [Sub-sub-sub-concept 3b2a] [Underkoncept 3c]</li>
+  <li>Hur man använder megaprompten Fyll i platshållaren [ANGE ÄMNE ELLER ÄMNESOMRÅDE] med det speci ka ämne eller ämne som du vill skapa en konceptkarta för. Exempel: Om ditt ämne är &quot;Miljövetenskap&quot; skulle du ersätta [ANGI ÄMNE ELLER ÄMNESOMRÅDE] med &quot;Miljövetenskap&quot; för att skräddarsy konceptkartan för detta ämne. fi Megaprompt #5 - Skapa en frågesport (quiz) #SAMMANHANG: Anta rollen som en erfaren kursskapare och pedagogisk innehållsdesigner. Din uppgift är att utforma en omfattande och engagerande frågesport om ett speci kt ämne som korrekt bedömer elevernas förståelse och minneshämtning av materialet. Frågesporten ska utmana och stimulera kritiskt tänkande och erbjuda en mängd olika frågetyper som ervalsfrågor, sant/falskt och korta svar för att täcka ett brett spektrum av ämnet. Se till att frågorna är tydliga, relevanta och anpassade till inlärningsmålen, med en återkopplingsmekanism för varje svar för att ge eleverna omedelbar insikt i deras prestationer och uppmuntra till fortsatt lärande. #MÅL: Du kommer att skapa en frågesport som e ektivt utvärderar elevernas kunskap och förståelse för ämnet, vilket uppmuntrar djupt engagemang och kritiskt tänkande. Frågesporten ska fungera både som ett bedömningsverktyg och ett läromedel, ge omedelbar feedback som lyfter fram nyckelbegrepp och förklarar korrekta och felaktiga svar. #SVARSRIKTLINJER: Följ steg-för-steg-metoden nedan för att utforma frågorna: 1. **Rama in inlärningsmålen:** De niera tydligt vad eleverna ska veta eller kunna göra i slutet av kursen. Detta kommer att styra skapandet av relevanta frågor. 2. **Välj frågetyper:** Välj en blandning av frågetyper ( ervalsfrågor, sant/falskt, korta svar) för att testa olika nivåer av förståelse och kritiskt tänkande. 3. **Skapa tydliga, koncisa frågor:** – Flervalsfrågor bör ha ett rätt svar och tre rimliga felaktiga svar. Sanna/falska frågor måste baseras på fakta som tydligt kan veri eras som korrekta eller felaktiga. Korta svarsfrågor bör kräva ett kort svar som visar förståelse för nyckelbegrepp. 4. **Utveckla feedback för varje fråga:** Ge detaljerade förklaringar till varför varje svar är korrekt eller felaktigt, länka tillbaka till lärandemålen och uppmuntra till vidare studier eller re ektion. 5. **Se till överensstämmelse med lärandemål:** Granska alla frågor och feedback för att säkerställa att de är relevanta för lärandemålen och täcker materialet på ett heltäckande sätt. 6. **Pilottesta frågesporten:** Om möjligt, låt en liten grupp elever eller kamrater testa frågesporten för att identi era eventuella förvirrande frågor eller fel innan det rullas ut till alla elever. #INFORMATION OM MIG: Ämnet för denna quiz: [ÄMNE] Inlärningsmål för kursen/området: [LÄRANDEMÅL] fi fi fl ff fi fi fl fl Önskad blandning av frågetyper (t.ex. 40 % ervalsalternativ, 30 % sant/falskt, 30 % korta svar): [FRÅGETYP MIX] Eventuella speci ka områden eller koncept som måste inkluderas i quiz: [SPECIFIKA OMRÅDEN ELLER KONCEPT] Alla områden eller koncept som bör undvikas: [OMRÅDEN ELLER KONCEPT ATT UNDVIKA] #OUTPUT: Frågesporten bör bestå av [TOTALT ANTAL FRÅGOR] frågor, balanserade enligt den föredragna blandningen av frågetyper. Varje fråga bör vara tydlig, direkt relaterad till inlärningsmålen och åtföljas av omedelbar, informativ feedback som hjälper eleven att förstå orsaken till att deras svar är korrekta eller felaktiga. Denna feedbackmekanism är avgörande för att stärka lärandet och uppmuntra utforskning av ämnet bortom frågesporten.</li>
+  <li>Hur man använder megaprompten Fyll i platshållarna [ÄMNE], [LÄRANDEMÅL], [FRÅGETYP-MIX], [SPECIFIKA OMRÅDEN ELLER KONCEPT] och [OMRÅDEN ELLER BEGREPP SOM SKA UNDVIKAS] med speci ka detaljer om din frågesport. Exempel, om ditt frågesportämne är &quot;Miljövetenskap&quot;, kan dina lärandemål inkludera &quot;förstå e ekterna av mänskliga aktiviteter på ekosystem&quot;, och din frågetypsmix kan vara &quot;50 % erval, 25 % sant/falskt, 25 % kortsvar.&quot; Inkludera viktiga begrepp som &quot;biologisk mångfald&quot; och uteslut icke-relaterade områden som &quot;marinbiologi&quot; om ditt fokus är terrestra ekosystem. Exempel: För en frågesport om &quot;Miljövetenskap&quot; kan du fylla i: Ämne: Miljövetenskap Lärandemål: Förstå påverkan av mänskliga aktiviteter på ekosystem, förklara konceptet hållbar utveckling Frågetyper mix: 50 % ervalsalternativ, 25 % sant/falskt, 25 % kortsvar Speci ka områden eller koncept: biologisk mångfald, bevarandestrategier Områden eller begrepp att undvika: Marinbiologi, oceanogra f fl fl fl fi ff fi fi</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

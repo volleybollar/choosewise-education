@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för skolchefer — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 04</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">För skolchefer</div>
+    <div class="cover__count">62 chattpromptar</div>
+    <h1 class="cover__title">Promptar för skolchefer.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">04</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">62 promptar</div>
+  <h2>skolchefer</h2>
+</section>
+
+<ol class="prompts">
+  <li>Skapa en strategisk plan för att förbättra likvärdigheten i undervisningen mellan alla skolor i kommunen, inklusive tre konkreta åtgärder och en tidsram för uppföljning.</li>
+  <li>Ge mig fem förslag för att stärka samarbetet mellan rektorer på alla våra skolor kring [specifikt tema, t.ex. digitalisering eller elevhälsa], med en aktivitet för varje.</li>
+  <li>Skriv ett kort underlag till kommunstyrelsen för att motivera en budgetökning för [specifikt ändamål, t.ex. fler specialpedagoger] för våra skolor, med tre nyckelargument.</li>
+  <li>Föreslå tre sätt att implementera Skolverkets nya riktlinjer för [specifikt ämne, t.ex. hållbar utveckling] i våra skolor, inklusive en metod för uppföljning.</li>
+  <li>Skapa en agenda för ett [tvåtimmarsmöte] med alla rektorer i [kommunen] om [specifikt fokus, t.ex. arbetsmiljö eller resultatlyft], med tre diskussionspunkter och en workshop.</li>
+  <li>Ge mig ett exempel på en [kommunövergripande] plan för att minska frånvaro bland elever i våra skolorna, med tre insatser och ett sätt att mäta framgång.</li>
+  <li>Föreslå fem sätt att använda kommunens elevdata (t.ex. nationella prov eller frånvaro) för att identifiera och åtgärda svagheter i våra skolor. (OBS! Ladda bara upp data som du vet att du får ladda upp!)</li>
+  <li>Skriv ett kort inspirationsbrev till alla anställda i våra skolor inför höstterminen, där du lyfter [specifikt tema, t.ex. gemenskap eller utveckling].</li>
+  <li>Ge mig tre idéer för att samarbeta med lokala företag eller organisationer för att stärka resurserna i våra skolor, med ett exempel för varje.</li>
+  <li>Skapa en checklista med fem prioriteringar för en skolchef att fokusera på under första kvartalet för att säkerställa att alla skolor följer [specifik policy, t.ex. trygghet och studiero].</li>
+  <li>Föreslå tre sätt att stödja rektorer i [kommunen] med kompetensutveckling kring [specifikt ämne, t.ex. ledarskap eller inkludering], inklusive tre konkreta aktiviteter.</li>
+  <li>Ge mig ett exempel på en kortfattad rapport till huvudmannen om våra skolors resultat i [specifikt ämne, t.ex. matematik], med tre nyckeltal och en rekommendation.</li>
+  <li>Skriv en strategi för att hantera en ökning av klagomål från föräldrar i våra skolor, inklusive tre steg och en kommunikationsplan.</li>
+  <li>Föreslå [tre] sätt att främja ett kommunövergripande fokus på elevers hälsa och välmående i våra [grundskolor], med en insats för varje stadie [F-3, 4-6, 7-9].</li>
+  <li>Skapa en plan för att utvärdera kvaliteten i undervisningen på våra skolor, med tre metoder [t.ex. observationer, enkäter] och en tidsplan.</li>
+  <li>Ge mig fem idéer för att minska administrativ belastning för rektorer och lärare i våra skolor, med fokus på [specifik process, t.ex. dokumentation].</li>
+  <li>Föreslå tre sätt att introducera ett nytt digitalt verktyg (t.ex. [specifikt verktyg]) i våra skolor, inklusive en plan för utbildning och uppföljning.</li>
+  <li>Skriv en kort handledning för att genomföra en workshop med rektorer i kommunen om [specifikt ämne, t.ex. krishantering], med tre nyckelaktiviteter.</li>
+  <li>Ge mig ett exempel på en [kommunövergripande] strategi för att stärka övergångarna mellan [förskoleklass, lågstadiet, mellanstadiet och högstadiet] i våra skolor.</li>
+  <li>Skapa en lista med tre initiativ för att fira och lyfta fram framgångar i våra skolor, både internt och i lokalmedia.</li>
+  <li>Skapa en plan för att stärka våra skolors arbete med [specifikt fokus, t.ex. språkutveckling eller hållbarhet], inklusive tre insatser och en metod för att mäta effekten.</li>
+  <li>Ge mig fem strategier för att hantera en plötslig resursbrist (t.ex. [specifik resurs, t.ex. lärare eller budget]) i våra skolor utan att påverka kvaliteten.</li>
+  <li>Skriv ett kort underlag för ett möte med kommunpolitikerna om att införa [specifikt initiativ, t.ex. fler studie- och yrkesvägledare] i våra skolor, med fem motiveringar.</li>
+  <li>Föreslå fem sätt att samordna kompetensdelning mellan skolorna i [kommunen] kring [specifikt ämne, t.ex. inkludering eller digitala läromedel], med en aktivitet för varje.</li>
+  <li>Skapa en agenda för en [halvdags konferens] för alla pedagoger i våra skolor om [specifikt tema, t.ex. trygghet eller innovation], med tre programpunkter.</li>
+  <li>Ge mig ett exempel på en kommunövergripande strategi för att minska skillnader i nationella provresultat mellan våra skolor, med fem konkreta steg.</li>
+  <li>Föreslå fem sätt att använda Skolinspektionens rapport för att identifiera förbättringsområden i våra skolor, med en åtgärd för varje. Ladda upp eller hänvisa till länk på nätet där Skolinspektionens rapport finns.</li>
+  <li>Skriv ett kort meddelande till rektorer i kommunen för att uppmuntra dem inför en utmanande period (t.ex. [specifik tidpunkt]), med ett konkret stöd-erbjudande.</li>
+  <li>Ge mig tre idéer för att involvera elever och vårdnadshavare i våra skolor i planeringen av [specifikt projekt, t.ex. antimobbningsarbete], med ett exempel för varje.</li>
+  <li>Skapa en checklista med fem nyckelåtgärder för att säkerställa att alla våra skolor följer GDPR och hanterar [specifik data, t.ex. elevuppgifter] korrekt.</li>
+  <li>Föreslå tre sätt att stödja skolornas arbete med att uppfylla kraven i läroplanen (Lgr22) för [specifikt ämne eller mål] i våra skolor.</li>
+  <li>Ge mig ett exempel på en kortfattad analys av [specifik trend, t.ex. minskande elevantal] och dess påverkan på våra [antal] skolor, med tre rekommendationer.</li>
+  <li>Skriv en strategi för att hantera en [kommunövergripande] kris (t.ex. [specifik kris, t.ex. pandemi eller lärarstrejk]) i våra skolorna, med tre prioriteringar.</li>
+  <li>Föreslå tre sätt att främja ett långsiktigt samarbete mellan våra förskolor och grundskolor för att underlätta övergångarna, föreslå även tre konkret insatser för att nå dit.</li>
+  <li>Skapa en plan för att utvärdera rektorernas ledarskap i våra [antal] skolor, med tre metoder (t.ex. [enkäter, intervjuer]) och en tidsram.</li>
+  <li>Ge mig fem idéer för att minska miljöpåverkan från våra [antal] skolor, med fokus på [specifikt område, t.ex. mat som slängs], och fem enkla åtgärder.</li>
+  <li>Föreslå tre sätt att introducera ett [kommunövergripande] mentorsprogram för nya lärare i våra skolor, inklusive struktur och uppföljning.</li>
+  <li>Skriv en kort handledning för att leda ett dialogmöte med fackliga representanter i kommunen om [specifikt ämne, t.ex. arbetsbelastning], med tre nyckelstrategier.</li>
+  <li>Ge mig ett exempel på en strategi för att stärka karriärvägar för lärare i våra skolor, med tre insatser för att behålla engagerad personal.</li>
+  <li>Skapa en lista med tre [kommunövergripande] initiativ för att lyfta fram positiva exempel från våra skolorna, både internt och i lokalpressen.</li>
+  <li>Skapa en plan för att stärka våra skolors arbete med [specifikt fokus, t.ex. entreprenörskap eller värdegrund], med tre åtgärder och en strategi för rektorsstöd.</li>
+  <li>Ge mig fem förslag för att hantera en lärarbrist i våra [antal] skolor, med fokus på [specifikt stadium, t.ex. högstadiet], och en lösning för varje.</li>
+  <li>Föreslå tre sätt att samordna våra [antal] skolor för att implementera ett nytt nationellt prov (t.ex. [specifikt prov]), inklusive förberedelser och utvärdering.</li>
+  <li>Skapa en agenda för ett strategiskt möte med skoladministratörer i [kommunen] om [specifikt ämne, t.ex. effektivisering eller elevstöd], med tre huvudpunkter.</li>
+  <li>Ge mig ett exempel på en [kommunövergripande] strategi för att förbättra övergången från grundskola till gymnasium, med tre konkreta insatser.</li>
+  <li>Föreslå fem sätt att använda kommunens resurser (t.ex. bibliotek eller idrottsanläggningar) för att berika undervisningen i våra skolor, med tre idéer för varje.</li>
+  <li>Skriv ett kort uttalande till lokalmedia om en framgång i våra skolor (t.ex. [specifik framgång]), med en uppmaning till samarbete.</li>
+  <li>Ge mig tre idéer för att stärka samverkan mellan våra skolor och socialtjänsten kring [specifikt ämne, t.ex. utsatta elever], med treexempel för varje idé.</li>
+  <li>Föreslå tre sätt att stödja skolornas rektorer i att hantera [specifik utmaning, t.ex. konflikter eller arbetsmiljö], med en konkret resurs för varje.</li>
+  <li>Gör en analys av hur [specifik faktor, t.ex. socioekonomiska skillnader] påverkar elever på olika skolor beroende på deras socioekonomiska sammansättning. Ge även fem förslag på hur vi kan förbättra situationen.</li>
+  <li>Skriv en strategi för att införa ett [kommunövergripande] system för [specifik funktion, t.ex. elevhälsorapportering] i våra skolorna, med tre konkreta steg.</li>
+  <li>Föreslå tre sätt att främja ett fokus på förebyggande arbete mot mobbning i våra skolor, med en insats för varje skolnivå [F-3, 4-6, 7-9].</li>
+  <li>Skapa en plan för att kartlägga och åtgärda fysiska brister i våra skollokaler, med tre prioriteringar och en rapporteringsmetod.</li>
+  <li>Ge mig fem idéer för att stärka våra skolornas attraktivitet som arbetsplats, med fokus på [specifik aspekt, t.ex. fortbildning eller arbetsmiljö].</li>
+  <li>Skriv en kort handledning för att leda ett möte med elevrådsrepresentanter från våra [antal] skolor om [specifikt ämne, t.ex. klassrumsmiljö], med tre konkreta aktiviteter.</li>
+  <li>Ge mig ett exempel på en strategi för att stärka samarbetet mellan våra skolor och närsamhället, med tre gemensamma mål som vi kan sträva mot.</li>
+  <li>Skapa en lista med tre initiativ för att lyfta fram pedagogiska innovationer från våra skolor på nationella konferenser eller forum.</li>
+  <li>Skapa en plan för att kartlägga och åtgärda skolnärvaro, d v s elever som har skolplikt, men som av olika anledningar inte kommer till skolan. Infoga tre viktiga prioriteringar och en rapporteringsmetod.</li>
+  <li>Ge mig ett exempel på en [plan] för att förbättra våra elevernas [specifik färdighet, t.ex. läsning eller matematikkunskaper] på en [stadium, tex högstadiet], med mål, aktiviteter och uppföljningspunkter. Bonusprompt - Ledarskapscoach Agera som en expert på ledarskap. Jag är en Skolchef som vill utveckla mitt ledarskap mot rektorerna jag har ansvarar för.</li>
+  <li>Hur kan jag utveckla och förbättra mitt ledarskap? Ställ frågor, en fråga per meddelande, så tar du reda på mitt nuläge och kan ge mig råd och tips.</li>
+  <li>Hur använder jag bonusprompten?</li>
+  <li>Skriv in hela prompten och besvara de följdfrågor som du får från chattbotten. Tänk på att inte ange känslig information!</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

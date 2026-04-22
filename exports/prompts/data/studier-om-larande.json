@@ -1,0 +1,35 @@
+{
+  "folder": "59 Studier om lärande",
+  "slug_sv": "studier-om-larande",
+  "slug_en": "research-on-learning",
+  "cover_count": 20,
+  "total_prompts": 20,
+  "parts": [
+    {
+      "number": 1,
+      "title": "studier och forskning om lärande",
+      "prompts": [
+        "Vad säger forskning om lärande om fördelarna med spaced repetition jämfört med massed repetition (cramming) för att förbättra långtidsminnet hos elever, och ge tre exempel på hur detta kan tillämpas i [ämne] för en [årskurs X]-klass?",
+        "Baserat på studier om inlärning, hur förbättrar active recall retention jämfört med passiv genomgång, och hur kan jag använda detta i en [årskurs X]-klass i [ämne] för att lära ut [specifikt ämnesmoment, t.ex. glosor]?",
+        "Vad visar forskning om interleaved practice och dess effekt på långsiktig inlärning och problemlösningsförmåga, och hur kan jag implementera detta i en [årskurs X]- klass i [ämne] med [specifika moment, t.ex. matteoperationer]?",
+        "Enligt forskning om lärande, hur bidrar elaborative interrogation till djupare förståelse, och vilka tre forskningsbaserade frågor kan jag använda för att få en [årskurs X]-klass i [ämne] att förklara [specifikt tema, t.ex. demokrati]?",
+        "Vad säger studier om self-explanation och dess påverkan på begreppsförståelse, och hur kan jag använda denna metod i en [årskurs X]-klass i [ämne] för att koppla [specifikt nytt begrepp, t.ex. bråk] till känd kunskap?",
+        "Baserat på forskning om dual coding, hur förbättrar kombinationen av text och visuella element inlärning, och hur kan jag tillämpa detta i en [årskurs X]-klass i [ämne] för att förklara [specifikt begrepp, t.ex. ekosystem]?",
+        "Vad visar forskning om effekten av konkreta exempel på att förstå abstrakta begrepp, och ge tre forskningsbaserade exempel jag kan använda i en [årskurs X]- klass i [ämne] för att förklara [specifikt abstrakt begrepp, t.ex. sannolikhet]?",
+        "Enligt Hatties forskning om feedback, hur kan effektiv feedback förbättra elevers lärande, och hur kan jag skapa tre forskningsbaserade feedback-loopar för en [årskurs X]-klass i [ämne] för att förstärka [specifikt moment, t.ex. skrivning]?",
+        "Vad säger forskning om metakognitiva strategier och deras påverkan på självreglerat lärande, och hur kan jag använda detta i en [årskurs X]-klass i [ämne] för att få elever att reflektera över [specifikt mål, t.ex. problemlösning]?",
+        "Baserat på forskning om peer learning, hur förbättrar samarbete mellan elever deras inlärning, och vilka tre forskningsbaserade gruppuppgifter kan jag använda i en[årskurs X]-klass i [ämne] för att fördjupa [specifikt tema, t.ex. historieanalys]?",
+        "Vad visar forskning om chunking och dess effekt på att minska kognitiv belastning, och hur kan jag använda denna metod i en [årskurs X]-klass i [ämne] för att bryta ner [specifikt komplext innehåll, t.ex. kemiska reaktioner] i tre delar?",
+        "Enligt forskning om scaffolding, hur kan strukturerat stöd förbättra elevernas självständiga lärande, och vilka tre forskningsbaserade stödstrukturer kan jag använda i en [årskurs X]-klass i [ämne] för att lära ut [specifikt moment, t.ex. problemlösning]?",
+        "Vad säger studier om minnestekniker (t.ex. mnemonics) och deras påverkan på retention, och hur kan jag implementera tre forskningsbaserade tekniker i en [årskurs]-klass i [ämne] för att lära sig [specifikt innehåll, t.ex. historiska årtal]?",
+        "Baserat på forskning om interleaved practice, hur förbättrar blandad övning långsiktig inlärning jämfört med blockad övning, och hur kan jag använda detta i en [årskurs X]-klass i [ämne] för att blanda [specifika moment, t.ex. geometri och algebra]?",
+        "Vad visar forskning om peer learning och dess effekt på både förståelse och motivation, och vilka tre forskningsbaserade gruppuppgifter kan jag använda i en [årskurs X]-klass i [ämne] för att fördjupa [specifikt tema, t.ex. samhällsfrågor]?",
+        "Enligt forskning om self-explanation, hur kan självförklaring förbättra begreppsförståelse, och hur kan jag få en [årskurs X]-klass i [ämne] att förklara [specifikt nytt begrepp, t.ex. densitet] med tre forskningsbaserade steg?",
+        "Vad säger studier om dual coding och dess effekt på minnesretention jämfört med enbart textbaserat lärande, och hur kan jag tillämpa detta i en [årskurs X]-klass i [ämne] för att lära ut [specifikt begrepp, t.ex. kretsar] med både text och bilder?",
+        "Baserat på forskning om elaborative interrogation, hur kan utvecklingsfrågor fördjupa elevernas förståelse, och vilka tre forskningsbaserade frågor kan jag använda i en [årskurs X]-klass i [ämne] för att utforska [specifikt tema, t.ex. hållbarhet]?",
+        "Vad visar forskning om feedback enligt Hatties Visible Learning, och hur kan jag använda tre forskningsbaserade feedback-metoder i en [årskurs X]-klass i [ämne] för att förbättra [specifikt moment, t.ex. skrivning]?",
+        "Enligt forskning om metakognitiva strategier, hur kan reflektion över sitt eget lärande förbättra prestationer, och hur kan jag implementera detta i en [årskurs X]-klass i [ämne] för att få elever att reflektera över [specifikt mål, t.ex. problemlösning] med tre steg?"
+      ]
+    }
+  ]
+}

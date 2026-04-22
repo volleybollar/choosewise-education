@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för skolmåltidspersonal — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 51</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">För skolmåltidspersonal</div>
+    <div class="cover__count">60 chattpromptar</div>
+    <h1 class="cover__title">Promptar för skolmåltidspersonal.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">51</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">60 promptar</div>
+  <h2>skolmåltidspersonal</h2>
+</section>
+
+<ol class="prompts">
+  <li>Skapa en veckomeny för en [grundskola] som följer Livsmedelsverkets rekommendationer för skolmåltider, inklusive tre vegetariska alternativ och en näringsberäkning.</li>
+  <li>Ge mig fem strategier för att minska matsvinn i skolköket på en [grundskola], med fokus på [specifikt område, t.ex. portionering eller rester].</li>
+  <li>Skriv ett kort meddelande till elever och föräldrar på en [grundskola] för att introducera en ny rätt (t.ex. [specifik rätt]), med en positiv och inbjudande ton.</li>
+  <li>Föreslå tre sätt att anpassa skolmåltiderna på en [grundskola] för elever med [specifikt behov, t.ex. glutenintolerans eller religiösa krav], inklusive en enkel rutin.</li>
+  <li>Skapa en checklista med fem punkter för att säkerställa att köket på en [grundskola] följer livsmedelssäkerhetsföreskrifter under en hektisk lunchservering.</li>
+  <li>Ge mig ett exempel på en enkel rutin för att planera inköp av råvaror till skolmåltider på en [gymnasieskola], med tre steg för att minimera kostnader.</li>
+  <li>Föreslå tre sätt att använda lokala eller säsongsbaserade ingredienser i skolmåltiderna på en [högstadieskola], med ett receptförslag för varje.</li>
+  <li>Skriv en kort handledning för att introducera en ny medarbetare i skolköket på en [grundskola] till [specifik uppgift, t.ex. salladsberedning], med tre steg.</li>
+  <li>Ge mig fem idéer för att göra måltidsmiljön mer inbjudande för elever på en [grundskola], med fokus på [specifikt område, t.ex. dekoration eller sittning].</li>
+  <li>Skapa en lista med tre korta, roliga aktiviteter för att involvera elever i [grundskolan] i att lära sig om mat under lunchen (t.ex. [specifikt tema, t.ex. källsortering]).</li>
+  <li>Föreslå tre sätt att samarbeta med lärare på en [grundskola] för att koppla skolmåltiderna till undervisningen i [specifikt ämne, t.ex. hemkunskap eller biologi].</li>
+  <li>Ge mig ett exempel på en enkel enkät med tre frågor för att samla feedback från elever på en [grundskola] om skolmåltiderna.</li>
+  <li>Skriv en veckoplan för att förbereda och servera en temabaserad måltid (t.ex. [specifikt tema, t.ex. nordisk mat]) på en [grundskola], med tre nyckeluppgifter.</li>
+  <li>Föreslå tre sätt att minska energiförbrukningen i skolköket på en [grundskola], med fokus på [specifikt område, t.ex. matlagning eller disk].</li>
+  <li>Skapa en mall för att dokumentera dagliga rutiner i skolköket på en [grundskola], med tre sektioner (t.ex. förberedelse, servering, städning).</li>
+  <li>Ge mig fem idéer för att fira skolmatens dag eller en liknande händelse på en [grundskola], med en aktivitet för varje.</li>
+  <li>Föreslå tre sätt att hantera en hektisk lunchservering på en [grundskola] med begränsad personal, inklusive en prioriteringsstrategi.</li>
+  <li>Skriv en kort guide för att planera en vegetarisk vecka på en [grundskola], med tre tips för att få eleverna att testa nya rätter.</li>
+  <li>Ge mig ett exempel på hur man kan återanvända rester från skolmåltider på en [grundskola] i en ny rätt, med ett enkelt recept.</li>
+  <li>Skapa en lista med tre sätt att visa uppskattning till skolmatspersonalen på en [grundskola], både från ledning och elever.</li>
+  <li>Skapa en månadsmeny för en [grundskola] som balanserar kostnader och näring enligt Livsmedelsverkets riktlinjer, inklusive tre klimatsmarta rätter.</li>
+  <li>Ge mig fem enkla knep för att uppmuntra elever på en [grundskola] att prova [specifik rätt, t.ex. vegetarisk soppa], utan extra resurser.</li>
+  <li>Skriv ett kort välkomnande meddelande till personalen på en [grundskola] för att presentera en ny rutin i matsalen (t.ex. [specifik rutin, t.ex. självservering]).</li>
+  <li>Föreslå tre sätt att organisera matsalen på en [grundskola] för att minska köer under lunchen för [specifikt stadium, t.ex. mellanstadiet], med en enkel lösning för varje.</li>
+  <li>Skapa en lista med fem dagliga uppgifter för att förbereda skolköket på en [grundskola] inför lunch, med fokus på [specifikt område, t.ex. hygien eller effektivitet].</li>
+  <li>Ge mig ett exempel på en enkel rutin för att hantera returer av mat på en [grundskola], med tre steg för att minska svinn.</li>
+  <li>Föreslå tre sätt att använda rester från skolmåltider på en [grundskola] för att skapa mellanmål, med ett förslag för varje.</li>
+  <li>Skriv en kort guide för att snabbt lösa ett vanligt problem i skolköket på en [grundskola] (t.ex. [specifikt problem, t.ex. trasig ugn]), med tre steg.</li>
+  <li>Ge mig fem idéer för att dekorera matsalen på en [grundskola] för att koppla till [specifikt tema, t.ex. höst eller hälsa], med minimal budget.</li>
+  <li>Skapa en lista med tre korta diskussionspunkter för ett möte med rektor på en [grundskola] om [specifikt ämne, t.ex. matsalsrutiner eller budget].</li>
+  <li>Föreslå tre sätt att samarbeta med elever på en [grundskola] för att planera en temadag för skolmåltider (t.ex. [specifikt tema]), med en idé för varje.</li>
+  <li>Ge mig ett exempel på en enkel rutin för att kontrollera och beställa [specifik ingrediens, t.ex. grönsaker] till skolmåltider på en [grundskola].</li>
+  <li>Skriv en lista med fem frågor att ställa till elever på en [grundskola] för att få input om hur skolmåltiderna kan förbättras.</li>
+  <li>Föreslå tre sätt att minska buller i matsalen på en [grundskola] för [specifikt stadium, t.ex. lågstadiet], med en praktisk lösning för varje.</li>
+  <li>Skapa en mall för att planera en veckas lunchservering på en [grundskola], med tre sektioner (t.ex. meny, personal, förberedelser).</li>
+  <li>Ge mig fem idéer för att introducera en ny smak eller rätt (t.ex. [specifik smak]) på en [grundskola], med en liten provsmakningsaktivitet för varje.</li>
+  <li>Föreslå tre sätt att hantera en oväntad personalbrist i skolköket på en [grundskola], inklusive en prioriteringsplan.</li>
+  <li>Skriv en kort handledning för att lära skolmatspersonal på en [grundskola] att förbereda en enkel rätt (t.ex. [specifik rätt]), med tre steg.</li>
+  <li>Ge mig ett exempel på hur man kan koppla skolmåltiderna på en [grundskola] till ett lokalt hållbarhetsprojekt (t.ex. [specifikt projekt]), med tre steg.</li>
+  <li>Skapa en lista med tre korta sätt att uppmuntra samarbete mellan skolmatspersonal och vaktmästare på en [grundskola] för [specifikt ändamål, t.ex. städning].</li>
+  <li>Skapa en veckomeny för en [grundskola] som integrerar [specifikt tema, t.ex. nordiska smaker eller grönsaksfokus], med tre rätter och en kort motivering för varje.</li>
+  <li>Ge mig fem enkla sätt att uppmuntra elever på en [grundskola] att ta mindre portioner för att minska matsvinn, med en praktisk idé för varje.</li>
+  <li>Skriv ett kort meddelande till lärare på en [grundskola] för att bjuda in dem till ett samarbete kring [specifikt ämne, t.ex. mat och miljö], med en positiv uppmaning.</li>
+  <li>Föreslå tre sätt att anpassa serveringsrutiner på en [gymnasieskola] för att möta [specifikt behov, t.ex. snabbare tempo eller allergihantering], med en lösning för varje.</li>
+  <li>Skapa en lista med fem snabba hygienkontroller att göra i skolköket på en [grundskola] innan servering, med fokus på [specifikt område, t.ex. arbetsytor].</li>
+  <li>Ge mig ett exempel på en enkel rutin för att planera en vegetarisk dag på en [grundskola], med tre steg och ett sätt att presentera den för eleverna.</li>
+  <li>Föreslå tre sätt att använda lokala råvaror i skolmåltiderna på en [grundskola], med en rätt för varje och en kort beskrivning av ursprung.</li>
+  <li>Skriv en kort guide för att hantera en oväntad försening av leverans till skolköket på en [grundskola], med tre steg för att lösa situationen.</li>
+  <li>Ge mig fem idéer för att göra matsalen på en [grundskola] mer lugn och trivsam för [specifikt stadium, t.ex. lågstadiet], med små förändringar.</li>
+  <li>Skapa en lista med tre korta sätt att samla in feedback från personalen på en [grundskola] om skolmåltiderna, med ett exempel för varje.</li>
+  <li>Föreslå tre sätt att involvera elever på en [grundskola] i att designa en ny salladsbuffé, med en aktivitet för varje.</li>
+  <li>Ge mig ett exempel på en rutin för att kontrollera och fylla på [specifik utrustning, t.ex. bestick eller brickor] i matsalen på en [gymnasieskola].</li>
+  <li>Skriv en lista med fem uppmuntrande fraser att använda med elever i matsalen på en [grundskola] för att skapa en positiv stämning.</li>
+  <li>Föreslå tre sätt att minska plastanvändningen i skolköket på en [grundskola], med fokus på [specifikt område, t.ex. förpackningar eller servering], och en lösning för varje.</li>
+  <li>Skapa en mall för att planera en temavecka för skolmåltider på en [grundskola] (t.ex. [specifikt tema]), med tre dagliga fokusområden.</li>
+  <li>Ge mig fem idéer för att återanvända överblivna ingredienser från skolmåltider på en [grundskola] i enkla rätter, med ett receptförslag för varje.</li>
+  <li>Föreslå tre sätt att hantera en hög frånvaro bland skolmatspersonal på en [grundskola], inklusive en plan för att prioritera uppgifter.</li>
+  <li>Skriv en kort handledning för att introducera en ny köksrutin (t.ex. [specifik rutin, t.ex. kompostering]) för personalen på en [grundskola], med tre steg.</li>
+  <li>Ge mig ett exempel på hur man kan koppla skolmåltiderna på en [grundskola] till en nationell kampanj (t.ex. [specifik kampanj, t.ex. köttfri måndag]), med tre steg.</li>
+  <li>Skapa en lista med tre korta sätt att visa uppskattning till elever som hjälper till i matsalen på en [grundskola], med ett exempel för varje.</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

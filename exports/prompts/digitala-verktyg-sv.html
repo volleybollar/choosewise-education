@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar om digitala verktyg i skolan — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 58</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">Tematiskt · Digitala verktyg</div>
+    <div class="cover__count">40 chattpromptar</div>
+    <h1 class="cover__title">Promptar om digitala verktyg i skolan.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">58</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">40 promptar</div>
+  <h2>användning av digitala verktyg i undervisningen</h2>
+</section>
+
+<ol class="prompts">
+  <li>Skapa en lektionsplan för en [årskurs X]-klass i [ämne] där du använder ett digitalt verktyg (t.ex. [specifikt verktyg, t.ex. Scratch]) för att lära ut [specifikt ämnesmoment, t.ex. programmering], med tre steg och en reflektion.</li>
+  <li>Ge mig fem sätt att använda [specifikt digitalt verktyg, t.ex. Google Classroom] i en [årskurs X]-klass i [ämne] för att främja [specifikt mål, t.ex. samarbete], med en idé för varje.</li>
+  <li>Föreslå tre sätt att använda [specifikt digitalt verktyg, t.ex. Padlet] i en [årskurs X]-klass i [ämne] för att utforska [specifikt tema, t.ex. hållbarhet], med en aktivitet för varje.</li>
+  <li>Skapa en lista med fem korta uppmuntrande fraser för att inspirera en[årskurs X]-klass att använda [specifikt digitalt verktyg, t.ex. Canva] i en [specifik aktivitet, t.ex. skapa affischer] i [ämne].</li>
+  <li>Ge mig ett exempel på en rutin för att starta en lektion i [ämne] för en [årskurs X]-klass med [specifikt digitalt verktyg, t.ex. Nearpod], med tre steg och en interaktiv uppvärmning.</li>
+  <li>Föreslå tre sätt att använda [specifikt digitalt verktyg, t.ex. Google Earth] i en [årskurs X]-klass i [ämne] för att lära om [specifikt ämnesmoment, t.ex. geografi], med en övning för varje.</li>
+  <li>Skapa en lektionsplan för en [årskurs X]-klass i [ämne] där eleverna använder [specifikt digitalt verktyg, t.ex. Book Creator] för att öva [specifik färdighet, t.ex. skrivande], med tre moment.</li>
+  <li>Ge mig fem idéer för att använda [specifikt digitalt verktyg, t.ex. Quizlet] i en [årskurs X]- klass i [ämne] för att stärka [specifikt mål, t.ex. ordförråd], med en aktivitet för varje.</li>
+  <li>Skriv en kort mall för en lärare i [ämne] att använda för att låta en [årskurs X]-klass reflektera över sitt lärande med [specifikt digitalt verktyg, t.ex. Google Forms], med tre frågor.</li>
+  <li>Föreslå tre sätt att samarbeta med en kollega för att integrera [specifikt digitalt verktyg, t.ex. Microsoft Teams] i undervisningen i [ämne] för en [årskurs X]-klass, med fokus på [specifikt mål, t.ex. projektarbete], och en idé för varje.</li>
+  <li>Ge mig ett exempel på en lektion i [ämne] för en [årskurs]-klass där eleverna använder [specifikt digitalt verktyg, t.ex. Tinkercad] för att utforska [specifikt ämnesmoment, t.ex. design], med tre steg.</li>
+  <li>Skapa en lista med fem digitala verktyg för en [årskurs X]-klass i [ämne] som stödjer [specifikt mål, t.ex. samarbete], med en kort beskrivning och användning för varje.</li>
+  <li>Föreslå tre sätt att anpassa användningen av [specifikt digitalt verktyg, t.ex. Seesaw] för en [årskurs X]-elev med [specifikt behov, t.ex. dyslexi] i [ämne], med en lösning för varje.</li>
+  <li>Skriv en kort guide för en lärare i [ämne] att använda [specifikt digitalt verktyg, t.ex. Flipgrid] för att öva [specifik färdighet, t.ex. muntlig presentation] i en [årskurs X]-klass, med tre steg.</li>
+  <li>Ge mig fem idéer för att använda [specifikt digitalt verktyg, t.ex. Powerpoint] i en [årskurs X]-klass i [ämne] för att utforska [specifikt tema, t.ex. historia], med en aktivitet för varje.</li>
+  <li>Föreslå tre sätt att använda [specifikt digitalt verktyg, t.ex. Minecraft Education] i en [årskurs X]-klass i [ämne] för att lära om [specifikt ämnesmoment, t.ex. geometri], med en övning för varje.</li>
+  <li>Skapa en lektionsplan för en [årskurs X]-klass i [ämne] där eleverna använder [specifikt digitalt verktyg, t.ex. OneNote] för att organisera [specifikt projekt, t.ex. grupparbete], med tre steg.</li>
+  <li>Ge mig ett exempel på hur en [årskurs X]-klass i [ämne] kan använda [specifikt digitalt verktyg, t.ex. Jamboard] för att brainstorma om [specifikt tema, t.ex. miljö], med tre steg.</li>
+  <li>Skriv en lista med tre korta sätt att använda [specifikt digitalt verktyg, t.ex. Google Docs] för en [årskurs X]-klass i [ämne] för att träna [specifikt mål, t.ex. skrivande], med ett förslag för varje och en koppling till Lgr 22.</li>
+  <li>Skriv en kort guide för att introducera [specifikt digitalt verktyg, t.ex. Kahoot] till en [årskurs X]-klass i [ämne] för att repetera [specifikt ämnesmoment, t.ex. glosor], med tre steg.</li>
+  <li>Skapa en lektion för en [årskurs X]-klass i [ämne] där eleverna använder [specifikt digitalt verktyg, t.ex. Code.org] för att lära sig [specifikt ämnesmoment, t.ex. kodning], med tre steg och ett mål.</li>
+  <li>Ge mig fem sätt att använda [specifikt digitalt verktyg, t.ex. Quizizz] i en [årskurs X]- klass i [ämne] för att repetera [specifikt innehåll, t.ex. matematiska operationer], med en idé för varje.</li>
+  <li>Skriv en kort guide för att använda [specifikt digitalt verktyg, t.ex. Google Formulär] i en [årskurs X]-klass i [ämne] för att samla in [specifikt data, t.ex. elevfeedback], med tre steg.</li>
+  <li>Föreslå tre sätt att använda [specifikt digitalt verktyg, t.ex. Seesaw] i en [årskurs X]- klass i [ämne] för att dokumentera [specifikt projekt, t.ex. naturvetenskapliga experiment], med en metod för varje.</li>
+  <li>Skapa en lista med fem korta aktiviteter för en [årskurs X]-klass i [ämne] som använder [specifikt digitalt verktyg, t.ex. Microsoft Whiteboard] för att träna [specifikt mål, t.ex. problemlösning], med en beskrivning för varje.</li>
+  <li>Ge mig ett exempel på en rutin för att avsluta en lektion i [ämne] för en [årskurs X]-klass med [specifikt digitalt verktyg, t.ex. Padlet], med tre steg och en reflektionsuppgift.</li>
+  <li>Föreslå tre sätt att använda [specifikt digitalt verktyg, t.ex. Google Earth] i en [årskurs X]-klass i [ämne] för att utforska [specifikt tema, t.ex. världens kontinenter], med en övning för varje.</li>
+  <li>Skriv en kort mall för en lärare i [ämne] att använda [specifikt digitalt verktyg, t.ex. Flipgrid] för att öva [specifik färdighet, t.ex. muntlig framställning] i en [årskurs X]- klass, med tre moment.</li>
+  <li>Ge mig fem idéer för att använda [specifikt digitalt verktyg, t.ex. Kahoot] i en [årskurs X]-klass i [ämne] för att stärka [specifikt mål, t.ex. källkritik], med en aktivitet för varje.</li>
+  <li>Skapa en lektionsplan för en [årskurs X]-klass i [ämne] där eleverna använder [specifikt digitalt verktyg, t.ex. Scratch] för att skapa [specifikt projekt, t.ex. en enkel animation], med tre steg.</li>
+  <li>Föreslå tre sätt att samarbeta med en kollega för att använda [specifikt digitalt verktyg, t.ex. Teams] i undervisningen i [ämne] för en [årskurs X]-klass, med fokus på [specifikt mål, t.ex. grupparbete], och en idé för varje.</li>
+  <li>Ge mig ett exempel på en lektion i [ämne] för en [årskurs X]-klass där eleverna använder [specifikt digitalt verktyg, t.ex. Book Creator] för att presentera [specifikt ämnesmoment, t.ex. en berättelse], med tre steg.</li>
+  <li>Skriv en lista med fem enkla sätt att använda [specifikt digitalt verktyg, t.ex. Google Slides] i en [årskurs X]-klass i [ämne] för att lära om [specifikt tema, t.ex. miljö], med en idé för varje.</li>
+  <li>Föreslå tre sätt att använda [specifikt digitalt verktyg, t.ex. Quizlet] för en [årskurs X]- klass i [ämne] för att repetera [specifikt innehåll, t.ex. historiska händelser], med en metod för varje.</li>
+  <li>Skapa en lektionsplan för en [årskurs X]-klass i [ämne] där eleverna använder [specifikt digitalt verktyg, t.ex. OneNote] för att organisera [specifikt projekt, t.ex. forskning], med tre steg och en reflektion.</li>
+  <li>Ge mig fem idéer för att använda [specifikt digitalt verktyg, t.ex. Microsoft Whiteboard] i en [årskurs X]-klass i [ämne] för att stärka [specifikt mål, t.ex. kreativitet], med en aktivitet för varje.</li>
+  <li>Föreslå tre sätt att använda [specifikt digitalt verktyg, t.ex. Google Forms] i en [årskurs X]-klass i [ämne] för att samla in [specifikt data, t.ex. elevåsikter], med en idé för varje.</li>
+  <li>Skriv en kort guide för att använda [specifikt digitalt verktyg, t.ex. Tinkercad] i en [årskurs X]-klass i [ämne] för att designa [specifikt projekt, t.ex. en enkel modell], med tre steg.</li>
+  <li>Hur kan jag använda [Microsoft Teams] för att facilitera en diskussion om litteraturanalys för [gymnasieelever] i svenska, inklusive praktiska tips för engagemang?</li>
+  <li>Ge mig ett lektionsupplägg för att introducera programmering i [Scratch] för [årskurs 5], med koppling till matematik och problemlösning.</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

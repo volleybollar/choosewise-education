@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för tidig matematikinlärning — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 17</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">För tidig räkneinlärning</div>
+    <div class="cover__count">56 chattpromptar</div>
+    <h1 class="cover__title">Promptar för tidig matematikinlärning.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">17</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">56 promptar</div>
+  <h2>att lära sig räkna</h2>
+</section>
+
+<ol class="prompts">
+  <li>Skapa 5 enkla additionsuppgifter för årskurs 1 med tal upp till 10 och ge ett exempel på hur man kan förklara lösningen med bilder av äpplen. Generera 5 subtraktionsuppgifter för årskurs 2 med tal upp till 20 och skriv en kort förklaring för eleverna om hur de kan använda en tallinje för att lösa dem.</li>
+  <li>Skriv 10 multiplikationsuppgifter för årskurs 3 med 2:ans och 5:ans tabell och ge ett exempel på hur man kan rita grupper av föremål för att visa 2 × 3.</li>
+  <li>Skapa 5 divisionsuppgifter för årskurs 4 med tal upp till 50 och ge en kort förklaring om hur elever kan tänka på division som att dela lika. Generera 5 additionsuppgifter för årskurs 2 där eleverna adderar två tvåsiffriga tal utan tiotalsövergång och ge ett exempel på hur man kan använda tiokamrater för att lösa dem.</li>
+  <li>Skriv 5 subtraktionsuppgifter för årskurs 3 med tiotalsövergång och ge ett exempel på hur man kan förklara lösningen med hjälp av bas-10-material.</li>
+  <li>Skapa 10 multiplikationsuppgifter för årskurs 4 med 3:ans och 4:ans tabell och ge ett exempel på hur man kan använda upprepad addition för att förstå multiplikation. Generera 5 divisionsuppgifter för årskurs 5 där eleverna delar tresiffriga tal med ensiffriga tal och skriv en kort förklaring om hur de kan använda multiplikation för att kontrollera svaret.</li>
+  <li>Skriv 5 blandade uppgifter med addition och subtraktion för årskurs 1 med tal upp till 15 och ge ett exempel på hur man kan använda fingrar för att räkna ut svaret.</li>
+  <li>Skapa 5 uppgifter för årskurs 6 där eleverna multiplicerar tvåsiffriga tal med ensiffriga tal och ge ett exempel på hur man kan bryta ner talen i tiotal och ental för att lösa dem. Problemlösning</li>
+  <li>Skriv 5 textuppgifter för årskurs 2 om en dag på bondgården där eleverna använder addition och subtraktion med tal upp till 20 och ge ett exempel på hur man löser en av dem. Generera 5 textuppgifter för årskurs 4 om en klassresa till Stockholm där eleverna använder multiplikation och division med tal upp till 100 och ge ett exempel på lösningen.</li>
+  <li>Skapa 5 textuppgifter för årskurs 3 om en marknad där eleverna adderar och subtraherar pengar i kronor och ge ett exempel på hur man kan rita pengar för att lösa en uppgift.</li>
+  <li>Skriv 5 textuppgifter för årskurs 5 om en idrottsdag där eleverna använder alla fyra räknesätten och tal upp till 500 och ge ett exempel på hur man kan lösa en av dem steg för steg. Generera 5 textuppgifter för årskurs 1 om en lekdag i parken där eleverna adderar tal upp till 10 och ge ett exempel på hur man kan använda bilder för att förklara lösningen.</li>
+  <li>Skapa 5 textuppgifter för årskurs 6 om en familjs semesterbudget där eleverna använder multiplikation och division med decimaltal och ge ett exempel på hur man löser en av dem.</li>
+  <li>Skriv 5 textuppgifter för årskurs 3 om en bakdag där eleverna multiplicerar och adderar ingredienser i dl och ge ett exempel på hur man kan rita mått för att lösa en uppgift. Generera 5 textuppgifter för årskurs 4 om en djuraffär där eleverna använder division och subtraktion för att räkna ut hur många djur som finns kvar och ge ett exempel på lösningen.</li>
+  <li>Skapa 5 textuppgifter för årskurs 2 om en fruktträdgård där eleverna subtraherar och adderar antal frukter och ge ett exempel på hur man kan använda en tallinje för att lösa en av dem.</li>
+  <li>Skriv 5 textuppgifter för årskurs 5 om en skolutflykt där eleverna använder multiplikation och addition för att räkna ut tider och avstånd och ge ett exempel på hur man löser en av dem. Matematisk kommunikation</li>
+  <li>Skapa 5 frågor för årskurs 3 som elever kan diskutera i par om hur de löste en additionsuppgift med tiotalsövergång och ge ett exempel på en elevförklaring. Generera en kort textuppgift för årskurs 4 om att dela godis mellan vänner och be eleverna förklara skriftligt hur de löste den med division och ge ett exempel på en förklaring.</li>
+  <li>Skriv 5 diskussionsfrågor för årskurs 5 om varför multiplikation är användbart i vardagen och ge ett exempel på ett svar som en elev kan ge.</li>
+  <li>Skapa en uppgift för årskurs 2 där eleverna ritar och skriver en förklaring till hur de adderade 8 + 5 och ge ett exempel på en elevs ritning och text. Generera 5 frågor för årskurs 6 som elever kan använda för att diskutera olika strategier för att lösa en multiplikationsuppgift med decimaltal och ge ett exempel på en strategi.</li>
+  <li>Skriv en kort textuppgift för årskurs 3 om att köpa böcker och be eleverna förklara muntligt hur de subtraherade priset från sin budget och ge ett exempel på en elevförklaring.</li>
+  <li>Skapa 5 frågor för årskurs 1 som elever kan diskutera i grupp om hur de räknade ut 6 + 3 och ge ett exempel på hur en elev kan förklara med hjälp av föremål. Generera en textuppgift för årskurs 5 om att planera en fest och be eleverna skriva en förklaring till hur de multiplicerade antalet gäster med kostnaden per person och ge ett exempel.</li>
+  <li>Skriv 5 diskussionsfrågor för årskurs 4 om hur man kan använda division för att dela saker lika och ge ett exempel på ett elevsvar.</li>
+  <li>Skapa en uppgift för årskurs 6 där eleverna skriver en kort text om hur de löste en divisionsuppgift med rest och ge ett exempel på en elevs text. Praktisk tillämpning</li>
+  <li>Skriv 5 uppgifter för årskurs 3 där eleverna adderar och subtraherar tider för en skoldag och ge ett exempel på hur man kan rita en klocka för att lösa en av dem. Generera 5 uppgifter för årskurs 4 där eleverna multiplicerar och dividerar för att räkna ut hur mycket material som behövs för ett skolprojekt och ge ett exempel på lösningen.</li>
+  <li>Skapa 5 uppgifter för årskurs 2 där eleverna adderar och subtraherar längder i cm för att mäta saker i klassrummet och ge ett exempel på hur man kan använda en linjal.</li>
+  <li>Skriv 5 uppgifter för årskurs 5 där eleverna använder alla fyra räknesätten för att planera en klassfest med en budget och ge ett exempel på hur man löser en av dem. Generera 5 uppgifter för årskurs 1 där eleverna räknar antalet föremål i en låda med addition upp till 10 och ge ett exempel på hur man kan rita föremålen för att räkna.</li>
+  <li>Skapa 5 uppgifter för årskurs 6 där eleverna använder decimaltal för att räkna ut rabatter på en affär och ge ett exempel på hur man löser en av dem steg för steg.</li>
+  <li>Skriv 5 uppgifter för årskurs 3 där eleverna multiplicerar för att räkna ut hur många plantor som behövs i en trädgård och ge ett exempel på hur man kan rita rader av plantor. Generera 5 uppgifter för årskurs 4 där eleverna subtraherar och adderar vikter i kg för att packa en ryggsäck och ge ett exempel på hur man kan visa vikten med en bild.</li>
+  <li>Skapa 5 uppgifter för årskurs 2 där eleverna räknar pengar i kronor för att köpa saker på en låtsasmarknad och ge ett exempel på hur man kan rita mynt för att lösa en av dem.</li>
+  <li>Skriv 5 uppgifter för årskurs 5 där eleverna använder division och multiplikation för att dela upp grupper av elever för en aktivitet och ge ett exempel på hur man löser en av dem. Geometri och mätning</li>
+  <li>Skapa 5 uppgifter för årskurs 3 där eleverna mäter längden på föremål i klassrummet i cm och adderar dem för att få en total längd och ge ett exempel på hur man kan rita föremålen. Generera 5 uppgifter för årskurs 4 där eleverna beräknar omkretsen av enkla rektanglar med givna mått i cm och ge ett exempel på hur man kan förklara omkrets med en bild.</li>
+  <li>Skriv 5 uppgifter för årskurs 2 där eleverna räknar antalet kvadrater i ett rutnät för att förstå area och ge ett exempel på hur man kan rita ett rutnät med 3 × 4 kvadrater.</li>
+  <li>Skapa 5 uppgifter för årskurs 5 där eleverna beräknar arean av rektanglar med mått i meter och ge ett exempel på hur man kan förklara area som längd × bredd. Generera 5 uppgifter för årskurs 1 där eleverna sorterar former som cirklar, kvadrater och trianglar och räknar antalet av varje form och ge ett exempel på hur man kan rita formerna.</li>
+  <li>Skriv 5 uppgifter för årskurs 6 där eleverna beräknar volymen av enkla klossar med givna mått i cm och ge ett exempel på hur man kan förklara volym som längd × bredd × höjd.</li>
+  <li>Skapa 5 uppgifter för årskurs 3 där eleverna mäter och adderar avstånd i meter på en skolgård och ge ett exempel på hur man kan rita en karta för att visa avstånden. Generera 5 uppgifter för årskurs 4 där eleverna identifierar och räknar sidorna på olika polygoner som trianglar och femhörningar och ge ett exempel på hur man kan rita en polygon.</li>
+  <li>Skriv 5 uppgifter för årskurs 2 där eleverna jämför längder på föremål i cm och subtraherar för att hitta skillnaden och ge ett exempel på hur man kan visa skillnaden med en tallinje.</li>
+  <li>Skapa 5 uppgifter för årskurs 5 där eleverna beräknar omkretsen av sammansatta figurer som består av rektanglar och ge ett exempel på hur man kan dela upp figuren i mindre delar. Bråk och procent</li>
+  <li>Skriv 5 uppgifter för årskurs 4 där eleverna adderar enkla bråk med samma nämnare som 1/4 + 2/4 och ge ett exempel på hur man kan rita cirklar för att visa bråken. Generera 5 uppgifter för årskurs 5 där eleverna subtraherar bråk med samma nämnare som 3/5 – 1/5 och ge ett exempel på hur man kan förklara med en bild av en kaka.</li>
+  <li>Skapa 5 uppgifter för årskurs 3 där eleverna identifierar bråk som 1/2 och 1/3 genom att dela upp former i lika delar och ge ett exempel på hur man kan rita en uppdelad rektangel.</li>
+  <li>Skriv 5 uppgifter för årskurs 6 där eleverna omvandlar bråk till procent som 1/4 till 25 % och ge ett exempel på hur man kan förklara omvandlingen steg för steg. Generera 5 uppgifter för årskurs 5 där eleverna beräknar 10 % av olika belopp i kronor och ge ett exempel på hur man kan förklara procent som en del av 100.</li>
+  <li>Skapa 5 uppgifter för årskurs 4 där eleverna jämför bråk som 1/3 och 1/4 genom att rita och ge ett exempel på hur man kan visa vilket bråk som är störst med en bild.</li>
+  <li>Skriv 5 uppgifter för årskurs 6 där eleverna beräknar 25 % rabatt på olika priser i kronor och ge ett exempel på hur man kan lösa en av dem med bråk. Generera 5 uppgifter för årskurs 3 där eleverna delar upp en helhet i bråk som 1/2, 1/4 och 3/4 och ge ett exempel på hur man kan rita en pizza för att visa bråken.</li>
+  <li>Skapa 5 uppgifter för årskurs 5 där eleverna adderar bråk med olika nämnare som 1/2 + 1/4 och ge ett exempel på hur man kan hitta en gemensam nämnare.</li>
+  <li>Skriv 5 uppgifter för årskurs 6 där eleverna omvandlar procent till bråk som 50 % till 1/2 och ge ett exempel på hur man kan förklara sambandet mellan procent och bråk. Logiskt tänkande</li>
+  <li>Skapa 5 mönsteruppgifter för årskurs 2 där eleverna fyller i nästa tal i serier som 2, 4, 6, __ och ge ett exempel på hur man kan förklara mönstret med addition. Generera 5 logiska problem för årskurs 4 där eleverna använder addition och subtraktion för att lösa gåtor som handlar om antal djur och ge ett exempel på en lösning.</li>
+  <li>Skriv 5 uppgifter för årskurs 3 där eleverna identifierar mönster i multiplikation som 5, 10, 15, __ och ge ett exempel på hur man kan förklara mönstret med 5:ans tabell.</li>
+  <li>Skapa 5 logiska problem för årskurs 5 där eleverna använder multiplikation och division för att lösa gåtor om antal föremål och ge ett exempel på hur man löser en av dem. Generera 5 uppgifter för årskurs 1 där eleverna fyller i saknade tal i enkla serier som 1, 2, __, 4 och ge ett exempel på hur man kan rita talen på en tallinje.</li>
+  <li>Skriv 5 uppgifter för årskurs 6 där eleverna löser problem med mönster som involverar bråk som 1/2, 1/4, 1/8, __ och ge ett exempel på hur man kan förklara mönstret.</li>
+  <li>Skapa 5 logiska problem för årskurs 3 där eleverna använder addition för att lösa gåtor om antal barn i olika grupper och ge ett exempel på en lösning. Generera 5 uppgifter för årskurs 4 där eleverna identifierar mönster i geometriska serier som kvadrat, kvadrat, triangel, __ och ge ett exempel på hur man kan rita mönstret.</li>
+  <li>Skriv 5 logiska problem för årskurs 5 där eleverna använder division för att lösa gåtor om att dela upp resurser och ge ett exempel på hur man kan förklara lösningen.</li>
+  <li>Skapa 5 uppgifter för årskurs 2 där eleverna löser enkla pussel med addition som 3 + __ = 7 och ge ett exempel på hur man kan visa lösningen med fingrar. Matematik i vardagen</li>
+  <li>Skriv 5 uppgifter för årskurs 3 där eleverna adderar och subtraherar tider för en familjs dagsschema och ge ett exempel på hur man kan rita en klocka för att visa tiderna. Generera 5 uppgifter för årskurs 4 där eleverna multiplicerar för att räkna ut hur mycket mat som behövs för en middag och ge ett exempel på hur man kan visa mängderna med en tabell.</li>
+  <li>Skapa 5 uppgifter för årskurs 2 där eleverna räknar pengar i kronor för att köpa fika på ett café och ge ett exempel på hur man kan rita mynt för att lösa en av dem.</li>
+  <li>Skriv 5 uppgifter för årskurs 5 där eleverna använder procent för att räkna ut reapriser på kläder och ge ett exempel på hur man kan förklara rabatten steg för steg. Generera 5 uppgifter för årskurs 1 där eleverna adderar antalet leksaker i en låda och ge ett exempel på hur man kan rita leksakerna för att räkna.</li>
+  <li>Skapa 5 uppgifter för årskurs 6 där eleverna använder bråk för att dela upp en pizza mellan vänner och ge ett exempel på hur man kan rita pizzan för att visa bråken.</li>
+  <li>Skriv 5 uppgifter för årskurs 3 där eleverna mäter och adderar avstånd i meter för att planera en lek på skolgården och ge ett exempel på hur man kan rita en karta. Generera 5 uppgifter för årskurs 4 där eleverna subtraherar för att räkna ut hur mycket tid som är kvar till en aktivitet och ge ett exempel på hur man kan visa tiden på en klocka.</li>
+  <li>Skapa 5 uppgifter för årskurs 2 där eleverna adderar antalet böcker i olika högar på biblioteket och ge ett exempel på hur man kan rita högarna för att räkna.</li>
+  <li>Skriv 5 uppgifter för årskurs 5 där eleverna använder multiplikation för att räkna ut hur mycket det kostar att köpa biljetter till en klassresa och ge ett exempel på lösningen.</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

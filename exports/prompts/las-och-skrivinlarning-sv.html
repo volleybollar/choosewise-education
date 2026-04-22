@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för läs- och skrivinlärning — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 36</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">För läs- och skrivinlärning</div>
+    <div class="cover__count">49 chattpromptar</div>
+    <h1 class="cover__title">Promptar för läs- och skrivinlärning.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">36</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">49 promptar</div>
+  <h2>Promptar</h2>
+</section>
+
+<ol class="prompts">
+  <li>Skapa en kort text på 100 ord om en höstdag i Sverige för årskurs [3] och skriv 5 läsförståelsefrågor som testar både detaljer och helhetsförståelse.</li>
+  <li>Skriv en enkel saga på svenska för årskurs [1] om ett djur som bor i skogen och skapa 3 frågor som hjälper elever att förstå handlingen. Generera en faktatext på 150 ord om [vikingatiden] för årskurs [5] och skriv 4 frågor som testar elevernas förmåga att hitta nyckelinformation.</li>
+  <li>Skapa en kort nyhetsartikel på svenska om en lokal händelse i [Stockholm] för årskurs [6] och skriv 5 frågor som fokuserar på orsak och konsekvens.</li>
+  <li>Skriv en beskrivning av en svensk tradition, som midsommar, på 200 ord för årskurs [4] och skapa 3 frågor som uppmuntrar elever att dra slutsatser från texten. Generera en text på 120 ord om livet i en svensk småstad för årskurs [2] och skriv 4 frågor som tränar elever att identifiera huvudpersoner och miljö.</li>
+  <li>Skapa en kort berättelse på svenska om en utflykt till en nationalpark för årskurs [3] och skriv 5 frågor som fokuserar på att förstå känslor hos karaktärerna.</li>
+  <li>Skriv en faktatext på 150 ord om svenska djur, som älgen, för årskurs [4] och skapa 4 frågor som testar elevernas förmåga att sammanfatta texten. Generera en text på 200 ord om en historisk person från Sverige, som [Astrid Lindgren], för årskurs [6] och skriv 5 frågor som uppmuntrar till reflektion över personens betydelse.</li>
+  <li>Skapa en kort dialog mellan två barn som planerar en [lekdag] i Sverige för årskurs [2] och skriv 3 frågor som hjälper elever att förstå vad karaktärerna vill göra. Skrivövningar</li>
+  <li>Skriv en mall för en enkel dagboksanteckning på svenska för årskurs [2] med 3 exempel på meningar som elever kan använda för att beskriva sin dag.</li>
+  <li>Skapa en lista med 10 svenska adjektiv som beskriver känslor och ge en skrivuppgift för årskurs [4] där elever använder minst 3 av dem i en kort text om en rolig dag. Generera 5 meningar om en vinterdag i Sverige för årskurs [1] och be eleverna fylla i tomma luckor med passande ord, som snö, kallt eller vantar.</li>
+  <li>Skriv en kort instruktion för årskurs [3] om hur man skriver en tacklapp efter en födelsedag och ge ett exempel som elever kan använda som modell.</li>
+  <li>Skapa en skrivuppgift för årskurs [5] där elever skriver en kort text om sitt favoritdjur och ge 5 stödjande frågor som hjälper dem att strukturera texten. Generera en lista med 10 svenska verb som passar för att beskriva rörelse och skapa en skrivuppgift för årskurs [3] där elever skriver 5 meningar om en lek på rasten.</li>
+  <li>Skriv en mall för en enkel berättelse med början, mitten och slut för årskurs [4] och ge ett exempel på en berättelse om en dag i skogen.</li>
+  <li>Skapa en skrivuppgift för årskurs [6] där elever skriver ett meddelande till en vän om en skolresa och ge 5 tips på vad de kan inkludera i meddelandet. Generera 5 meningar om en svensk högtid, [t ex jul], för årskurs [2] och be eleverna skriva en egen mening som passar in i texten.</li>
+  <li>Skriv en kort beskrivning av en plats i Sverige, [ex en park i Göteborg], för årskurs [5] och skapa en skrivuppgift där elever skriver en egen beskrivning av en plats de gillar. Kreativt skrivande</li>
+  <li>Skapa en skrivprompt för årskurs [4] där elever skriver en saga om en magisk skog i Sverige och ge 3 exempel på karaktärer de kan använda. Generera en kort inledning till en berättelse om ett äventyr i [Stockholm] för årskurs [5] och be eleverna fortsätta berättelsen med minst 5 meningar.</li>
+  <li>Skriv en beskrivning av en fiktiv svensk stad för årskurs [6] och skapa en skrivuppgift där elever skriver en berättelse som utspelar sig där.</li>
+  <li>Skapa en lista med 10 magiska föremål som kan finnas i en svensk saga och ge en skrivuppgift för årskurs [3] där elever skriver om två av föremålen. Generera en kort dikt på svenska om våren för årskurs [2] och be eleverna skriva en egen dikt med minst 4 rader om samma tema.</li>
+  <li>Skriv en inledning till en berättelse om en försvunnen skatt i en svensk by för årskurs [5] och be eleverna skriva fortsättningen med fokus på hur skatten hittas.</li>
+  <li>Skapa en skrivprompt för årskurs [4] där elever skriver om en dag som en superhjälte i sin hemstad och ge 3 exempel på superkrafter de kan ha. Generera en kort text om en mystisk figur som bor vid en sjö i Sverige för årskurs [6] och be eleverna skriva en berättelse om ett möte med figuren.</li>
+  <li>Skriv en lista med 5 svenska miljöer, som en fjälltopp eller en skärgårdsö, och skapa en skrivuppgift för årskurs [5] där elever skriver en berättelse som utspelar sig i en av miljöerna.</li>
+  <li>Skapa en skrivprompt för årskurs [3] där elever skriver om en dag som ett djur i en svensk skog och ge 3 exempel på djur de kan välja mellan. Reflektion och analys</li>
+  <li>Skriv 5 reflektionsfrågor för årskurs [6] som elever kan besvara efter att ha läst en bok om vänskap och som fokuserar på karaktärernas känslor och handlingar. Generera en kort text på 150 ord om en skolutflykt för årskurs [4] och skriv 3 frågor som uppmuntrar elever att reflektera över vad de lärde sig.</li>
+  <li>Skapa en lista med 5 frågor för årskurs [5] som elever kan använda för att analysera en saga de har läst, med fokus på handling, miljö och budskap.</li>
+  <li>Skriv en kort text på 100 ord om en historisk händelse i Sverige för årskurs [6] och skapa 4 frågor som hjälper elever att reflektera över varför händelsen var viktig. Generera 5 frågor för årskurs [3] som elever kan besvara efter att ha läst en text om djur i Sverige, med fokus på att koppla texten till deras egna erfarenheter.</li>
+  <li>Skriv en kort berättelse på 120 ord om en vänskap mellan två barn för årskurs [4] och skapa 3 frågor som uppmuntrar elever att analysera varför vännerna är viktiga för varandra.</li>
+  <li>Skapa en lista med 5 frågor för årskurs [6] som elever kan använda för att reflektera över en nyhetsartikel de har läst, med fokus på trovärdighet och budskap. Generera en text på 150 ord om en svensk uppfinning, [t ex dynamit], för årskurs [5] och skriv 4 frågor som uppmuntrar elever att reflektera över uppfinningens påverkan.</li>
+  <li>Skriv 5 reflektionsfrågor för årskurs [2] som elever kan besvara efter att ha skrivit en egen text, med fokus på vad de tyckte var roligt och svårt.</li>
+  <li>Skapa en kort text på 100 ord om en dag på en svensk bondgård för årskurs [3] och skriv 3 frågor som hjälper elever att reflektera över vad de skulle vilja göra på bondgården. Ordförråd och språklig medvetenhet</li>
+  <li>Skapa en lista med 10 svenska ord som beskriver naturen i Sverige och ge en uppgift för årskurs [3] där elever skriver en kort text om en skogspromenad med minst 3 av orden. Generera 5 meningar om en dag på stranden för årskurs [2] och markera 3 ord som elever kan lära sig, som vågor, sandslott och solkräm, och skapa en övning där de förklarar orden.</li>
+  <li>Skriv en kort text på 100 ord om en svensk festival för årskurs [4] och välj 5 nya ord som elever kan lära sig, som firande, tradition och dans, och skapa en matchningsövning för orden.</li>
+  <li>Skapa en lista med 10 svenska synonymer för glad och ge en skrivuppgift för årskurs [5] där elever skriver 5 meningar om en rolig dag och använder olika synonymer. Generera en text på 120 ord om en resa till Lappland för årskurs [6] och välj 4 ord som är nya för eleverna, som norrsken, renar, midnattssol och fjäll, och skapa en övning där de skriver egna meningar med orden.</li>
+  <li>Skriv 5 meningar om en höstmarknad i Sverige för årskurs [3] och välj 3 ord att fokusera på, som marknad, höst och försäljare, och be eleverna rita en bild som visar vad orden betyder.</li>
+  <li>Skapa en lista med 10 svenska ord som beskriver väder och ge en skrivuppgift för årskurs [4] där elever skriver en kort väderbeskrivning av en dag med minst 3 av orden. Generera en kort text på 100 ord om en dag i skolan för årskurs [2] och välj 3 ord att förklara, som rast, lektion och kompis, och skapa en övning där elever skriver meningar med orden.</li>
+  <li>Skriv en lista med 5 svenska ord som beskriver känslor och ge en uppgift för årskurs [5] där elever skriver en kort text om hur de kände sig på en särskild dag och använder alla orden.</li>
+  <li>Skapa en text på 150 ord om en svensk uppfinning för årskurs [6] och välj 4 tekniska ord att förklara, som innovation, uppfinning, teknik och påverkan, och be eleverna använda orden i en egen text. Textstruktur och skrivprocess</li>
+  <li>Skriv en mall för en enkel faktatext med rubrik, inledning, fakta och avslutning för årskurs [4] och ge ett exempel på en text om svenska fåglar som elever kan använda som modell.</li>
+  <li>Skapa en skrivuppgift för årskurs [5] där elever skriver en berättelse om en dag i framtiden och ge 5 tips på hur de kan strukturera texten med början, mitten och slut. Generera en kort text på 100 ord om en svensk stad för årskurs [3] och be eleverna dela upp texten i 3 delar: inledning, beskrivning och avslutning, och förklara varje del.</li>
+  <li>Skriv en mall för ett brev till en släkting för årskurs [2] och ge ett exempel på ett brev där en elev berättar om sin vecka i skolan.</li>
+  <li>Skapa en skrivuppgift för årskurs [6] där elever skriver en argumenterande text om varför raster är viktiga och ge 5 stödjande frågor som hjälper dem att strukturera sina argument. Generera en kort berättelse på 120 ord om en utflykt för årskurs [4] och be eleverna identifiera inledning, händelser och avslutning, och sedan skriva en egen berättelse med samma struktur.</li>
+  <li>Skriv en mall för en enkel recension av en bok för årskurs [5] och ge ett exempel på en recension av Pippi Långstrump som elever kan använda som modell.</li>
+  <li>Skapa en skrivuppgift för årskurs [3] där elever skriver en kort text om sitt favoritdjur och ge 3 exempel på meningar som kan användas i inledningen, mitten och avslutningen. Generera en text på 150 ord om en historisk händelse i Sverige för årskurs [6] och be eleverna analysera textens struktur genom att markera rubrik, inledning och avslutning.</li>
+  <li>Skriv en lista med 5 tips för årskurs [4] om hur man skriver en bra berättelse och ge en skrivuppgift där de skriver om en dag som en äventyrare i Sverige. Samtal och diskussion</li>
+  <li>Skapa 5 diskussionsfrågor för årskurs [6] baserade på en bok om miljöproblem i Sverige och som uppmuntrar elever att prata om lösningar och ansvar. Generera en kort text på 100 ord om en skolregel för årskurs [4] och skriv 3 frågor som elever kan diskutera i grupp, som varför regeln finns och om den är rättvis.</li>
+  <li>Skriv en lista med 5 frågor för årskurs [5] som elever kan använda för att diskutera en saga de har läst, med fokus på karaktärernas val och handlingar.</li>
+  <li>Skapa en kort text på 120 ord om en svensk tradition för årskurs [3] och skriv 3 frågor som uppmuntrar elever att diskutera vad de gillar med traditionen. Generera 5 diskussionsfrågor för årskurs [6] baserade på en nyhetsartikel om teknik i skolan och som fokuserar på för- och nackdelar med digitala verktyg.</li>
+  <li>Skriv en kort berättelse på 100 ord om ett barn som hjälper en vän för årskurs [4] och skapa 3 frågor som elever kan diskutera om vänskap och samarbete.</li>
+  <li>Skapa en lista med 5 frågor för årskurs [2] som elever kan använda för att prata om en bok de har läst, med fokus på vad de gillade och varför. Generera en text på 150 ord om en skolutflykt till ett museum för årskurs [5] och skriv 4 frågor som uppmuntrar elever att diskutera vad de lärde sig och vad som var mest intressant.</li>
+  <li>Skriv 5 diskussionsfrågor för årskurs [3] baserade på en text om djur i Sverige och som fokuserar på hur vi kan skydda djuren.</li>
+  <li>Skapa en kort text på 120 ord om en dag på en marknad för årskurs [4] och skriv 3 frågor som elever kan diskutera om vad de skulle vilja köpa och varför.</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

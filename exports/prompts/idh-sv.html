@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för IDH-lärare — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 14</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">För IDH-lärare</div>
+    <div class="cover__count">40 chattpromptar</div>
+    <h1 class="cover__title">Promptar för IDH-lärare.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">14</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">40 promptar</div>
+  <h2>lärare i Idrott &amp; hälsa</h2>
+</section>
+
+<ol class="prompts">
+  <li>Skapa en lektionsplan för en klass i [årskurs X] i idrott och hälsa som fokuserar på [specifikt mål i Lgr 22, t.ex. rörelseglädje], med tre övningar och en avslutning.</li>
+  <li>Ge mig fem sätt att göra en idrottslektion för en [årskurs]-klass mer inkluderande för elever med olika fysiska förmågor, med en idé för varje.</li>
+  <li>Skriv en kort guide för att introducera en [årskurs]-klass till [specifik aktivitet, t.ex. dans], med tre steg och en uppmuntrande uppvärmning.</li>
+  <li>Föreslå tre sätt att koppla idrott och hälsa för en [årskurs]-klass till [specifikt tema, t.ex. puls och hälsa], med en praktisk övning för varje.</li>
+  <li>Skapa en lista med fem korta uppvärmningslekar för en [årskurs]-klass som stärker [specifikt mål, t.ex. samarbete], med en beskrivning för varje.</li>
+  <li>Ge mig ett exempel på en rutin för att bedöma en [årskurs]-klass framsteg i [specifik färdighet, t.ex. simning], med tre steg och en enkel metod.</li>
+  <li>Föreslå tre sätt att använda skolans gymnastiksal för en [årskurs]-klass för att utveckla [specifikt mål, t.ex. smidighet], med en övning för varje.</li>
+  <li>Skriv en kort mall för en 5-minuters reflektion efter en idrottslektion för en [årskurs]- klass, med tre frågor om deras upplevelse.</li>
+  <li>Ge mig fem idéer för att integrera [specifikt verktyg, t.ex. pulsmätare] i en idrottslektion för en klass i [årskurs X], med ett syfte för varje.</li>
+  <li>Skapa en lista med tre korta sätt att uppmuntra en [årskurs X]-elev som är rädd för [specifik aktivitet, t.ex. höga höjder], med ett exempel för varje.</li>
+  <li>Föreslå tre sätt att samarbeta med NO-lärare på en [högstadieskola] för att koppla idrott till [specifikt tema, t.ex. kroppens funktioner], med en idé för varje.</li>
+  <li>Ge mig ett exempel på en enkel plan för att förbättra en klass i [årskurs X] kondition över en termin, med tre aktiviteter och ett mål.</li>
+  <li>Skriv en lista med fem utomhusaktiviteter för en klass i [årskurs X] som stärker [specifikt mål, t.ex. uthållighet], med minimal utrustning.</li>
+  <li>Föreslå tre sätt att hantera en regnig dag för en klass i [årskurs X] under en idrottslektion, med en alternativ inomhusaktivitet för varje.</li>
+  <li>Skapa en mall för en dagsplanering för idrott och hälsa för en klass i [årskurs X], med tre moment (t.ex. uppvärmning, huvudaktivitet, avslut).</li>
+  <li>Ge mig fem idéer för att göra en idrottslektion för en klass i [årskurs X] mer tävlingsinriktad på ett positivt sätt, med en övning för varje.</li>
+  <li>Föreslå tre sätt att introducera en klass i [årskurs X] till [specifik idrott, t.ex. volleyboll], med en progression från lätt till svårt för varje.</li>
+  <li>Skriv en kort guide för att stötta en [årskurs X]-elev med [specifikt behov, t.ex. astma] under en idrottslektion, med tre steg.</li>
+  <li>Ge mig ett exempel på en lektion för en klass i [årskurs X] som kombinerar idrott och [specifikt tema, t.ex. stresshantering], med tre moment.</li>
+  <li>Skapa en lista med tre korta sätt att samarbeta med elevrådet på en [grundskola] för att utveckla [specifikt mål, t.ex. roligare idrottslektioner], med ett exempel för varje.</li>
+  <li>Skapa en lektionsplan för en [årskurs]-klass i idrott och hälsa som uppfyller Lgr 22:s mål om [specifikt fokus, t.ex. motorik], med tre aktiviteter och en uppvärmning.</li>
+  <li>Ge mig fem strategier för att motivera ovilliga elever i [årskurs X] att delta under idrottslektionerna, med en enkel idé för varje.</li>
+  <li>Skriv en kort guide för att lära en klass i [årskurs X] en ny rörelsefärdighet (t.ex. [specifik färdighet, t.ex. volleybollsserve]), med tre steg och en övning.</li>
+  <li>Föreslå tre sätt att inkludera [specifikt tema, t.ex. hälsa eller lagarbete] i en idrottslektion för en klass i [årskurs X], med en aktivitet för varje.</li>
+  <li>Skapa en lista med fem korta uppmuntrande fraser för att boosta en [årskurs X]- elevs självförtroende under en idrottslektion.</li>
+  <li>Ge mig ett exempel på en rutin för att starta en idrottslektion för en klass i [årskurs X], med tre steg och en uppvärmningslek.</li>
+  <li>Föreslå tre sätt att använda skolans utemiljö för en klass i [årskurs X] i idrott och hälsa för att träna [specifikt mål, t.ex. kondition], med en övning för varje.</li>
+  <li>Skriv en kort mall för en 10-minuters avslutning av en idrottslektion för en klass i [årskurs X], med tre moment (t.ex. stretching, reflektion).</li>
+  <li>Ge mig fem idéer för att göra en idrottslektion för en klass i [årskurs X] mer [lekfull], med fokus på [specifikt mål, t.ex. samarbete], och en lek för varje.</li>
+  <li>Skapa en lista med tre korta reflektionsfrågor för en klass i [årskurs X] efter en idrottslektion om [specifikt tema, t.ex. puls], för att fånga elevernas upplevelser.</li>
+  <li>Föreslå tre sätt att samarbeta med klasslärare på en [högstadieskola] för att koppla idrott och hälsa till [specifikt ämne, t.ex. biologi], med en idé för varje.</li>
+  <li>Ge mig ett exempel på en enkel bedömning av en klass i [årskurs X] rörelseförmåga i [specifik aktivitet, t.ex. redskapsgymnastik], med tre kriterier.</li>
+  <li>Skriv en lista med fem resurser (t.ex. appar, spel) för en idrottslektion för en klass i [årskurs X] som stärker [specifikt mål, t.ex. koordination].</li>
+  <li>Föreslå tre sätt att anpassa en idrottslektion för en [årskurs X]-elev med [specifikt behov, t.ex. rörelsehinder], med en lösning för varje.</li>
+  <li>Skapa en mall för en veckoplanering för idrott och hälsa för en klass i [årskurs X], med tre fokusområden (t.ex. styrka, hälsa, reflektion).</li>
+  <li>Ge mig fem idéer för att använda minimal utrustning i en idrottslektion för en klass i [årskurs X] för att träna [specifikt mål, t.ex. balans], med en övning för varje.</li>
+  <li>Föreslå tre sätt att introducera en klass i [årskurs X] till [specifik idrott, t.ex. orientering], med en praktisk aktivitet för varje.</li>
+  <li>Skriv en kort guide för att hantera en kaotisk situation under en idrottslektion för en klass i [årskurs X], med tre steg och en lugnande metod.</li>
+  <li>Ge mig ett exempel på en lektion för en klass i [årskurs X] som kombinerar idrott och [specifikt tema, t.ex. hållbarhet], med tre moment.</li>
+  <li>Ge mig fem exempel på lekar och fem exempel på samarbetsövningar som passar bra för elever som inte lärt sig svenska ännu, d v s lekar och samarbetsövningar som är lätta att förstå.</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

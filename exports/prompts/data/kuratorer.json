@@ -1,0 +1,35 @@
+{
+  "folder": "46 Kuratorer",
+  "slug_sv": "kuratorer",
+  "slug_en": "school-counselors",
+  "cover_count": 20,
+  "total_prompts": 20,
+  "parts": [
+    {
+      "number": 1,
+      "title": "Kuratorer",
+      "prompts": [
+        "Skapa en plan för ett 30-minuters samtal med en elev i [årskurs X] som upplever [specifik situation, t.ex. stress eller mobbning], med tre steg och en uppföljning.",
+        "Ge mig fem strategier för att stötta en lärare på en [grundskola] i att hantera [specifik elevsituation, t.ex. konflikter i klassen], med en idé för varje.",
+        "Skriv en kort guide för att introducera en [årskurs X]-elev till avslappningstekniker för att hantera [specifikt problem, t.ex. ångest], med tre enkla övningar.",
+        "Föreslå tre sätt att samarbeta med elevhälsoteamet på en [grundskola] för att förebygga [specifikt problem, t.ex. ensamhet], med en insats för varje.",
+        "Skapa en lista med fem korta fraser för att lugna en elev i [årskurs X] under ett akut stressmoment på en [grundskola].",
+        "Ge mig ett exempel på en rutin för att följa upp en elev i [årskurs X] efter en svår händelse (t.ex. [specifik händelse]), med tre steg.",
+        "Föreslå tre sätt att genomföra ett gruppsamtal för en [årskurs X]-klass om [specifikt tema, t.ex. vänskap eller självkänsla], med en aktivitet för varje.",
+        "Skriv en kort mall för att dokumentera ett elevärende för en [årskurs X]-elev på en [grundskola], med tre sektioner (t.ex. bakgrund, åtgärder, uppföljning).",
+        "Ge mig fem idéer för att stärka en elevs i [årskurs X]) självförtroende i [specifik situation, t.ex. sociala sammanhang], med en metod för varje.",
+        "Skapa en lista med tre korta frågor för att inleda ett samtal med en [årskurs X]-elev om deras upplevelse av [specifikt ämne, t.ex. skolmiljö].",
+        "Föreslå tre sätt att samarbeta med föräldrar till en [årskurs X]-elev för att stötta barnet i [specifik utmaning, t.ex. skolvägran], med en strategi för varje.",
+        "Ge mig ett exempel på en enkel plan för att kartlägga en [årskurs X]-elevs behov i [specifikt område, t.ex. sociala relationer], med tre observationer.",
+        "Skriv en lista med fem resurser (t.ex. webbplatser eller material) för en kurator på en [grundskola] som stödjer [specifikt ämne, t.ex. stresshantering].",
+        "Föreslå tre sätt att hantera en akut konfliktsituation mellan elever i [årskurs X] på en [grundskola], med en metod för varje.",
+        "Skapa en mall för en kort workshop för lärare på en [högstadieskola] om [specifikt tema, t.ex. att identifiera psykisk ohälsa], med tre nyckelpunkter.",
+        "Ge mig fem idéer för att främja en positiv skolmiljö för en [årskurs X]-klass på en [grundskola], med fokus på [specifikt mål, t.ex. gemenskap].",
+        "Föreslå tre sätt att introducera en [årskurs X]-elev till strategier för att hantera [specifikt problem, t.ex. ilska], med en aktivitet för varje.",
+        "Skriv en kort guide för att stötta en elev i [årskurs X] som känner sig utanför, med tre steg och ett förslag på social aktivitet.",
+        "Ge mig ett exempel på en rutin för att följa upp en hel [årskurs X]-klass välmående efter [specifik händelse, t.ex. skolbyte], med tre steg.",
+        "Skapa en lista med tre korta sätt att samarbeta med rektor på en [grundskola] för att stärka [specifikt mål, t.ex. trygghet], med ett exempel för varje."
+      ]
+    }
+  ]
+}

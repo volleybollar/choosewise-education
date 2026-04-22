@@ -1,0 +1,35 @@
+{
+  "folder": "45 skolsköterskor",
+  "slug_sv": "skolskoterskor",
+  "slug_en": "school-nurses",
+  "cover_count": 20,
+  "total_prompts": 20,
+  "parts": [
+    {
+      "number": 1,
+      "title": "skolsköterskor",
+      "prompts": [
+        "Skapa en plan för ett hälsosamtal med en elev i [årskurs X] enligt Skolverkets riktlinjer, med tre fokusområden (t.ex. kost, sömn, välmående) och en uppföljning.",
+        "Ge mig fem strategier för att stödja en lärare på en [grundskola] i att identifiera [specifik hälsoutmaning, t.ex. trötthet hos elever], med en idé för varje.",
+        "Skriv en kort guide för att prata med en [årskurs X]-elev om [specifikt hälsoproblem, t.ex. huvudvärk eller stress], med tre steg och ett enkelt råd.",
+        "Föreslå tre sätt att samarbeta med elevhälsoteamet på en [grundskola] för att förebygga [specifikt problem, t.ex. smittspridning], med en insats för varje.",
+        "Skapa en lista med fem korta frågor för att snabbt bedöma en [årskurs X]-elevs hälsa vid ett spontant besök hos skolsköterskan.",
+        "Ge mig ett exempel på en rutin för att följa upp en elev i [årskurs X] efter [specifik händelse, t.ex. skada eller sjukfrånvaro], med tre steg.",
+        "Föreslå tre sätt att genomföra en hälsofrämjande insats för en [årskurs X]-klass om [specifikt tema, t.ex. hygien eller rörelse], med en aktivitet för varje.",
+        "Skriv en kort mall för att dokumentera ett hälsobesök för en [årskurs X]-elev på en [grundskola], med tre sektioner (t.ex. anledning, observationer, åtgärder).",
+        "Ge mig fem idéer för att uppmuntra en elev i [årskurs X] att förbättra [specifik vana, t.ex. frukostintag], med en metod för varje.",
+        "Skapa en lista med tre korta frågor för att inleda ett samtal med en [årskurs X]-elev om deras fysiska och psykiska mående under ett hälsobesök.",
+        "Föreslå tre sätt att samarbeta med föräldrar till en [årskurs X]-elev för att hantera [specifikt hälsoproblem, t.ex. allergier], med en strategi för varje.",
+        "Ge mig ett exempel på en enkel hälsokontroll av en [årskurs X]-elev för [specifikt område, t.ex. syn eller hörsel], med tre steg och en rekommendation.",
+        "Skriv en lista med fem resurser (t.ex. webbplatser eller material) för en skolsköterska på en [grundskola] som stödjer [specifikt ämne, t.ex. vaccinationer].",
+        "Föreslå tre sätt att hantera en akut situation med en [årskurs X]-elev (t.ex. [specifik situation, t.ex. allergisk reaktion]), med en åtgärd för varje.",
+        "Skapa en mall för en kort presentation för personalen på en [grundskola] om [specifikt tema, t.ex. första hjälpen], med tre nyckelpunkter.",
+        "Ge mig fem idéer för att främja fysisk aktivitet bland elever i [årskurs X] på en [grundskola], med fokus på [specifikt mål, t.ex. pauser eller lek].",
+        "Föreslå tre sätt att introducera en [årskurs X]-elev till enkla hälsorutiner för [specifikt problem, t.ex. handtvätt], med en aktivitet för varje.",
+        "Skriv en kort guide för att stötta en elev i [årskurs X] med [specifikt hälsotillstånd, t.ex. diabetes], med tre tips för daglig hantering i skolan.",
+        "Ge mig ett exempel på en rutin för att följa upp en [årskurs X]-klass hälsa efter [specifik händelse, t.ex. influensautbrott], med tre steg.",
+        "Skapa en lista med tre korta sätt att samarbeta med kurator och psykolog på en [grundskola] för att stötta [specifikt mål, t.ex. psykisk hälsa], med ett exempel för varje."
+      ]
+    }
+  ]
+}

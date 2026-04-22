@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för effektivt tidsutnyttjande — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 63</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">Tematiskt · Tidsutnyttjande</div>
+    <div class="cover__count">40 chattpromptar</div>
+    <h1 class="cover__title">Promptar för effektivt tidsutnyttjande.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">63</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">40 promptar</div>
+  <h2>effektiv tidsanvändning</h2>
+</section>
+
+<ol class="prompts">
+  <li>Skapa en plan för en [årskurs X]-lärare i [ämne] för att använda Paretoprincipen och identifiera de 20 % av lektionsförberedelserna som ger 80 % av resultaten, med tre prioriterade uppgifter.</li>
+  <li>Ge mig fem sätt att använda Pomodoro-tekniken för att undvika prokrastinering när en [årskurs X]-lärare i [ämne] ska rätta [specifikt arbete, t.ex. prov], med en tidsplan för varje.</li>
+  <li>Skriv en kort guide för en rektor att använda 3-3-3-metoden (3 timmar, 3 dagar, 3 veckor) för att planera [specifik uppgift, t.ex. terminsstart], med tre steg för att strukturera tiden.</li>
+  <li>Föreslå tre sätt att använda Eisenhower-matrisen för en [årskurs X]-lärare i [ämne] för att prioritera [specifika uppgifter, t.ex. lektionsplanering och elevfeedback], med en metod för varje.</li>
+  <li>Skapa en lista med fem korta strategier baserade på time blocking för en skolchef att schemalägga [specifika uppgifter, t.ex. möten och strategiarbete], för att undvika prokrastinering under en vecka.</li>
+  <li>Ge mig ett exempel på hur en [årskurs X]-lärare i [ämne] kan använda SMART-mål för att effektivt förbereda [specifikt moment, t.ex. en lektion], med tre specifika, mätbara steg.</li>
+  <li>Föreslå tre sätt att använda Paretoprincipen för en rektor att prioritera [specifika skoluppgifter, t.ex. fortbildning och elevhälsa], med en högavkastande aktivitet för varje.</li>
+  <li>Skapa en dagsplan för en [årskurs X]-lärare i [ämne] som använder Pomodoro- tekniken för att undvika prokrastinering med [specifik uppgift, t.ex. skapa läromedel], med tre 25-minuterspass och pauser.</li>
+  <li>Ge mig fem idéer för att använda 3-3-3-metoden för en skolchef att hantera [specifikt projekt, t.ex. implementera AI-verktyg], med en strategi för varje tidsram och en motivering.</li>
+  <li>Skriv en kort mall för en [årskurs X]-lärare i [ämne] att använda Eisenhower- matrisen för att organisera [specifika uppgifter, t.ex. rättning och planering], med tre prioriteringar och en forskningsbaserad motivering.</li>
+  <li>Föreslå tre sätt att använda time blocking för en rektor att effektivt hantera [specifika uppgifter, t.ex. möten och utvärderingar], med en tidsplan för varje och en motivering.</li>
+  <li>Ge mig ett exempel på hur en [årskurs X]-lärare i [ämne] kan använda SMART-mål för att snabbt slutföra [specifik uppgift, t.ex. rätta prov], med tre steg och en tidsram.</li>
+  <li>Skapa en lista med fem strategier baserade på Paretoprincipen för en skolchef att prioritera [specifika skolinitiativ, t.ex. digitalisering], med en högavkastande åtgärd för varje.</li>
+  <li>Föreslå tre sätt att använda Pomodoro-tekniken för en [årskurs X]-lärare i [ämne] för att effektivt planera [specifikt moment, t.ex. en temadag], med en tidsplan för varje.</li>
+  <li>Skriv en kort guide för en rektor att använda 3-3-3-metoden för att undvika prokrastinering med [specifik uppgift, t.ex. budgetplanering], med tre tidsbaserade steg och en motivering.</li>
+  <li>Ge mig fem idéer för att använda Eisenhower-matrisen för en [årskurs X]-lärare i [ämne] för att hantera [specifika uppgifter, t.ex. lektionsförberedelser], med en prioritering för varje.</li>
+  <li>Föreslå tre sätt att använda time blocking och SMART-mål för en skolchef att effektivt genomföra [specifikt projekt, t.ex. fortbildning], med en kombination för varje och en motivering.</li>
+  <li>Skapa en dagsplan för en [årskurs X]-lärare i [ämne] som använder Paretoprincipen för att prioritera [specifika uppgifter, t.ex. rättning och planering], med tre högavkastande fokusområden.</li>
+  <li>Ge mig ett exempel på hur en rektor kan använda Pomodoro-tekniken för att undvika prokrastinering med [specifik uppgift, t.ex. skriva en rapport], med tre tidsintervaller och pauser.</li>
+  <li>Skriv en lista med tre korta sätt att använda 3-3-3-metoden för en [årskurs]-lärare i [ämne] för att effektivt förbereda [specifikt moment, t.ex. en examination], med en tidsplan för varje.</li>
+  <li>Skapa en lektion för en [årskurs X]-lärare i [ämne] där Eisenhower-matrisen används för att prioritera [specifika arbetsuppgifter, t.ex. lektionsplanering], med tre prioriterade steg och en motivering.</li>
+  <li>Ge mig fem sätt att använda time blocking för en rektor att hantera [specifika uppgifter, t.ex. möten och elevärenden], med en tidsplan för varje för att undvika prokrastinering.</li>
+  <li>Skriv en kort guide för en [årskurs X]-lärare i [ämne] att använda SMART-mål för att slutföra [specifik uppgift, t.ex. skapa läromedel], med tre steg och en forskningsbaserad motivering.</li>
+  <li>Föreslå tre sätt att använda Paretoprincipen för en skolchef att effektivt hantera [specifika skolprojekt, t.ex. digitalisering], med en högavkastande åtgärd för varje och en motivering.</li>
+  <li>Skapa en lista med fem korta strategier baserade på Pomodoro-tekniken för en [årskurs X]-lärare i [ämne] för att rätta [specifikt arbete, t.ex. uppsatser], med en tidsplan för varje.</li>
+  <li>Ge mig ett exempel på hur en rektor kan använda 3-3-3-metoden för att undvika prokrastinering med [specifikt projekt, t.ex. skolplan], med tre tidsbaserade steg och en motivering.</li>
+  <li>Föreslå tre sätt att använda Eisenhower-matrisen och time blocking för en [årskurs X]-lärare i [ämne] för att hantera [specifika uppgifter, t.ex. lektionsplanering], med en kombination för varje.</li>
+  <li>Skriv en kort mall för en skolchef att använda SMART-mål för att effektivt genomföra [specifikt initiativ, t.ex. AI-implementering], med tre mål och en tidsram för att undvika förseningar.</li>
+  <li>Ge mig fem idéer för att använda Paretoprincipen för en [årskurs X]-lärare i [ämne] för att prioritera [specifika arbetsmoment, t.ex. elevfeedback], med en högavkastande strategi för varje.</li>
+  <li>Skapa en dagsplan för en rektor som använder Pomodoro-tekniken för att hantera [specifika uppgifter, t.ex. mötesförberedelser], med tre 25-minuterspass och en motivering för att undvika prokrastinering.</li>
+  <li>Föreslå tre sätt att använda time blocking för en [årskurs X]-lärare i [ämne] för att effektivt förbereda [specifikt moment, t.ex. en temadag], med en tidsplan för varje och en motivering.</li>
+  <li>Ge mig ett exempel på hur en skolchef kan använda 3-3-3-metoden för att planera [specifikt projekt, t.ex. fortbildning], med tre tidsbaserade steg och en forskningsbaserad motivering.</li>
+  <li>Skriv en lista med fem strategier baserade på Eisenhower-matrisen för en [årskurs X]-lärare i [ämne] för att prioritera [specifika uppgifter, t.ex. rättning], med en metod för varje.</li>
+  <li>Föreslå tre sätt att använda SMART-mål för en rektor att effektivt hantera [specifika uppgifter, t.ex. elevhälsomöten], med ett mål för varje och en motivering för att undvika prokrastinering.</li>
+  <li>Skapa en plan för en [årskurs X]-lärare i [ämne] som använder Paretoprincipen för att prioritera [specifika arbetsmoment, t.ex. lektionsplanering], med tre högavkastande fokusområden och en motivering.</li>
+  <li>Ge mig fem idéer för att använda Pomodoro-tekniken för en skolchef att hantera [specifika uppgifter, t.ex. rapporter], med en tidsplan för varje för att undvika prokrastinering.</li>
+  <li>Föreslå tre sätt att använda time blocking och 3-3-3-metoden för en [årskurs X]- lärare i [ämne] för att effektivt förbereda [specifikt moment, t.ex. en examination], med en kombination för varje.</li>
+  <li>Skriv en kort guide för en rektor att använda Eisenhower-matrisen för att undvika prokrastinering med [specifika uppgifter, t.ex. budgetplanering], med tre prioriteringar och en motivering.</li>
+  <li>Ge mig ett exempel på hur en [årskurs X]-lärare i [ämne] kan använda SMART-mål och Pomodoro-tekniken för att slutföra [specifik uppgift, t.ex. rättning], med tre steg och en tidsplan.</li>
+  <li>Föreslå en rutin för att effektivt ge skriftlig feedback till elever i [årskurs 8] med hjälp av digitala verktyg som Microsoft Teams eller Google Classroom.</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

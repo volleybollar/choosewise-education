@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för att lära dig nya saker — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 02</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">För den som vill lära sig</div>
+    <div class="cover__count">79 chattpromptar</div>
+    <h1 class="cover__title">Promptar för att lära dig nya saker.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">02</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">79 promptar</div>
+  <h2>att lära dig nya saker</h2>
+</section>
+
+<ol class="prompts">
+  <li>Förklara [begrepp/historiskt skeende/teknik etc] för mig som om jag vore [7] år gammal. Jag vill förstå [infoga ämne] bättre. Skapa en lista med undersökande frågor som jag kan ställa till mig själv när jag studerar detta ämne. Dessa frågor bör utmana mig att tänka kritiskt och fördjupa min förståelse av materialet. Jag vill behärska [infoga färdighet eller ämne] snabbt. Guide mig genom en avsiktlig övningsmetod genom att identifiera de mest utmanande aspekterna av detta ämne. Tillhandahålla specifika övningar och återkopplingsslingor som riktar sig till dessa områden, vilket gör att jag kan förbättra mig snabbt genom fokuserad, avsiktlig övning. Jag vill bemästra [infoga ämne] så snabbt som möjligt. Guide mig genom Feynman- tekniken, där jag måste lära ut konceptet i enkla termer. Börja med att dela upp ämnet i dess grundläggande komponenter. Hjälp mig sedan att förklara varje del med mina egna ord, identifiera luckor i min förståelse och förfina min förklaring tills jag kan formulera den tydligt och säkert. Jag vill påskynda mitt lärande i [infoga ämne eller färdighet]. Lär mig hur man använder visualiseringstekniker för att mentalt repetera nyckelbegrepp eller procedurer. Ge en steg-för-steg-guide om hur man visualiserar komplexa processer eller information, vilket hjälper mig att internalisera och återkalla dem lättare. Jag måste lära mig [infoga ämne] snabbt. Hjälp mig att tillämpa chunking-tekniken genom att bryta ner stora mängder information i mindre, hanterbara bitar. Ge ett strukturerat förhållningssätt till att gruppera relaterade begrepp tillsammans, vilket gör det lättare att förstå och komma ihåg materialet. Jag vill förstå [infoga ämne] snabbare. Hjälp mig skapa en tankekarta som visuellt organiserar nyckelbegreppen, underämnen och kopplingar inom detta ämne. Guide mig i att använda denna tankekarta för att studera mer effektivt, granska information på ett ögonblick och förstärka min förståelse av materialet. Jag försöker förstå [infoga komplext ämne]. Hjälp mig skapa enkla och relaterbara analogier som förklarar kärnbegreppen i detta ämne. Ge steg-för-steg-vägledning om hur man delar upp ämnet i bekanta idéer eller erfarenheter, vilket gör det lättare för mig att förstå och komma ihåg. Jag måste studera [infoga ämne] effektivt. Hjälp mig skapa korta, fokuserade studiepass med tydliga mål för varje pass. Detta kommer att hjälpa mig att behålla koncentrationen och få ut det mesta av min studietid. Jag lär mig [infoga ämne] och vill förstå det snabbare. Visa mig hur man tillämpar begreppen i verkliga scenarier. Ge exempel på praktiska användningsområden som hjälper till att stärka mina kunskaper. Du är en utbildare i världsklass som specialiserat sig på snabbt lärande. Förklara kärnprinciperna för [koncept] på ett sätt som även en nybörjare kan förstå, med hjälp av verkliga exempel och analogier. Ditt mål är att göra denna förklaring så tydlig att eleven kan bemästra konceptet snabbt. Du är expert på inlärningsstrategier. Hjälp mig skapa ett upprepningsschema för att bemästra [ämne]. Beskriv en studieplan som anger när och hur ofta jag ska granska materialet för att behålla det i långtidsminnet.</li>
+  <li>Skapa en detaljerad inlärningsplan för att lära dig [specifikt ämne, t.ex. kvantfysik] på [vald nivå, t.ex. nybörjarnivå], med tre faser (introduktion, fördjupning, tillämpning) och en tidsplan över sex veckor som använder spaced repetition.&quot;</li>
+  <li>Ge mig fem avancerade strategier för att bemästra [specifikt ämnesmoment, t.ex. Python-programmering], där varje strategi kombinerar active recall och self- explanation, med en praktisk tillämpning för varje.</li>
+  <li>Skriv en omfattande guide för att lära mig [specifikt ämne, t.ex. schackstrategi] genom att använda elaborative interrogation, med fem &#x27;varför&#x27;- eller &#x27;hur&#x27;-frågor som kopplar nya begrepp till befintlig kunskap, och en analys av svaren.</li>
+  <li>Föreslå tre avancerade sätt att använda dual coding för att lära mig [specifikt ämnesmoment, t.ex. kemiska reaktioner], med en kombination av visuella och verbala element för varje, och en förklaring av hur det stärker minnet.</li>
+  <li>Skapa en lista med fem komplexa active recall-uppgifter för att testa min förståelse av [specifikt ämne, t.ex. statistik], med en fråga eller utmaning för varje och en metod för självbedömning.</li>
+  <li>Ge mig ett exempel på en rutin för att lära mig [specifikt ämne, t.ex. franska] med spaced repetition över en månad, med tre repetitionsintervall och en specifik tillämpning för varje intervall.</li>
+  <li>Föreslå tre avancerade self-explanation-övningar för att fördjupa min förståelse av [specifikt ämnesmoment, t.ex. algebraiska ekvationer], med en förklaringsuppgift för varje och en reflektion över kopplingar till tidigare kunskap.</li>
+  <li>Skapa en avancerad inlärningsplan för att bemästra [specifikt ämne, t.ex. filosofi] genom att kombinera interleaved practice och metakognition, med tre blandade moment och en reflektionsprocess för varje.</li>
+  <li>Ge mig fem avancerade chunking-strategier för att bryta ner [specifikt komplext ämne, t.ex. neurovetenskap] i hanterbara delar, med en uppdelning och en tillämpning för varje del.</li>
+  <li>Skriv en detaljerad mall för att använda metakognitiva strategier för att lära mig [specifikt ämne, t.ex. historia], med tre steg (planering, övervakning, utvärdering) och fem reflektionsfrågor för varje steg.</li>
+  <li>Föreslå tre avancerade tillämpningar av peer learning för att lära mig [specifikt ämne, t.ex. programmering] i en studiegrupp, med en kollaborativ aktivitet för varje och en analys av lärandeutbytet.</li>
+  <li>Ge mig ett exempel på en avancerad feedback loop-strategi för att lära mig [specifikt ämnesmoment, t.ex. gitarrspel], med tre iterationer där varje loop bygger på föregående resultat och en metod för självbedömning.</li>
+  <li>Skapa en lista med fem avancerade minnestekniker för att lära mig [specifikt ämne, t.ex. medicinsk terminologi], med en teknik för varje, en tillämpning och en förklaring av dess effektivitet.</li>
+  <li>Föreslå tre avancerade scaffolding-metoder för att gradvis bemästra [specifikt ämne, t.ex. kvantmekanik], med en stödnivå för varje och en plan för att minska stödet över tid.</li>
+  <li>Skriv en avancerad guide för att använda konkreta exempel för att lära mig [specifikt abstrakt ämne, t.ex. ekonomisk teori], med fem exempel och en analys av hur de förtydligar teorin.</li>
+  <li>Föreslå tre avancerade dual coding-uppgifter för att lära mig [specifikt ämnesmoment, t.ex. biologiska processer], med en visuell och verbal representation för varje och en reflektion över minnesförstärkning.</li>
+  <li>Skapa en avancerad inlärningsplan för att bemästra [specifikt ämne, t.ex. avancerad statistik] genom att använda active recall och feedback loopar, med tre steg och en metod för att justera baserat på resultat.</li>
+  <li>Ge mig ett exempel på en avancerad self-explanation-strategi för att lära mig [specifikt ämne, t.ex. filosofiska begrepp], med tre förklaringar som kopplar nya idéer till personliga erfarenheter och en analys.</li>
+  <li>Skriv en lista med tre avancerade metakognitiva reflektionsuppgifter för att utvärdera mitt lärande av [specifikt ämne, t.ex. optik i fysik], med en fråga för varje och en metod för att justera min strategi.</li>
+  <li>Skapa en avancerad strategi för att lära mig [specifikt ämne, t.ex. maskininlärning] genom att kombinera spaced repetition och dual coding, med tre repetitionsintervall och en visuell representation för varje.</li>
+  <li>Ge mig fem avancerade active recall-utmaningar för att bemästra [specifikt ämnesmoment, t.ex. kemiska formler], med en komplex fråga för varje och en metod för att testa min förståelse.</li>
+  <li>Skriv en avancerad guide för att använda elaborative interrogation för att lära mig [specifikt ämne, t.ex. litteraturanalys], med fem djupgående frågor och en analys av hur svaren fördjupar min insikt.</li>
+  <li>Föreslå tre avancerade scaffolding-övningar för att lära mig [specifikt ämne, t.ex. programmeringsspråk], med en stegvis uppbyggnad för varje och en plan för att bli självständig.</li>
+  <li>Skapa en lista med fem avancerade chunking-uppgifter för att lära mig [specifikt komplext ämne, t.ex. hjärnans anatomi], med en uppdelning för varje och en tillämpning för att befästa kunskapen.</li>
+  <li>Föreslå tre avancerade feedback loop-uppgifter för att lära mig [specifikt ämnesmoment, t.ex. musikteori], med en iterativ process för varje och en metod för att analysera framsteg.</li>
+  <li>Skriv en avancerad mall för att använda interleaved practice för att bemästra [specifikt ämne, t.ex. matematiska bevis], med tre blandade övningsmoment och en reflektion över flexibilitetsvinster.</li>
+  <li>Ge mig fem avancerade minnestekniker för att lära mig [specifikt ämne, t.ex. juridiska termer], med en teknik för varje, en tillämpning och en analys av dess effektivitet.</li>
+  <li>Skapa en avancerad inlärningsplan för att lära mig [specifikt ämne, t.ex. avancerad organisk kemi] genom att kombinera self-explanation och metakognition, med tre steg och en reflektionsprocess för varje.</li>
+  <li>Föreslå tre avancerade dual coding-strategier för att lära mig [specifikt ämne, t.ex. historiska händelser], med en visuell och verbal komponent för varje och en utvärdering av minnesförstärkning.</li>
+  <li>Ge mig ett exempel på en avancerad active recall-rutin för att bemästra [specifikt ämnesmoment, t.ex. grammatik], med tre komplexa frågor och en metod för att analysera mina svar.</li>
+  <li>Skriv en lista med fem avancerade konkreta exempel för att lära mig [specifikt abstrakt ämne, t.ex. kvantfysik], med ett exempel för varje och en analys av hur det förtydligar teorin.</li>
+  <li>Föreslå tre avancerade spaced repetition-scheman för att lära mig [specifikt ämne, t.ex. språk], med ett repetitionsintervall för varje och en tillämpning för att befästa kunskapen.</li>
+  <li>Skapa en avancerad plan för att använda peer learning och feedback loopar för att lära mig [specifikt ämne, t.ex. datavetenskap], med tre kollaborativa steg och en analys av framsteg.</li>
+  <li>Ge mig fem avancerade self-explanation-uppgifter för att fördjupa min förståelse av [specifikt ämne, t.ex. artificiell intelligens], med en förklaringsuppgift för varje och en reflektion över insikter.</li>
+  <li>Föreslå tre avancerade interleaved practice-övningar för att lära mig [specifikt ämne, t.ex. musikteknik], med en blandning av moment för varje och en analys av flexibilitetsvinster.</li>
+  <li>Skriv en avancerad guide för att använda metakognitiva strategier för att lära mig [specifikt ämne, t.ex. avancerad fysik], med tre reflektionsmoment och fem frågor för att utvärdera min strategi.</li>
+  <li>Ge mig ett exempel på en avancerad chunking-strategi för att lära mig [specifikt komplext ämne, t.ex. hur elementarpartiklar fungerar], med tre uppdelade delar och en tillämpning för att integrera kunskapen.</li>
+  <li>Skapa en lista med tre avancerade dual coding- och active recall-uppgifter för att bemästra [specifikt ämne, t.ex. konsthistoria], med en kombination för varje och en reflektion över lärandeutbytet.</li>
+  <li>Skapa en avancerad inlärningsstrategi för att bemästra [specifikt ämne, t.ex. astrofysik] på [vald nivå, t.ex. mellannivå], med tre faser som kombinerar spaced repetition och active recall, och en detaljerad tidsplan över åtta veckor.</li>
+  <li>Ge mig fem avancerade self-explanation-övningar för att fördjupa min förståelse av [specifikt ämnesmoment, t.ex. differentialekvationer], med en komplex fråga för varje och en analys av hur förklaringarna kopplar till befintlig kunskap.</li>
+  <li>Skriv en detaljerad guide för att lära mig [specifikt ämne, t.ex. neuropsykologi] med dual coding, med fem kombinationer av visuella och verbala representationer och en utvärdering av deras effekt på minnet.</li>
+  <li>Föreslå tre avancerade interleaved practice-metoder för att lära mig [specifikt ämne, t.ex. musikteori], med en blandning av tre moment för varje och en reflektion över hur det förbättrar min flexibilitet.</li>
+  <li>Skapa en lista med fem avancerade active recall-utmaningar för att testa min behärskning av [specifikt ämne, t.ex. juridik], med en komplex fråga för varje och en metod för att analysera mina framsteg.</li>
+  <li>Ge mig ett exempel på en avancerad spaced repetition-rutin för att lära mig [specifikt ämnesmoment, t.ex. spanska verbformer], med tre tidsintervall över två månader och en tillämpning för varje intervall.</li>
+  <li>Föreslå tre avancerade elaborative interrogation-uppgifter för att lära mig [specifikt ämne, t.ex. ekonomisk historia], med en djupgående fråga för varje och en analys av hur svaren fördjupar min insikt.</li>
+  <li>Skapa en avancerad inlärningsplan för att bemästra [specifikt ämne, t.ex. maskininlärning] genom att kombinera chunking och metakognition, med tre uppdelade segment och en reflektionsprocess för varje.</li>
+  <li>Ge mig fem avancerade dual coding-strategier för att lära mig [specifikt ämnesmoment, t.ex. kemiska strukturer], med en visuell och verbal komponent för varje och en utvärdering av minnesförbättring.</li>
+  <li>Skriv en avancerad mall för att använda feedback loopar för att lära mig [specifikt ämne, t.ex. gitarrteknik], med tre iterationer där varje loop analyserar och förbättrar föregående resultat, och en metod för självbedömning.</li>
+  <li>Föreslå tre avancerade peer learning-aktiviteter för att lära mig [specifikt ämne, t.ex. litteraturkritik] i grupp, med en kollaborativ uppgift för varje och en analys av gruppens bidrag till min förståelse.</li>
+  <li>Ge mig ett exempel på en avancerad scaffolding-strategi för att lära mig [specifikt ämne, t.ex. avancerad fysik], med tre stegvis minskande stödnivåer och en plan för att bli självständig.&quot;</li>
+  <li>Skapa en lista med fem avancerade konkreta exempel för att bemästra [specifikt abstrakt ämne, t.ex. kvantteori], med ett exempel för varje och en analys av hur det förtydligar abstrakta begrepp.</li>
+  <li>Föreslå tre avancerade active recall- och spaced repetition-kombinationer för att lära mig [specifikt ämne, t.ex. medicinsk anatomi], med en repetitionsuppgift för varje och en reflektion över retention.</li>
+  <li>Skriv en avancerad guide för att använda self-explanation för att lära mig [specifikt ämne, t.ex. filosofiska teorier], med fem förklaringar som kopplar nya idéer till personliga erfarenheter och en utvärdering.</li>
+  <li>Ge mig fem avancerade interleaved practice-uppgifter för att lära mig [specifikt ämne, t.ex. matematiska modeller], med en blandning av moment för varje och en analys av hur det stärker problemlösning.</li>
+  <li>Föreslå tre avancerade metakognitiva strategier för att lära mig [specifikt ämne, t.ex. avancerad kemi], med en reflektionsuppgift för varje och en metod för att justera min inlärningsstrategi.</li>
+  <li>Skapa en avancerad inlärningsplan för att bemästra [specifikt ämne, t.ex. konsthistoria] genom att kombinera dual coding och chunking, med tre uppdelade segment och en visuell representation för varje.</li>
+  <li>Ge mig ett exempel på en avancerad peer learning- och self-explanation- kombination för att lära mig [specifikt ämne, t.ex. datavetenskap], med tre kollaborativa steg och en analys av mina förklaringar.</li>
+  <li>Skriv en lista med tre avancerade feedback loop-uppgifter för att lära mig [specifikt ämnesmoment, t.ex. musikteknik], med en iterativ process för varje och en metod för att mäta framsteg.</li>
+  <li>Skapa en avancerad strategi för att lära mig [specifikt ämne, t.ex. kvantberäkning] genom att kombinera spaced repetition och metakognition, med tre repetitionsfaser och en reflektionsprocess för varje.</li>
+  <li>Ge mig fem avancerade active recall-övningar för att bemästra [specifikt ämnesmoment, t.ex. juridiska prejudikat], med en komplex fråga för varje och en metod för att analysera mina svar.</li>
+  <li>Skriv en avancerad guide för att använda chunking för att lära mig [specifikt komplext ämne, t.ex. hjärnans neurala nätverk], med fem uppdelade segment och en tillämpning för att integrera kunskapen.</li>
+  <li>Föreslå tre avancerade dual coding- och self-explanation-kombinationer för att lära mig [specifikt ämne, t.ex. musikteori], med en visuell och verbal komponent för varje och en reflektion över insikter.</li>
+  <li>Skapa en lista med fem avancerade scaffolding-uppgifter för att lära mig [specifikt ämne, t.ex. avancerad programmering], med en stödnivå för varje och en plan för att minska stödet över tid.</li>
+  <li>Ge mig ett exempel på en avancerad interleaved practice-rutin för att bemästra [specifikt ämne, t.ex. statistiska metoder], med tre blandade övningsmoment och en analys av flexibilitetsvinster.</li>
+  <li>Föreslå tre avancerade elaborative interrogation-strategier för att lära mig [specifikt ämne, t.ex. litteraturhistoria], med en djupgående fråga för varje och en analys av hur svaren fördjupar min förståelse.</li>
+  <li>Skriv en avancerad mall för att använda active recall och dual coding för att bemästra [specifikt ämnesmoment, t.ex. kemiska reaktioner], med tre kombinerade uppgifter och en reflektion över minnesförstärkning.</li>
+  <li>Ge mig fem avancerade metakognitiva reflektionsuppgifter för att utvärdera mitt lärande av [specifikt ämne, t.ex. filosofiska texter], med en fråga för varje och en metod för att justera min strategi.</li>
+  <li>Skapa en avancerad inlärningsplan för att bemästra [specifikt ämne, t.ex. hjärnkirurgi] genom att kombinera chunking och feedback loopar, med tre uppdelade segment och en iterativ process för varje.</li>
+  <li>Föreslå tre avancerade spaced repetition- och self-explanation-kombinationer för att lära mig [specifikt ämne, t.ex. språkgrammatik], med en repetitionsuppgift för varje och en analys av insikter.</li>
+  <li>Ge mig ett exempel på en avancerad peer learning-strategi för att lära mig [specifikt ämne, t.ex. konstkritik], med tre kollaborativa moment och en utvärdering av gruppdynamikens inverkan.</li>
+  <li>Skriv en lista med fem avancerade konkreta exempel för att lära mig [specifikt abstrakt ämne, t.ex. relativitetsteori], med ett exempel för varje och en analys av hur det förtydligar teorin.</li>
+  <li>Föreslå tre avancerade active recall-uppgifter för att bemästra [specifikt ämnesmoment, t.ex. musikalisk komposition], med en komplex fråga för varje och en metod för att mäta framsteg.</li>
+  <li>Skapa en avancerad plan för att använda dual coding och metakognition för att lära mig [specifikt ämne, t.ex. neurovetenskap], med tre kombinerade steg och en reflektionsprocess för varje.</li>
+  <li>Ge mig fem avancerade self-explanation- och feedback loop-uppgifter för att lära mig [specifikt ämne, t.ex. ekonomisk analys], med en kombination för varje och en analys av förbättringar.</li>
+  <li>Föreslå tre avancerade interleaved practice- och chunking-kombinationer för att bemästra [specifikt ämne, t.ex. avancerad algebra], med en blandad uppdelning för varje och en reflektion över vinster.</li>
+  <li>Skriv en avancerad guide för att använda spaced repetition för att lära mig [specifikt ämne, t.ex. medicinsk terminologi], med fem repetitionsintervall och en tillämpning för varje intervall.</li>
+  <li>Ge mig ett exempel på en avancerad peer learning- och dual coding-kombination för att lära mig [specifikt ämne, t.ex. konsthistoria], med tre kollaborativa steg och en visuell representation för varje.</li>
+  <li>Skapa en lista med tre avancerade active recall- och metakognitiva uppgifter för att bemästra [specifikt ämne, t.ex. kärnfysik], med en kombination för varje och en reflektion över min inlärningsprocess. Du är en erfaren lärare som ska hjälpa mig att lära mig förstå [ämne 1, t ex fission]. Då jag kan och förstår [ämne 2, t ex fusion] redan vill jag att du utgår från likheter och skillnader mellan dessa två ämnen när du hjälper mig att förstå [ämne 1].</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

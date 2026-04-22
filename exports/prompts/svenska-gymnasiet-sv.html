@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för svensklärare på gymnasiet — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 37</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">För svensklärare på gymnasiet</div>
+    <div class="cover__count">80 chattpromptar</div>
+    <h1 class="cover__title">Promptar för svensklärare på gymnasiet.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">37</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">80 promptar</div>
+  <h2>lärare i svenska på gymnasiet</h2>
+</section>
+
+<ol class="prompts">
+  <li>Skriv en text på 200 ord om en klassisk svensk roman, som Doktor Glas av Hjalmar Söderberg, för Svenska 1 och skapa 5 läsförståelsefrågor som fokuserar på handling och teman.</li>
+  <li>Skapa en text på 150 ord om en modern svensk novell för Svenska 2 och skriv 4 frågor som uppmuntrar eleverna att analysera karaktärernas motiv och budskapet.</li>
+  <li>Skriv en text på 200 ord om en känd svensk poet, som Karin Boye, för Svenska 3 och skapa 5 frågor som fokuserar på poetens stil och samhällskontext.</li>
+  <li>Skapa en lista med 5 svenska litterära epoker och ge en uppgift för Svenska 2 där eleverna skriver en text på 200 ord om en epok och dess kännetecken.</li>
+  <li>Skriv en text på 150 ord om en roman som behandlar ett samhällsproblem, som Kallocain av Karin Boye, för Svenska 3 och skapa 4 frågor som fokuserar på dystopiska teman.</li>
+  <li>Skapa en text på 200 ord om en historisk händelse i Sverige ur ett litterärt perspektiv för Svenska 1 och skriv 5 frågor som testar elevernas förståelse av textens budskap.</li>
+  <li>Skriv en text på 150 ord om en svensk barnbok, som Ronja Rövardotter, för Svenska 2 och skapa 4 frågor som uppmuntrar eleverna att reflektera över moraliska dilemman.</li>
+  <li>Skapa en lista med 5 svenska författare från 1900-talet och ge en uppgift för Svenska 3 där eleverna skriver en analys på 300 ord av ett verk av en författare.</li>
+  <li>Skriv en text på 200 ord om en svensk klassiker, som Röda rummet av August Strindberg, för Svenska 1 och skapa 5 frågor som fokuserar på samhällskritik.</li>
+  <li>Skapa en text på 150 ord om en nutida svensk roman för Svenska 3 och skriv 4 frågor som uppmuntrar eleverna att analysera berättarperspektiv och språklig stil. Skrivande</li>
+  <li>Skapa en skrivuppgift för Svenska 1 där eleverna skriver en text på 200 ord om en personlig upplevelse och ge 5 vägledande frågor för att strukturera texten.</li>
+  <li>Skriv en mall för en argumenterande text för Svenska 2 och ge en uppgift där eleverna skriver en text på 300 ord om miljöproblemen i Sverige.</li>
+  <li>Skapa en skrivuppgift för Svenska 3 där eleverna skriver en litterär analys på 400 ord av en roman och ge 5 tips för att analysera teman och karaktärer.</li>
+  <li>Skriv en lista med 10 svenska ord som beskriver känslor och ge en uppgift för Svenska 1 där eleverna skriver en kort text om en dag då de kände sig stressade.</li>
+  <li>Skapa en skrivuppgift för Svenska 2 där eleverna skriver en novell på 300 ord om ett moraliskt dilemma och ge 5 exempel på inledningar de kan använda.</li>
+  <li>Skriv en mall för en formell debattartikel för Svenska 3 och ge en uppgift där eleverna skriver en artikel på 400 ord om skolans roll i samhället.</li>
+  <li>Skapa en skrivuppgift för Svenska 1 där eleverna skriver en text på 200 ord om en plats de älskar och ge 5 vägledande frågor för att strukturera texten.</li>
+  <li>Skriv en lista med 10 retoriska grepp och ge en uppgift för Svenska 2 där eleverna skriver en kort text på 200 ord med 3 av greppen för att övertyga om en åsikt.</li>
+  <li>Skapa en skrivuppgift för Svenska 3 där eleverna skriver en essä på 400 ord om språkets makt i samhället och ge 5 frågor som hjälper dem att analysera ämnet.</li>
+  <li>Skriv en mall för en recension av en bok eller film för Svenska 1 och ge en uppgift där eleverna skriver en recension på 200 ord av en svensk film. Muntlig kommunikation</li>
+  <li>Skriv 5 diskussionsfrågor för Svenska 1 baserade på en text på 200 ord om ungas användning av sociala medier och fokusera på för- och nackdelar.</li>
+  <li>Skapa en rollspelsuppgift för Svenska 2 där två elever debatterar om betyg i skolan och ge 5 exempel på argument de kan använda.</li>
+  <li>Skapa en lista med 5 ämnen för gruppdiskussioner om svenska samhällsfrågor för Svenska 3 och skriv 4 frågor för varje ämne som uppmuntrar till kritisk analys.</li>
+  <li>Skriv en text på 150 ord om en aktuell nyhet i Sverige för Svenska 1 och skapa 5 frågor för en klassdiskussion om nyhetens betydelse.</li>
+  <li>Skapa en uppgift för Svenska 2 där eleverna förbereder en 3-minuters presentation om en svensk författare och ge 5 tips för att tala tydligt och engagerande.</li>
+  <li>Skriv 5 diskussionsfrågor för Svenska 3 baserade på en text på 200 ord om språkets roll i integration och fokusera på språk och identitet.</li>
+  <li>Skapa en rollspelsuppgift för Svenska 1 där eleverna låtsas intervjua en känd svensk person och ge 5 exempel på frågor de kan ställa.</li>
+  <li>Skriv en text på 150 ord om vikten av retorik i vardagen för Svenska 2 och skapa 5 frågor för en gruppdiskussion om hur man kan övertyga andra.</li>
+  <li>Skapa en uppgift för Svenska 3 där eleverna förbereder en 4-minuters presentation om en samhällsdebatt i Sverige och ge 5 frågor för att guida deras research.</li>
+  <li>Skriv 5 diskussionsfrågor för Svenska 1 baserade på en text på 200 ord om svenska traditioner och fokusera på kulturella skillnader och likheter. Språklig medvetenhet</li>
+  <li>Skriv en text på 200 ord om hur det svenska språket har utvecklats över tid för Svenska 1 och skapa 5 frågor som fokuserar på språkliga förändringar.</li>
+  <li>Skapa en lista med 10 svenska dialekter och ge en uppgift för Svenska 2 där eleverna skriver en text på 200 ord om hur dialekter påverkar kommunikation.</li>
+  <li>Skriv en text på 200 ord om språkets roll i reklam för Svenska 3 och skapa 5 diskussionsfrågor som fokuserar på retoriska grepp och påverkan.</li>
+  <li>Skapa en lista med 5 exempel på språkliga normer i Sverige och ge en uppgift för Svenska 1 där eleverna skriver en text på 200 ord om hur normer påverkar språkanvändning.</li>
+  <li>Skriv en text på 150 ord om hur slang används i svenska för Svenska 2 och skapa 4 frågor som uppmuntrar eleverna att reflektera över slangens roll i olika sammanhang.</li>
+  <li>Skapa en lista med 10 svenska ord som har lånats från andra språk och ge en uppgift för Svenska 3 där eleverna skriver en text på 300 ord om språklig påverkan.</li>
+  <li>Skriv en text på 200 ord om hur man skriver formellt på svenska för Svenska 1 och skapa 5 frågor som fokuserar på skillnader mellan formellt och informellt språk.</li>
+  <li>Skapa en text på 150 ord om hur media påverkar språket för Svenska 2 och skriv 4 frågor som uppmuntrar eleverna att diskutera språkliga trender.</li>
+  <li>Skapa en lista med 5 exempel på språkliga stilfigurer och ge en uppgift för Svenska 3 där eleverna skriver en text på 200 ord med 3 av stilfigurerna.</li>
+  <li>Skriv en text på 200 ord om hur digital kommunikation har påverkat det svenska språket för Svenska 2 och skapa 5 frågor som fokuserar på för- och nackdelar. Textanalys och genrer</li>
+  <li>Skriv en text på 200 ord om en svensk debattartikel om klimatförändringar för Svenska 1 och skapa 5 frågor som fokuserar på att identifiera argument och retoriska grepp.</li>
+  <li>Skapa en text på 150 ord i form av en krönika om ungas fritid för Svenska 2 och skriv 4 frågor som uppmuntrar eleverna att analysera tonen och budskapet.</li>
+  <li>Skriv en text på 200 ord i form av ett novellutdrag om en konflikt för Svenska 3 och skapa 5 frågor som fokuserar på berättarperspektiv och karaktärsutveckling.</li>
+  <li>Skapa en lista med 5 olika textgenrer och ge en uppgift för Svenska 1 där eleverna skriver en text på 200 ord i en av genrerna, som en insändare om skolmaten.</li>
+  <li>Skriv en text på 150 ord i form av en nyhetsartikel om en lokal händelse för Svenska 2 och skapa 4 frågor som fokuserar på struktur och språklig stil.</li>
+  <li>Skapa en text på 200 ord i form av en essä om teknikens påverkan på samhället för Svenska 3 och skriv 5 frågor som uppmuntrar eleverna att analysera resonemanget.</li>
+  <li>Skriv en text på 150 ord i form av en dikt om naturen för Svenska 1 och skapa 5 frågor som fokuserar på bildspråk och känsla.</li>
+  <li>Skapa en lista med 5 exempel på retoriska grepp i reklam och ge en uppgift för Svenska 2 där eleverna analyserar en reklamtext på 200 ord.</li>
+  <li>Skriv en text på 200 ord i form av en recension av en svensk film för Svenska 3 och skapa 5 frågor som fokuserar på språk och struktur i recensionen.</li>
+  <li>Skapa en text på 150 ord i form av en saga för Svenska 1 och skriv 4 frågor som uppmuntrar eleverna att reflektera över moral och budskap. Kreativt skrivande</li>
+  <li>Skapa en skrivuppgift för Svenska 1 där eleverna skriver en text på 200 ord om en påhittad resa i Sverige och ge 5 vägledande frågor för att strukturera texten.</li>
+  <li>Skriv en lista med 10 svenska ord som beskriver naturen och ge en uppgift för Svenska 2 där eleverna skriver en dikt på 15 rader om en skogspromenad med 5 av orden.</li>
+  <li>Skapa en skrivuppgift för Svenska 3 där eleverna skriver en novell på 400 ord om en oväntad vänskap och ge 5 tips för att skapa intressanta karaktärer.</li>
+  <li>Skriv en mall för en kort berättelse med en tydlig konflikt för Svenska 1 och ge en uppgift där eleverna skriver om en dag då allt gick fel.</li>
+  <li>Skapa en skrivuppgift för Svenska 2 där eleverna skriver en text på 300 ord om ett minne från barndomen och ge 5 exempel på beskrivande språk de kan använda.</li>
+  <li>Skriv en lista med 5 teman för kreativa berättelser och ge en uppgift för Svenska 1 där eleverna skriver en text på 200 ord om ett av temana, som mod.</li>
+  <li>Skapa en skrivuppgift för Svenska 3 där eleverna skriver en text på 400 ord i form av en dystopisk framtid och ge 5 frågor som hjälper dem att bygga upp världen.</li>
+  <li>Skriv en lista med 10 svenska adjektiv som beskriver stämningar och ge en uppgift för Svenska 2 där eleverna skriver en text på 200 ord om en mystisk plats.</li>
+  <li>Skapa en skrivuppgift för Svenska 1 där eleverna skriver en dialog på 200 ord mellan två vänner som planerar en fest och ge 5 exempel på vardagliga fraser.</li>
+  <li>Skriv en mall för en kort saga för Svenska 2 och ge en uppgift där eleverna skriver en saga på 300 ord om ett magiskt föremål. Samhällsdebatt och retorik</li>
+  <li>Skriv en text på 200 ord i form av en debattartikel om ungas skärmtid för Svenska 1 och skapa 5 diskussionsfrågor som fokuserar på argument och motargument.</li>
+  <li>Skapa en text på 150 ord i form av en insändare om vikten av fler idrottslektioner i skolan för Svenska 2 och skriv 4 frågor som uppmuntrar eleverna att analysera retoriken.</li>
+  <li>Skriv en text på 200 ord i form av ett tal om klimatkrisen för Svenska 3 och skapa 5 frågor som fokuserar på retoriska grepp och budskap.</li>
+  <li>Skapa en lista med 5 aktuella samhällsfrågor i Sverige och ge en uppgift för Svenska 1 där eleverna skriver en insändare på 200 ord om en av frågorna.</li>
+  <li>Skriv en text på 150 ord om vikten av yttrandefrihet för Svenska 2 och skapa 4 diskussionsfrågor som fokuserar på rättigheter och ansvar.</li>
+  <li>Skapa en uppgift för Svenska 3 där eleverna förbereder en 4-minuters debatt om skoluniformer och ge 5 exempel på argument för och emot.</li>
+  <li>Skriv en text på 200 ord i form av en krönika om stress i skolan för Svenska 1 och skapa 5 frågor som uppmuntrar eleverna att reflektera över krönikans budskap.</li>
+  <li>Skapa en lista med 5 retoriska strategier och ge en uppgift för Svenska 2 där eleverna skriver en text på 200 ord med 3 av strategierna för att övertyga om en åsikt.</li>
+  <li>Skriv en text på 200 ord i form av ett tal om vikten av jämställdhet för Svenska 3 och skapa 5 frågor som fokuserar på hur talet påverkar lyssnaren.</li>
+  <li>Skapa en uppgift för Svenska 1 där eleverna skriver en debattartikel på 200 ord om miljöskydd och ge 5 vägledande frågor för att strukturera artikeln. Språk och identitet</li>
+  <li>Skriv en text på 200 ord om hur språket formar identitet för Svenska 1 och skapa 5 diskussionsfrågor som fokuserar på språkets roll i olika sammanhang.</li>
+  <li>Skapa en text på 150 ord om hur dialekter påverkar identitet i Sverige för Svenska 2 och skriv 4 frågor som uppmuntrar eleverna att reflektera över sina egna språkliga erfarenheter.</li>
+  <li>Skriv en text på 200 ord om hur språklig mångfald berikar Sverige för Svenska 3 och skapa 5 frågor som fokuserar på integration och kulturell förståelse.</li>
+  <li>Skapa en lista med 5 exempel på hur språket används för att uttrycka tillhörighet och ge en uppgift för Svenska 1 där eleverna skriver en text på 200 ord om sin egen språkliga identitet.</li>
+  <li>Skriv en text på 150 ord om hur slang och ungdomsspråk utvecklas för Svenska 2 och skapa 4 frågor som fokuserar på språkliga trender och generationer.</li>
+  <li>Skapa en lista med 5 exempel på språkliga stereotyper och ge en uppgift för Svenska 3 där eleverna skriver en text på 300 ord om hur stereotyper påverkar kommunikation.</li>
+  <li>Skriv en text på 200 ord om hur språk kan användas för att inkludera eller exkludera för Svenska 1 och skapa 5 frågor som fokuserar på språkets makt.</li>
+  <li>Skapa en text på 150 ord om hur kodväxling fungerar i flerspråkiga miljöer för Svenska 2 och skriv 4 frågor som uppmuntrar eleverna att reflektera över flerspråkighet.</li>
+  <li>Skapa en uppgift för Svenska 3 där eleverna skriver en essä på 400 ord om hur språket påverkar deras identitet och ge 5 vägledande frågor för att strukturera essän.</li>
+  <li>Skriv en text på 200 ord om hur litteratur kan spegla språklig identitet för Svenska 2 och skapa 5 frågor som fokuserar på hur karaktärer i litteraturen använder språket.</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>

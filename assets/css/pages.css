@@ -191,6 +191,10 @@
 
 /* ───── WISE summary (complete framework view after the pinned reveal) ───── */
 .wise-summary { padding-block: var(--space-9); }
+/* Mjuk tonad bakgrund som bryter av den visuella repetitionen mellan
+   diagrammen (signatur → lärare → skolledare). Använder tan-tonen
+   från section--alt så det känns som samma designsystem. */
+.wise-summary--tinted { background: var(--color-bg-alt); }
 .wise-summary__title { text-align: center; margin-bottom: var(--space-8); font-size: var(--fs-h1); }
 .wise-summary__layout {
   display: grid;
@@ -207,6 +211,148 @@
   .wise-summary__layout { grid-template-columns: 1fr; gap: var(--space-6); }
   .wise-summary__steps  { grid-template-columns: 1fr; }
   .wise-summary__diagram { max-width: 420px; }
+}
+
+/* ───── Prompt Library ─────
+   Kortlayout för varje prompt-paket + filterbara kategori-piller +
+   exempel-listor på individuella prompt-paket-sidor. */
+
+/* Två-kolumners paketbeskrivning på individuell prompt-paket-sida */
+.prompt-parts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+@media (max-width: 768px) { .prompt-parts { grid-template-columns: 1fr; } }
+.prompt-part {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+}
+.prompt-part__count {
+  font-size: var(--fs-caption);
+  letter-spacing: var(--tracking-loose);
+  text-transform: uppercase;
+  color: var(--color-highlight);
+  font-weight: 500;
+  display: block;
+  margin-bottom: var(--space-3);
+}
+.prompt-part h3 { margin-bottom: var(--space-3); font-family: var(--font-display); font-size: 1.25rem; }
+.prompt-part p  { color: var(--color-text-soft); font-size: 0.95rem; margin: 0; }
+
+/* Exempel-promptar på individuell paket-sida */
+.example-prompts { list-style: none; counter-reset: ex; max-width: 52rem; }
+.example-prompts li {
+  counter-increment: ex;
+  position: relative;
+  padding: var(--space-4) var(--space-5) var(--space-4) var(--space-8);
+  margin-bottom: var(--space-4);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 1rem; line-height: 1.55;
+}
+.example-prompts li::before {
+  content: counter(ex, decimal-leading-zero);
+  position: absolute;
+  left: var(--space-4); top: var(--space-4);
+  font-family: var(--font-display);
+  color: var(--color-highlight);
+  font-weight: 500;
+}
+.example-prompts em {
+  color: var(--color-highlight);
+  background: rgba(198, 107, 61, 0.08);
+  padding: 0 3px;
+  border-radius: 2px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Prompt Library index — kortgrid med filter */
+.prompt-filters {
+  display: flex; flex-wrap: wrap; gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+.prompt-filters__group-label {
+  font-size: var(--fs-caption); letter-spacing: var(--tracking-loose);
+  text-transform: uppercase; color: var(--color-text-soft);
+  align-self: center; margin-right: var(--space-3);
+}
+.prompt-filter {
+  font-family: var(--font-body); font-size: 0.85rem;
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+.prompt-filter:hover { border-color: var(--color-highlight); color: var(--color-highlight); }
+.prompt-filter.is-active {
+  background: var(--color-highlight);
+  color: #fff;
+  border-color: var(--color-highlight);
+}
+
+.prompt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-5);
+}
+.prompt-card {
+  display: flex; flex-direction: column;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+.prompt-card:hover {
+  border-color: var(--color-highlight);
+  transform: translateY(-2px);
+}
+.prompt-card__eyebrow {
+  font-size: var(--fs-caption); letter-spacing: var(--tracking-loose);
+  text-transform: uppercase; color: var(--color-highlight); font-weight: 500;
+  margin-bottom: var(--space-3);
+}
+.prompt-card__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: var(--space-3);
+  line-height: 1.2;
+}
+.prompt-card__count {
+  color: var(--color-text-soft);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-4);
+  flex-grow: 1;
+}
+.prompt-card__langs {
+  display: flex; gap: var(--space-2);
+  font-size: var(--fs-caption); letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+.prompt-card__langs span {
+  padding: 2px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
+.prompt-card[data-sv-only="true"] .prompt-card__langs::after {
+  content: "Svenska endast";
+  padding: 2px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
 }
 
 /* ───── Filters ───── */

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Promptar för skolbibliotekarier — choosewise.education</title>
+<link rel="stylesheet" href="_prompt-print.css">
+</head>
+<body>
+
+<section class="page--cover">
+  <div class="cover__top">
+    <span class="cover__brand">choosewise.education</span>
+    <span>Prompt Library · Vol. 54</span>
+  </div>
+
+  <div class="cover__middle">
+    <div class="cover__eyebrow">För skolbibliotekarier</div>
+    <div class="cover__count">110 chattpromptar</div>
+    <h1 class="cover__title">Promptar för skolbibliotekarier.</h1>
+    <p class="cover__subtitle">Färdiga promptar att utgå från i planering, undervisning och reflektion.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__tagline">
+      Rätt verktyg vid rätt tillfälle.<br>
+      En del av RÄTT-modellen på choosewise.education.
+    </div>
+    <div class="cover__volume">
+      <span class="cover__volume__label">Vol.</span>
+      <span class="cover__volume__number">54</span>
+    </div>
+  </div>
+</section>
+<section class="section-opener">
+  <div class="section-opener__eyebrow">Del 0 · Att komma igång</div>
+  <h2>Ordlista</h2>
+  <p>Några begrepp som återkommer i den här guiden. Känner du redan till dem, hoppa vidare till ramverket på nästa sida.</p>
+</section>
+
+<dl class="glossary">
+  <dt>AI — Artificiell Intelligens</dt>
+  <dd>Ett sätt att försöka få maskiner att efterlikna hjärnans funktioner, det vill säga att kunna "tänka" och lära ungefär så som människor gör. Vi förstår inte hur hjärnan fungerar, men de delar vi förstår kan vi försöka härma.</dd>
+  <dt>Prompt</dt>
+  <dd>En instruktion till chattbotten för att få ett önskat svar eller en önskad uppgift utförd. Vissa chattbottar går att prata med, men än så länge är det många som skriver textkommandon till dem.</dd>
+  <dt>Iterera</dt>
+  <dd>När du fått ett svar från en chattbot justerar och förtydligar du vilka delar av svaret som du inte är nöjd med — du förfinar svaret så det blir bättre och bättre tills du är nöjd. Ju bättre prompt du har från början, desto färre iterationer behövs.</dd>
+  <dt>Chattbot</dt>
+  <dd>En chattbot har tränats på att hitta mönster i de texter som den tränats på. Dessa mönster använder den för att skapa text som svar på din prompt. Texten du får som svar genereras i realtid.</dd>
+  <dt>GPT</dt>
+  <dd>Själva modellen (Generative Pre-trained Transformer) som en chattbot använder sig av. Samma GPT kan användas av olika chattbottar — till exempel använder både Copilot och ChatGPT OpenAIs GPT.</dd>
+  <dt>Generativ AI</dt>
+  <dd>AI som skapar (genererar) text, bilder, video eller ljud i realtid när den tillfrågas om att göra det.</dd>
+  <dt>Bias</dt>
+  <dd>Svar som AI ger är snedvridna eller partiska, vilket beror på den data som AI tränats på och vilka bias som finns i den datan. För en chattbot är det svårt att synliggöra dessa bias, men för en AI som genererar bilder är det lättare.</dd>
+  <dt>Hallucination</dt>
+  <dd>Texten du får som svar av en chattbot baseras på mönster i data som den tränats på, men det finns även en slumpmässighet i vilka ord som genereras — det innebär att ord kan skapa en innebörd som inte är sann.</dd>
+</dl>
+
+<div class="framework-box">
+  <h3>Ett ramverk för att skriva egna promptar</h3>
+  <dl>
+    <dt>Roll:</dt><dd>Agera som en erfaren lärare i fysik.</dd>
+    <dt>Uppgift:</dt><dd>Skapa en lektionsplanering som introducerar elever i år 8 till området optik.</dd>
+    <dt>Kontext:</dt><dd>Jag jobbar på en högstadieskola i Sverige, har 25 elever i klassen och lektionen är 60 minuter lång.</dd>
+    <dt>Format:</dt><dd>Koppla ihop innehåll och aktiviteter med läroplanen i fysik och ge mig en planering som i detalj beskriver lektionens olika delar och material som behövs.</dd>
+    <dt>Ton:</dt><dd>Använd en formell men vänlig ton.</dd>
+  </dl>
+</div>
+
+<h3 style="margin-top: 10mm; margin-bottom: 3mm;">Exempel på chattbottar</h3>
+<p style="font-size: 9.5pt; color: var(--color-text-soft); margin-bottom: 4mm;">AI kan även skapa bilder och göra annat, men här fokuserar vi på chattfunktionerna.</p>
+
+<ul class="chatbot-list">
+  <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
+  <li><strong>Gemini</strong> — Googles chattbot</li>
+  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Copilot</strong> — Microsofts chattbot</li>
+  <li><strong>Claude</strong> — En chattbot från Anthropic</li>
+  <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
+  <li><strong>Duck AI</strong> — DuckDuckGo's chattbot, olika GPT:er att välja</li>
+  <li><strong>Mistral AI</strong> — En chattbot från Frankrike</li>
+</ul>
+<p style="font-size: 9pt; color: var(--color-text-soft); margin-top: 3mm;">De flesta chattbottar har åldersgränser.</p>
+
+<section class="section-opener" style="page-break-before: always;">
+  <div class="section-opener__eyebrow">Innan du börjar</div>
+  <h2>Hur du använder promptarna</h2>
+  <p>Alla promptar är framtagna som exempel för att komma igång. Ändra dem gärna så att de passar ditt sammanhang.</p>
+</section>
+
+<p>När du använt en chattbot ett tag lär du dig vilken typ av promptar som fungerar bättre respektive sämre. Testa samma prompt två gånger — först som den står, sedan med tillägget "Agera som en erfaren expertlärare i [ämne]" — för att se om svaret förbättras. Får du bra svar är prompten bra. Får du inte bra svar behöver du ändra prompten eller ge mer kontext. Vissa chattbottar är bättre än andra på vissa typer av svar, så om du inte är nöjd med svaren du får trots olika justeringar — testa en annan chattbot.</p>
+
+<div class="callout callout--warning">
+  <h3>Hakparenteser och integritet</h3>
+  <p style="margin-bottom: 2mm;">Du skriver in texten från prompten i chattbottens promptfönster. När det finns hakparenteser <span class="bracket">[så här]</span> byter du ut texten mot det som passar för ditt sammanhang.</p>
+  <p style="margin-bottom: 2mm;"><strong>Dubbelkolla alltid svaren</strong> — det är inte säkert att det chattbotten skriver är sant.</p>
+  <p style="margin: 0;"><strong>OBS!</strong> Tänk efter om du laddar upp texter eller dokument. Ladda inte upp personuppgifter eller känslig information. Tänk på GDPR.</p>
+</div>
+
+<section class="section-opener">
+  <div class="section-opener__eyebrow">110 promptar</div>
+  <h2>skolbibliotekarier</h2>
+</section>
+
+<ol class="prompts">
+  <li>Ge mig förslag på hur jag kan stödja elever i [årskurs 1-3] med tidig läsutveckling genom interaktiva lässtunder och bokval.</li>
+  <li>Skapa en plan för ett skrivprojekt för [högstadieelever] där de skriver korta berättelser inspirerade av böcker i bibliotekets samling.</li>
+  <li>Hur kan jag hjälpa gymnasieelever att förbättra sitt akademiska skrivande genom bibliotekets resurser, t.ex. guider för argumentation och struktur?</li>
+  <li>Föreslå 5 lättlästa böcker på svenska för [lågstadieelever] med lässvårigheter, inklusive aktiviteter för att stärka deras läsförståelse.</li>
+  <li>Ge mig ett lektionsupplägg för att stötta nyanlända elever i [årskurs 7-9] med att utveckla sitt svenska språk genom läsning och skrivande.</li>
+  <li>Skapa en lista med 8 böcker som kan hjälpa elever i [mellanstadiet] att utveckla sin läsförståelse genom att analysera karaktärer och teman.</li>
+  <li>Hur kan jag använda bibliotekets resurser för att stödja elever med svenska som andraspråk i deras skrivprocess?</li>
+  <li>Föreslå ett projekt där [högstadieelever] skriver recensioner av böcker för att publiceras på skolans hemsida eller i en bibliotekstidning.</li>
+  <li>Ge mig idéer för hur jag kan skapa en skrivworkshop för [lågstadieelever] där de skapar egna sagor baserade på bilderböcker.</li>
+  <li>Skapa en strategi för att hjälpa elever i [årskurs 4-6] att förbättra sitt läsengagemang genom att koppla läsning till deras intressen. Informationssökning och källkritik</li>
+  <li>Hur kan jag undervisa elever i årskurs [5] om källkritik på ett engagerande sätt? Ge mig ett lektionsupplägg med praktiska övningar.</li>
+  <li>Skapa en checklista för [högstadieelever] om hur man utvärderar en källa på internet enligt källkritiska principer, anpassad till Lgr22.</li>
+  <li>Ge mig ett lektionsupplägg för [årskurs 7-9] om hur man söker information effektivt i bibliotekets databaser och på internet.</li>
+  <li>Föreslå 5 interaktiva aktiviteter för att lära [lågstadieelever] grunderna i källkritik, t.ex. att skilja mellan fakta och åsikter.</li>
+  <li>Skapa en enkel checklista för källkritik som fungerar på [mellanstadiet].</li>
+  <li>Skapa en guide för elever i årskurs [8] om hur man refererar källor korrekt enligt APA-stil, med exempel.</li>
+  <li>Ge mig förslag på hur jag kan använda nyhetsartiklar från svenska tidningar för att undervisa om källkritik för [gymnasieelever].</li>
+  <li>Hur kan jag introducera [högstadieelever] till vetenskapliga artiklar och databaser som t.ex. NE eller Libris?</li>
+  <li>Skapa en workshop för lärare om hur de kan använda bibliotekets resurser för att stärka elevernas informationskompetens.</li>
+  <li>Ge mig ett scenario där jag kan lära elever i årskurs [4] att skilja mellan reklam och information på internet.</li>
+  <li>Ge mig ett lektionsupplägg för årskurs [6] om hur man identifierar trovärdiga källor på internet, med fokus på att skilja mellan nyheter och desinformation.</li>
+  <li>Ge mig ett lektionsupplägg för årskurs [7-9] om hur man källkritiskt kan jobba med att värderar svar från chattbottar.</li>
+  <li>Hur kan jag undervisa [lågstadieelever] om grunderna i informationssökning på ett lekfullt sätt, t.ex. genom att använda bilderböcker?</li>
+  <li>Föreslå ett scenario där jag kan lära [gymnasieelever] att analysera trovärdigheten hos inlägg i sociala medier, med praktiska övningar.</li>
+  <li>Skapa en guide för årskurs [7] om hur man söker information i både tryckta och digitala källor, med fokus på effektiv sökteknik.</li>
+  <li>Ge mig ett lektionsupplägg för att lära elever i årskurs [5] om upphovsrätt och plagiat när de använder information från internet.</li>
+  <li>Hur kan jag samarbeta med historielärare för att undervisa om källkritik i samband med ett projekt om andra världskriget för årskurs [9]?</li>
+  <li>Föreslå 5 praktiska övningar för att lära [mellanstadieelever] att skilja mellan primär- och sekundärkällor.</li>
+  <li>Skapa en checklista för [gymnasieelever] om hur man bedömer en källa baserat på aktualitet, relevans och avsändare.</li>
+  <li>Ge mig idéer för hur jag kan använda poddar och videoklipp för att undervisa om källkritik för [högstadieelever]. Läsfrämjande och litteraturförmedling</li>
+  <li>Ge mig förslag på 10 nya svenska ungdomsböcker från 2024 och 2025 som passar [högstadieelever], inklusive en kort beskrivning av varje bok och hur jag kan använda dem i ett läsfrämjande projekt.</li>
+  <li>Föreslå 5 sätt att locka ovilliga läsare i [årskurs 7-9] till skönlitteratur, inklusive boktips och aktiviteter.</li>
+  <li>Skapa en presentation om vikten av läsning för elever i [årskurs 4-6], med statistik och konkreta exempel på hur läsning gynnar deras utveckling.</li>
+  <li>Föreslå en lista med 8 lättlästa böcker på svenska för nyanlända elever i [årskurs 6-9], med fokus på berättelser som speglar deras erfarenheter.</li>
+  <li>Föreslå 10 svenska barn- och ungdomsböcker från de senaste tre åren som behandlar teman om vänskap, inklusive en kort sammanfattning och förslag på hur de kan användas i klassrummet för [årskurs 4-6].</li>
+  <li>Skapa en plan för en läsfrämjande kampanj för [lågstadiet] där jag använder sagor och folksagor för att väcka intresse för läsning.</li>
+  <li>Hur kan jag skapa ett läsprojekt för [gymnasieelever] som kopplar klassisk svensk litteratur till moderna teman som identitet och samhällsförändring?</li>
+  <li>Skapa ett koncept för en &#x27;läsutmaning&#x27; för hela skolan där elever i olika årskurser läser böcker inom olika genrer under en termin.</li>
+  <li>Hur kan jag skapa en högläsningsstund för [årskurs 2-3] som kombinerar en bilderbok med en rörelseaktivitet för att hålla eleverna engagerade?</li>
+  <li>Skapa en plan för en temavecka om science fiction-litteratur för [högstadiet], med boktips och kopplingar till naturvetenskapliga ämnen. Samarbete med lärare och integration i undervisningen</li>
+  <li>Hur kan jag samarbeta med svensklärare för att integrera skönlitteratur i undervisningen om språkhistoria för årskurs [8]?</li>
+  <li>Ge mig ett förslag på hur jag kan stödja NO-lärare med bibliotekets resurser för ett projekt om klimatförändringar i årskurs [7].</li>
+  <li>Skapa ett lektionsupplägg där biblioteket används för att stödja ett tvärvetenskapligt projekt om mänskliga rättigheter för [gymnasiet].</li>
+  <li>Föreslå hur jag kan samarbeta med bildlärare för att skapa ett projekt där elever illustrerar scener från en bok de läst.</li>
+  <li>Skapa ett förslag på hur jag kan stödja modersmålslärare med litteratur och resurser för flerspråkiga elever.</li>
+  <li>Ge mig ett lektionsupplägg där biblioteket används för att stödja ett projekt om nordisk mytologi för årskurs [6], i samarbete med svensklärare.</li>
+  <li>Föreslå hur jag kan hjälpa tekniklärare att integrera bibliotekets resurser i ett projekt om artificiell intelligens för [gymnasiet].</li>
+  <li>Skapa en plan för hur jag kan samarbeta med musiklärare för att skapa ett projekt där elever kopplar låttexter till skönlitteratur.</li>
+  <li>Ge mig idéer för hur jag kan stödja lärare i att använda bibliotekets resurser för att stärka elevernas skrivförmåga i svenska.</li>
+  <li>Ge mig förslag på hur jag kan samarbeta med SO-lärare för att skapa ett projekt om migration och integration, med fokus på litteratur och källkritik. Inkludering och tillgänglighet</li>
+  <li>Ge mig förslag på hur jag kan anpassa bibliotekets utbud för elever med synnedsättning, inklusive tips på tillgängliga format som talböcker.</li>
+  <li>Skapa en plan för hur jag kan göra biblioteket mer välkomnande för nyanlända elever genom flerspråkig litteratur och aktiviteter.</li>
+  <li>Hur kan jag samarbeta med specialpedagoger för att skapa läsfrämjande aktiviteter för elever med NPF-diagnoser, t.ex. autism eller ADHD?</li>
+  <li>Föreslå 5 böcker på svenska som passar elever med dyslexi, samt strategier för att göra läsningen mer tillgänglig.</li>
+  <li>Ge mig idéer för hur jag kan skapa en inkluderande bokcirkel för elever med olika språkliga och kulturella bakgrunder i årskurs [7-9].</li>
+  <li>Skapa en checklista för att säkerställa att bibliotekets miljö är fysiskt och kognitivt tillgänglig för alla elever.</li>
+  <li>Hur kan jag använda tecken som stöd (TSS) i en lässtund för [lågstadieelever] med kommunikationssvårigheter?</li>
+  <li>Föreslå ett projekt där biblioteket används för att främja inkludering genom litteratur om funktionsvariationer för [mellanstadiet].</li>
+  <li>Ge mig strategier för att nå ut till elever som undviker biblioteket på grund av sociala eller språkliga barriärer.</li>
+  <li>Skapa en plan för hur jag kan samarbeta med modersmålslärare för att erbjuda berättelser på elevernas hemspråk i biblioteket. Digitala verktyg och innovation</li>
+  <li>Hur kan jag använda AI-verktyg för att skapa interaktiva läsfrämjande aktiviteter för [mellanstadieelever], t.ex. genom att generera berättelser eller quiz?</li>
+  <li>Föreslå 5 digitala plattformar eller appar som är populära i Sverige och som jag kan använda för att skapa virtuella bokcirklar för [högstadieelever].</li>
+  <li>Skapa en plan för hur jag kan introducera elever i årskurs [4-6] till att skapa egna digitala berättelser med bibliotekets resurser.</li>
+  <li>Ge mig idéer för hur jag kan använda QR-koder i biblioteket för att guida elever till boktips eller digitala resurser.</li>
+  <li>Hur kan jag skapa en virtuell rundtur i skolbiblioteket för att visa nya elever hur de kan använda våra resurser?</li>
+  <li>Föreslå ett projekt där [gymnasieelever] använder bibliotekets digitala verktyg för att skapa poddar baserade på böcker de läst.</li>
+  <li>Skapa en guide för hur jag kan använda sociala medier som Instagram eller TikTok för att nå ut till [högstadieelever] med boktips.</li>
+  <li>Ge mig ett lektionsupplägg för årskurs [7] om hur man använder bibliotekets e- boksplattformar, t.ex. Världens Bibliotek eller Bibblix.</li>
+  <li>Hur kan jag integrera kodning i ett läsfrämjande projekt för [mellanstadiet], t.ex. genom att skapa interaktiva berättelser?</li>
+  <li>Föreslå hur jag kan använda augmented reality (AR) eller virtual reality (VR) för att göra biblioteket mer engagerande för [lågstadieelever]. Samhällsengagemang och omvärldsbevakning</li>
+  <li>Föreslå hur jag kan skapa ett projekt där [högstadieelever] använder biblioteket för att utforska lokala samhällsfrågor genom litteratur och källor.</li>
+  <li>Skapa en plan för en temadag om yttrandefrihet och censur, med koppling till litteratur och aktuella händelser, för [gymnasiet].</li>
+  <li>Ge mig idéer för hur jag kan koppla bibliotekets aktiviteter till FN:s globala mål, t.ex. jämställdhet eller fredliga samhällen.</li>
+  <li>Hur kan jag samarbeta med lokala organisationer, t.ex. idrottsföreningar, för att främja läsning bland elever utanför skolan?</li>
+  <li>Föreslå ett projekt där biblioteket används för att lära elever i årskurs [6] om mediernas roll i samhället, med fokus på källkritik.</li>
+  <li>Skapa en plan för hur jag kan involvera föräldrar i bibliotekets läsfrämjande aktiviteter, t.ex. genom workshops eller boktips.</li>
+  <li>Ge mig förslag på hur jag kan använda bibliotekets resurser för att uppmärksamma nationella minoriteters språk och kultur.</li>
+  <li>Hur kan jag skapa ett samarbete med lokala museer eller kulturinstitutioner för att koppla litteratur till lokal historia för [mellanstadiet]?</li>
+  <li>Föreslå hur jag kan organisera ett evenemang där elever diskuterar aktuella samhällsfrågor med utgångspunkt i böcker de läst.</li>
+  <li>Skapa en strategi för hur jag kan använda bibliotekets resurser för att främja global medvetenhet, t.ex. genom litteratur om klimatförändringar. Biblioteksmiljö och evenemang</li>
+  <li>Ge mig idéer för att skapa en välkomnande och inspirerande biblioteksmiljö för [låg- och mellanstadieelever].</li>
+  <li>Hur kan jag organisera en &#x27;bokbytardag&#x27; för elever i årskurs [7-9] för att främja läsning och hållbarhet?</li>
+  <li>Skapa ett förslag på ett författarbesök för [högstadiet], inklusive hur jag förbereder eleverna och följer upp besöket.</li>
+  <li>Ge mig en plan för en &#x27;läs hela dagen&#x27;-aktivitet för hela skolan, med förslag på aktiviteter för olika årskurser.</li>
+  <li>Föreslå 5 sätt att använda sociala medier för att marknadsföra skolbibliotekets aktiviteter till elever och föräldrar.</li>
+  <li>Föreslå hur jag kan skapa en lugn läsplats i biblioteket för elever med särskilda behov, t.ex. inom NPF.</li>
+  <li>Föreslå hur jag kan skapa en &#x27;maker space&#x27;-hörna i skolbiblioteket för kreativa aktiviteter kopplade till litteratur för [mellanstadiet].</li>
+  <li>Hur kan jag skapa en utställning i biblioteket om svenska Nobelpristagare i litteratur, med interaktiva element för elever?</li>
+  <li>Föreslå 5 sätt att göra skolbiblioteket mer tillgängligt för elever med läs- och skrivsvårigheter, t.ex. dyslexi.</li>
+  <li>Skapa ett koncept för en &#x27;biblioteksdetektiv&#x27;-aktivitet där [lågstadieelever] löser gåtor kopplade till böcker och bibliotek. Fortbildning och professionell utveckling</li>
+  <li>Ge mig ett förslag på hur jag kan organisera en fortbildningsdag för skolbibliotekarier i min kommun om läsfrämjande strategier.</li>
+  <li>Hur kan jag skapa ett nätverk för skolbibliotekarier i Sverige för att dela resurser och idéer, t.ex. via digitala plattformar?</li>
+  <li>Föreslå 5 sätt jag kan hålla mig uppdaterad om nya barn- och ungdomsböcker som publiceras i Sverige.</li>
+  <li>Skapa en plan för hur jag kan utbilda mig själv i att använda nya digitala verktyg för bibliotekariearbete, t.ex. databaser eller AI.</li>
+  <li>Ge mig ett lektionsupplägg för att utbilda lärare om hur de kan integrera bibliotekets resurser i sin undervisning enligt Lgr22.</li>
+  <li>Hur kan jag delta i nationella eller internationella bibliotekskonferenser för att utveckla min kompetens som skolbibliotekarie?</li>
+  <li>Föreslå hur jag kan skapa en presentation om skolbibliotekets roll för skolledningen för att få mer resurser.</li>
+  <li>Ge mig idéer för hur jag kan samarbeta med folkbibliotek för att stärka min professionella utveckling som skolbibliotekarie.</li>
+  <li>Skapa en guide för hur jag kan dokumentera och utvärdera bibliotekets läsfrämjande insatser för att visa resultat för skolledningen.</li>
+  <li>Hur kan jag använda forskning om läsning och informationskompetens för att förbättra mitt arbete som skolbibliotekarie? Biblioteksadministration och resurshantering</li>
+  <li>Ge mig en strategi för att inventera och uppdatera bibliotekets boksamling för att säkerställa att den är relevant och mångsidig.</li>
+  <li>Hur kan jag skapa en effektiv rutin för att hantera utlåning och återlämning av böcker i ett hektiskt skolbibliotek?</li>
+  <li>Föreslå hur jag kan använda bibliotekets budget för att prioritera inköp av nya böcker och digitala resurser.</li>
+  <li>Skapa en guide för hur jag kan organisera bibliotekets hyllor enligt Dewey eller SAB- systemet för att underlätta för elever.</li>
+  <li>Ge mig idéer för hur jag kan digitalisera delar av bibliotekets administration, t.ex. bokbeställningar eller statistik över utlåning.</li>
+  <li>Hur kan jag skapa ett system för att samla in feedback från elever och lärare om bibliotekets utbud och tjänster?</li>
+  <li>Föreslå en plan för hur jag kan samarbeta med andra skolbibliotek i kommunen för att dela resurser och minska kostnader.</li>
+  <li>Skapa en checklista för att säkerställa att bibliotekets samling uppfyller kraven på mångfald och inkludering enligt Lgr22.</li>
+  <li>Ge mig strategier för att hantera skadade eller förlorade böcker i bibliotekets samling på ett effektivt sätt.</li>
+  <li>Hur kan jag skapa en årsrapport om bibliotekets verksamhet för att visa dess värde för skolledningen?</li>
+</ol>
+<section class="page--back">
+  <div>
+    <div class="back__eyebrow">Fortsätt på webben</div>
+    <h1>Rätt verktyg<br>vid rätt tillfälle.</h1>
+    <p>Den här samlingen är en del av ett bibliotek med AI-promptar för alla yrkesroller i skolan — fritt att använda, anpassa och dela vidare.</p>
+  </div>
+
+  <ul class="back__cta-list">
+    <li>
+      <strong>Fler promptpaket</strong>
+      Hitta promptar för rektorer, ämneslärare, skolledare, stödpersonal med flera på <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar</a>
+    </li>
+    <li>
+      <strong>RÄTT-modellen</strong>
+      Fyra frågor som gör beslutet om AI-verktyg i klassrummet strukturerat — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt</a>
+    </li>
+    <li>
+      <strong>Följ Johan Lindström på LinkedIn</strong>
+      För nya promptar, guider och reflektioner om AI i skolan — sök på <em>Johan Lindström</em>
+    </li>
+  </ul>
+
+  <div class="back__bottom">
+    <span>choosewise.education · Prompt Library</span>
+    <span class="back__brand">The right tool at the right time.</span>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('.prompts > li, .callout p, .framework-box dd').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\[([^\]]+)\]/g, '<span class="bracket">[$1]</span>');
+  });
+</script>
+</body>
+</html>
