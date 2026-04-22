@@ -539,6 +539,14 @@ def _format_section_body(body: str) -> str:
             flush_list()
             continue
 
+        # Sentinel inserted by the extractor for em-dash separator lines
+        # in the source PDF — render as a proper full-width rule.
+        if line == "---":
+            flush_para()
+            flush_list()
+            out.append('<hr class="megaprompt__rule">')
+            continue
+
         m_ol = _re.match(r"^(\d+)\.\s+(.+)$", line)
         m_ul = _re.match(r"^[\-–●•◦‣⁃]\s+(.+)$", line)
 

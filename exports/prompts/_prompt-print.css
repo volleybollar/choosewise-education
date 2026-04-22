@@ -372,6 +372,16 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
 .megaprompt__body li { margin-bottom: 1.5mm; }
 .megaprompt__body strong { font-weight: 600; color: var(--color-accent); }
 
+/* Section break inside a megaprompt body (em-dash separator in source PDF).
+   Render as a thin full-width line — much cleaner than a row of fragmented dashes. */
+.megaprompt__body hr.megaprompt__rule {
+  border: none;
+  border-top: 0.5pt solid var(--color-border);
+  margin: 5mm 0;
+  height: 0;
+  width: 100%;
+}
+
 /* ══════════════════════════════════════════════════════════
    BACK COVER
    ══════════════════════════════════════════════════════════ */

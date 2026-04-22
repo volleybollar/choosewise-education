@@ -337,6 +337,18 @@ def _fix_ligatures(text: str) -> str:
     return text
 
 
+def _is_separator(line: str) -> bool:
+    """True if the line is primarily em-dashes/hyphens — a visual section break
+    in the source PDF that we want to render as a proper <hr>, not join with
+    surrounding text as a continuation.
+    """
+    stripped = re.sub(r"\s", "", line)
+    if len(stripped) < 5:
+        return False
+    dash_chars = sum(1 for c in stripped if c in "—–-_")
+    return dash_chars / len(stripped) >= 0.8
+
+
 def _clean_body(raw: str) -> str:
     """Normalise a Megaprompt section body.
 
@@ -344,6 +356,9 @@ def _clean_body(raw: str) -> str:
     - Drop page-number noise and footer repetition
     - Collapse runs of whitespace; keep explicit double newlines (paragraph breaks)
     - Reconstruct missing Swedish fi/fl ligatures introduced by pdftotext
+    - Em-dash separator lines are emitted as the sentinel "---" (which the
+      HTML renderer turns into a proper <hr>) so they don't get joined with
+      the next line as continuation text
     """
     raw = _fix_ligatures(raw)
     lines = [l.rstrip() for l in raw.splitlines()]
@@ -351,7 +366,8 @@ def _clean_body(raw: str) -> str:
     lines = [l for l in lines if not re.fullmatch(r"\s*\d{1,3}\s*", l)]
 
     # Rejoin wrapped lines: a line that doesn't start with a numbered bullet
-    # or sub-bullet is a continuation of the previous line.
+    # or sub-bullet is a continuation of the previous line. Separators
+    # stand alone and never accept continuations.
     out = []
     for line in lines:
         stripped = line.lstrip()
@@ -360,10 +376,17 @@ def _clean_body(raw: str) -> str:
             if out and out[-1] != "":
                 out.append("")
             continue
+        if _is_separator(stripped):
+            # Flush any open paragraph, emit the sentinel, force a break
+            if out and out[-1] != "":
+                out.append("")
+            out.append("---")
+            out.append("")
+            continue
         is_bullet = bool(
             re.match(r"^(\d+\.\s+|\-\s+|\*\*|\*\s+|[•●◦‣⁃]\s+|#[A-ZÅÄÖ])", stripped)
         )
-        if is_bullet or not out or out[-1] == "":
+        if is_bullet or not out or out[-1] in ("", "---"):
             out.append(stripped)
         else:
             # Continuation of the previous line
