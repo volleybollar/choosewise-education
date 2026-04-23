@@ -144,7 +144,7 @@ LANDING_EN = """<!DOCTYPE html>
       <h2 class="section__title">How to use them</h2>
       <p class="prose">Paste the prompt into a chatbot. Where you see <em>[bracketed text]</em>, replace it with what fits your situation. Always double-check output for accuracy — and never upload personal or sensitive data.</p>
       <p class="prose">All prompts were originally developed in a Swedish school context. This means that some prompts may need to be adapted to the curriculum and context in your country.</p>
-      <p class="prose">These prompts pair with the <a href="/wise/">WISE framework</a>: the framework helps you decide <em>whether</em> to use an AI tool; the prompts help you use it well once you do.</p>
+      <p class="prose">These prompts pair with the <a href="/wise/">WISE Framework for Education</a>: the framework helps you decide <em>whether</em> to use an AI tool; the prompts help you use it well once you do.</p>
     </section>
 
 {related_section}
@@ -592,7 +592,7 @@ LIBRARY_INDEX_EN = """<!DOCTYPE html>
         <h2 class="section__title">About the library</h2>
         <p class="prose">Every prompt set is free to download, use, adapt, and share. The design is intentionally consistent across all volumes — same cover, same typography, same structure — so the library feels like one collection rather than scattered handouts.</p>
         <p class="prose">All prompts were originally developed in a Swedish school context. This means that some prompts may need to be adapted to the curriculum and context in your country.</p>
-        <p class="prose">These prompts pair with the <a href="/wise/">WISE framework</a>: the framework helps you decide <em>whether</em> a given AI tool belongs in the classroom; the prompts help you use it well once the answer is yes.</p>
+        <p class="prose">These prompts pair with the <a href="/wise/">WISE Framework for Education</a>: the framework helps you decide <em>whether</em> a given AI tool belongs in the classroom; the prompts help you use it well once the answer is yes.</p>
       </div>
     </section>
   </main>
