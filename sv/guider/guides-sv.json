@@ -30,5 +30,13 @@
     "status": "available",
     "url": "/sv/guider/copilot/",
     "cover_image": "/assets/images/guide-covers/copilot.svg"
+  },
+  {
+    "id": "ai-for-elever",
+    "title": "Ska eleverna använda AI på lektionstid?",
+    "tool": "Pedagogisk beslutsguide",
+    "status": "available",
+    "url": "/sv/guider/ai-for-elever/",
+    "cover_image": "/assets/images/guide-covers/ai-for-elever.svg"
   }
 ]

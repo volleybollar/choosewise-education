@@ -30,5 +30,13 @@
     "status": "available",
     "url": "/guides/copilot/",
     "cover_image": "/assets/images/guide-covers/copilot.svg"
+  },
+  {
+    "id": "ai-for-students",
+    "title": "Should students use AI in class?",
+    "tool": "Pedagogical decision guide",
+    "status": "available",
+    "url": "/guides/ai-for-students/",
+    "cover_image": "/assets/images/guide-covers/ai-for-students.svg"
   }
 ]

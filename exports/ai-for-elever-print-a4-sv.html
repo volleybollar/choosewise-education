@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Ska eleverna använda AI på lektionstid? — Johan Lindström</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    color: #1a1a18;
+    background: #faf7f2;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-weight: 300;
+  }
+
+  /* ---- page wrapper: controls page breaks and padding ---- */
+  .page {
+    page-break-after: always;
+    padding: 22mm 20mm 18mm 20mm;
+    min-height: 297mm;
+    position: relative;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ---- typography ---- */
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+    font-weight: 500;
+    color: #1a1a18;
+    letter-spacing: -0.01em;
+  }
+  h2 { font-size: 22pt; line-height: 1.2; margin-bottom: 10mm; }
+  h3 { font-size: 14pt; line-height: 1.3; margin-top: 6mm; margin-bottom: 3mm; }
+  h4 { font-size: 11pt; font-weight: 600; margin-top: 5mm; margin-bottom: 2mm; }
+  p { margin-bottom: 4mm; }
+  p:last-child { margin-bottom: 0; }
+  em { font-style: italic; color: #2d5a3f; }
+  strong { font-weight: 600; color: #1a1a18; }
+
+  a { color: #2d5a3f; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  ul, ol { margin: 3mm 0 4mm 0; padding-left: 7mm; }
+  li { margin-bottom: 2mm; }
+
+  /* ---- COVER PAGE ---- */
+  .cover {
+    background: linear-gradient(135deg, #2d5a3f 0%, #1a3626 100%);
+    color: #faf7f2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 22mm 20mm;
+    page-break-after: always;
+    min-height: 297mm;
+  }
+  .cover__brand {
+    font-size: 9pt;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #c8a86b;
+  }
+  .cover__middle h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 40pt;
+    font-weight: 500;
+    line-height: 1.08;
+    color: #faf7f2;
+    margin-bottom: 12mm;
+    letter-spacing: -0.01em;
+  }
+  .cover__middle .cover__subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 13pt;
+    font-weight: 300;
+    color: #e5dcc3;
+    line-height: 1.5;
+    max-width: 140mm;
+  }
+  .cover__eyebrow {
+    font-size: 9pt;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #c8a86b;
+    margin-bottom: 4mm;
+  }
+  .cover__footer {
+    border-top: 1px solid rgba(250, 247, 242, 0.2);
+    padding-top: 5mm;
+    font-size: 9pt;
+    color: #c8c2b3;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ---- TOC PAGE ---- */
+  .toc-list {
+    list-style: none;
+    padding: 0;
+  }
+  .toc-list li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted #d5cfc3;
+    padding: 3mm 0;
+    font-size: 11pt;
+  }
+  .toc-list li span:first-child {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+  }
+  .toc-list li span:last-child { color: #6b6b65; font-size: 10pt; }
+
+  /* ---- part openers ---- */
+  .part-opener {
+    padding-top: 30mm;
+  }
+  .part-opener__number {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 90pt;
+    font-weight: 300;
+    color: #c8a86b;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    margin-bottom: 5mm;
+  }
+  .part-opener__eyebrow {
+    font-size: 9pt;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #2d5a3f;
+    margin-bottom: 3mm;
+  }
+  .part-opener h2 {
+    font-size: 28pt;
+    margin-bottom: 6mm;
+  }
+  .part-opener__lede {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 13pt;
+    line-height: 1.45;
+    font-weight: 400;
+    color: #3a3a38;
+    font-style: italic;
+    max-width: 140mm;
+  }
+
+  /* ---- section eyebrows ---- */
+  .eyebrow {
+    font-size: 9pt;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #2d5a3f;
+    display: block;
+    margin-bottom: 3mm;
+  }
+
+  /* ---- callouts ---- */
+  .callout {
+    padding: 5mm 6mm;
+    margin: 5mm 0;
+    border-left: 3px solid #2d5a3f;
+    background: #f2ede2;
+    border-radius: 0 3mm 3mm 0;
+  }
+  .callout--watch { border-left-color: #c66b3d; }
+  .callout--johan { border-left-color: #c8a86b; background: #f7f1e2; }
+  .callout__label {
+    font-size: 8.5pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #2d5a3f;
+    display: block;
+    margin-bottom: 2mm;
+  }
+  .callout--watch .callout__label { color: #c66b3d; }
+  .callout--johan .callout__label { color: #a07d2e; }
+  .callout__signature {
+    display: block;
+    margin-top: 2mm;
+    font-style: italic;
+    font-size: 9.5pt;
+    color: #6b6b65;
+    text-align: right;
+  }
+
+  /* ---- RÄTT model ---- */
+  .ratt-steps {
+    padding: 6mm;
+    margin: 5mm 0;
+    background: #f2ede2;
+    border-radius: 3mm;
+    border: 1px solid #e8e2d5;
+  }
+  .ratt-steps dt {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 12pt;
+    margin-bottom: 1.5mm;
+    margin-top: 4mm;
+  }
+  .ratt-steps dt:first-child { margin-top: 0; }
+  .ratt-steps dt strong {
+    display: inline-block;
+    min-width: 10mm;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    color: #2d5a3f;
+    font-size: 16pt;
+    margin-right: 2mm;
+    vertical-align: baseline;
+  }
+  .ratt-steps dd {
+    padding-left: 12mm;
+    color: #3a3a38;
+    margin-bottom: 4mm;
+    font-size: 10pt;
+  }
+  .ratt-steps dd:last-child { margin-bottom: 0; }
+
+  /* ---- Checklist styling ---- */
+  .checklist-category h3 {
+    margin-top: 7mm;
+    padding-bottom: 2mm;
+    border-bottom: 1px solid #c8a86b;
+    color: #2d5a3f;
+  }
+  .checklist {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: checklist;
+  }
+  .checklist li {
+    counter-increment: checklist;
+    padding: 3mm 0 3mm 12mm;
+    position: relative;
+    font-size: 10.5pt;
+    border-bottom: 1px solid #ede5d4;
+    line-height: 1.5;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: counter(checklist);
+    position: absolute;
+    left: 0;
+    top: 3mm;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 14pt;
+    color: #c8a86b;
+    line-height: 1;
+    min-width: 10mm;
+  }
+
+  /* ---- FAQ ---- */
+  .faq-item {
+    margin-bottom: 5mm;
+    padding-bottom: 4mm;
+    border-bottom: 1px solid #e8e2d5;
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 11.5pt;
+    font-weight: 500;
+    color: #1a1a18;
+    margin-bottom: 2mm;
+  }
+  .faq-item p {
+    font-size: 10pt;
+    color: #3a3a38;
+  }
+
+  /* ---- Back cover ---- */
+  .back-cover {
+    background: linear-gradient(135deg, #2d5a3f 0%, #1a3626 100%);
+    color: #faf7f2;
+    padding: 22mm 20mm;
+    min-height: 297mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .back-cover h2 {
+    color: #faf7f2;
+    font-size: 24pt;
+    margin-bottom: 6mm;
+  }
+  .back-cover p {
+    color: #e5dcc3;
+    font-size: 11pt;
+    line-height: 1.55;
+    margin-bottom: 4mm;
+  }
+  .back-cover a { color: #c8a86b; }
+  .back-cover__cta { margin: 8mm 0; }
+  .back-cover__cta a {
+    display: inline-block;
+    padding: 3mm 6mm;
+    background: #c8a86b;
+    color: #1a3626;
+    font-weight: 600;
+    border-radius: 2mm;
+    text-decoration: none;
+  }
+  .back-cover__license {
+    font-size: 8.5pt;
+    color: #c8c2b3;
+    border-top: 1px solid rgba(250, 247, 242, 0.2);
+    padding-top: 4mm;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════ -->
+<div class="cover">
+  <div class="cover__brand">choosewise.education</div>
+  <div class="cover__middle">
+    <p class="cover__eyebrow">Pedagogisk beslutsguide</p>
+    <h1>Ska eleverna använda AI på lektionstid?</h1>
+    <p class="cover__subtitle">En guide om när, hur och varför — för lärare och skolledare som vill välja verktyg med omdöme, inte med hajp.</p>
+  </div>
+  <div class="cover__footer">
+    <span>Johan Lindström</span>
+    <span>Uppdaterad april 2026</span>
+  </div>
+</div>
+
+<!-- ═════════════ PAGE — INTRO ═════════════ -->
+<div class="page">
+  <span class="eyebrow">Introduktion</span>
+  <h2>Frågan är inte teknisk — den är pedagogisk</h2>
+  <p>Debatten om AI i skolan har på kort tid fastnat i två läger. Det ena ser AI som ett genombrott som måste in i klassrummet i dag — annars halkar eleverna efter. Det andra ser AI som ett hot mot tänkandet och vill hålla det utanför lektionerna så länge det går. Båda positionerna missar samma sak: frågan om eleverna ska använda AI är varken en teknisk fråga eller en principiell fråga. Det är en pedagogisk fråga, och den ställs per lektion, inte per kommun.</p>
+  <p>Skolan är till för att elever ska lära sig. Det är det enda legitima skälet för ett verktyg att få plats på lektionstid. Om ett verktyg gör att eleverna lär sig <em>mer</em> eller <em>bättre</em> ska det användas. Om det gör att de lär sig <em>mindre</em> eller <em>sämre</em> ska det inte användas. Det gäller papper och penna lika väl som en AI-chattbot. Det nya är inte principen, utan att vi nu behöver tillämpa den på en verktygskategori som i vissa fall lyfter lärandet och i andra fall kortsluter det.</p>
+
+  <div class="callout callout--johan">
+    <span class="callout__label">Johans anteckning</span>
+    <p>Efter snart tre decennier i skolan — som lärare, skolledare och som utbildningsansvarig — har jag sett ett flertal teknikvågor komma och gå. De verktyg som till slut gav ett mätbart lyft var de som lät läraren göra mer av det som redan fungerar. De som försvann var de som krävde att läraren skulle kliva åt sidan. AI är den mest kraftfulla teknikvågen på länge, men mönstret är detsamma: den pedagogiska bedömningen avgör om verktyget lyfter lärandet eller förhindrar lärandet från att ske.</p>
+    <span class="callout__signature">— JL</span>
+  </div>
+
+  <h3>Vad guiden gör — och inte gör</h3>
+  <p>Den här guiden är en beslutshjälp, inte en produktgenomgång. Jag går inte igenom vilken chattbot som är bäst, vilka funktioner den senaste modellen har eller vilka prompter som fungerar bäst i ämne X. Annat material tar hand om det. Den här guiden svarar på en mer grundläggande fråga: <em>innan</em> du släpper in AI på en lektion, vad behöver du ha tänkt igenom?</p>
+  <p>Guiden är uppdelad i tre delar och en checklista. Del 1 handlar om det pedagogiska skälet — varför skolan finns, och hur RÄTT-modellen hjälper dig att fatta beslut om verktyg. Del 2 handlar om förutsättningarna som måste vara på plats innan AI möter eleverna, d v s lärarens AI-litteracitet, förmågan att bedöma AI-output och kunskapen om regelverket. Del 3 handlar om det som sker i själva klassrummet. Checklistan i Del 4 är det verktyg du kan ta med dig in i en konkret lektionsplanering.</p>
+</div>
+
+<!-- ═════════════ PART 1 OPENER ═════════════ -->
+<div class="page part-opener">
+  <div class="part-opener__number">01</div>
+  <p class="part-opener__eyebrow">Del 1</p>
+  <h2>Syftet är lärandet</h2>
+  <p class="part-opener__lede">Skolans primära uppdrag handlar om att leva upp till det som står i skolans styrdokument. Digitalisering och AI har inget egenvärde i sig, men utan att ta hänsyn till den tekniska utvecklingen i samhället förbereder vi eleverna för ett samhälle som inte längre existerar. Uppdraget har alltså blivit både större och mer komplext. Elever ska lära sig det som skolan tränar eleverna inför. Alla verktygsval — AI inkluderat — ska bedömas mot den måttstocken. Lärandet är i fokus och ju fler verktyg läraren har till förfogande, desto oftare kan rätt verktyg användas vid rätt tillfälle, men bara om läraren behärskar de verktyg som läraren har tillgång till.</p>
+</div>
+
+<!-- ═════════════ 1.1 Principen ═════════════ -->
+<div class="page">
+  <span class="eyebrow">Principen</span>
+  <h2>Om verktyget ökar lärandet ska det användas. Annars inte.</h2>
+  <p>Det här låter självklart tills man tittar på hur beslut faktiskt fattas. På många skolor beslutas om AI-verktyg på IT-avdelningen, i rektorsgruppen eller av en enskild eldsjäl i kollegiet — och frågan som ställs är "ska vi införa AI?" Det är fel fråga. Rätt fråga är "när <em>den här</em> klassen ska lära sig <em>det här</em>, ökar AI lärandet eller inte?" Svaret kan mycket väl vara nej för en klass och ja för en annan, eller nej för ett moment och ja för ett annat — och det behöver vara lärarens beslut, eftersom det är läraren som har alla relevanta fakta på bordet.</p>
+  <p>OECD släppte i april 2025 rapporten <em>Unlocking High-Quality Teaching</em>. Den är inte en AI-rapport — den är en rapport om vad undervisning faktiskt är, baserad på 150 klassrum i 40 länder. Slutsatsen är värd att citera: <em>"I en tid av snabb innovation och konstant förändring är det lockande att fokusera på de senaste trenderna eller teknologierna som utlovar förändring. Att förfina befintliga undervisningspraktiker — genom att noga undersöka klassrummets verklighet — kan vara en mer kraftfull, och potentiellt säkrare, väg att höja elevers resultat."</em> Inget annat inne i skolan, konstaterar rapporten, har större inverkan på elevernas resultat än kvaliteten på undervisningen. Ingen teknik kommer att ändra på det.</p>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Se upp</span>
+    <p>Om verktygsvalet görs i ett annat rum än det där lärandet planeras, har ni ett systemfel. Kommunens inköp, skolans licensportfölj och AI-policyn ska skapa <em>möjligheter</em>; själva beslutet att använda AI på en viss lektion tillhör läraren som planerar lektionen.</p>
+  </div>
+</div>
+
+<!-- ═════════════ 1.2 RÄTT ═════════════ -->
+<div class="page">
+  <span class="eyebrow">Beslutsramverket</span>
+  <h2>RÄTT-modellen — välj verktyg efter lärandet</h2>
+  <p>RÄTT-modellen är det beslutsramverk som jag förespråkar att skolor, kommuner och fristående skolhuvudmän ska använda. Den består av fyra steg som ska gås igenom <em>innan</em> verktyget väljs — inte tvärtom. När den tillämpas på frågan "ska eleverna använda AI på den här lektionen?" blir den särskilt användbar, eftersom den tvingar fram ordningen: pedagogiken först, verktyget sist.</p>
+
+  <dl class="ratt-steps">
+    <dt><strong>R</strong> Reflektera över lärandet som ska ske</dt>
+    <dd>Vad ska eleverna faktiskt lära sig på den här lektionen? Vilka förkunskaper har de? Vilket är nästa steg i deras lärande? Börja alltid med pedagogiken, aldrig med verktyget. Om du inte kan formulera lärandemålet utan att nämna AI, har du börjat i fel ände.</dd>
+    <dt><strong>Ä</strong> Ämnet avgör</dt>
+    <dd>Det här ämnet, det här momentet — vad kräver det för tankearbete av eleven? En uppsats i svenska där eleven ska utveckla sitt eget språk kräver något annat än en problemlösningsuppgift i matematik där eleven ska få omedelbar respons på sina hypoteser.</dd>
+    <dt><strong>T</strong> Tillämpa rätt verktyg</dt>
+    <dd>Välj det verktyg som är bäst för lärandet för de elever du har: papper och penna, en fysisk bok, en digital bok, ett enklare digitalt verktyg, en AI-chattbot, inget verktyg alls, eller något helt annat. Ibland är svaret "AI under 20 minuter, sedan papper och penna för resten av arbetet". Ibland är svaret "ingen AI för den här uppgiften — men eleverna ska veta varför".</dd>
+    <dt><strong>T</strong> Testa och utvärdera</dt>
+    <dd>Fungerade det? Lärde sig eleverna bättre med det här verktyget än de hade gjort med ett annat? Det räcker inte att det <em>verkade</em> gå bra på lektionen. Det måste synas i det som eleverna faktiskt kan efteråt. Justera och kör cykeln igen.</dd>
+  </dl>
+</div>
+
+<!-- ═════════════ 1.3 Cognition ═════════════ -->
+<div class="page">
+  <span class="eyebrow">Den centrala distinktionen</span>
+  <h2>Att utmana tänkandet, eller att ersätta det</h2>
+  <p>När elever använder AI kan de göra det på två fundamentalt olika sätt, som ser ytligt lika ut men som har helt olika effekt på lärandet. Det första sättet är att låta AI ersätta tänkandet — <em>"skriv min uppsats om andra världskriget"</em>, <em>"lös de här mattetalen"</em>, <em>"ge mig tre argument för och emot kärnkraft"</em>. Resultatet är en färdig produkt, levererad utan att eleven gjort det kognitiva arbete som själva lärandet består av. Det andra sättet är att låta AI utmana tänkandet — <em>"här är mitt svar, förklara varför du tycker att resonemanget haltar"</em>, <em>"jag har försökt lösa det här talet men kör fast, vilket steg är mest sannolikt fel?"</em> Resultatet är att eleven jobbar hårdare, inte mindre, men får en sparringpartner som höjer nivån på arbetet.</p>
+  <p>Forskningen ger just nu en något splittrad bild, och det är värt att vara ärlig med. I ena ringhörnan står en omfattande metaanalys från 2025 (Wang &amp; Fan, <em>Computers &amp; Education</em>, 69 studier) som visar att ChatGPT i kontrollerade experiment tenderar att <em>förbättra</em> elevernas prestationer, motivation och högre ordningens tänkande på kort sikt. I andra ringhörnan står en rad nyare studier som pekar på långsiktiga effekter i motsatt riktning. En EEG-studie från MIT Media Lab 2025 (Kosmyna m fl) mätte hjärnkonnektivitet medan försökspersoner skrev uppsatser med eller utan LLM-hjälp — LLM-gruppen hade upp till 55 procent lägre hjärnkonnektivitet. En parallell studie från Microsoft Research (Lee m fl, CHI 2025) bland 319 kunskapsarbetare visade att hög tilltro till AI går hand i hand med <em>mindre</em> kritiskt tänkande.</p>
+  <p>Vad betyder det sammantaget? Troligen att AI gör det lättare att prestera <em>på dagens uppgift</em> men gör det svårare att bygga den kognitiva arkitektur som krävs för att prestera på <em>framtida uppgifter</em>. Det är en rimlig bedömning, inte en bevisad sanning — men den borde räcka som försiktighetsprincip i en skolkontext. En elev som fick höga betyg i år 9 men som inte längre kan tänka sig igenom ett svårt problem på egen hand är inte en framgångshistoria.</p>
+
+  <div class="callout callout--johan">
+    <span class="callout__label">Johans anteckning</span>
+    <p>Bra användning av AI i en skolkontext innebär ofta att eleven börjar arbetet, att AI och elev samskapar, och att eleven avslutar med att analysera och reflektera. Arbetsgången blir alltså elev — elev &amp; AI — elev. Lektioner där AI gör allt jobb är inte vad vi byggt upp skolsystemet för.</p>
+    <span class="callout__signature">— JL</span>
+  </div>
+</div>
+
+<!-- ═════════════ PART 2 OPENER ═════════════ -->
+<div class="page part-opener">
+  <div class="part-opener__number">02</div>
+  <p class="part-opener__eyebrow">Del 2</p>
+  <h2>Förutsättningar innan AI blir en del av lektionen</h2>
+  <p class="part-opener__lede">Om läraren inte har tillräcklig AI-litteracitet för att förstå om AI ska användas eller inte, kommer saker som inte borde hända att ske. Det går att förebygga.</p>
+</div>
+
+<!-- ═════════════ 2.1 Literacy ═════════════ -->
+<div class="page">
+  <span class="eyebrow">AI-litteracitet</span>
+  <h2>Lärarens kunskap är inte en bonus — den är en förutsättning</h2>
+  <p>Det mest ignorerade faktumet i diskussionen om AI i skolan är att många av de lärare som ska låta elever använda AI på sina lektioner själva aldrig har fått gedigen AI-utbildning. Det är inte ett klagomål mot lärarna — det är en observation om en systembrist. Huvudmän har i flera fall köpt in AI-verktyg och ställt dem till kollegiets förfogande utan att avsätta tid för den kompetenshöjning som verktygen kräver för att användas ansvarsfullt. Resultatet är förutsägbart: elever får använda verktyg som läraren själv inte fullt ut kan bedöma output från.</p>
+  <p>UNESCO släppte 2024 sitt <em>AI Competency Framework for Teachers</em>. Det beskriver 15 kompetenser fördelade på fem dimensioner — bl a människoorienterat förhållningssätt, AI-etik, grundläggande AI-förståelse, AI-pedagogik och AI som stöd för eget lärande. Ramverket säger inte att varje lärare måste vara AI-expert. Det säger att det finns en <em>grundnivå</em> som är en förutsättning för att ansvarsfullt låta elever använda AI, och den grundnivån nås inte av att klicka igenom en inspelad introduktion på 30 minuter.</p>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Se upp</span>
+    <p>Om skolan inte har en uttalad satsning på AI-kompetensutveckling för hela kollegiet — inte bara för de redan intresserade — görs saker på fel sätt. Skolledningen behöver sätta sig in i EU:s AI-förordning och säkerställa att de insatser som förordningen kräver genomförs.</p>
+  </div>
+</div>
+
+<!-- ═════════════ 2.2 Källkritik etc ═════════════ -->
+<div class="page">
+  <span class="eyebrow">Tre grundfärdigheter</span>
+  <h2>Källkritik, bias och hallucinationer</h2>
+  <p>Tre begrepp återkommer i varje samtal om AI i skolan, och alla tre behöver sitta i ryggmärgen på både lärare och elever innan AI används i undervisningen.</p>
+
+  <h3>Källkritik i AI-eran</h3>
+  <p>Klassisk källkritik handlade bl a om att titta på avsändaren, syftet, när texten skrevs och kontexten. En AI-genererad text har ingen avsändare i den meningen — den har en modell som producerar statistiskt sannolik text på din fråga, tränad på ett korpus vars sammansättning du inte känner till. Det betyder inte att texten är oanvändbar. Det betyder att den måste värderas mot externa källor innan den används som grund för något.</p>
+
+  <h3>Bias</h3>
+  <p>AI-modeller är tränade på data som i sin tur är präglade av sin ursprungskontext. Det betyder att en chattbot som tränats huvudsakligen på engelskspråkigt internetmaterial kommer att ha en mer amerikansk referensram än svensk, att underrepresenterade perspektiv fortsätter vara underrepresenterade, och att modellen ibland förstärker stereotyper utan att den som frågar ser det. För lärare innebär det att AI:ns output behöver granskas med samma kritiska öga som man skulle granska ett läromedel producerat i ett annat land.</p>
+
+  <h3>Hallucinationer</h3>
+  <p>När en chattbot inte vet, så säger den sällan "jag vet inte". Den producerar i stället text som låter rimlig — inklusive referenser, siffror, citat och namn som inte existerar. Det kallas hallucination och är inte ett tekniskt fel som kommer att lagas nästa vecka; det är en inneboende konsekvens av hur dagens stora språkmodeller fungerar. Att kunna upptäcka en hallucination kräver att den som läser texten har ämneskunskaper att värdera svaren mot. En elev som inte har det är försvarslös.</p>
+</div>
+
+<!-- ═════════════ 2.3 Tillsammans ═════════════ -->
+<div class="page">
+  <span class="eyebrow">Myten om teknisk överlägsenhet</span>
+  <h2>Läraren behöver inte kunna tekniken bättre än eleverna</h2>
+  <p>En vanlig ursäkt för att inte ta in AI på lektionerna är att "eleverna kan det där bättre än jag". Det är ofta sant i ytlig mening — en 14-åring kan klicka runt i ett gränssnitt snabbare än många vuxna — men det är fel i den mening som räknas. Eleven vet inte alltid vad en LLM faktiskt är. Eleven vet sällan hur man formulerar en prompt som ger djupare svar. Eleven kan nästan aldrig bedöma om svaret är sant. Och framför allt: eleven har inte lärarens förståelse för vad lektionen var till för att lära ut.</p>
+  <p>Det sistnämnda är lärarens expertis, och den är oersättlig. Så den mer konstruktiva framställningen av samma situation är: <em>läraren behöver inte kunna tekniken bättre än eleverna, men läraren behöver kunna pedagogiken bättre — och då kan ni lära er tekniken tillsammans</em>. Det fungerar, förutsatt att läraren håller fast vid rollen som den som sätter lärandemålen och bedömer resultaten, och använder elevernas teknikvana som en resurs i klassrummet snarare än ett hot.</p>
+
+  <div class="callout callout--johan">
+    <span class="callout__label">Johans anteckning</span>
+    <p>Jag har mött skolor där några entusiastiska elever blev klassrumsassistenter åt läraren när det gäller chattbottar och att skriva promptar — inte i det pedagogiska beslutsfattandet. Båda elever och lärare tjänade på det. Eleverna fick en ansvarsroll och växte genom förtroendet de fick; läraren fick tillgång till teknikvana utan att behöva bli tekniker. Förutsättningen är att ansvaret för lärandet aldrig lämnas till eleverna själva — det stannar hos läraren.</p>
+    <span class="callout__signature">— JL</span>
+  </div>
+</div>
+
+<!-- ═════════════ 2.4 Regelverket ═════════════ -->
+<div class="page">
+  <span class="eyebrow">Regelverket</span>
+  <h2>EU:s AI-förordning och GDPR — vad läraren behöver veta</h2>
+  <p><em>Disclaimer: Jag är inte jurist. Det här avsnittet är en pedagogisk orientering i regelverket, inte juridisk rådgivning. För bindande besked, konsultera huvudmannens dataskyddsombud, en jurist eller relevant myndighet.</em></p>
+  <p>Två regelverk ramar in AI-användning i svensk skola. Det ena är EU:s AI-förordning (AI Act), som klassificerar AI-system efter risknivå och ställer tydligare krav på "högrisksystem" än på system med lägre risk. Det andra är GDPR, som reglerar all behandling av personuppgifter — inklusive det som sker när en elev skriver något i en AI-chattbot. Båda gäller i Sverige, båda är lärarens och huvudmannens ansvar, och ingendera kan skjutas på framtiden.</p>
+
+  <h3>EU:s AI-förordning — vad klassificeringen betyder</h3>
+  <p>För vardagens undervisningsarbete — lektionsplanering, stöd till eleven med formulering, förklaringar av begrepp — ligger AI-användningen i kategorin <em>minimal risk</em>, och kraven är då relativt lätta. Där det börjar bli allvarligt är när AI används för att <em>fatta eller stödja beslut</em> som påverkar elevens tillgång till utbildning. Då talar förordningen om <em>högrisk</em>. Exempel: AI som bedömer eller betygsätter elevprestationer, AI som används vid antagning eller övergång mellan skolformer, AI som bedömer elevens uppförande eller gör bedömningar av särskilda behov. Där gäller dokumentationskrav, krav på transparens gentemot eleven, och krav på mänsklig granskning innan beslutet får verkan.</p>
+  <p>För den enskilda läraren är den viktigaste slutsatsen följande: <em>AI får stödja din bedömning, men det ska vara du som bedömer</em>. Om en AI-tjänst används så att den <em>ersätter</em> lärarens bedömning av en elev — inte bara föreslår, utan beslutar — är det sannolikt ett område där AI-förordningen ställer skärpta krav. Involvera skolledning och huvudman innan sådan användning införs. Är du det minsta osäker på var gränsen går eller vad du får göra — kolla med skolledningen.</p>
+
+</div>
+
+<!-- ═════════════ 2.4b GDPR ═════════════ -->
+<div class="page">
+  <span class="eyebrow">Regelverket — fortsättning</span>
+  <h2>GDPR i praktiken</h2>
+  <p>GDPR gäller varje gång en personuppgift hamnar i AI-systemet. Det inkluderar elevens namn, elevens skriftprov, vårdnadshavares kontaktuppgifter, information om hälsa eller särskilda behov, allt som kan identifiera en ung människa. Två praktiska konsekvenser:</p>
+  <ul>
+    <li><strong>Ladda inte upp elevdata</strong> till AI-tjänster utan att först kontrollera att det finns ett godkänt personuppgiftsbiträdesavtal för tjänsten i fråga. Många konsumentchattbottar (t ex ChatGPT utan särskilt skolavtal) uppfyller <em>inte</em> det kravet.</li>
+    <li><strong>Anonymisera när du inte är säker.</strong> Ersätt elevnamn med roller ("Elev A"), byt ut specifika datum och platser mot generaliseringar, ta bort allt som kan identifiera en person.</li>
+  </ul>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Tumregel</span>
+    <p>Om du undrar om något är okej enligt GDPR — behandla det som att det inte är det tills någon har sagt det uttryckligen. Det är bättre att pausa en lektion och fråga än att upptäcka efteråt att en elevs personuppgifter hamnat i en AI-tränings-pipeline utomlands.</p>
+  </div>
+</div>
+
+<!-- ═════════════ PART 3 OPENER ═════════════ -->
+<div class="page part-opener">
+  <div class="part-opener__number">03</div>
+  <p class="part-opener__eyebrow">Del 3</p>
+  <h2>På lektionsgolvet</h2>
+  <p class="part-opener__lede">Det går inte att säga "eleverna får använda AI" och sedan lämna rummet. Det mönstret har vi sett förut och vi har solid svensk forskning som visar vad det leder till.</p>
+</div>
+
+<!-- ═════════════ 3.1 Unos Uno ═════════════ -->
+<div class="page">
+  <span class="eyebrow">Vi har sett detta förut</span>
+  <h2>Unos Uno — vad 1:1-eran lärde oss</h2>
+  <p>Mellan 2011 och 2014 följde forskare vid Örebro universitet ca 20 skolor i 11 svenska kommuner — bl a Falkenberg, Nacka, Sollentuna och Malmö — under tre år. Forskningsprojektet hette Unos Uno och var en utvärdering av det som då kallades "en-till-en", d v s att varje elev fick en egen dator i skolarbetet. Det är förmodligen den mest välgjorda svenska longitudinella studien av digital transformation i skolan som har gjorts. Slutsatserna samlades i boken <em>Att förändra skolan med teknik: Bortom "en dator per elev"</em> (Grönlund m fl, 2014).</p>
+  <p>Det tydligaste mönstret i forskarnas slutsatser är något de flesta inte förväntade sig: <em>de skolor som förbättrade sina resultat med 1:1 hade mer lärarledd tid, inte mindre</em>. Där läraren backade undan och lät datorn "ta över", försämrades resultaten. Där läraren förstärkte sitt eget pedagogiska arbete med datorn som hjälpmedel, och var tätare närvarande i elevernas arbete, förbättrades resultaten. Unos Uno visade också att ensamarbetet ökade i 1:1-klassrummen, att sociala medier distraherade en stor del av eleverna (ca 25 procent uppgav själva att de distraherades på lektionerna), och att <em>de svagare eleverna drabbades hårdast</em> — precis de elever som skolan är till för att hjälpa.</p>
+  <p>Grönlunds sammanfattande formulering är värd att lägga på minnet: <em>"Ett IT-projekt i skolan är inte ett teknikprojekt, det är ett förändringsprojekt."</em> Tekniken lyfter inte lärandet av sig själv. Den förstärker de pedagogiska val läraren redan gjort. Om läraren gjort bra val blir de bättre; om läraren inte gjort några val alls blir resultatet det som Unos Uno dokumenterade.</p>
+  <p>Internationellt pekar forskningen åt samma håll. OECD:s PISA-rapport <em>Students, Computers and Learning</em> (2015) fann den s k digitala paradoxen: elever som använde datorer ofta i skolan presterade sämre i PISA, även efter kontroll för socioekonomisk bakgrund. En metaanalys av 1:1-program i <em>Review of Educational Research</em> (Zheng m fl 2016) drog slutsatsen att positiva effekter fanns, men bara där lärarna integrerade datorerna pedagogiskt.</p>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Observera</span>
+    <p>Slutsatsen är <em>inte</em> att AI ska hållas utanför klassrummet. Slutsatsen är att AI i klassrummet utan lärarinsyn och pedagogisk inramning kommer att upprepa 1:1-erans misstag — med större kraft den här gången, eftersom AI är ett mer kapabelt verktyg för outsourcing av tänkande än Google och Wikipedia någonsin var.</p>
+  </div>
+</div>
+
+<!-- ═════════════ 3.2 Insyn-gapet ═════════════ -->
+<div class="page">
+  <span class="eyebrow">Den tekniska luckan</span>
+  <h2>Insyn-gapet — dagens AI-verktyg visar inte läraren vad eleverna frågar</h2>
+  <p>Den största praktiska luckan mellan "vad skolan behöver" och "vad AI-branschen levererar" just nu rör lärarens insyn. De största AI-chattbottarna som används i svensk skola i dag är Gemini (Google) och ChatGPT (OpenAI). Copilot bygger på ChatGPT. Apple Intelligence använder delvis ChatGPT för de funktioner som går utanför enheten. Sveriges K-12-specifika alternativ inkluderar bl a Skolup (Skolon) och Pladdra. Det majoriteten av dessa verktyg har gemensamt, enligt det som publikt annonseras, är att de saknar en tydlig aggregerad vy över vilka frågor eleverna i klassen har ställt till AI under lektionen.</p>
+  <p>Varför är det ett problem? För att läraren behöver det för att undervisa. Om läraren ser att tolv av tjugofem elever har frågat AI om samma sak på liknande sätt — t ex "vad är skillnaden mellan allel och gen?" — är det en stark signal om att det är något i genomgången som inte nådde fram, och att en kort helklassdialog skulle lyfta hela klassens förståelse. Om läraren i stället inte har någon insyn alls, så existerar den signalen bara i form av tysta gröna ljus i klassrummet medan tolv elever tror att de har förstått.</p>
+  <p>Det jag vill att skolor och huvudmän börjar kräva av leverantörer är följande: <em>aggregerad klassinsyn</em>, d v s en vy där läraren ser de vanligaste frågorna och de återkommande mönstren i hur klassen samspelar med AI under en lektion. Det är inte övervakning av enskilda elever — det är den pedagogiska återkoppling läraren behöver för att fullgöra sitt uppdrag. Det är tekniskt fullt möjligt. Det är bara inte prioriterat av leverantörerna i dag. När tillräckligt många skolor efterfrågar funktionen kommer den att byggas.</p>
+
+  <h3>Vad Skolverket säger</h3>
+  <p>Skolverkets vägledning om AI-chattbottar är tydlig på punkten: "Ett bra första steg är att använda AI tillsammans med elever på en storskärm, där du kan diskutera faktafel och budskap direkt." Med andra ord: börja gemensamt och synligt. Skolverket specificerar inte tekniska krav — det överlåter åt skolan och huvudmannen att avgöra <em>hur</em> lärarinsyn uppnås. Det är pragmatiskt i ett system utan nationell AI-styrning, men det flyttar också ansvaret nedåt, vilket innebär att enskilda skolor måste fatta dessa beslut själva.</p>
+</div>
+
+<!-- ═════════════ 3.3 Management ═════════════ -->
+<div class="page">
+  <span class="eyebrow">Digital klassrumsmanagering</span>
+  <h2>Ett managementverktyg är inte en lyx — det är en förutsättning</h2>
+  <p>Oberoende av om skolan använder AI eller inte, är det numera rimligt att förespråka att skolor skaffar ett managementverktyg som styr vad eleverna kan göra på sina enheter under lektionstid. Det är inte för att misstro eleverna; det är för att det är lärarens uppgift att skapa en lärmiljö där eleverna lyckas, och det gör de inte om de sitter en klickning från TikTok under lektionen. Grönlunds Unos Uno-rapport var tydlig på just den punkten: problemet var inte eleverna, problemet var att lärarna saknade verktyg för att hantera den digitala miljön i klassrummet.</p>
+  <p>När AI blir en del av lektionsmiljön ökar behovet. Ett managementverktyg som kan öppna och stänga access till specifika AI-tjänster för specifika lektioner — så att eleven har access till ett godkänt AI-verktyg för en uppgift men inte till hela internet under tiden — är en grundförutsättning för att använda AI på lektionstid på ett ansvarsfullt sätt. Kombinerat med aggregerad klassinsyn (om leverantören erbjuder det) har läraren plötsligt de redskap som Unos Uno-forskarna efterlyste redan 2014.</p>
+
+  <div class="callout callout--johan">
+    <span class="callout__label">Johans anteckning</span>
+    <p>Ingen av de svenska kommuner jag arbetat med som kommit längst i AI-frågan har gjort det genom att köpa in AI-verktyget först. De har alla börjat med att se till att lärarna fick kompetensutveckling, att skolorna hade managementverktyg för digital klassrumsmiljö, och att det fanns en uttalad AI-policy med klar ansvarsfördelning. <em>Sedan</em> kom verktygen. Ordningen är inte en detalj — den är själva arbetet.</p>
+    <span class="callout__signature">— JL</span>
+  </div>
+</div>
+
+<!-- ═════════════ PART 4 OPENER ═════════════ -->
+<div class="page part-opener">
+  <div class="part-opener__number">04</div>
+  <p class="part-opener__eyebrow">Del 4</p>
+  <h2>Checklistan</h2>
+  <p class="part-opener__lede">Tolv frågor i fyra kategorier. Fungerar som en snabb koll innan en lektion och som underlag för kollegiala samtal.</p>
+</div>
+
+<!-- ═════════════ Checklist pages ═════════════ -->
+<div class="page">
+  <h2>Ska eleverna använda AI på den här lektionen?</h2>
+
+  <div class="checklist-category">
+    <h3>Pedagogik</h3>
+    <ol class="checklist">
+      <li><strong>Vilket lärande ska lektionen leda till, och ökar AI lärandet eller ersätter det arbete eleven behöver göra själv?</strong> Om svaret på den andra halvan är "ersätter", välj ett annat verktyg.</li>
+      <li><strong>Utmanar AI elevens tänkande eller ersätter det?</strong> <em>"Förklara varför mitt svar är fel"</em> utmanar; <em>"skriv min uppsats"</em> ersätter.</li>
+      <li><strong>Hade samma lärandemål uppnåtts lika bra eller bättre utan AI?</strong> Om ja, och AI inte tillför något utöver bekvämlighet, använd inte AI.</li>
+      <li><strong>Passar AI-användningen ämnet och momentet?</strong> (Ä i RÄTT-modellen.)</li>
+    </ol>
+  </div>
+
+  <div class="checklist-category">
+    <h3>Förutsättningar</h3>
+    <ol class="checklist" start="5">
+      <li><strong>Har jag som lärare tillräcklig AI-litteracitet för att bedöma elevernas AI-svar och för att fånga bias och hallucinationer?</strong></li>
+      <li><strong>Har eleverna tränat på källkritik av AI-svar?</strong></li>
+      <li><strong>Är verktyget GDPR-kompatibelt och godkänt av huvudmannen?</strong></li>
+    </ol>
+  </div>
+</div>
+
+<div class="page">
+  <div class="checklist-category">
+    <h3>Kontroll</h3>
+    <ol class="checklist" start="8">
+      <li><strong>Har jag insyn i vad eleverna frågar AI under lektionen — åtminstone på aggregerad klassnivå?</strong> Om nej, är lektionen beroende av att du själv rör dig i klassrummet, tittar över axeln på eleverna och lyssnar. Planera tiden för det.</li>
+      <li><strong>Hindrar skolans managementverktyg eller tydliga regler eleverna från att lämna uppgiften?</strong> Om skolan saknar managementverktyg — använd explicit AI-tid i kortare block och kombinera med analoga moment.</li>
+      <li><strong>Kan jag avbryta och hålla en kort genomgång om klassen fastnar på samma sak?</strong></li>
+    </ol>
+  </div>
+
+  <div class="checklist-category">
+    <h3>Uppföljning</h3>
+    <ol class="checklist" start="11">
+      <li><strong>Hur ska jag bedöma om eleverna faktiskt lärde sig mer eller mindre än utan AI?</strong> (T i RÄTT — Testa och utvärdera.)</li>
+      <li><strong>Vilka tecken på outsourcad kognition ska jag leta efter?</strong> T ex: svar som är för kompletta och för abstrakta för elevens nivå, frånvaro av de typiska fel eleven annars brukar göra, bortfall av elevens egen röst i text.</li>
+    </ol>
+  </div>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Tumregel</span>
+    <p>Om du kan svara ja på alla tolv frågor är det sannolikt en bra AI-lektion. Om du svarar nej på flera av frågorna — omplanera, eller välj ett annat verktyg. Checklistan är ett hjälpmedel, inte en byråkratisk övning: den är snabbast att gå igenom när man använt den några gånger, och poängen är att ställa frågorna i samma ordning varje gång.</p>
+  </div>
+</div>
+
+<!-- ═════════════ FAQ ═════════════ -->
+<div class="page">
+  <span class="eyebrow">FAQ</span>
+  <h2>Vanliga frågor</h2>
+
+  <div class="faq-item">
+    <h4>Jag kan inte AI själv — ska jag avstå helt tills jag lärt mig?</h4>
+    <p>Nej, men du ska avstå från att släppa eleverna fritt med AI. Det finns en mellanliggande nivå som både Skolverket och UNESCO rekommenderar: <em>börja gemensamt på storbild</em>. Du och klassen ställer frågor tillsammans, läser svaret tillsammans, diskuterar vad som är rätt, fel, bias och hallucination — tillsammans. Det är en kraftfull pedagogik i sig, den höjer din egen AI-litteracitet samtidigt som eleverna lär sig källkritik i AI-eran, och den kräver ingen lärar-expertis utöver det omdöme du redan har.</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Vad kräver jag av leverantören innan vi köper in ett AI-verktyg för elever?</h4>
+    <p>Tre punkter i minimum: (1) GDPR-compliance med tydligt personuppgiftsbiträdesavtal, godkänt av huvudmannen; (2) lärarinsyn — åtminstone på aggregerad klassnivå, så att läraren kan se återkommande frågor och mönster under en lektion; (3) klassrumsstyrning — möjligheten att öppna och stänga access under specifika lektionspass. Om leverantören inte har punkt 2 eller 3, kräv en tidplan för när de kommer att ha det. Den sortens efterfrågan är det som till slut flyttar branschen framåt.</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Vad gör jag om skolan saknar managementverktyg för digital miljö?</h4>
+    <p>Ta upp frågan med rektor och IT-samordnaren. Det är en fråga för huvudmannen, inte för den enskilda läraren. Under tiden — välj AI-lektioner där eleverna använder AI i korta, strukturerade block (10-15 minuter) och inte hela lektionen, och varva med analoga moment där enheten är stängd.</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Hur vet jag om en elev har outsourcat arbetet till AI?</h4>
+    <p>Det är sällan en enskild signal som avslöjar det. Vanliga mönster: texten är mer kompetent än det du tidigare sett från eleven utan en synlig förklaring, elevens egen röst är borta, strukturen är suspekt perfekt, den typ av fel som eleven brukar göra finns inte alls. AI-detektorer är otillförlitliga och bör inte användas som bevis. Den enklare vägen är ofta bedömningsdesign: om du regelbundet har muntliga inslag, om skrivandet sker i klassrum, eller om det finns processdokumentation — så blir det svårare att gömma sig bakom AI.</p>
+  </div>
+</div>
+
+<div class="page">
+  <div class="faq-item">
+    <h4>Vad betyder EU:s AI-förordning för mitt klassrum — kort svar?</h4>
+    <p>För det mesta vardagsarbetet — lektionsplanering, differentiering, stöd till enskilda elever — väldigt lite. Du befinner dig i kategorin minimal risk, och vanlig dataskyddsdisciplin räcker. AI-förordningen spelar roll framför allt när AI används för att <em>bedöma eller fatta beslut om eleven</em> — antagning, betygssättning, bedömning av uppförande eller särskilda behov. Om din skola överväger sådan användning, involvera dataskyddsombud och ledning innan något införs.</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Måste vi göra en dataskyddskonsekvensbedömning (DPIA)?</h4>
+    <p>Det beror på användningen. För rutinmässig lärarhjälp — där inga personuppgifter om elever läggs in i systemet — är DPIA sällan ett krav. För användning där elevdata kan behandlas, där AI stöder beslut om eleven, eller där användningen innebär en systematisk övervakning, är DPIA ofta ett krav enligt GDPR artikel 35. Rådgör med ert dataskyddsombud. IMY har vägledning på imy.se.</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Är AI bra eller dåligt för elevernas lärande?</h4>
+    <p>Fel fråga. AI är ett verktyg, och verktyg är bra eller dåliga bara i relation till det lärande de används för. Samma AI-chattbot kan vara en välsignelse för en elev som använder den för att få sitt resonemang utmanat, och en katastrof för en elev som använder den för att slippa tänka. Den intressanta frågan är: "För <em>den här</em> eleven, på <em>den här</em> lektionen, för <em>det här</em> lärandet — är AI det bästa verktygsvalet?"</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Var får jag hjälp med AI-policy för min skola eller kommun?</h4>
+    <p>Använd i första hand de resurser som ni har på din skola och hos din skolhuvudman. Om ni behöver extern hjälp kan ni vända er till den återförsäljare som ni har avtal med. Om de resurserna inte är tillräckliga kan du kontakta mig så ser vi vad jag kan hjälpa till med. Jag arbetar konsultativt med skolor och huvudmän i just dessa frågor — AI-policy, kompetensutveckling för kollegier, införande i linje med RÄTT-modellen, och strategi i ljuset av EU:s AI-förordning. Hör av dig till mig, t ex via LinkedIn.</p>
+  </div>
+</div>
+
+<!-- ═════════════ BACK COVER ═════════════ -->
+<div class="back-cover">
+  <div>
+    <h2>En skicklig lärares viktigaste redskap är omdömet.</h2>
+    <p>AI är det mest kraftfulla verktyg vi hittills har sett för att förstärka undervisning. Det är också det mest kraftfulla verktyg vi har sett för att kortsluta lärandet. Vilken av de två det blir i ditt klassrum avgörs inte av tekniken. Det avgörs av de pedagogiska val du redan är expert på att göra.</p>
+    <div class="back-cover__cta">
+      <a href="https://choosewise.education/sv/guider/ai-for-elever/">Läs guiden online</a>
+    </div>
+    <p>Fler verktyg:</p>
+    <p>
+      <strong>RÄTT-modellen</strong> — <a href="https://choosewise.education/sv/ratt/">choosewise.education/sv/ratt/</a><br>
+      <strong>Promptbiblioteket</strong> — <a href="https://choosewise.education/sv/promptar/">choosewise.education/sv/promptar/</a><br>
+      <strong>Verktygsguider</strong> — <a href="https://choosewise.education/sv/guider/">choosewise.education/sv/guider/</a>
+    </p>
+  </div>
+  <div class="back-cover__license">
+    <p>Johan Lindström · choosewise.education · Uppdaterad april 2026</p>
+    <p>Licensierad under CC BY-NC-SA 4.0 — får delas och bearbetas icke-kommersiellt med angivande av författare.</p>
+  </div>
+</div>
+
+</body>
+</html>
