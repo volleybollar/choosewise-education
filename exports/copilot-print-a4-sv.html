@@ -604,7 +604,18 @@
   p, li { orphans: 3; widows: 3; }
   h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
   img { max-width: 100%; }
-</style>
+
+  /* ─── Part-opener hero photo ─── */
+  .part-opener-image {
+    display: block;
+    width: 100%;
+    height: 70mm;
+    object-fit: cover;
+    border-radius: 3mm;
+    margin: 6mm 0 8mm;
+    break-inside: avoid;
+  }
+  </style>
 </head>
 <body>
 
@@ -718,6 +729,8 @@
       <p class="part-opener__lede">Vilken Copilot ni faktiskt använder, hur ni slår på rätt version och vad Kommersiellt dataskydd gör och inte gör.</p>
     </div>
   </header>
+
+  <img src="../sv/guider/copilot/assets/part-1-opener.webp" class="part-opener-image" alt="">
 
   <h3>Vilken produkt använder ni egentligen?</h3>
   <p>Fyra distinkta SKU:er delar ordet "Copilot". De är inte samma produkt och de har inte samma integritetsprofil. Det här är tabellen som är värd att skriva ut och sätta upp någonstans där en lärare kan kasta en blick på den när gränssnittet ser tvetydigt ut.</p>
@@ -876,6 +889,8 @@
       <p class="part-opener__lede">Sex funktioner som förändrar lärarens arbetsvardag, med klassrumsexempel och en tydlig notering om var var och en bearbetar din data.</p>
     </div>
   </header>
+
+  <img src="../sv/guider/copilot/assets/part-2-opener.webp" class="part-opener-image" alt="">
 
   <article class="feature-card">
     <h3>1. Copilot Chat (med era arbetsdata)</h3>
@@ -1139,6 +1154,8 @@
       <p class="part-opener__lede">Vad CDP ger er under svensk och europeisk dataskyddsrätt, hur licensieringen faktiskt landar i en skolbudget och de fem besluten värda att ta innan en personalutrullning.</p>
     </div>
   </header>
+
+  <img src="../sv/guider/copilot/assets/part-3-opener.webp" class="part-opener-image" alt="">
 
   <h3>Vad CDP faktiskt ger er</h3>
   <p>Del 1 lade fram de tre avtalsenliga löftena från Kommersiellt dataskydd: prompter och svar används inte för att träna Microsofts grundmodeller; data stannar inom tenantens förtroendegräns; standardregler för granskning och lagring i M365 gäller. Den ärliga översättningen till GDPR-språk är att Microsoft agerar som ert personuppgiftsbiträde under Microsoft Products and Services Data Processing Addendum; skolan förblir personuppgiftsansvarig, med alla de skyldigheter som rollen innebär.</p>

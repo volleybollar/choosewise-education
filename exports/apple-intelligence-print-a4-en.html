@@ -561,7 +561,18 @@
   p, li { orphans: 3; widows: 3; }
   h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
   img { max-width: 100%; }
-</style>
+
+  /* ─── Part-opener hero photo ─── */
+  .part-opener-image {
+    display: block;
+    width: 100%;
+    height: 70mm;
+    object-fit: cover;
+    border-radius: 3mm;
+    margin: 6mm 0 8mm;
+    break-inside: avoid;
+  }
+  </style>
 </head>
 <body>
 
@@ -651,6 +662,8 @@
       <p class="part-opener__lede">What runs Apple Intelligence, what it can actually do today, and — the important bit — how Apple's "on-device" claim actually works when you look closely.</p>
     </div>
   </header>
+
+  <img src="../guides/apple-intelligence/assets/part-1-opener.webp" class="part-opener-image" alt="">
 
   <h3>Which devices run Apple Intelligence</h3>
   <p>As of April 2026, Apple Intelligence runs on a narrow slice of the Apple hardware you are likely to meet in a school. On iPad, you need an <strong>M1 chip or later</strong> — so an iPad Pro or iPad Air from 2021 onwards, or any recent iPad mini with Apple-silicon. On Mac, any machine with Apple-silicon (M1 or later) will run it. On iPhone, only the iPhone 15 Pro, iPhone 15 Pro Max, and the full iPhone 16 and 17 lines are supported. The standard iPhone 15 is not.</p>
@@ -784,6 +797,8 @@
       <p class="part-opener__lede">Six features that change day-to-day teaching work, with practical examples from real classrooms and a clear note on where each one processes your data.</p>
     </div>
   </header>
+
+  <img src="../guides/apple-intelligence/assets/part-2-opener.webp" class="part-opener-image" alt="">
 
   <article class="feature-card">
     <h3>1. Writing Tools</h3>
@@ -1079,6 +1094,8 @@
       <p class="part-opener__lede">Why on-device processing matters under Swedish and EU data protection law, where Apple's privacy story holds up, and the one place it breaks.</p>
     </div>
   </header>
+
+  <img src="../guides/apple-intelligence/assets/part-3-opener.webp" class="part-opener-image" alt="">
 
   <h3>What stays on your device</h3>
   <p>A meaningful share of Apple Intelligence runs without anything leaving the iPad or the Mac in front of you. <strong>Writing Tools</strong> operations on short text — proofreading, tone rewrites, a brief summary of a few hundred words — are handled by the on-device model. <strong>Mail categorisation</strong> and <strong>notification summaries</strong> are entirely on-device. Most everyday <strong>Siri</strong> requests stay local. <strong>Visual Intelligence</strong> performs basic recognition — text detection, common-object identification — without a round-trip to Apple's servers.</p>
