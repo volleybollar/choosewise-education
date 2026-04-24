@@ -391,4 +391,8 @@
 .post__body h3 { margin-block: var(--space-5) var(--space-3); }
 .post__body blockquote { border-left: 3px solid var(--color-highlight); padding-left: var(--space-5); font-style: italic; color: var(--color-text-soft); margin-block: var(--space-5); }
 .post__body img { border-radius: var(--radius-md); margin-block: var(--space-5); }
+.post__body .callout { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-left: 3px solid var(--color-highlight); border-radius: var(--radius-md); padding: var(--space-5) var(--space-6); margin-block: var(--space-6); }
+.post__body .callout p { margin-bottom: var(--space-3); }
+.post__body .callout p:last-child { margin-bottom: 0; }
+.post__body .callout__headline { font-family: var(--font-display); font-size: var(--fs-h3); font-weight: 500; line-height: 1.25; }
 .post__footer { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }

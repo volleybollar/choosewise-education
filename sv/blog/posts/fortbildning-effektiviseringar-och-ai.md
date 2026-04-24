@@ -16,17 +16,22 @@ Samtidigt som det ser ut så här i praktiken finns ramarna inskrivna i både sk
 
 I teorin.
 
-Vad som står på ett papper (i det här fallet i ett avtal och i en lag) är dock inte värt särskilt mycket om det inte genomförs i praktiken.
+Vad som står i texterna (skollagen och huvudöverenskommelsen) är dock inte värt någonting om det inte genomförs i praktiken.
+
+<aside class="callout">
+  <p class="callout__headline">104 timmar i avtalet, 4 dagar i verkligheten.</p>
+  <p>Enligt <a href="https://www.skolverket.se/sok-publikationer/publikationsserier/rapporter/2025/talis-2024-en-studie-om-larares-och-rektorers-arbete-i-arskurs-7-9">TALIS 2024</a> får svenska lärare i åk 7–9 cirka 3–4 dagars fortbildning per år. Riktmärket i HÖK motsvarar ungefär 13 dagar. Trenden går nedåt — i <a href="https://www.skolverket.se/sok-publikationer/publikationsserier/rapporter/2019/talis-2018">TALIS 2018</a> låg samma grupp på 4,2 dagar (OECD-snitt: 8,7). En undersökning från <a href="https://www.mynewsdesk.com/se/laerarutveckling-ab/pressreleases/laerare-faar-inte-den-fortbildning-de-har-raett-till-3120375">Lärarnas Riksförbund 2021</a> visade dessutom att 41 % av lärarna på kommunala grundskolor inte fick någon fortbildning alls under det granskade året.</p>
+</aside>
 
 ## AI-paradoxen
 
-Så kommer vi till nutid. Teknikutvecklingen har kommit så långt att vi har tillgång till verktyg som — rätt använda — kan effektivisera mer än något verktyg tidigare i människans historia. Vad gör politikerna då?
+Så kommer vi till nutid. Teknikutvecklingen har kommit så långt att vi har tillgång till verktyg som — rätt använda — kan effektivisera mer än något annat verktyg tidigare i människans historia. Vad gör politikerna då?
 
-Man beslutar att de nationella satsningar som görs kring AI ska exkludera skolan.
+Politikerna beslutar att AI kopplat till skolan inte ska styras på nationell nivå.
 
-Konsekvensen är att Sveriges 290 kommunala skolhuvudmän, plus samtliga fristående skolhuvudmän, ska hantera allt som rör AI själva — utan nationellt stöd. Otroligt mycket resurser slösas på att göra exakt samma arbete på flera hundra parallella håll (i det här fallet: att tolka, förstå och leva upp till EU:s AI-förordning).
+Konsekvensen är att Sveriges 290 kommunala skolhuvudmän, plus samtliga fristående skolhuvudmän, ska hantera allt som rör AI själva — utan nationellt stöd. Otroligt mycket resurser slösas på att göra exakt samma arbete hos varje skolhuvudman (i det här fallet: att tolka, förstå och leva upp till EU:s AI-förordning).
 
-Vi såg exakt samma sak när GDPR började gälla år 2018. Många 100 000-tals timmar lades ner på att göra exakt samma arbete överallt — tolka, förstå och leva upp till GDPR. Resurser som hade kunnat gå till undervisning, fortbildning och skolutveckling gick istället åt till att varje huvudman själv skulle uppfinna samma hjul.
+Vi såg exakt samma sak när GDPR började gälla år 2018. Många 100 000-tals timmar lades ner på att göra exakt samma arbete överallt — tolka, förstå och leva upp till GDPR. Resurser som hade kunnat gå till undervisning, fortbildning och skolutveckling gick istället åt till att varje huvudman själv skulle uppfinna samma hjul. Vi behöver inte hundratals mer eller mindre identiska hjul som uppfinns på olika platser, vi behöver genomtänkta processer som underlättar för skolhuvudmän och som gör arbetssituationen hållbar för lärare.
 
 När vi behöver använda befintliga resurser så effektivt som möjligt dränerar vi dem alltså, i stället, genom att inte erbjuda stöd på nationell nivå. Det är ett systemfel — inte en olyckshändelse.
 
