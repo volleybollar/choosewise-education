@@ -366,9 +366,26 @@
 .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-5); }
 .blog-empty { text-align: center; color: var(--color-text-soft); padding: var(--space-8); border: 1px dashed var(--color-border); border-radius: var(--radius-md); }
 
+/* Featured first post: only kicks in on wider viewports — first card spans the full row
+   and lays image | text side-by-side, so a single post doesn't look lonely and a long list
+   gets a clear visual anchor at the top. */
+@media (min-width: 768px) {
+  .blog-grid > .card--post:first-child {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+  .blog-grid > .card--post:first-child .card__image { aspect-ratio: auto; height: 100%; min-height: 320px; }
+  .blog-grid > .card--post:first-child .card__body { padding: var(--space-7); justify-content: center; gap: var(--space-4); }
+  .blog-grid > .card--post:first-child .card__title { font-size: var(--fs-h2); }
+  .blog-grid > .card--post:first-child .card__excerpt { font-size: var(--fs-base); }
+}
+
 .post { max-width: 42rem; margin-inline: auto; padding-block: var(--space-8); }
 .post__header { margin-bottom: var(--space-7); }
 .post__header h1 { margin-bottom: var(--space-3); }
+.post__cover { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius-md); margin-bottom: var(--space-6); }
 .post__body p, .post__body ul, .post__body ol { margin-bottom: var(--space-4); }
 .post__body h2 { margin-block: var(--space-7) var(--space-4); }
 .post__body h3 { margin-block: var(--space-5) var(--space-3); }

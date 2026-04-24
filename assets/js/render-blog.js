@@ -35,7 +35,10 @@
     if (meta) {
       document.title = `${meta.title} — choosewise.education`;
       const readingTime = meta.reading_time ? ` · ${meta.reading_time}` : '';
-      metaEl.innerHTML = `<h1>${escapeHtml(meta.title)}</h1><span class="eyebrow">${escapeHtml(meta.date)}${readingTime}</span>`;
+      const cover = meta.cover_image
+        ? `<img class="post__cover" src="${escapeHtml(meta.cover_image)}" alt="" loading="eager" decoding="async">`
+        : '';
+      metaEl.innerHTML = `${cover}<h1>${escapeHtml(meta.title)}</h1><span class="eyebrow">${escapeHtml(meta.date)}${readingTime}</span>`;
     }
   } catch (err) {
     console.error('[blog]', err);
