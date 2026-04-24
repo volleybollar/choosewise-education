@@ -110,6 +110,8 @@
 /* ───── Sections ───── */
 .section { padding-block: var(--space-9); }
 .section--alt { background: var(--color-bg-alt); padding-block: var(--space-9); }
+.section--flush-top { padding-top: var(--space-6); }
+.section--flush-bottom { padding-bottom: var(--space-6); }
 .section__title { margin-bottom: var(--space-5); max-width: 22ch; }
 .section__lede  { max-width: var(--content-text-max); color: var(--color-text-soft); font-size: 1.125rem; margin-bottom: var(--space-6); }
 
@@ -244,7 +246,7 @@
 .prompt-part p  { color: var(--color-text-soft); font-size: 0.95rem; margin: 0; }
 
 /* Exempel-promptar på individuell paket-sida */
-.example-prompts { list-style: none; counter-reset: ex; max-width: 52rem; }
+.example-prompts { list-style: none; counter-reset: ex; max-width: 52rem; margin-top: var(--space-6); }
 .example-prompts li {
   counter-increment: ex;
   position: relative;
