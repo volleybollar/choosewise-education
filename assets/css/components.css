@@ -176,6 +176,20 @@
 
 .card--disabled { opacity: 0.55; pointer-events: none; }
 
+/* ───── Callout (boxed aside, used inside blog posts and on framework pages) ───── */
+.callout {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-highlight);
+  border-radius: var(--radius-md);
+  padding: var(--space-5) var(--space-6);
+  margin-block: var(--space-6);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.callout p { margin-bottom: var(--space-3); }
+.callout p:last-child { margin-bottom: 0; }
+.callout__headline { font-family: var(--font-display); font-size: var(--fs-h3); font-weight: 500; line-height: 1.25; margin-bottom: var(--space-3); }
+
 /* ───── Forms ───── */
 .input {
   width: 100%;
