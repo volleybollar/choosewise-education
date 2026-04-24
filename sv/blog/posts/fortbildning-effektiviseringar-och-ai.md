@@ -31,7 +31,7 @@ Politikerna beslutar att AI kopplat till skolan inte ska styras på nationell ni
 
 Konsekvensen är att Sveriges 290 kommunala skolhuvudmän, plus samtliga fristående skolhuvudmän, ska hantera allt som rör AI själva — utan nationellt stöd. Otroligt mycket resurser slösas på att göra exakt samma arbete hos varje skolhuvudman (i det här fallet: att tolka, förstå och leva upp till EU:s AI-förordning).
 
-Vi såg exakt samma sak när GDPR började gälla år 2018. Många 100 000-tals timmar lades ner på att göra exakt samma arbete överallt — tolka, förstå och leva upp till GDPR. Resurser som hade kunnat gå till undervisning, fortbildning och skolutveckling gick istället åt till att varje huvudman själv skulle uppfinna samma hjul. Vi behöver inte hundratals mer eller mindre identiska hjul som uppfinns på olika platser, vi behöver genomtänkta processer som underlättar för skolhuvudmän och som gör arbetssituationen hållbar för lärare.
+Vi såg exakt samma sak när GDPR började gälla år 2018. 100 000-tals timmar lades ner på att göra exakt samma arbete överallt — tolka, förstå och leva upp till GDPR. Resurser som hade kunnat gå till undervisning, fortbildning och skolutveckling gick istället åt till att varje huvudman själv skulle uppfinna samma hjul. Vi behöver inte hundratals mer eller mindre identiska hjul som uppfinns på olika platser, vi behöver genomtänkta processer som underlättar för skolhuvudmän och som gör arbetssituationen hållbar för lärare.
 
 När vi behöver använda befintliga resurser så effektivt som möjligt dränerar vi dem alltså, i stället, genom att inte erbjuda stöd på nationell nivå. Det är ett systemfel — inte en olyckshändelse.
 
