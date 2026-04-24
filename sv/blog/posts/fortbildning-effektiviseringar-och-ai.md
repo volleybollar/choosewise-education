@@ -1,4 +1,4 @@
-Nyligen satt jag i möte med en representant för en svensk kommun. Under mötet konstaterades något jag hör allt oftare, och som bekräftar en bild jag själv byggt upp under lång tid: det är svårt att få till fortbildning för lärarna. Inte för att intresset saknas, utan för att tiden inte finns.
+Nyligen satt jag i ett möte med en representant för en svensk kommun. Under mötet konstaterades något jag hör allt oftare, och som bekräftar en bild jag själv byggt upp under lång tid: det är svårt att få till fortbildning för lärarna. Inte för att intresset saknas, utan för att tiden inte finns.
 
 Det har blivit successivt allt svårare de senaste 7–8 åren att få fortbildning för lärare att prioriteras i praktiken. Orsaken är troligen effektiviseringar. Ett par procents effektivisering varje år låter försumbart i ett enskilt budgetbeslut, men effekten över tid blir väldigt stor.
 
@@ -12,7 +12,9 @@ Frågan vi behöver ställa oss är därför enkel att formulera men svårare at
 
 ## Avtalet säger en sak — verkligheten en annan
 
-Samtidigt som det ser ut så här i praktiken står det i både kollektivavtal och skollag att lärare ska kompetensutvecklas över 100 timmar per år. I teorin.
+Samtidigt som det ser ut så här i praktiken finns ramarna inskrivna i både skollag och kollektivavtal. [Skollagen 2 kap. 34 a §](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/skollag-2010800_sfs-2010-800/) säger att huvudmannen ska se till att personalen ges möjligheter till kompetensutveckling. I [HÖK 25, Bilaga M till AB](https://www.sverigeslarare.se/siteassets/1.-rad-och-stod/kollektivavtal/skrsobona/hok-25---avtalstexter/bilaga-2-bilaga-m.pdf) preciseras riktmärket: 104 timmar per heltidsanställd och verksamhetsår.
+
+I teorin.
 
 Vad som står på ett papper (i det här fallet i ett avtal och i en lag) är dock inte värt särskilt mycket om det inte genomförs i praktiken.
 
