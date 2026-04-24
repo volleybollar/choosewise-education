@@ -15,7 +15,7 @@
         "Suggest three ways for a district-level IT manager to streamline [specific process, e.g. device management] across multiple schools, with one solution for each and a budget justification.",
         "Create a list of five short strategies for a district IT manager to handle [specific technical issue, e.g. network stability] across multiple school units, with one action for each.",
         "Give me an example of a routine for a district-level IT manager to update [specific system, e.g. student records] across the entire organisation, with three steps and a plan for informing school leaders.",
-        "Suggest three ways for a district IT manager to collaborate with school principals to prioritise [specific IT project, e.g. AI tools], with one strategy for each and a link to Lgr 22.",
+        "Suggest three ways for a district IT manager to collaborate with school principals to prioritise [specific IT project, e.g. AI tools], with one strategy for each and a link to [reference to current curriculum].",
         "Create a plan for a district-level IT manager to troubleshoot and resolve [specific issue, e.g. slow connectivity] across multiple schools, with three steps and a communication strategy.",
         "Give me five ideas for a district IT manager to streamline [specific process, e.g. login management] across the organisation, with one solution for each and a time-saving effect.",
         "Write a short template for a district-level IT manager to use when documenting technical issues and solutions across multiple schools, with three sections (issue, action, follow-up).",
@@ -48,7 +48,7 @@
         "Suggest three ways for a district IT manager to coordinate [specific IT project, e.g. fibre connectivity] with the municipality's technical department, with one idea for each.",
         "Write a short guide for a district-level IT manager to troubleshoot [specific issue, e.g. server problems] across multiple schools, with three steps and a plan for reporting to school leadership.",
         "Give me an example of how a district IT manager can use [specific tool, e.g. Google Workspace] to streamline [specific task, e.g. document sharing], with three steps.",
-        "Create a list of three short ways for a district-level IT manager to use [specific tool, e.g. Microsoft Intune] to manage [specific task, e.g. device control], with one suggestion for each and a link to Lgr 22."
+        "Create a list of three short ways for a district-level IT manager to use [specific tool, e.g. Microsoft Intune] to manage [specific task, e.g. device control], with one suggestion for each and a link to [reference to current curriculum]."
       ]
     }
   ]
