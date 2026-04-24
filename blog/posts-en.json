@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "slug": "why-i-built-choosewise-education",
+    "title": "Why I built choosewise.education",
+    "date": "2026-04-24",
+    "reading_time": "2 min read",
+    "cover_image": "/blog/posts/assets/wise-launch.webp",
+    "og_image": "/blog/posts/assets/wise-launch-og.jpg",
+    "excerpt": "A new site, a new framework, and a stack of free, practical material for the people who actually run schools."
+  }
+]
