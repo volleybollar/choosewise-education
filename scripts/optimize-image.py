@@ -18,6 +18,9 @@ Common use cases:
     # Replace the original after a successful conversion
     python3 scripts/optimize-image.py image.png --remove-original
 
+    # Also produce a 1200×630 OG image for social sharing (saved as <basename>-og.jpg)
+    python3 scripts/optimize-image.py image.png --og
+
 Defaults:
     width    = 1600 (max; never enlarges)
     quality  = 82
@@ -41,8 +44,24 @@ except ImportError:
 SUPPORTED_INPUT = {".png", ".jpg", ".jpeg"}
 
 
+def og_crop(img: "Image.Image", w: int = 1200, h: int = 630) -> "Image.Image":
+    """Center-crop an image to the LinkedIn/Facebook OG aspect (1.91:1) and resize."""
+    src_w, src_h = img.size
+    target_aspect = w / h
+    src_aspect = src_w / src_h
+    if src_aspect > target_aspect:
+        new_w = int(round(src_h * target_aspect))
+        left = (src_w - new_w) // 2
+        cropped = img.crop((left, 0, left + new_w, src_h))
+    else:
+        new_h = int(round(src_w / target_aspect))
+        top = (src_h - new_h) // 2
+        cropped = img.crop((0, top, src_w, top + new_h))
+    return cropped.resize((w, h), Image.LANCZOS)
+
+
 def optimize(src: Path, *, widths: list[int], quality: int, force: bool,
-             remove_original: bool) -> int:
+             remove_original: bool, og: bool = False) -> int:
     """Convert one image. Returns total bytes written across all generated WebPs."""
     img = Image.open(src)
     # Drop alpha for JPEGs that have it; preserve for PNGs (WebP handles both)
@@ -76,6 +95,17 @@ def optimize(src: Path, *, widths: list[int], quality: int, force: bool,
         total_out += out.stat().st_size
         outputs.append(out)
         print(f"  ✓ {out.name} → {target_w}×{target_h}, {out.stat().st_size / 1024:.1f} KB")
+
+    if og:
+        # OG/Twitter share image: 1200×630 JPG, center-cropped from source
+        og_out = src.with_name(f"{src.stem}-og.jpg")
+        if og_out.exists() and not force and og_out.stat().st_mtime >= src.stat().st_mtime:
+            print(f"  skip {og_out.name} (already up to date — use --force to redo)")
+        else:
+            og_img = og_crop(img.convert("RGB"))
+            og_img.save(og_out, "JPEG", quality=85, optimize=True, progressive=True)
+            total_out += og_out.stat().st_size
+            print(f"  ✓ {og_out.name} → 1200×630, {og_out.stat().st_size / 1024:.1f} KB")
 
     saved = src_size - total_out
     pct = 100 * saved / src_size if src_size else 0
@@ -118,6 +148,8 @@ def main() -> None:
                     help="Re-convert even if .webp already exists and is newer.")
     ap.add_argument("--remove-original", action="store_true",
                     help="Delete the source PNG/JPG after successful conversion.")
+    ap.add_argument("--og", action="store_true",
+                    help="Also generate <basename>-og.jpg at 1200×630 for LinkedIn/X social sharing.")
     args = ap.parse_args()
 
     if not args.path.exists():
@@ -138,7 +170,8 @@ def main() -> None:
         rel = src.relative_to(args.path.parent if args.path.is_file() else args.path)
         print(f"{rel}")
         grand_total += optimize(src, widths=widths, quality=args.quality,
-                                force=args.force, remove_original=args.remove_original)
+                                force=args.force, remove_original=args.remove_original,
+                                og=args.og)
         print()
 
     print(f"Done. Total output: {grand_total / 1024:.1f} KB across {len(targets)} source file(s).")
