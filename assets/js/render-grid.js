@@ -64,7 +64,7 @@ const TEMPLATES = {
 
   /* Blog post preview */
   'blog-post': (item) => `
-    <a class="card card--post" href="/blog/post.html?slug=${encodeURIComponent(item.slug)}">
+    <a class="card card--post" href="${IS_SV ? '/sv/blog/post.html' : '/blog/post.html'}?slug=${encodeURIComponent(item.slug)}">
       ${item.cover_image ? `<div class="card__image"><img src="${item.cover_image}" alt="" loading="lazy"></div>` : ''}
       <div class="card__body">
         <span class="card__meta">${item.date}</span>
