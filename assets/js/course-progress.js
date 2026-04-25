@@ -14,7 +14,7 @@
 //   CourseProgress.markDone(modIndex)
 //   CourseProgress.reset()
 //   CourseProgress.renderTopbar(containerEl, currentMod)
-//   CourseProgress.renderOverview(containerEl, currentMod)
+//   CourseProgress.renderOverview(containerEl)
 
 (function (global) {
   const TOTAL_MODULES = 7;
@@ -75,6 +75,7 @@
       STORAGE_KEY = `presentationsteknik-${LANG}-progress`;
     },
 
+    // Returns a fresh array each call (callers cannot mutate stored state).
     getState() { return load(); },
 
     getStatus(modIndex) {
@@ -83,8 +84,16 @@
     },
 
     setCurrent(modIndex) {
-      const state = defaultProgress();
-      for (let i = 0; i < modIndex - 1; i++) state[i] = 'done';
+      const state = load();
+      // If the target is already marked done, don't downgrade it.
+      if (state[modIndex - 1] === 'done') return;
+      // Mark all earlier modules done (if they weren't already) so the
+      // progressionsbar renders consistently — but never touch modules
+      // *after* the target. A user revisiting an earlier module shouldn't
+      // lose their forward progress.
+      for (let i = 0; i < modIndex - 1; i++) {
+        if (state[i] !== 'done') state[i] = 'done';
+      }
       state[modIndex - 1] = 'current';
       save(state);
     },
@@ -103,7 +112,9 @@
        currentMod = which module is "you are here" on this page. */
     renderTopbar(containerEl, currentMod) {
       const state = load();
-      // mark currentMod as current in storage if not already
+      // Side effect: visiting a module page implicitly marks it as "current"
+      // in storage so the översiktsvyn (and other pages' topbars) reflect
+      // where the user is. Don't downgrade modules that are already "done".
       if (state[currentMod - 1] !== 'done') {
         state[currentMod - 1] = 'current';
         save(state);
@@ -123,10 +134,14 @@
         }
         dot.href = urls[i];
         dot.title = `Modul ${mod} — ${titles[i]}`;
+        dot.setAttribute('aria-label', `Modul ${mod}: ${titles[i]}`);
         dot.textContent = mod;
         containerEl.appendChild(dot);
 
         if (i < TOTAL_MODULES - 1) {
+          // Connector line lights up green ("done") when its left-side dot is
+          // done. This gives the visual sense of progression flowing left to
+          // right through completed material.
           const line = document.createElement('span');
           line.className = 'module-topbar__progress-line';
           if (status === 'done') line.classList.add('module-topbar__progress-line--done');
@@ -137,7 +152,7 @@
 
     /* Renders the bigger 28px progressionsstege on översiktsvyn.
        containerEl has class "course-progress". */
-    renderOverview(containerEl, currentMod) {
+    renderOverview(containerEl) {
       const state = load();
       const titles = MODULE_TITLES[LANG];
       const urls = MODULE_URLS[LANG];
@@ -155,6 +170,7 @@
         if (status === 'current') dot.classList.add('course-progress__dot--current');
         dot.href = urls[i];
         dot.title = `Modul ${mod} — ${titles[i]}`;
+        dot.setAttribute('aria-label', `Modul ${mod}: ${titles[i]}`);
         dot.textContent = mod;
         step.appendChild(dot);
         containerEl.appendChild(step);
