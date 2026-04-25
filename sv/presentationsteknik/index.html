@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Presentationsteknik — choosewise.education</title>
-  <meta name="description" content="En interaktiv kurs i presentationsteknik för lärare och skolledare. Kommer snart.">
+  <meta name="description" content="En interaktiv kurs i presentationsteknik för lärare, skolledare och alla som håller presentationer. Sju moduler, fritt nedladdningsbar sammanfattning.">
   <meta property="og:title" content="Presentationsteknik — choosewise.education">
-  <meta property="og:description" content="En interaktiv kurs i presentationsteknik för lärare och skolledare. Kommer snart.">
+  <meta property="og:description" content="En interaktiv kurs i presentationsteknik för lärare, skolledare och alla som håller presentationer.">
   <meta property="og:image" content="/assets/images/brand/og-default.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://choosewise.education/sv/presentationsteknik/">
   <link rel="stylesheet" href="/assets/css/fonts.css">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
@@ -18,10 +20,113 @@
   <div data-include="/assets/partials/header-sv.html"></div>
 
   <main>
+    <!-- Sidans hero: eyebrow + h1 + lede, samma mönster som RÄTT-modellen,
+         AI-Guider, etc. -->
     <section class="page-hero container">
       <span class="eyebrow" data-reveal>Presentationsteknik</span>
-      <h1 data-reveal>Under konstruktion.</h1>
-      <p class="lede" data-reveal>En interaktiv kurs i presentationsteknik för lärare och skolledare är på gång. Gå hela kursen från början till slut, eller plocka de delar du är intresserad av. En nedladdningsbar sammanfattning publiceras tillsammans med kursen.</p>
+      <h1 data-reveal>Sju moduler som flyttar din presentationsteknik framåt.</h1>
+      <p class="lede" data-reveal>Från varför, via diabilder och framförande, till röst och kropp. Gå hela kursen i ordning, eller hoppa direkt in i den del du behöver. Allt sparas lokalt i din webbläsare — inga konton, ingen e-post, inga spår.</p>
+    </section>
+
+    <!-- Stora progress-stegen — fylls i av course-progress.js -->
+    <section class="container" style="padding-top: var(--space-4); padding-bottom: var(--space-4);">
+      <nav class="course-progress" id="course-overview-progress" aria-label="Kursprogression"></nav>
+    </section>
+
+    <!-- Modulkort i grid -->
+    <section class="container section">
+      <div class="module-grid">
+
+        <a class="module-card" data-mod="1" href="/sv/presentationsteknik/modul-1/">
+          <div class="module-card__head">
+            <span class="module-card__num">01</span>
+            <span class="module-card__status" data-status></span>
+          </div>
+          <h2 class="module-card__title">Varför presentationsteknik?</h2>
+          <p class="module-card__desc">Sineks Golden Circle, ditt varför, logik vs känslor — fundamentet som allt annat vilar på.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 5 min</span>
+          </div>
+        </a>
+
+        <a class="module-card" data-mod="2" href="/sv/presentationsteknik/modul-2/">
+          <div class="module-card__head">
+            <span class="module-card__num">02</span>
+            <span class="module-card__status" data-status></span>
+          </div>
+          <h2 class="module-card__title">Designa diabilder — grunderna</h2>
+          <p class="module-card__desc">Ett budskap per slide, max 6 objekt, färg, typografi, blickstyrning. Reglerna som gör all skillnad.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 10 min</span>
+            <span class="module-card__meta-item module-card__deepdive-tag">+ Fördjupning</span>
+          </div>
+        </a>
+
+        <a class="module-card" data-mod="3" href="/sv/presentationsteknik/modul-3/">
+          <div class="module-card__head">
+            <span class="module-card__num">03</span>
+            <span class="module-card__status" data-status></span>
+          </div>
+          <h2 class="module-card__title">När diabilden krockar med dig</h2>
+          <p class="module-card__desc">Texttunga slides, punktlistor, tabeller, mallar, animeringar — och vad du gör istället.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 8 min</span>
+            <span class="module-card__meta-item module-card__deepdive-tag">+ Fördjupning</span>
+          </div>
+        </a>
+
+        <a class="module-card" data-mod="4" href="/sv/presentationsteknik/modul-4/">
+          <div class="module-card__head">
+            <span class="module-card__num">04</span>
+            <span class="module-card__status" data-status></span>
+          </div>
+          <h2 class="module-card__title">Framförandet — närvaro i rummet</h2>
+          <p class="module-card__desc">Blicken, pausen, utfyllnadsljud, props, berättelser. Hur du blir personen i rummet.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 10 min</span>
+            <span class="module-card__meta-item module-card__deepdive-tag">+ Fördjupning</span>
+          </div>
+        </a>
+
+        <a class="module-card" data-mod="5" href="/sv/presentationsteknik/modul-5/">
+          <div class="module-card__head">
+            <span class="module-card__num">05</span>
+            <span class="module-card__status" data-status></span>
+          </div>
+          <h2 class="module-card__title">Digitala presentationer</h2>
+          <p class="module-card__desc">Vad är annorlunda när du presenterar via skärm? Kamera, ljud, ögonkontakt, pausstrategi.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 8 min</span>
+            <span class="module-card__meta-item module-card__deepdive-tag">+ Fördjupning</span>
+          </div>
+        </a>
+
+        <a class="module-card" data-mod="6" href="/sv/presentationsteknik/modul-6/">
+          <div class="module-card__head">
+            <span class="module-card__num">06</span>
+            <span class="module-card__status" data-status></span>
+          </div>
+          <h2 class="module-card__title">Röst, kropp och språk</h2>
+          <p class="module-card__desc">Träningsmetaforen, essensen av kropp, röst och retorik. För dig som vill längre.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 12 min</span>
+            <span class="module-card__meta-item module-card__deepdive-tag">+ Fördjupning</span>
+          </div>
+        </a>
+
+        <a class="module-card" data-mod="7" href="/sv/presentationsteknik/modul-7/">
+          <div class="module-card__head">
+            <span class="module-card__num">07</span>
+            <span class="module-card__status" data-status></span>
+          </div>
+          <h2 class="module-card__title">Din checklista</h2>
+          <p class="module-card__desc">Sammanfattning, reflektion och nedladdningsbar PDF-sammanfattning av kursen.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 5 min</span>
+          </div>
+        </a>
+
+      </div>
     </section>
   </main>
 
@@ -29,5 +134,34 @@
 
   <script defer src="/assets/js/include.js"></script>
   <script defer src="/assets/js/scroll-reveals.js"></script>
+  <script defer src="/assets/js/course-progress.js"></script>
+  <script defer>
+    // Initialiserar progressionsstegen + status-badges på kortet, drivet
+    // av CourseProgress (som läser från localStorage).
+    document.addEventListener('DOMContentLoaded', () => {
+      CourseProgress.init('sv');
+      CourseProgress.renderOverview(
+        document.getElementById('course-overview-progress')
+      );
+      // Sätt status på varje modulkort utifrån sparat tillstånd
+      const state = CourseProgress.getState();
+      document.querySelectorAll('.module-card[data-mod]').forEach(card => {
+        const mod = parseInt(card.dataset.mod, 10);
+        const status = state[mod - 1] || 'not-started';
+        const statusEl = card.querySelector('[data-status]');
+        if (status === 'done') {
+          card.classList.add('module-card--done');
+          statusEl.classList.add('module-card__status--done');
+          statusEl.textContent = '✓ Klar';
+        } else if (status === 'current') {
+          card.classList.add('module-card--current');
+          statusEl.classList.add('module-card__status--current');
+          statusEl.textContent = '● Pågår';
+        } else {
+          statusEl.textContent = 'Ej startad';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
