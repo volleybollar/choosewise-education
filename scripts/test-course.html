@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Course JS — smoke tests</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; padding: 2rem; max-width: 700px; margin: auto; }
+    .test { padding: 0.5rem; border-bottom: 1px solid #eee; }
+    .pass { color: green; } .fail { color: red; font-weight: 600; }
+    h1 { font-size: 1.4rem; }
+    button { padding: 0.5rem 1rem; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Course JS — smoke tests</h1>
+  <p>Detta exekverar både <code>course-progress.js</code> och <code>course-exercises.js</code>.</p>
+  <div id="results"></div>
+  <button onclick="localStorage.clear(); location.reload();">Reset all storage + rerun</button>
+
+  <!-- Hidden test fixtures -->
+  <div id="topbar-container" class="module-topbar__progress" style="display:none"></div>
+  <div id="overview-container" class="course-progress" style="display:none"></div>
+  <form data-exercise="test-key" style="display:none">
+    <textarea>initial</textarea>
+    <button type="submit">save</button>
+    <p class="exercise__feedback"></p>
+  </form>
+
+  <script src="../assets/js/course-progress.js"></script>
+  <script src="../assets/js/course-exercises.js"></script>
+  <script>
+    const results = document.getElementById('results');
+    function test(name, fn) {
+      const div = document.createElement('div');
+      div.className = 'test';
+      try {
+        fn();
+        div.innerHTML = `<span class="pass">✓</span> ${name}`;
+      } catch (e) {
+        div.innerHTML = `<span class="fail">✗</span> ${name}<br><small>${e.message}</small>`;
+      }
+      results.appendChild(div);
+    }
+    function assert(cond, msg) { if (!cond) throw new Error(msg || 'assertion failed'); }
+
+    // === CourseProgress tests ===
+    localStorage.clear();
+    CourseProgress.init('sv');
+
+    test('default state is 7 × not-started', () => {
+      const state = CourseProgress.getState();
+      assert(state.length === 7, 'length 7');
+      assert(state.every(s => s === 'not-started'), 'all not-started');
+    });
+
+    test('setCurrent(3) → modules 1,2 done; 3 current; 4-7 not-started', () => {
+      CourseProgress.setCurrent(3);
+      const s = CourseProgress.getState();
+      assert(s[0] === 'done' && s[1] === 'done', 'first two done');
+      assert(s[2] === 'current', 'third current');
+      assert(s.slice(3).every(x => x === 'not-started'), '4-7 not-started');
+    });
+
+    test('setCurrent preserves forward "done" state', () => {
+      // Set up: modules 1-5 done, 6 current
+      CourseProgress.reset();
+      CourseProgress.markDone(1);
+      CourseProgress.markDone(2);
+      CourseProgress.markDone(3);
+      CourseProgress.markDone(4);
+      CourseProgress.markDone(5);
+      CourseProgress.setCurrent(6);
+      // Now navigate back to module 3
+      CourseProgress.setCurrent(3);
+      const s = CourseProgress.getState();
+      // Modules 4 and 5 should NOT have been wiped back to "not-started"
+      assert(s[3] === 'done', `expected modul 4 still done, got ${s[3]}`);
+      assert(s[4] === 'done', `expected modul 5 still done, got ${s[4]}`);
+    });
+
+    test('setCurrent does nothing if target is already done', () => {
+      CourseProgress.reset();
+      CourseProgress.markDone(3);
+      CourseProgress.setCurrent(3);
+      // Module 3 should remain done, not become "current"
+      assert(CourseProgress.getStatus(3) === 'done', 'modul 3 stays done');
+    });
+
+    test('markDone(3) → module 3 becomes done', () => {
+      CourseProgress.reset();
+      CourseProgress.markDone(3);
+      assert(CourseProgress.getStatus(3) === 'done');
+    });
+
+    test('reset() clears progress', () => {
+      CourseProgress.reset();
+      assert(CourseProgress.getState().every(s => s === 'not-started'));
+    });
+
+    test('renderTopbar produces 7 dots + 6 lines', () => {
+      const container = document.getElementById('topbar-container');
+      CourseProgress.reset();
+      CourseProgress.renderTopbar(container, 2);
+      const dots = container.querySelectorAll('.module-topbar__progress-dot');
+      const lines = container.querySelectorAll('.module-topbar__progress-line');
+      assert(dots.length === 7, `expected 7 dots, got ${dots.length}`);
+      assert(lines.length === 6, `expected 6 lines, got ${lines.length}`);
+      assert(dots[1].classList.contains('module-topbar__progress-dot--current'),
+        'modul 2 dot has current class');
+      assert(dots[1].getAttribute('aria-current') === 'page', 'modul 2 has aria-current');
+      assert(dots[1].getAttribute('aria-label') === 'Modul 2: Designa diabilder — grunderna',
+        'modul 2 dot has aria-label');
+    });
+
+    test('renderOverview produces 7 dots + 6 lines', () => {
+      const container = document.getElementById('overview-container');
+      CourseProgress.renderOverview(container);
+      assert(container.querySelectorAll('.course-progress__dot').length === 7);
+      assert(container.querySelectorAll('.course-progress__line').length === 6);
+    });
+
+    test('renderOverview wraps each dot in __step', () => {
+      const container = document.getElementById('overview-container');
+      assert(container.querySelectorAll('.course-progress__step').length === 7);
+    });
+
+    // === CourseExercises tests ===
+    test('exercise form pre-loads stored answer', () => {
+      localStorage.setItem('presentationsteknik-sv-exercise-test-key', 'preloaded');
+      CourseExercises.init();
+      const ta = document.querySelector('form[data-exercise="test-key"] textarea');
+      assert(ta.value === 'preloaded', `expected 'preloaded', got '${ta.value}'`);
+    });
+
+    test('exercise form persists on submit', () => {
+      const form = document.querySelector('form[data-exercise="test-key"]');
+      const ta = form.querySelector('textarea');
+      ta.value = 'newvalue';
+      form.dispatchEvent(new Event('submit'));
+      const stored = localStorage.getItem('presentationsteknik-sv-exercise-test-key');
+      assert(stored === 'newvalue', `expected 'newvalue', got '${stored}'`);
+    });
+
+    localStorage.clear();
+  </script>
+</body>
+</html>
