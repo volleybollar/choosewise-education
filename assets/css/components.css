@@ -302,3 +302,143 @@
 .modal__close:hover { color: var(--color-text); }
 .modal__success { display: none; text-align: center; padding: var(--space-4); }
 .modal__success--visible { display: block; }
+
+/* ───── Course progress (presentationsteknik) ─────
+   Två varianter:
+   1. .course-progress: stor numrerad stege på översiktsvyn (28px).
+   2. .module-topbar:   sticky bar på modul + fördjupningssidor (24px).
+
+   Färgkodning:
+   - default (ej startad)            : grå border, --color-text-soft text
+   - --done                          : forest green bakgrund + dark text
+   - --current (aria-current="page") : terracotta + soft glow */
+
+/* === Sticky topbar (på modul + fördjupningssidor) === */
+.module-topbar {
+  position: sticky;
+  top: var(--nav-height, 60px);
+  z-index: 10;
+  background: var(--color-bg-blur);
+  backdrop-filter: saturate(150%) blur(16px);
+  -webkit-backdrop-filter: saturate(150%) blur(16px);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-3) 0;
+}
+.module-topbar__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  font-size: 0.875rem;
+}
+.module-topbar__crumb { color: var(--color-text-soft); }
+.module-topbar__crumb a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+.module-topbar__crumb a:hover { text-decoration: underline; }
+
+.module-topbar__progress {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* === Stora steget (översiktsvy) === */
+.course-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.course-progress__step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* === Gemensamma cirklar (storleksvarianter) === */
+.course-progress__dot,
+.module-topbar__progress-dot {
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 500;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-soft);
+  background: var(--color-bg);
+  text-decoration: none;
+  transition: transform var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+  flex-shrink: 0;
+}
+.course-progress__dot {           /* stor — översikt */
+  width: 28px; height: 28px;
+  font-size: 0.85rem;
+}
+.module-topbar__progress-dot {    /* mindre — sticky topbar */
+  width: 24px; height: 24px;
+  font-size: 0.75rem;
+}
+
+/* Hover-state (klickbara) */
+.course-progress__dot:hover,
+.module-topbar__progress-dot:hover {
+  transform: scale(1.1);
+  border-color: var(--color-accent);
+}
+
+/* "Klar"-state */
+.course-progress__dot--done,
+.module-topbar__progress-dot--done {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-dark-text);
+}
+
+/* "Du är här"-state */
+.course-progress__dot--current,
+.module-topbar__progress-dot--current {
+  background: var(--color-highlight);
+  border-color: var(--color-highlight);
+  color: var(--color-dark-text);
+}
+.course-progress__dot--current { box-shadow: 0 0 0 4px rgba(198, 107, 61, 0.15); }
+.module-topbar__progress-dot--current { box-shadow: 0 0 0 3px rgba(198, 107, 61, 0.15); }
+
+/* Linjer mellan cirklarna */
+.course-progress__line {
+  width: 28px; height: 1.5px;
+  background: var(--color-border);
+}
+.module-topbar__progress-line {
+  width: 18px; height: 1.5px;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+.course-progress__line--done,
+.module-topbar__progress-line--done {
+  background: var(--color-accent);
+}
+
+/* Mobil-anpassning av sticky topbar */
+@media (max-width: 720px) {
+  .module-topbar__progress-line { display: none; }
+  .module-topbar__progress { gap: 4px; }
+  .module-topbar__progress-dot {
+    width: 22px; height: 22px;
+    font-size: 0.7rem;
+  }
+}
+
+/* Reduced motion: stäng av glow-puls om den läggs till senare */
+@media (prefers-reduced-motion: reduce) {
+  .course-progress__dot--current,
+  .module-topbar__progress-dot--current { animation: none !important; }
+}
