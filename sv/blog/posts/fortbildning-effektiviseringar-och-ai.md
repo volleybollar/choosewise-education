@@ -27,12 +27,14 @@ Vad som står i texterna (skollagen och huvudöverenskommelsen) är dock inte v�
 
 Så kommer vi till nutid. Teknikutvecklingen har kommit så långt att vi har tillgång till verktyg som — rätt använda — kan effektivisera mer än något annat verktyg tidigare i människans historia. Vad gör politikerna då?
 
-Politikerna beslutar att AI kopplat till skolan inte ska styras på nationell nivå.
+Politikerna beslutar att AI kopplat till skolan inte ska styras på nationell nivå, då de bestämt sig för att digitalisering är dåligt.
 
 Konsekvensen är att Sveriges 290 kommunala skolhuvudmän, plus samtliga fristående skolhuvudmän, ska hantera allt som rör AI själva — utan nationellt stöd. Otroligt mycket resurser slösas på att göra exakt samma arbete hos varje skolhuvudman (i det här fallet: att tolka, förstå och leva upp till EU:s AI-förordning).
 
 Vi såg exakt samma sak när GDPR började gälla år 2018. 100 000-tals timmar lades ner på att göra exakt samma arbete överallt — tolka, förstå och leva upp till GDPR. Resurser som hade kunnat gå till undervisning, fortbildning och skolutveckling gick istället åt till att varje huvudman själv skulle uppfinna samma hjul. Vi behöver inte hundratals mer eller mindre identiska hjul som uppfinns på olika platser, vi behöver genomtänkta processer som underlättar för skolhuvudmän och som gör arbetssituationen hållbar för lärare.
 
 När vi behöver använda befintliga resurser så effektivt som möjligt dränerar vi dem alltså, i stället, genom att inte erbjuda stöd på nationell nivå. Det är ett systemfel — inte en olyckshändelse.
+
+> Eleverna som går i skolan förtjänar bättre än vuxna som polariserar något så viktigt som skolan för att de vuxna ska "vinna en debatt"!
 
 Att fortsätta på den inslagna vägen kommer att göra problemet ännu större framöver, så vi behöver hitta lösningar nu, inte sen.
