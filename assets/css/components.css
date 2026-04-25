@@ -683,3 +683,286 @@
   font-size: 0.875rem;
   color: var(--color-text-soft);
 }
+
+/* ───── Sida-vid-sida-figurer (för- och efter-jämförelser) ───── */
+.figure-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-block: var(--space-5);
+}
+.figure-pair .module-figure { margin: 0; }
+@media (max-width: 720px) {
+  .figure-pair { grid-template-columns: 1fr; }
+}
+
+/* ───── 2x2-grid för bakgrundsjämförelser i modul 2 ───── */
+.bg-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-block: var(--space-5);
+}
+.bg-grid .module-figure { margin: 0; }
+@media (max-width: 520px) {
+  .bg-grid { grid-template-columns: 1fr; }
+}
+
+/* ───── Digit-memory exercise (modul 1: 15 siffror i 5 sek) ───── */
+.digit-memory__intro,
+.digit-memory__viewer,
+.digit-memory__input,
+.digit-memory__result {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.digit-memory__intro-text { margin: 0; }
+.digit-memory__best {
+  font-size: 0.95rem;
+  color: var(--color-text-soft);
+  margin: 0;
+}
+.digit-memory__start,
+.digit-memory__check,
+.digit-memory__restart {
+  align-self: flex-start;
+}
+.digit-memory__progress {
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.digit-memory__progress-bar {
+  height: 100%;
+  width: 100%;
+  background: var(--color-accent);
+}
+.digit-memory__digits {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-align: center;
+  background: #000;
+  color: #fff;
+  padding: var(--space-7) var(--space-4);
+  border-radius: var(--radius-md, 8px);
+  user-select: none;
+}
+.digit-memory__prompt {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin: 0;
+}
+.digit-memory__textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  background: var(--color-bg);
+  resize: vertical;
+}
+.digit-memory__score {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-accent);
+  line-height: 1;
+}
+.digit-memory__verdict {
+  font-size: 1.05rem;
+  text-align: center;
+  margin: 0;
+}
+.digit-memory__compare {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-2) var(--space-4);
+  align-items: center;
+  margin: 0;
+  padding: var(--space-4);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-sm);
+}
+.digit-memory__compare dt {
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.digit-memory__compare dd { margin: 0; }
+.digit-memory__digits-small {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+@media (max-width: 520px) {
+  .digit-memory__score { font-size: 2.75rem; }
+}
+
+/* ───── Memory exercise (modul 1: 10 bilder à 2s + 10 par-test) ───── */
+.memory__intro,
+.memory__viewer,
+.memory__test,
+.memory__result {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.memory__intro-text {
+  margin: 0;
+}
+.memory__intro-best,
+.memory__best {
+  font-size: 0.95rem;
+  color: var(--color-text-soft);
+  margin: 0;
+}
+.memory__start,
+.memory__restart {
+  align-self: flex-start;
+}
+.memory__progress {
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.memory__progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--color-accent);
+  transition: width 0.4s linear;
+}
+.memory__count {
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+  letter-spacing: 0.04em;
+}
+.memory__stage {
+  background: #000;
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  min-height: 240px;
+  overflow: hidden;
+}
+.memory__img,
+.memory__pair {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+.memory__prompt {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin: 0;
+  text-align: center;
+}
+.memory__choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+.memory__choice {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  transition: background-color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+.memory__choice--left {
+  justify-content: flex-start;
+  text-align: left;
+}
+.memory__choice--right {
+  justify-content: flex-end;
+  text-align: right;
+}
+.memory__arrow {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+.memory__choice-label { flex: 0 0 auto; }
+.memory__choice--correct {
+  background: #1f7a3d;
+  border-color: #1f7a3d;
+  color: #fff;
+}
+.memory__choice--correct .memory__arrow { color: #fff; }
+.memory__choice--wrong {
+  background: #b8423a;
+  border-color: #b8423a;
+  color: #fff;
+}
+.memory__choice--wrong .memory__arrow { color: #fff; }
+
+/* Interstitial: instruktionsplatta mellan fas 1 (visning) och fas 2 (test) */
+.memory__interstitial {
+  background: #000;
+  color: #fff;
+  border-radius: var(--radius-md, 8px);
+  padding: var(--space-7) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+  min-height: 240px;
+  justify-content: center;
+}
+.memory__interstitial-text {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin: 0;
+  max-width: 36em;
+}
+.memory__interstitial-countdown {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-top: var(--space-3);
+  line-height: 1;
+}
+.memory__feedback {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--color-text-soft);
+  min-height: 1.2em;
+  margin: 0;
+}
+.memory__score {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-accent);
+  line-height: 1;
+}
+.memory__verdict {
+  font-size: 1.05rem;
+  margin: 0;
+  text-align: center;
+}
+@media (max-width: 520px) {
+  .memory__choices { grid-template-columns: 1fr; }
+  .memory__score { font-size: 2.75rem; }
+}

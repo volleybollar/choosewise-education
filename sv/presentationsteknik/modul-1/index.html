@@ -54,6 +54,37 @@
         <p>Det är en viktig observation, för den säger något om hur människor faktiskt fungerar: <strong>vi minns inte presentationer, vi minns vår upplevelse av dem</strong>. I praktiken betyder det att din uppgift som presentatör inte är att leverera information, utan att designa en upplevelse runt informationen.</p>
       </section>
 
+      <!-- Sektion 2b: Övning 1 — siffror i 5 sekunder -->
+      <section class="module-section">
+        <h2>Övning 1: Kommer du ihåg det du ser?</h2>
+        <p>Påståendet ovan är lätt att läsa förbi. Här får du själv testa det — först med siffror, sen med bilder.</p>
+
+        <div class="exercise">
+          <div class="exercise__label">Sifferminne · 30 sek</div>
+          <p class="exercise__prompt">Femton slumpmässiga siffror. Fem sekunder att lägga dem på minnet. Sen får du skriva ner det du minns.</p>
+          <div data-digit-memory data-count="15" data-duration="5"></div>
+        </div>
+      </section>
+
+      <!-- Sektion 2c: Övning 2 — minnestest med bilder (10 + 10 par) -->
+      <section class="module-section">
+        <h2>Övning 2: Kommer du ihåg det du ser?</h2>
+        <p>Samma fråga — men nu med bilder istället för siffror.</p>
+
+        <div class="exercise">
+          <div class="exercise__label">Bildminne · 1 min</div>
+          <p class="exercise__prompt">Tio bilder. Två sekunder per bild. Sedan testar vi om du kommer ihåg bilderna.</p>
+
+          <div data-memory-exercise
+               data-images="/assets/images/presentation-skills/slides/slide-minne-bild-01.jpg,/assets/images/presentation-skills/slides/slide-minne-bild-02.jpg,/assets/images/presentation-skills/slides/slide-minne-bild-03.jpg,/assets/images/presentation-skills/slides/slide-minne-bild-04.jpg,/assets/images/presentation-skills/slides/slide-minne-bild-05.jpg,/assets/images/presentation-skills/slides/slide-minne-bild-06.jpg,/assets/images/presentation-skills/slides/slide-minne-bild-07.jpg,/assets/images/presentation-skills/slides/slide-minne-bild-08.jpg,/assets/images/presentation-skills/slides/slide-minne-bild-09.jpg,/assets/images/presentation-skills/slides/slide-minne-bild-10.jpg"
+               data-pairs="/assets/images/presentation-skills/slides/slide-minne-par-01.jpg,/assets/images/presentation-skills/slides/slide-minne-par-02.jpg,/assets/images/presentation-skills/slides/slide-minne-par-03.jpg,/assets/images/presentation-skills/slides/slide-minne-par-04.jpg,/assets/images/presentation-skills/slides/slide-minne-par-05.jpg,/assets/images/presentation-skills/slides/slide-minne-par-06.jpg,/assets/images/presentation-skills/slides/slide-minne-par-07.jpg,/assets/images/presentation-skills/slides/slide-minne-par-08.jpg,/assets/images/presentation-skills/slides/slide-minne-par-09.jpg,/assets/images/presentation-skills/slides/slide-minne-par-10.jpg"
+               data-answers="L,L,R,R,R,R,L,L,L,R">
+          </div>
+        </div>
+
+        <p>Det är svårt att komma ihåg vad någon säger eller det man läser. Bilder däremot är hjärnan väldigt bra på att komma ihåg. Det ska du utnyttja — använd bilder som förstärker ditt budskap och minimera mängden text på de slides du visar.</p>
+      </section>
+
       <!-- Sektion 3: Sineks Golden Circle -->
       <section class="module-section">
         <h2>Sineks Golden Circle — börja med varför</h2>
@@ -111,6 +142,8 @@
   <script defer src="/assets/js/include.js"></script>
   <script defer src="/assets/js/course-progress.js"></script>
   <script defer src="/assets/js/course-exercises.js"></script>
+  <script defer src="/assets/js/course-digit-memory.js"></script>
+  <script defer src="/assets/js/course-memory-exercise.js"></script>
   <script defer>
     // Initierar topbarens progressionsbar för Modul 1, och markerar
     // modulen som "pågående" i localStorage om den inte redan är klar.

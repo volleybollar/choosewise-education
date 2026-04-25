@@ -1,75 +1,62 @@
-# Presentationsteknik — slide-leveransspec
+# Presentationsteknik — slide-leveransstatus
 
-**Plats där bilderna ska in:** `Ny JLSU hemsida/assets/images/presentation-skills/slides/`
+**Plats:** `Ny JLSU hemsida/assets/images/presentation-skills/slides/`
+
+> **Status 2026-04-25:** Johan levererade 40 slides från egen Keynote (`Presentationsteknik-webslides.001-040.jpeg`). 38 av dessa har integrerats i kursen. Två "ÖVNING"-divider-slides (003, 010) hoppades medvetet över — de fyller ingen funktion på webben där varje övning redan har egen styling.
+
+## Var bilderna används
+
+### Modul 1 — Varför presentationsteknik?
+**Minnesövning** (10 + 10 par)
+
+| Filnamn | Källa | Roll |
+|---|---|---|
+| `slide-minne-bild-01.jpg` … `-10.jpg` | Keynote 019–028 | 10 bilder som visas 2 sek per styck (fas 1) |
+| `slide-minne-par-01.jpg` … `-10.jpg` | Keynote 029–038 | 10 par-bilder, en sedd + en ej sedd (fas 2) |
+
+Svarsnyckeln (vilken sida i varje par är sedd) ligger inbakad i HTML:en på modul 1: `data-answers="L,L,R,R,R,R,L,L,L,R"`. Om du byter ut bilderna måste nyckeln uppdateras därefter.
+
+### Modul 2 — Designa diabilder
+| Filnamn | Källa | Var i modulen |
+|---|---|---|
+| `slide-bakgrund-1.jpg`–`-4.jpg` | Keynote 004–007 | Sektion "Färg och kontrast" — 2×2-grid av bakgrundsval |
+| `slide-projektor.jpg` | Keynote 008 | Sektion "Färg och kontrast" — vit bg "tar bort fokus" |
+| `slide-langd.jpg` | Keynote 009 | Sektion "Färg och kontrast" — svart bg "fokus på dig" |
+| `slide-dalig-kontrast.jpg` | Keynote 013 | Sektion "Färg och kontrast" — split mörkblå/vit på svart |
+| `slide-rubrik-storlek.jpg` | Keynote 012 | Sektion "Typografi" — rubriken behöver inte vara störst |
+| `slide-font-serif.jpg` | Keynote 040 | Sektion "Typografi" — serif vs sans |
+| `slide-styra-blicken.jpg` | Keynote 039 | Sektion "Styr blicken med färg" — luftballong i färg |
+| `slide-textmur-fore.jpg` | Keynote 001 | Övning (reveal-on-click) — också i modul 3 |
+| `slide-textmur-efter.jpg` | Keynote 002 | Övning (reveal-on-click) — också i modul 3 |
+
+### Modul 3 — När diabilden krockar med dig
+| Filnamn | Källa | Var i modulen |
+|---|---|---|
+| `slide-prickar.jpg` | Keynote 011 | Sektion "Räkna prickarna" — Gestalt-demo |
+| `slide-textmur-fore.jpg` | Keynote 001 | Sektion "Textmuren" — ohighlightad |
+| `slide-textmur-efter.jpg` | Keynote 002 | Sektion "Textmuren" — highlightad |
+| `slide-bilder-vs-bullets.jpg` | Keynote 014 | Sektion "Punktlistans dilemma" — frukt-grid |
+| `slide-tabell-full.jpg` | Keynote 015 | Sektion "Tabeller" — full kontrast på allt |
+| `slide-tabell-tonad.jpg` | Keynote 016 | Sektion "Tabeller" — fokus på en kolumn, resten dimmade |
+| `slide-skrikig.jpg` | Keynote 018 | Sektion "Mallar, animeringar" — överbelastat extremfall |
+| `slide-bildkvalitet.jpg` | Keynote 017 | Sektion "Bildkvalitet" — skarp vs suddig blomma |
 
 ## Format
 
 | Spec | Värde |
 |---|---|
-| Filformat | **JPG** (Keynote: Arkiv → Exportera till → Bilder → JPG, kvalitet "Bra" eller "Bästa") |
-| Upplösning | **1920 × 1080 px** (Keynotes 16:9-standard) |
-| Branding | **Inga Advania-loggor**, inga sidnummer från mallar, inga datum-/footer-element |
-| Filnamn | **Exakt** enligt listan nedan (case-sensitive, bindestreck, inga mellanslag) |
+| Filformat | JPG (Keynote-export, kvalitet "Bra"/"Bästa") |
+| Upplösning | ~1920×1080 (Keynote 16:9) |
+| Branding | Inga Advania-loggor, inga sidnummer, inga datum/footer |
+| Filnamn | Exakt enligt listorna ovan (case-sensitive, bindestreck, inga mellanslag) |
 
-Förslag på arbetsflöde: skapa en ny Keynote-fil (kalla den `presentationsteknik-webslides.key`) — kopiera in originalslidesen som ska användas, skapa nya för makeover-paren, ta bort allt Advania-chrome, och exportera hela presentationen i ett svep. Då blir filnamnen sekventiella och du döper bara om dem efter exporten.
+## Kvarvarande leveranser
 
-## Bilder som behövs (19 stycken)
-
-### A. Direktöverförda slides från Keynote del 1 *(5 st — du har dem redan, ta bara bort Advania-loggan)*
-
-| Filnamn | Original (slide #) | Beskrivning |
-|---|---|---|
-| `slide-040-prickar.jpg` | Del 1, slide ~40 | 11 utspridda turkosa prickar på svart bakgrund — Gestalt-övning, "räkna prickarna" |
-| `slide-060-laroplan-textmur.jpg` | Del 1, slide 60 | Hela paragrafen om "En likvärdig utbildning" från läroplanen, vit text på svart bakgrund |
-| `slide-080-punktlistor.jpg` | Del 1, slide ~80 | Bullet-list "Kort text om apelsiner / citroner / äpplen / ananas" — exempel på meningslös punktlista |
-| `slide-200-hp-lenovo.jpg` | Del 1, slide ~200 | Tabellen med HP / Lenovo / Acer / Asus och prissiffror för fyra modeller |
-| `slide-269-tiger.jpg` | Del 1, slide ~269 | Lågupplöst, pixlig tiger-bild — exempel på dålig bildkvalitet |
-
-### B. Modul 2:s "reveal-on-click"-övning *(2 st — nya slides du designar)*
-
-Två slides som visar samma innehåll men i olika kvalitet. Användaren klickar för att toggla mellan dem.
-
-| Filnamn | Beskrivning |
-|---|---|
-| `slide-modul2-fore.jpg` | "Före": en typisk dålig slide — fyra bullet-punkter under en rubrik, kanske något i stil med fyra punkter om "AI i undervisningen" eller liknande tema |
-| `slide-modul2-efter.jpg` | "Efter": samma budskap men byggt om till **ett enda kärnbudskap** som tar fokus — t ex en stor mening i mitten av sliden eller ett enda nyckelord i versaler |
-
-Tänk på det som en läroexempel — det "efter"-slidet ska ha en tydligt synlig poäng som blir minnesvärd inom 3 sekunder.
-
-### C. Makeover-galleri (modul 3 fördjupning) *(12 st — nya composite-slides)*
-
-Varje makeover är **en slide som visar både "före" och "efter" sida vid sida** (vänster halva = före, höger halva = efter, med ett "→" eller liknande visuell separator). Användaren ser hela paret på en gång.
-
-Spec per slide: 1920×1080, två "halv-slides" inuti vilket gör varje halva ca 900×900 px med marginal mellan dem. Lägg gärna en liten textetikett ("FÖRE" / "EFTER") i ett hörn.
-
-| Filnamn | Före | Efter |
-|---|---|---|
-| `makeover-01-fore-efter.jpg` | En hel paragraf läroplanstext täcker hela sliden | En enda nyckelmening centrerad, med en hänvisning till källan i mindre text längst ned |
-| `makeover-02-fore-efter.jpg` | Åtta punkter på en sida i Arial 18pt | En enda mening som tar upp halva sliden, med en relevant ikon till vänster |
-| `makeover-03-fore-efter.jpg` | En tabell med 9 kolumner och 6 rader, alla siffror i samma storlek | Tre stora siffror centrerade på sliden med en kort beskrivning under varje |
-| `makeover-04-fore-efter.jpg` | Slide med logotyp uppe till vänster, datum uppe till höger, sidnummer nere, footer med organisationsnamn — innehållet trängs i en liten ruta i mitten | Enbart innehållet, fullt utnyttjande av sliden |
-| `makeover-05-fore-efter.jpg` | Tre stockfoton i rad med korta etiketter (folk skakar hand, glödlampa, uppåtgående pil) | En enda fotografisk bild som täcker hälften av sliden, med ett kort textstycke bredvid |
-| `makeover-06-fore-efter.jpg` | Bullet-text med "Bounce"-animation från höger (visa med rörelseslinjor eller "(animering)") | Samma bullet-text, men med en lugn cross-fade (visa med subtil överlapp) |
-| `makeover-07-fore-efter.jpg` | Komplext diagram med tre olika Y-axlar och fem linjer | Enkelt linjediagram med en linje och en Y-axel, med själva poängen markerad |
-| `makeover-08-fore-efter.jpg` | Tre färgglada ikoner i triangelformation med pilar mellan, ingen tydlig struktur | Ett enkelt diagram med tre noder och linjer som visar ett konkret förhållande |
-| `makeover-09-fore-efter.jpg` | En slide med en kort bullet-lista överst, en bild i mitten och ett citat nederst | Två slides istället för en — en med bilden + citatet, en med bullet-listan (visa båda i "efter"-halvan) |
-| `makeover-10-fore-efter.jpg` | Block med 12pt-text — oläsbart från avstånd | Ett enda nyckelord i 72pt som tar fokus |
-| `makeover-11-fore-efter.jpg` | Slide med Times New Roman som rubrik, Arial som brödtext och Comic Sans i en faktaruta | Samma slide men med endast en typsnittsfamilj (t ex Inter), regular för brödtext och bold för rubrik |
-| `makeover-12-fore-efter.jpg` | Rubriken **"Inflation, ekonomi, kostnader"** ovanför en graf | Rubriken **"Maten kostar 23 % mer än 2021"** ovanför samma graf |
-
-## Ljudfil för modul 4 *(1 st)*
-
+### Modul 4 — ljudfil
 | Filnamn | Plats | Beskrivning |
 |---|---|---|
-| `modul-4-utfyllnadsljud.mp3` | `Ny JLSU hemsida/assets/audio/` *(skapa mappen)* | 60 sekunders ljudklipp där en presentatör (du själv eller någon annan) gör medvetna utfyllnadsljud — "öh", "ehm", "liksom", "alltså". Räkna själv — säg till mig hur många och jag uppdaterar "Rätt antal: 14" i modul 4 till ditt korrekta tal. |
+| `modul-4-utfyllnadsljud.mp3` | `Ny JLSU hemsida/assets/audio/` *(skapa mappen)* | 60 sek där en presentatör (du själv eller någon annan) gör medvetna utfyllnadsljud — "öh", "ehm", "liksom", "alltså". Räkna själv hur många ljud du la in; säg numret till mig så uppdaterar jag "Rätt antal: 14" i `sv/presentationsteknik/modul-4/index.html`. |
 
-## Sammanfattning
+## Vad som inte längre behövs
 
-- **5** "lätta" slides — bara ta bort Advania-loggan från befintliga
-- **2** "reveal"-slides — nydesign av övningsslide för modul 2
-- **12** makeover-paren — nydesign för fördjupning i modul 3
-- **1** ljudfil för modul 4
-
-Total: **19 bilder + 1 ljudfil**.
-
-När du är klar: lägg dem i mapparna ovan, säg till så commits jag in dem och uppdaterar siffran i modul 4.
+Den ursprungliga 19-bilders-specen (`slide-040-prickar.jpg`, `slide-060-laroplan-textmur.jpg`, `slide-080-punktlistor.jpg`, `slide-200-hp-lenovo.jpg`, `slide-269-tiger.jpg`, `slide-modul2-fore.jpg`, `slide-modul2-efter.jpg`, samt 12 makeover-paren `makeover-01-fore-efter.jpg`–`makeover-12-fore-efter.jpg`) är ersatt av de 38 slides Johan faktiskt levererade. Modul-3-fördjupningen är omskriven från visuellt galleri till textbaserade principer (12 stycken) — bilder behövs inte där längre.
