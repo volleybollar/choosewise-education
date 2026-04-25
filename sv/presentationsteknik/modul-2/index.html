@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modul 2: Designa diabilder — grunderna — Presentationsteknik</title>
+  <meta name="description" content="Modul 2 i kursen Presentationsteknik. Ett budskap per slide, max 6 objekt, färg, typografi, blickstyrning.">
+  <meta property="og:title" content="Modul 2: Designa diabilder — grunderna — choosewise.education">
+  <meta property="og:description" content="Ett budskap per slide, max 6 objekt, färg, typografi, blickstyrning.">
+  <meta property="og:image" content="/assets/images/brand/og-default.svg">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://choosewise.education/sv/presentationsteknik/modul-2/">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+</head>
+<body>
+  <div data-include="/assets/partials/header-sv.html"></div>
+
+  <main>
+    <!-- Sticky topbar med breadcrumb och numrerad progressionsbar.
+         Topbaren finns på ALLA modul- och fördjupningssidor i kursen. -->
+    <div class="module-topbar">
+      <div class="module-topbar__inner">
+        <div class="module-topbar__crumb">
+          <a href="/sv/presentationsteknik/">Kursöversikt</a> · Modul 2 av 7
+        </div>
+        <nav class="module-topbar__progress" id="module-progress" aria-label="Kursprogression"></nav>
+      </div>
+    </div>
+
+    <article class="module-page">
+
+      <!-- Modulhero: eyebrow, h1, lede -->
+      <header class="module-hero">
+        <div class="module-hero__eyebrow"><strong>Modul 2</strong> · 10 min läsning</div>
+        <h1>Designa diabilder — grunderna</h1>
+        <p class="module-hero__lede">En bra slide hjälper publiken förstå dig — den tävlar inte med dig om uppmärksamhet. Det här är de fem reglerna som gör störst skillnad.</p>
+      </header>
+
+      <!-- Sektion 1: ett budskap per slide -->
+      <section class="module-section">
+        <h2>Ett budskap per slide</h2>
+        <p>Varje slide ska bära ett budskap. Inte två. Inte ett halvt. Ett. Om du har två saker att säga, bygg två slides.</p>
+        <p>Det här är inte en regel om grafisk design — det är en regel om uppmärksamhet. När en slide har två budskap måste publiken välja vilket av dem de ska följa. De är då inte med dig längre. De är hos sig själva, och försöker sortera.</p>
+      </section>
+
+      <!-- Sektion 2: max 6 objekt -->
+      <section class="module-section">
+        <h2>Max sex objekt per slide</h2>
+        <p>Med "objekt" menar jag allt som syns: ord, bilder, ikoner, linjer, logotyper. När antalet passerar sex tappar publiken översikten. Det blir brus, inte signal.</p>
+        <p>Ett snabbt test: visa din slide för en vän i tre sekunder, dölj den, fråga vad de såg. Om svaret är vagt har sliden för många objekt.</p>
+        <figure class="module-figure">
+          <img src="/assets/images/presentation-skills/slides/slide-040-prickar.jpg"
+               alt="Slide med 11 utspridda prickar — för många objekt att hålla i blicken samtidigt.">
+          <figcaption>Tio sekunder på den här sliden räcker inte för publiken att räkna. Bygg om till färre objekt eller en grupp.</figcaption>
+        </figure>
+      </section>
+
+      <!-- Sektion 3: färg & kontrast -->
+      <section class="module-section">
+        <h2>Färg och kontrast</h2>
+        <p>Bakgrunden styr fokus. Ljus bakgrund tar bort uppmärksamhet från dig som presentatör — publiken tittar på sliden, inte på dig. Mörk bakgrund är diskret — den glider in i bakgrunden av rummet och låter dig stå kvar i centrum.</p>
+        <p>Använd få färger, och använd dem genomgående. Regnbågen är inte ett designsystem. Två accentfärger räcker långt.</p>
+      </section>
+
+      <!-- Sektion 4: typografi -->
+      <section class="module-section">
+        <h2>Typografi</h2>
+        <p>Stora teckenstorlekar där du vill att publiken ska titta. Små där det är referensinformation. Blanda inte storlekar inom samma "uppmärksamhetslager".</p>
+        <p>Sans-serif uppfattas oftast som lättare att läsa på avstånd; serif kan kännas tyngre men ger mer karaktär. Välj en familj och håll dig till den. Behåll tydlig kontrast mellan text och bakgrund — om du tvekar är kontrasten för låg.</p>
+      </section>
+
+      <!-- Sektion 5: styra blicken -->
+      <section class="module-section">
+        <h2>Styr blicken med färg</h2>
+        <p>Färg kan göra ett enda ord på en slide till det enda du behöver säga. När allt är grått förutom siffran "47%" är det den siffran publiken kommer ihåg.</p>
+        <p>Det här är ett kraftfullt verktyg — och det är därför det inte ska användas hela tiden. När allt är färgmarkerat är ingenting markerat.</p>
+      </section>
+
+      <!-- Övning: reveal-on-click "fel slide → rätt slide" -->
+      <section class="module-section">
+        <h2>Övning: en slide, två versioner</h2>
+        <div class="exercise">
+          <div class="exercise__label">Klicka för att avslöja · 1 min</div>
+          <p class="exercise__prompt">Här är en typisk slide. Klicka för att se hur den hade kunnat byggas annorlunda.</p>
+          <div id="reveal-slide" style="position: relative; cursor: pointer; user-select: none;">
+            <img id="reveal-img"
+                 src="/assets/images/presentation-skills/slides/slide-modul2-fore.jpg"
+                 alt="Före: en slide med fyra bullet-punkter och en rubrik."
+                 style="width: 100%; border-radius: var(--radius-sm); display: block;">
+            <div id="reveal-overlay"
+                 style="position: absolute; inset: 0; display: grid; place-items: center; background: rgba(26,26,24,0.55); color: var(--color-dark-text); border-radius: var(--radius-sm); transition: opacity 0.4s;">
+              <span style="font-family: var(--font-display); font-size: 1.25rem;">Klicka för att se efter →</span>
+            </div>
+          </div>
+          <button id="reveal-toggle" class="btn btn--primary exercise__btn" style="margin-top: var(--space-3);">
+            Visa "efter"-versionen
+          </button>
+          <p class="exercise__feedback" id="reveal-feedback" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <!-- Fördjupnings-CTA -->
+      <a class="deepdive-cta" href="/sv/presentationsteknik/modul-2/fordjupning/">
+        <div class="deepdive-cta__icon">↓</div>
+        <div>
+          <h3 class="deepdive-cta__title">Fördjupning: färgteori och typografi för presentatörer</h3>
+          <p class="deepdive-cta__desc">Praktiska principer från designvärlden, översatt för dig som inte är designer men presenterar. ~7 min läsning.</p>
+        </div>
+        <div class="deepdive-cta__arrow">Öppna →</div>
+      </a>
+
+      <!-- Föregående / nästa modul -->
+      <nav class="module-nav" aria-label="Modulnavigation">
+        <a class="module-nav__link" href="/sv/presentationsteknik/modul-1/">
+          <div class="module-nav__direction">← Föregående</div>
+          <div class="module-nav__title">Varför presentationsteknik?</div>
+        </a>
+        <a class="module-nav__link module-nav__link--next" href="/sv/presentationsteknik/modul-3/">
+          <div class="module-nav__direction">Nästa →</div>
+          <div class="module-nav__title">När diabilden krockar med dig</div>
+        </a>
+      </nav>
+
+    </article>
+  </main>
+
+  <div data-include="/assets/partials/footer-sv.html"></div>
+
+  <script defer src="/assets/js/include.js"></script>
+  <script defer src="/assets/js/course-progress.js"></script>
+  <script defer src="/assets/js/course-exercises.js"></script>
+  <script defer>
+    // Initierar topbarens progressionsbar för Modul 2, hanterar
+    // reveal-on-click-övningen, och markerar modulen som "pågående".
+    document.addEventListener('DOMContentLoaded', () => {
+      // Progress
+      CourseProgress.init('sv');
+      CourseProgress.renderTopbar(
+        document.getElementById('module-progress'),
+        2
+      );
+      if (CourseProgress.getStatus(2) !== 'done') {
+        CourseProgress.setCurrent(2);
+      }
+      document.querySelector('.module-nav__link--next')?.addEventListener('click', () => {
+        CourseProgress.markDone(2);
+      });
+
+      // Reveal-on-click-övning
+      const img = document.getElementById('reveal-img');
+      const overlay = document.getElementById('reveal-overlay');
+      const btn = document.getElementById('reveal-toggle');
+      const feedback = document.getElementById('reveal-feedback');
+      const FORE = '/assets/images/presentation-skills/slides/slide-modul2-fore.jpg';
+      const EFTER = '/assets/images/presentation-skills/slides/slide-modul2-efter.jpg';
+      let revealed = false;
+      function toggle() {
+        revealed = !revealed;
+        img.src = revealed ? EFTER : FORE;
+        img.alt = revealed
+          ? 'Efter: samma slide men med ett enda kärnbudskap som tar fokus.'
+          : 'Före: en slide med fyra bullet-punkter och en rubrik.';
+        overlay.style.opacity = revealed ? '0' : '1';
+        btn.textContent = revealed ? 'Tillbaka till "före"' : 'Visa "efter"-versionen';
+        feedback.textContent = revealed
+          ? 'Lägg märke till hur ditt öga drogs någon helt annanstans här.'
+          : '';
+      }
+      document.getElementById('reveal-slide').addEventListener('click', toggle);
+      btn.addEventListener('click', (e) => { e.preventDefault(); toggle(); });
+    });
+  </script>
+</body>
+</html>
