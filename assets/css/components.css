@@ -442,3 +442,97 @@
   .course-progress__dot--current,
   .module-topbar__progress-dot--current { animation: none !important; }
 }
+
+/* ───── Course module cards (översiktsvy grid) ───── */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.module-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md, 8px);
+  background: var(--color-bg);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+.module-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+.module-card--current {
+  border-color: var(--color-highlight);
+  box-shadow: 0 0 0 1px var(--color-highlight);
+}
+.module-card--done { background: var(--color-bg-alt); }
+
+.module-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.module-card__num {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 400;
+  color: var(--color-text-soft);
+  line-height: 1;
+}
+.module-card--done .module-card__num,
+.module-card--current .module-card__num { color: var(--color-accent); }
+
+.module-card__status {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+.module-card__status--done    { color: var(--color-accent); }
+.module-card__status--current { color: var(--color-highlight); }
+
+.module-card__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0;
+}
+.module-card__desc {
+  font-size: 0.95rem;
+  color: var(--color-text-soft);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.module-card__meta {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  margin-top: auto;
+  padding-top: var(--space-3);
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+  border-top: 1px solid var(--color-border);
+}
+.module-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.module-card__deepdive-tag {
+  color: var(--color-highlight);
+  font-weight: 500;
+}
