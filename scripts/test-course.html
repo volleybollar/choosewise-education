@@ -141,6 +141,56 @@
       assert(stored === 'newvalue', `expected 'newvalue', got '${stored}'`);
     });
 
+    // === CourseChecklists tests ===
+    test('checklist form persists checkbox state', () => {
+      // Inject a checklist form into the page
+      const fixture = document.createElement('form');
+      fixture.setAttribute('data-checklist', 'test-checklist');
+      fixture.innerHTML = `
+        <label><input type="checkbox" name="c1"></label>
+        <label><input type="checkbox" name="c2"></label>
+        <label><input type="checkbox" name="c3"></label>
+        <p class="exercise__feedback"></p>
+      `;
+      fixture.style.display = 'none';
+      document.body.appendChild(fixture);
+
+      // Re-init (DOMContentLoaded already fired)
+      CourseExercises.init();
+
+      // Check c1 and c3, leave c2
+      const cb1 = fixture.querySelector('input[name="c1"]');
+      const cb2 = fixture.querySelector('input[name="c2"]');
+      const cb3 = fixture.querySelector('input[name="c3"]');
+      cb1.checked = true; cb1.dispatchEvent(new Event('change'));
+      cb3.checked = true; cb3.dispatchEvent(new Event('change'));
+
+      const stored = JSON.parse(localStorage.getItem('presentationsteknik-sv-checklist-test-checklist'));
+      assert(stored.c1 === true, 'c1 saved as true');
+      assert(stored.c2 === false || stored.c2 === undefined, 'c2 not checked');
+      assert(stored.c3 === true, 'c3 saved as true');
+    });
+
+    test('checklist restores from storage on init', () => {
+      // Storage already populated from previous test.
+      // Re-init should restore the boxes.
+      const fixture = document.querySelector('form[data-checklist="test-checklist"]');
+      const cb1 = fixture.querySelector('input[name="c1"]');
+      const cb2 = fixture.querySelector('input[name="c2"]');
+      cb1.checked = false; cb2.checked = false; // reset before re-init
+      CourseExercises.init();
+      assert(cb1.checked === true, 'c1 restored');
+      assert(cb2.checked === false, 'c2 stays unchecked');
+    });
+
+    test('checklist feedback shows checked count', () => {
+      const fixture = document.querySelector('form[data-checklist="test-checklist"]');
+      const feedback = fixture.querySelector('.exercise__feedback');
+      // After init, c1 and c3 are checked → "2 av 3 avbockade"
+      assert(feedback.textContent.includes('2 av 3'),
+        `expected "2 av 3" in feedback, got "${feedback.textContent}"`);
+    });
+
     localStorage.clear();
   </script>
 </body>
