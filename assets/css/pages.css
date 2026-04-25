@@ -394,3 +394,46 @@
 .post__body blockquote { border-left: 3px solid var(--color-highlight); padding-left: var(--space-5); font-style: italic; color: var(--color-text-soft); margin-block: var(--space-5); }
 .post__body img { border-radius: var(--radius-md); margin-block: var(--space-5); }
 .post__footer { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
+
+/* ───── Presentationsteknik / Presentation Skills course pages ───── */
+
+/* === Modulsida-layout (modul + fördjupning) === */
+.module-page {
+  max-width: 760px;
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+.module-hero { padding-block: var(--space-7) var(--space-5); }
+.module-hero__eyebrow {
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  color: var(--color-text-soft);
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+.module-hero__eyebrow strong {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+.module-hero h1 { margin-bottom: var(--space-4); }
+.module-hero__lede {
+  font-size: 1.2rem;
+  color: var(--color-text-soft);
+  line-height: 1.55;
+  max-width: 60ch;
+}
+
+.module-section {
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+.module-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-4);
+}
+.module-section p {
+  max-width: 60ch;
+  line-height: 1.65;
+}
+.module-section p + p { margin-top: var(--space-4); }
