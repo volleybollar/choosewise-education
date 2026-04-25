@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://choosewise.education/</loc></url>
   <url><loc>https://choosewise.education/wise/</loc></url>
+  <url><loc>https://choosewise.education/presentation-skills/</loc></url>
   <url><loc>https://choosewise.education/guides/</loc></url>
   <url><loc>https://choosewise.education/guides/claude/</loc></url>
   <url><loc>https://choosewise.education/prompts/</loc></url>
@@ -11,6 +12,7 @@
   <url><loc>https://choosewise.education/privacy/</loc></url>
   <url><loc>https://choosewise.education/sv/</loc></url>
   <url><loc>https://choosewise.education/sv/ratt/</loc></url>
+  <url><loc>https://choosewise.education/sv/presentationsteknik/</loc></url>
   <url><loc>https://choosewise.education/sv/guider/</loc></url>
   <url><loc>https://choosewise.education/sv/guider/claude/</loc></url>
   <url><loc>https://choosewise.education/sv/promptar/</loc></url>
