@@ -20,10 +20,12 @@ A secondary goal: rename and reorder the primary navigation to introduce the new
 ### In scope
 - New page `/ai-or-human/` (EN) and `/sv/ai-eller-manniska/` (SV).
 - Three interactive tests on each page (texts, images, videos — videos as placeholders).
+- Optional 1–6 difficulty rating widget per test, with anonymous data collection to a Johan-owned Google Sheet via Apps Script.
 - Primary nav reorder + label change for "NotebookLM Styles" → "Infographic Styles" / "Infografik-stilar".
 - URL change for the styles page: `/notebooklm-styles/` → `/infographic-styles/`, `/sv/notebooklm-stilar/` → `/sv/infografik-stilar/`, with meta-refresh redirect shims at the old paths.
 - All internal references updated (footer, header, sitemap, llms.txt, blog posts, guides, exports, scripts).
 - SEO hygiene: canonical, hreflang, JSON-LD, OG tags for the new page.
+- Privacy page update covering the difficulty-rating data collection.
 
 ### Out of scope
 - Backend persistence of test results (no scoring history, no leaderboards).
@@ -159,6 +161,89 @@ Pattern matches existing pages (e.g. WISE, Guides):
 **Scoring:**
 - 0 or 1 right. Feedback "Rätt!" / "Correct!" or "Fel — det var video X." / "Wrong — it was video X." (only after `data-correct-video` is non-zero).
 
+### 4.5 Difficulty rating widget (all three tests)
+
+After the score line of each test, a small optional widget invites the user to rate how hard the test felt.
+
+**Layout:**
+- Heading line: "Var det lätt eller svårt att se vilket innehåll som var AI-genererat?" / "Was it easy or hard to spot the AI-generated content?"
+- Sub-line: "Helt valfritt — din röst sparas anonymt." / "Optional — your vote is stored anonymously."
+- A row of 6 round buttons labeled `1` through `6`, with end-labels "Väldigt lätt" (left) / "Very easy" and "Väldigt svårt" (right) / "Very hard".
+- After click: buttons disable, the chosen one highlights, a "Tack!" / "Thanks!" line replaces the sub-line.
+
+**Visibility:**
+- Hidden until the user has submitted that test (`#test-N-score` becomes visible). The rating widget reveals at the same time.
+- Resetting the test does NOT re-open the widget if a rating was already submitted in this session — one rating per test per session.
+
+**State:**
+- Tracked per test in `sessionStorage` under keys `aiOrHuman.rated.text|image|video` (truthy = already rated).
+
+### 4.6 Telemetry — difficulty rating storage
+
+**Approach:** Google Apps Script Web App writing to a Google Sheet owned by Johan.
+
+**Why:** Free, no third-party data processor, privacy-respecting (no cookies, no IP logging), simple to read and analyze in the Sheet UI or Looker Studio.
+
+**Endpoint configuration:**
+- The Web App URL is stored as a constant at the top of `assets/js/ai-or-human.js`:
+  ```js
+  const TELEMETRY_URL = ''; // Apps Script Web App URL — set when Sheet is configured
+  ```
+- If `TELEMETRY_URL` is the empty string (e.g. before Johan provides his URL or in a forked environment), the rating widget submits silently and shows the Tack-confirmation but performs no network request.
+
+**Payload (POST, JSON, `Content-Type: text/plain` to avoid CORS preflight):**
+```json
+{
+  "ts": "2026-04-26T14:32:11.000Z",
+  "lang": "sv",
+  "test": "text",
+  "rating": 4,
+  "score": "1/2",
+  "userScore": 1,
+  "totalScore": 2
+}
+```
+
+**Apps Script (Johan installs):**
+```js
+const SHEET_ID = '<johan-pastes-id>';
+
+function doPost(e) {
+  const data = JSON.parse(e.postData.contents);
+  const sheet = SpreadsheetApp.openById(SHEET_ID).getActiveSheet();
+  sheet.appendRow([
+    new Date(data.ts),
+    data.lang,
+    data.test,
+    data.rating,
+    data.userScore,
+    data.totalScore
+  ]);
+  return ContentService.createTextOutput(JSON.stringify({ok: true}))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+```
+
+**Sheet header row (Johan creates manually once):**
+`timestamp | lang | test | rating | user_score | total_score`
+
+**Privacy notes:**
+- No IP addresses, no user-agent, no cookies, no session IDs are sent or stored.
+- Apps Script's own request log can be disabled via the script settings; recommended.
+- The widget's privacy line links to `/privacy/` (EN) / `/sv/privacy/` (SV) for full disclosure.
+
+**Failure handling:**
+- The fetch is fire-and-forget (`.catch(() => {})`).
+- The "Tack!" confirmation appears immediately on click, regardless of network outcome.
+- This is acceptable because the data is non-essential and a missed submission is fine.
+
+**Setup checklist for Johan (executed before merge to production):**
+1. Create a Google Sheet titled "AI or human — difficulty ratings" with the header row above.
+2. Tools → Apps Script → paste the script, set `SHEET_ID` to the Sheet ID.
+3. Deploy → New deployment → Type: Web app → Execute as: Me → Who has access: Anyone.
+4. Copy the deployment URL.
+5. Send the URL to Claude (or paste into `assets/js/ai-or-human.js` directly).
+
 ---
 
 ## 5. Components and styling
@@ -198,10 +283,25 @@ Pattern matches existing pages (e.g. WISE, Guides):
 .video-tile__placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); color: var(--color-text-soft); }
 .video-tile__label { /* "1" "2" "3" small badge top-left */ }
 
+/* Difficulty rating widget */
+.rating { margin-top: var(--space-5); padding: var(--space-4) 0; border-top: 1px solid var(--color-border); }
+.rating[hidden] { display: none; }
+.rating__heading { font-family: var(--font-display); font-size: var(--fs-body); margin: 0 0 var(--space-2); }
+.rating__hint { font-size: var(--fs-small); color: var(--color-text-soft); margin: 0 0 var(--space-3); }
+.rating__scale { display: flex; gap: var(--space-2); align-items: center; flex-wrap: wrap; }
+.rating__endlabel { font-size: var(--fs-small); color: var(--color-text-soft); }
+.rating__btn { width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 1px solid var(--color-border); background: var(--color-bg); cursor: pointer; font-family: var(--font-body); font-weight: 500; transition: all 0.2s; }
+.rating__btn:hover:not(:disabled) { border-color: var(--color-accent); }
+.rating__btn[aria-pressed="true"] { background: var(--color-accent); color: var(--color-dark-text); border-color: var(--color-accent); }
+.rating__btn:disabled { cursor: default; opacity: 0.6; }
+.rating__btn[aria-pressed="true"]:disabled { opacity: 1; }
+
 /* Mobile breakpoints */
 @media (max-width: 720px) {
   .quiz-grid--2x2 { grid-template-columns: 1fr; }
   .quiz-grid--3 { grid-template-columns: 1fr; }
+  .rating__scale { gap: var(--space-1); }
+  .rating__btn { width: 2.25rem; height: 2.25rem; }
 }
 ```
 
@@ -217,6 +317,7 @@ Single script tag included from both language pages. Self-contained (no globals)
 - `initTextTest(rootEl)` — handles selection cap, randomization, submit, score, reset, flip-locking.
 - `initImageTest(rootEl)` — handles checkbox state, score against `data-correct-not-ai`, reset incl. flipping hints back.
 - `initVideoTest(rootEl)` — handles radio state, score against `data-correct-video`, reset.
+- `initRating(testRootEl, testKey)` — wires up the difficulty widget, sessionStorage gate, and POST to `TELEMETRY_URL`.
 - A small shared utility `flipCard(cardEl, toState)` that toggles `is-flipped` class and respects the per-test "locked" state.
 
 **Strings:**
@@ -240,9 +341,10 @@ Single script tag included from both language pages. Self-contained (no globals)
 - `assets/partials/header-sv.html` — same.
 - `assets/partials/footer-en.html` — update NLM link → Infographic Styles.
 - `assets/partials/footer-sv.html` — same.
-- `assets/css/components.css` — add quiz styles, flipcard--text variant, image-frame, video-tile.
+- `assets/css/components.css` — add quiz styles, flipcard--text variant, image-frame, video-tile, rating widget.
 - `sitemap.xml` — add new URLs (`/ai-or-human/`, `/sv/ai-eller-manniska/`, `/infographic-styles/`, `/sv/infografik-stilar/`); update old NLM entries to point to new URLs.
 - `llms.txt` — replace NLM URLs, add new test page.
+- `privacy/index.html` (and SV equivalent) — short paragraph disclosing the difficulty-rating data collection.
 - `notebooklm-styles/index.html` — replaced with redirect shim.
 - `sv/notebooklm-stilar/index.html` — replaced with redirect shim.
 - `blog/posts/why-i-built-choosewise-education.html` — update internal link.
@@ -294,6 +396,8 @@ Used at `notebooklm-styles/index.html` and `sv/notebooklm-stilar/index.html`. Mi
 | Test 3 video facit not yet known | `data-correct-video="0"` returns a neutral "not yet" message. Johan flips the value when videos land. |
 | Mobile layout cramped on Test 2 (9 checkboxes + image) | Checkboxes wrap to two rows; tested at 360px width. |
 | Per-load randomization confuses users who reload mid-test | Acceptable — reload is interpreted as a deliberate restart. Documented in script comments. |
+| Apps Script Web App URL is a hard-coded constant in JS — anyone could spam it | Apps Script has built-in rate limits per origin; a malicious flood would just produce noise in the Sheet that Johan can filter out. Acceptable for this data type. |
+| `TELEMETRY_URL` not set yet at first deploy | Widget submits silently and shows Tack-confirmation; no network call attempted. Implementation merges fine without the URL. |
 
 ---
 
@@ -310,3 +414,5 @@ The implementation is complete when:
 7. Mobile layout (≤720px) does not horizontally overflow on any of the three tests.
 8. Manual smoke test confirms: tab-key keyboard nav works, all checkboxes/radios are reachable, score is announced visibly (and ideally via `aria-live`).
 9. Johan reviews the two AI-style texts in Test 1 and approves them (or returns notes).
+10. Difficulty rating widget appears below each test's score line, accepts one rating, persists state in `sessionStorage`, and posts to `TELEMETRY_URL` (if set). With `TELEMETRY_URL` empty, widget still works UI-side but performs no network call.
+11. `/privacy/` (and SV equivalent) discloses the difficulty-rating collection.
