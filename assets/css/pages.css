@@ -433,7 +433,7 @@
   margin-bottom: var(--space-4);
 }
 .module-section p {
-  max-width: 60ch;
+  max-width: none;
   line-height: 1.65;
 }
 .module-section p + p { margin-top: var(--space-4); }
