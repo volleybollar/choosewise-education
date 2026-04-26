@@ -1383,7 +1383,7 @@ EOF
 
 ```html
 <section class="section container quiz-section" id="test-video" data-test="video"
-         data-correct-video="0"
+         data-correct-video="2"
          data-feedback-correct="Correct!"
          data-feedback-wrong="Wrong — it was video {correct}."
          data-feedback-pending="Videos coming soon — Johan will fill the answer in once they're up.">
@@ -1393,18 +1393,15 @@ EOF
   <div class="quiz-grid--3" data-quiz-videos>
     <article class="video-tile">
       <span class="video-tile__label">1</span>
-      <video controls preload="metadata" data-src=""></video>
-      <div class="video-tile__placeholder">Video coming soon</div>
+      <video controls preload="metadata" data-src="/assets/videos/ai-or-human/video-a.mp4"></video>
     </article>
     <article class="video-tile">
       <span class="video-tile__label">2</span>
-      <video controls preload="metadata" data-src=""></video>
-      <div class="video-tile__placeholder">Video coming soon</div>
+      <video controls preload="metadata" data-src="/assets/videos/ai-or-human/video-b.mp4"></video>
     </article>
     <article class="video-tile">
       <span class="video-tile__label">3</span>
-      <video controls preload="metadata" data-src=""></video>
-      <div class="video-tile__placeholder">Video coming soon</div>
+      <video controls preload="metadata" data-src="/assets/videos/ai-or-human/video-c.mp4"></video>
     </article>
   </div>
 
@@ -1518,7 +1515,7 @@ open "http://localhost:8000/ai-or-human/#test-video"
 
 - Three video tiles render with "Video coming soon" overlay and a "1/2/3" badge top-left.
 - Submit disabled until a radio is selected.
-- After picking and clicking "Done!" with `data-correct-video="0"`: pending message shown.
+- After picking and clicking "Done!" with `data-correct-video="2"`: pending message shown.
 
 - [ ] **Step 2: Test the wired-up case (temporary local test)**
 
