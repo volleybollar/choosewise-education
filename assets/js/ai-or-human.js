@@ -230,9 +230,88 @@
     resetBtn.addEventListener('click', onReset);
   }
 
-  // ───── Rating placeholder (filled in Phase F) ─────
-  function revealRating(_rootEl) {
-    // Filled in Phase F. No-op for now.
+  // ───── Rating widget + telemetry ─────
+
+  function getTestKey(rootEl) {
+    return rootEl.dataset.test; // "text" | "image" | "video"
+  }
+
+  function getLastScore(rootEl) {
+    // Pull score from rendered feedback text (the test functions already updated it).
+    // Match patterns like "X of Y" / "X av Y" or "Correct!"/"Rätt!" / "Wrong"/"Fel".
+    const fb = rootEl.querySelector('[data-quiz-feedback]');
+    if (!fb || fb.hidden) return { user: null, total: null };
+    const text = fb.textContent || '';
+    const m = text.match(/(\d+)\s*(?:of|av)\s*(\d+)/i);
+    if (m) return { user: parseInt(m[1], 10), total: parseInt(m[2], 10) };
+    if (/correct|rätt(?!\s*var)/i.test(text)) return { user: 1, total: 1 };
+    if (/wrong|fel/i.test(text)) return { user: 0, total: 1 };
+    return { user: null, total: null };
+  }
+
+  function postTelemetry(payload) {
+    if (!TELEMETRY_URL) return;
+    // Use text/plain body to avoid CORS preflight on Apps Script.
+    fetch(TELEMETRY_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    }).catch(() => { /* fire-and-forget */ });
+  }
+
+  // No-op: kept for backwards compatibility with the test functions that
+  // still call revealRating(rootEl) on submit. The rating UI is always
+  // visible at the bottom of the page (see initRatingSummary) so this
+  // call is a no-op now.
+  function revealRating(_rootEl) { /* no-op */ }
+
+  function initRatingSummary() {
+    const rows = Array.from(document.querySelectorAll('[data-rating-for]'));
+    const lang = (document.documentElement.lang || 'en').slice(0, 2);
+
+    rows.forEach(row => {
+      const key = row.dataset.ratingFor;
+      const buttons = Array.from(row.querySelectorAll('[data-rating-btn]'));
+      const thanksEl = row.querySelector('[data-rating-thanks]');
+
+      // If already rated this session, restore the rated state.
+      let storedRating = null;
+      try { storedRating = sessionStorage.getItem('aiOrHuman.rated.' + key); } catch (_) {}
+      if (storedRating) {
+        buttons.forEach(b => {
+          b.disabled = true;
+          b.setAttribute('aria-pressed', b.dataset.ratingBtn === storedRating ? 'true' : 'false');
+        });
+        if (thanksEl) thanksEl.hidden = false;
+        return;
+      }
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const rating = parseInt(btn.dataset.ratingBtn, 10);
+          buttons.forEach(b => {
+            b.disabled = true;
+            b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+          });
+          if (thanksEl) thanksEl.hidden = false;
+          try { sessionStorage.setItem('aiOrHuman.rated.' + key, String(rating)); } catch (_) {}
+
+          // Pull the user's score for this test (if they completed it).
+          const testSection = document.querySelector('[data-test="' + key + '"]');
+          const score = testSection ? getLastScore(testSection) : { user: null, total: null };
+
+          postTelemetry({
+            ts: new Date().toISOString(),
+            lang: lang,
+            test: key,
+            rating: rating,
+            userScore: score.user,
+            totalScore: score.total
+          });
+        });
+      });
+    });
   }
 
   // ───── Bootstrap ─────
@@ -240,6 +319,7 @@
     document.querySelectorAll('[data-test="text"]').forEach(initTextTest);
     document.querySelectorAll('[data-test="image"]').forEach(initImageTest);
     document.querySelectorAll('[data-test="video"]').forEach(initVideoTest);
+    initRatingSummary();
   }
 
   if (document.readyState === 'loading') {

@@ -118,6 +118,7 @@
         <button type="button" class="btn btn--primary" data-quiz-reset>Nollställ</button>
       </div>
       <p class="quiz-feedback" data-quiz-feedback hidden aria-live="polite"></p>
+
     </section>
 
     <!-- Test 2 — Bilder -->
@@ -159,6 +160,7 @@
         <button type="button" class="btn btn--primary" data-quiz-reset>Nollställ</button>
       </div>
       <p class="quiz-feedback" data-quiz-feedback hidden aria-live="polite"></p>
+
     </section>
 
     <!-- Test 3 — Video (tillagd i Phase E) -->
@@ -195,6 +197,57 @@
         <button type="button" class="btn btn--primary" data-quiz-reset>Nollställ</button>
       </div>
       <p class="quiz-feedback" data-quiz-feedback hidden aria-live="polite"></p>
+
+    </section>
+
+    <!-- Svårighetsbedömning — tre valfria röstningar, en per test -->
+    <section class="rating-summary container">
+      <h2 class="rating-summary__heading">Var det lätt eller svårt att se vilket innehåll som var AI-genererat?</h2>
+      <p class="rating-summary__intro">Jag är tacksam om du värderar hur lätt eller svårt det var att identifiera det som är AI-genererat. Helt valfritt — din röst sparas anonymt. <a href="/privacy/">Läs mer</a>.</p>
+      <div class="rating-rows">
+        <div class="rating-row" data-rating-for="text">
+          <span class="rating-row__label">Test 1: text (skala 1–6)</span>
+          <div class="rating-row__scale">
+            <span class="rating__endlabel">Väldigt lätt</span>
+            <button type="button" class="rating__btn" data-rating-btn="1" aria-pressed="false">1</button>
+            <button type="button" class="rating__btn" data-rating-btn="2" aria-pressed="false">2</button>
+            <button type="button" class="rating__btn" data-rating-btn="3" aria-pressed="false">3</button>
+            <button type="button" class="rating__btn" data-rating-btn="4" aria-pressed="false">4</button>
+            <button type="button" class="rating__btn" data-rating-btn="5" aria-pressed="false">5</button>
+            <button type="button" class="rating__btn" data-rating-btn="6" aria-pressed="false">6</button>
+            <span class="rating__endlabel">Väldigt svårt</span>
+            <span class="rating-row__thanks" data-rating-thanks hidden>Tack!</span>
+          </div>
+        </div>
+        <div class="rating-row" data-rating-for="image">
+          <span class="rating-row__label">Test 2: bilder (skala 1–6)</span>
+          <div class="rating-row__scale">
+            <span class="rating__endlabel">Väldigt lätt</span>
+            <button type="button" class="rating__btn" data-rating-btn="1" aria-pressed="false">1</button>
+            <button type="button" class="rating__btn" data-rating-btn="2" aria-pressed="false">2</button>
+            <button type="button" class="rating__btn" data-rating-btn="3" aria-pressed="false">3</button>
+            <button type="button" class="rating__btn" data-rating-btn="4" aria-pressed="false">4</button>
+            <button type="button" class="rating__btn" data-rating-btn="5" aria-pressed="false">5</button>
+            <button type="button" class="rating__btn" data-rating-btn="6" aria-pressed="false">6</button>
+            <span class="rating__endlabel">Väldigt svårt</span>
+            <span class="rating-row__thanks" data-rating-thanks hidden>Tack!</span>
+          </div>
+        </div>
+        <div class="rating-row" data-rating-for="video">
+          <span class="rating-row__label">Test 3: video (skala 1–6)</span>
+          <div class="rating-row__scale">
+            <span class="rating__endlabel">Väldigt lätt</span>
+            <button type="button" class="rating__btn" data-rating-btn="1" aria-pressed="false">1</button>
+            <button type="button" class="rating__btn" data-rating-btn="2" aria-pressed="false">2</button>
+            <button type="button" class="rating__btn" data-rating-btn="3" aria-pressed="false">3</button>
+            <button type="button" class="rating__btn" data-rating-btn="4" aria-pressed="false">4</button>
+            <button type="button" class="rating__btn" data-rating-btn="5" aria-pressed="false">5</button>
+            <button type="button" class="rating__btn" data-rating-btn="6" aria-pressed="false">6</button>
+            <span class="rating__endlabel">Väldigt svårt</span>
+            <span class="rating-row__thanks" data-rating-thanks hidden>Tack!</span>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
