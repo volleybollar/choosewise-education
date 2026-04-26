@@ -13,9 +13,9 @@
   'use strict';
 
   // ───── Telemetry endpoint ─────
-  // Set this to the Apps Script deployment URL once Johan creates the Sheet.
+  // Apps Script Web App that appends each rating to Johan's Google Sheet.
   // Empty string = telemetry disabled (UI still shows "Tack!" confirmation).
-  const TELEMETRY_URL = '';
+  const TELEMETRY_URL = 'https://script.google.com/macros/s/AKfycby6TgonFO0FQq75gQ5vaGxkgRABnUkm2RpjpRhff4ThTfExJ7lR6fOeL1RFPUcIES8C/exec';
 
   // ───── Utilities ─────
 

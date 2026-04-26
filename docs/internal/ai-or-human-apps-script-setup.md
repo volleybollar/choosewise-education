@@ -46,7 +46,14 @@ function doPost(e) {
    - Execute as: **Me**
    - Who has access: **Anyone** (no sign-in required — the POST has no sensitive data)
 4. Click **Deploy**.
-5. Copy the **Web App URL** (it looks like `https://script.google.com/macros/s/AKfy…/exec`).
+5. **Authorize the script** — first time only:
+   1. Click **Auktorisera åtkomst** / **Authorize access** in the popup.
+   2. Pick your Google account.
+   3. You'll see a red warning: **"Google hasn't verified this app"**. This is expected — Google flags every personal Apps Script that hasn't gone through Google's app-verification process. Since you wrote the script yourself and it only writes to your own Sheet, it is safe.
+   4. Click **Advanced** (link in the lower left).
+   5. Click the link that appears: **"Go to [project name] (unsafe)"**.
+   6. On the permissions screen, click **Allow** / **Tillåt**.
+6. Copy the **Web App URL** that's now displayed (it looks like `https://script.google.com/macros/s/AKfy…/exec`).
 
 ## 4. Paste the URL into the JS file
 
