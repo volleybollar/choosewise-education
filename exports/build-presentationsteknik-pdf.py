@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Build the Presentationsteknik full-guide PDF (SV) from HTML sources.
+"""Build the Presentation Skills full-guide PDFs (SV + EN) from HTML sources.
 
-Idempotent: renders exports/presentationsteknik-print-a4-sv.html to PDF, then
-appends the CC BY-NC-SA 4.0 license page (from
-exports/presentationsteknik-license-sv.html) as the final page.
+Idempotent: renders exports/presentationsteknik-print-a4-sv.html and
+exports/presentation-skills-print-a4-en.html to PDF, then appends the
+CC BY-NC-SA 4.0 license page (from the matching license HTML) as the
+final page of each.
 
-Output:
+Outputs:
   assets/pdfs/presentationsteknik-guide-sv.pdf
+  assets/pdfs/presentation-skills-guide-en.pdf
 
 Run:
   pip install -r exports/requirements.txt   # one-time
@@ -26,6 +28,12 @@ jobs = [
         "main_html": root / "exports/presentationsteknik-print-a4-sv.html",
         "license_html": root / "exports/presentationsteknik-license-sv.html",
         "final_pdf": pdf_out_dir / "presentationsteknik-guide-sv.pdf",
+    },
+    {
+        "lang": "en",
+        "main_html": root / "exports/presentation-skills-print-a4-en.html",
+        "license_html": root / "exports/presentation-skills-license-en.html",
+        "final_pdf": pdf_out_dir / "presentation-skills-guide-en.pdf",
     },
 ]
 

@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Speaking so they remember — A guide to presentation skills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ────────────────────────────────────────────────
+     DESIGN TOKENS — same Nordic Editorial palette
+     as the Claude Guide
+     ──────────────────────────────────────────────── */
+  :root {
+    --color-primary:    #1B2733;
+    --color-secondary:  #2E4057;
+    --color-accent:     #C8A86B;
+    --color-light:      #E8E4DC;
+    --color-surface:    #F6F3EE;
+    --color-bg:         #FFFFFF;
+    --color-text:       #1A1A1F;
+    --color-text-light: #6B7280;
+    --color-warning:    #B8553F;
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html { background: var(--color-bg); }
+  * { box-sizing: border-box; }
+
+  @page {
+    size: A4;
+    margin: 14mm 0 18mm 0;
+
+    @bottom-center {
+      content: "JOHAN LINDSTRÖM · SPEAKING SO THEY REMEMBER";
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 8pt;
+      font-weight: 400;
+      color: #6B7280;
+      letter-spacing: 1.5px;
+      border-top: 1px solid #E8E4DC;
+      padding-top: 4mm;
+      vertical-align: top;
+    }
+  }
+
+  @page full-bleed {
+    size: A4;
+    margin: 0;
+    @bottom-center { content: none; }
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 11pt;
+    line-height: 1.75;
+    color: var(--color-text);
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    orphans: 3;
+    widows: 3;
+  }
+  p, li { orphans: 2; widows: 2; }
+  h1, h2, h3 { break-after: avoid; }
+
+  /* ────────────────────────────────────────────────
+     COVER — full-bleed A4
+     ──────────────────────────────────────────────── */
+  .cover {
+    width: 210mm;
+    height: 297mm;
+    background: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+    break-after: page;
+    overflow: hidden;
+    page: full-bleed;
+  }
+  .cover-footer-mask {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 12mm;
+    background: var(--color-primary);
+    z-index: 10;
+  }
+  .cover-top-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 12mm;
+    background: var(--color-accent);
+    z-index: 5;
+  }
+  .cover-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 185mm;
+    width: 100%;
+    object-fit: cover;
+    object-position: 78% 35%;
+    display: block;
+  }
+  .cover-text {
+    position: absolute;
+    top: 185mm;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 18mm 28mm 28mm 28mm;
+    background: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 5;
+  }
+  .cover-accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--color-accent);
+  }
+  .cover-tag {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 4mm;
+  }
+  .cover h1 {
+    font-family: var(--font-display);
+    font-size: 38pt;
+    font-weight: 900;
+    line-height: 1.05;
+    color: white;
+    margin: 0 0 4mm 0;
+    border: none;
+    letter-spacing: -0.5px;
+  }
+  .cover-subtitle {
+    font-size: 12pt;
+    font-weight: 300;
+    color: var(--color-light);
+    margin-bottom: 6mm;
+    line-height: 1.45;
+    max-width: 130mm;
+  }
+  .cover-divider {
+    width: 24mm;
+    height: 2px;
+    background: var(--color-accent);
+    margin-bottom: 4mm;
+  }
+  .cover-brand {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-light);
+  }
+
+  /* Cover fallback if image is missing */
+  .cover-photo-fallback {
+    position: absolute;
+    top: 12mm;
+    left: 0;
+    right: 0;
+    height: 173mm;
+    width: 100%;
+    background: linear-gradient(135deg, #2E4057 0%, #1B2733 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(232, 228, 220, 0.4);
+    font-size: 10pt;
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+
+  /* ────────────────────────────────────────────────
+     CONTENT
+     ──────────────────────────────────────────────── */
+  .content {
+    padding: 8mm 22mm 10mm 22mm;
+  }
+
+  .pagebreak { break-before: page; }
+
+  .part-header {
+    background: var(--color-primary);
+    color: white;
+    padding: 14mm 22mm 12mm 22mm;
+    margin: 0 0 6mm 0;
+    break-before: page;
+    break-inside: avoid;
+  }
+  .part-header .part-label {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 4mm;
+  }
+  .part-header h1 {
+    font-family: var(--font-display);
+    font-size: 32pt;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 4mm 0;
+    border: none;
+    line-height: 1.1;
+  }
+  .part-header .part-desc {
+    font-size: 11pt;
+    color: var(--color-light);
+    font-weight: 300;
+    max-width: 130mm;
+    line-height: 1.6;
+  }
+
+  /* ────────────────────────────────────────────────
+     TYPOGRAPHY
+     ──────────────────────────────────────────────── */
+  h1 {
+    font-family: var(--font-display);
+    color: var(--color-primary);
+    font-size: 22pt;
+    font-weight: 700;
+    margin: 8mm 0 4mm;
+    line-height: 1.2;
+    border: none;
+  }
+  h2 {
+    font-family: var(--font-display);
+    color: var(--color-secondary);
+    font-size: 14pt;
+    font-weight: 700;
+    margin: 6mm 0 2mm;
+    padding-bottom: 1.5mm;
+    border-bottom: 1px solid var(--color-accent);
+    break-after: avoid;
+  }
+  h3 {
+    font-family: var(--font-display);
+    color: var(--color-primary);
+    font-size: 12pt;
+    font-weight: 700;
+    margin: 4mm 0 1.5mm;
+    break-after: avoid;
+  }
+  p { margin: 0 0 3mm 0; }
+  strong { color: var(--color-primary); font-weight: 700; }
+  em { font-style: italic; }
+  ul, ol { margin: 0 0 3mm 0; padding-left: 6mm; }
+  li { margin-bottom: 1.5mm; }
+
+  /* ────────────────────────────────────────────────
+     CALLOUTS
+     ──────────────────────────────────────────────── */
+  .callout {
+    padding: 4mm 6mm;
+    margin: 4mm 0;
+    border-radius: 0 3mm 3mm 0;
+    break-inside: avoid;
+    border-left-width: 1.5mm;
+    border-left-style: solid;
+  }
+  .callout .callout-label {
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5mm;
+    display: block;
+  }
+  .callout p { margin-bottom: 2mm; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout-johan {
+    border-left-color: var(--color-accent);
+    background: var(--color-surface);
+  }
+  .callout-johan .callout-label { color: var(--color-accent); }
+  .callout-johan .signature {
+    display: block;
+    margin-top: 2mm;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 10pt;
+    color: var(--color-accent);
+    text-align: right;
+  }
+
+  .callout-try {
+    border-left-color: var(--color-primary);
+    background: white;
+    border: 1px solid var(--color-light);
+    border-left-width: 1.5mm;
+    border-left-color: var(--color-primary);
+  }
+  .callout-try .callout-label { color: var(--color-primary); }
+
+  .callout-watch {
+    border-left-color: var(--color-warning);
+    background: #FFF8F4;
+  }
+  .callout-watch .callout-label { color: var(--color-warning); }
+
+  /* ────────────────────────────────────────────────
+     IMAGES
+     ──────────────────────────────────────────────── */
+  .image-figure {
+    width: 100%;
+    height: auto;
+    margin: 0 0 6mm 0;
+    border-radius: 1.5mm;
+    display: block;
+  }
+
+  .screenshot-placeholder {
+    border: 2px dashed var(--color-text-light);
+    background: #F8F9FA;
+    height: 60mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    font-size: 9pt;
+    font-style: italic;
+    margin: 4mm 0 6mm;
+    text-align: center;
+    padding: 4mm;
+  }
+
+  /* ────────────────────────────────────────────────
+     BAD / BETTER / BEST CARDS
+     ──────────────────────────────────────────────── */
+  .bbb-card {
+    border: 1px solid var(--color-light);
+    border-left-width: 1.5mm;
+    border-radius: 0 2mm 2mm 0;
+    padding: 4mm 5mm;
+    margin: 3mm 0;
+    break-inside: avoid;
+  }
+  .bbb-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5mm;
+  }
+  .bbb-dot {
+    width: 4mm;
+    height: 4mm;
+    border-radius: 50%;
+    margin-right: 3mm;
+  }
+  .bbb-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13pt;
+  }
+  .bbb-body {
+    font-size: 10pt;
+    line-height: 1.6;
+    color: var(--color-text);
+    background: var(--color-surface);
+    padding: 3mm 4mm;
+    border-radius: 1mm;
+  }
+  .bbb-bad    { border-left-color: var(--color-warning); }
+  .bbb-bad .bbb-dot   { background: var(--color-warning); }
+  .bbb-bad .bbb-label { color: var(--color-warning); }
+  .bbb-better { border-left-color: var(--color-accent); }
+  .bbb-better .bbb-dot   { background: var(--color-accent); }
+  .bbb-better .bbb-label { color: var(--color-accent); }
+  .bbb-best   { border-left-color: #5C8A6D; }
+  .bbb-best .bbb-dot   { background: #5C8A6D; }
+  .bbb-best .bbb-label { color: #5C8A6D; }
+
+  /* ────────────────────────────────────────────────
+     CHECKLIST
+     ──────────────────────────────────────────────── */
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 5mm 0;
+  }
+  .checklist li {
+    padding: 2.5mm 0 2.5mm 9mm;
+    position: relative;
+    border-bottom: 1px solid var(--color-light);
+    font-size: 11pt;
+  }
+  .checklist li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3.5mm;
+    width: 5mm;
+    height: 5mm;
+    border: 1.5px solid var(--color-accent);
+    border-radius: 1mm;
+    background: white;
+  }
+  .checklist-numbered {
+    list-style: none;
+    counter-reset: chk;
+    padding: 0;
+    margin: 5mm 0;
+  }
+  .checklist-numbered li {
+    counter-increment: chk;
+    display: flex;
+    align-items: center;
+    gap: 4mm;
+    padding: 2mm 0;
+    border-bottom: 1px solid var(--color-light);
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+  .checklist-numbered li:before {
+    content: counter(chk);
+    flex: 0 0 auto;
+    width: 7mm;
+    height: 7mm;
+    background: var(--color-accent);
+    color: white;
+    border-radius: 1mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: 11pt;
+    line-height: 1;
+    padding-bottom: 0.4mm;
+  }
+
+  /* ────────────────────────────────────────────────
+     TOC
+     ──────────────────────────────────────────────── */
+  .toc-page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--color-surface);
+    box-sizing: border-box;
+    padding: 22mm 28mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    break-before: page;
+    break-after: page;
+    overflow: hidden;
+    position: relative;
+    page: full-bleed;
+  }
+  .toc-page h1 {
+    margin: 0 0 4mm 0;
+    padding-bottom: 4mm;
+    font-size: 26pt;
+    color: var(--color-primary);
+    position: relative;
+  }
+  .toc-page h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 20mm;
+    height: 2px;
+    background: var(--color-accent);
+  }
+
+  .toc-list { list-style: none; padding: 0; margin: 4mm 0 0 0; }
+
+  .toc-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 2.8mm 0;
+    border-bottom: 1px dotted rgba(107, 114, 128, 0.35);
+    font-size: 11pt;
+  }
+  .toc-list li .toc-title {
+    color: var(--color-text);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12pt;
+  }
+  .toc-list li .toc-page-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-accent);
+    font-size: 12pt;
+    padding-right: 3mm;
+  }
+
+  .toc-list li.toc-part-row {
+    background: var(--color-primary);
+    padding: 4.5mm 0 4.5mm 6mm;
+    margin: 4mm 0 2mm 0;
+    border-bottom: none;
+    border-left: 2.5mm solid var(--color-accent);
+    border-radius: 0 1.5mm 1.5mm 0;
+  }
+  .toc-list li.toc-part-row .toc-title {
+    color: white;
+    font-size: 14pt;
+    font-weight: 700;
+  }
+  .toc-list li.toc-part-row .toc-page-num {
+    color: var(--color-accent);
+    font-size: 15pt;
+  }
+
+  .toc-list li.toc-sub {
+    padding: 2mm 0 2mm 8mm;
+    font-size: 10pt;
+    border-bottom: 1px dotted rgba(107, 114, 128, 0.25);
+  }
+  .toc-list li.toc-sub .toc-title {
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 10.5pt;
+  }
+  .toc-list li.toc-sub .toc-page-num {
+    font-size: 10.5pt;
+  }
+
+  /* ────────────────────────────────────────────────
+     ABOUT JOHAN
+     ──────────────────────────────────────────────── */
+  .author-portrait {
+    width: 30mm;
+    height: 30mm;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent);
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+    margin: 3mm 0;
+  }
+  .author-portrait-placeholder {
+    width: 30mm;
+    height: 30mm;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 2px solid var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    font-size: 7pt;
+    margin: 3mm 0;
+    font-style: italic;
+  }
+
+  /* ────────────────────────────────────────────────
+     DIAGRAM
+     ──────────────────────────────────────────────── */
+  .diagram-figure {
+    margin: 5mm 0 4mm;
+    text-align: center;
+    break-inside: avoid;
+  }
+  .diagram-caption {
+    font-size: 9pt;
+    color: var(--color-text-light);
+    font-style: italic;
+    margin-top: 2mm;
+  }
+
+  /* Seven modules in seven sentences — numbered list with extra room */
+  .seven-list {
+    counter-reset: seven;
+    list-style: none;
+    padding: 0;
+    margin: 4mm 0;
+  }
+  .seven-list li {
+    counter-increment: seven;
+    position: relative;
+    padding: 3mm 0 3mm 14mm;
+    border-bottom: 1px solid var(--color-light);
+    font-size: 10.5pt;
+    line-height: 1.55;
+  }
+  .seven-list li:before {
+    content: counter(seven);
+    position: absolute;
+    left: 0;
+    top: 3mm;
+    width: 9mm;
+    height: 9mm;
+    background: var(--color-primary);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1mm;
+  }
+  .seven-list li strong { color: var(--color-primary); }
+
+  /* Pull-quote — used for Sinek/memory-fact lines etc. */
+  .pullquote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 16pt;
+    line-height: 1.4;
+    color: var(--color-secondary);
+    border-left: 2.5mm solid var(--color-accent);
+    padding: 2mm 0 2mm 6mm;
+    margin: 5mm 0;
+    break-inside: avoid;
+  }
+  .pullquote-source {
+    display: block;
+    margin-top: 2mm;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 9pt;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     COVER
+     ═══════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-top-bar"></div>
+  <img src="../sv/presentationsteknik/assets/cover.jpg" class="cover-photo" alt="" onerror="this.outerHTML='&lt;div class=&quot;cover-photo-fallback&quot;&gt;Drop cover.jpg into sv/presentationsteknik/assets/&lt;/div&gt;';">
+  <div class="cover-footer-mask"></div>
+  <div class="cover-text">
+    <div class="cover-accent-line"></div>
+    <div class="cover-tag">Presentation Skills</div>
+    <h1>Speaking so they remember</h1>
+    <div class="cover-subtitle">A practical handbook for anyone who needs to be heard in a room — in the classroom, at the staff conference, or on a stage</div>
+    <div class="cover-divider"></div>
+    <div class="cover-brand">Johan Lindström</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     TOC
+     ═══════════════════════════════════════════════════ -->
+<div class="toc-page">
+  <h1>Contents</h1>
+  <ul class="toc-list">
+    <li><span class="toc-title">Three principles that shape the guide</span><span class="toc-page-num">03</span></li>
+    <li><span class="toc-title">The three channels — slides, body, words</span><span class="toc-page-num">05</span></li>
+
+    <li class="toc-part-row"><span class="toc-title">Part 1 — Why you're presenting</span><span class="toc-page-num">06</span></li>
+    <li class="toc-sub"><span class="toc-title">What the audience actually remembers</span><span class="toc-page-num">06</span></li>
+    <li class="toc-sub"><span class="toc-title">Sinek's Golden Circle · Logic and feeling</span><span class="toc-page-num">08</span></li>
+    <li class="toc-sub"><span class="toc-title">Exercise: your why</span><span class="toc-page-num">10</span></li>
+
+    <li class="toc-part-row"><span class="toc-title">Part 2 — Slides as a tool</span><span class="toc-page-num">12</span></li>
+    <li class="toc-sub"><span class="toc-title">One message per slide · The rules</span><span class="toc-page-num">12</span></li>
+    <li class="toc-sub"><span class="toc-title">Colour, typography, guiding the eye</span><span class="toc-page-num">14</span></li>
+    <li class="toc-sub"><span class="toc-title">When your slide collides with you — what you do instead</span><span class="toc-page-num">16</span></li>
+
+    <li class="toc-part-row"><span class="toc-title">Part 3 — Delivery in the room</span><span class="toc-page-num">18</span></li>
+    <li class="toc-sub"><span class="toc-title">Presence: the eyes, the pause, the ending</span><span class="toc-page-num">18</span></li>
+    <li class="toc-sub"><span class="toc-title">The digital meeting — camera, audio, eye contact</span><span class="toc-page-num">21</span></li>
+
+    <li class="toc-part-row"><span class="toc-title">Part 4 — Voice, body and language</span><span class="toc-page-num">23</span></li>
+    <li class="toc-sub"><span class="toc-title">The training metaphor · Three things to work on</span><span class="toc-page-num">23</span></li>
+
+    <li><span class="toc-title">Closing · Seven modules in seven sentences</span><span class="toc-page-num">25</span></li>
+    <li><span class="toc-title">About the author</span><span class="toc-page-num">27</span></li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     THREE PRINCIPLES
+     ═══════════════════════════════════════════════════ -->
+<div class="content pagebreak">
+  <h1>Three principles that shape the guide</h1>
+
+  <p>Before we get into slides, eye contact and pauses — a few words on the why. Most presentation-skills courses start at the wrong end. They start with Keynote, fonts and transitions. They hand out checklists without asking why you should be standing up to speak in the first place. This guide does the opposite. Three principles sit behind every recommendation on the pages that follow.</p>
+
+  <h2>Craft carries the technique</h2>
+  <p>The word <em>technique</em> comes from the Greek <em>technē</em> — art, skill, craft. That definition matters more than people think. Presentation skill isn't a tool you install; it's a craft you develop. Like any craft, it can be learned, but it asks you to take in what works, find out why it works, and put time into the practice that makes you better. Slides without craft are just decoration. Craft without slides will carry you a long way.</p>
+
+  <h2>The audience is the expert — on its own attention</h2>
+  <p>You may know your subject. That isn't enough. Sitting in the room are thirty, seventy or two hundred people — each of their brains deciding, second by second, what's worth listening to and what isn't. You can't force them to listen. You can make it easy or hard for them to follow. This guide is written from the audience's perspective, not the speaker's. What do they see? What do they hear? What will they remember a month from now?</p>
+
+  <div class="callout callout-johan">
+    <span class="callout-label">Johan's note</span>
+    <p>After running and watching thousands of presentations — as a teacher, school leader and Head of Education — I've landed on an uncomfortable truth: it isn't the slides that decide whether the presentation works. It's the choices made before the slides were built. What should they think, feel or do when I've stopped? Once that question is answered, the rest is work. When it isn't answered, you get decorated confusion.</p>
+    <span class="signature">— JL</span>
+  </div>
+
+  <h2>What matters is what they do afterwards</h2>
+  <p>A successful presentation isn't measured by what you said — and not by what the audience applauded. It's measured by what the audience thinks, feels or does differently when they leave the room. That's the only measure that matters. Everything in this guide — from the choice of a single image on a slide to where you put your feet during a pause — is a means to that end. Not an end in itself.</p>
+
+  <div class="callout callout-watch">
+    <span class="callout-label">Watch out</span>
+    <p>The most beautiful slides in the world won't save a presentation when you yourself don't know what you want to happen in the room. Before you open Keynote, answer this question in a single sentence: <em>What should the three most important people in the room do differently tomorrow?</em> If you can't, you haven't decided the presentation yet — only its surface.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     THE THREE CHANNELS
+     ═══════════════════════════════════════════════════ -->
+<div class="content pagebreak">
+  <h1>The three channels — slides, body, words</h1>
+
+  <p>In every presentation you work three channels at once: your slides, your body and voice, your words. They aren't three alternatives — they're three layers that have to work together. When they pull in the same direction they reinforce one another. When they pull apart they compete — and the audience stops trusting any of them.</p>
+
+  <div class="diagram-figure" style="margin: 3mm 0 2mm;">
+    <svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 140mm; height: auto;">
+      <!-- Three parallel tracks -->
+      <rect x="40" y="50" width="180" height="120" rx="10" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
+      <text x="130" y="100" font-family="Playfair Display, serif" font-size="20" font-weight="700" fill="#1B2733" text-anchor="middle">Slides</text>
+      <text x="130" y="124" font-family="Inter, sans-serif" font-size="9" font-weight="500" letter-spacing="1.2" fill="#6B7280" text-anchor="middle">WHAT THEY SEE</text>
+      <text x="130" y="146" font-family="Inter, sans-serif" font-size="8" fill="#6B7280" text-anchor="middle">visual anchors</text>
+
+      <rect x="250" y="50" width="180" height="120" rx="10" fill="#1B2733"/>
+      <text x="340" y="100" font-family="Playfair Display, serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">Body &amp; voice</text>
+      <text x="340" y="124" font-family="Inter, sans-serif" font-size="9" font-weight="500" letter-spacing="1.2" fill="#C8A86B" text-anchor="middle">WHAT THEY FEEL</text>
+      <text x="340" y="146" font-family="Inter, sans-serif" font-size="8" fill="#E8E4DC" text-anchor="middle">credibility, energy</text>
+
+      <rect x="460" y="50" width="180" height="120" rx="10" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
+      <text x="550" y="100" font-family="Playfair Display, serif" font-size="20" font-weight="700" fill="#1B2733" text-anchor="middle">Words</text>
+      <text x="550" y="124" font-family="Inter, sans-serif" font-size="9" font-weight="500" letter-spacing="1.2" fill="#6B7280" text-anchor="middle">WHAT THEY HEAR</text>
+      <text x="550" y="146" font-family="Inter, sans-serif" font-size="8" fill="#6B7280" text-anchor="middle">the argument, the story</text>
+
+      <line x1="220" y1="110" x2="250" y2="110" stroke="#C8A86B" stroke-width="2"/>
+      <line x1="430" y1="110" x2="460" y2="110" stroke="#C8A86B" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <h2>Slides — what they see</h2>
+  <p>Slides are not your notebook and not your report. They're a visual anchor for what you say. A good slide does three things: it grabs attention, it reinforces a specific thought, and it leaves room for your voice. It's a restrictive tool — and that's the point. More text on the slide doesn't give more information; it gives less attention to you.</p>
+
+  <h2>Body and voice — what they feel</h2>
+  <p>This is where credibility is decided. The audience reads you constantly: are you still or shifting nervously? Are you looking at them or at the slide? Are you pausing or babbling? The energy in the room isn't mystery — it's the sum of many small signals from your body and your voice. You can't talk your way to credibility if the body says something else.</p>
+
+  <h2>Words — what they hear</h2>
+  <p>Words carry the argument. They make things concrete, they tell, they convince. But words alone — without support from slides and body — drown. Words need the other two channels to land, and the other two need words to mean anything. It's the trinity you're working with.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PART 1 — WHY YOU'RE PRESENTING
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+  <div class="part-label">Part 1</div>
+  <h1>Why you're presenting</h1>
+  <div class="part-desc">Before your slides, before your voice, before anything else: what is it you actually want to happen in the room? This part is the foundation everything else rests on. Skip it and you build a beautiful house without footings.</div>
+</div>
+
+<div class="content">
+  <img src="../sv/presentationsteknik/assets/part-1-opener.jpg" class="image-figure" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;height: 70mm;&quot;&gt;Part 1 opener · why theme · drop part-1-opener.jpg&lt;/div&gt;';">
+
+  <h1>What the audience actually remembers</h1>
+  <p>Think of a presentation or a meeting you sat in on four to eight weeks ago. What do you remember? Probably not much. Maybe a single fragment, a feeling, an image that was shown — or in the worst case, nothing at all. That's an important observation, because it says something about how people actually work.</p>
+  <p>Our brains are bombarded with new input all the time and have to filter out everything that isn't important. There are things you can do to help the audience remember what you said, but no one remembers everything. You have to choose what matters most and build a strategy for getting that to stick.</p>
+
+  <div class="pullquote">
+    The brain remembers images better than text and text better than numbers. And yet most slides aren't built that way.
+    <span class="pullquote-source">— observation from thirty years in the classroom</span>
+  </div>
+
+  <h2>Three things help memory</h2>
+  <p>The research is strikingly consistent on this point, and practice confirms it. Three things stick in the brain long after the rest has been forgotten: <strong>images</strong> that reinforce a message, <strong>stories</strong> that bind facts to a concrete situation, and <strong>feelings</strong> — surprise, recognition, indignation, joy. A presentation that draws on all three plants more anchors in the audience's memory than one that draws on one or none.</p>
+  <p>That doesn't mean facts are unnecessary — quite the opposite. Facts are the content of those anchors. But facts without an image, story or feeling don't drive deep enough to stay. The table of numbers is gone from the audience's mind before you've clicked to the next slide.</p>
+
+  <div class="callout callout-try">
+    <span class="callout-label">Try this</span>
+    <p>Think of the last presentation you gave. Write down — honestly — the three things you think the audience remembers a month later. Not the three things you said: the three things they remember. If the answer is "no idea", you've found your next thing to work on.</p>
+  </div>
+</div>
+
+<div class="content pagebreak">
+  <h1>Sinek's Golden Circle</h1>
+  <p>Simon Sinek's model <em>The Golden Circle</em> is simple but useful: people respond to <strong>why</strong> you do something, not to <strong>what</strong> you do. The most common mistake when someone is presenting is to start with what: what is this, what does it do, what does it cost. That's facts — and facts on their own rarely stir feelings.</p>
+  <p>Think of a car ad. The specs are easy to list: 152 hp, 0–60 in 7.2 seconds, black with red seats, 248 litres of cargo space. Those are facts. They are not a why. A car is bought when someone connects facts to a feeling — and the feeling has its root in a why, not a what.</p>
+  <p>The same logic applies in a presentation, whether the audience is a class of pupils, a working group or a full council. The question becomes: what is it you're burning for in the topic, and what do you believe about it? That's the audience's way into all the rest. If you burn for it, the audience will feel it. If you go on autopilot, the audience will feel that too — and stop listening.</p>
+
+  <h1>Logic and facts — or instinct and feeling?</h1>
+  <p>There's a widespread assumption that rational decisions are made on rational grounds. In practice, that doesn't hold. Decisions are made by people who look at facts and <em>feel</em> something — trust, worry, conviction, doubt. The table of facts on its own convinces no one.</p>
+  <p>That doesn't mean you should skip the facts. Quite the opposite: facts are your tool for evoking the right feeling — trust, recognition, insight. A presentation empty of facts feels sloppy. A presentation that's only facts feels cold. The one that works in practice combines both — enough fact for the audience to believe you, enough feeling for them to care about what you're saying.</p>
+
+  <h2>How to phrase your why</h2>
+  <p>A why isn't a statement about what you do. It's a statement about why it matters. Three examples — same area, three different levels of why:</p>
+
+  <div class="bbb-card bbb-bad">
+    <div class="bbb-header">
+      <div class="bbb-dot"></div>
+      <div class="bbb-label">Surface</div>
+    </div>
+    <div class="bbb-body">"Today I'm going to talk about our new assessment policy."</div>
+  </div>
+
+  <div class="bbb-card bbb-better">
+    <div class="bbb-header">
+      <div class="bbb-dot"></div>
+      <div class="bbb-label">Better</div>
+    </div>
+    <div class="bbb-body">"Today is about how we fairly assess pupils who have fallen behind during the school year."</div>
+  </div>
+
+  <div class="bbb-card bbb-best">
+    <div class="bbb-header">
+      <div class="bbb-dot"></div>
+      <div class="bbb-label">Best</div>
+    </div>
+    <div class="bbb-body">"What I want you to do differently next month is to base your assessment decisions on the same evidence — so that the pupils in 9C aren't penalised for ending up in the wrong classroom. That's why we're talking about the policy today."</div>
+  </div>
+
+  <p style="font-style: italic; color: var(--color-text-light); font-size: 10pt; margin-top: 4mm;">The best version doesn't say what — it says what the audience should do differently, and why it matters right now.</p>
+</div>
+
+<div class="content pagebreak">
+  <h1>Exercise: your why</h1>
+  <p>Before you move on to slides and stagecraft, spend five minutes on this exercise. It isn't a self-help exercise — it's a starting point you'll come back to throughout the guide, especially when we talk about how you design the opening of a presentation.</p>
+
+  <div class="callout callout-try">
+    <span class="callout-label">Write down — in two to four sentences</span>
+    <p>Why do you do what you do? And why should anyone listen to what you have to say about it? Not slogans, not the headline of your LinkedIn profile — what are you actually <em>burning</em> for in your work, and why is it relevant to the people you're presenting to?</p>
+  </div>
+
+  <p>Save the answer somewhere you'll find it again. When you next sit down to plan a presentation, don't start in Keynote. Start in the note you just wrote. The slide, the voice and the body are there to serve what you wrote — not the other way round.</p>
+
+  <h2>Three questions that govern the rest of the planning</h2>
+  <p>Once your why is clear, ask these three questions about the audience — before you design a single slide:</p>
+
+  <ol class="checklist-numbered">
+    <li><span><strong>Who are the three most important people in the room?</strong> Not everyone — the three who have to listen for the presentation to have done its job.</span></li>
+    <li><span><strong>What should they do differently tomorrow?</strong> Not what you want them to "understand" or "consider". What should they actually <em>do</em>?</span></li>
+    <li><span><strong>What should they tell a colleague on the way out?</strong> That sentence is your real heading. The whole presentation is working for it.</span></li>
+  </ol>
+
+  <div class="callout callout-johan">
+    <span class="callout-label">Johan's note</span>
+    <p>For years I made the classic mistake: built the slides first, formulated the purpose last. It's like cooking dinner and only deciding who the guest is once the food is on the table. Flip it. Decide the audience, decide the outcome, build the presentation backwards from there. It isn't more work — it's less, because you skip the slides you didn't need.</p>
+    <span class="signature">— JL</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PART 2 — SLIDES AS A TOOL
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+  <div class="part-label">Part 2</div>
+  <h1>Slides as a tool</h1>
+  <div class="part-desc">The slide isn't your notebook. It isn't your report. It's a visual anchor for what you're saying. Once you've got that clear, the design choices become much easier — because you know what the slide is doing for you and what it isn't.</div>
+</div>
+
+<div class="content">
+  <img src="../sv/presentationsteknik/assets/part-2-opener.jpg" class="image-figure" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;height: 70mm;&quot;&gt;Part 2 opener · slides theme · drop part-2-opener.jpg&lt;/div&gt;';">
+
+  <h1>One message per slide</h1>
+  <p>The one rule that has survived every change in presentation tools since PowerPoint 1990 is this: a slide carries one message. If you need to say two things, make two slides. The new slide costs nothing — divided attention costs everything.</p>
+  <p>Practical consequence: when you sit down to build a presentation, don't start with the number of slides you think you'll have. First write down the five to ten sentences you want the audience to remember. Then it becomes one slide per sentence. There's your skeleton. Everything else — images, quotes, transitions — is just decoration on that skeleton.</p>
+
+  <h2>The three rules that do most of the work</h2>
+  <p>There are many rules for slide design. Three of them do roughly 80 per cent of the job. Learn the three, and the quality of your slides jumps dramatically — before you've spent a second on advanced techniques.</p>
+
+  <ol class="checklist-numbered">
+    <li><span><strong>One message per slide.</strong> One slide, one thing. Done.</span></li>
+    <li><span><strong>Six objects max.</strong> Count everything: heading, text, images, icons, logos. Six or fewer. Beyond that the audience loses the overview.</span></li>
+    <li><span><strong>Large type, high contrast.</strong> The person in the back row is your target. If someone there can't read it, the slide isn't built for the room.</span></li>
+  </ol>
+
+  <p>The three rules are not aesthetic. They follow from how the brain works when it has to listen and look at the same time. When a slide breaks one of them, the audience <em>feels</em> it — even if they can't say why. They zone out for a moment. That moment is expensive.</p>
+
+  <div class="callout callout-watch">
+    <span class="callout-label">Watch out · The template</span>
+    <p>The slide template your employer or municipality has put in your hands is optimised to follow visual guidelines — not to help the audience remember. The template is a floor, not a ceiling. Break it when it serves the audience better. An empty slide with a single word is often stronger than the template's predefined heading-plus-bullet-list.</p>
+  </div>
+</div>
+
+<div class="content pagebreak">
+  <h1>Colour, typography, guiding the eye</h1>
+  <p>Once the three basic rules are in place, it's time for the fine adjustments. They won't work miracles on a poorly thought-through slide — but they turn a good slide into an excellent one.</p>
+
+  <h2>Colour — few colours, used deliberately</h2>
+  <p>Two to three colours on a slide. No more. A dark base, a light background, an accent colour that does the work of leading the eye. Anything beyond that becomes cacophony. And: high contrast between text and background, always — light text on a light background isn't aesthetic, it's unreadable.</p>
+  <p>Colour also carries meaning. Red pulls the eye — use it for what's important, not for headings that aren't. Green signals calm, blue trustworthiness, yellow attention. You don't have to be a designer to think about this. Just deliberate.</p>
+
+  <h2>Typography — two typefaces is enough</h2>
+  <p>One typeface for headings, one for body text. More than that and the slide starts to feel cluttered. Size matters more than the choice of typeface: for an audience in a room, body text should be at least 24 points, headings at least 36. That's larger than most people think — which is why text on most slides is too small for the room.</p>
+
+  <h2>Guiding the eye — where does the audience look first?</h2>
+  <p>Every slide has a visual centre of gravity. That's where the audience's eye lands first — and that's why you should decide where it goes, not leave it to chance. Size, colour, contrast and placement steer the eye. If the most important message is in the bottom right of the slide in grey type, you've designed the slide against the audience, not with them.</p>
+  <p>A good exercise: look at your slide for two seconds and close your eyes. What did you see? That's what the audience saw first too. If it's the wrong thing, that's what you need to make bigger, more contrasting or more centrally placed.</p>
+
+  <div class="callout callout-try">
+    <span class="callout-label">Try before your next presentation</span>
+    <p>Open a slide you've already built. Count the objects. More than six? Remove until you're at six or fewer. Measure the heading's text size. Under 36? Make it bigger. Then look at the slide for two seconds and close your eyes — did the eye land where you wanted? If not, move the centre of gravity. You'll feel the difference.</p>
+  </div>
+</div>
+
+<div class="content pagebreak">
+  <h1>When your slide collides with you</h1>
+  <p>This is the most common pitfall in the whole presentation situation: your slide makes it harder for the audience to listen to you. Reading and listening in parallel doesn't work — and if the audience is forced to choose, they choose to read. You then stand there for ten seconds talking to an audience that has stopped listening.</p>
+  <p>The three most common variants and what you do instead:</p>
+
+  <h2>1. Wall of text → quote or highlight</h2>
+  <p>A page of text projected on a slide is asking the audience to switch off and start reading. The best fix is not to have the whole text on the slide at all — quote the key sentence, point to the source, talk about the implications. The middle ground, when you really do need to show the whole paragraph, is to highlight what matters and tone down the rest. Then the text functions as a reference and your voice leads the reading.</p>
+
+  <h2>2. The bullet list → one core message or images with labels</h2>
+  <p>Eight bullets isn't an agenda — it's a list the audience will remember none of. Two questions to ask: is there really only one of the bullets that matters? Show that one and say the rest. Or: does each bullet really tie to an anchor? Then swap the bullets for images with short labels — now there's something to look at, not something to read.</p>
+
+  <h2>3. The table → the number that matters</h2>
+  <p>The whole Excel table projected on a slide is useless. The audience sees a grid pattern and not what you're trying to say. Pull out the single number that actually matters, make it large, say what it means. The table can come along as a handout if anyone wants to verify the context.</p>
+
+  <div class="callout callout-watch">
+    <span class="callout-label">Watch out · Animation</span>
+    <p>Animation is a powerful tool when it leads the audience's attention — and a distraction when it's just decoration. A simple fade-in on a new element you've just started talking about: yes. A slide where four different elements fly in from four different directions at four different speeds: no. Rule: if the animation can't justify its own existence by helping the audience understand something, take it off.</p>
+  </div>
+
+  <h2>When you really do need a lot on one slide</h2>
+  <p>There are cases — complex diagrams, overviews, comparisons — where a slide needs many objects. When that happens: split it up. Show the diagram in full, then zoom in on the part you're actually talking about, then back out. Or: build the diagram up step by step with animation. Complexity isn't the enemy; undivided complexity is.</p>
+
+  <div class="callout callout-johan">
+    <span class="callout-label">Johan's note</span>
+    <p>When I've helped others improve their presentations it's almost always about having squeezed too much info onto the slides. It's an efficient way to drown the message and get the audience to stop listening. The fix: take the unnecessary off and split the rest across more slides. Less info per slide gives more presenter — which is almost always what the audience needs more of.</p>
+    <span class="signature">— JL</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PART 3 — DELIVERY IN THE ROOM
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+  <div class="part-label">Part 3</div>
+  <h1>Delivery in the room</h1>
+  <div class="part-desc">Your slides are ready. You're in the doorway of the room — or in front of the camera — and you're about to step up. This is where presenters live or die. Body, eyes, pause, ending. And the digital meeting, which lures by feeling easier but is harder.</div>
+</div>
+
+<div class="content">
+  <img src="../sv/presentationsteknik/assets/part-3-opener.jpg" class="image-figure" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;height: 70mm;&quot;&gt;Part 3 opener · delivery theme · drop part-3-opener.jpg&lt;/div&gt;';">
+
+  <h1>Presence — the eyes, the pause, the ending</h1>
+  <p>You're about to stand up in front of thirty people, or three. The first thing they register isn't what you say — it's how you are in the room. Are you standing? Are you taking up space? Are you looking at them or at your notes? Each of those is a signal the audience reads in a second, and it colours their interpretation of everything you say afterwards.</p>
+
+  <h2>Stand up if you can, plant your feet</h2>
+  <p>The energy in the room drops when you sit down. Stand up if the situation allows — and if it doesn't, sit so the body faces the audience, not half-turned to the screen. When you stand: feet hip-width apart, weight evenly distributed. The familiar rocking-between-feet rhythm is a signal to the audience that you're uncertain. Steady body = trustworthy body.</p>
+
+  <h2>The eyes — one person at a time, three seconds</h2>
+  <p>The most common eye trap is sweeping across the room without stopping anywhere. It feels safer, but no one in the audience feels seen. Better: look at one person at a time, about three seconds, say a whole sentence to that person, then move on to the next. In a room of 60 you don't have to look at everyone — distribute across zones, and everyone feels you've seen their part of the room.</p>
+
+  <h2>The pause — the most underrated tool</h2>
+  <p>Two seconds of silence after a key sentence is more powerful than three minutes of rhetoric. The pause says: what I just said mattered. The pause gives the audience time to think, feel or remember. The pause is also the most uncomfortable tool, because you yourself hear the silence more than the audience does. You think it's four seconds; for them it's one. Use it.</p>
+
+  <div class="pullquote">
+    The pause is the only time the audience actually gets to work. That's where the learning happens — not while you're speaking.
+  </div>
+
+  <h2>The ending — don't end with "any questions?"</h2>
+  <p>That's the worst possible last image in the audience's memory — a vague opening that invites silence. The audience is at its most receptive of the whole presentation; they've decided whether they agree or not and are wondering what to do with it. And then you toss in a flat question as the frame around everything else.</p>
+  <p>End instead with a sentence that sums up what you want them to take with them — the one you formulated earlier as "what should they tell a colleague on the way out?". That should be the last thing they hear. Questions can come in the next breath, but they aren't the ending.</p>
+
+  <div class="callout callout-try">
+    <span class="callout-label">Try this week</span>
+    <p>In your next presentation: write your closing sentence on paper. Not the call for questions. The sentence. Put the note at the front of your notes. When you get there, read it or say it from memory — and pause for two seconds afterwards. Notice what happens in the room.</p>
+  </div>
+</div>
+
+<div class="content pagebreak">
+  <h1>The digital meeting — compensate deliberately</h1>
+  <p>Digital presentations feel easier — you're at home, your notes are next to the screen, you don't have to stand up. In practice they're harder. The screen takes away most of the signals you usually rely on in a room: the audience's body language, the energy, the eye contact, the pauses that carry weight. You need to compensate deliberately — otherwise the quality of the presentation drops sharply.</p>
+
+  <h2>Good audio before good picture</h2>
+  <p>If the audience has to choose between seeing you badly or hearing you badly, they'll pick seeing you badly. A bad picture is annoying; bad audio makes you incomprehensible. More and more laptops have decent microphones today, but if there's noise around you it can fall flat anyway. Make sure every aspect of the audio is right; it's not just about the microphone.</p>
+
+  <h2>Camera at eye level</h2>
+  <p>The most common digital mistake is having the camera low — which is what happens if you use a laptop on the desk. The audience looks up your nose for the whole meeting. Lift the laptop so the camera is at eye level. The effect is dramatic: you go from awkward to professional in literally two minutes.</p>
+
+  <h2>Look at the lens, not the faces</h2>
+  <p>This is the hardest digital adjustment. When you look at the audience's faces on the screen, they see you looking away from them. To create the experience of eye contact you have to look into the lens — which feels unnatural because you can't see the audience's reactions while you do. The fix: look at the lens when you're saying important things. Look at the faces when you've paused and are letting the audience process. You switch deliberately.</p>
+
+  <h2>Pause strategy on digital — longer and clearer</h2>
+  <p>Digital eats silences in a way a room doesn't. Two seconds of pause in a room feels natural; two seconds digital makes the audience check whether the connection has frozen. Solve it by making the pauses longer and saying what you're doing: "I'll pause here for a moment so you can think." An instruction to the silence saves it from being read as a technical glitch.</p>
+
+  <div class="callout callout-watch">
+    <span class="callout-label">Watch out · Hybrid is the hardest</span>
+    <p>The hybrid presentation — half the audience in the room, half digital — is the hardest variant. The two audiences see and hear different things, and the digital ones almost always end up forgotten. Fix: have a moderator whose specific job is to watch the digital side (chat, questions, connection). If you can't have one, choose. Either everyone is in the room or everyone is digital. The combination without a moderator fails more than it succeeds.</p>
+  </div>
+
+  <div class="callout callout-johan">
+    <span class="callout-label">Johan's note</span>
+    <p>The pandemic taught everyone to run digital meetings — but not to run them well. Three years on, I still see presenters with the camera too low and bad audio. They believe the content carries them. The content carries you halfway. The rest is production values — and that takes only a few hours to fix.</p>
+    <span class="signature">— JL</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PART 4 — VOICE, BODY AND LANGUAGE
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+  <div class="part-label">Part 4</div>
+  <h1>Voice, body and language</h1>
+  <div class="part-desc">Slides you can change in five minutes. Voice, body and language are where most presenters have the greatest room to grow — and that only changes through deliberate practice outside the presentation itself. This part is for the reader who wants to go further.</div>
+</div>
+
+<div class="content">
+  <img src="../sv/presentationsteknik/assets/part-4-opener.jpg" class="image-figure" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;height: 70mm;&quot;&gt;Part 4 opener · voice &amp; body theme · drop part-4-opener.jpg&lt;/div&gt;';">
+
+  <h1>The training metaphor</h1>
+  <p>Think of presenting like going to the gym. You don't get strong by reading about training. You don't get strong by visiting a gym once and looking at the machines. You get strong by lifting weights regularly, with technique, with a plan, with someone who knows the technique better than you and corrects you when you get it wrong. Presentation skill isn't different. You can't read your way to a better voice or a better presence. You have to practise — and get feedback.</p>
+  <p>The single most developmental exercise for a presenter is to record yourself on video and watch it back. Not the whole presentation — five minutes is enough. It's uncomfortable, often painful. And that's where the development potential lives. You'll spot three things you didn't know you were doing, every time. That's where you learn.</p>
+
+  <h2>Body — posture, gesture, the feet</h2>
+  <p>Posture is decided in the first impression — before you've said a word. Stand up, shoulders down, face raised, feet hip-width apart. Gesture is a tool, not a tic. When you want to emphasise something: a gesture. When you're standing still: arms at the sides naturally, not folded or in a pocket. Record a presentation and watch the feet: are they swaying? Moving back and forth? That's a signal you can work on.</p>
+
+  <h2>Voice — tempo, volume, pause, emphasis</h2>
+  <p>Variation is everything. A monotone voice can't be saved by strong arguments — the audience stops listening after two minutes. Vary the tempo: fast as you build tension, slow as you deliver the key sentence. Vary the volume: better to drop quieter on what matters than to push louder. That forces the audience to listen closer. And emphasis — which word in the sentence matters most? Put the weight there.</p>
+
+  <div class="pullquote">
+    It's not the voice you have that decides — it's what you do with it.
+  </div>
+
+  <h2>Language — short sentences, concrete words</h2>
+  <p>Written language and spoken language aren't the same thing. When you read out a text you wrote to be read, it sounds stiff. Speak instead: short sentences, concrete words, images and stories instead of abstractions. A presentation isn't one long speech — it's a chain of short sentences, each of which has to land.</p>
+
+  <div class="callout callout-try">
+    <span class="callout-label">Record yourself — once a month</span>
+    <p>Set up a phone in the corner of the room and record five minutes of the next meeting you lead. Then watch it. Listen for the filler sounds (um, like, you know). Look at the feet and the hands. Look at the eyes — do they land somewhere, or are they sweeping? It's your own focus group. It gives you better feedback than any colleague would dare give you — and it costs nothing.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     CLOSING
+     ═══════════════════════════════════════════════════ -->
+<div class="content pagebreak">
+  <h1>Seven modules in seven sentences</h1>
+  <p>Everything you've read up to this point is worthless if it doesn't land as something you actually do differently. This is the guide as a checklist — seven core points, one per module of the main course, to read when you're planning your next presentation.</p>
+
+  <ol class="seven-list">
+    <li><strong>What should the audience think, feel or do when you've stopped talking?</strong> And what should they remember afterwards? That's where the presentation rests. Everything else is a means.</li>
+    <li><strong>One slide carries one message, six objects max, few colours, clear contrast and large type</strong> — the rules do most of the work.</li>
+    <li><strong>Text-heavy slides, clustered bullet lists and tables full of data collide with you as a presenter</strong> — the audience can't read and listen at the same time. Choose.</li>
+    <li><strong>Stand up, look at the audience, pause when it matters, and don't end with "any questions?"</strong> — end with what you want them to think about.</li>
+    <li><strong>Digital presentations require deliberate compensation:</strong> good audio, camera at eye level, eye contact with the lens, and a pause strategy that takes account of the silence feeling longer.</li>
+    <li><strong>Body, voice, eyes and language are where most presenters have the greatest room to grow</strong> — and that only changes through deliberate practice outside the presentation itself.</li>
+    <li><strong>The most important thing you take with you isn't what you now know, but what you actually do differently</strong> in your next presentation. One thing. Concrete. This week.</li>
+  </ol>
+
+  <div class="callout callout-try">
+    <span class="callout-label">Reflection · Your first change</span>
+    <p>Of everything you've read — what's the first, concrete thing you'll do differently next time you give a presentation? Not "I'll try to get better at pauses" — that's too vague. Better: "I'll plan a two-second pause after every key conclusion." Write it down. Bring it out when your next presentation gets close.</p>
+  </div>
+
+  <h1>Closing words</h1>
+  <p>This guide isn't a collection of tricks. It's a call to move attention — from your slides to the audience, from what you yourself want to say to what the audience actually remembers, from what feels safe (a text-heavy slide as a note) to what works (an image, a sentence, a pause). It isn't more work. It's different work.</p>
+  <p>And remember: you don't get better as a presenter by reading a book. You get better by presenting, recording yourself, watching it back, adjusting, presenting again. The craft lives on the other side of repetition. This guide is a starting map — the rest is yours.</p>
+
+  <p style="margin-top: 8mm; font-style: italic; color: var(--color-text-light);">Good luck the next time you stand up.</p>
+  <p style="font-style: italic; color: var(--color-text-light); text-align: right;">— Johan</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     ABOUT THE AUTHOR
+     ═══════════════════════════════════════════════════ -->
+<div class="content pagebreak">
+  <h1>About the author</h1>
+
+  <img src="../assets/images/brand/portrait-johan-lindstrom.jpg" class="author-portrait" alt="Johan Lindström" onerror="this.outerHTML='&lt;div class=&quot;author-portrait-placeholder&quot;&gt;Photo&lt;br&gt;coming&lt;/div&gt;';">
+
+  <p><strong>Johan Lindström</strong> has 28 years in Swedish education: ten years as a teacher, seven as a school leader, eleven as Head of Education at Advania Skolpartner. Today he works as a consultant, writer and speaker focused on AI and digitalisation in schools — primarily with school administrators, principals and teachers in Sweden.</p>
+  <p>This guide draws on experience from several thousand presentations in classrooms, with colleagues, and on conference and event stages over three decades. Behind every recommendation are both working examples and failures — and the insight that the difference between a good and a poor presentation is usually not what the presenter knows, but what the presenter has decided not to do.</p>
+
+  <h2>Get in touch</h2>
+  <p>If you'd like to discuss wider questions about AI and digitalisation in schools, Johan is on <em>LinkedIn</em> and at <em>choosewise.education</em>.</p>
+
+  <h2>More on choosewise.education</h2>
+  <ul>
+    <li><strong>The full Presentation Skills course</strong> — seven modules online with exercises, deep dives and interactive tests.</li>
+    <li><strong>The WISE Framework for Education</strong> — four questions that turn every "should we use this AI tool?" conversation into a structured decision.</li>
+    <li><strong>AI guides</strong> — pedagogical guides to the AI tools teachers and school leaders have access to.</li>
+    <li><strong>The blog</strong> — analytical writing on schools, AI and digitalisation — beyond the headlines.</li>
+  </ul>
+
+  <p style="margin-top: 4mm; font-size: 9pt; color: var(--color-text-light); font-style: italic;">Written with the help of Claude, edited by the author. The structure, the positions and the editorial judgement are the author's.</p>
+</div>
+
+</body>
+</html>

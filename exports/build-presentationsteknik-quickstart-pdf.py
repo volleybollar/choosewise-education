@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Build the Presentationsteknik quick-start PDF (SV) from HTML source.
+"""Build the Presentation Skills quick-start PDFs (SV + EN) from HTML sources.
 
-Output:
+Outputs:
   assets/pdfs/presentationsteknik-sammanfattning-sv.pdf
+  assets/pdfs/presentation-skills-summary-en.pdf
 
 Run:
   pip install -r exports/requirements.txt   # one-time
@@ -21,6 +22,11 @@ jobs = [
         "lang": "sv",
         "main_html": root / "exports/presentationsteknik-quick-start-sv.html",
         "final_pdf": pdf_out_dir / "presentationsteknik-sammanfattning-sv.pdf",
+    },
+    {
+        "lang": "en",
+        "main_html": root / "exports/presentation-skills-quick-start-en.html",
+        "final_pdf": pdf_out_dir / "presentation-skills-summary-en.pdf",
     },
 ]
 

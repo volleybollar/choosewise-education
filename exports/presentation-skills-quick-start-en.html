@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Presentation Skills — A4 summary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Work Sans', -apple-system, sans-serif;
+    color: #1e1e1c;
+    background: #f7f4ec;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 18mm 20mm;
+    display: flex;
+    flex-direction: column;
+  }
+  .page1 { page-break-after: always; }
+  .page2 { page-break-before: always; }
+
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(30, 30, 28, 0.12);
+    margin-bottom: 14px;
+  }
+  .masthead .eyebrow {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: #2f4a3a;
+  }
+  .masthead .page-num {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #a5a59f;
+  }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.6px;
+    color: #1e1e1c;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: italic;
+    color: #5a5a57;
+    margin-bottom: 14px;
+  }
+  .lede {
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: #3a3a38;
+    max-width: 155mm;
+    margin-bottom: 16px;
+  }
+
+  .section { margin-bottom: 12px; }
+  .section h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 17px;
+    font-weight: 450;
+    line-height: 1.2;
+    color: #1e1e1c;
+    margin-bottom: 4px;
+  }
+  .section h2 .num {
+    color: #2f4a3a;
+    font-weight: 500;
+    margin-right: 8px;
+  }
+  .section p {
+    font-size: 10.8px;
+    line-height: 1.55;
+    color: #3a3a38;
+    margin-bottom: 5px;
+  }
+
+  /* Three-card grid (slide rules, feeling-vs-fact etc.) */
+  .triple-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .triple-card {
+    background: #fbf8f1;
+    border-left: 3px solid #2f4a3a;
+    padding: 10px 12px;
+    border-radius: 2px;
+  }
+  .triple-card:nth-child(2) { border-color: #a07d2e; }
+  .triple-card:nth-child(3) { border-color: #b35a3a; }
+  .triple-card .letter {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1;
+    color: #2f4a3a;
+  }
+  .triple-card:nth-child(2) .letter { color: #a07d2e; }
+  .triple-card:nth-child(3) .letter { color: #b35a3a; }
+  .triple-card .name {
+    display: block;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1e1e1c;
+    margin: 3px 0 3px;
+  }
+  .triple-card p {
+    font-size: 10.2px;
+    line-height: 1.5;
+    color: #3a3a38;
+    margin: 0;
+  }
+
+  /* Bad / better / best (text spectrum) */
+  .bbb {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .bbb-card {
+    background: #fbf8f1;
+    border-top: 2px solid #c4c0b2;
+    padding: 8px 10px;
+    border-radius: 2px;
+  }
+  .bbb-card.better { border-color: #c69c3c; }
+  .bbb-card.best   { border-color: #2f4a3a; }
+  .bbb-card .label {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #a5a59f;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .bbb-card.better .label { color: #a07d2e; }
+  .bbb-card.best   .label { color: #2f4a3a; }
+  .bbb-card .sample {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 10.5px;
+    line-height: 1.45;
+    font-style: italic;
+    color: #3a3a38;
+  }
+
+  /* Seven-modules list */
+  .seven-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 18px;
+    margin-top: 6px;
+  }
+  .seven-item {
+    display: flex;
+    gap: 10px;
+    padding: 4px 0;
+  }
+  .seven-item .idx {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #2f4a3a;
+    min-width: 14px;
+  }
+  .seven-item .text {
+    font-size: 10.2px;
+    line-height: 1.5;
+    color: #3a3a38;
+  }
+  .seven-item .text strong {
+    color: #1e1e1c;
+    font-weight: 600;
+    display: block;
+    font-size: 10.8px;
+    margin-bottom: 1px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .two-col p { margin-bottom: 4px; font-size: 10.5px; }
+
+  .watchout {
+    background: #f5ecd0;
+    border-left: 3px solid #a07d2e;
+    padding: 10px 14px;
+    border-radius: 2px;
+    margin-top: 8px;
+  }
+  .watchout .label {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #a07d2e;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .watchout p {
+    font-size: 10.5px;
+    line-height: 1.5;
+    color: #3a3a38;
+    margin: 0;
+  }
+
+  .page-footer {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid rgba(30, 30, 28, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 9.5px;
+    color: #a5a59f;
+    letter-spacing: 0.3px;
+  }
+  .page-footer .brand {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 10.5px;
+    color: #5a5a57;
+  }
+
+  .closing {
+    background: #1e1e1c;
+    color: #f7f4ec;
+    padding: 14px 18px;
+    border-radius: 3px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .closing .msg {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #f7f4ec;
+    line-height: 1.4;
+  }
+  .closing .url {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #d4e8db;
+    white-space: nowrap;
+  }
+
+  .colophon-line {
+    margin-top: 10px;
+    font-size: 8.5px;
+    color: #a5a59f;
+    letter-spacing: 0.25px;
+    font-style: italic;
+    text-align: center;
+  }
+  .license-line {
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(30, 30, 28, 0.08);
+    font-size: 8.5px;
+    color: #a5a59f;
+    letter-spacing: 0.25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .license-line strong {
+    color: #5a5a57;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ PAGE 1 ═══════════════ -->
+<div class="page page1">
+  <div class="masthead">
+    <span class="eyebrow">Presentation Skills · A4 summary</span>
+    <span class="page-num">01 / 02</span>
+  </div>
+
+  <h1>What the audience remembers is decided long before the first slide is shown.</h1>
+  <p class="subtitle">Seven modules on two pages — the core of the course in compressed form.</p>
+
+  <p class="lede">This isn't a presentation about you. It's a presentation for the audience. The question that governs everything: what should they think, feel or do when you've stopped talking? Everything else — slides, voice, body, words — is a means, not an end. Skim this page before your next presentation and come back to the depth of the course when you have time.</p>
+
+  <div class="section">
+    <h2><span class="num">1</span>Start with why, not what</h2>
+    <p>The car is bought when someone connects facts to a feeling — and the feeling is rooted in a why, not a what. The same logic applies in the classroom, at the staff meeting, in front of the council chamber. Before you open Keynote: why does this topic matter, why should anyone care, what are you yourself burning for? That's the audience's way into all the rest. If you go on autopilot, the audience will feel it and stop listening.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">2</span>One slide carries one message</h2>
+    <p>Three rules do most of the work. They aren't aesthetic — they follow from how the brain works when someone has to listen and look at the same time.</p>
+    <div class="triple-grid">
+      <div class="triple-card">
+        <span class="letter">1</span>
+        <span class="name">One message</span>
+        <p>One slide, one thing. If you need to say two things, make two slides. The new slide costs nothing; divided attention costs everything.</p>
+      </div>
+      <div class="triple-card">
+        <span class="letter">2</span>
+        <span class="name">Six objects max</span>
+        <p>Count everything: heading, text, images, icons, logos. Six or fewer. Beyond that the audience loses the overview and stops processing what you're saying.</p>
+      </div>
+      <div class="triple-card">
+        <span class="letter">3</span>
+        <span class="name">Large type, high contrast</span>
+        <p>The person in the back row is your target. If they can't read it, the slide isn't built for the room. Large type forces you to choose what matters.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">3</span>What you do instead of text</h2>
+    <p>Most slides collide with the presenter. The audience can't read and listen in parallel — and if forced to choose, they choose to read. The three most common traps and what you do instead:</p>
+    <div class="bbb">
+      <div class="bbb-card">
+        <span class="label">● Wall of text</span>
+        <div class="sample">The whole paragraph projected on the slide — the audience stops listening and starts reading.</div>
+      </div>
+      <div class="bbb-card better">
+        <span class="label">● Better</span>
+        <div class="sample">Quote the key sentence, point to the source, talk about the implications.</div>
+      </div>
+      <div class="bbb-card best">
+        <span class="label">● Best</span>
+        <div class="sample">An image that reinforces the message, one word on the slide, everything else in your voice.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">4</span>Presence — the eyes, the pause, the ending</h2>
+    <div class="two-col">
+      <div>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Stand up if you can.</strong> The energy in the room drops when you sit. Take up space. Plant your feet.</p>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Look at one person at a time.</strong> Three seconds per person — not searching across a sea of heads.</p>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Pause when it matters.</strong> Two seconds of silence after a key sentence is more powerful than three minutes of rhetoric.</p>
+      </div>
+      <div>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Don't end with "any questions?"</strong> End with what you want the audience to be thinking about as they leave the room.</p>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Tell rather than report.</strong> One concrete story sticks better than five abstract arguments.</p>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Cut the filler sounds.</strong> "Um", "like", "you know" — train them out by hearing yourself.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Presentation Skills — A4 summary</span>
+    <span class="brand">choosewise.education</span>
+    <span>Page 01 / 02</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 2 ═══════════════ -->
+<div class="page page2">
+  <div class="masthead">
+    <span class="eyebrow">Presentation Skills · digital, voice, seven sentences</span>
+    <span class="page-num">02 / 02</span>
+  </div>
+
+  <h1>The rest is detail. But the detail decides.</h1>
+  <p class="subtitle">The digital meeting, voice and body — and the course in seven sentences.</p>
+
+  <div class="section">
+    <h2><span class="num">5</span>The digital meeting — compensate deliberately</h2>
+    <p>The screen takes away most of the signals you usually rely on. You need to compensate with much else — the audio, the camera, the gaze — to fill the gap.</p>
+    <div class="two-col">
+      <div>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Good audio before good picture.</strong> Headset or external microphone. The built-in laptop mic isn't enough.</p>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Camera at eye level.</strong> Lift the laptop on a book. Otherwise the audience looks up your nose all meeting.</p>
+      </div>
+      <div>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Look at the lens, not the faces.</strong> It feels unnatural — but that's where the audience experiences eye contact.</p>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Pause deliberately and longer.</strong> Digital eats silences. Two seconds live = four digital.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">6</span>Voice, body and language — where the leverage is</h2>
+    <p>Slides you can change in five minutes. Voice, body and language are where most presenters have the greatest room to grow — and that only changes through deliberate practice outside the presentation itself.</p>
+    <div class="triple-grid">
+      <div class="triple-card">
+        <span class="letter">B</span>
+        <span class="name">Body</span>
+        <p>Posture, gesture, where your feet land. Record yourself once — you'll spot three things you didn't know you were doing.</p>
+      </div>
+      <div class="triple-card">
+        <span class="letter">V</span>
+        <span class="name">Voice</span>
+        <p>Tempo, volume, pause, emphasis. Variation is everything — a monotone voice can't be saved by strong arguments.</p>
+      </div>
+      <div class="triple-card">
+        <span class="letter">L</span>
+        <span class="name">Language</span>
+        <p>Short sentences. Concrete words. Images and stories instead of abstractions. You don't have 40 minutes — you have 40 individual sentences.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">7</span>The course in seven sentences</h2>
+    <div class="seven-list">
+      <div class="seven-item"><span class="idx">1</span><div class="text"><strong>Why</strong>What should the audience think, feel or do afterwards? That's where the presentation rests.</div></div>
+      <div class="seven-item"><span class="idx">2</span><div class="text"><strong>Slides — the basics</strong>One message, six objects max, few colours, large type — the rules do the work.</div></div>
+      <div class="seven-item"><span class="idx">3</span><div class="text"><strong>Slide vs you</strong>Text-heavy slides collide with you. The audience can't read and listen in parallel.</div></div>
+      <div class="seven-item"><span class="idx">4</span><div class="text"><strong>The delivery</strong>Stand up, look at the audience, pause when it matters, end strong.</div></div>
+      <div class="seven-item"><span class="idx">5</span><div class="text"><strong>Digital</strong>Good audio, camera at eye level, eye contact with the lens, longer pauses.</div></div>
+      <div class="seven-item"><span class="idx">6</span><div class="text"><strong>Body, voice, language</strong>Leverage — only deliberate practice outside the presentation itself produces change.</div></div>
+      <div class="seven-item"><span class="idx">7</span><div class="text"><strong>The most important thing</strong>Not what you now know — but what you actually do differently in your next presentation.</div></div>
+    </div>
+  </div>
+
+  <div class="watchout">
+    <span class="label">● One thing not to do</span>
+    <p>Don't end with "any questions?". It's the worst possible last image in the audience's mind — a vague opening that invites silence. End instead with a sentence that sums up what you want them to take with them. Questions can come in the next breath.</p>
+  </div>
+
+  <div class="closing">
+    <div class="msg">Ready for the depth? The full course in seven modules — with exercises you can try right away — is at <em>choosewise.education / presentation-skills</em>.</div>
+    <div class="url">Full course<br>online</div>
+  </div>
+
+  <div class="colophon-line">Written with the help of Claude, edited by the author.</div>
+
+  <div class="license-line">
+    <span><strong>CC BY-NC-SA 4.0</strong> — credit the source, non-commercial, same licence.</span>
+    <span>creativecommons.org/licenses/by-nc-sa/4.0/</span>
+  </div>
+
+  <div class="page-footer">
+    <span>Presentation Skills · Johan Lindström</span>
+    <span class="brand">choosewise.education</span>
+    <span>Page 02 / 02</span>
+  </div>
+</div>
+
+</body>
+</html>
