@@ -161,9 +161,40 @@
       <p class="quiz-feedback" data-quiz-feedback hidden aria-live="polite"></p>
     </section>
 
-    <section class="section container quiz-section" id="test-video" data-test="video">
+    <!-- Test 3 — Video (tillagd i Phase E) -->
+    <section class="section container quiz-section" id="test-video" data-test="video"
+             data-correct-video="2"
+             data-feedback-correct="Rätt!"
+             data-feedback-wrong="Fel — det var video {correct}.">
       <h2 class="section__title">Test 3 — Video</h2>
-      <p class="section__lede">Kommer härnäst.</p>
+      <p class="section__lede">Tre videor. En är AI-genererad, två är det inte. Vilken tror du är AI-genererad?</p>
+
+      <div class="quiz-grid--3" data-quiz-videos>
+        <article class="video-tile">
+          <span class="video-tile__label">1</span>
+          <video controls preload="metadata" data-src="/assets/videos/ai-or-human/video-a.mp4"></video>
+        </article>
+        <article class="video-tile">
+          <span class="video-tile__label">2</span>
+          <video controls preload="metadata" data-src="/assets/videos/ai-or-human/video-b.mp4"></video>
+        </article>
+        <article class="video-tile">
+          <span class="video-tile__label">3</span>
+          <video controls preload="metadata" data-src="/assets/videos/ai-or-human/video-c.mp4"></video>
+        </article>
+      </div>
+
+      <div class="quiz-options" data-quiz-radios>
+        <label class="quiz-option"><input type="radio" name="video-guess" value="1"><span>Video 1</span></label>
+        <label class="quiz-option"><input type="radio" name="video-guess" value="2"><span>Video 2</span></label>
+        <label class="quiz-option"><input type="radio" name="video-guess" value="3"><span>Video 3</span></label>
+      </div>
+
+      <div class="quiz-controls">
+        <button type="button" class="btn btn--primary" data-quiz-submit disabled>Klar!</button>
+        <button type="button" class="btn btn--primary" data-quiz-reset>Nollställ</button>
+      </div>
+      <p class="quiz-feedback" data-quiz-feedback hidden aria-live="polite"></p>
     </section>
   </main>
 

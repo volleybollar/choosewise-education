@@ -186,6 +186,50 @@
     resetBtn.addEventListener('click', onReset);
   }
 
+  // ───── Test 3: Videos ─────
+
+  function initVideoTest(rootEl) {
+    const radios = Array.from(rootEl.querySelectorAll('[data-quiz-radios] input[type="radio"]'));
+    const submitBtn = rootEl.querySelector('[data-quiz-submit]');
+    const resetBtn = rootEl.querySelector('[data-quiz-reset]');
+    const feedback = rootEl.querySelector('[data-quiz-feedback]');
+    const correct = parseInt(rootEl.dataset.correctVideo || '0', 10);
+    const tmplCorrect = rootEl.dataset.feedbackCorrect || 'Correct!';
+    const tmplWrong = rootEl.dataset.feedbackWrong || 'Wrong — it was video {correct}.';
+
+    // Wire video src from data-src.
+    rootEl.querySelectorAll('video[data-src]').forEach(v => {
+      if (v.dataset.src) v.src = v.dataset.src;
+    });
+
+    function onRadioChange() {
+      submitBtn.disabled = !radios.some(r => r.checked);
+    }
+
+    function onSubmit() {
+      const picked = radios.find(r => r.checked);
+      if (!picked) return;
+      if (parseInt(picked.value, 10) === correct) {
+        feedback.textContent = tmplCorrect;
+      } else {
+        feedback.textContent = tmplWrong.replace('{correct}', String(correct));
+      }
+      feedback.hidden = false;
+      revealRating(rootEl);
+    }
+
+    function onReset() {
+      radios.forEach(r => { r.checked = false; });
+      feedback.hidden = true;
+      feedback.textContent = '';
+      submitBtn.disabled = true;
+    }
+
+    radios.forEach(r => r.addEventListener('change', onRadioChange));
+    submitBtn.addEventListener('click', onSubmit);
+    resetBtn.addEventListener('click', onReset);
+  }
+
   // ───── Rating placeholder (filled in Phase F) ─────
   function revealRating(_rootEl) {
     // Filled in Phase F. No-op for now.
@@ -195,6 +239,7 @@
   function bootstrap() {
     document.querySelectorAll('[data-test="text"]').forEach(initTextTest);
     document.querySelectorAll('[data-test="image"]').forEach(initImageTest);
+    document.querySelectorAll('[data-test="video"]').forEach(initVideoTest);
   }
 
   if (document.readyState === 'loading') {
