@@ -29,9 +29,95 @@
       <p class="lede" data-reveal>I takt med den snabba teknikutvecklingen blir det allt svårare att se skillnad på text, bild och video som är AI-genererad och text, bild och video som inte är det. Jag tänker inte på massproducerad AI-slop, utan det som genereras av människor som har kompetens att skapa kvalitativt innehåll. På den här sidan har jag skapat några enkla övningar där du kan testa om du kan se vad som är AI-genererat och vad som inte är det.</p>
     </section>
 
-    <section class="section container quiz-section" id="test-text" data-test="text">
+    <!-- Test 1 — Text -->
+    <section class="section container quiz-section" id="test-text" data-test="text"
+             data-feedback-template="Du fick {score} av 2 rätt. Klicka på korten för att vända dem och se vilka texter som var AI-genererade.">
       <h2 class="section__title">Test 1 — Text</h2>
-      <p class="section__lede">Kommer härnäst.</p>
+      <p class="section__lede">Vilka två texter är AI-genererade?</p>
+
+      <div class="quiz-text-pair" data-quiz-pair data-topic="A">
+        <h3 class="quiz-text-pair__heading">Effektivisering och AI</h3>
+        <div class="quiz-text-pair__grid" data-quiz-cards>
+          <article class="flipcard flipcard--text" data-topic="A" data-truth="ai">
+            <div class="flipcard__inner">
+              <div class="flipcard__face flipcard__front">
+                <p class="flipcard__label" data-quiz-label></p>
+                <p class="flipcard__body">När jag pratar med lärare som börjat använda AI som verktyg i sitt arbete märker jag samma sak om och om igen: det är inte själva tekniken som gör skillnaden, utan vad de gör med den tid de frigör. Att låta AI ta första utkastet på en återkoppling, ett föräldrabrev eller en lektionsförklaring sparar minuter — men det är vad som händer i de minuterna efteråt som avgör om eleverna får mer av läraren. Den som lägger den frigjorda tiden på att möta eleven där hen är, ser tydliga effekter. Den som bara skickar AI:ns första utkast vidare gör inte det. Det är fortfarande den professionella bedömningen som bär kvaliteten — inte modellen. Och kanske är det också där den verkliga vinsten med AI ligger, när den används på rätt sätt: att läraren får tid att vara lärare igen.</p>
+                <label class="flipcard__choice">
+                  <input type="checkbox" data-quiz-choice>
+                  <span>Detta är AI-genererat</span>
+                </label>
+              </div>
+              <div class="flipcard__face flipcard__back">
+                <p class="flipcard__verdict">AI-genererad</p>
+                <p class="flipcard__explain">Genererad av en AI-modell i Johans stil.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flipcard flipcard--text" data-topic="A" data-truth="human">
+            <div class="flipcard__inner">
+              <div class="flipcard__face flipcard__front">
+                <p class="flipcard__label" data-quiz-label></p>
+                <p class="flipcard__body">För varje år som går effektiviseras skolverksamheten. Från ett år till ett annat går detta att lösa. När vi däremot tittar på en längre tidsperiod blir det väldigt problematiskt i alla verksamheter som jobbar med människor. I skolans värld är det svårt att effektivisera, då elevernas inlärning sker i en förutbestämd takt. Effektivisering handlar därför oftast om att minska antalet personer på en skola, då lönen är den största kostnaden och därmed den största besparingen. Det innebär att de som jobbar kvar tvingas göra mer. Att se över hur AI kan effektivisera lärarnas jobb blir ett måste om de som jobbar som lärare ska klara av de ständigt ökande kraven med mindre och mindre resurser.</p>
+                <label class="flipcard__choice">
+                  <input type="checkbox" data-quiz-choice>
+                  <span>Detta är AI-genererat</span>
+                </label>
+              </div>
+              <div class="flipcard__face flipcard__back">
+                <p class="flipcard__verdict">Inte AI-genererad</p>
+                <p class="flipcard__explain">Skriven av Johan.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="quiz-text-pair" data-quiz-pair data-topic="B">
+        <h3 class="quiz-text-pair__heading">Skolans roll i samhället</h3>
+        <div class="quiz-text-pair__grid" data-quiz-cards>
+          <article class="flipcard flipcard--text" data-topic="B" data-truth="ai">
+            <div class="flipcard__inner">
+              <div class="flipcard__face flipcard__front">
+                <p class="flipcard__label" data-quiz-label></p>
+                <p class="flipcard__body">Skolan har alltid varit mer än en plats där barn lär sig saker. Den är samhällets sätt att forma nästa generation — vilka frågor de ställer, vilka beslut de orkar fatta, vilken sorts människor de blir. När vi diskuterar skolan idag stannar vi alltför ofta vid resultat, ranking och resurser. Det är viktigt, men det är inte allt. En skola som bara producerar elever med rätt svar på rätt prov har glömt halva sitt uppdrag. Den andra halvan handlar om att rusta unga människor för en värld som vi själva inte kan förutspå. Det kräver lärare som vågar tänka stort, ledare som tar ansvar, och en samhällsdebatt som behandlar skolan med den allvarliga respekt frågan förtjänar. Men det räcker inte att tala om uppdraget i abstrakta termer. Det är när enskilda lärare i enskilda klassrum bestämmer sig för att lyfta blicken som förändringen faktiskt händer. Och det är där vi som samhälle behöver visa att vi står bakom dem — inte bara med ord, utan med det utrymme och de resurser som krävs.</p>
+                <label class="flipcard__choice">
+                  <input type="checkbox" data-quiz-choice>
+                  <span>Detta är AI-genererat</span>
+                </label>
+              </div>
+              <div class="flipcard__face flipcard__back">
+                <p class="flipcard__verdict">AI-genererad</p>
+                <p class="flipcard__explain">Genererad av en AI-modell i Johans stil.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flipcard flipcard--text" data-topic="B" data-truth="human">
+            <div class="flipcard__inner">
+              <div class="flipcard__face flipcard__front">
+                <p class="flipcard__label" data-quiz-label></p>
+                <p class="flipcard__body">I ett samhälle som förändras över tid är det viktigt att vara tydlig med vilken roll vi vill att skolan ska ha. Mycket av det som skolan gör idag är kvar från när skolan i första hand skulle utbilda människor till att jobba inom tillverkningsindustrin. I många länder har de jobben försvunnit i takt med den tekniska utvecklingens stora framsteg. Det innebär inte att allt vi gör i skolan är dåligt, men när tekniken utvecklas så ökar vissa saker i värde och andra saker sjunker i värde. Det är inget nytt, men teknikutvecklingen idag sker exponentiellt, så dessa värdeökningar och minskningar är större och sker snabbare än tidigare. För elevernas skull behöver vi prata om vad som ökat i värde och som eleverna behöver få med sig och vad som minskat i värde som inte längre är lika viktigt som det varit tidigare. Elevernas skolgång går inte i repris. Ingen sitter på svaret, men tillsammans kan vi hitta den bästa vägen framåt.</p>
+                <label class="flipcard__choice">
+                  <input type="checkbox" data-quiz-choice>
+                  <span>Detta är AI-genererat</span>
+                </label>
+              </div>
+              <div class="flipcard__face flipcard__back">
+                <p class="flipcard__verdict">Inte AI-genererad</p>
+                <p class="flipcard__explain">Skriven av Johan.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="quiz-controls">
+        <button type="button" class="btn btn--primary" data-quiz-submit disabled>Visa svar</button>
+        <button type="button" class="btn btn--primary" data-quiz-reset>Nollställ</button>
+      </div>
+      <p class="quiz-feedback" data-quiz-feedback hidden aria-live="polite"></p>
     </section>
 
     <section class="section section--alt container quiz-section" id="test-image" data-test="image">
@@ -49,6 +135,6 @@
 
   <script src="/assets/js/include.js"></script>
   <script src="/assets/js/scroll-reveals.js"></script>
-  <!-- ai-or-human.js loaded in Phase C -->
+  <script src="/assets/js/ai-or-human.js"></script>
 </body>
 </html>
