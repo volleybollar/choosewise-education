@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Att tala så att de minns — En guide i presentationsteknik</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ────────────────────────────────────────────────
+     DESIGN TOKENS — samma Nordic Editorial-palett
+     som Guide till Claude
+     ──────────────────────────────────────────────── */
+  :root {
+    --color-primary:    #1B2733;
+    --color-secondary:  #2E4057;
+    --color-accent:     #C8A86B;
+    --color-light:      #E8E4DC;
+    --color-surface:    #F6F3EE;
+    --color-bg:         #FFFFFF;
+    --color-text:       #1A1A1F;
+    --color-text-light: #6B7280;
+    --color-warning:    #B8553F;
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html { background: var(--color-bg); }
+  * { box-sizing: border-box; }
+
+  @page {
+    size: A4;
+    margin: 14mm 0 18mm 0;
+
+    @bottom-center {
+      content: "JOHAN LINDSTRÖM · ATT TALA SÅ ATT DE MINNS";
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 8pt;
+      font-weight: 400;
+      color: #6B7280;
+      letter-spacing: 1.5px;
+      border-top: 1px solid #E8E4DC;
+      padding-top: 4mm;
+      vertical-align: top;
+    }
+  }
+
+  @page full-bleed {
+    size: A4;
+    margin: 0;
+    @bottom-center { content: none; }
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 11pt;
+    line-height: 1.75;
+    color: var(--color-text);
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    orphans: 3;
+    widows: 3;
+  }
+  p, li { orphans: 2; widows: 2; }
+  h1, h2, h3 { break-after: avoid; }
+
+  /* ────────────────────────────────────────────────
+     COVER — full-bleed A4
+     ──────────────────────────────────────────────── */
+  .cover {
+    width: 210mm;
+    height: 297mm;
+    background: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+    break-after: page;
+    overflow: hidden;
+    page: full-bleed;
+  }
+  .cover-footer-mask {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 12mm;
+    background: var(--color-primary);
+    z-index: 10;
+  }
+  .cover-top-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 12mm;
+    background: var(--color-accent);
+    z-index: 5;
+  }
+  .cover-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 185mm;
+    width: 100%;
+    object-fit: cover;
+    object-position: 78% 35%;
+    display: block;
+  }
+  .cover-text {
+    position: absolute;
+    top: 185mm;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 18mm 28mm 28mm 28mm;
+    background: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 5;
+  }
+  .cover-accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--color-accent);
+  }
+  .cover-tag {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 4mm;
+  }
+  .cover h1 {
+    font-family: var(--font-display);
+    font-size: 38pt;
+    font-weight: 900;
+    line-height: 1.05;
+    color: white;
+    margin: 0 0 4mm 0;
+    border: none;
+    letter-spacing: -0.5px;
+  }
+  .cover-subtitle {
+    font-size: 12pt;
+    font-weight: 300;
+    color: var(--color-light);
+    margin-bottom: 6mm;
+    line-height: 1.45;
+    max-width: 130mm;
+  }
+  .cover-divider {
+    width: 24mm;
+    height: 2px;
+    background: var(--color-accent);
+    margin-bottom: 4mm;
+  }
+  .cover-brand {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-light);
+  }
+
+  /* Cover-fallback om bilden saknas */
+  .cover-photo-fallback {
+    position: absolute;
+    top: 12mm;
+    left: 0;
+    right: 0;
+    height: 173mm;
+    width: 100%;
+    background: linear-gradient(135deg, #2E4057 0%, #1B2733 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(232, 228, 220, 0.4);
+    font-size: 10pt;
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+
+  /* ────────────────────────────────────────────────
+     CONTENT
+     ──────────────────────────────────────────────── */
+  .content {
+    padding: 8mm 22mm 10mm 22mm;
+  }
+
+  .pagebreak { break-before: page; }
+
+  .part-header {
+    background: var(--color-primary);
+    color: white;
+    padding: 14mm 22mm 12mm 22mm;
+    margin: 0 0 6mm 0;
+    break-before: page;
+    break-inside: avoid;
+  }
+  .part-header .part-label {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 4mm;
+  }
+  .part-header h1 {
+    font-family: var(--font-display);
+    font-size: 32pt;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 4mm 0;
+    border: none;
+    line-height: 1.1;
+  }
+  .part-header .part-desc {
+    font-size: 11pt;
+    color: var(--color-light);
+    font-weight: 300;
+    max-width: 130mm;
+    line-height: 1.6;
+  }
+
+  /* ────────────────────────────────────────────────
+     TYPOGRAPHY
+     ──────────────────────────────────────────────── */
+  h1 {
+    font-family: var(--font-display);
+    color: var(--color-primary);
+    font-size: 22pt;
+    font-weight: 700;
+    margin: 8mm 0 4mm;
+    line-height: 1.2;
+    border: none;
+  }
+  h2 {
+    font-family: var(--font-display);
+    color: var(--color-secondary);
+    font-size: 14pt;
+    font-weight: 700;
+    margin: 6mm 0 2mm;
+    padding-bottom: 1.5mm;
+    border-bottom: 1px solid var(--color-accent);
+    break-after: avoid;
+  }
+  h3 {
+    font-family: var(--font-display);
+    color: var(--color-primary);
+    font-size: 12pt;
+    font-weight: 700;
+    margin: 4mm 0 1.5mm;
+    break-after: avoid;
+  }
+  p { margin: 0 0 3mm 0; }
+  strong { color: var(--color-primary); font-weight: 700; }
+  em { font-style: italic; }
+  ul, ol { margin: 0 0 3mm 0; padding-left: 6mm; }
+  li { margin-bottom: 1.5mm; }
+
+  /* ────────────────────────────────────────────────
+     CALLOUTS
+     ──────────────────────────────────────────────── */
+  .callout {
+    padding: 4mm 6mm;
+    margin: 4mm 0;
+    border-radius: 0 3mm 3mm 0;
+    break-inside: avoid;
+    border-left-width: 1.5mm;
+    border-left-style: solid;
+  }
+  .callout .callout-label {
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5mm;
+    display: block;
+  }
+  .callout p { margin-bottom: 2mm; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout-johan {
+    border-left-color: var(--color-accent);
+    background: var(--color-surface);
+  }
+  .callout-johan .callout-label { color: var(--color-accent); }
+  .callout-johan .signature {
+    display: block;
+    margin-top: 2mm;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 10pt;
+    color: var(--color-accent);
+    text-align: right;
+  }
+
+  .callout-try {
+    border-left-color: var(--color-primary);
+    background: white;
+    border: 1px solid var(--color-light);
+    border-left-width: 1.5mm;
+    border-left-color: var(--color-primary);
+  }
+  .callout-try .callout-label { color: var(--color-primary); }
+
+  .callout-watch {
+    border-left-color: var(--color-warning);
+    background: #FFF8F4;
+  }
+  .callout-watch .callout-label { color: var(--color-warning); }
+
+  /* ────────────────────────────────────────────────
+     IMAGES
+     ──────────────────────────────────────────────── */
+  .image-figure {
+    width: 100%;
+    height: auto;
+    margin: 0 0 6mm 0;
+    border-radius: 1.5mm;
+    display: block;
+  }
+
+  .screenshot-placeholder {
+    border: 2px dashed var(--color-text-light);
+    background: #F8F9FA;
+    height: 60mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    font-size: 9pt;
+    font-style: italic;
+    margin: 4mm 0 6mm;
+    text-align: center;
+    padding: 4mm;
+  }
+
+  /* ────────────────────────────────────────────────
+     BAD / BETTER / BEST CARDS
+     ──────────────────────────────────────────────── */
+  .bbb-card {
+    border: 1px solid var(--color-light);
+    border-left-width: 1.5mm;
+    border-radius: 0 2mm 2mm 0;
+    padding: 4mm 5mm;
+    margin: 3mm 0;
+    break-inside: avoid;
+  }
+  .bbb-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5mm;
+  }
+  .bbb-dot {
+    width: 4mm;
+    height: 4mm;
+    border-radius: 50%;
+    margin-right: 3mm;
+  }
+  .bbb-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13pt;
+  }
+  .bbb-body {
+    font-size: 10pt;
+    line-height: 1.6;
+    color: var(--color-text);
+    background: var(--color-surface);
+    padding: 3mm 4mm;
+    border-radius: 1mm;
+  }
+  .bbb-bad    { border-left-color: var(--color-warning); }
+  .bbb-bad .bbb-dot   { background: var(--color-warning); }
+  .bbb-bad .bbb-label { color: var(--color-warning); }
+  .bbb-better { border-left-color: var(--color-accent); }
+  .bbb-better .bbb-dot   { background: var(--color-accent); }
+  .bbb-better .bbb-label { color: var(--color-accent); }
+  .bbb-best   { border-left-color: #5C8A6D; }
+  .bbb-best .bbb-dot   { background: #5C8A6D; }
+  .bbb-best .bbb-label { color: #5C8A6D; }
+
+  /* ────────────────────────────────────────────────
+     CHECKLIST
+     ──────────────────────────────────────────────── */
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 5mm 0;
+  }
+  .checklist li {
+    padding: 2.5mm 0 2.5mm 9mm;
+    position: relative;
+    border-bottom: 1px solid var(--color-light);
+    font-size: 11pt;
+  }
+  .checklist li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3.5mm;
+    width: 5mm;
+    height: 5mm;
+    border: 1.5px solid var(--color-accent);
+    border-radius: 1mm;
+    background: white;
+  }
+  .checklist-numbered {
+    list-style: none;
+    counter-reset: chk;
+    padding: 0;
+    margin: 5mm 0;
+  }
+  .checklist-numbered li {
+    counter-increment: chk;
+    display: flex;
+    align-items: center;
+    gap: 4mm;
+    padding: 2mm 0;
+    border-bottom: 1px solid var(--color-light);
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+  .checklist-numbered li:before {
+    content: counter(chk);
+    flex: 0 0 auto;
+    width: 7mm;
+    height: 7mm;
+    background: var(--color-accent);
+    color: white;
+    border-radius: 1mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: 11pt;
+    line-height: 1;
+    padding-bottom: 0.4mm;
+  }
+
+  /* ────────────────────────────────────────────────
+     TOC
+     ──────────────────────────────────────────────── */
+  .toc-page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--color-surface);
+    box-sizing: border-box;
+    padding: 22mm 28mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    break-before: page;
+    break-after: page;
+    overflow: hidden;
+    position: relative;
+    page: full-bleed;
+  }
+  .toc-page h1 {
+    margin: 0 0 4mm 0;
+    padding-bottom: 4mm;
+    font-size: 26pt;
+    color: var(--color-primary);
+    position: relative;
+  }
+  .toc-page h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 20mm;
+    height: 2px;
+    background: var(--color-accent);
+  }
+
+  .toc-list { list-style: none; padding: 0; margin: 4mm 0 0 0; }
+
+  .toc-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 2.8mm 0;
+    border-bottom: 1px dotted rgba(107, 114, 128, 0.35);
+    font-size: 11pt;
+  }
+  .toc-list li .toc-title {
+    color: var(--color-text);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12pt;
+  }
+  .toc-list li .toc-page-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-accent);
+    font-size: 12pt;
+    padding-right: 3mm;
+  }
+
+  .toc-list li.toc-part-row {
+    background: var(--color-primary);
+    padding: 4.5mm 0 4.5mm 6mm;
+    margin: 4mm 0 2mm 0;
+    border-bottom: none;
+    border-left: 2.5mm solid var(--color-accent);
+    border-radius: 0 1.5mm 1.5mm 0;
+  }
+  .toc-list li.toc-part-row .toc-title {
+    color: white;
+    font-size: 14pt;
+    font-weight: 700;
+  }
+  .toc-list li.toc-part-row .toc-page-num {
+    color: var(--color-accent);
+    font-size: 15pt;
+  }
+
+  .toc-list li.toc-sub {
+    padding: 2mm 0 2mm 8mm;
+    font-size: 10pt;
+    border-bottom: 1px dotted rgba(107, 114, 128, 0.25);
+  }
+  .toc-list li.toc-sub .toc-title {
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 10.5pt;
+  }
+  .toc-list li.toc-sub .toc-page-num {
+    font-size: 10.5pt;
+  }
+
+  /* ────────────────────────────────────────────────
+     ABOUT JOHAN
+     ──────────────────────────────────────────────── */
+  .author-portrait {
+    width: 30mm;
+    height: 30mm;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent);
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+    margin: 3mm 0;
+  }
+  .author-portrait-placeholder {
+    width: 30mm;
+    height: 30mm;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 2px solid var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    font-size: 7pt;
+    margin: 3mm 0;
+    font-style: italic;
+  }
+
+  /* ────────────────────────────────────────────────
+     DIAGRAM
+     ──────────────────────────────────────────────── */
+  .diagram-figure {
+    margin: 5mm 0 4mm;
+    text-align: center;
+    break-inside: avoid;
+  }
+  .diagram-caption {
+    font-size: 9pt;
+    color: var(--color-text-light);
+    font-style: italic;
+    margin-top: 2mm;
+  }
+
+  /* Sju moduler i sju meningar — siffer-lista med extra utrymme */
+  .seven-list {
+    counter-reset: seven;
+    list-style: none;
+    padding: 0;
+    margin: 4mm 0;
+  }
+  .seven-list li {
+    counter-increment: seven;
+    position: relative;
+    padding: 3mm 0 3mm 14mm;
+    border-bottom: 1px solid var(--color-light);
+    font-size: 10.5pt;
+    line-height: 1.55;
+  }
+  .seven-list li:before {
+    content: counter(seven);
+    position: absolute;
+    left: 0;
+    top: 3mm;
+    width: 9mm;
+    height: 9mm;
+    background: var(--color-primary);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1mm;
+  }
+  .seven-list li strong { color: var(--color-primary); }
+
+  /* Pull-quote — använd för Sineks/minnesfakta etc */
+  .pullquote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 16pt;
+    line-height: 1.4;
+    color: var(--color-secondary);
+    border-left: 2.5mm solid var(--color-accent);
+    padding: 2mm 0 2mm 6mm;
+    margin: 5mm 0;
+    break-inside: avoid;
+  }
+  .pullquote-source {
+    display: block;
+    margin-top: 2mm;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 9pt;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     COVER
+     ═══════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-top-bar"></div>
+  <img src="../sv/presentationsteknik/assets/cover.jpg" class="cover-photo" alt="" onerror="this.outerHTML='&lt;div class=&quot;cover-photo-fallback&quot;&gt;Drop cover.jpg into sv/presentationsteknik/assets/&lt;/div&gt;';">
+  <div class="cover-footer-mask"></div>
+  <div class="cover-text">
+    <div class="cover-accent-line"></div>
+    <div class="cover-tag">Presentationsteknik</div>
+    <h1>Att tala så att de minns</h1>
+    <div class="cover-subtitle">En praktisk handbok för dig som behöver bli hörd i ett rum — i klassrummet, på personalkonferensen, eller på ett event</div>
+    <div class="cover-divider"></div>
+    <div class="cover-brand">Johan Lindström</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     TOC
+     ═══════════════════════════════════════════════════ -->
+<div class="toc-page">
+  <h1>Innehåll</h1>
+  <ul class="toc-list">
+    <li><span class="toc-title">Tre principer som formar guiden</span><span class="toc-page-num">03</span></li>
+    <li><span class="toc-title">De tre kanalerna — slides, kropp, ord</span><span class="toc-page-num">05</span></li>
+
+    <li class="toc-part-row"><span class="toc-title">Del 1 — Varför du presenterar</span><span class="toc-page-num">06</span></li>
+    <li class="toc-sub"><span class="toc-title">Vad publiken faktiskt minns</span><span class="toc-page-num">06</span></li>
+    <li class="toc-sub"><span class="toc-title">Sineks Golden Circle · Logik och känsla</span><span class="toc-page-num">08</span></li>
+    <li class="toc-sub"><span class="toc-title">Övning: Ditt varför</span><span class="toc-page-num">10</span></li>
+
+    <li class="toc-part-row"><span class="toc-title">Del 2 — Slides som verktyg</span><span class="toc-page-num">12</span></li>
+    <li class="toc-sub"><span class="toc-title">Ett budskap per slide · Reglerna</span><span class="toc-page-num">12</span></li>
+    <li class="toc-sub"><span class="toc-title">Färg, typografi, blickstyrning</span><span class="toc-page-num">14</span></li>
+    <li class="toc-sub"><span class="toc-title">När din slide krockar med dig — vad du gör i stället</span><span class="toc-page-num">16</span></li>
+
+    <li class="toc-part-row"><span class="toc-title">Del 3 — Framförandet i rummet</span><span class="toc-page-num">18</span></li>
+    <li class="toc-sub"><span class="toc-title">Närvaro: blicken, pausen, slutet</span><span class="toc-page-num">18</span></li>
+    <li class="toc-sub"><span class="toc-title">Det digitala — kamera, ljud, ögonkontakt</span><span class="toc-page-num">21</span></li>
+
+    <li class="toc-part-row"><span class="toc-title">Del 4 — Röst, kropp och språk</span><span class="toc-page-num">23</span></li>
+    <li class="toc-sub"><span class="toc-title">Träningsmetaforen · Tre saker att jobba med</span><span class="toc-page-num">23</span></li>
+
+    <li><span class="toc-title">Avslutning · Sju moduler i sju meningar</span><span class="toc-page-num">25</span></li>
+    <li><span class="toc-title">Om författaren</span><span class="toc-page-num">27</span></li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     TRE PRINCIPER
+     ═══════════════════════════════════════════════════ -->
+<div class="content pagebreak">
+  <h1>Tre principer som formar guiden</h1>
+
+  <p>Innan vi går in på slides, blickar och pauser — några ord om varför. De flesta kurser i presentationsteknik börjar i fel ände. De börjar med Keynote, fonter och övergångar. De ger checklistor utan att fråga varför du ska upp och tala över huvud taget. Den här guiden gör tvärtom. Tre principer ligger bakom varje rekommendation på de sidor som följer.</p>
+
+  <h2>Hantverket bär tekniken</h2>
+  <p>Ordet <em>teknik</em> kommer från grekiskans <em>technē</em> — konst, skicklighet, hantverk. Den definitionen är viktigare än man tror. Presentationsteknik är inte ett verktyg du installerar utan ett hantverk du utvecklar. Som alla hantverk går det att lära sig, men det kräver att du vill ta till dig vad som fungerar, ta reda på varför det fungerar, och lägger tid på att träna för att bli bättre. Slides utan hantverk är bara dekoration. Hantverk utan slides bär hur långt som helst.</p>
+
+  <h2>Publiken är experten — på sin egen uppmärksamhet</h2>
+  <p>Du kanske kan ditt ämne. Det räcker inte. I rummet sitter trettio, sjuttio eller tvåhundra personer som vart och ett av sina hjärnor avgör vad som är värt att lyssna på och vad som inte är det — sekund för sekund. Du kan inte tvinga dem att lyssna. Du kan göra det enkelt eller svårt för dem att hänga med. Den här guiden är skriven från publikens perspektiv, inte talarens. Vad ser de? Vad hör de? Vad kommer de ihåg om en månad?</p>
+
+  <div class="callout callout-johan">
+    <span class="callout-label">Johans anteckning</span>
+    <p>Efter att ha hållit och sett tusentals presentationer — som lärare, skolledare och utbildningsansvarig — har jag landat i en obekväm sanning: det är inte slidsen som avgör om presentationen fungerar. Det är de val som gjordes innan slidsen byggdes. Vad ska de tänka, känna eller göra när jag har slutat? När den frågan är besvarad blir resten arbete. När den inte är besvarad blir det dekorerad förvirring.</p>
+    <span class="signature">— JL</span>
+  </div>
+
+  <h2>Det viktigaste är vad de gör efteråt</h2>
+  <p>En lyckad presentation mäts inte i vad du sa — inte heller i vad publiken klappade åt. En lyckad presentation mäts i vad publiken tänker, känner eller gör annorlunda när de går ut ur rummet. Det är det enda måttet som spelar roll. Allt i den här guiden — från valet av en enda bild på en slide till var du står med fötterna under en paus — är medel för det målet. Inte mål i sig.</p>
+
+  <div class="callout callout-watch">
+    <span class="callout-label">Se upp</span>
+    <p>De finaste slidesen i världen räddar inte en presentation där du själv inte vet vad du vill ska hända i rummet. Innan du öppnar Keynote, svara på den här frågan i en enda mening: <em>Vad ska de tre viktigaste personerna i rummet göra annorlunda imorgon?</em> Om du inte kan, har du inte bestämt presentationen ännu — bara dess yta.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     DE TRE KANALERNA
+     ═══════════════════════════════════════════════════ -->
+<div class="content pagebreak">
+  <h1>De tre kanalerna — slides, kropp, ord</h1>
+
+  <p>I varje presentation arbetar du med tre kanaler samtidigt: dina slides, din kropp och röst, dina ord. De är inte tre alternativ — de är tre lager som måste samverka. När de drar åt samma håll förstärker de varandra. När de drar åt olika håll konkurrerar de — och publiken slutar lita på vilken som helst av dem.</p>
+
+  <div class="diagram-figure" style="margin: 3mm 0 2mm;">
+    <svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 140mm; height: auto;">
+      <!-- Tre koncentriska/parallella spår -->
+      <rect x="40" y="50" width="180" height="120" rx="10" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
+      <text x="130" y="100" font-family="Playfair Display, serif" font-size="20" font-weight="700" fill="#1B2733" text-anchor="middle">Slides</text>
+      <text x="130" y="124" font-family="Inter, sans-serif" font-size="9" font-weight="500" letter-spacing="1.2" fill="#6B7280" text-anchor="middle">VAD DE SER</text>
+      <text x="130" y="146" font-family="Inter, sans-serif" font-size="8" fill="#6B7280" text-anchor="middle">visuella ankare</text>
+
+      <rect x="250" y="50" width="180" height="120" rx="10" fill="#1B2733"/>
+      <text x="340" y="100" font-family="Playfair Display, serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">Kropp &amp; röst</text>
+      <text x="340" y="124" font-family="Inter, sans-serif" font-size="9" font-weight="500" letter-spacing="1.2" fill="#C8A86B" text-anchor="middle">VAD DE KÄNNER</text>
+      <text x="340" y="146" font-family="Inter, sans-serif" font-size="8" fill="#E8E4DC" text-anchor="middle">trovärdighet, energi</text>
+
+      <rect x="460" y="50" width="180" height="120" rx="10" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
+      <text x="550" y="100" font-family="Playfair Display, serif" font-size="20" font-weight="700" fill="#1B2733" text-anchor="middle">Ord</text>
+      <text x="550" y="124" font-family="Inter, sans-serif" font-size="9" font-weight="500" letter-spacing="1.2" fill="#6B7280" text-anchor="middle">VAD DE HÖR</text>
+      <text x="550" y="146" font-family="Inter, sans-serif" font-size="8" fill="#6B7280" text-anchor="middle">argumentet, berättelsen</text>
+
+      <line x1="220" y1="110" x2="250" y2="110" stroke="#C8A86B" stroke-width="2"/>
+      <line x1="430" y1="110" x2="460" y2="110" stroke="#C8A86B" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <h2>Slides — vad de ser</h2>
+  <p>Slides är inte din anteckningsbok och inte din rapport. De är ett visuellt ankare för det du säger. En bra slide gör tre saker: den fångar uppmärksamheten, den förstärker en specifik tanke, och den lämnar plats åt din röst. Det är ett restriktivt verktyg — och det är meningen. Mer text på sliden ger inte mer information; det ger mindre uppmärksamhet åt dig.</p>
+
+  <h2>Kropp och röst — vad de känner</h2>
+  <p>Det är här trovärdigheten avgörs. Publiken läser dig konstant: står du stilla eller skiftar du nervöst? Tittar du på dem eller på sliden? Pausar du eller babblar du? Energin i rummet är inte mystik — det är summan av många små signaler från din kropp och din röst. Du kan inte tala dig till trovärdighet om kroppen säger något annat.</p>
+
+  <h2>Ord — vad de hör</h2>
+  <p>Ord bär argumentet. De konkretiserar, de berättar, de övertygar. Men ord ensamma — utan stöd från slides och kropp — drunknar. Ord behöver de andra två kanalerna för att landa, och de andra två behöver orden för att betyda något. Det är treenigheten du arbetar med.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     DEL 1 — VARFÖR DU PRESENTERAR
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+  <div class="part-label">Del 1</div>
+  <h1>Varför du presenterar</h1>
+  <div class="part-desc">Innan dina slides, innan din röst, innan något annat: vad är det egentligen du vill ska hända i rummet? Den här delen är fundamentet som allt annat vilar på. Hoppa över den och du bygger ett vackert hus utan grund.</div>
+</div>
+
+<div class="content">
+  <img src="../sv/presentationsteknik/assets/part-1-opener.jpg" class="image-figure" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;height: 70mm;&quot;&gt;Part 1 opener · varför-tema · drop part-1-opener.jpg&lt;/div&gt;';">
+
+  <h1>Vad publiken faktiskt minns</h1>
+  <p>Tänk på en presentation eller ett möte du var med på för fyra–åtta veckor sedan. Vad minns du? Troligen inte mycket. Möjligen ett enstaka fragment, en känsla, någon bild som visades — eller i värsta fall ingenting alls. Det är en viktig observation, för den säger något om hur människor faktiskt fungerar.</p>
+  <p>Vår hjärna utsätts hela tiden för nya intryck och måste filtrera bort allt som inte är viktigt. Det finns saker du kan göra för att hjälpa publiken minnas det du sa, men ingen kommer ihåg allt. Du måste välja ut det viktigaste och bygga en strategi för hur du får just det att fastna.</p>
+
+  <div class="pullquote">
+    Hjärnan minns bilder bättre än text och text bättre än siffror. Ändå byggs de flesta slides inte optimalt.
+    <span class="pullquote-source">— observation från trettio års klassrum</span>
+  </div>
+
+  <h2>Tre saker hjälper minnet</h2>
+  <p>Forskningen är slående konsekvent på den här punkten, och praktiken bekräftar det. Tre saker fastnar i hjärnan långt efter att resten har glömts bort: <strong>bilder</strong> som förstärker ett budskap, <strong>berättelser</strong> som binder fakta till en konkret situation, och <strong>känslor</strong> — överraskning, igenkänning, indignation, glädje. En presentation som drar nytta av alla tre planterar fler ankare i publikens minne än en som drar nytta av en eller noll.</p>
+  <p>Det betyder inte att fakta är onödigt — tvärtom. Fakta är ankarens innehåll. Men fakta utan bild, berättelse eller känsla driver inte djupt nog för att stanna. Tabellen med siffror är försvunnen ur publikens medvetande innan du har klickat vidare till nästa slide.</p>
+
+  <div class="callout callout-try">
+    <span class="callout-label">Prova det här</span>
+    <p>Tänk på den presentation du höll senast. Skriv ner — ärligt — vilka tre saker du tror att publiken minns en månad senare. Inte vilka tre saker du sa: vilka tre saker de minns. Om svaret är "ingen aning" har du hittat din nästa utvecklingsfråga.</p>
+  </div>
+</div>
+
+<div class="content pagebreak">
+  <h1>Sineks Golden Circle</h1>
+  <p>Simon Sineks modell <em>The Golden Circle</em> är enkel men användbar: människor reagerar på <strong>varför</strong> du gör något, inte på <strong>vad</strong> du gör. Det vanligaste misstaget när någon presenterar är att börja med vad: vad är detta, vad gör det, vad kostar det. Det är fakta — och fakta i sig själva väcker sällan känslor.</p>
+  <p>Tänk på en bilannons. Specifikationerna är enkla att räkna upp: 152 hk, 0–100 på 7,2 sekunder, svart med röda säten, 248 liter lastutrymme. Det är fakta. Det är inte ett varför. Bilköpet sker när någon kopplar fakta till en känsla — och känslan har sin grund i ett varför, inte i ett vad.</p>
+  <p>Samma logik gäller i en presentation, oberoende av om publiken är en klass elever, en arbetsgrupp eller en hel kommunfullmäktige. Frågan blir: vad är det du brinner för i ämnet, och vad är det du tror på? Det är publikens ingång till allt det andra. Brinner du för det kommer publiken att känna det. Går du på autopilot kommer publiken också att känna det — och sluta lyssna.</p>
+
+  <h1>Logik och fakta — eller instinkter och känslor?</h1>
+  <p>Det finns en utbredd föreställning att rationella beslut fattas på rationella grunder. I praktiken stämmer det inte. Beslut fattas av människor som tittar på fakta och <em>känner</em> något — tillit, oro, övertygelse, tvivel. Tabellen med fakta i sig själv övertygar ingen.</p>
+  <p>Det betyder inte att du ska skippa fakta. Tvärtom: fakta är ditt verktyg för att framkalla rätt känsla — tillit, igenkänning, insikt. En presentation som är tom på fakta känns slarvig. En presentation som bara är fakta känns kall. Den som fungerar i praktiken kombinerar båda — tillräckligt med fakta för att publiken ska tro på dig, tillräckligt med känsla för att de ska bry sig om det du säger.</p>
+
+  <h2>Hur du formulerar ditt varför</h2>
+  <p>Varför är inte ett uttalande om vad du gör. Det är ett uttalande om varför det gör skillnad. Tre exempel — samma område, tre olika nivåer av varför:</p>
+
+  <div class="bbb-card bbb-bad">
+    <div class="bbb-header">
+      <div class="bbb-dot"></div>
+      <div class="bbb-label">Yta</div>
+    </div>
+    <div class="bbb-body">"Idag ska jag prata om vår nya bedömningspolicy."</div>
+  </div>
+
+  <div class="bbb-card bbb-better">
+    <div class="bbb-header">
+      <div class="bbb-dot"></div>
+      <div class="bbb-label">Bättre</div>
+    </div>
+    <div class="bbb-body">"Idag handlar det om hur vi rättvist ska bedöma elever som halkat efter under läsåret."</div>
+  </div>
+
+  <div class="bbb-card bbb-best">
+    <div class="bbb-header">
+      <div class="bbb-dot"></div>
+      <div class="bbb-label">Bäst</div>
+    </div>
+    <div class="bbb-body">"Det jag vill att ni gör annorlunda nästa månad är att fatta era bedömningsbeslut på samma underlag — så att eleverna i 9C inte missgynnas av att hamna i fel klassrum. Det är därför vi pratar om policyn idag."</div>
+  </div>
+
+  <p style="font-style: italic; color: var(--color-text-light); font-size: 10pt; margin-top: 4mm;">Den bästa varianten säger inte vad — den säger vad publiken ska göra annorlunda, och varför det spelar roll just nu.</p>
+</div>
+
+<div class="content pagebreak">
+  <h1>Övning: Ditt varför</h1>
+  <p>Innan du går vidare till slides och scenrutiner, lägg fem minuter på den här övningen. Den är inte en självhjälpsövning — den är en utgångspunkt du kommer att referera tillbaka till genom hela guiden, särskilt när vi pratar om hur du designar inledningen av en presentation.</p>
+
+  <div class="callout callout-try">
+    <span class="callout-label">Skriv ner — i två till fyra meningar</span>
+    <p>Varför gör du det du gör? Och varför ska någon lyssna på vad du har att säga om det? Inte slogans, inte rubriken på din LinkedIn-profil — vad <em>brinner</em> du faktiskt för i ditt arbete, och varför är det relevant för dem du presenterar för?</p>
+  </div>
+
+  <p>Spar svaret någonstans där du hittar det igen. När du sedan ska planera nästa presentation, börja inte i Keynote. Börja i den anteckning du nyss skrev. Sliden, rösten och kroppen ska tjäna det du skrev där — inte tvärtom.</p>
+
+  <h2>Tre frågor som styr resten av planeringen</h2>
+  <p>När ditt varför är klart, ställ dessa tre frågor om publiken — innan du designar en enda slide:</p>
+
+  <ol class="checklist-numbered">
+    <li><span><strong>Vilka är de viktigaste tre personerna i rummet?</strong> Inte alla — de tre som måste lyssna för att presentationen ska ha lyckats.</span></li>
+    <li><span><strong>Vad ska de göra annorlunda imorgon?</strong> Inte vad du vill att de ska "förstå" eller "fundera på". Vad ska de <em>göra</em>?</span></li>
+    <li><span><strong>Vad ska de berätta för en kollega på vägen ut?</strong> Den meningen är din riktiga rubrik. Hela presentationen jobbar för den.</span></li>
+  </ol>
+
+  <div class="callout callout-johan">
+    <span class="callout-label">Johans anteckning</span>
+    <p>Jag gjorde i många år den klassiska missen: byggde slides först, formulerade syftet sist. Det är som att laga middag och bestämma vem som är gäst när maten är på bordet. Vänd på det. Bestäm publiken, bestäm utfallet, bygg presentationen baklänges från det. Det är inte mer arbete — det är mindre, för du slipper bygga slides du inte behöver.</p>
+    <span class="signature">— JL</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     DEL 2 — SLIDEN SOM VERKTYG
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+  <div class="part-label">Del 2</div>
+  <h1>Slides som verktyg</h1>
+  <div class="part-desc">Sliden är inte din anteckningsbok. Det är inte din rapport. Det är ett visuellt ankare för det du säger. När du har det klart för dig blir designvalen mycket enklare — för du vet vad sliden ska göra åt dig och vad den inte ska göra.</div>
+</div>
+
+<div class="content">
+  <img src="../sv/presentationsteknik/assets/part-2-opener.jpg" class="image-figure" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;height: 70mm;&quot;&gt;Part 2 opener · slides-tema · drop part-2-opener.jpg&lt;/div&gt;';">
+
+  <h1>Ett budskap per slide</h1>
+  <p>Den enda regeln som överlevt varje förändring av presentationsverktygen sedan PowerPoint 1990 är denna: en slide bär ett budskap. Om du behöver säga två saker, gör två slides. Den nya sliden kostar ingenting — den fördelade uppmärksamheten kostar allt.</p>
+  <p>Praktisk konsekvens: när du sätter dig och bygger en presentation, börja inte med antalet slides du tror du ska ha. Skriv först ner de fem till tio meningar du vill att publiken ska komma ihåg. Sedan blir det en slide per mening. Då har du ditt skelett. Allt annat — bilder, citat, övergångar — är bara dekorering av det skelettet.</p>
+
+  <h2>De tre reglerna som gör mest jobb</h2>
+  <p>Det finns många regler för slidedesign. Tre av dem gör ungefär 80 procent av jobbet. Lär dig de tre, och kvaliteten på dina slides hoppar dramatiskt — innan du har lagt en sekund på avancerade tekniker.</p>
+
+  <ol class="checklist-numbered">
+    <li><span><strong>Ett budskap per slide.</strong> En slide, en sak. Klar.</span></li>
+    <li><span><strong>Max sex objekt.</strong> Räkna allt: rubrik, text, bilder, ikoner, logotyper. Sex eller färre. Däröver tappar publiken översikten.</span></li>
+    <li><span><strong>Stor text, hög kontrast.</strong> Den i bakre raden är din målgrupp. Om någon där inte kan läsa är sliden inte gjord för rummet.</span></li>
+  </ol>
+
+  <p>De tre reglerna är inte estetiska. De följer av hur hjärnan fungerar när den både ska lyssna och titta samtidigt. När en slide bryter mot någon av dem så <em>känner</em> publiken det — även om de inte kan formulera varför. De zoonar ut ett ögonblick. Det ögonblicket är dyrt.</p>
+
+  <div class="callout callout-watch">
+    <span class="callout-label">Se upp · Mallen</span>
+    <p>Den slidesmall som din arbetsgivare eller kommun har slagit i händerna på dig är optimerad för att följa visuella riktlinjer — inte för att hjälpa publiken minnas. Mallen är ett golv, inte ett tak. Bryt mot den när det tjänar publiken bättre. En tom slide med ett enda ord är ofta starkare än mallens fördefinierade rubrik-plus-bullet-list.</p>
+  </div>
+</div>
+
+<div class="content pagebreak">
+  <h1>Färg, typografi, blickstyrning</h1>
+  <p>När de tre grundreglerna sitter blir det dags för fininställningarna. De gör inte underverk på en illa tänkt slide — men de förvandlar en bra slide till en utmärkt.</p>
+
+  <h2>Färg — få färger, medvetet använda</h2>
+  <p>Två till tre färger på en slide. Inte fler. En mörk grundton, en ljus bakgrund, en accentfärg som gör jobbet att leda blicken. Allt över det blir kakofoni. Och: hög kontrast mellan text och bakgrund alltid — ljus text på ljus bakgrund är inte estetiskt, det är oläsligt.</p>
+  <p>Färg har också betydelse. Rött drar blicken — använd det för det som är viktigt, inte för rubriker som inte är det. Grönt signalerar lugn, blått trovärdighet, gult uppmärksamhet. Du behöver inte vara designer för att tänka på det här. Bara medveten.</p>
+
+  <h2>Typografi — två typsnitt räcker</h2>
+  <p>Ett typsnitt för rubriker, ett för brödtext. Mer än så och sliden börjar kännas rörig. Storleken är viktigare än valet av typsnitt: för publik i ett rum ska brödtext vara minst 24 punkter, rubriker minst 36. Det är större än de flesta tror — och därför är texten på de flesta slides för liten för rummet.</p>
+
+  <h2>Blickstyrning — vart tittar publiken först?</h2>
+  <p>Varje slide har en visuell tyngdpunkt. Det är dit publikens blick åker först — och det är därför du bör bestämma var den ska vara, inte låta det avgöras av slumpen. Storlek, färg, kontrast och placering styr blicken. Om viktigaste budskapet är längst ner till höger på sliden i grå text, har du designat sliden mot publiken, inte med dem.</p>
+  <p>En bra övning: titta på din slide i två sekunder och blunda. Vad såg du? Det är vad publiken också såg först. Om det är fel sak är det den du behöver göra större, mer kontrastrik eller centralare placerad.</p>
+
+  <div class="callout callout-try">
+    <span class="callout-label">Prova innan nästa presentation</span>
+    <p>Öppna en slide du redan har byggt. Räkna objekten. Är de fler än sex? Ta bort tills du är på sex eller färre. Mät rubrikens textstorlek. Är den under 36? Gör den större. Titta sedan på sliden i två sekunder och blunda — landade blicken där du ville? Om inte, flytta tyngdpunkten. Du kommer märka skillnad.</p>
+  </div>
+</div>
+
+<div class="content pagebreak">
+  <h1>När din slide krockar med dig</h1>
+  <p>Det här är den vanligaste fallgropen i hela presentationssituationen: din slide gör det svårare för publiken att lyssna på dig. Det går nämligen inte att läsa och lyssna parallellt — och om publiken tvingas välja, väljer de att läsa. Du står då där i tio sekunder och pratar för en publik som har slutat lyssna.</p>
+  <p>Tre vanligaste varianterna och vad du gör i stället:</p>
+
+  <h2>1. Vägg av text → citat eller highlight</h2>
+  <p>En sida text, projicerad på en slide, ber publiken att stänga av och börja läsa. Bästa lösningen är att inte ha hela texten på sliden alls — citera nyckelmeningen, hänvisa till källan, prata om implikationerna. Mellanvägen, när du faktiskt behöver visa hela paragrafen, är att highlighta det viktiga och tona ner resten. Då fungerar texten som referens och din röst leder läsningen.</p>
+
+  <h2>2. Punktlistan → ett kärnbudskap eller bilder med etiketter</h2>
+  <p>Åtta punkter är inte en agenda — det är en lista som publiken inte kommer minnas något av. Två frågor att ställa: är det här bara en av punkterna som faktiskt spelar roll? Visa då den och säg de andra. Eller: hör varje punkt verkligen ihop med ett ankare? Byt då bullets mot bilder med korta etiketter — det blir något att titta på, inte något att läsa.</p>
+
+  <h2>3. Tabellen → siffran som spelar roll</h2>
+  <p>Hela tabellen från Excel projicerad på sliden är värdelös. Publiken ser ett rutmönster och inte vad du försöker säga. Dra ut den enskilda siffran som faktiskt spelar roll, gör den stor, säg vad den betyder. Tabellen kan följa med som handout om någon vill verifiera sammanhanget.</p>
+
+  <div class="callout callout-watch">
+    <span class="callout-label">Se upp · Animeringar</span>
+    <p>Animering är ett kraftfullt verktyg när det leder publikens uppmärksamhet — och en distraktion när det bara är dekoration. En enkel fade-in på ett nytt element som du just har börjat prata om: ja. En slide där fyra olika element flyger in från fyra olika håll med olika hastigheter: nej. Regel: om animationen inte motiverar sin egen existens med att hjälpa publiken förstå något, ta bort den.</p>
+  </div>
+
+  <h2>När du faktiskt behöver mycket på en slide</h2>
+  <p>Det finns lägen — komplexa diagram, översikter, jämförelser — där en slide behöver många objekt. När det händer: se till att dela upp det. Visa diagrammet i sin helhet, sedan zooma in på den del du faktiskt pratar om, sedan tillbaka. Eller: bygg upp diagrammet steg för steg med animering. Komplexitet är inte fienden; oseparerad komplexitet är.</p>
+
+  <div class="callout callout-johan">
+    <span class="callout-label">Johans anteckning</span>
+    <p>När jag hjälpt andra att förbättra sina presentationer handlar det nästan alltid om att man tryckt in för mycket info på sina slides. Det är ett effektivt sätt att få budskapet att drunkna och åhörarna att sluta lyssna. Lösningen: ta bort onödiga saker och dela upp resten på fler slides. Mindre info per slide ger mer presentatör — det är nästan alltid det publiken behöver mer av.</p>
+    <span class="signature">— JL</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     DEL 3 — FRAMFÖRANDET I RUMMET
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+  <div class="part-label">Del 3</div>
+  <h1>Framförandet i rummet</h1>
+  <div class="part-desc">Dina slides är klara. Du står i dörren till salen — eller framför kameran — och ska gå upp. Det här är där presentatörerna lever eller dör. Kropp, blick, paus, slut. Och det digitala mötet, som lurar med att kännas enklare men som är svårare.</div>
+</div>
+
+<div class="content">
+  <img src="../sv/presentationsteknik/assets/part-3-opener.jpg" class="image-figure" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;height: 70mm;&quot;&gt;Part 3 opener · framförande-tema · drop part-3-opener.jpg&lt;/div&gt;';">
+
+  <h1>Närvaron — blicken, pausen, slutet</h1>
+  <p>Du ska upp framför trettio personer eller tre. Det första de registrerar är inte vad du säger — det är hur du är i rummet. Står du upp? Tar du plats? Tittar du på dem eller på dina anteckningar? Allt det är signaler som publiken läser av på en sekund och som färgar deras tolkning av allt det du sedan säger.</p>
+
+  <h2>Stå upp om du kan, plantera fötterna</h2>
+  <p>Energin i rummet sjunker när du sitter ned. Stå upp om situationen tillåter — och om den inte gör det, sätt dig så att kroppen är vänd mot publiken, inte halvt mot skärmen. När du står: plantera fötterna i höftbredd, fördela vikten jämnt. Den vanliga vagga-mellan-fötter-rytmen är en signal till publiken att du är osäker. Stadigt kropp = trovärdig kropp.</p>
+
+  <h2>Blicken — en person i taget, tre sekunder</h2>
+  <p>Den vanligaste blickfällan är att svepa över rummet med ögonen utan att stanna någonstans. Det känns säkrare, men gör att ingen i publiken känner sig sedd. Bättre: titta på en person i taget, ungefär tre sekunder, säg en hel mening till personen, och gå sedan vidare till nästa. I ett rum med 60 personer behöver du inte titta på alla — fördela över zoner, så känner alla att du har sett deras del av rummet.</p>
+
+  <h2>Pausen — det mest underskattade verktyget</h2>
+  <p>Två sekunders tystnad efter en nyckelmening är kraftfullare än tre minuters retorik. Pausen säger: det jag just sa var viktigt. Pausen ger publiken tid att tänka, känna eller komma ihåg. Pausen är också det mest obekväma verktyget, eftersom du själv hör tystnaden mer än publiken gör. Du tror den är fyra sekunder; för publiken är den en sekund. Använd den.</p>
+
+  <div class="pullquote">
+    Pausen är den enda gång publiken faktiskt får jobba. Det är där lärandet sker — inte under det du säger.
+  </div>
+
+  <h2>Slutet — avsluta inte med "några frågor?"</h2>
+  <p>Det är den sämsta möjliga sista bilden i publikens minne — en otydlig öppning som bjuder in tystnad. Publiken är just nu mest mottaglig av hela presentationen; de har bestämt sig för om de håller med eller inte och fundera på vad de ska göra med det. Då slänger du in en flat fråga som ramen runt allt det andra.</p>
+  <p>Avsluta i stället med en mening som sammanfattar vad du vill att de ska bära med sig — den meningen du tidigare formulerade som "vad ska de berätta för en kollega på vägen ut?". Den ska vara den sista de hör. Frågor kan komma i nästa andetag, men de är inte slutet.</p>
+
+  <div class="callout callout-try">
+    <span class="callout-label">Prova den här veckan</span>
+    <p>I nästa presentation: skriv ut din avslutningsmening på papper. Inte slutfrågan. Den meningen. Lägg lappen längst fram i dina anteckningar. När du kommer dit, läs den eller säg den ur minnet — och pausa två sekunder efter. Lägg märke till vad som händer i rummet.</p>
+  </div>
+</div>
+
+<div class="content pagebreak">
+  <h1>Det digitala mötet — kompensera medvetet</h1>
+  <p>Digitala presentationer kännas enklare — du sitter hemma, har anteckningarna bredvid skärmen, behöver inte resa dig. I praktiken är de svårare. Skärmen tar bort de flesta signaler du brukar lita på i ett rum: kroppsspråket från publiken, energin, ögonkontakten, pauserna som har vikt. Du behöver kompensera medvetet — annars sjunker presentationskvaliteten dramatiskt.</p>
+
+  <h2>Bra ljud före bra bild</h2>
+  <p>Om publiken ska behöva välja mellan att se dig dåligt eller höra dig dåligt, väljer de att se dig dåligt. Dålig bild är irriterande; dåligt ljud gör dig oförståelig. Fler och fler datorer har bra mikrofoner idag, men har du ljud runtomkring dig kan det bli platt fall ändå. Säkerställ alla aspekter av att ljudet blir bra; det handlar inte bara om mikrofonen.</p>
+
+  <h2>Kameran i ögonhöjd</h2>
+  <p>Den vanligaste digitala missen är att ha kameran långt ner, vilket den blir om du använder en bärbar dator och ställer den på skrivbordet. Publiken får titta upp i din näsa hela mötet. Höj upp datorn så kameran hamnar i ögonhöjd. Effekten är dramatisk: du går från obekväm till professionell på bokstavligen två minuter.</p>
+
+  <h2>Titta på linsen, inte på ansiktena</h2>
+  <p>Det här är den svåraste digitala omställningen. När du tittar på publikens ansikten på skärmen ser de att du tittar bort från dem. För att skapa upplevelsen av ögonkontakt måste du titta in i linsen — vilket känns onaturligt eftersom du då inte ser publikens reaktioner. Lösningen: titta på linsen när du säger viktiga saker. Titta på ansiktena när du har pausat och låter publiken bearbeta. Du växlar medvetet.</p>
+
+  <h2>Pausstrategi i digitalt — längre och tydligare</h2>
+  <p>Det digitala äter upp tystnader på ett sätt som ett rum inte gör. Två sekunders paus i ett rum känns naturligt; två sekunders paus digitalt får publiken att kolla att förbindelsen inte har frusit. Lös det genom att göra pauserna längre och säga vad du gör: "Jag pausar här en stund så du får tänka." En instruktion till tystnaden räddar den från att tolkas som teknisk strul.</p>
+
+  <div class="callout callout-watch">
+    <span class="callout-label">Se upp · Hybrid är svårast</span>
+    <p>Hybridpresentationen — halva publiken i rummet, halva digitalt — är den svåraste varianten. De två publikerna ser och hör olika saker, och de digitala blir nästan alltid bortglömda. Lösning: ha en moderator som specifikt bevakar de digitala (chatt, frågor, anslutning). Om du inte kan ha det, välj. Antingen är alla i rummet eller alla digitalt. Kombinationen utan moderator misslyckas mer än den lyckas.</p>
+  </div>
+
+  <div class="callout callout-johan">
+    <span class="callout-label">Johans anteckning</span>
+    <p>Pandemin lärde alla att hålla digitala möten — men inte att hålla dem bra. Tre år senare ser jag fortfarande presentatörer med kameran för långt ner och dåligt ljud. De tror att deras innehåll bär. Innehållet bär halvvägs. Resten är produktionsvärden — och det tar bara några timmar att fixa.</p>
+    <span class="signature">— JL</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     DEL 4 — RÖST, KROPP OCH SPRÅK
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+  <div class="part-label">Del 4</div>
+  <h1>Röst, kropp och språk</h1>
+  <div class="part-desc">Slides kan du ändra på fem minuter. Rösten, kroppen och språket är där de flesta presentatörer har störst utvecklingspotential — och det går bara att förändra genom medveten träning utanför själva presentationen. Den här delen är för dig som vill längre.</div>
+</div>
+
+<div class="content">
+  <img src="../sv/presentationsteknik/assets/part-4-opener.jpg" class="image-figure" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;height: 70mm;&quot;&gt;Part 4 opener · röst &amp; kropp-tema · drop part-4-opener.jpg&lt;/div&gt;';">
+
+  <h1>Träningsmetaforen</h1>
+  <p>Tänk på att presentera som att gå på gym. Du blir inte stark av att läsa om träning. Du blir inte stark av att gå på ett gym en gång och kolla in maskinerna. Du blir stark av att lyfta vikter regelbundet, med teknik, med en plan, med någon som kan tekniken bättre än du och rättar dig när du gör fel. Presentationsteknik är inte annorlunda. Du kan inte läsa dig till bättre röst eller bättre närvaro. Du måste träna — och få återkoppling.</p>
+  <p>Den enskilt mest utvecklande övningen för en presentatör är att spela in sig själv på video och titta på det. Inte hela presentationen — fem minuter räcker. Det är obekvämt, ofta plågsamt. Och det är där hela utvecklingspotentialen ligger. Du kommer att se tre saker du inte visste att du gjorde, varje gång. Det är där du lär dig.</p>
+
+  <h2>Kropp — hållning, gestik, fötterna</h2>
+  <p>Hållningen avgörs vid första intrycket — innan du har sagt ett ord. Stå upp, axlarna ner, ansiktet höjt, fötterna i höftbredd. Gestik är ett verktyg, inte ett tic. När du vill betona något: en gest. När du står still: armarna naturligt vid sidan, inte korslagda eller i fickan. Spela in en presentation och titta på fötterna: vagrar de? Rör de sig fram och tillbaka? Det är en signal du kan jobba med.</p>
+
+  <h2>Röst — tempo, volym, paus, betoning</h2>
+  <p>Variation är allt. En monoton röst kan inte räddas av starka argument — publiken slutar lyssna efter två minuter. Variera tempot: snabbt när du bygger spänning, långsamt när du levererar nyckelmeningen. Variera volymen: hellre tystare på det viktiga än högre. Det tvingar publiken att lyssna närmare. Och betoning — vilket ord i meningen är viktigast? Lägg trycket där.</p>
+
+  <div class="pullquote">
+    Det är inte rösten du har som avgör — det är vad du gör med den.
+  </div>
+
+  <h2>Språk — korta meningar, konkreta ord</h2>
+  <p>Skriftspråk och talspråk är inte samma sak. När du läser upp en text du har skrivit för att läsas, låter den stel. Tala i stället: korta meningar, konkreta ord, bilder och berättelser i stället för abstraktioner. En presentation är inte ett långt tal — den är en kedja av korta meningar som var och en behöver landa.</p>
+
+  <div class="callout callout-try">
+    <span class="callout-label">Spela in dig själv — en gång i månaden</span>
+    <p>Sätt upp telefonen i ett hörn av rummet och spela in fem minuter av nästa möte du leder. Titta sedan på det. Lyssna efter utfyllnadsljud (eh, asså, liksom). Titta på fötterna och händerna. Titta på blicken — landar den någonstans, eller sveper den? Det är din egen fokusgrupp. Den ger bättre återkoppling än någon kollega vågar ge dig — och den kostar ingenting.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     AVSLUTNING
+     ═══════════════════════════════════════════════════ -->
+<div class="content pagebreak">
+  <h1>Sju moduler i sju meningar</h1>
+  <p>Allt du har läst så här långt är värdelöst om det inte landar som något du faktiskt gör annorlunda. Det här är guiden som checklista — sju kärnpoänger, en per modul i grundkursen, att läsa när du planerar nästa presentation.</p>
+
+  <ol class="seven-list">
+    <li><strong>Vad ska publiken tänka, känna eller göra när du har slutat tala?</strong> Och vad ska de komma ihåg efteråt? Det är där presentationen bär. Allt annat är medel.</li>
+    <li><strong>En slide bär ett budskap, max sex objekt, få färger, tydlig kontrast och stora teckenstorlekar</strong> — reglerna gör det mesta av jobbet.</li>
+    <li><strong>Texttunga slides, klustrade punktlistor och tabeller med massor av data krockar med dig som presentatör</strong> — publiken kan inte läsa och lyssna samtidigt. Välj.</li>
+    <li><strong>Stå upp, titta mot publiken, pausa när det är viktigt, och avsluta inte med "några frågor?"</strong> — avsluta med det du vill att de ska tänka på.</li>
+    <li><strong>Digitala presentationer kräver medveten kompensation:</strong> bra ljud, kameran i ögonhöjd, ögonkontakt mot linsen, och en pausstrategi som tar hänsyn till att tystnaden känns längre.</li>
+    <li><strong>Kropp, röst, ögon och språk är där de flesta presentatörer har störst utvecklingspotential</strong> — och det går bara att förändra genom medveten träning utanför själva presentationen.</li>
+    <li><strong>Det viktigaste du tar med dig är inte vad du nu vet, utan vad du faktiskt gör annorlunda</strong> i nästa presentation. En sak. Konkret. Den här veckan.</li>
+  </ol>
+
+  <div class="callout callout-try">
+    <span class="callout-label">Reflektion · Din första ändring</span>
+    <p>Av allt du har läst — vad är den första, konkreta saken du ska göra annorlunda nästa gång du ska hålla i en presentation? Inte "jag ska försöka bli bättre på pauser" — det är för luddigt. Hellre: "jag ska planera in en två-sekunders paus efter varje viktig slutsats". Skriv ner den. Ta fram den när nästa presentation närmar sig.</p>
+  </div>
+
+  <h1>Slutord</h1>
+  <p>Den här guiden är ingen samling tricks. Den är en uppmaning att flytta uppmärksamheten — från dina slides till publiken, från det du själv vill säga till det publiken faktiskt minns, från det som känns säkert (texttung slide som anteckning) till det som fungerar (en bild, en mening, en paus). Det är inte mer arbete. Det är annat arbete.</p>
+  <p>Och kom ihåg: du blir inte bättre presentatör av att läsa en bok. Du blir bättre genom att presentera, spela in dig själv, titta tillbaka, justera, presentera igen. Hantverket finns på andra sidan av repetitionen. Den här guiden är en startkarta — fortsättningen är din.</p>
+  <p>Behöver ni fortbildning kring presentationsteknik på er skola eller i er organisation är ni välkomna att höra av er till mig.</p>
+
+  <p style="margin-top: 8mm; font-style: italic; color: var(--color-text-light);">Lycka till nästa gång du går upp.</p>
+  <p style="font-style: italic; color: var(--color-text-light); text-align: right;">— Johan</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     OM FÖRFATTAREN
+     ═══════════════════════════════════════════════════ -->
+<div class="content pagebreak">
+  <h1>Om författaren</h1>
+
+  <img src="../assets/images/brand/portrait-johan-lindstrom.jpg" class="author-portrait" alt="Johan Lindström" onerror="this.outerHTML='&lt;div class=&quot;author-portrait-placeholder&quot;&gt;Foto&lt;br&gt;kommer&lt;/div&gt;';">
+
+  <p><strong>Johan Lindström</strong> har 28 år i den svenska skolan: tio år som lärare, sju som skolledare, elva som utbildningsansvarig på Advania Skolpartner. Idag arbetar han som konsult, skribent och föreläsare med fokus på AI och digitalisering i skolan — primärt mot skolchefer, rektorer och lärare i Sverige.</p>
+  <p>Den här guiden bygger på erfarenheter från flera tusen presentationer i klassrum, för kollegor, och på konferens- och eventscener under tre decennier. Bakom varje rekommendation finns både fungerande exempel och misslyckanden — och insikten att skillnaden mellan en bra och en dålig presentation oftast inte är det presentatören vet, utan det presentatören har bestämt sig för att inte göra.</p>
+
+  <h2>Hör av dig</h2>
+  <p>Vill du diskutera fortbildning, föreläsningar eller workshops kring presentationsteknik — eller bredare frågor om AI och digitalisering i skolan — finns Johan på <em>LinkedIn</em> och <em>choosewise.education</em>.</p>
+
+  <h2>Mer på choosewise.education</h2>
+  <ul>
+    <li><strong>Hela kursen Presentationsteknik</strong> — sju moduler online med övningar, fördjupningar och interaktiva test.</li>
+    <li><strong>RÄTT-modellen</strong> — fyra frågor som förvandlar varje "ska vi använda det här AI-verktyget?"-samtal till ett strukturerat beslut.</li>
+    <li><strong>AI-guider</strong> — pedagogiska guider till de AI-verktyg som lärare och skolledare har tillgång till.</li>
+    <li><strong>Bloggen</strong> — analytisk läsning om skola, AI och digitalisering — bortom rubrikerna.</li>
+  </ul>
+
+  <p style="margin-top: 4mm; font-size: 9pt; color: var(--color-text-light); font-style: italic;">Skriven med hjälp av Claude, redigerad av författaren. Strukturen, ståndpunkterna och den redaktionella bedömningen är författarens.</p>
+</div>
+
+</body>
+</html>

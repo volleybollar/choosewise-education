@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Presentationsteknik — A4-sammanfattning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Work Sans', -apple-system, sans-serif;
+    color: #1e1e1c;
+    background: #f7f4ec;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 18mm 20mm;
+    display: flex;
+    flex-direction: column;
+  }
+  .page1 { page-break-after: always; }
+  .page2 { page-break-before: always; }
+
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(30, 30, 28, 0.12);
+    margin-bottom: 14px;
+  }
+  .masthead .eyebrow {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: #2f4a3a;
+  }
+  .masthead .page-num {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #a5a59f;
+  }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.6px;
+    color: #1e1e1c;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: italic;
+    color: #5a5a57;
+    margin-bottom: 14px;
+  }
+  .lede {
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: #3a3a38;
+    max-width: 155mm;
+    margin-bottom: 16px;
+  }
+
+  .section { margin-bottom: 12px; }
+  .section h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 17px;
+    font-weight: 450;
+    line-height: 1.2;
+    color: #1e1e1c;
+    margin-bottom: 4px;
+  }
+  .section h2 .num {
+    color: #2f4a3a;
+    font-weight: 500;
+    margin-right: 8px;
+  }
+  .section p {
+    font-size: 10.8px;
+    line-height: 1.55;
+    color: #3a3a38;
+    margin-bottom: 5px;
+  }
+
+  /* Tre-kort-grid (slide-regler, känsla-vs-fakta etc) */
+  .triple-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .triple-card {
+    background: #fbf8f1;
+    border-left: 3px solid #2f4a3a;
+    padding: 10px 12px;
+    border-radius: 2px;
+  }
+  .triple-card:nth-child(2) { border-color: #a07d2e; }
+  .triple-card:nth-child(3) { border-color: #b35a3a; }
+  .triple-card .letter {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1;
+    color: #2f4a3a;
+  }
+  .triple-card:nth-child(2) .letter { color: #a07d2e; }
+  .triple-card:nth-child(3) .letter { color: #b35a3a; }
+  .triple-card .name {
+    display: block;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1e1e1c;
+    margin: 3px 0 3px;
+  }
+  .triple-card p {
+    font-size: 10.2px;
+    line-height: 1.5;
+    color: #3a3a38;
+    margin: 0;
+  }
+
+  /* Bra-Bättre-Bäst (vägg av text-spektrum) */
+  .bbb {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .bbb-card {
+    background: #fbf8f1;
+    border-top: 2px solid #c4c0b2;
+    padding: 8px 10px;
+    border-radius: 2px;
+  }
+  .bbb-card.better { border-color: #c69c3c; }
+  .bbb-card.best   { border-color: #2f4a3a; }
+  .bbb-card .label {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #a5a59f;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .bbb-card.better .label { color: #a07d2e; }
+  .bbb-card.best   .label { color: #2f4a3a; }
+  .bbb-card .sample {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 10.5px;
+    line-height: 1.45;
+    font-style: italic;
+    color: #3a3a38;
+  }
+
+  /* Sju moduler-listan */
+  .seven-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 18px;
+    margin-top: 6px;
+  }
+  .seven-item {
+    display: flex;
+    gap: 10px;
+    padding: 4px 0;
+  }
+  .seven-item .idx {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #2f4a3a;
+    min-width: 14px;
+  }
+  .seven-item .text {
+    font-size: 10.2px;
+    line-height: 1.5;
+    color: #3a3a38;
+  }
+  .seven-item .text strong {
+    color: #1e1e1c;
+    font-weight: 600;
+    display: block;
+    font-size: 10.8px;
+    margin-bottom: 1px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .two-col p { margin-bottom: 4px; font-size: 10.5px; }
+
+  .watchout {
+    background: #f5ecd0;
+    border-left: 3px solid #a07d2e;
+    padding: 10px 14px;
+    border-radius: 2px;
+    margin-top: 8px;
+  }
+  .watchout .label {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #a07d2e;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .watchout p {
+    font-size: 10.5px;
+    line-height: 1.5;
+    color: #3a3a38;
+    margin: 0;
+  }
+
+  .page-footer {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid rgba(30, 30, 28, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 9.5px;
+    color: #a5a59f;
+    letter-spacing: 0.3px;
+  }
+  .page-footer .brand {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 10.5px;
+    color: #5a5a57;
+  }
+
+  .closing {
+    background: #1e1e1c;
+    color: #f7f4ec;
+    padding: 14px 18px;
+    border-radius: 3px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .closing .msg {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #f7f4ec;
+    line-height: 1.4;
+  }
+  .closing .url {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #d4e8db;
+    white-space: nowrap;
+  }
+
+  .colophon-line {
+    margin-top: 10px;
+    font-size: 8.5px;
+    color: #a5a59f;
+    letter-spacing: 0.25px;
+    font-style: italic;
+    text-align: center;
+  }
+  .license-line {
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(30, 30, 28, 0.08);
+    font-size: 8.5px;
+    color: #a5a59f;
+    letter-spacing: 0.25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .license-line strong {
+    color: #5a5a57;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ SIDA 1 ═══════════════ -->
+<div class="page page1">
+  <div class="masthead">
+    <span class="eyebrow">Presentationsteknik · A4-sammanfattning</span>
+    <span class="page-num">01 / 02</span>
+  </div>
+
+  <h1>Det publiken minns avgörs långt innan första sliden visas.</h1>
+  <p class="subtitle">Sju moduler på två sidor — kursens kärna i komprimerad form.</p>
+
+  <p class="lede">Det här är inte en presentation om dig. Det är en presentation åt publiken. Frågan som styr allt: vad ska de tänka, känna eller göra när du har slutat tala? Allt annat — slides, röst, kropp, ord — är medel, inte mål. Skumma den här sidan inför nästa presentation, kom tillbaka till djupet i kursen när du har tid.</p>
+
+  <div class="section">
+    <h2><span class="num">1</span>Börja med varför, inte vad</h2>
+    <p>Bilköpet sker när någon kopplar fakta till en känsla — och känslan har sin grund i ett varför, inte i ett vad. Samma logik gäller i klassrummet, på personalmötet, framför kommunfullmäktige. Innan du öppnar Keynote: varför finns det här ämnet, varför ska någon bry sig, vad brinner du själv för? Det är publikens ingång till allt det andra. Går du på autopilot kommer publiken att känna det och sluta lyssna.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">2</span>En slide bär ett budskap</h2>
+    <p>Tre regler gör det mesta av jobbet. De är inte estetiska — de följer av hur hjärnan fungerar när någon både ska lyssna och titta samtidigt.</p>
+    <div class="triple-grid">
+      <div class="triple-card">
+        <span class="letter">1</span>
+        <span class="name">Ett budskap</span>
+        <p>En slide, en sak. Om du behöver säga två saker, gör två slides. Den nya sliden kostar ingenting; den fördelade uppmärksamheten kostar allt.</p>
+      </div>
+      <div class="triple-card">
+        <span class="letter">2</span>
+        <span class="name">Max sex objekt</span>
+        <p>Räkna allt: rubrik, text, bilder, ikoner, logotyper. Sex eller färre. Däröver tappar publiken översikten och slutar processa det du säger.</p>
+      </div>
+      <div class="triple-card">
+        <span class="letter">3</span>
+        <span class="name">Stor text, hög kontrast</span>
+        <p>Den i bakre raden är din målgrupp. Om hen inte kan läsa är sliden inte gjord för rummet. Stor text tvingar dig att välja det viktigaste.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">3</span>Vad du gör i stället för text</h2>
+    <p>De flesta slides krockar med presentatören. Publiken kan inte läsa och lyssna parallellt — om de tvingas välja, väljer de att läsa. Tre vanligaste fällorna och vad du gör i stället:</p>
+    <div class="bbb">
+      <div class="bbb-card">
+        <span class="label">● Vägg av text</span>
+        <div class="sample">Hela paragrafen projicerad på sliden — publiken slutar lyssna och börjar läsa.</div>
+      </div>
+      <div class="bbb-card better">
+        <span class="label">● Bättre</span>
+        <div class="sample">Citera nyckelmeningen, hänvisa till källan, prata om implikationerna.</div>
+      </div>
+      <div class="bbb-card best">
+        <span class="label">● Bäst</span>
+        <div class="sample">En bild som förstärker budskapet, ett ord på sliden, allt det andra finns i din röst.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">4</span>Närvaron — blicken, pausen, slutet</h2>
+    <div class="two-col">
+      <div>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Stå upp om du kan.</strong> Energin i rummet sjunker när du sitter. Ta plats. Plantera fötterna.</p>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Titta på en person i taget.</strong> Tre sekunder per person — inte sökande över haven av huvuden.</p>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Pausa när det är viktigt.</strong> Två sekunders tystnad efter en nyckelmening är kraftfullare än tre minuters retorik.</p>
+      </div>
+      <div>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Avsluta inte med "några frågor?"</strong> Avsluta med det du vill att publiken ska tänka på när de går ur rummet.</p>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Berätta hellre än rapportera.</strong> En konkret berättelse fastnar bättre än fem abstrakta argument.</p>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Tysta utfyllnadsljuden.</strong> "Eh", "asså", "liksom" — träna bort dem genom att höra dig själv.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Presentationsteknik — A4-sammanfattning</span>
+    <span class="brand">choosewise.education</span>
+    <span>Sida 01 / 02</span>
+  </div>
+</div>
+
+<!-- ═══════════════ SIDA 2 ═══════════════ -->
+<div class="page page2">
+  <div class="masthead">
+    <span class="eyebrow">Presentationsteknik · digitalt, röst, sju meningar</span>
+    <span class="page-num">02 / 02</span>
+  </div>
+
+  <h1>Resten är detaljer. Men detaljerna avgör.</h1>
+  <p class="subtitle">Det digitala mötet, rösten och kroppen — och kursen i sju meningar.</p>
+
+  <div class="section">
+    <h2><span class="num">5</span>Det digitala mötet — kompensera medvetet</h2>
+    <p>Skärmen tar bort de flesta signaler du brukar lita på. Du behöver kompensera med mycket annat — ljudet, kameran, blicken — för att fylla luckan.</p>
+    <div class="two-col">
+      <div>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Bra ljud före bra bild.</strong> Headset eller extern mikrofon. Inbyggd dator-mikrofon räcker inte.</p>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Kameran i ögonhöjd.</strong> Lyft datorn på en bok. Annars ser publiken upp i din näsa hela mötet.</p>
+      </div>
+      <div>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Titta på linsen, inte ansiktena.</strong> Det känns onaturligt — men det är där publiken upplever ögonkontakt.</p>
+        <p><strong style="color:#1e1e1c;font-weight:600;">Pausa medvetet och längre.</strong> Det digitala äter upp tystnader. Två sekunder live = fyra digitalt.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">6</span>Röst, kropp och språk — där hävstången sitter</h2>
+    <p>Slides kan du ändra på fem minuter. Rösten, kroppen och språket är där de flesta presentatörer har störst utvecklingspotential — och det går bara att förändra genom medveten träning utanför själva presentationen.</p>
+    <div class="triple-grid">
+      <div class="triple-card">
+        <span class="letter">K</span>
+        <span class="name">Kropp</span>
+        <p>Hållning, gestik, fötternas placering. Spela in dig själv en gång — du kommer att märka tre saker du inte visste att du gjorde.</p>
+      </div>
+      <div class="triple-card">
+        <span class="letter">R</span>
+        <span class="name">Röst</span>
+        <p>Tempo, volym, paus, betoning. Variation är allt — en monoton röst kan inte räddas av starka argument.</p>
+      </div>
+      <div class="triple-card">
+        <span class="letter">S</span>
+        <span class="name">Språk</span>
+        <p>Korta meningar. Konkreta ord. Bilder och berättelser i stället för abstraktioner. Du har inte 40 minuter — du har 40 enskilda meningar.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">7</span>Kursen i sju meningar</h2>
+    <div class="seven-list">
+      <div class="seven-item"><span class="idx">1</span><div class="text"><strong>Varför</strong>Vad ska publiken tänka, känna eller göra efteråt? Det är där presentationen bär.</div></div>
+      <div class="seven-item"><span class="idx">2</span><div class="text"><strong>Slides — grunderna</strong>Ett budskap, max sex objekt, få färger, stor text — reglerna gör jobbet.</div></div>
+      <div class="seven-item"><span class="idx">3</span><div class="text"><strong>Sliden vs dig</strong>Texttunga slides krockar med dig. Publiken kan inte läsa och lyssna parallellt.</div></div>
+      <div class="seven-item"><span class="idx">4</span><div class="text"><strong>Framförandet</strong>Stå upp, titta mot publiken, pausa när det är viktigt, avsluta starkt.</div></div>
+      <div class="seven-item"><span class="idx">5</span><div class="text"><strong>Digitalt</strong>Bra ljud, kamera i ögonhöjd, ögonkontakt mot linsen, längre pauser.</div></div>
+      <div class="seven-item"><span class="idx">6</span><div class="text"><strong>Kropp, röst, språk</strong>Hävstång — bara medveten träning utanför själva presentationen ger förändring.</div></div>
+      <div class="seven-item"><span class="idx">7</span><div class="text"><strong>Det viktigaste</strong>Inte vad du nu vet — utan vad du faktiskt gör annorlunda i nästa presentation.</div></div>
+    </div>
+  </div>
+
+  <div class="watchout">
+    <span class="label">● En sak att inte göra</span>
+    <p>Avsluta inte med "några frågor?". Det är den sämsta möjliga sista bilden i publikens minne — en otydlig öppning som bjuder in tystnad. Avsluta i stället med en mening som sammanfattar vad du vill att de ska bära med sig. Frågor kan komma i nästa andetag.</p>
+  </div>
+
+  <div class="closing">
+    <div class="msg">Redo för djupet? Hela kursen i sju moduler — med övningar du kan testa direkt — finns på <em>choosewise.education / sv / presentationsteknik</em>.</div>
+    <div class="url">Hela kursen<br>online</div>
+  </div>
+
+  <div class="colophon-line">Skriven med hjälp av Claude, redigerad av författaren.</div>
+
+  <div class="license-line">
+    <span><strong>CC BY-NC-SA 4.0</strong> — ange källa, icke-kommersiell, samma licens.</span>
+    <span>creativecommons.org/licenses/by-nc-sa/4.0/deed.sv</span>
+  </div>
+
+  <div class="page-footer">
+    <span>Presentationsteknik · Johan Lindström</span>
+    <span class="brand">choosewise.education</span>
+    <span>Sida 02 / 02</span>
+  </div>
+</div>
+
+</body>
+</html>
