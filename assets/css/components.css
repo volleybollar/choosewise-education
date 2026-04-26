@@ -668,6 +668,19 @@
   .module-nav { grid-template-columns: 1fr; }
 }
 
+/* ───── Module section symbol (line-art SVG anchor above section H2) ───── */
+.module-symbol {
+  width: 80px;
+  height: 80px;
+  margin-bottom: var(--space-3);
+  color: var(--color-highlight);
+}
+.module-symbol svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 /* ───── Module figure (slide-bilder + caption i innehåll) ───── */
 .module-figure {
   margin-block: var(--space-5);
