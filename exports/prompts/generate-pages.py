@@ -26,6 +26,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from manifest import PACKS, CATEGORIES
+from intros import INTROS_SV, INTROS_EN, SHARED_P2, SHARED_P4
 
 ROOT = Path(__file__).parent.parent.parent
 DATA_DIR = Path(__file__).parent / "data"
@@ -68,7 +69,10 @@ LANDING_SV = """<!DOCTYPE html>
     <section class="page-hero container">
       <span class="eyebrow" data-reveal>Prompt Library · Vol. {vol}</span>
       <h1 data-reveal>{title}</h1>
-      <p class="lede" data-reveal>{count} färdiga AI-chattpromptar {audience_lower} — grundade i ett pedagogiskt perspektiv. Fritt att ladda ner, anpassa och dela.</p>
+      <p class="lede" data-reveal>{count} färdiga AI-chattpromptar {audience_lower} — fria att ladda ner, anpassa och dela.</p>
+      <p class="prose" data-reveal>{shared_p2}</p>
+      <p class="prose" data-reveal>{unique_p3}</p>
+      <p class="prose" data-reveal>{shared_p4}</p>
     </section>
 
     <section class="section section--alt" data-reveal>
@@ -125,7 +129,10 @@ LANDING_EN = """<!DOCTYPE html>
     <section class="page-hero container">
       <span class="eyebrow" data-reveal>Prompt Library · Vol. {vol}</span>
       <h1 data-reveal>{title}</h1>
-      <p class="lede" data-reveal>{count} ready-to-use AI chat prompts {audience_lower} — built around pedagogy first. Free to download, adapt, and share.</p>
+      <p class="lede" data-reveal>{count} ready-to-use AI chat prompts {audience_lower} — free to download, adapt, and share.</p>
+      <p class="prose" data-reveal>{shared_p2}</p>
+      <p class="prose" data-reveal>{unique_p3}</p>
+      <p class="prose" data-reveal>{shared_p4}</p>
     </section>
 
     <section class="section section--alt" data-reveal>
@@ -319,6 +326,9 @@ def generate_landing_sv(pack: dict, data: dict) -> str:
             parts_summary=_parts_summary_sv(data),
             related_section=_related_sv(pack),
         )
+    unique_p3 = INTROS_SV.get(pack["slug_sv"], "")
+    if not unique_p3:
+        print(f"  WARN: no SV intro for {pack['slug_sv']}")
     return LANDING_SV.format(
         title=_html.escape(pack["title_sv"].rstrip(".")),
         subtitle=_html.escape(pack.get("subtitle_sv") or "Färdiga promptar att utgå från i planering, undervisning och reflektion."),
@@ -328,6 +338,9 @@ def generate_landing_sv(pack: dict, data: dict) -> str:
         vol=_vol(pack),
         parts_summary=_parts_summary_sv(data),
         related_section=_related_sv(pack),
+        shared_p2=SHARED_P2["sv"],
+        unique_p3=unique_p3,
+        shared_p4=SHARED_P4["sv"],
     )
 
 
@@ -345,6 +358,9 @@ def generate_landing_en(pack: dict, data: dict) -> str:
             parts_summary=_parts_summary_en(data),
             related_section=_related_en(pack),
         )
+    unique_p3 = INTROS_EN.get(pack["slug_en"], "")
+    if not unique_p3:
+        print(f"  WARN: no EN intro for {pack['slug_en']}")
     return LANDING_EN.format(
         title=_html.escape(pack["title_en"].rstrip(".")),
         subtitle=_html.escape(pack.get("subtitle_en") or "Ready-to-use prompts for planning, teaching and reflection."),
@@ -354,6 +370,9 @@ def generate_landing_en(pack: dict, data: dict) -> str:
         vol=_vol(pack),
         parts_summary=_parts_summary_en(data),
         related_section=_related_en(pack),
+        shared_p2=SHARED_P2["en"],
+        unique_p3=unique_p3,
+        shared_p4=SHARED_P4["en"],
     )
 
 
@@ -488,7 +507,7 @@ LIBRARY_INDEX_SV = """<!DOCTYPE html>
   <meta name="description" content="Ett fritt bibliotek av AI-chattpromptar för alla yrkesroller i skolan — lärare, rektorer, ämneslärare, stödpersonal. Nedladdningsbara PDF:er.">
   <meta property="og:title" content="Promptbibliotek — choosewise.education">
   <meta property="og:description" content="Ett fritt bibliotek av AI-chattpromptar för alla yrkesroller i skolan.">
-  <meta property="og:image" content="/assets/images/brand/og-default.svg">
+  <meta property="og:image" content="/assets/images/brand/og/prompts-sv.svg">
   <link rel="stylesheet" href="/assets/css/fonts.css">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
@@ -503,6 +522,12 @@ LIBRARY_INDEX_SV = """<!DOCTYPE html>
       <span class="eyebrow" data-reveal>Promptbibliotek</span>
       <h1 data-reveal>Promptar för alla som jobbar i skolan.</h1>
       <p class="lede" data-reveal>{total_packs} promptpaket för lärare, ämneslärare, skolledare och stödpersonal — {total_prompts} promptar totalt, grundade i pedagogik. Varje paket är en nedladdningsbar PDF.</p>
+    </section>
+
+    <!-- Svarsblock för "vilket promptpaket ska jag ladda ner?" -->
+    <section class="seo-answer" data-reveal>
+      <h2 class="seo-answer__question">Vilket promptpaket ska jag ladda ner?</h2>
+      <p class="seo-answer__capsule">Fria promptpaket som täcker {total_packs} roller och ämnen i skolan — klasslärare, ämneslärare från biologi till hem- och konsumentkunskap, både grundskola och gymnasium, skolledare (rektorer, skolchefer, central administration) och stödpersonal (kuratorer, bibliotekarier, IT, specialpedagogik). Varje paket är en nedladdningsbar PDF, framtagen i svensk skolkontext men möjlig att anpassa till andra läroplaner. Välj det paket som ligger närmast din roll; ämneslärare kan också börja i det ämnesövergripande paketet.</p>
     </section>
 
     <section class="section container" data-reveal>
@@ -558,7 +583,7 @@ LIBRARY_INDEX_EN = """<!DOCTYPE html>
   <meta name="description" content="A free library of AI chat prompts for every role in the school — teachers, principals, subject specialists, support staff. Downloadable PDFs.">
   <meta property="og:title" content="Prompt Library — choosewise.education">
   <meta property="og:description" content="A free library of AI chat prompts for every role in the school.">
-  <meta property="og:image" content="/assets/images/brand/og-default.svg">
+  <meta property="og:image" content="/assets/images/brand/og/prompts-en.svg">
   <link rel="stylesheet" href="/assets/css/fonts.css">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
@@ -573,6 +598,12 @@ LIBRARY_INDEX_EN = """<!DOCTYPE html>
       <span class="eyebrow" data-reveal>Prompt Library</span>
       <h1 data-reveal>Prompts about teaching, learning and education.</h1>
       <p class="lede" data-reveal>{total_packs} prompt sets for teachers, subject specialists, school leaders and support staff — {total_prompts} prompts in total, grounded in pedagogy. Every set is a downloadable PDF.</p>
+    </section>
+
+    <!-- Answer capsule for "which prompt pack should I download?" -->
+    <section class="seo-answer" data-reveal>
+      <h2 class="seo-answer__question">Which prompt pack should I download?</h2>
+      <p class="seo-answer__capsule">Free prompt packs covering {total_packs} roles and subjects in education — classroom teachers, subject specialists from biology to home economics across compulsory and upper-secondary, school leaders (principals, superintendents, district administrators), and support staff (counselors, librarians, IT, special education). Every pack is a downloadable PDF, originally written in a Swedish school context but adaptable to other curricula. Pick the pack closest to your role; subject teachers can also start from the cross-curricular pack.</p>
     </section>
 
     <section class="section container" data-reveal>

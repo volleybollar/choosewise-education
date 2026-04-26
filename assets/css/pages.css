@@ -127,6 +127,17 @@
 .page-hero { padding-block: var(--space-9) var(--space-7); }
 .page-hero h1 { margin-bottom: var(--space-5); }
 .page-hero .lede { font-size: 1.25rem; color: var(--color-text-soft); max-width: none; }
+/* Stack additional bio/intro paragraphs after the lede on prompt-pack landings. */
+.page-hero .lede + .prose,
+.page-hero .prose + .prose { margin-top: var(--space-4); max-width: none; }
+
+/* Helper prose directly following a section heading should match the
+   heading's rendered width (.section__title is capped at 22ch in the
+   serif display font ≈ 50rem). 50rem here keeps the prose visually
+   flush with the heading rather than narrowing to the default reading
+   column meant for long-form text. */
+.section__title + .prose,
+.section__title + .prose + .prose { max-width: 50rem; }
 
 /* Pedagogisk not som förklarar att det avvikande (terrakotta) steget i
    WISE/RÄTT-diagrammet är beslutsögonblicket. Terrakotta vänsterkant

@@ -46,7 +46,7 @@ PACKS = [
      "category": "teachers"},
     {"folder": "2 Lär dig nya saker", "slug_en": "learning-new-skills", "slug_sv": "lar-dig-nya-saker",
      "title_en": "Prompts for Learning New Skills.", "title_sv": "Promptar för att lära dig nya saker.",
-     "eyebrow_en": "For Anyone Learning", "eyebrow_sv": "För den som vill lära sig",
+     "eyebrow_en": "For Anyone Learning", "eyebrow_sv": "För den som vill lära sig nya saker",
      "category": "themes"},
     {"folder": "3 Rektorer", "slug_en": "principals", "slug_sv": "rektorer",
      "title_en": "Prompts for Principals.", "title_sv": "Promptar för rektorer.",
