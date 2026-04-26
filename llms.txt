@@ -1,0 +1,64 @@
+# choosewise.education
+
+> An independent education resource on AI in schools, built and edited by Johan Lindström — a Swedish education consultant with 28 years in the school system (10 as teacher, 7 as school leader, 11 in EdTech). The site offers a four-step decision framework (WISE), in-depth tool guides, downloadable prompt packs by role and subject, curated infographic styles for NotebookLM, and interactive AI-or-human tests. Content is published in English and Swedish; the Swedish surface uses the parallel name RÄTT-modellen.
+
+The site's thesis: schools usually don't need more AI tools — they need the judgment to choose the right tool at the right time. Material is written for principals, school administrators (skolchefer), and teachers, and aims to be practical, evidence-aware, and free of vendor hype.
+
+## The WISE Framework for Education
+
+- [The WISE Framework for Education (English)](https://choosewise.education/wise/): Four-step decision model — Why, Implications, Standards, Execution — for choosing AI tools in school settings.
+- [RÄTT-modellen (Swedish)](https://choosewise.education/sv/ratt/): Same framework, Swedish surface and language.
+
+## AI Guides
+
+- [Guides index — English](https://choosewise.education/guides/)
+- [Guider — Svenska](https://choosewise.education/sv/guider/)
+- [Claude for teachers and school leaders](https://choosewise.education/guides/claude/) · [Swedish](https://choosewise.education/sv/guider/claude/)
+- [Microsoft Copilot for teachers and school leaders](https://choosewise.education/guides/copilot/) · [Swedish](https://choosewise.education/sv/guider/copilot/)
+- [Gemini & NotebookLM for teachers and school leaders](https://choosewise.education/guides/gemini-notebooklm/) · [Swedish](https://choosewise.education/sv/guider/gemini-notebooklm/)
+- [Apple Intelligence for teachers and school leaders](https://choosewise.education/guides/apple-intelligence/) · [Swedish](https://choosewise.education/sv/guider/apple-intelligence/)
+- [Should students use AI in class? — pedagogical decision guide](https://choosewise.education/guides/ai-for-students/) · [Swedish](https://choosewise.education/sv/guider/ai-for-elever/)
+
+## Prompt Packs
+
+Free downloadable PDFs of ready-to-use AI chat prompts, organized by role and subject. Indices:
+
+- [All prompts — English](https://choosewise.education/prompts/)
+- [Alla promptar — Svenska](https://choosewise.education/sv/promptar/)
+
+Sample role-based packs: Teachers, Principals, School administrators, District administrators, Superintendents, Lead teachers, EdTech coaches, Education strategists, School counselors, School psychologists, School nurses, School librarians, Special education specialists/teachers, Student assistants, Career counselors, School caretakers, School catering staff, School IT managers, District IT managers.
+
+Sample subject-based packs (compulsory + upper secondary): Art, Biology, Chemistry, Crafts, Cross-curricular work, Digital tools, Early numeracy, English, Geography, History, Home economics, Mathematics, Modern languages, Music, Outdoor education, Physical education, Physics, Preschool, Reception, Religious studies, Science, Social studies, Technology, Time management, Learning new skills, Research on learning, Megaprompts (#1, #2, #3).
+
+## AI or human?
+
+- [AI or human? — English](https://choosewise.education/ai-or-human/)
+- [AI eller människa? — Svenska](https://choosewise.education/sv/ai-eller-manniska/)
+
+Interactive tests where visitors check whether they can tell AI-generated text, images, and video apart from human-created content.
+
+## Infographic Styles
+
+- [Infographic styles (140) — English](https://choosewise.education/infographic-styles/)
+- [Infografik-stilar (140) — Svenska](https://choosewise.education/sv/infografik-stilar/)
+
+A curated catalogue of 140 visual styles (with prompts) for generating NotebookLM video overviews and slide decks.
+
+## Presentation Skills
+
+- [Presentation Skills landing — English](https://choosewise.education/presentation-skills/)
+- [Presentationsteknik (Steg 1: 7 moduler + 5 fördjupningar) — Svenska](https://choosewise.education/sv/presentationsteknik/)
+
+## Blog
+
+- [Blog index — English](https://choosewise.education/blog/)
+- [Blogg — Svenska](https://choosewise.education/sv/blog/)
+
+## About
+
+- [About Johan Lindström — English](https://choosewise.education/about/)
+- [Om Johan Lindström — Svenska](https://choosewise.education/sv/om/)
+
+## Sitemap
+
+- [sitemap.xml](https://choosewise.education/sitemap.xml)

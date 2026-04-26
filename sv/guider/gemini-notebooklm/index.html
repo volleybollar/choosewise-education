@@ -16,6 +16,13 @@
 <link rel="stylesheet" href="/assets/css/components.css">
 <link rel="stylesheet" href="styles.css">
 <script defer src="script.js"></script>
+<!-- seo:start (build-seo-meta.py) -->
+<link rel="canonical" href="https://choosewise.education/sv/guider/gemini-notebooklm/">
+<link rel="alternate" hreflang="en" href="https://choosewise.education/guides/gemini-notebooklm/">
+<link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/gemini-notebooklm/">
+<link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/gemini-notebooklm/">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education, guides, and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."},{"@type":"FAQPage","@id":"https://choosewise.education/sv/guider/gemini-notebooklm/#faq","mainEntity":[{"@type":"Question","name":"Räcker gratisnivån?","acceptedAnswer":{"@type":"Answer","text":"För de flesta lärare, ja — åtminstone till en början. Den kostnadsfria Gemini-nivån inkluderar Gemini 3 Flash-nivå-tillgång, Gemini-webbappen, mobilappen och grundläggande Canvas. NotebookLM är gratis med generösa käll- och notebook-tak (kontrollera Google för aktuella siffror, eftersom de ändras). Kärn-Gemini AI i Google Classroom är gratis för alla Workspace for Education-konton. En sak värd att känna till på gratisnivån: antalet bilder du kan generera per dag är begränsat, så om din vecka hänger mycket på Nano Banana 2 för handouts och slides märker du taket. Du stöter på den betalda nivån (AI Pro / AI Ultra) när Deep Research-sessioner kör in i tak mitt i en uppgift; Gems börjar kännas långsamma; eller premium-Workspace-funktioner (Gemini i Docs / Slides / Forms / Vids) blir ett dagligt arbetsflöde. Uppgradera då, inte tidigare."}},{"@type":"Question","name":"Vad är skillnaden mellan Gemini och NotebookLM?","acceptedAnswer":{"@type":"Answer","text":"Gemini är generativt — du ger det en fråga eller uppgift, det producerar ett svar från sin öppna kunskap plus websökning. NotebookLM är förankrat — det svarar bara utifrån källor du har laddat upp till en specifik Notebook, med källhänvisningar som pekar tillbaka till källpassagen. Båda körs på Googles Gemini-modellfamilj. Gemini är där du skissar, brainstormar och skapar. NotebookLM är där du researchar, studerar och syntetiserar från ditt eget material. Sedan april 2026 synkroniseras Notebooks dubbelriktat in i Gemini — du kan be Gemini arbeta med en Notebooks källor utan att lämna Gemini-chatten."}},{"@type":"Question","name":"Vad är skillnaden mellan Gemini, ChatGPT och Claude?","acceptedAnswer":{"@type":"Answer","text":"Alla tre är kompetenta AI-assistenter från olika företag (Google, OpenAI, Anthropic) som körs på olika modeller. Praktiska skillnader för lärare: Gemini är tätt integrerat med Google Workspace (Docs, Slides, Forms, Classroom, NotebookLM) — om din skola kör Workspace sparar Gemini flikbytet. ChatGPT och Claude körs på sina egna plattformar och interagerar mindre nativt med skolans dokumentarbetsflöde. Claude beskrivs ofta som skrivande med mindre generisk output; Gemini är stark på Google-yta-integration och multimodalt arbete (video, bildgenerering); ChatGPT har det största tredjeparts-plugin-ekosystemet. Välj den som lever närmast där ditt arbete redan sker. En viktig europeisk brasklapp. Få EU-länder har ett avtal på nationell nivå med OpenAI (företaget bakom ChatGPT) — Estland är ett tydligt undantag, som har tecknat ett nationellt avtal. I praktiken innebär det att ChatGPT i många europeiska länder inte ska användas av lärare eller elever i deras skolroll, eftersom reglerna kring hantering av personuppgifter och kravet på personuppgiftsbiträdesavtal med leverantör inte är uppfyllda. Kontrollera ditt eget lands position innan du börjar använda ChatGPT i skolarbetet."}},{"@type":"Question","name":"Kan jag använda dessa med elevdata?","acceptedAnswer":{"@type":"Answer","text":"Endast med avidentifierad data, och endast om er skolas AI-policy tillåter det. Elevnamn, betyg, ordningsomdömen, hälsoinformation, vårdnadshavares kontaktuppgifter, anteckningar om anmälningsärenden — ladda aldrig upp något av det, till någon kontotyp. Byt ut namn mot roller (\"Elev A\", \"Elev B\"). Generalisera datum och platser. Använd bara skoldomänens Workspace for Education-konto (aldrig en personlig Gmail) för allt som rör en elev. Om du är osäker, rådgör med ert dataskyddsombud innan du laddar upp. Skolverkets riktlinjer från augusti 2025 är tydliga: elever får inte använda generativ AI på egen hand i undervisningen, rektors godkännande krävs för all spridning och lärarens tillsyn är obligatorisk. Verifiera Skolverkets aktuella riktlinjer innan ni aktiverar elevriktade funktioner. Se Del 4 och EU-bonuskapitlet för hela bilden."}},{"@type":"Question","name":"Vad händer om Gemini eller NotebookLM hittar på något (hallucination)?","acceptedAnswer":{"@type":"Answer","text":"Båda verktygen kan producera innehåll som låter plausibelt och är sakligt fel — särskilt på nischade, tekniska, mycket aktuella eller numeriskt precisa ämnen. NotebookLM hallucinerar mindre än Gemini eftersom det bara svarar utifrån dina uppladdade källor; dess främsta felläge är att felcitera eller felattribuera inuti de källorna. Gemini hallucinerar oftare, särskilt när du frågar om aktuella händelser eller specifika namn och datum. Du är experten — verifiera varje påstående innan det når en elev. Lämna aldrig över en AI-genererad resurs till en elev som du inte har läst noggrant. Varje Deep Research-källhänvisning förtjänar en blick."}},{"@type":"Question","name":"Behöver jag den betalda Gemini-planen?","acceptedAnswer":{"@type":"Answer","text":"Som lärare, börja gratis; uppgradera bara när du stöter på en verklig gräns mitt i en uppgift. De betalda konsumentnivåerna (AI Pro, AI Ultra) låser upp större Deep Research-sessioner, högre tak på NotebookLM:s ljud- och videoöversikter och tillgång till Gemini 3 Pro med Deep Think. För skolövergripande utrullning är den relevanta frågan inte konsument-betalt utan Workspace for Education-licensiering: har er skola Education Plus- eller Teaching &amp; Learning-tillägg? De aktiverar Gemini i Docs / Slides / Forms / Vids och är hur premium-AI dyker upp inuti ert befintliga Google-arbetsflöde. Del 4 täcker detta ordentligt."}},{"@type":"Question","name":"Vad är ett Gem och när ska jag bygga ett?","acceptedAnswer":{"@type":"Answer","text":"Ett Gem är en namngiven, återanvändbar egen assistent med sparade instruktioner och eventuellt bifogade filer. Bygg ett när du märker att du ger Gemini samma kontext tre gånger. Ett årskurs-Gem, ett föräldrakommunikations-Gem, ett quizgenerator-Gem — vart och ett sparar dig fem minuter av kontextsättning per användning. Börja med ett. Lär vad smalt syfte känns som. Lägg till fler bara när du vet varför. Delade Gems är kraftfulla för ämneslag — varje lärare triggar samma standard utan att kopiera instruktioner mellan kollegor. Eric Curts driver edugems.ai med omkring 200 gratis utbildnings-Gems; använd dem som mallar."}},{"@type":"Question","name":"Vad betyder EU:s AI-förordning för mitt klassrum (kort svar)?","acceptedAnswer":{"@type":"Answer","text":"För de flesta undervisningsuppgifter — lektionsplanering, kommunikation, differentiering, studieguide-generering — väldigt lite. Du är i minimal risk-nivån och standard-dataskyddsdisciplin gäller. AI-förordningen spelar störst roll när AI används för att bedöma elever på sätt som påverkar tillgång till utbildning: antagning, betygssättning, automatiserad beteendebedömning. Om er skola överväger något av det, engagera ert dataskyddsombud och juridisk rådgivning. Artikel 4 (AI-kompetens) gäller sedan februari 2025 och innebär att er skola måste säkerställa att personalen har tillräcklig AI-kompetens — ert kompetensutvecklingsprogram är er praktiska efterlevnad. Se bonuskapitlet ovan för hela bilden."}},{"@type":"Question","name":"Vad är det med plagiat och elevers AI-användning?","acceptedAnswer":{"@type":"Answer","text":"Er skola behöver en policy om det, och AI-detektionsverktyg är opålitliga — behandla inte deras utdata som bevis. Fokusera istället på bedömningsdesign: uppgifter som kräver skrivande i klassrummet, muntligt försvar, personlig reflektion eller processdokumentation är svårare att lämna in AI-genererat arbete för. Skolverkets riktlinjer från augusti 2025 är tydliga: elever får inte använda generativ AI på egen hand i undervisningen, rektors godkännande krävs för all spridning och lärarens tillsyn är obligatorisk. Den ärliga positionen är att AI nu är en del av lärmiljön utanför skolan, och er bedömning behöver spegla det snarare än låtsas något annat. Involvera eleverna i samtalet — de vet mer om AI-användning än de flesta policydokument antar."}},{"@type":"Question","name":"Hur får jag med mig mina kollegor?","acceptedAnswer":{"@type":"Answer","text":"Evangelisera inte. Demonstrera. Välj ett arbetsflöde som sparar dig verklig tid — utkast för föräldrakommunikation, Audio Overviews eller Gems — och dela dina faktiska tidsbesparingar med kollegor. Kör en liten arbetsgrupp där personal tar med riktiga uppgifter och lär sig tillsammans. Dina mest skeptiska kollegor är ofta dina värdefullaste bidragsgivare till policyn; bjud in dem tidigt. Kom ihåg er skyldighet enligt artikel 4: det här är inte bara trevligt-att-ha — det är ett rättsligt krav för varje skola som tillämpar AI. En måttlig, konsekvent kadens slår en engångs utbildningsdag varje gång."}},{"@type":"Question","name":"Var får jag hjälp?","acceptedAnswer":{"@type":"Answer","text":"Börja med Googles egna hjälpsidor på support.google.com/gemini och support.google.com/notebooklm. För praktiskt klassrumsmaterial är gemenskapen av lärar-bloggare och poddare som citeras genom guiden (Matt Miller, Monica Burns, Kasey Bell, Eric Curts, Alice Keeler, Tony Vincent, Jake Miller) en stark utgångspunkt. För skolspecifika frågor — AI-policy, utrullning i hela skolan, design av arbetsgrupper, implementering av EU AI Act — kan du också nå mig via min webbplats (länk i footern). En liten kommentar om förväntningar: jag har ett heltidsjobb och driver det här arbetet vid sidan av, vilket betyder att jag inte alltid kan hantera brådskande frågor eller korta ledtider. För allt tidskritiskt, börja med din skoladministratör, din DPO/DSO, eller resurserna ovan."}}]}]}</script>
+<!-- seo:end -->
 </head>
 <body>
 
@@ -601,11 +608,11 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
 
     <p>Samma notebook och samma prompt kommer producera mycket olika output beroende på vilken stil du väljer. En formell akademisk layout för en ämneslagsbriefing. En samtalande podcast för en elevs pendelrepetition. En barnvänlig berättarform för ett handout på lågstadiet. En oral history-intervju för ett lokalhistoriskt område. Ämnet ändras inte — bara registret, kompositionen och nivån av välkomnande. Stil är skillnaden mellan "NotebookLM säger X" och "NotebookLM lär ut X på det sätt dina elever behöver höra det".</p>
 
-    <p>Jag har byggt 140 sådana stilar. Var och en är en fullständig, färdig-att-kopiera prompt som sätter NotebookLM — och Geminis bildverktyg — i ett specifikt visuellt och tonalt register, från editoriella infografiker och comic book-omslag till dokumentära stillbilder och anatomiska affischer. De åtta exemplen nedan är en kurerad ingång. Bläddra i hela biblioteket på <a href="/sv/notebooklm-stilar/">/sv/notebooklm-stilar/</a>, där varje stil har en tumnagel, en kort beskrivning och den fullständiga prompten redo för dig att kopiera och klistra in i NotebookLM när du skapar infografik.</p>
+    <p>Jag har byggt 140 sådana stilar. Var och en är en fullständig, färdig-att-kopiera prompt som sätter NotebookLM — och Geminis bildverktyg — i ett specifikt visuellt och tonalt register, från editoriella infografiker och comic book-omslag till dokumentära stillbilder och anatomiska affischer. De åtta exemplen nedan är en kurerad ingång. Bläddra i hela biblioteket på <a href="/sv/infografik-stilar/">/sv/infografik-stilar/</a>, där varje stil har en tumnagel, en kort beskrivning och den fullständiga prompten redo för dig att kopiera och klistra in i NotebookLM när du skapar infografik.</p>
 
     <div class="styles-grid">
 
-      <a class="style-card" href="/sv/notebooklm-stilar/">
+      <a class="style-card" href="/sv/infografik-stilar/">
         <img src="/assets/notebooklm-images/style-001.webp" alt="Bred editorial spread med serif-rubrik och naturhistorisk illustration" loading="lazy">
         <div class="style-card__label">
           <strong>Editorial Infographic Spread</strong>
@@ -613,7 +620,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
         </div>
       </a>
 
-      <a class="style-card" href="/sv/notebooklm-stilar/">
+      <a class="style-card" href="/sv/infografik-stilar/">
         <img src="/assets/notebooklm-images/style-002.webp" alt="Filmisk 3D-nyhetstumnagel med neonbelysning och en reporterfigur" loading="lazy">
         <div class="style-card__label">
           <strong>Cinematic News Thumbnail</strong>
@@ -621,7 +628,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
         </div>
       </a>
 
-      <a class="style-card" href="/sv/notebooklm-stilar/">
+      <a class="style-card" href="/sv/infografik-stilar/">
         <img src="/assets/notebooklm-images/style-005.webp" alt="Fotorealistisk klassrumsstillbild i mjukt dagsljus ur en elevs synvinkel" loading="lazy">
         <div class="style-card__label">
           <strong>Documentary Classroom Still</strong>
@@ -629,7 +636,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
         </div>
       </a>
 
-      <a class="style-card" href="/sv/notebooklm-stilar/">
+      <a class="style-card" href="/sv/infografik-stilar/">
         <img src="/assets/notebooklm-images/style-006.webp" alt="Ljus solstrålebakgrund med utklippsfigur och staplade text-stickers" loading="lazy">
         <div class="style-card__label">
           <strong>Creator Sticker Card</strong>
@@ -637,7 +644,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
         </div>
       </a>
 
-      <a class="style-card" href="/sv/notebooklm-stilar/">
+      <a class="style-card" href="/sv/infografik-stilar/">
         <img src="/assets/notebooklm-images/style-014.webp" alt="Mörk minimalistisk tech-layout med cyan neonglöd och ett raster av figurer" loading="lazy">
         <div class="style-card__label">
           <strong>Dark Tech Update</strong>
@@ -645,7 +652,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
         </div>
       </a>
 
-      <a class="style-card" href="/sv/notebooklm-stilar/">
+      <a class="style-card" href="/sv/infografik-stilar/">
         <img src="/assets/notebooklm-images/style-016.webp" alt="Klassiskt comic book-omslag med tre hjältar i en dramatisk triangulär komposition" loading="lazy">
         <div class="style-card__label">
           <strong>Comic Book Cover</strong>
@@ -653,7 +660,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
         </div>
       </a>
 
-      <a class="style-card" href="/sv/notebooklm-stilar/">
+      <a class="style-card" href="/sv/infografik-stilar/">
         <img src="/assets/notebooklm-images/style-046.webp" alt="Pastellfärgad top-down knolling-layout av skrivmaterial och enheter på en delad bakgrund" loading="lazy">
         <div class="style-card__label">
           <strong>Pastel Knolling Layout</strong>
@@ -661,7 +668,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
         </div>
       </a>
 
-      <a class="style-card" href="/sv/notebooklm-stilar/">
+      <a class="style-card" href="/sv/infografik-stilar/">
         <img src="/assets/notebooklm-images/style-052.webp" alt="Premium mörk anatomiaffisch med en glödande röntgensilhuett i rörelse" loading="lazy">
         <div class="style-card__label">
           <strong>X-Ray Anatomy Poster</strong>
@@ -672,7 +679,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
     </div>
 
     <p style="text-align: center; margin-top: var(--space-4);">
-      <a class="button button--ghost" href="/sv/notebooklm-stilar/">Bläddra bland alla 140 stilar →</a>
+      <a class="button button--ghost" href="/sv/infografik-stilar/">Bläddra bland alla 140 stilar →</a>
     </p>
   </div>
 </section>

@@ -970,6 +970,88 @@
   .memory__score { font-size: 2.75rem; }
 }
 
+/* ───── Page meta — last-updated stamp ───── */
+.page-last-updated {
+  max-width: 1100px;
+  margin: var(--space-8) auto var(--space-6);
+  padding: 0 var(--space-5);
+  text-align: center;
+}
+.page-last-updated p {
+  display: inline-block;
+  margin: 0;
+  padding: var(--space-2) var(--space-4);
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+  border-top: 1px solid var(--color-border);
+  letter-spacing: 0.01em;
+}
+.page-last-updated__label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* ───── Quick-answer / FAQ section (SEO answer capsule + question H2) ───── */
+.seo-answer {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: var(--space-7) var(--space-5);
+}
+.seo-answer__question {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  margin: 0 0 var(--space-3);
+  color: var(--color-text);
+}
+.seo-answer__capsule {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0;
+}
+.seo-faq {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5) var(--space-8);
+}
+.seo-faq__heading {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  margin: 0 0 var(--space-5);
+}
+.seo-faq details {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-4) 0;
+}
+.seo-faq details:last-of-type {
+  border-bottom: 1px solid var(--color-border);
+}
+.seo-faq summary {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-text);
+}
+.seo-faq summary::-webkit-details-marker { display: none; }
+.seo-faq summary::after {
+  content: "+";
+  color: var(--color-accent);
+  font-size: 1.4rem;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.seo-faq details[open] summary::after { content: "−"; }
+.seo-faq details > p {
+  margin: var(--space-3) 0 0;
+  color: var(--color-text-soft);
+  line-height: 1.65;
+}
+
 /* ───── AI or human — quiz components ───── */
 
 .quiz-section { margin-top: var(--space-8); }

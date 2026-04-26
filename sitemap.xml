@@ -1,34 +1,1110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://choosewise.education/</loc></url>
-  <url><loc>https://choosewise.education/wise/</loc></url>
-  <url><loc>https://choosewise.education/presentation-skills/</loc></url>
-  <url><loc>https://choosewise.education/guides/</loc></url>
-  <url><loc>https://choosewise.education/guides/claude/</loc></url>
-  <url><loc>https://choosewise.education/prompts/</loc></url>
-  <url><loc>https://choosewise.education/notebooklm-styles/</loc></url>
-  <url><loc>https://choosewise.education/blog/</loc></url>
-  <url><loc>https://choosewise.education/about/</loc></url>
-  <url><loc>https://choosewise.education/privacy/</loc></url>
-  <url><loc>https://choosewise.education/sv/</loc></url>
-  <url><loc>https://choosewise.education/sv/ratt/</loc></url>
-  <url><loc>https://choosewise.education/sv/presentationsteknik/</loc></url>
-  <url><loc>https://choosewise.education/sv/presentationsteknik/modul-1/</loc></url>
-  <url><loc>https://choosewise.education/sv/presentationsteknik/modul-2/</loc></url>
-  <url><loc>https://choosewise.education/sv/presentationsteknik/modul-2/fordjupning/</loc></url>
-  <url><loc>https://choosewise.education/sv/presentationsteknik/modul-3/</loc></url>
-  <url><loc>https://choosewise.education/sv/presentationsteknik/modul-3/fordjupning/</loc></url>
-  <url><loc>https://choosewise.education/sv/presentationsteknik/modul-4/</loc></url>
-  <url><loc>https://choosewise.education/sv/presentationsteknik/modul-4/fordjupning/</loc></url>
-  <url><loc>https://choosewise.education/sv/presentationsteknik/modul-5/</loc></url>
-  <url><loc>https://choosewise.education/sv/presentationsteknik/modul-5/fordjupning/</loc></url>
-  <url><loc>https://choosewise.education/sv/presentationsteknik/modul-6/</loc></url>
-  <url><loc>https://choosewise.education/sv/presentationsteknik/modul-6/fordjupning/</loc></url>
-  <url><loc>https://choosewise.education/sv/presentationsteknik/modul-7/</loc></url>
-  <url><loc>https://choosewise.education/sv/guider/</loc></url>
-  <url><loc>https://choosewise.education/sv/guider/claude/</loc></url>
-  <url><loc>https://choosewise.education/sv/promptar/</loc></url>
-  <url><loc>https://choosewise.education/sv/notebooklm-stilar/</loc></url>
-  <url><loc>https://choosewise.education/sv/blog/</loc></url>
-  <url><loc>https://choosewise.education/sv/om/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://choosewise.education/about/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/about/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/om/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/about/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/ai-or-human/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/blog/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/blog/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/blog/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/blog/posts/why-i-built-choosewise-education.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/blog/posts/varfor-jag-byggt-choosewise-education.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/guides/ai-for-students/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/ai-for-students/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/ai-for-elever/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/ai-for-students/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/guides/apple-intelligence/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/apple-intelligence/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/apple-intelligence/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/apple-intelligence/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/guides/claude/</loc>
+    <lastmod>2026-04-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/claude/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/claude/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/claude/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/guides/copilot/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/copilot/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/copilot/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/copilot/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/guides/gemini-notebooklm/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/gemini-notebooklm/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/gemini-notebooklm/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/gemini-notebooklm/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/guides/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/infographic-styles/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/notebooklm-styles/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/notebooklm-styles/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/notebooklm-stilar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/notebooklm-styles/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/presentation-skills/</loc>
+    <lastmod>2026-04-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/presentation-skills/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/presentationsteknik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/presentation-skills/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/privacy/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/after-school-care/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/after-school-care/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/fritids/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/after-school-care/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/art/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/art/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/bild/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/art/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/biology/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/biology/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/biologi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/biology/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/career-counselors/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/career-counselors/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/syv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/career-counselors/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/chemistry/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/chemistry/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/kemi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/chemistry/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/crafts/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/crafts/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/slojd/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/crafts/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/cross-curricular/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/cross-curricular/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/amnesovergripande/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/cross-curricular/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/digital-tools/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/digital-tools/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/digitala-verktyg/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/digital-tools/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/district-administrators/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/district-administrators/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/admin-central/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/district-administrators/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/district-it-managers/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/district-it-managers/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/it-ansvariga-central/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/district-it-managers/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/early-numeracy/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/early-numeracy/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/lara-sig-rakna/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/early-numeracy/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/edtech-coaches/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/edtech-coaches/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/ikt-pedagoger/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/edtech-coaches/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/education-strategists/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/education-strategists/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/strateger/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/education-strategists/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/english-upper-secondary/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/english-upper-secondary/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/engelska-gymnasiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/english-upper-secondary/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/english/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/english/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/engelska/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/english/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/geography/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/geography/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/geografi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/geography/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/history-upper-secondary/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/history-upper-secondary/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/historia-gymnasiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/history-upper-secondary/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/history/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/history/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/historia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/history/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/home-economics/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/home-economics/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/hkk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/home-economics/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/lead-teachers/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/lead-teachers/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/forstelarare/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/lead-teachers/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/learning-new-skills/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/learning-new-skills/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/lar-dig-nya-saker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/learning-new-skills/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/mathematics-upper-secondary/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/mathematics-upper-secondary/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/matematik-gymnasiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/mathematics-upper-secondary/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/mathematics/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/mathematics/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/matematik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/mathematics/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/megaprompts-1/</loc>
+    <lastmod>2026-04-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/megaprompts-1/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/megapromptar-1/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/megaprompts-1/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/megaprompts-2/</loc>
+    <lastmod>2026-04-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/megaprompts-2/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/megapromptar-2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/megaprompts-2/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/megaprompts-3/</loc>
+    <lastmod>2026-04-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/megaprompts-3/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/megapromptar-3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/megaprompts-3/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/modern-languages-upper-secondary/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/modern-languages-upper-secondary/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/moderna-sprak-gymnasiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/modern-languages-upper-secondary/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/modern-languages/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/modern-languages/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/moderna-sprak/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/modern-languages/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/music/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/music/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/musik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/music/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/outdoor-education/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/outdoor-education/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/utomhuspedagogik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/outdoor-education/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/physical-education-upper-secondary/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/physical-education-upper-secondary/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/idh-gymnasiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/physical-education-upper-secondary/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/physical-education/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/physical-education/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/idh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/physical-education/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/physics/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/physics/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/fysik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/physics/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/preschool/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/preschool/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/forskola/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/preschool/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/principals/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/principals/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/rektorer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/principals/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/reception/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/reception/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/forskoleklass/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/reception/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/religious-studies-upper-secondary/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/religious-studies-upper-secondary/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/religion-gymnasiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/religious-studies-upper-secondary/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/religious-studies/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/religious-studies/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/religion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/religious-studies/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/research-on-learning/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/research-on-learning/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/studier-om-larande/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/research-on-learning/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/school-administrators/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-administrators/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/administratorer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-administrators/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/school-caretakers/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-caretakers/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/skolvaktmastare/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-caretakers/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/school-catering-staff/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-catering-staff/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/skolmaltidspersonal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-catering-staff/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/school-counselors/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-counselors/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/kuratorer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-counselors/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/school-it-managers/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-it-managers/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/it-ansvariga-skola/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-it-managers/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/school-librarians/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-librarians/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/skolbibliotekarier/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-librarians/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/school-nurses/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-nurses/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/skolskoterskor/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-nurses/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/school-psychologists/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-psychologists/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/skolpsykologer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-psychologists/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/science-general/</loc>
+    <lastmod>2026-04-24</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/science/</loc>
+    <lastmod>2026-04-24</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/social-studies-general/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/social-studies-general/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/so/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/social-studies-general/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/social-studies-upper-secondary/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/social-studies-upper-secondary/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/samhallskunskap-gymnasiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/social-studies-upper-secondary/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/social-studies/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/social-studies/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/samhallskunskap/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/social-studies/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/special-education-specialists/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/special-education-specialists/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/specialpedagoger/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/special-education-specialists/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/special-education-teachers/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/special-education-teachers/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/speciallarare/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/special-education-teachers/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/student-assistants/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/student-assistants/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/elevassistenter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/student-assistants/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/superintendents/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/superintendents/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/skolchefer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/superintendents/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/teachers/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/larare/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/teachers/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/technology/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/technology/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/teknik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/technology/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/prompts/time-management/</loc>
+    <lastmod>2026-04-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/time-management/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/tidsutnyttjande/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/time-management/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/ai-eller-manniska/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/blog/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/blog/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/blog/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/blog/posts/fortbildning-effektiviseringar-och-ai.html</loc>
+    <lastmod>2026-04-25</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/blog/posts/varfor-jag-byggt-choosewise-education.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/blog/posts/varfor-jag-byggt-choosewise-education.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/guider/ai-for-elever/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/ai-for-students/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/ai-for-elever/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/ai-for-students/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/guider/apple-intelligence/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/apple-intelligence/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/apple-intelligence/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/apple-intelligence/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/guider/claude/</loc>
+    <lastmod>2026-04-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/claude/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/claude/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/claude/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/guider/copilot/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/copilot/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/copilot/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/copilot/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/guider/gemini-notebooklm/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/gemini-notebooklm/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/gemini-notebooklm/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/gemini-notebooklm/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/guider/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/</loc>
+    <lastmod>2026-04-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/infografik-stilar/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/notebooklm-stilar/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/notebooklm-styles/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/notebooklm-stilar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/notebooklm-styles/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/om/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/about/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/om/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/about/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/presentationsteknik/</loc>
+    <lastmod>2026-04-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/presentation-skills/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/presentationsteknik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/presentation-skills/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/presentationsteknik/modul-1/</loc>
+    <lastmod>2026-04-25</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/presentationsteknik/modul-2/fordjupning/</loc>
+    <lastmod>2026-04-25</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/presentationsteknik/modul-2/</loc>
+    <lastmod>2026-04-25</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/presentationsteknik/modul-3/fordjupning/</loc>
+    <lastmod>2026-04-25</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/presentationsteknik/modul-3/</loc>
+    <lastmod>2026-04-25</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/presentationsteknik/modul-4/fordjupning/</loc>
+    <lastmod>2026-04-25</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/presentationsteknik/modul-4/</loc>
+    <lastmod>2026-04-25</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/presentationsteknik/modul-5/fordjupning/</loc>
+    <lastmod>2026-04-25</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/presentationsteknik/modul-5/</loc>
+    <lastmod>2026-04-25</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/presentationsteknik/modul-6/fordjupning/</loc>
+    <lastmod>2026-04-25</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/presentationsteknik/modul-6/</loc>
+    <lastmod>2026-04-25</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/presentationsteknik/modul-7/</loc>
+    <lastmod>2026-04-25</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/admin-central/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/district-administrators/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/admin-central/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/district-administrators/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/administratorer/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-administrators/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/administratorer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-administrators/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/amnesovergripande/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/cross-curricular/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/amnesovergripande/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/cross-curricular/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/bild/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/art/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/bild/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/art/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/biologi/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/biology/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/biologi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/biology/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/digitala-verktyg/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/digital-tools/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/digitala-verktyg/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/digital-tools/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/elevassistenter/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/student-assistants/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/elevassistenter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/student-assistants/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/engelska-gymnasiet/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/english-upper-secondary/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/engelska-gymnasiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/english-upper-secondary/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/engelska/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/english/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/engelska/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/english/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/forskola/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/preschool/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/forskola/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/preschool/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/forskoleklass/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/reception/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/forskoleklass/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/reception/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/forstelarare/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/lead-teachers/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/forstelarare/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/lead-teachers/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/fritids/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/after-school-care/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/fritids/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/after-school-care/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/fysik/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/physics/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/fysik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/physics/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/geografi/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/geography/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/geografi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/geography/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/historia-gymnasiet/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/history-upper-secondary/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/historia-gymnasiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/history-upper-secondary/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/historia/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/history/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/historia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/history/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/hkk/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/home-economics/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/hkk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/home-economics/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/idh-gymnasiet/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/physical-education-upper-secondary/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/idh-gymnasiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/physical-education-upper-secondary/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/idh/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/physical-education/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/idh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/physical-education/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/ikt-pedagoger/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/edtech-coaches/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/ikt-pedagoger/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/edtech-coaches/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/</loc>
+    <lastmod>2026-04-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/it-ansvariga-central/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/district-it-managers/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/it-ansvariga-central/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/district-it-managers/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/it-ansvariga-skola/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-it-managers/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/it-ansvariga-skola/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-it-managers/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/kemi/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/chemistry/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/kemi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/chemistry/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/kuratorer/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-counselors/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/kuratorer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-counselors/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/lar-dig-nya-saker/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/learning-new-skills/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/lar-dig-nya-saker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/learning-new-skills/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/lara-sig-rakna/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/early-numeracy/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/lara-sig-rakna/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/early-numeracy/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/larare/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/larare/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/teachers/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/las-och-skrivinlarning/</loc>
+    <lastmod>2026-04-25</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/matematik-gymnasiet/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/mathematics-upper-secondary/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/matematik-gymnasiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/mathematics-upper-secondary/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/matematik/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/mathematics/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/matematik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/mathematics/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/megapromptar-1/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/megaprompts-1/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/megapromptar-1/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/megaprompts-1/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/megapromptar-2/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/megaprompts-2/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/megapromptar-2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/megaprompts-2/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/megapromptar-3/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/megaprompts-3/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/megapromptar-3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/megaprompts-3/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/moderna-sprak-gymnasiet/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/modern-languages-upper-secondary/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/moderna-sprak-gymnasiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/modern-languages-upper-secondary/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/moderna-sprak/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/modern-languages/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/moderna-sprak/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/modern-languages/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/modersmal/</loc>
+    <lastmod>2026-04-24</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/musik/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/music/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/musik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/music/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/naturkunskap/</loc>
+    <lastmod>2026-04-24</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/no/</loc>
+    <lastmod>2026-04-24</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/rektorer/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/principals/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/rektorer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/principals/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/religion-gymnasiet/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/religious-studies-upper-secondary/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/religion-gymnasiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/religious-studies-upper-secondary/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/religion/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/religious-studies/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/religion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/religious-studies/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/samhallskunskap-gymnasiet/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/social-studies-upper-secondary/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/samhallskunskap-gymnasiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/social-studies-upper-secondary/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/samhallskunskap/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/social-studies/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/samhallskunskap/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/social-studies/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/skolbibliotekarier/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-librarians/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/skolbibliotekarier/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-librarians/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/skolchefer/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/superintendents/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/skolchefer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/superintendents/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/skolmaltidspersonal/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-catering-staff/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/skolmaltidspersonal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-catering-staff/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/skolpsykologer/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-psychologists/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/skolpsykologer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-psychologists/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/skolskoterskor/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-nurses/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/skolskoterskor/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-nurses/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/skolvaktmastare/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/school-caretakers/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/skolvaktmastare/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/school-caretakers/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/slojd/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/crafts/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/slojd/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/crafts/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/so/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/social-studies-general/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/so/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/social-studies-general/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/speciallarare/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/special-education-teachers/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/speciallarare/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/special-education-teachers/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/specialpedagoger/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/special-education-specialists/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/specialpedagoger/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/special-education-specialists/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/strateger/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/education-strategists/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/strateger/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/education-strategists/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/studier-om-larande/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/research-on-learning/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/studier-om-larande/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/research-on-learning/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/sva-gymnasiet/</loc>
+    <lastmod>2026-04-24</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/sva/</loc>
+    <lastmod>2026-04-24</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/svenska-gymnasiet/</loc>
+    <lastmod>2026-04-24</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/svenska/</loc>
+    <lastmod>2026-04-24</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/syv/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/career-counselors/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/syv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/career-counselors/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/teknik/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/technology/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/teknik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/technology/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/tidsutnyttjande/</loc>
+    <lastmod>2026-04-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/time-management/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/tidsutnyttjande/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/time-management/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/promptar/utomhuspedagogik/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/prompts/outdoor-education/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/promptar/utomhuspedagogik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/outdoor-education/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/sv/ratt/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/wise/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/ratt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/wise/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/wise/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/wise/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/ratt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/wise/"/>
+  </url>
 </urlset>
