@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Presentation Skills — choosewise.education</title>
-  <meta name="description" content="An interactive course in presentation skills for teachers and school leaders. Coming soon.">
+  <meta name="description" content="An interactive course in presentation skills for teachers, school leaders, and anyone who has to be heard in a room. Seven modules, free downloadable summary.">
   <meta property="og:title" content="Presentation Skills — choosewise.education">
-  <meta property="og:description" content="An interactive course in presentation skills for teachers and school leaders. Coming soon.">
+  <meta property="og:description" content="An interactive course in presentation skills for teachers, school leaders, and anyone who has to be heard in a room.">
   <meta property="og:image" content="/assets/images/brand/og-default.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://choosewise.education/presentation-skills/">
   <link rel="stylesheet" href="/assets/css/fonts.css">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
@@ -25,10 +27,112 @@
   <div data-include="/assets/partials/header-en.html"></div>
 
   <main>
+    <!-- Page hero: eyebrow + h1 + lede, same pattern as WISE Framework, AI Guides, etc. -->
     <section class="page-hero container">
       <span class="eyebrow" data-reveal>Presentation Skills</span>
-      <h1 data-reveal>Under construction.</h1>
-      <p class="lede" data-reveal>An interactive course in presentation skills for teachers and school leaders is on the way. Take it from start to finish, or pick the parts you need. A downloadable summary guide will be released alongside the course.</p>
+      <h1 data-reveal>Seven modules to develop your presentation skills.</h1>
+      <p class="lede" data-reveal>From the why, through slides and delivery, to voice and body. Take the whole course in order, or jump straight to the part you need. Everything is saved locally in your browser — no accounts, no email, no tracking.</p>
+    </section>
+
+    <!-- Course progress steps — populated by course-progress.js -->
+    <section class="container" style="padding-top: var(--space-4); padding-bottom: var(--space-4);">
+      <nav class="course-progress" id="course-overview-progress" aria-label="Course progression"></nav>
+    </section>
+
+    <!-- Module cards in grid -->
+    <section class="container section">
+      <div class="module-grid">
+
+        <a class="module-card" data-mod="1" href="/presentation-skills/module-1/">
+          <div class="module-card__head">
+            <span class="module-card__num">01</span>
+            <span class="module-card__status" data-status></span>
+          </div>
+          <h2 class="module-card__title">Why presentation skills?</h2>
+          <p class="module-card__desc">Sinek's Golden Circle, your why, logic vs emotion — the foundation everything else rests on.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 5 min</span>
+          </div>
+        </a>
+
+        <a class="module-card" data-mod="2" href="/presentation-skills/module-2/">
+          <div class="module-card__head">
+            <span class="module-card__num">02</span>
+            <span class="module-card__status" data-status></span>
+          </div>
+          <h2 class="module-card__title">Designing slides — the basics</h2>
+          <p class="module-card__desc">One message per slide, six objects max, colour, typography, eye direction. The rules that do most of the work.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 10 min</span>
+            <span class="module-card__meta-item module-card__deepdive-tag">+ Deep dive</span>
+          </div>
+        </a>
+
+        <a class="module-card" data-mod="3" href="/presentation-skills/module-3/">
+          <div class="module-card__head">
+            <span class="module-card__num">03</span>
+            <span class="module-card__status" data-status></span>
+          </div>
+          <h2 class="module-card__title">When the slide gets in your way</h2>
+          <p class="module-card__desc">Text-heavy slides, bullet lists, tables, templates, animations — and what to do instead.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 8 min</span>
+            <span class="module-card__meta-item module-card__deepdive-tag">+ Deep dive</span>
+          </div>
+        </a>
+
+        <a class="module-card" data-mod="4" href="/presentation-skills/module-4/">
+          <div class="module-card__head">
+            <span class="module-card__num">04</span>
+            <span class="module-card__status" data-status></span>
+          </div>
+          <h2 class="module-card__title">Delivery — presence in the room</h2>
+          <p class="module-card__desc">Eye contact, the pause, filler sounds, props, stories. How you become the person in the room.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 10 min</span>
+            <span class="module-card__meta-item module-card__deepdive-tag">+ Deep dive</span>
+          </div>
+        </a>
+
+        <a class="module-card" data-mod="5" href="/presentation-skills/module-5/">
+          <div class="module-card__head">
+            <span class="module-card__num">05</span>
+            <span class="module-card__status" data-status></span>
+          </div>
+          <h2 class="module-card__title">Digital presentations</h2>
+          <p class="module-card__desc">What's different when you present through a screen? Camera, audio, eye contact, pause strategy.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 8 min</span>
+            <span class="module-card__meta-item module-card__deepdive-tag">+ Deep dive</span>
+          </div>
+        </a>
+
+        <a class="module-card" data-mod="6" href="/presentation-skills/module-6/">
+          <div class="module-card__head">
+            <span class="module-card__num">06</span>
+            <span class="module-card__status" data-status></span>
+          </div>
+          <h2 class="module-card__title">Voice, body and language</h2>
+          <p class="module-card__desc">The training metaphor; the essence of body, voice and rhetoric. For those who want to go further.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 12 min</span>
+            <span class="module-card__meta-item module-card__deepdive-tag">+ Deep dive</span>
+          </div>
+        </a>
+
+        <a class="module-card" data-mod="7" href="/presentation-skills/module-7/">
+          <div class="module-card__head">
+            <span class="module-card__num">07</span>
+            <span class="module-card__status" data-status></span>
+          </div>
+          <h2 class="module-card__title">Your checklist</h2>
+          <p class="module-card__desc">Summary, reflection, and a downloadable PDF summary of the course.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 5 min</span>
+          </div>
+        </a>
+
+      </div>
     </section>
   </main>
 
@@ -36,5 +140,34 @@
 
   <script defer src="/assets/js/include.js"></script>
   <script defer src="/assets/js/scroll-reveals.js"></script>
+  <script defer src="/assets/js/course-progress.js"></script>
+  <script defer>
+    // Initialise progression steps + status badges on the cards, driven by
+    // CourseProgress (which reads from localStorage).
+    document.addEventListener('DOMContentLoaded', () => {
+      CourseProgress.init('en');
+      CourseProgress.renderOverview(
+        document.getElementById('course-overview-progress')
+      );
+      // Set status on each module card from saved state
+      const state = CourseProgress.getState();
+      document.querySelectorAll('.module-card[data-mod]').forEach(card => {
+        const mod = parseInt(card.dataset.mod, 10);
+        const status = state[mod - 1] || 'not-started';
+        const statusEl = card.querySelector('[data-status]');
+        if (status === 'done') {
+          card.classList.add('module-card--done');
+          statusEl.classList.add('module-card__status--done');
+          statusEl.textContent = '✓ Done';
+        } else if (status === 'current') {
+          card.classList.add('module-card--current');
+          statusEl.classList.add('module-card__status--current');
+          statusEl.textContent = '● In progress';
+        } else {
+          statusEl.textContent = 'Not started';
+        }
+      });
+    });
+  </script>
 </body>
 </html>

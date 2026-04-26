@@ -30,6 +30,20 @@
     return (document.documentElement.lang || 'sv').slice(0, 2);
   }
 
+  const STRINGS = {
+    sv: {
+      saved: 'Sparat ✓',
+      saveFailed: 'Kunde inte spara (localStorage avstängd)',
+      checklistCount: (n, total) => `${n} av ${total} avbockade`,
+    },
+    en: {
+      saved: 'Saved ✓',
+      saveFailed: "Couldn't save (localStorage is disabled)",
+      checklistCount: (n, total) => `${n} of ${total} ticked`,
+    },
+  };
+  function t() { return STRINGS[getLang()] || STRINGS.sv; }
+
   function exerciseKeyFor(k) {
     return `presentationsteknik-${getLang()}-exercise-${k}`;
   }
@@ -56,11 +70,11 @@
         try {
           localStorage.setItem(exerciseKeyFor(key), textarea.value);
           if (feedback) {
-            feedback.textContent = 'Sparat ✓';
+            feedback.textContent = t().saved;
             setTimeout(() => { feedback.textContent = ''; }, 4000);
           }
         } catch {
-          if (feedback) feedback.textContent = 'Kunde inte spara (localStorage avstängd)';
+          if (feedback) feedback.textContent = t().saveFailed;
         }
       });
     });
@@ -83,7 +97,7 @@
       function updateFeedback() {
         if (!feedback) return;
         const checked = [...checkboxes].filter(c => c.checked).length;
-        feedback.textContent = `${checked} av ${checkboxes.length} avbockade`;
+        feedback.textContent = t().checklistCount(checked, checkboxes.length);
       }
       updateFeedback();
 

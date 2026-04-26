@@ -31,6 +31,15 @@
       'Röst, kropp och språk',
       'Din checklista',
     ],
+    en: [
+      'Why presentation skills?',
+      'Designing slides — the basics',
+      'When the slide gets in your way',
+      'Delivery — presence in the room',
+      'Digital presentations',
+      'Voice, body and language',
+      'Your checklist',
+    ],
   };
 
   const MODULE_URLS = {
@@ -42,6 +51,15 @@
       '/sv/presentationsteknik/modul-5/',
       '/sv/presentationsteknik/modul-6/',
       '/sv/presentationsteknik/modul-7/',
+    ],
+    en: [
+      '/presentation-skills/module-1/',
+      '/presentation-skills/module-2/',
+      '/presentation-skills/module-3/',
+      '/presentation-skills/module-4/',
+      '/presentation-skills/module-5/',
+      '/presentation-skills/module-6/',
+      '/presentation-skills/module-7/',
     ],
   };
 
