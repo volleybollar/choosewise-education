@@ -50,7 +50,7 @@
       host.innerHTML = `
         <div class="memory__intro">
           <p class="memory__intro-text">Du kommer att få se ${total} bilder i följd. Varje bild visas i 2 sekunder. Försök att ta in dem — utan att stressa.</p>
-          <p class="memory__intro-text">Direkt efter visningen får du se ${total} par av bilder. I varje par finns en bild du sett och en du inte sett. Klicka på den du tror du har sett.</p>
+          <p class="memory__intro-text">En liten stund efter att du sett bilderna får du se ${total} bildpar. I varje par finns en bild du sett och en du inte sett. Markera den bild som du tror du har sett.</p>
           ${best ? `<p class="memory__intro-best">Ditt bästa resultat hittills: <strong>${best}/${total}</strong></p>` : ''}
           <button type="button" class="btn btn--primary memory__start">Starta minnesövningen</button>
         </div>

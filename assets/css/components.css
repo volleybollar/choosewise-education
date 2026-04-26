@@ -812,6 +812,96 @@
   .digit-memory__score { font-size: 2.75rem; }
 }
 
+/* ───── Text-memory exercise (modul 1: kort text i 8s, sen återskapa orden) ───── */
+.text-memory__intro,
+.text-memory__viewer,
+.text-memory__input,
+.text-memory__result {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.text-memory__intro-text { margin: 0; }
+.text-memory__start,
+.text-memory__check,
+.text-memory__restart {
+  align-self: flex-start;
+}
+.text-memory__progress {
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.text-memory__progress-bar {
+  height: 100%;
+  width: 100%;
+  background: var(--color-accent);
+}
+.text-memory__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+  line-height: 1.55;
+  background: #000;
+  color: #fff;
+  padding: var(--space-6) var(--space-5);
+  border-radius: var(--radius-md, 8px);
+  user-select: none;
+  max-width: none;
+}
+.text-memory__prompt {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin: 0;
+}
+.text-memory__textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 1rem;
+  background: var(--color-bg);
+  resize: vertical;
+}
+.text-memory__score {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-accent);
+  line-height: 1;
+}
+.text-memory__verdict {
+  font-size: 1.05rem;
+  text-align: center;
+  margin: 0;
+}
+.text-memory__compare {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-2) var(--space-4);
+  align-items: start;
+  margin: 0;
+  padding: var(--space-4);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-sm);
+}
+.text-memory__compare dt {
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.text-memory__compare dd { margin: 0; }
+.text-memory__original { font-style: italic; color: var(--color-text-soft); }
+@media (max-width: 520px) {
+  .text-memory__score { font-size: 2.75rem; }
+  .text-memory__compare { grid-template-columns: 1fr; }
+}
+
 /* ───── Memory exercise (modul 1: 10 bilder à 2s + 10 par-test) ───── */
 .memory__intro,
 .memory__viewer,
