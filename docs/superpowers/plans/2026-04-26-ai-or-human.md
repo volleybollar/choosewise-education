@@ -897,41 +897,65 @@ Mirror the EN markup with these string substitutions:
 - Submit button: `Visa svar`
 - Reset button: `Nollställ`
 
-### Task C4: Write the 2 AI-style texts in Johan's voice
+### Task C4: Substitute the 4 final texts (2 AI-style + 2 Johan's own)
 
 **Files:**
-- Modify: `ai-or-human/index.html` (replace `[TOPIC_A_AI_TEXT_EN]` and `[TOPIC_B_AI_TEXT_EN]`)
-- Modify: `sv/ai-eller-manniska/index.html` (replace `[ÄMNE_A_AI_TEXT_SV]` and `[ÄMNE_B_AI_TEXT_SV]`)
+- Modify: `ai-or-human/index.html`
+- Modify: `sv/ai-eller-manniska/index.html`
 
-- [ ] **Step 1: Write Topic A SV (lärares användning av AI för effektivisering)**
+The texts below are the final, approved versions. Johan provided his own SV texts; Claude wrote the AI-style SV versions and the EN translations of both. All four are now ~135-180 words and matched in length per topic so visitors cannot pattern-match by length.
 
-Aim: ~120 words, in Johan's voice (warm, slightly provocative, peer-expert) — but with subtle AI tells (over-balanced both-sides hedging, tidy parallel constructions, slightly too-clean transitions, generic illustrative examples).
+**Topic A — Lärares användning av AI som verktyg för att effektivisera sitt arbete**
 
-Suggested draft (refine before merge):
+- [ ] **Step 1: SV — Topic A AI-genererad** (replaces `[ÄMNE_A_AI_TEXT_SV]` in `sv/ai-eller-manniska/index.html`):
 
-> När jag pratar med lärare som börjat använda AI som verktyg i sitt arbete märker jag samma sak om och om igen: det är inte själva tekniken som gör skillnaden, utan vad de gör med den tid de frigör. Att låta AI ta första utkastet på en återkoppling, ett föräldrabrev eller en lektionsförklaring sparar minuter — men det är vad som händer i de minuterna efteråt som avgör om eleverna får mer av läraren. Den som lägger den frigjorda tiden på att möta eleven där hen är, ser tydliga effekter. Den som bara skickar AI:ns första utkast vidare gör inte det. Det är fortfarande den professionella bedömningen som bär kvaliteten — inte modellen.
+> När jag pratar med lärare som börjat använda AI som verktyg i sitt arbete märker jag samma sak om och om igen: det är inte själva tekniken som gör skillnaden, utan vad de gör med den tid de frigör. Att låta AI ta första utkastet på en återkoppling, ett föräldrabrev eller en lektionsförklaring sparar minuter — men det är vad som händer i de minuterna efteråt som avgör om eleverna får mer av läraren. Den som lägger den frigjorda tiden på att möta eleven där hen är, ser tydliga effekter. Den som bara skickar AI:ns första utkast vidare gör inte det. Det är fortfarande den professionella bedömningen som bär kvaliteten — inte modellen. Och kanske är det också där den verkliga vinsten med AI ligger, när den används på rätt sätt: att läraren får tid att vara lärare igen.
 
-(Word count: ~118.)
+(~140 ord — AI-genererad, i Johans stil)
 
-- [ ] **Step 2: Write Topic B SV (skolans roll i samhället)**
+- [ ] **Step 2: SV — Topic A Johan's own** (replaces the Lorem ipsum in the Topic A "human" card in `sv/ai-eller-manniska/index.html`):
 
-> Skolan har alltid varit mer än en plats där barn lär sig saker. Den är samhällets sätt att forma nästa generation — vilka frågor de ställer, vilka beslut de orkar fatta, vilken sorts människor de blir. När vi diskuterar skolan idag stannar vi alltför ofta vid resultat, ranking och resurser. Det är viktigt, men det är inte allt. En skola som bara producerar elever med rätt svar på rätt prov har glömt halva sitt uppdrag. Den andra halvan handlar om att rusta unga människor för en värld som vi själva inte kan förutspå. Det kräver lärare som vågar tänka stort, ledare som tar ansvar, och en samhällsdebatt som behandlar skolan med den allvarliga respekt frågan förtjänar.
+> För varje år som går effektiviseras skolverksamheten. Från ett år till ett annat går detta att lösa. När vi däremot tittar på en längre tidsperiod blir det väldigt problematiskt i alla verksamheter som jobbar med människor. I skolans värld är det svårt att effektivisera, då elevernas inlärning sker i en förutbestämd takt. Effektivisering handlar därför oftast om att minska antalet personer på en skola, då lönen är den största kostnaden och därmed den största besparingen. Det innebär att de som jobbar kvar tvingas göra mer. Att se över hur AI kan effektivisera lärarnas jobb blir ett måste om de som jobbar som lärare ska klara av de ständigt ökande kraven med mindre och mindre resurser.
 
-(Word count: ~125.)
+(~133 ord — skriven av Johan)
 
-- [ ] **Step 3: Translate Topic A to EN**
+- [ ] **Step 3: EN — Topic A AI-generated** (replaces `[TOPIC_A_AI_TEXT_EN]` in `ai-or-human/index.html`):
 
-> When I talk with teachers who have started using AI as a tool in their work, I notice the same thing again and again: it's not the technology itself that makes the difference, but what they do with the time it frees up. Letting AI take the first draft of a piece of feedback, a parent letter, or a lesson explanation saves minutes — but it's what happens in those minutes afterwards that decides whether students get more of the teacher. Those who use the freed-up time to meet the student where they are see clear effects. Those who just forward the AI's first draft do not. Professional judgment is still what carries the quality — not the model.
+> When I talk with teachers who have started using AI as a tool in their work, I notice the same thing again and again: it's not the technology itself that makes the difference, but what they do with the time it frees up. Letting AI take the first draft of a piece of feedback, a parent letter, or a lesson explanation saves minutes — but it's what happens in those minutes afterwards that decides whether students get more of the teacher. Those who use the freed-up time to meet the student where they are see clear effects. Those who just forward the AI's first draft do not. Professional judgment is still what carries the quality — not the model. And perhaps that is also where the real win with AI lies, when used right: the teacher gets time to be a teacher again.
 
-- [ ] **Step 4: Translate Topic B to EN**
+(~140 words — AI-generated, in Johan's voice)
 
-> School has always been more than a place where children learn things. It is society's way of shaping the next generation — what questions they ask, what decisions they have the courage to make, what kind of people they become. When we discuss school today we too often stop at results, rankings, and resources. That matters, but it is not everything. A school that only produces students with the right answers on the right tests has forgotten half its mission. The other half is about preparing young people for a world we cannot ourselves predict. That requires teachers who dare to think big, leaders who take responsibility, and a public conversation that treats schools with the seriousness the question deserves.
+- [ ] **Step 4: EN — Topic A Johan's own** (replaces the Lorem ipsum in the Topic A "human" card in `ai-or-human/index.html`):
 
-- [ ] **Step 5: Substitute placeholders in HTML**
+> Every year that goes by, school operations get more efficient. From one year to the next, that can be solved. But when we look at a longer time horizon it becomes very problematic in all sectors that work with people. In schools it's hard to be efficient, because student learning happens at a predetermined pace. So efficiency usually means cutting the number of people at a school, since salaries are the largest cost and therefore the largest saving. That means those who stay are forced to do more. Looking at how AI can make teachers' work more efficient becomes a must if those who work as teachers are going to handle ever-increasing demands with fewer and fewer resources.
 
-In `ai-or-human/index.html`, replace `[TOPIC_A_AI_TEXT_EN]` with the EN Topic A text from Step 3, and `[TOPIC_B_AI_TEXT_EN]` with the EN Topic B text from Step 4.
+(~120 words — written by Johan, EN translation by Claude — straight rendering, no added dramatization)
 
-In `sv/ai-eller-manniska/index.html`, replace `[ÄMNE_A_AI_TEXT_SV]` with the SV Topic A text from Step 1, and `[ÄMNE_B_AI_TEXT_SV]` with the SV Topic B text from Step 2.
+**Topic B — Skolans roll i samhället**
+
+- [ ] **Step 5: SV — Topic B AI-genererad** (replaces `[ÄMNE_B_AI_TEXT_SV]`):
+
+> Skolan har alltid varit mer än en plats där barn lär sig saker. Den är samhällets sätt att forma nästa generation — vilka frågor de ställer, vilka beslut de orkar fatta, vilken sorts människor de blir. När vi diskuterar skolan idag stannar vi alltför ofta vid resultat, ranking och resurser. Det är viktigt, men det är inte allt. En skola som bara producerar elever med rätt svar på rätt prov har glömt halva sitt uppdrag. Den andra halvan handlar om att rusta unga människor för en värld som vi själva inte kan förutspå. Det kräver lärare som vågar tänka stort, ledare som tar ansvar, och en samhällsdebatt som behandlar skolan med den allvarliga respekt frågan förtjänar. Men det räcker inte att tala om uppdraget i abstrakta termer. Det är när enskilda lärare i enskilda klassrum bestämmer sig för att lyfta blicken som förändringen faktiskt händer. Och det är där vi som samhälle behöver visa att vi står bakom dem — inte bara med ord, utan med det utrymme och de resurser som krävs.
+
+(~178 ord — AI-genererad, i Johans stil)
+
+- [ ] **Step 6: SV — Topic B Johan's own** (replaces the Lorem ipsum in the Topic B "human" card):
+
+> I ett samhälle som förändras över tid är det viktigt att vara tydlig med vilken roll vi vill att skolan ska ha. Mycket av det som skolan gör idag är kvar från när skolan i första hand skulle utbilda människor till att jobba inom tillverkningsindustrin. I många länder har de jobben försvunnit i takt med den tekniska utvecklingens stora framsteg. Det innebär inte att allt vi gör i skolan är dåligt, men när tekniken utvecklas så ökar vissa saker i värde och andra saker sjunker i värde. Det är inget nytt, men teknikutvecklingen idag sker exponentiellt, så dessa värdeökningar och minskningar är större och sker snabbare än tidigare. För elevernas skull behöver vi prata om vad som ökat i värde och som eleverna behöver få med sig och vad som minskat i värde som inte längre är lika viktigt som det varit tidigare. Elevernas skolgång går inte i repris. Ingen sitter på svaret, men tillsammans kan vi hitta den bästa vägen framåt.
+
+(~178 ord — skriven av Johan)
+
+- [ ] **Step 7: EN — Topic B AI-generated** (replaces `[TOPIC_B_AI_TEXT_EN]`):
+
+> School has always been more than a place where children learn things. It is society's way of shaping the next generation — what questions they ask, what decisions they have the courage to make, what kind of people they become. When we discuss school today we too often stop at results, rankings, and resources. That matters, but it is not everything. A school that only produces students with the right answers on the right tests has forgotten half its mission. The other half is about preparing young people for a world we cannot ourselves predict. That requires teachers who dare to think big, leaders who take responsibility, and a public conversation that treats schools with the seriousness the question deserves. But it is not enough to talk about the mission in abstract terms. Change actually happens when individual teachers in individual classrooms decide to lift their gaze. And that is where we as a society need to show that we stand behind them — not just with words, but with the space and resources required.
+
+(~177 words — AI-generated, in Johan's voice)
+
+- [ ] **Step 8: EN — Topic B Johan's own** (replaces the Lorem ipsum in the Topic B "human" card in `ai-or-human/index.html`):
+
+> In a society that changes over time, it's important to be clear about what role we want school to play. Much of what school does today is left over from when school was primarily meant to educate people for jobs in manufacturing. In many countries those jobs have disappeared as technology has made huge leaps forward. That doesn't mean everything we do in school is bad, but when technology develops some things go up in value and others go down. That's nothing new, but today's technology development happens exponentially, so these increases and decreases in value are bigger and happen faster than before. For the students' sake we need to talk about what has gone up in value and what students need to take with them, and what has gone down in value and is no longer as important as it used to be. A student's time in school doesn't run on replay. No one has the answer, but together we can find the best way forward.
+
+(~170 words — written by Johan, EN translation by Claude — straight rendering, no added dramatization)
 
 ### Task C5: Create `assets/js/ai-or-human.js` with initTextTest
 
