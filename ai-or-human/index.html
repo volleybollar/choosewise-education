@@ -120,10 +120,45 @@
       <p class="quiz-feedback" data-quiz-feedback hidden aria-live="polite"></p>
     </section>
 
-    <!-- Test 2 — Images (added in Phase D) -->
-    <section class="section section--alt container quiz-section" id="test-image" data-test="image">
+    <!-- Test 2 — Images -->
+    <section class="section section--alt container quiz-section" id="test-image" data-test="image"
+             data-correct-not-ai="1,6,8"
+             data-feedback-template="You got {score} of 9 right.">
       <h2 class="section__title">Test 2 — Images</h2>
-      <p class="section__lede">Coming next.</p>
+      <p class="section__lede">9 images. Some are AI-generated and some are not. Tick the ones you think are AI-generated.</p>
+
+      <figure class="image-frame">
+        <img src="/assets/images/ai-or-human/photo-grid.jpg" alt="Nine numbered photographs in a 3x3 grid; some AI-generated, some not.">
+      </figure>
+
+      <div class="quiz-options" data-quiz-checkboxes>
+        <label class="quiz-option"><input type="checkbox" value="1"><span>1</span></label>
+        <label class="quiz-option"><input type="checkbox" value="2"><span>2</span></label>
+        <label class="quiz-option"><input type="checkbox" value="3"><span>3</span></label>
+        <label class="quiz-option"><input type="checkbox" value="4"><span>4</span></label>
+        <label class="quiz-option"><input type="checkbox" value="5"><span>5</span></label>
+        <label class="quiz-option"><input type="checkbox" value="6"><span>6</span></label>
+        <label class="quiz-option"><input type="checkbox" value="7"><span>7</span></label>
+        <label class="quiz-option"><input type="checkbox" value="8"><span>8</span></label>
+        <label class="quiz-option"><input type="checkbox" value="9"><span>9</span></label>
+      </div>
+
+      <div class="quiz-hints" data-quiz-hints>
+        <details class="quiz-hint" data-quiz-hint>
+          <summary>Hint 1</summary>
+          <p class="quiz-hint__body">Six of the images are AI-generated.</p>
+        </details>
+        <details class="quiz-hint" data-quiz-hint>
+          <summary>Hint 2</summary>
+          <p class="quiz-hint__body">Each row contains exactly one image that is NOT AI-generated. Each column does too.</p>
+        </details>
+      </div>
+
+      <div class="quiz-controls">
+        <button type="button" class="btn btn--primary" data-quiz-submit>Done!</button>
+        <button type="button" class="btn btn--primary" data-quiz-reset>Reset</button>
+      </div>
+      <p class="quiz-feedback" data-quiz-feedback hidden aria-live="polite"></p>
     </section>
 
     <!-- Test 3 — Videos (added in Phase E) -->

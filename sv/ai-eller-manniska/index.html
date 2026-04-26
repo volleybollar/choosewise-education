@@ -120,9 +120,45 @@
       <p class="quiz-feedback" data-quiz-feedback hidden aria-live="polite"></p>
     </section>
 
-    <section class="section section--alt container quiz-section" id="test-image" data-test="image">
+    <!-- Test 2 — Bilder -->
+    <section class="section section--alt container quiz-section" id="test-image" data-test="image"
+             data-correct-not-ai="1,6,8"
+             data-feedback-template="Du fick {score} av 9 rätt.">
       <h2 class="section__title">Test 2 — Bilder</h2>
-      <p class="section__lede">Kommer härnäst.</p>
+      <p class="section__lede">9 bilder. En del är AI-genererade och en del är inte det. Kryssa i de du tror är AI-genererade.</p>
+
+      <figure class="image-frame">
+        <img src="/assets/images/ai-or-human/photo-grid.jpg" alt="Nio numrerade fotografier i ett 3x3-rutnät; vissa AI-genererade, andra inte.">
+      </figure>
+
+      <div class="quiz-options" data-quiz-checkboxes>
+        <label class="quiz-option"><input type="checkbox" value="1"><span>1</span></label>
+        <label class="quiz-option"><input type="checkbox" value="2"><span>2</span></label>
+        <label class="quiz-option"><input type="checkbox" value="3"><span>3</span></label>
+        <label class="quiz-option"><input type="checkbox" value="4"><span>4</span></label>
+        <label class="quiz-option"><input type="checkbox" value="5"><span>5</span></label>
+        <label class="quiz-option"><input type="checkbox" value="6"><span>6</span></label>
+        <label class="quiz-option"><input type="checkbox" value="7"><span>7</span></label>
+        <label class="quiz-option"><input type="checkbox" value="8"><span>8</span></label>
+        <label class="quiz-option"><input type="checkbox" value="9"><span>9</span></label>
+      </div>
+
+      <div class="quiz-hints" data-quiz-hints>
+        <details class="quiz-hint" data-quiz-hint>
+          <summary>Ledtråd 1</summary>
+          <p class="quiz-hint__body">Det finns 6 st AI-genererade bilder.</p>
+        </details>
+        <details class="quiz-hint" data-quiz-hint>
+          <summary>Ledtråd 2</summary>
+          <p class="quiz-hint__body">I varje kolumn finns en bild som inte är AI-genererad. I varje rad finns en bild som inte är AI-genererad.</p>
+        </details>
+      </div>
+
+      <div class="quiz-controls">
+        <button type="button" class="btn btn--primary" data-quiz-submit>Klar!</button>
+        <button type="button" class="btn btn--primary" data-quiz-reset>Nollställ</button>
+      </div>
+      <p class="quiz-feedback" data-quiz-feedback hidden aria-live="polite"></p>
     </section>
 
     <section class="section container quiz-section" id="test-video" data-test="video">

@@ -973,7 +973,10 @@
 /* ───── AI or human — quiz components ───── */
 
 .quiz-section { margin-top: var(--space-8); }
-.quiz-section .section__lede { max-width: var(--content-text-max); }
+/* Override pages.css default max-widths so quiz section heading + lede span full container width.
+   See feedback_section_widths.md memory for the recurring pattern. */
+.quiz-section .section__title { max-width: none; }
+.quiz-section .section__lede { max-width: none; }
 
 .quiz-grid--2x2 {
   display: grid;
@@ -999,7 +1002,9 @@
 .quiz-options {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-3);
+  margin-top: var(--space-6);
 }
 .quiz-option {
   display: inline-flex;
@@ -1132,6 +1137,55 @@
   width: 100%;
   height: auto;
   border-radius: var(--radius-sm);
+}
+
+/* Quiz hints — light, expandable info boxes (Test 2) */
+.quiz-hints {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-6);
+}
+.quiz-hint {
+  flex: 1 1 280px;
+  max-width: 420px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+}
+.quiz-hint > summary {
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: calc(var(--space-4) + 1.5rem);
+}
+.quiz-hint > summary::-webkit-details-marker { display: none; }
+.quiz-hint > summary::after {
+  content: '+';
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-text-soft);
+}
+.quiz-hint[open] > summary::after { content: '−'; }
+.quiz-hint__body {
+  margin: 0;
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  font-size: var(--fs-small);
+  color: var(--color-text-soft);
+  line-height: var(--lh-normal);
+  border-top: 1px solid var(--color-border);
 }
 
 /* Video-tile for Test 3 */

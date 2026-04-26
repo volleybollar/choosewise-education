@@ -147,6 +147,45 @@
     syncSubmitState();
   }
 
+  // ───── Test 2: Images ─────
+
+  function initImageTest(rootEl) {
+    const checks = Array.from(rootEl.querySelectorAll('[data-quiz-checkboxes] input[type="checkbox"]'));
+    const submitBtn = rootEl.querySelector('[data-quiz-submit]');
+    const resetBtn = rootEl.querySelector('[data-quiz-reset]');
+    const feedback = rootEl.querySelector('[data-quiz-feedback]');
+    const hints = Array.from(rootEl.querySelectorAll('[data-quiz-hint]'));
+    const tmpl = rootEl.dataset.feedbackTemplate || 'Score: {score}/9';
+
+    // Truth set: numbers (as strings) that are NOT AI.
+    const notAI = new Set(
+      (rootEl.dataset.correctNotAi || '').split(',').map(s => s.trim()).filter(Boolean)
+    );
+
+    function onSubmit() {
+      let score = 0;
+      checks.forEach(cb => {
+        const isNotAI = notAI.has(cb.value);
+        const userSaysAI = cb.checked;
+        // Correct if (userSaysAI && !isNotAI) or (!userSaysAI && isNotAI).
+        if (userSaysAI !== isNotAI) score += 1;
+      });
+      feedback.textContent = tmpl.replace('{score}', String(score));
+      feedback.hidden = false;
+      revealRating(rootEl);
+    }
+
+    function onReset() {
+      checks.forEach(cb => { cb.checked = false; });
+      feedback.hidden = true;
+      feedback.textContent = '';
+      hints.forEach(h => { h.open = false; });
+    }
+
+    submitBtn.addEventListener('click', onSubmit);
+    resetBtn.addEventListener('click', onReset);
+  }
+
   // ───── Rating placeholder (filled in Phase F) ─────
   function revealRating(_rootEl) {
     // Filled in Phase F. No-op for now.
@@ -155,6 +194,7 @@
   // ───── Bootstrap ─────
   function bootstrap() {
     document.querySelectorAll('[data-test="text"]').forEach(initTextTest);
+    document.querySelectorAll('[data-test="image"]').forEach(initImageTest);
   }
 
   if (document.readyState === 'loading') {
