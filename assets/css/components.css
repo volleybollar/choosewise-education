@@ -1226,29 +1226,7 @@
   z-index: 1;
 }
 
-/* Difficulty rating widget */
-.rating {
-  margin-top: var(--space-5);
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--color-border);
-}
-.rating[hidden] { display: none; }
-.rating__heading {
-  font-family: var(--font-display);
-  font-size: var(--fs-body);
-  margin: 0 0 var(--space-2);
-}
-.rating__hint {
-  font-size: var(--fs-small);
-  color: var(--color-text-soft);
-  margin: 0 0 var(--space-3);
-}
-.rating__scale {
-  display: flex;
-  gap: var(--space-2);
-  align-items: center;
-  flex-wrap: wrap;
-}
+/* Difficulty rating — shared button + endlabel styles (used by .rating-row) */
 .rating__endlabel {
   font-size: var(--fs-small);
   color: var(--color-text-soft);
@@ -1329,7 +1307,6 @@
 @media (max-width: 720px) {
   .quiz-grid--2x2 { grid-template-columns: 1fr; }
   .quiz-grid--3 { grid-template-columns: 1fr; }
-  .rating__scale { gap: var(--space-1); }
   .rating__btn { width: 2.25rem; height: 2.25rem; }
   .rating-row__scale { gap: var(--space-1); }
 }
