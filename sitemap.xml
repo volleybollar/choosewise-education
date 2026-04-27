@@ -27,48 +27,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
   </url>
   <url>
-    <loc>https://choosewise.education/guides/ai-for-students/</loc>
-    <lastmod>2026-04-26</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/ai-for-students/"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/ai-for-elever/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/ai-for-students/"/>
-  </url>
-  <url>
-    <loc>https://choosewise.education/guides/apple-intelligence/</loc>
-    <lastmod>2026-04-26</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/apple-intelligence/"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/apple-intelligence/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/apple-intelligence/"/>
-  </url>
-  <url>
-    <loc>https://choosewise.education/guides/claude/</loc>
-    <lastmod>2026-04-26</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/claude/"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/claude/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/claude/"/>
-  </url>
-  <url>
-    <loc>https://choosewise.education/guides/copilot/</loc>
-    <lastmod>2026-04-26</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/copilot/"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/copilot/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/copilot/"/>
-  </url>
-  <url>
-    <loc>https://choosewise.education/guides/gemini-notebooklm/</loc>
-    <lastmod>2026-04-26</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/gemini-notebooklm/"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/gemini-notebooklm/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/gemini-notebooklm/"/>
-  </url>
-  <url>
-    <loc>https://choosewise.education/guides/</loc>
-    <lastmod>2026-04-26</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/"/>
-  </url>
-  <url>
     <loc>https://choosewise.education/</loc>
     <lastmod>2026-04-26</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/"/>
@@ -92,6 +50,54 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/presentation-skills/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/presentationsteknik/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/presentation-skills/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/presentation-skills/module-1/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/presentation-skills/module-2/deep-dive/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/presentation-skills/module-2/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/presentation-skills/module-3/deep-dive/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/presentation-skills/module-3/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/presentation-skills/module-4/deep-dive/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/presentation-skills/module-4/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/presentation-skills/module-5/deep-dive/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/presentation-skills/module-5/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/presentation-skills/module-6/deep-dive/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/presentation-skills/module-6/</loc>
+    <lastmod>2026-04-26</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/presentation-skills/module-7/</loc>
+    <lastmod>2026-04-26</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/privacy/</loc>
@@ -532,48 +538,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/blog/posts/varfor-jag-byggt-choosewise-education.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
-  </url>
-  <url>
-    <loc>https://choosewise.education/sv/guider/ai-for-elever/</loc>
-    <lastmod>2026-04-26</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/ai-for-students/"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/ai-for-elever/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/ai-for-students/"/>
-  </url>
-  <url>
-    <loc>https://choosewise.education/sv/guider/apple-intelligence/</loc>
-    <lastmod>2026-04-26</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/apple-intelligence/"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/apple-intelligence/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/apple-intelligence/"/>
-  </url>
-  <url>
-    <loc>https://choosewise.education/sv/guider/claude/</loc>
-    <lastmod>2026-04-26</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/claude/"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/claude/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/claude/"/>
-  </url>
-  <url>
-    <loc>https://choosewise.education/sv/guider/copilot/</loc>
-    <lastmod>2026-04-26</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/copilot/"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/copilot/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/copilot/"/>
-  </url>
-  <url>
-    <loc>https://choosewise.education/sv/guider/gemini-notebooklm/</loc>
-    <lastmod>2026-04-26</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/gemini-notebooklm/"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/gemini-notebooklm/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/gemini-notebooklm/"/>
-  </url>
-  <url>
-    <loc>https://choosewise.education/sv/guider/</loc>
-    <lastmod>2026-04-26</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/guides/"/>
-    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/guider/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/guides/"/>
   </url>
   <url>
     <loc>https://choosewise.education/sv/</loc>

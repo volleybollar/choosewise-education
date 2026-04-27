@@ -20,6 +20,24 @@ SEO_MARK_END = "<!-- seo:end -->"
 LU_MARK_START = "<!-- last-updated:start (build-seo-meta.py) -->"
 LU_MARK_END = "<!-- last-updated:end -->"
 
+# Pages that exist on disk but should be hidden from search engines and the
+# sitemap. Files are kept (still reachable by direct URL) but get a robots
+# noindex,nofollow tag and are excluded from sitemap.xml + hreflang pairing.
+HIDDEN_PATHS = {
+    "/guides/",
+    "/guides/claude/",
+    "/guides/copilot/",
+    "/guides/gemini-notebooklm/",
+    "/guides/apple-intelligence/",
+    "/guides/ai-for-students/",
+    "/sv/guider/",
+    "/sv/guider/claude/",
+    "/sv/guider/copilot/",
+    "/sv/guider/gemini-notebooklm/",
+    "/sv/guider/apple-intelligence/",
+    "/sv/guider/ai-for-elever/",
+}
+
 # -- Pair map: EN canonical-path -> SV canonical-path
 PAIR_MAP = {
     "/": "/sv/",
@@ -223,7 +241,7 @@ def build_organization():
         "name": "choosewise.education",
         "url": f"{BASE_URL}/",
         "description": ("Independent education resource on AI in schools. "
-                        "The WISE Framework for Education, guides, and prompts "
+                        "The WISE Framework for Education and prompts "
                         "for teachers and school leaders."),
         "founder": {"@id": f"{BASE_URL}/#johan"},
         "sameAs": [
@@ -324,6 +342,11 @@ def build_faqpage(canonical_path: str, faqs: list):
 
 def build_seo_block(canonical_path: str, lang: str, html: str,
                     last_modified: str) -> str:
+    # Hidden pages: emit only a noindex robots tag, no canonical/hreflang/JSON-LD.
+    if canonical_path in HIDDEN_PATHS:
+        return (f'{SEO_MARK_START}\n'
+                f'<meta name="robots" content="noindex,nofollow">\n'
+                f'{SEO_MARK_END}')
     canonical_url = BASE_URL + canonical_path
     lines = [
         SEO_MARK_START,
@@ -501,6 +524,8 @@ def main():
     ]
     for f in files:
         canonical = path_to_canonical(f)
+        if canonical in HIDDEN_PATHS:
+            continue
         url = BASE_URL + canonical
         lastmod = git_lastmod(f)
         pair = get_pair(canonical)

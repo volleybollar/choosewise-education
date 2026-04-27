@@ -2,6 +2,8 @@
 # Default: allow all conventional search-engine crawlers.
 User-agent: *
 Allow: /
+Disallow: /guides/
+Disallow: /sv/guider/
 
 # --- AI crawlers: explicit allowlist ---
 # OpenAI
