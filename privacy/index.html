@@ -19,57 +19,102 @@
 <body>
   <div data-include="/assets/partials/header-en.html"></div>
 
-  <main class="container" style="max-width: var(--content-text-max); padding-block: var(--space-8);">
-    <article class="prose">
-      <span class="eyebrow">Privacy</span>
-      <h1>Privacy policy</h1>
-      <p class="lede">Short version: this site collects your email only if you choose to submit it via a gated download form. No tracking. No cookies for analytics. No third-party ads.</p>
+  <main>
+    <section class="page-hero container">
+      <span class="eyebrow" data-reveal>Privacy</span>
+      <h1 data-reveal>Privacy policy</h1>
+      <p class="lede" data-reveal>Short version: this site collects your email only if you choose to submit it via a gated download form. No tracking. No cookies for analytics. No third-party ads.</p>
+    </section>
 
-      <h2>What we collect</h2>
-      <p><strong>Email addresses</strong> — only when you actively submit a download form on this site. We use MailerLite to store the list and send you the requested material plus occasional updates.</p>
-      <p><strong>Nothing else.</strong> No analytics, no cookies, no tracking pixels. The WISE handout, prompt packs, and NotebookLM styles do <em>not</em> require an email.</p>
+    <!-- Sektioner alternerar mellan default (vit) och section--alt (beige)
+         så sidan får visuell rytm. Alt-band kräver att innehållet wrappas
+         i .container eftersom .section--alt går full bleed. -->
+    <section class="section section--alt" data-reveal>
+      <div class="container">
+        <h2 class="section__title">What we collect</h2>
+        <p class="prose"><strong>Email addresses</strong> — only when you actively submit a download form on this site. We use MailerLite to store the list and send you the requested material plus occasional updates.</p>
+        <p class="prose"><strong>Nothing else.</strong> No analytics, no cookies, no tracking pixels. The WISE handout, prompt packs, and NotebookLM styles do <em>not</em> require an email.</p>
+      </div>
+    </section>
 
-      <h2>Your rights</h2>
-      <ul>
-        <li><strong>Access:</strong> Request a copy of the data we hold by emailing <a href="mailto:hello@choosewise.education">hello@choosewise.education</a></li>
+    <section class="section container" data-reveal>
+      <h2 class="section__title">Your rights</h2>
+      <ul class="prose">
+        <li><strong>Access:</strong> Request a copy of the data we hold by emailing <a href="mailto:hello@choosewise.education">hello@choosewise.education</a>.</li>
         <li><strong>Deletion:</strong> Every email we send includes an unsubscribe link. Clicking it removes your address.</li>
         <li><strong>Correction:</strong> Contact us and we'll update any incorrect information.</li>
       </ul>
+    </section>
 
-      <h2>Data location</h2>
-      <p>MailerLite stores subscriber data on EU servers. They are GDPR compliant. See <a href="https://www.mailerlite.com/legal/privacy-policy" rel="noopener">MailerLite's privacy policy</a> for their practices.</p>
+    <section class="section section--alt" data-reveal>
+      <div class="container">
+        <h2 class="section__title">Data location</h2>
+        <p class="prose">MailerLite stores subscriber data on EU servers. They are GDPR compliant. See <a href="https://www.mailerlite.com/legal/privacy-policy" rel="noopener">MailerLite's privacy policy</a> for their practices.</p>
+      </div>
+    </section>
 
-      <h2>Contact</h2>
-      <p>Questions? <a href="mailto:hello@choosewise.education">hello@choosewise.education</a></p>
+    <section class="section container" data-reveal>
+      <h2 class="section__title">Difficulty ratings on /ai-or-human/</h2>
+      <p class="prose">If you choose to rate the difficulty of any test on the <a href="/ai-or-human/">AI or human?</a> page (1–6 scale, fully optional), your rating, the language version of the page, the test you rated, and your score on that test are sent anonymously to a Google Sheet owned by Johan. No cookies, no IP addresses, no user agent, and no session ID are stored. The rating is used only to understand how difficult visitors find the exercises in aggregate.</p>
+    </section>
 
-      <hr style="margin-block: var(--space-7); border: 0; border-top: 1px solid var(--color-border);">
+    <section class="section section--alt" data-reveal>
+      <div class="container">
+        <h2 class="section__title">Contact</h2>
+        <p class="prose">Questions? <a href="mailto:hello@choosewise.education">hello@choosewise.education</a></p>
+      </div>
+    </section>
 
-      <h2 lang="sv">Integritetspolicy (svenska)</h2>
-      <p lang="sv" class="lede">Kort version: den här sajten samlar endast in din e-post om du väljer att fylla i ett nedladdningsformulär. Ingen spårning. Inga cookies för analys. Inga annonser från tredje part.</p>
+    <!-- Svenska versionen — startar med ett vitt band så vi inte får två
+         alt-band intill varandra. -->
+    <section class="section container" lang="sv" data-reveal>
+      <span class="eyebrow">Integritet</span>
+      <h2 class="section__title">Integritetspolicy (svenska)</h2>
+      <p class="section__lede">Kort version: den här sajten samlar endast in din e-post om du väljer att fylla i ett nedladdningsformulär. Ingen spårning. Inga cookies för analys. Inga annonser från tredje part.</p>
+    </section>
 
-      <h3 lang="sv">Vad vi samlar in</h3>
-      <p lang="sv"><strong>E-postadresser</strong> — endast när du aktivt fyller i ett nedladdningsformulär på sajten. Vi använder MailerLite för att hantera listan och skicka det material du efterfrågat samt enstaka uppdateringar.</p>
-      <p lang="sv"><strong>Inget annat.</strong> Ingen analytics, inga cookies, inga spårningspixlar. RÄTT-handouten, promptpaket och NotebookLM-stilarna kräver <em>ingen</em> e-post.</p>
+    <section class="section section--alt" lang="sv" data-reveal>
+      <div class="container">
+        <h2 class="section__title">Vad vi samlar in</h2>
+        <p class="prose"><strong>E-postadresser</strong> — endast när du aktivt fyller i ett nedladdningsformulär på sajten. Vi använder MailerLite för att hantera listan och skicka det material du efterfrågat samt enstaka uppdateringar.</p>
+        <p class="prose"><strong>Inget annat.</strong> Ingen analytics, inga cookies, inga spårningspixlar. RÄTT-handouten, promptpaket och NotebookLM-stilarna kräver <em>ingen</em> e-post.</p>
+      </div>
+    </section>
 
-      <h3 lang="sv">Dina rättigheter</h3>
-      <ul lang="sv">
-        <li><strong>Tillgång:</strong> Begär en kopia av dina uppgifter via <a href="mailto:hello@choosewise.education">hello@choosewise.education</a></li>
+    <section class="section container" lang="sv" data-reveal>
+      <h2 class="section__title">Dina rättigheter</h2>
+      <ul class="prose">
+        <li><strong>Tillgång:</strong> Begär en kopia av dina uppgifter via <a href="mailto:hello@choosewise.education">hello@choosewise.education</a>.</li>
         <li><strong>Radering:</strong> Varje mejl vi skickar innehåller en avprenumerationslänk. Klicka där för att ta bort din adress.</li>
         <li><strong>Rättelse:</strong> Kontakta oss så uppdaterar vi felaktig information.</li>
       </ul>
+    </section>
 
-      <h3 lang="sv">Kontakt</h3>
-      <p lang="sv">Frågor? <a href="mailto:hello@choosewise.education">hello@choosewise.education</a></p>
+    <section class="section section--alt" lang="sv" data-reveal>
+      <div class="container">
+        <h2 class="section__title">Datalagring</h2>
+        <p class="prose">MailerLite lagrar prenumerantdata på EU-servrar. De är GDPR-kompatibla. Se <a href="https://www.mailerlite.com/legal/privacy-policy" rel="noopener">MailerLites integritetspolicy</a> för deras rutiner.</p>
+      </div>
+    </section>
 
-      <hr style="margin-block: var(--space-7); border: 0; border-top: 1px solid var(--color-border);">
+    <section class="section container" lang="sv" data-reveal>
+      <h2 class="section__title">Svårighetsgrad på /sv/ai-eller-manniska/</h2>
+      <p class="prose">Om du väljer att betygsätta svårighetsgraden för ett test på sidan <a href="/sv/ai-eller-manniska/">AI eller människa?</a> (skala 1–6, helt frivilligt) skickas ditt betyg, sidans språkversion, vilket test du betygsatt och ditt resultat på det testet anonymt till ett Google Sheet som ägs av Johan. Inga cookies, inga IP-adresser, ingen user agent och inget sessions-ID lagras. Betygen används enbart för att förstå hur svåra besökare upplever övningarna i aggregerad form.</p>
+    </section>
 
-      <h2>Difficulty ratings on /ai-or-human/</h2>
-      <p>If you choose to rate the difficulty of any test on the <a href="/ai-or-human/">AI or human?</a> page (1–6 scale, fully optional), your rating, the language version of the page, the test you rated, and your score on that test are sent anonymously to a Google Sheet owned by Johan. No cookies, no IP addresses, no user agent, and no session ID are stored. The rating is used only to understand how difficult visitors find the exercises in aggregate.</p>
-    </article>
+    <section class="section section--alt" lang="sv" data-reveal>
+      <div class="container">
+        <h2 class="section__title">Kontakt</h2>
+        <p class="prose">Frågor? <a href="mailto:hello@choosewise.education">hello@choosewise.education</a></p>
+      </div>
+    </section>
   </main>
 
   <div data-include="/assets/partials/footer-en.html"></div>
 
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
   <script defer src="/assets/js/include.js"></script>
+  <script defer src="/assets/js/scroll-reveals.js"></script>
 </body>
 </html>
