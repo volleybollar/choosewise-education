@@ -22,6 +22,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/competency-unpacker/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "original-frameworks/learning-target-authoring-guide",
+      "manning_name": "learning-target-authoring-guide",
+      "display_title": "Purpose-Driven Learning Target Authoring Guide",
+      "description": "Author student-friendly learning targets that tie each target to its broader purpose — what students will be able to do, and why it matters.",
+      "tags": ["learning-intentions", "learning-targets", "purpose", "success-criteria", "teacher-clarity"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Authoring learning targets is teacher prep work done once per lesson or unit; no materials, no training beyond awareness of structure.",
+      "manning_label": "emerging",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/original-frameworks/learning-target-authoring-guide/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
