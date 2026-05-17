@@ -60,6 +60,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/questioning-discussion/hinge-question-designer/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "explicit-instruction/checking-for-understanding-protocol-designer",
+      "manning_name": "checking-for-understanding-protocol-designer",
+      "display_title": "Checking for Understanding Protocol Designer",
+      "description": "Design a structured protocol of formative checks across a lesson — cold call, mini-whiteboards, exit tickets, ABCD cards, hand signals — so every student's understanding is sampled before the lesson ends.",
+      "tags": ["checking-understanding", "formative-assessment", "responsive-teaching", "exit-tickets", "cold-call"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.25,
+      "effect_d_source": "Yao, Amos, Snider & Brown",
+      "effect_d_journal": "Educational Research and Evaluation",
+      "effect_d_year": 2024,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Protocol design happens once per unit; the techniques themselves (cold call, mini-whiteboards, exit tickets) need no materials beyond what teachers already have and no training beyond awareness of the technique set.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/explicit-instruction/checking-for-understanding-protocol-designer/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
