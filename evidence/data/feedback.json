@@ -136,6 +136,25 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/self-regulated-learning/error-analysis-protocol/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "curriculum-assessment/learning-progression-builder",
+      "manning_name": "learning-progression-builder",
+      "display_title": "Learning Progression Builder",
+      "description": "Map the typical sequence of how understanding develops in a topic — what students typically know first, what comes next, where the predictable plateaus and misconceptions sit — so teaching, assessment, and feedback can target the right step.",
+      "tags": ["learning-progressions", "trajectories", "prerequisites", "diagnostic", "curriculum-mapping"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "A unit-design task done once per topic; requires real pedagogical content knowledge to identify prerequisites, predictable misconceptions, and intermediate understandings, but no materials and no training beyond awareness of the construct.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/learning-progression-builder/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
