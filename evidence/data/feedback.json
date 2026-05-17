@@ -117,6 +117,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/gap-analysis-from-student-work/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "self-regulated-learning/error-analysis-protocol",
+      "manning_name": "error-analysis-protocol",
+      "display_title": "Error Analysis Protocol",
+      "description": "Structure how students examine their own and others' errors — identifying what went wrong, why, and what to do differently — so mistakes become deliberate learning material rather than something to hide.",
+      "tags": ["error-analysis", "self-explanation", "metacognition", "self-regulated-learning", "formative-assessment"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.55,
+      "effect_d_source": "Bisra, Liu, Nesbit, Salimi & Winne",
+      "effect_d_journal": "Educational Psychology Review",
+      "effect_d_year": 2018,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "A protocol used after assessment or practice; takes 10-15 min per session, no materials beyond student work, technique is teachable in a short briefing.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/self-regulated-learning/error-analysis-protocol/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
