@@ -41,6 +41,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/cognitive-load-analyser/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "memory-learning-science/dual-coding-designer",
+      "manning_name": "dual-coding-designer",
+      "display_title": "Dual Coding Designer",
+      "description": "Design a visual complement to verbal content using dual coding principles for stronger encoding.",
+      "tags": ["dual-coding", "visual-representation", "multimedia", "cognitive-load", "diagrams"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.37,
+      "effect_d_source": "Cromley & Chen",
+      "effect_d_journal": "Educational Research Review",
+      "effect_d_year": 2025,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Requires sourcing or creating visual assets that genuinely complement verbal content (not decorative); takes prep time per lesson and basic visual design literacy.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/dual-coding-designer/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
