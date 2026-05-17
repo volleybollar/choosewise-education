@@ -117,6 +117,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/interleaving-unit-planner/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "memory-learning-science/retrieval-practice-generator",
+      "manning_name": "retrieval-practice-generator",
+      "display_title": "Retrieval Practice Question Generator",
+      "description": "Generate retrieval practice questions at varied difficulty levels for a topic or concept.",
+      "tags": ["retrieval", "memory", "assessment", "spaced-practice", "testing-effect"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.67,
+      "effect_d_source": "Adesope, Trevisan & Sundararajan",
+      "effect_d_journal": "Review of Educational Research",
+      "effect_d_year": 2017,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Generating retrieval questions takes minutes; using them in class takes ~5 min per lesson; no materials, no training beyond awareness.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/retrieval-practice-generator/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
