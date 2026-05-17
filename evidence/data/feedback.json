@@ -98,6 +98,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/formative-assessment-technique-selector/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "curriculum-assessment/gap-analysis-from-student-work",
+      "manning_name": "gap-analysis-from-student-work",
+      "display_title": "Gap Analysis from Student Work",
+      "description": "Analyse a set of student work for systematic gaps in understanding — patterns, not one-off errors — then translate the patterns into specific next-step teaching moves.",
+      "tags": ["gap-analysis", "diagnostic", "formative-assessment", "data-based-instruction", "responsive-teaching"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.31,
+      "effect_d_source": "Shanahan, Choi, An et al.",
+      "effect_d_journal": "Journal of Learning Disabilities",
+      "effect_d_year": 2024,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Looking for patterns across a class set takes real time per cycle and benefits from a framework or lens for what to look for; no materials beyond student work, but more cognitive effort than a single check-for-understanding move.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/gap-analysis-from-student-work/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
