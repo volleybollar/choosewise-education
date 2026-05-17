@@ -79,6 +79,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/explicit-instruction/checking-for-understanding-protocol-designer/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "curriculum-assessment/formative-assessment-technique-selector",
+      "manning_name": "formative-assessment-technique-selector",
+      "display_title": "Formative Assessment Technique Selector",
+      "description": "Select the most appropriate formative assessment technique for a specific learning goal, lesson phase, and class context — matching technique to purpose rather than defaulting to one habit.",
+      "tags": ["formative-assessment", "AfL", "technique-selection", "checking-understanding", "responsive-teaching"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.25,
+      "effect_d_source": "Yao, Amos, Snider & Brown",
+      "effect_d_journal": "Educational Research and Evaluation",
+      "effect_d_year": 2024,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "A selection task done during lesson planning; the techniques selected from are already part of common teacher repertoire. No materials, training, or structural change required to use the selector itself.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/formative-assessment-technique-selector/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
