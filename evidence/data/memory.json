@@ -7,7 +7,7 @@
     {
       "id": "memory-learning-science/spaced-practice-scheduler",
       "manning_name": "spaced-practice-scheduler",
-      "display_title": "Spaced Practice Scheduler",
+      "display_title": "Spaced Practice Schedule Builder",
       "description": "Schedule retrieval intervals across a unit so learning is distributed, not massed.",
       "tags": ["spaced", "retrieval"],
       "effect_months": 5,
@@ -22,6 +22,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/spaced-practice-scheduler/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "memory-learning-science/cognitive-load-analyser",
+      "manning_name": "cognitive-load-analyser",
+      "display_title": "Cognitive Load Analyser",
+      "description": "Analyse a learning task for cognitive load problems and recommend specific design improvements.",
+      "tags": ["cognitive-load", "task-design", "scaffolding", "instructional-design", "working-memory"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.51,
+      "effect_d_source": "Noetel, Griffith, Delaney et al.",
+      "effect_d_journal": "Review of Educational Research",
+      "effect_d_year": 2022,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Requires teacher understanding of CLT principles (split-attention, redundancy, modality); applying analysis to existing tasks takes prep time but no structural changes.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/cognitive-load-analyser/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
