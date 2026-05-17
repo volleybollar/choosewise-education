@@ -41,6 +41,25 @@
       "manning_label": "emerging",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/original-frameworks/learning-target-authoring-guide/SKILL.md",
       "verification_status": "unverified"
+    },
+    {
+      "id": "questioning-discussion/hinge-question-designer",
+      "manning_name": "hinge-question-designer",
+      "display_title": "Hinge Question Designer",
+      "description": "Design a single multiple-choice question, placed at a hinge point in a lesson, whose distractors diagnose specific misconceptions and tell you whether to move on, pause, or reteach.",
+      "tags": ["hinge-questions", "checking-understanding", "misconceptions", "formative-assessment", "multiple-choice"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.25,
+      "effect_d_source": "Yao, Amos, Snider & Brown",
+      "effect_d_journal": "Educational Research and Evaluation",
+      "effect_d_year": 2024,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Hinge questions take only 1-2 minutes per lesson to deploy, but writing good ones takes real pedagogical content knowledge — distractors must be anchored in actual misconceptions, not generic plausibility, or the question stops diagnosing anything.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/questioning-discussion/hinge-question-designer/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
