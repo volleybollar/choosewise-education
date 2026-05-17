@@ -136,6 +136,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/retrieval-practice-generator/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "memory-learning-science/worked-example-fading-designer",
+      "manning_name": "worked-example-fading-designer",
+      "display_title": "Worked Example Designer with Completion Fading",
+      "description": "Design a worked example fading sequence from fully worked examples through to independent practice.",
+      "tags": ["worked-examples", "scaffolding", "fading", "cognitive-load", "novice-learning"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.48,
+      "effect_d_source": "Barbieri, Miller-Cotto, Clerjuste & Chawla",
+      "effect_d_journal": "Educational Psychology Review",
+      "effect_d_year": 2023,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Creating worked example sequences with proper fading requires real instructional design work per topic; AI assistance reduces but does not eliminate the time investment, and the technique is most effective for novice learners (expertise reversal effect for experts).",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/worked-example-fading-designer/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
