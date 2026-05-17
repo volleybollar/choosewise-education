@@ -3,5 +3,25 @@
   "domain_label": "Feedback & Formative Assessment",
   "domain_description": "The classroom formative cycle — setting clear targets, eliciting evidence of learning, diagnosing gaps, and closing them with usable feedback. All interventions cross-referenced to peer-reviewed meta-analyses where one exists, and to the EEF Toolkit where a matching strand exists.",
   "last_reviewed": "2026-05-17",
-  "skills": []
+  "skills": [
+    {
+      "id": "curriculum-assessment/competency-unpacker",
+      "manning_name": "competency-unpacker",
+      "display_title": "Competency Unpacker",
+      "description": "Unpack a competency or standard into the underlying knowledge, skills, and observable success criteria students need to demonstrate.",
+      "tags": ["success-criteria", "unpacking", "competency", "learning-intentions", "formative-assessment"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.25,
+      "effect_d_source": "Yao, Amos, Snider & Brown",
+      "effect_d_journal": "Educational Research and Evaluation",
+      "effect_d_year": 2024,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Unpacking standards into success criteria is teacher prep work that can be done once per unit; no new materials, no training beyond awareness, no structural change.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/competency-unpacker/SKILL.md",
+      "verification_status": "partial"
+    }
+  ]
 }
