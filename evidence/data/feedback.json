@@ -193,6 +193,25 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/original-frameworks/single-point-rubric-designer/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "original-frameworks/coherent-rubric-logic-builder",
+      "manning_name": "coherent-rubric-logic-builder",
+      "display_title": "Coherent Rubric Logic Builder",
+      "description": "Audit and rebuild a rubric for internal logical coherence — checking that performance levels meaningfully distinguish, criteria are mutually independent, and descriptive language scales consistently so the rubric actually discriminates quality.",
+      "tags": ["rubric", "design-quality", "validity", "coherence", "assessment-design"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "A meta-check applied to an existing rubric; takes 20-30 min per rubric to do well, requires familiarity with rubric design principles, no materials beyond the rubric being audited.",
+      "manning_label": "emerging",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/original-frameworks/coherent-rubric-logic-builder/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
