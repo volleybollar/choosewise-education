@@ -212,6 +212,25 @@
       "manning_label": "emerging",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/original-frameworks/coherent-rubric-logic-builder/SKILL.md",
       "verification_status": "unverified"
+    },
+    {
+      "id": "self-regulated-learning/goal-setting-protocol-designer",
+      "manning_name": "goal-setting-protocol-designer",
+      "display_title": "Goal-Setting Protocol Designer",
+      "description": "Design a structured goal-setting protocol where students set specific, near-term learning goals tied to success criteria, track progress, and revise the goal based on evidence — turning self-regulated learning from a slogan into a routine.",
+      "tags": ["goal-setting", "self-regulated-learning", "metacognition", "self-assessment", "motivation"],
+      "effect_months": 7,
+      "effect_months_source": "EEF Toolkit — Metacognition and self-regulation strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.38,
+      "effect_d_source": "Theobald",
+      "effect_d_journal": "Contemporary Educational Psychology",
+      "effect_d_year": 2021,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Goal-setting protocols are 5-10 min per student per cycle; no materials beyond a goal-tracking sheet, technique teachable in a single short CPD. The cost is the recurring discipline, not setup.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/self-regulated-learning/goal-setting-protocol-designer/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
