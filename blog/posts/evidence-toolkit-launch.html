@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence you can interrogate — introducing the Evidence Toolkit — choosewise.education</title>
+<meta name="description" content="A new reference page where every effect size is hand-verified against a named meta-analysis — and where any claim, ours or anyone else&#x27;s, can be interrogated in your chatbot.">
+<!-- Open Graph (LinkedIn, Facebook) -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Evidence you can interrogate — introducing the Evidence Toolkit">
+<meta property="og:description" content="A new reference page where every effect size is hand-verified against a named meta-analysis — and where any claim, ours or anyone else&#x27;s, can be interrogated in your chatbot.">
+<meta property="og:image" content="https://choosewise.education/blog/posts/assets/evidence-toolkit-launch-og.jpg">
+<meta property="og:url" content="https://choosewise.education/blog/posts/evidence-toolkit-launch.html">
+<meta property="og:site_name" content="choosewise.education">
+<meta property="article:published_time" content="2026-05-17">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Evidence you can interrogate — introducing the Evidence Toolkit">
+<meta name="twitter:description" content="A new reference page where every effect size is hand-verified against a named meta-analysis — and where any claim, ours or anyone else&#x27;s, can be interrogated in your chatbot.">
+<meta name="twitter:image" content="https://choosewise.education/blog/posts/assets/evidence-toolkit-launch-og.jpg">
+
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+<!-- seo:start (build-seo-meta.py) -->
+<link rel="canonical" href="https://choosewise.education/blog/posts/evidence-toolkit-launch.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."},{"@type":"Article","@id":"https://choosewise.education/blog/posts/evidence-toolkit-launch.html#article","headline":"Evidence you can interrogate — introducing the Evidence Toolkit","description":"A new reference page where every effect size is hand-verified against a named meta-analysis — and where any claim, ours or anyone else's, can be interrogated in your chatbot.","image":"https://choosewise.education/blog/posts/assets/evidence-toolkit-launch-og.jpg","author":{"@id":"https://choosewise.education/#johan"},"publisher":{"@id":"https://choosewise.education/#organization"},"datePublished":"2026-05-17","dateModified":"2026-05-17","inLanguage":"en","isPartOf":{"@id":"https://choosewise.education/#website"},"mainEntityOfPage":"https://choosewise.education/blog/posts/evidence-toolkit-launch.html"}]}</script>
+<!-- seo:end -->
+</head>
+<body>
+<div data-include="/assets/partials/header-en.html"></div>
+
+<main class="container">
+  <article class="post">
+    <header class="post__header">
+      <img class="post__cover" src="/blog/posts/assets/evidence-toolkit-launch.webp" alt="" loading="eager" decoding="async">
+      <h1>Evidence you can interrogate — introducing the Evidence Toolkit</h1>
+      <span class="eyebrow">2026-05-17 · 4 min read</span>
+    </header>
+    <div class="post__body prose">
+<p>A teacher hears a confident claim at a CPD session: &ldquo;this approach has been shown to add seven months of progress.&rdquo; She goes back to school, considers reorganising her planning around it, and then pauses. <em>Who measured that? Across what students? When? What if it&rsquo;s wrong?</em></p>
+<p>She has no realistic way to find out. Not in the twenty minutes she has between lessons. And the people she could ask — consultants, publishers, leaders — are often the same people who introduced the claim in the first place.</p>
+<p>This is the problem the <a href="/evidence/">Evidence Toolkit</a> is built to solve.</p>
+<h2>The verification gap</h2>
+<p>Education has a quiet structural problem: most teachers cannot directly interrogate the research behind the practices they&rsquo;re asked to adopt. Tens of thousands of studies are published every year, mostly behind paywalls, written in a register that takes training to decode. So an industry of intermediaries — consultants, books, social media accounts, framework vendors — has grown up to translate research for teachers.</p>
+<p>That layer is mostly well-meaning. It is also where the evidence base gets simplified, repackaged, and sometimes inflated. By the time a claim reaches a CPD slide, it has often lost the caveats that made it true in the first place.</p>
+<p>The result is what researchers call <em>instructional churn</em>: a cycle of confident fads, modest results, quiet retreat, then a new confident fad. Teachers are tired of it. They have every reason to be.</p>
+<h2>What the toolkit does</h2>
+<p>The Evidence Toolkit is a growing reference page that lets you see — at a glance — which teaching interventions have the strongest evidence-based effect on learning, with the source for every number cited by name and year. You can filter by domain, sort by effect size, and search by tag. It launches with eight interventions in <strong>Memory &amp; Learning Science</strong>, with more domains added over time.</p>
+<p>Two things make it different from existing toolkits:</p>
+<p><strong>The toolkit uses an existing open skill library as its spine, but does not trust the spine&rsquo;s labels.</strong> It builds on <a href="https://github.com/GarethManning/claude-education-skills">Gareth Manning&rsquo;s open-source Claude Education Skills</a> — 114 evidence-grounded teaching prompts. But for every skill on the toolkit, the effect size is cross-referenced to an independent peer-reviewed meta-analysis, by name, with publication year visible on the card. Where the independent evidence base is missing, the card says so openly rather than hiding the gap.</p>
+<p><strong>Every card carries a prompt builder for interrogating the claim in any AI chatbot.</strong> This is the structural answer to the verification problem. Click &ldquo;Interrogate this claim&rdquo; on any card, copy the generated prompt, paste it into ChatGPT, Claude, or Gemini. The prompt is engineered to ask the model to cite real meta-analyses (not fabricate them), separate strong from weak evidence, name boundary conditions, flag common exaggerations, and discuss cost-effectiveness. It even tells the model to use its reasoning or &ldquo;thinking&rdquo; mode for the analysis. Use it for our cards. Use it for any claim you hear anywhere. That is the point.</p>
+<h2>What it shows you — and what it doesn&rsquo;t</h2>
+<p>Each card shows effect size two ways: <strong>months of progress</strong> (the EEF Toolkit&rsquo;s teacher-friendly shorthand, where available) and <strong>Cohen&rsquo;s d</strong> (the standardised academic effect size). When the two metrics disagree on band — as they do for Feedback, where d = 0.48 looks moderate and +6 months looks high — the card shows the disagreement openly. Different meta-analyses measure different things; that is itself informative.</p>
+<p>Numbers are colour-coded using calibration bands — <strong>below typical</strong>, <strong>around typical</strong>, <strong>above typical</strong> — relative to Hattie&rsquo;s &ldquo;hinge point&rdquo; of about d = 0.40, which is the average effect of a year of schooling. The colours signal calibration, not value judgment. A skill in the &ldquo;below typical&rdquo; band is not a bad skill; it is one whose average effect is smaller than the typical schooling effect, which can still be appropriate for specific contexts the average does not capture.</p>
+<p>Each card also carries an <strong>implementation cost</strong> — Low, Medium, or High — for what your school actually has to invest in teacher time, training, and structural change to run the intervention well. This is the editorial team&rsquo;s read of practical effort, not a monetary figure. For UK £ cost data on the interventions the EEF have priced, the toolkit links straight back to the <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit">EEF Teaching &amp; Learning Toolkit</a>.</p>
+<h2>Where this sits in the WISE Framework</h2>
+<p>Evidence Toolkit is the <strong>S — Select the right tool</strong> step of <a href="/wise/">the WISE Framework</a>. After you&rsquo;ve weighed the learning goal (W) and inspected what the subject calls for (I), this is where you select the teaching move with the strongest evidence base for <em>your</em> context. Then you evaluate the outcome (E) — and run the cycle again.</p>
+<h2>What&rsquo;s coming</h2>
+<p>Eight skills today. The next domain in the queue is <strong>Feedback &amp; Formative Assessment</strong> (~13 interventions). After that: Explicit Instruction, Self-Regulated Learning, Questioning &amp; Discussion. Domain by domain, hand-verified, in public.</p>
+<p>Each release is small enough to read in one sitting and grounded enough that you can defend any claim on the page in a staff meeting. That&rsquo;s the bar. If a claim ever can&rsquo;t clear it, the prompt builder is there — for our claims as much as anyone else&rsquo;s.</p>
+<p>Open the <a href="/evidence/">Evidence Toolkit</a> — and let me know which intervention you wish was on it next.</p>
+<p>— Johan</p>
+    </div>
+    <footer class="post__footer">
+      <a class="btn btn--ghost" href="/blog/">← All posts</a>
+    </footer>
+  </article>
+</main>
+
+<div data-include="/assets/partials/footer-en.html"></div>
+<script defer src="/assets/js/include.js"></script>
+</body>
+</html>

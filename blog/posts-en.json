@@ -1,5 +1,14 @@
 [
   {
+    "slug": "evidence-toolkit-launch",
+    "title": "Evidence you can interrogate — introducing the Evidence Toolkit",
+    "date": "2026-05-17",
+    "reading_time": "4 min read",
+    "cover_image": "/blog/posts/assets/evidence-toolkit-launch.webp",
+    "og_image": "/blog/posts/assets/evidence-toolkit-launch-og.jpg",
+    "excerpt": "A new reference page where every effect size is hand-verified against a named meta-analysis — and where any claim, ours or anyone else's, can be interrogated in your chatbot."
+  },
+  {
     "slug": "why-i-built-choosewise-education",
     "title": "Why I built choosewise.education",
     "date": "2026-04-24",

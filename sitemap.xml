@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/ai-or-human/</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-04-29</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/blog/</loc>
@@ -20,11 +20,23 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/blog/"/>
   </url>
   <url>
+    <loc>https://choosewise.education/blog/posts/evidence-toolkit-launch.html</loc>
+    <lastmod>2026-05-17</lastmod>
+  </url>
+  <url>
     <loc>https://choosewise.education/blog/posts/why-i-built-choosewise-education.html</loc>
     <lastmod>2026-04-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/blog/posts/varfor-jag-byggt-choosewise-education.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/evidence/</loc>
+    <lastmod>2026-05-17</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/evidence/memory/</loc>
+    <lastmod>2026-05-17</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/</loc>
@@ -519,7 +531,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/sv/ai-eller-manniska/</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-04-29</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/sv/blog/</loc>
@@ -1066,7 +1078,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/wise/</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-05-17</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/wise/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/ratt/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/wise/"/>
