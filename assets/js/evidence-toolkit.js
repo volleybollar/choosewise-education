@@ -78,24 +78,31 @@ evaluation, not a fast first-pass answer.`;
 
   let SKILLS_BY_ID = {};
   let ALL_SKILLS = [];
+  let LAST_FOCUS = null;
 
   // ----- Modal -----
   function openModal(promptText) {
     const modal = document.getElementById("et-modal");
     const out = document.getElementById("et-prompt-output");
     if (!modal || !out) return;
+    LAST_FOCUS = document.activeElement;
     out.value = promptText;
-    modal.removeAttribute("hidden");
     modal.classList.add("is-open");
     document.body.style.overflow = "hidden";
+    // Move focus to the close button so screen readers and keyboard users land inside the dialog
+    const closeBtn = modal.querySelector('[data-action="close-modal"]');
+    if (closeBtn) closeBtn.focus();
   }
 
   function closeModal() {
     const modal = document.getElementById("et-modal");
     if (!modal) return;
     modal.classList.remove("is-open");
-    modal.setAttribute("hidden", "");
     document.body.style.overflow = "";
+    if (LAST_FOCUS && typeof LAST_FOCUS.focus === "function") {
+      LAST_FOCUS.focus();
+      LAST_FOCUS = null;
+    }
   }
 
   function buildPromptFromSkill(skill) {
@@ -241,11 +248,18 @@ evaluation, not a fast first-pass answer.`;
 
     document.getElementById("et-free-build")?.addEventListener("click", function () {
       const claim = (document.getElementById("et-free-claim")?.value || "").trim();
+      const err = document.getElementById("et-free-error");
       if (!claim) {
-        alert("Type a claim first, then click Build prompt.");
+        if (err) err.classList.add("is-visible");
+        document.getElementById("et-free-claim")?.focus();
         return;
       }
+      if (err) err.classList.remove("is-visible");
       openModal(buildPromptFromClaim(claim));
+    });
+
+    document.getElementById("et-free-claim")?.addEventListener("input", function () {
+      document.getElementById("et-free-error")?.classList.remove("is-visible");
     });
 
     document.getElementById("et-search")?.addEventListener("input", applyFilters);

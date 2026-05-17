@@ -101,6 +101,7 @@
           placeholder="e.g. &quot;Discovery learning works better than direct instruction.&quot;"
           aria-label="Claim to interrogate"></textarea>
         <button type="button" id="et-free-build">Build prompt &rarr;</button>
+        <div class="et-inline-error" id="et-free-error" role="alert">Type a claim first, then click Build prompt.</div>
       </div>
 
       <div class="et-sources">
@@ -116,7 +117,7 @@
   </main>
 
   <!-- Modal (shared with domain pages) -->
-  <div class="et-modal" id="et-modal" role="dialog" aria-modal="true" aria-labelledby="et-modal-title" hidden>
+  <div class="et-modal" id="et-modal" role="dialog" aria-modal="true" aria-labelledby="et-modal-title">
     <div class="et-modal-dialog">
       <div class="et-modal-head">
         <h3 id="et-modal-title">Interrogate this claim</h3>
