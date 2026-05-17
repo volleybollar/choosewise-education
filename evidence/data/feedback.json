@@ -231,6 +231,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/self-regulated-learning/goal-setting-protocol-designer/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "curriculum-assessment/assessment-validity-checker",
+      "manning_name": "assessment-validity-checker",
+      "display_title": "Assessment Validity Checker",
+      "description": "Audit an assessment for construct validity, content coverage, and freedom from construct-irrelevant variance — checking that the test actually measures what it claims to measure before the results are used to make decisions.",
+      "tags": ["validity", "reliability", "assessment-design", "quality-assurance", "measurement"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "A pre-use QA step applied to a draft assessment; takes 30-60 min per assessment to do well, requires familiarity with validity frameworks (Messick / AERA-APA-NCME Standards), no materials beyond the assessment being audited.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/assessment-validity-checker/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
