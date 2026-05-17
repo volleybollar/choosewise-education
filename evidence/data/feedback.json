@@ -174,6 +174,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/criterion-referenced-rubric-generator/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "original-frameworks/single-point-rubric-designer",
+      "manning_name": "single-point-rubric-designer",
+      "display_title": "Single-Point Rubric Designer",
+      "description": "Design a single-point rubric — one column describing proficient performance, with open spaces for noting 'areas to grow' and 'areas of strength' — for feedback that's faster to write and more growth-oriented than traditional analytic rubrics.",
+      "tags": ["rubric", "single-point", "narrative-feedback", "self-assessment", "peer-assessment"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.45,
+      "effect_d_source": "Panadero, Jönsson, Pinedo & Fernández-Castilla",
+      "effect_d_journal": "Educational Psychology Review",
+      "effect_d_year": 2023,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Single-point rubrics are simpler to design than multi-level analytic rubrics — one performance description per criterion. The cost saving over analytic rubrics is real. Teachers can craft them per assignment with no training beyond awareness of the format.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/original-frameworks/single-point-rubric-designer/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
