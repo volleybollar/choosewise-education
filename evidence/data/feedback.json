@@ -155,6 +155,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/learning-progression-builder/SKILL.md",
       "verification_status": "unverified"
+    },
+    {
+      "id": "curriculum-assessment/criterion-referenced-rubric-generator",
+      "manning_name": "criterion-referenced-rubric-generator",
+      "display_title": "Criterion-Referenced Rubric Generator",
+      "description": "Generate a criterion-referenced rubric with explicit performance criteria, distinguishing descriptive language across levels, so students and teachers share a common picture of what quality looks like.",
+      "tags": ["rubric", "criterion-referenced", "assessment", "descriptive-language", "formative-assessment"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.45,
+      "effect_d_source": "Panadero, Jönsson, Pinedo & Fernández-Castilla",
+      "effect_d_journal": "Educational Psychology Review",
+      "effect_d_year": 2023,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Designing a rubric where each performance level actually distinguishes meaningful difference (not just 'good / OK / poor') takes real work — defining criteria, writing descriptive language for each level. AI generation accelerates but doesn't eliminate the cognitive design work. Once built, the rubric is reusable across cohorts.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/criterion-referenced-rubric-generator/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
