@@ -98,6 +98,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/feedback-quality-analyser/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "memory-learning-science/interleaving-unit-planner",
+      "manning_name": "interleaving-unit-planner",
+      "display_title": "Interleaving Unit Planner",
+      "description": "Redesign a blocked topic sequence into an interleaved plan with mixed practice across related topics.",
+      "tags": ["interleaving", "desirable-difficulty", "planning", "memory", "practice"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.42,
+      "effect_d_source": "Brunmair & Richter",
+      "effect_d_journal": "Psychological Bulletin",
+      "effect_d_year": 2019,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Requires intentional planning to redesign blocked sequences into interleaved ones; no new materials, but careful thinking about which topics belong together.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/interleaving-unit-planner/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
