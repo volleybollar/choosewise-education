@@ -1,0 +1,27 @@
+{
+  "domain_id": "memory-learning-science",
+  "domain_label": "Memory & Learning Science",
+  "domain_description": "How learners encode, store, and retrieve information — and the teaching moves that exploit how memory actually works. All interventions cross-referenced to peer-reviewed meta-analyses.",
+  "last_reviewed": "2026-05-17",
+  "skills": [
+    {
+      "id": "memory-learning-science/spaced-practice-scheduler",
+      "manning_name": "spaced-practice-scheduler",
+      "display_title": "Spaced Practice Scheduler",
+      "description": "Schedule retrieval intervals across a unit so learning is distributed, not massed.",
+      "tags": ["spaced", "retrieval"],
+      "effect_months": 5,
+      "effect_months_source": "EEF Toolkit — Spaced learning strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.60,
+      "effect_d_source": "Latimier, Peyre & Ramus",
+      "effect_d_journal": "Educational Psychology Review",
+      "effect_d_year": 2021,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Runs inside existing lessons; only requires re-sequencing of planned retrieval, no new materials.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/spaced-practice-scheduler/SKILL.md",
+      "verification_status": "verified"
+    }
+  ]
+}
