@@ -177,9 +177,11 @@ evaluation, not a fast first-pass answer.`;
     const mode = select.value;
 
     function score(skill) {
-      // Combined score: prefer months when present, otherwise d-derived months estimate
-      if (skill.effect_months !== null && skill.effect_months !== undefined) return skill.effect_months;
-      if (skill.effect_d !== null && skill.effect_d !== undefined) return skill.effect_d * 8; // rough d→months scale
+      // Sort by Cohen's d primarily — it has 100% coverage across cards, so the
+      // ordering stays consistent. Fall back to months-of-progress only when d
+      // is missing (converted to a rough d-equivalent so mixed cards still compare).
+      if (skill.effect_d !== null && skill.effect_d !== undefined) return skill.effect_d;
+      if (skill.effect_months !== null && skill.effect_months !== undefined) return skill.effect_months / 8;
       return -1;
     }
 
