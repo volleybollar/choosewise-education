@@ -60,6 +60,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/dual-coding-designer/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "memory-learning-science/elaborative-interrogation-generator",
+      "manning_name": "elaborative-interrogation-generator",
+      "display_title": "Elaborative Interrogation Prompt Generator",
+      "description": "Generate elaborative interrogation prompts that deepen encoding through targeted why and how questions.",
+      "tags": ["elaboration", "encoding", "comprehension", "deep-processing", "questioning"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.56,
+      "effect_d_source": "Donoghue & Hattie",
+      "effect_d_journal": "Frontiers in Education",
+      "effect_d_year": 2021,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Asking 'why' questions during reading or after instruction requires no materials and no training beyond awareness of the technique; can be embedded in any lesson.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/elaborative-interrogation-generator/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
