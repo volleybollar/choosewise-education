@@ -79,6 +79,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/elaborative-interrogation-generator/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "memory-learning-science/feedback-quality-analyser",
+      "manning_name": "feedback-quality-analyser",
+      "display_title": "Feedback Quality Analyser & Rewriter",
+      "description": "Analyse existing written feedback for quality, specificity, actionability, and impact on student learning.",
+      "tags": ["feedback", "formative-assessment", "metacognition", "writing", "assessment"],
+      "effect_months": 6,
+      "effect_months_source": "EEF Toolkit — Feedback strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.48,
+      "effect_d_source": "Wisniewski, Zierer & Hattie",
+      "effect_d_journal": "Frontiers in Psychology",
+      "effect_d_year": 2020,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Quality upgrade to feedback teachers already give; no new structures, materials, or training required beyond awareness of what makes feedback actionable.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/feedback-quality-analyser/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
