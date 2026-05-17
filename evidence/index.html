@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evidence Toolkit — choosewise.education</title>
+  <meta name="description" content="An independent, growing toolkit of teaching interventions ranked by their evidence-based effect on learning. The S step of the WISE Framework.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+  <link rel="canonical" href="https://choosewise.education/evidence/">
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <section class="page-hero container">
+      <span class="eyebrow">Evidence Toolkit &middot; The S in WISE</span>
+      <h1>What actually moves learning — and what just sounds like it does.</h1>
+      <p class="lede">
+        An independent, growing toolkit of teaching interventions ranked by the size of their effect on learning,
+        cross-referenced to published meta-analyses. Built on
+        <a href="https://github.com/GarethManning/claude-education-skills" rel="noopener">Gareth Manning's open skill catalogue</a>,
+        with every effect size verified against independent research.
+      </p>
+      <p class="prose">
+        The Evidence Toolkit is the <strong>S — Select the right tool</strong> step of the
+        <a href="/wise/">WISE Framework</a>. Once you've weighed the learning goal (W) and inspected what the
+        subject calls for (I), this is where you select the teaching move with the strongest evidence base for
+        your context. Then you evaluate the outcome (E) — and run the cycle again.
+      </p>
+    </section>
+
+    <section class="section container">
+
+      <!-- How this toolkit is organised -->
+      <div class="et-structure">
+        <h3>How this toolkit is organised</h3>
+        <p>The toolkit is built domain by domain. Each domain has its own page with the full set of interventions, sortable by effect size, with a prompt builder for interrogating each claim in any AI chatbot.</p>
+        <div class="et-structure-steps">
+          <div class="step"><span class="num">1</span><strong>Pick a domain</strong> below — each covers one area of teaching practice.</div>
+          <div class="step"><span class="num">2</span><strong>Browse interventions</strong> ranked by effect size, with sources cited.</div>
+          <div class="step"><span class="num">3</span><strong>Interrogate any claim</strong> using the prompt builder in your preferred AI chatbot.</div>
+        </div>
+      </div>
+
+      <h2 class="section__title" style="margin-top:32px">Domains</h2>
+      <div class="et-domain-grid">
+
+        <a class="et-domain-card is-live" href="/evidence/memory/">
+          <div class="dc-status">&check; Available now</div>
+          <div class="dc-title">Memory &amp; Learning Science</div>
+          <div class="dc-meta">8 interventions — spaced practice, retrieval, dual coding, …</div>
+          <span class="dc-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+
+        <div class="et-domain-card is-upcoming">
+          <div class="dc-status">Coming next</div>
+          <div class="dc-title">Feedback &amp; Formative Assessment</div>
+          <div class="dc-meta">~13 interventions</div>
+        </div>
+
+        <div class="et-domain-card is-upcoming">
+          <div class="dc-status">Planned</div>
+          <div class="dc-title">Explicit Instruction</div>
+          <div class="dc-meta">~5 interventions</div>
+        </div>
+
+        <div class="et-domain-card is-upcoming">
+          <div class="dc-status">Planned</div>
+          <div class="dc-title">Self-Regulated Learning</div>
+          <div class="dc-meta">~5 interventions</div>
+        </div>
+
+        <div class="et-domain-card is-upcoming">
+          <div class="dc-status">Planned</div>
+          <div class="dc-title">Questioning &amp; Discussion</div>
+          <div class="dc-meta">~4 interventions</div>
+        </div>
+
+        <div class="et-domain-card is-upcoming">
+          <div class="dc-status">Planned</div>
+          <div class="dc-title">15 domains in total</div>
+          <div class="dc-meta">Rolled out one at a time</div>
+        </div>
+
+      </div>
+
+      <p class="prose" style="margin-top:18px;font-size:13.5px;color:#475569">
+        <strong>Why domain-by-domain?</strong> Each domain is built carefully — every effect size hand-verified against a named meta-analysis. We would rather publish 8 interventions you can trust than 114 half-checked ones.
+      </p>
+
+      <!-- Standalone prompt builder -->
+      <div class="et-prompt-builder">
+        <h3>Interrogate any educational claim</h3>
+        <p class="lede">You don't need a card to use this. Type any claim and we'll build a structured critical-evaluation prompt for your chatbot.</p>
+        <textarea
+          id="et-free-claim"
+          placeholder="e.g. &quot;Discovery learning works better than direct instruction.&quot;"
+          aria-label="Claim to interrogate"></textarea>
+        <button type="button" id="et-free-build">Build prompt &rarr;</button>
+      </div>
+
+      <div class="et-sources">
+        <strong>Sources &amp; further reading</strong>
+        <ul>
+          <li><a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit" rel="noopener">EEF Teaching &amp; Learning Toolkit</a></li>
+          <li><a href="https://github.com/GarethManning/claude-education-skills" rel="noopener">Gareth Manning's Claude Education Skills (GitHub, CC BY-SA 4.0)</a></li>
+          <li><a href="/wise/">The WISE Framework</a> — the broader decision model this toolkit sits within</li>
+        </ul>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Modal (shared with domain pages) -->
+  <div class="et-modal" id="et-modal" role="dialog" aria-modal="true" aria-labelledby="et-modal-title" hidden>
+    <div class="et-modal-dialog">
+      <div class="et-modal-head">
+        <h3 id="et-modal-title">Interrogate this claim</h3>
+        <button class="et-modal-close" type="button" aria-label="Close" data-action="close-modal">&times;</button>
+      </div>
+      <div class="et-modal-body">
+        <div class="et-thinking-hint">
+          💡 <strong>For best results, enable your chatbot's reasoning / thinking mode before pasting</strong> — Claude's "Extended thinking", ChatGPT's "Think" mode, or Gemini's "Thinking" / 2.5 Pro reasoning. The prompt is more demanding than a typical Q&amp;A and benefits from slower deliberation.
+        </div>
+        <textarea class="et-prompt-textarea" id="et-prompt-output" readonly aria-label="Generated prompt"></textarea>
+      </div>
+      <div class="et-modal-foot">
+        <button class="et-copy-btn" type="button" id="et-copy">📋 Copy prompt</button>
+        <span class="et-copy-feedback" id="et-copy-feedback">Copied!</span>
+      </div>
+    </div>
+  </div>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script>window.ET_DATA_URL = null;</script>
+  <script defer src="/assets/js/include.js"></script>
+  <script defer src="/assets/js/copy-to-clipboard.js"></script>
+  <script defer src="/assets/js/evidence-toolkit.js"></script>
+</body>
+</html>
