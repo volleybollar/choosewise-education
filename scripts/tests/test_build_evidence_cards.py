@@ -1,6 +1,7 @@
 """Tests for scripts/build-evidence-cards.py."""
 import sys
 from pathlib import Path
+import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
@@ -145,7 +146,23 @@ def test_inject_replaces_between_markers():
 
 
 def test_inject_raises_when_markers_missing():
-    import pytest
     template = "<html><body>no markers</body></html>"
     with pytest.raises(ValueError, match="cards:start"):
         build.inject_into_template(template, "NEW")
+
+
+def test_render_card_with_effect_d_but_no_source_omits_source_span():
+    skill = {**SAMPLE_SKILL, "effect_d_source": None, "effect_d_journal": None, "effect_d_year": None}
+    html = build.render_card(skill, domain_label="Memory & Learning Science")
+    # The d pill itself is still shown
+    assert "d = 0.60" in html
+    # But no stray comma or empty <em> in the source line
+    assert ", <em></em>" not in html
+    # And no source span pointing at empty content
+    assert '<span class="metric-source"></span>' not in html
+
+
+def test_render_card_with_unknown_implementation_cost_raises():
+    skill = {**SAMPLE_SKILL, "implementation_cost": "veryhigh"}
+    with pytest.raises(ValueError, match="implementation_cost"):
+        build.render_card(skill, domain_label="Memory & Learning Science")

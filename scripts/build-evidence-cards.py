@@ -13,6 +13,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
+from html import escape
 from pathlib import Path
 
 
@@ -42,9 +44,6 @@ def band_for_d(d):
     return "above"
 
 
-from html import escape
-
-
 def _months_pill(skill):
     months = skill.get("effect_months")
     band = band_for_months(months)
@@ -54,13 +53,18 @@ def _months_pill(skill):
             '<span class="metric-pill metric-pill--months band-none">no EEF strand</span>'
             '</div>'
         )
-    src = escape(skill.get("effect_months_source") or "")
+    src = skill.get("effect_months_source")
     yr = skill.get("effect_months_year")
+    src_html = escape(src) if src else ""
     yr_html = f'<span class="metric-year">{yr}</span>' if yr else ""
+    source_span = (
+        f'<span class="metric-source">{src_html}{yr_html}</span>'
+        if (src_html or yr_html) else ""
+    )
     return (
         f'<div class="metric-cell">'
         f'<span class="metric-pill metric-pill--months band-{band}">+{months} months</span>'
-        f'<span class="metric-source">{src}{yr_html}</span>'
+        f'{source_span}'
         f'</div>'
     )
 
@@ -74,24 +78,38 @@ def _d_pill(skill):
             '<span class="metric-pill metric-pill--d band-none">no independent meta-analysis found</span>'
             '</div>'
         )
-    src = escape(skill.get("effect_d_source") or "")
-    journal = escape(skill.get("effect_d_journal") or "")
+    src = skill.get("effect_d_source")
+    journal = skill.get("effect_d_journal")
     yr = skill.get("effect_d_year")
+    source_parts = []
+    if src:
+        source_parts.append(escape(src))
+    if journal:
+        source_parts.append(f'<em>{escape(journal)}</em>')
+    source_text = ", ".join(source_parts)
     yr_html = f'<span class="metric-year">{yr}</span>' if yr else ""
+    source_span = (
+        f'<span class="metric-source">{source_text}{yr_html}</span>'
+        if (source_text or yr_html) else ""
+    )
     return (
         f'<div class="metric-cell">'
         f'<span class="metric-pill metric-pill--d band-{band}">d = {d:.2f}</span>'
-        f'<span class="metric-source">{src}, <em>{journal}</em>{yr_html}</span>'
+        f'{source_span}'
         f'</div>'
     )
 
 
 def _impl_pill(skill):
-    level = skill.get("implementation_cost") or "medium"
-    label = {"low": "Low", "medium": "Medium", "high": "High"}.get(level, "Medium")
+    level = skill.get("implementation_cost")
+    labels = {"low": "Low", "medium": "Medium", "high": "High"}
+    if level not in labels:
+        raise ValueError(
+            f"implementation_cost must be one of {sorted(labels)}, got {level!r}"
+        )
     return (
         f'<div class="metric-cell">'
-        f'<span class="impl-pill impl-pill--{level}">{label}</span>'
+        f'<span class="impl-pill impl-pill--{level}">{labels[level]}</span>'
         f'<span class="metric-source">Implementation</span>'
         f'</div>'
     )
@@ -127,9 +145,6 @@ def render_card(skill, domain_label):
         f'  </footer>'
         f'</article>'
     )
-
-
-import re
 
 
 CARDS_PATTERN = re.compile(
