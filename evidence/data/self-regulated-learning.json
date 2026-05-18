@@ -41,6 +41,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/self-regulated-learning/self-regulation-scaffold-generator/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "self-regulated-learning/study-strategy-selector",
+      "manning_name": "study-strategy-selector",
+      "display_title": "Study Strategy Selector & Guide",
+      "description": "Select evidence-based study strategies — spaced practice, retrieval, interleaving, elaboration — matched to the material type, the learning goal, and the student's current habits, so students stop highlighting and re-reading and start doing what actually works.",
+      "tags": ["study-strategies", "metacognition", "self-regulated-learning", "Dunlosky", "learning-techniques"],
+      "effect_months": 7,
+      "effect_months_source": "EEF Toolkit — Metacognition and self-regulation strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.38,
+      "effect_d_source": "Theobald",
+      "effect_d_journal": "Contemporary Educational Psychology",
+      "effect_d_year": 2021,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "The selector itself is a one-time prep job; in-class use takes minutes of explicit instruction plus reference handouts. No materials beyond a strategy guide, no training beyond teacher fluency with Dunlosky's framework of which strategies actually work.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/self-regulated-learning/study-strategy-selector/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
