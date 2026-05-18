@@ -3,5 +3,25 @@
   "domain_label": "Explicit Instruction",
   "domain_description": "Rosenshine's Principles of Instruction in practice — opening a lesson with review, modelling expert thinking aloud, building I Do / We Do / You Do sequences, and designing scaffolded practice. All interventions cross-referenced to peer-reviewed meta-analyses where one exists.",
   "last_reviewed": "2026-05-18",
-  "skills": []
+  "skills": [
+    {
+      "id": "explicit-instruction/explicit-instruction-sequence-builder",
+      "manning_name": "explicit-instruction-sequence-builder",
+      "display_title": "Explicit Instruction Sequence Builder (I Do / We Do / You Do)",
+      "description": "Build a complete explicit instruction sequence — teacher modelling, guided practice with prompts and corrections, then independent practice — so students see expert thinking, rehearse it with support, and practise it alone.",
+      "tags": ["explicit-instruction", "I-do-we-do-you-do", "modelling", "guided-practice", "gradual-release"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.60,
+      "effect_d_source": "Stockard, Wood, Coughlin & Khoury",
+      "effect_d_journal": "Review of Educational Research",
+      "effect_d_year": 2018,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Designing a quality I Do / We Do / You Do sequence requires real prep work per topic — script the modelling, anticipate misconceptions to address during guided practice, calibrate independent tasks for the right level of challenge. No materials or training needed once teachers know the pattern.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/explicit-instruction/explicit-instruction-sequence-builder/SKILL.md",
+      "verification_status": "partial"
+    }
+  ]
 }
