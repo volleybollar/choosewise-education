@@ -79,6 +79,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/self-explanation-prompt-designer/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "wellbeing-motivation-agency/implementation-intention-designer",
+      "manning_name": "implementation-intention-designer",
+      "display_title": "Implementation Intention Designer",
+      "description": "Help students design if-then plans — \"When situation X occurs, I will respond by Y\" — so good intentions translate into action. Gollwitzer's classic mechanism for closing the gap between wanting to study and actually studying.",
+      "tags": ["implementation-intentions", "if-then-planning", "goal-setting", "self-regulation", "Gollwitzer"],
+      "effect_months": 7,
+      "effect_months_source": "EEF Toolkit — Metacognition and self-regulation strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.40,
+      "effect_d_source": "Sheeran, Listrom & Gollwitzer",
+      "effect_d_journal": "European Review of Social Psychology",
+      "effect_d_year": 2024,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "If-then plans are a 5-minute activity per student per goal cycle. No materials beyond a template. The technique is teachable in a single short briefing. The cost is the recurring discipline of using them, not setup.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/implementation-intention-designer/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
