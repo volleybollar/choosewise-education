@@ -3,5 +3,25 @@
   "domain_label": "Questioning & Discussion",
   "domain_description": "Classroom talk that actually develops thinking — dialogic moves that extend reasoning, discussion protocols that structure participation, Socratic sequences that go deeper, and argument scaffolds that give students a way to reason out loud. All interventions cross-referenced to peer-reviewed meta-analyses where one exists.",
   "last_reviewed": "2026-05-18",
-  "skills": []
+  "skills": [
+    {
+      "id": "questioning-discussion/dialogic-teaching-move-generator",
+      "manning_name": "dialogic-teaching-move-generator",
+      "display_title": "Dialogic Teaching Move Generator",
+      "description": "Generate specific dialogic moves — revoice, press for reasoning, build on, challenge, invite uptake — that extend student thinking after they respond, so classroom talk does the cognitive work instead of just confirming the right answer.",
+      "tags": ["dialogic-teaching", "classroom-talk", "uptake", "revoicing", "Alexander", "Mercer"],
+      "effect_months": 6,
+      "effect_months_source": "EEF Toolkit — Oral language interventions strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.52,
+      "effect_d_source": "Tao & Chen",
+      "effect_d_journal": "Educational Research Review",
+      "effect_d_year": 2024,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Dialogic moves require teacher practice — revoicing, pressing for reasoning, and uptake aren't natural defaults for most teachers and need scripted prompts initially. PCK-heavy but no materials, no structural change. Mastery develops over weeks of deliberate use.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/questioning-discussion/dialogic-teaching-move-generator/SKILL.md",
+      "verification_status": "verified"
+    }
+  ]
 }
