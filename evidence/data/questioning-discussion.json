@@ -60,6 +60,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/questioning-discussion/socratic-questioning-sequence-generator/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "literacy-critical-thinking/argument-structure-scaffold-generator",
+      "manning_name": "argument-structure-scaffold-generator",
+      "display_title": "Argument Structure Scaffold Generator",
+      "description": "Give students an explicit structure for building an argument — Toulmin (claim, evidence, warrant, rebuttal), PEEL, or CER (claim, evidence, reasoning) — so they have something to lean on when reasoning isn't yet automatic.",
+      "tags": ["argument", "Toulmin", "PEEL", "scaffold", "writing", "reasoning", "critical-thinking"],
+      "effect_months": 6,
+      "effect_months_source": "EEF Toolkit — Oral language interventions strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.52,
+      "effect_d_source": "Tao & Chen",
+      "effect_d_journal": "Educational Research Review",
+      "effect_d_year": 2024,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "A scaffold is a one-page template; once a teacher learns the framework (Toulmin/PEEL/CER), generating new scaffolds for new topics takes minutes. Students need a single orientation lesson then apply per assignment.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/argument-structure-scaffold-generator/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
