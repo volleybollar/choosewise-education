@@ -22,6 +22,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/explicit-instruction/explicit-instruction-sequence-builder/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "explicit-instruction/lesson-opening-designer",
+      "manning_name": "lesson-opening-designer",
+      "display_title": "Lesson Opening Designer",
+      "description": "Design a 3-5 minute opening routine that activates prior knowledge, retrieves yesterday's key content, and bridges to today's lesson — turning the first few minutes from settling time into learning time.",
+      "tags": ["lesson-opening", "review", "retrieval", "activating-prior-knowledge", "warm-up"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.50,
+      "effect_d_source": "Yang, Luo, Vadillo, Yu & Shanks",
+      "effect_d_journal": "Psychological Bulletin",
+      "effect_d_year": 2021,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "A 3-5 minute opening routine takes minutes to design and minutes to deliver per lesson; no materials beyond a slide or prompt, no training beyond awareness that retrieval-anchored openings beat content-recap openings. The cost is the recurring discipline, not setup.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/explicit-instruction/lesson-opening-designer/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
