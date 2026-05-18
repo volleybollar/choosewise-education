@@ -60,6 +60,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/explicit-instruction/practice-problem-sequence-designer/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "explicit-instruction/think-aloud-script-generator",
+      "manning_name": "think-aloud-script-generator",
+      "display_title": "Think-Aloud Script Generator",
+      "description": "Script a teacher think-aloud that makes expert reasoning visible — verbalising the false-starts, the 'I'm noticing…', the strategic moves and the self-corrections — so students see how a competent thinker actually approaches the task.",
+      "tags": ["think-aloud", "modelling", "metacognition", "expert-reasoning", "cognitive-modelling"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.55,
+      "effect_d_source": "Bisra, Liu, Nesbit, Salimi & Winne",
+      "effect_d_journal": "Educational Psychology Review",
+      "effect_d_year": 2018,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Scripting a quality think-aloud takes real prep — unpacking one's own (often automatic) expert thinking, anticipating which cognitive moves to highlight, sometimes word-for-word to avoid skipping steps. Delivery in lesson is 1-3 min. Once scripted, reusable across cohorts.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/explicit-instruction/think-aloud-script-generator/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
