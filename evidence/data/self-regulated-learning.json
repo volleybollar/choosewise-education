@@ -22,6 +22,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/self-regulated-learning/metacognitive-prompt-library/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "self-regulated-learning/self-regulation-scaffold-generator",
+      "manning_name": "self-regulation-scaffold-generator",
+      "display_title": "Self-Regulation Scaffold Generator",
+      "description": "Generate scaffolds — planning sheets, monitoring checklists, evaluation rubrics — that support students through the three phases of self-regulated learning before, during, and after a task.",
+      "tags": ["self-regulation", "scaffolds", "metacognition", "planning", "monitoring", "evaluation"],
+      "effect_months": 7,
+      "effect_months_source": "EEF Toolkit — Metacognition and self-regulation strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.50,
+      "effect_d_source": "Shao, Chen, Wei, Li & Li",
+      "effect_d_journal": "Frontiers in Psychology",
+      "effect_d_year": 2023,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Designing quality scaffolds for plan/monitor/evaluate phases takes real prep work — calibrating what to scaffold, choosing the right format (sheet, checklist, rubric), planning fade. Once built, scaffolds are reusable across cohorts. AI generation accelerates but doesn't eliminate the design work.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/self-regulated-learning/self-regulation-scaffold-generator/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
