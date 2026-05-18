@@ -31,12 +31,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
   </url>
   <url>
+    <loc>https://choosewise.education/evidence/explicit-instruction/</loc>
+    <lastmod>2026-05-18</lastmod>
+  </url>
+  <url>
     <loc>https://choosewise.education/evidence/feedback/</loc>
     <lastmod>2026-05-17</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/</loc>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-05-18</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/memory/</loc>
