@@ -3,5 +3,25 @@
   "domain_label": "Self-Regulated Learning",
   "domain_description": "Teach students to plan, monitor, and evaluate their own learning — through metacognitive prompts, scaffolds, study-strategy guidance, self-explanation, and if-then implementation intentions. All interventions cross-referenced to peer-reviewed meta-analyses where one exists.",
   "last_reviewed": "2026-05-18",
-  "skills": []
+  "skills": [
+    {
+      "id": "self-regulated-learning/metacognitive-prompt-library",
+      "manning_name": "metacognitive-prompt-library",
+      "display_title": "Metacognitive Prompt Library",
+      "description": "Build a library of metacognitive prompts that target planning (\"What's my goal here?\"), monitoring (\"Is this working?\"), or evaluation (\"What worked, what didn't?\") — so students develop the habit of asking themselves the right cognitive question at the right moment.",
+      "tags": ["metacognition", "prompts", "self-regulated-learning", "planning", "monitoring", "evaluation"],
+      "effect_months": 7,
+      "effect_months_source": "EEF Toolkit — Metacognition and self-regulation strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.40,
+      "effect_d_source": "Guo",
+      "effect_d_journal": "Journal of Computer Assisted Learning",
+      "effect_d_year": 2022,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Building a prompt library is a one-time prep job — 20-30 prompts cover most tasks; reusable across cohorts. In-lesson use takes seconds (display a prompt, give think time). No materials beyond the prompt list, no training beyond awareness.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/self-regulated-learning/metacognitive-prompt-library/SKILL.md",
+      "verification_status": "verified"
+    }
+  ]
 }
