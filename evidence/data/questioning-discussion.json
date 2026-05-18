@@ -22,6 +22,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/questioning-discussion/dialogic-teaching-move-generator/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "questioning-discussion/discussion-protocol-selector",
+      "manning_name": "discussion-protocol-selector",
+      "display_title": "Discussion Protocol Selector & Facilitation Guide",
+      "description": "Pick the right discussion protocol for the purpose — Socratic seminar, fishbowl, Harkness, structured academic controversy, think-pair-share — and configure roles, time, and norms so every student talks for thinking, not just one or two.",
+      "tags": ["discussion-protocol", "Socratic-seminar", "fishbowl", "Harkness", "classroom-talk"],
+      "effect_months": 6,
+      "effect_months_source": "EEF Toolkit — Oral language interventions strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.52,
+      "effect_d_source": "Tao & Chen",
+      "effect_d_journal": "Educational Research Review",
+      "effect_d_year": 2024,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Selecting a protocol takes minutes; running one takes 10-30 min of lesson time. No materials beyond a topic and norms sheet. Most protocols are teachable to a class in one orientation lesson.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/questioning-discussion/discussion-protocol-selector/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
