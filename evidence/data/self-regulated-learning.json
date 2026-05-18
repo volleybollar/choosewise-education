@@ -60,6 +60,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/self-regulated-learning/study-strategy-selector/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "ai-learning-science/self-explanation-prompt-designer",
+      "manning_name": "self-explanation-prompt-designer",
+      "display_title": "Self-Explanation Prompt Designer",
+      "description": "Design prompts that get students to self-explain — 'Why does this step make sense?', 'How does this connect to what you knew before?' — so they generate inferences instead of just absorbing information.",
+      "tags": ["self-explanation", "metacognition", "elaboration", "encoding", "self-regulated-learning"],
+      "effect_months": 7,
+      "effect_months_source": "EEF Toolkit — Metacognition and self-regulation strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.55,
+      "effect_d_source": "Bisra, Liu, Nesbit, Salimi & Winne",
+      "effect_d_journal": "Educational Psychology Review",
+      "effect_d_year": 2018,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Self-explanation prompts are short questions (\"Why?\", \"How does this connect?\") that take seconds to deploy and minutes to design. No materials beyond the prompt list. Mechanism works across subjects and grade levels with minimal teacher prep.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/self-explanation-prompt-designer/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
