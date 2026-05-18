@@ -41,6 +41,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/questioning-discussion/discussion-protocol-selector/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "questioning-discussion/socratic-questioning-sequence-generator",
+      "manning_name": "socratic-questioning-sequence-generator",
+      "display_title": "Socratic Questioning Sequence Generator",
+      "description": "Generate a Socratic questioning sequence — clarifying, probing assumptions, examining evidence, exploring perspectives, questioning the question — that develops a concept through guided inquiry without telling students the answer.",
+      "tags": ["Socratic-questioning", "guided-inquiry", "probing-questions", "classroom-talk", "Paul-Elder"],
+      "effect_months": 6,
+      "effect_months_source": "EEF Toolkit — Oral language interventions strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.52,
+      "effect_d_source": "Tao & Chen",
+      "effect_d_journal": "Educational Research Review",
+      "effect_d_year": 2024,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Designing a Socratic sequence requires real prep — anticipating where students will likely land on each question, planning probes for each predictable answer branch, calibrating depth. PCK-heavy. Once mastered, the technique scales, but each new topic needs fresh sequence design.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/questioning-discussion/socratic-questioning-sequence-generator/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
