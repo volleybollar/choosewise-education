@@ -41,6 +41,25 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/explicit-instruction/lesson-opening-designer/SKILL.md",
       "verification_status": "partial"
+    },
+    {
+      "id": "explicit-instruction/practice-problem-sequence-designer",
+      "manning_name": "practice-problem-sequence-designer",
+      "display_title": "Practice Problem Sequence Designer",
+      "description": "Generate a scaffolded sequence of practice problems with graduated difficulty and strategic variability — starting from worked examples, fading scaffolds through partially-worked problems, ending in independent practice.",
+      "tags": ["practice-problems", "scaffolded-practice", "graduated-difficulty", "worked-examples", "fading"],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.48,
+      "effect_d_source": "Barbieri, Miller-Cotto, Clerjuste & Chawla",
+      "effect_d_journal": "Educational Psychology Review",
+      "effect_d_year": 2023,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Designing a high-quality faded practice sequence requires real PCK — anticipating where students need scaffolds, calibrating fade rate, generating worked solutions plus problem variants. Once designed, the sequence is reusable across cohorts; AI generation accelerates but doesn't eliminate the design work.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/explicit-instruction/practice-problem-sequence-designer/SKILL.md",
+      "verification_status": "partial"
     }
   ]
 }
