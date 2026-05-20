@@ -115,6 +115,34 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/eal-language-development/sheltered-instruction-lesson-modifier/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "eal-language-development/vocabulary-tiering-tool",
+      "manning_name": "vocabulary-tiering-tool",
+      "display_title": "Vocabulary Tiering Tool",
+      "description": "Sort the vocabulary of a text into Beck, McKeown & Kucan's tiers — Tier 1 (everyday words students already have), Tier 2 (high-frequency academic words that bridge disciplines: \"analyse\", \"sustain\", \"argument\"), Tier 3 (discipline-specific technical terms) — so limited vocabulary-teaching time gets spent on the words most likely to transfer across the curriculum.",
+      "tags": [
+        "vocabulary",
+        "tiering",
+        "Tier-2",
+        "academic-language",
+        "EAL",
+        "Beck-McKeown-Kucan",
+        "word-teaching",
+        "selection"
+      ],
+      "effect_months": 6,
+      "effect_months_source": "EEF Toolkit — Oral language interventions strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.08,
+      "effect_d_source": "Cervetti, Fitzgerald, Hiebert & Hebert",
+      "effect_d_journal": "Reading Psychology",
+      "effect_d_year": 2023,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Tiering itself takes a few minutes per text — the real cost is the vocabulary instruction that follows. Cervetti et al.'s 2023 meta-analysis of 39 K-5 intervention studies returned a sobering finding: direct vocabulary instruction produced only g=0.08 on breadth of vocabulary knowledge (essentially null). The older Elleman et al. 2009 meta found d=0.50 for vocabulary instruction on text comprehension measured by researcher-designed tests, but only d=0.10 on standardised measures. Implication for tiering: do not expect a large standalone effect from selecting Tier-2 words. The tiering helps you concentrate limited instruction on words most likely to recur across the curriculum, but the underlying vocabulary instruction's evidence is weaker than the field has assumed. For EAL learners specifically the base rate is lower, so the marginal value of focused word selection is plausibly higher than the K-5 general meta suggests — but that subgroup is not isolated in this meta.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/eal-language-development/vocabulary-tiering-tool/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
