@@ -29,6 +29,32 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/professional-development-session-designer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "professional-learning/instructional-coaching-conversation-guide",
+      "manning_name": "instructional-coaching-conversation-guide",
+      "display_title": "Instructional Coaching Conversation Guide",
+      "description": "Structure coaching conversations that actually move practice — observation evidence, focused goals, specific techniques to try, and follow-up — instead of vague 'how did that feel?' chats. Built on Knight-style instructional coaching with a feedback loop that respects teacher autonomy.",
+      "tags": [
+        "coaching",
+        "instructional-coaching",
+        "Knight",
+        "professional-learning",
+        "feedback",
+        "dialogue"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.49,
+      "effect_d_source": "Kraft, Blazar & Hogan",
+      "effect_d_journal": "Review of Educational Research",
+      "effect_d_year": 2018,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "Trained coaches, scheduled time release for both coach and coachee, and sustained contact over time. One of the more expensive PD interventions per teacher — but Kraft, Blazar & Hogan found that pairing coaching with group training amplifies effects, and that quality of focus matters more than raw contact hours. The d=0.49 is the effect on teacher instruction (the direct target); the downstream effect on student achievement is more modest (d=0.18). Plan accordingly.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/instructional-coaching-conversation-guide/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
