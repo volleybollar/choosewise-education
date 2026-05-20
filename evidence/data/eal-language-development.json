@@ -31,6 +31,34 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/eal-language-development/academic-language-sentence-frame-generator/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "eal-language-development/language-demand-analyser",
+      "manning_name": "language-demand-analyser",
+      "display_title": "Language Demand Analyser",
+      "description": "Audit a classroom task through Cummins' BICS/CALP lens before students hit it — what vocabulary, syntax, discourse moves, and background knowledge the task assumes, and where EAL or multilingual learners will hit a barrier that is linguistic rather than cognitive. Use as a planning step that feeds into scaffolding decisions (sentence frames, vocabulary pre-teaching, task modification).",
+      "tags": [
+        "language-demands",
+        "BICS-CALP",
+        "Cummins",
+        "EAL",
+        "scaffolding",
+        "academic-language",
+        "diagnostic",
+        "planning"
+      ],
+      "effect_months": 6,
+      "effect_months_source": "EEF Toolkit — Oral language interventions strand",
+      "effect_months_year": 2021,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "No materials cost; the lift is teacher planning time. The honest framing: language demand analysis is a diagnostic precondition for effective scaffolding — not itself an intervention with a student-outcome meta-analysis. Cummins' BICS/CALP distinction (1979, refined 2008) is foundational theory rather than a tested intervention. The EEF Oral language interventions strand (+6 months, high evidence security) is the relevant umbrella because the downstream scaffolding decisions (frames, vocabulary pre-teaching, oral rehearsal) live there. Skip this step and you scaffold the wrong thing; do it well and the scaffolds that follow are aimed at the actual barriers, not assumed ones.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/eal-language-development/language-demand-analyser/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
