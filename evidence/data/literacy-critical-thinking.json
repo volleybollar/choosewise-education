@@ -3,5 +3,31 @@
   "domain_label": "Literacy & Critical Thinking",
   "domain_description": "Reading, writing, and thinking skills that transfer across subjects — strategy instruction that builds comprehension, scaffolds that make complex texts and disciplinary writing accessible, and protocols that teach students to evaluate sources, deconstruct media, and design tasks worth thinking hard about. All interventions cross-referenced to peer-reviewed meta-analyses where one exists.",
   "last_reviewed": "2026-05-20",
-  "skills": []
+  "skills": [
+    {
+      "id": "literacy-critical-thinking/reading-comprehension-strategy-selector",
+      "manning_name": "reading-comprehension-strategy-selector",
+      "display_title": "Reading Comprehension Strategy Selector",
+      "description": "Pick the right reading comprehension strategy for the text and the class — reciprocal teaching, summarisation, prediction, questioning, text structure mapping, monitoring — and combine them so students have a small, well-rehearsed toolkit instead of a long list of one-off tricks.",
+      "tags": [
+        "reading",
+        "comprehension",
+        "strategy-instruction",
+        "reciprocal-teaching",
+        "metacognition"
+      ],
+      "effect_months": 7,
+      "effect_months_source": "EEF Toolkit — Reading comprehension strategies strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.43,
+      "effect_d_source": "Okkinga et al.",
+      "effect_d_journal": "Educational Psychology Review",
+      "effect_d_year": 2018,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "EEF rates this Very low. Teachers need PD on a small set of strategies (reciprocal teaching, summarisation, prediction, monitoring), but no materials change and no structural reorganisation. The harder part is fidelity over time — strategies have to be modelled, practised, then released to students gradually — not the up-front investment.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/reading-comprehension-strategy-selector/SKILL.md",
+      "verification_status": "verified"
+    }
+  ]
 }
