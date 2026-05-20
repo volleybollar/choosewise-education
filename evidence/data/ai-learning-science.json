@@ -116,6 +116,34 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/ai-feedback-design-principles/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "ai-learning-science/productive-failure-desirable-difficulty-designer",
+      "manning_name": "productive-failure-desirable-difficulty-designer",
+      "display_title": "Productive Failure & Desirable Difficulty Designer",
+      "description": "Design problem-solving experiences that come before instruction — letting students grapple with a hard problem, generate partially-correct approaches, then receive instruction that consolidates what they have just struggled with. Kapur's PS-I (problem-solving followed by instruction), built on Bjork's desirable difficulties tradition.",
+      "tags": [
+        "productive-failure",
+        "desirable-difficulty",
+        "Kapur",
+        "Bjork",
+        "struggle",
+        "generation",
+        "consolidation",
+        "cognitive-offloading"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.36,
+      "effect_d_source": "Sinha & Kapur",
+      "effect_d_journal": "Review of Educational Research",
+      "effect_d_year": 2021,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "No materials cost. The real lift is on the teacher: designing a pre-instruction problem worth struggling on, tolerating visible student difficulty without bailing them out, and running a strong consolidation phase that converts the struggle into durable understanding. Sinha & Kapur found high-fidelity PS-I reaches g=0.37–0.58 — sloppy 'just let them struggle' implementations don't. Boundary conditions: stronger for older students and STEM topics; for grades 2–5 and domain-general skills, instruction-first (I-PS) actually outperformed PS-I.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/productive-failure-desirable-difficulty-designer/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
