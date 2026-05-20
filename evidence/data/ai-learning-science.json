@@ -3,5 +3,34 @@
   "domain_label": "AI Learning Science",
   "domain_description": "Where decades of learning-science research meets AI tools — intelligent tutoring systems, cognitive tutors, worked-example sequences, productive failure, AI-generated feedback, and the formative-assessment loops that hold it together. We curate hard here: the classical learning-science principles (Sweller, VanLehn, Kapur, Renkl, Black & Wiliam) have strong meta-analytic evidence; the AI-specific re-implementations often inherit that evidence, but not always — and where the AI angle outruns the research, we say so. TPACK is included as the framework teachers need to put any of this in motion.",
   "last_reviewed": "2026-05-20",
-  "skills": []
+  "skills": [
+    {
+      "id": "ai-learning-science/cognitive-tutoring-architecture-designer",
+      "manning_name": "cognitive-tutoring-architecture-designer",
+      "display_title": "Cognitive Tutoring Architecture Designer",
+      "description": "Design cognitive-tutor architecture — ACT-R cognitive model, knowledge-tracing of student state, mastery thresholds, step-level hints and error messages — so the tutor actually knows what the student knows and adapts, instead of just delivering branching worksheets.",
+      "tags": [
+        "cognitive-tutor",
+        "ACT-R",
+        "Anderson",
+        "knowledge-tracing",
+        "Corbett",
+        "mastery",
+        "ITS",
+        "adaptive"
+      ],
+      "effect_months": 4,
+      "effect_months_source": "EEF Toolkit — Digital technology strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.66,
+      "effect_d_source": "Kulik & Fletcher",
+      "effect_d_journal": "Review of Educational Research",
+      "effect_d_year": 2016,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "Commercial cognitive tutors (Carnegie Learning, ALEKS) carry licence cost; building your own ACT-R-based tutor requires real cognitive-science engineering expertise. Either way, teacher PD is needed to integrate the tutor into classroom routines. Effect sizes are sensitive to comparison group and subject: Kulik & Fletcher's K-12 subsample sits at d=0.41 (vs d=0.66 overall), Steenbergen-Hu & Cooper 2013 found near-null effects in K-12 math vs classroom instruction (g=0.05), and a 2025 arXiv preprint on US K-12 reported g=0.27. The d=0.66 holds when the alternative is no tutoring or human tutoring — not necessarily strong classroom instruction.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/cognitive-tutoring-architecture-designer/SKILL.md",
+      "verification_status": "verified"
+    }
+  ]
 }
