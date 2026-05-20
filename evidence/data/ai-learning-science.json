@@ -88,6 +88,34 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/adaptive-hint-sequence-designer/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "ai-learning-science/ai-feedback-design-principles",
+      "manning_name": "ai-feedback-design-principles",
+      "display_title": "AI Feedback Design Principles",
+      "description": "Design AI-generated feedback so it actually moves learning — specific, focused on the task and process (not the person), tied to clear criteria, and actionable. Built on Shute/Narciss/Hattie classical feedback principles, applied to LLM and automated-feedback systems.",
+      "tags": [
+        "feedback",
+        "AI-feedback",
+        "formative",
+        "Shute",
+        "Narciss",
+        "Hattie",
+        "LLM",
+        "automated-feedback"
+      ],
+      "effect_months": 6,
+      "effect_months_source": "EEF Toolkit — Feedback strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.55,
+      "effect_d_source": "Fleckenstein, Liebenow & Meyer",
+      "effect_d_journal": "Frontiers in Artificial Intelligence",
+      "effect_d_year": 2023,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "No materials cost. The lift is in knowing the classical feedback-design principles (Shute 2008, Narciss, Hattie) and translating them to AI prompts or system rules. AI feedback inherits the same constraints as human feedback: specific beats vague, task/process beats person, and uptake matters. Fleckenstein et al. found ~half of students make no revisions after receiving AI feedback — design has to push toward action, not just deliver a comment.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/ai-feedback-design-principles/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
