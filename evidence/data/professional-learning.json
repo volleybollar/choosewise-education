@@ -3,5 +3,32 @@
   "domain_label": "Professional Learning",
   "domain_description": "How teachers actually get better at the job — not training days that vanish on Monday morning. Coaching conversations, lesson study cycles, observation routines, structured inquiry, and PD design that respects what we know about adult learning. All interventions cross-referenced to peer-reviewed meta-analyses where one exists. We have curated the Manning catalogue here for relevance, leaving out internal QA tools and operational utilities that do not function as teaching interventions.",
   "last_reviewed": "2026-05-20",
-  "skills": []
+  "skills": [
+    {
+      "id": "professional-learning/professional-development-session-designer",
+      "manning_name": "professional-development-session-designer",
+      "display_title": "Professional Development Session Designer",
+      "description": "Design PD sessions that actually change practice — built around the four IMTP mechanisms (Insight, Motivation, Techniques, Practice) rather than the usual 'sit and get'. Sustained over time, with deliberate practice between sessions and clear classroom techniques teachers can use on Monday.",
+      "tags": [
+        "CPD",
+        "professional-development",
+        "Timperley",
+        "adult-learning",
+        "INSET",
+        "staff-training"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.21,
+      "effect_d_source": "Lynch, Gonzalez, Hill & Merritt",
+      "effect_d_journal": "AERA Open",
+      "effect_d_year": 2025,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Designing mechanism-rich PD (per Sims, Fletcher-Wood et al. 2025's IMTP theory: Insight, Motivation, Techniques, Practice) requires the facilitator to understand cognitive- and behavioural-science principles, not just CPD buzzwords. No materials cost; the lift is on the person designing and running the PD. Sims's finding is that average PD has d=0.05 — well-designed PD has to do something different to land.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/professional-development-session-designer/SKILL.md",
+      "verification_status": "verified-partial"
+    }
+  ]
 }
