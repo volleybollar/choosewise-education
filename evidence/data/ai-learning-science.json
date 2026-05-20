@@ -31,6 +31,35 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/cognitive-tutoring-architecture-designer/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "ai-learning-science/intelligent-tutoring-dialogue-designer",
+      "manning_name": "intelligent-tutoring-dialogue-designer",
+      "display_title": "Intelligent Tutoring Dialogue Designer",
+      "description": "Design tutorial dialogue — step-based interaction, ICAP-aligned prompts (Interactive > Constructive > Active > Passive), mixed-initiative turns, and AutoTutor-style follow-up moves — so the tutor pulls reasoning out of the student instead of dumping explanations on them.",
+      "tags": [
+        "tutoring",
+        "dialogue",
+        "ITS",
+        "VanLehn",
+        "AutoTutor",
+        "Graesser",
+        "Chi",
+        "ICAP",
+        "mixed-initiative"
+      ],
+      "effect_months": 4,
+      "effect_months_source": "EEF Toolkit — Digital technology strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.76,
+      "effect_d_source": "VanLehn",
+      "effect_d_journal": "Educational Psychologist",
+      "effect_d_year": 2011,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "Dialogue tutors require real design work: dialogue-flow planning, ICAP-aligned prompting, mixed-initiative turn-taking, and follow-up move libraries. Classical ITS dialogue (AutoTutor, Cognitive Tutor) involves substantial engineering; LLM-based dialogue tutors lower the build cost but inherit the design principles. VanLehn's d=0.76 is for step-based dialogue vs no tutoring — answer-based interaction (just give the right answer) yields only d=0.31, so the cost is in making the dialogue actually step-based.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/intelligent-tutoring-dialogue-designer/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
