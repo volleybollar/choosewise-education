@@ -3,5 +3,34 @@
   "domain_label": "EAL & Language Development",
   "domain_description": "Teaching students whose home language is not the language of instruction — the design moves that keep cognitive demand high while making the language accessible. Vocabulary tiering, sentence frames, language-demand analysis, sheltered-instruction protocols, and scaffolded task modification. Built on the Cummins BICS/CALP distinction, Echevarria/Vogt/Short's SIOP model, and Beck/McKeown/Kucan's tiered vocabulary work, with meta-analytic evidence from Cheung & Slavin, Goldenberg, and the broader EAL/ELL research tradition.",
   "last_reviewed": "2026-05-20",
-  "skills": []
+  "skills": [
+    {
+      "id": "eal-language-development/academic-language-sentence-frame-generator",
+      "manning_name": "academic-language-sentence-frame-generator",
+      "display_title": "Academic Language Sentence Frame Generator",
+      "description": "Generate tiered sentence frames that let EAL students participate in academic discourse before they have fully independent academic language. Frames are scaffolds, not scripts: they expose the syntax and discourse markers of a subject, then fade as students take them over.",
+      "tags": [
+        "sentence-frames",
+        "academic-language",
+        "EAL",
+        "discourse-markers",
+        "scaffolding",
+        "BICS-CALP",
+        "Cummins",
+        "tiered-support"
+      ],
+      "effect_months": 6,
+      "effect_months_source": "EEF Toolkit — Oral language interventions strand",
+      "effect_months_year": 2021,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Frames are paper or screen — no materials cost. The lift is teacher design time: building frames that match the discourse of the subject, tiering them across proficiency levels, and remembering to fade them as students internalise the patterns. EEF Oral language interventions strand carries +6 months on high-security evidence (154 studies); sentence frames are one well-established scaffold within that strand but have no clean standalone meta-analysis. The 2023 \"over-framing\" critique (Lemov et al.) is worth heeding — frames that are never faded become language restrictions rather than supports.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/eal-language-development/academic-language-sentence-frame-generator/SKILL.md",
+      "verification_status": "verified-partial"
+    }
+  ]
 }
