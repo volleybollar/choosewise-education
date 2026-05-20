@@ -60,6 +60,34 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/intelligent-tutoring-dialogue-designer/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "ai-learning-science/adaptive-hint-sequence-designer",
+      "manning_name": "adaptive-hint-sequence-designer",
+      "display_title": "Adaptive Hint Sequence Designer",
+      "description": "Design hint hierarchies that fade from vague (point me at the right area) to specific (here's the next step), released only when the student is genuinely stuck, so the system supports productive struggle instead of bailing them out at the first wrong answer.",
+      "tags": [
+        "hints",
+        "scaffolding",
+        "ITS",
+        "VanLehn",
+        "Aleven",
+        "adaptive",
+        "tutoring",
+        "cognitive-tutor"
+      ],
+      "effect_months": 4,
+      "effect_months_source": "EEF Toolkit — Digital technology strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.39,
+      "effect_d_source": "Thomann & Deutscher",
+      "effect_d_journal": "Educational Research Review",
+      "effect_d_year": 2025,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "No materials cost, but real design work: pedagogical analysis of common errors, a vague-to-specific hint hierarchy, and release conditions that wait for genuine stuck-ness rather than firing on the first wrong answer. Thomann & Deutscher's publication-bias-corrected effect drops to d=0.22, so the headline d=0.39 assumes well-designed prompts: concise, adaptive, and timed to the moment the student actually needs them. Aleven & colleagues' classic finding: 'help helps, but only so much' — over-hinting backfires.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/adaptive-hint-sequence-designer/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
