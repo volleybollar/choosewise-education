@@ -55,6 +55,31 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/instructional-coaching-conversation-guide/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "professional-learning/lesson-study-cycle-designer",
+      "manning_name": "lesson-study-cycle-designer",
+      "display_title": "Lesson Study Cycle Designer",
+      "description": "Design a full lesson study cycle — shared learning goal, collaborative planning, research lesson with observers, structured debrief, refined re-teach — built on the Japanese jugyou kenkyuu tradition rather than a one-off 'observe each other once' exercise.",
+      "tags": [
+        "lesson-study",
+        "jugyou-kenkyuu",
+        "collaborative-planning",
+        "research-lesson",
+        "professional-learning"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.47,
+      "effect_d_source": "Täschner, Dicke, Reinhold & Holzberger",
+      "effect_d_journal": "Review of Educational Research",
+      "effect_d_year": 2025,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "Requires sustained time for the full cycle (planning, research lesson, observer debrief, refined re-teach), pairs or triads of teachers freed up together, and continuity across terms. The g=0.47 reflects teacher self-efficacy outcomes — the proximal target lesson study reliably moves. Be transparent about the distal evidence: Bradbury et al. 2021 (EEF trial, 181 English primary schools) found null on student attainment overall, with heterogeneous effects by school size. Lesson study delivers on teacher growth more reliably than on direct student outcomes.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/lesson-study-cycle-designer/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
