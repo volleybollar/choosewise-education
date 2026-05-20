@@ -106,6 +106,31 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/teacher-inquiry-cycle-designer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "professional-learning/lesson-observation-protocol-designer",
+      "manning_name": "lesson-observation-protocol-designer",
+      "display_title": "Lesson Observation Protocol Designer",
+      "description": "Design observation protocols with subject-specific look-fors and a feedback structure that supports growth rather than judgement — paired observation, non-evaluative debrief, agreed next step. The observation is for the observed teacher's learning, not the observer's checklist.",
+      "tags": [
+        "observation",
+        "look-fors",
+        "feedback",
+        "professional-development",
+        "evidence-based"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.49,
+      "effect_d_source": "Kraft, Blazar & Hogan",
+      "effect_d_journal": "Review of Educational Research",
+      "effect_d_year": 2018,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "No materials cost. The lift is on developing genuinely useful look-fors (subject-specific, behavioural, not vague 'engagement'), a non-evaluative feedback structure, and protected time for paired observation and debrief. Less expensive than full instructional coaching (no external coach required) but the same boundary condition applies: Bradbury et al. 2021's EEF trial (181 English primary schools) found that low-stakes peer observation with light protocols produced no measurable effect on student attainment. Quality of the protocol and the feedback conversation are what carry the d=0.49 — not observation alone.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/lesson-observation-protocol-designer/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
