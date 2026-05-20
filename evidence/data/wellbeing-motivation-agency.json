@@ -159,6 +159,32 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/restorative-practice-protocol-designer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "wellbeing-motivation-agency/trauma-informed-practice-designer",
+      "manning_name": "trauma-informed-practice-designer",
+      "display_title": "Trauma-Informed Practice Designer",
+      "description": "Design classroom and school practice that anticipates trauma without pathologising students — predictable structures, relational safety, emotional regulation supports, and clear pathways to mental health resources. Pair with referral routines instead of expecting classroom teachers to do therapy.",
+      "tags": [
+        "trauma-informed",
+        "ACEs",
+        "safety",
+        "regulation",
+        "attachment",
+        "behaviour"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "Substantial PD across all staff, policy changes, mental health referral infrastructure, and sustained whole-school commitment. The honest evidence picture: Maynard, Farina, Dell & Kelly's 2019 Campbell Systematic Review on whole-school trauma-informed approaches found zero studies meeting inclusion criteria for student-level outcomes — meaning the policy push has outrun the empirical evidence. Trauma-specific therapies like CBITS and TF-CBT have separate evidence bases, but those are individual interventions, not classroom practice. Include this card because schools are adopting trauma-informed approaches anyway; the honest framing is that the practice is promising but the evidence base for whole-school effects is not yet established.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/trauma-informed-practice-designer/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
