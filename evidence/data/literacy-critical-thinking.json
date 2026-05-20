@@ -103,6 +103,31 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/critical-thinking-task-designer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "literacy-critical-thinking/source-credibility-evaluation-protocol",
+      "manning_name": "source-credibility-evaluation-protocol",
+      "display_title": "Source Credibility Evaluation Protocol",
+      "description": "Teach students lateral reading and the SIFT moves — Stop, Investigate the source, Find better coverage, Trace claims back to the original — so they can evaluate online sources the way fact-checkers actually do, not by reading down the page looking for an 'about us' link.",
+      "tags": [
+        "source-evaluation",
+        "lateral-reading",
+        "SIFT",
+        "digital-literacy",
+        "critical-thinking"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.76,
+      "effect_d_source": "Huang, Jia & Yu",
+      "effect_d_journal": "Communication Research",
+      "effect_d_year": 2024,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "SIFT and lateral reading are concrete, teachable moves — but Huang et al. found multiple sessions outperform single-session interventions, and durability depends on repeated practice across real sources students encounter. No materials cost; the lift is sustained instructional time, not start-up. Effect sizes are near-transfer (immediate credibility judgments on researcher-supplied items) — long-term real-world transfer is less well-established.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/source-credibility-evaluation-protocol/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
