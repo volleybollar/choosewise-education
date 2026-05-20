@@ -3,5 +3,32 @@
   "domain_label": "Wellbeing, Motivation & Agency",
   "domain_description": "How students feel, what motivates them, and whether they experience themselves as agents in their own learning — belonging, autonomy, emotional literacy, self-efficacy, restorative practice, trauma-informed teaching. All interventions cross-referenced to peer-reviewed meta-analyses where one exists. We have curated the Manning catalogue here for relevance and evidence quality, leaving out skills where the research base was too thin to grade fairly.",
   "last_reviewed": "2026-05-20",
-  "skills": []
+  "skills": [
+    {
+      "id": "wellbeing-motivation-agency/belonging-classroom-culture-designer",
+      "manning_name": "belonging-classroom-culture-designer",
+      "display_title": "Belonging & Classroom Culture Designer",
+      "description": "Design classroom culture so every student — including the ones who feel most on the edge — has reliable signals that they belong here, are seen as capable, and will be supported when things get hard. Relational routines, repair after conflict, identity-safe materials, and explicit anti-marginalisation moves rather than 'be kind' posters.",
+      "tags": [
+        "belonging",
+        "inclusion",
+        "classroom-culture",
+        "relationships",
+        "equity",
+        "marginalisation"
+      ],
+      "effect_months": 4,
+      "effect_months_source": "EEF Toolkit — Social and emotional learning strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.64,
+      "effect_d_source": "Davies, Cordier, Graham, Littlefair & Speyer",
+      "effect_d_journal": "Education Sciences",
+      "effect_d_year": 2025,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "No materials cost. The lift is sustained PD in relational practice (greeting, check-ins, repair after conflict, identity-safe framing), consistent classroom routines, and ideally whole-school alignment. Davies et al. found multi-tier programs (g=0.78) outperform single-classroom interventions — meaning the most effective version is a leadership decision, not just a teacher one.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/belonging-classroom-culture-designer/SKILL.md",
+      "verification_status": "verified"
+    }
+  ]
 }
