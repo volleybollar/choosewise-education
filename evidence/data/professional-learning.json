@@ -159,6 +159,32 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/pedagogical-content-knowledge-developer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "professional-learning/reflective-practice-prompt-generator",
+      "manning_name": "reflective-practice-prompt-generator",
+      "display_title": "Reflective Practice Prompt Generator",
+      "description": "Generate structured reflection prompts that move teachers beyond 'how did it go?' — Schön-style reflection on action, specific incidents, evidence-anchored thinking, and concrete next-step commitment. Built for journaling, coaching debriefs, or end-of-term cycles.",
+      "tags": [
+        "reflection",
+        "Schön",
+        "Timperley",
+        "reflective-practice",
+        "professional-learning",
+        "journaling"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Prompts themselves cost nothing — they can be distributed and used asynchronously. The honest evidence picture: Schön (1983) is foundational but reflective practice is rarely tested as a discrete intervention. Reflection appears embedded across broader PD packages (Täschner et al. 2025 teacher self-efficacy g=0.47 includes reflective elements) but no standalone meta-analysis isolates the prompt-driven reflection effect for teachers. Student-facing reflection meta-analyses exist (Guo 2022 metacognitive prompts, used in our SRL domain) but target a different population. Include this card because reflection is central to teacher PD tradition; mark it unverified because the standalone intervention is not meta-analysed.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/reflective-practice-prompt-generator/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
