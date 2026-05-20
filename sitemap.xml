@@ -40,7 +40,11 @@
   </url>
   <url>
     <loc>https://choosewise.education/evidence/</loc>
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/evidence/literacy-critical-thinking/</loc>
+    <lastmod>2026-05-20</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/memory/</loc>
@@ -558,7 +562,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/sv/blog/posts/fortbildning-effektiviseringar-och-ai.html</loc>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-05-19</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/sv/blog/posts/tva-grona-rutor-av-sextio.html</loc>
@@ -566,7 +570,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/sv/blog/posts/varfor-jag-byggt-choosewise-education.html</loc>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/blog/posts/varfor-jag-byggt-choosewise-education.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
