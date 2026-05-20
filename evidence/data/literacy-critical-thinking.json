@@ -78,6 +78,31 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/disciplinary-writing-scaffold/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "literacy-critical-thinking/critical-thinking-task-designer",
+      "manning_name": "critical-thinking-task-designer",
+      "display_title": "Critical Thinking Task Designer",
+      "description": "Design tasks that make students actually do the cognitive work — analyse competing claims, evaluate evidence, weigh tradeoffs, justify a position — instead of recall dressed up as 'higher-order thinking'. Domain-specific framing built in: critical thinking transfers when it is taught inside the discipline, not as a generic skill.",
+      "tags": [
+        "critical-thinking",
+        "analysis",
+        "evaluation",
+        "domain-specific",
+        "higher-order-thinking"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.30,
+      "effect_d_source": "Abrami et al.",
+      "effect_d_journal": "Review of Educational Research",
+      "effect_d_year": 2015,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "No materials cost and no structural change, but real PD lift — teachers need domain-specific evaluation criteria, modelling of expert reasoning, and the ability to give feedback on the reasoning itself, not just the answer. Abrami et al. found generic and content-specific approaches both work, but dialogue and authentic problems are the active ingredients — not worksheet 'critical thinking exercises'.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/critical-thinking-task-designer/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
