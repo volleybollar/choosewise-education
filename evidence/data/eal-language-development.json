@@ -87,6 +87,34 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/eal-language-development/scaffolded-task-modifier/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "eal-language-development/sheltered-instruction-lesson-modifier",
+      "manning_name": "sheltered-instruction-lesson-modifier",
+      "display_title": "Sheltered Instruction Lesson Modifier",
+      "description": "Plan a lesson using the SIOP (Sheltered Instruction Observation Protocol) framework — explicit content and language objectives, comprehensible input, structured interaction, building background, and review/assessment — so EAL learners get content and language taught together rather than content gated behind language.",
+      "tags": [
+        "SIOP",
+        "sheltered-instruction",
+        "Echevarria",
+        "Vogt",
+        "Short",
+        "EAL",
+        "content-language-integration",
+        "lesson-planning"
+      ],
+      "effect_months": 6,
+      "effect_months_source": "EEF Toolkit — Oral language interventions strand",
+      "effect_months_year": 2021,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "SIOP requires substantial teacher PD — the model has 8 components and 30 features, and fidelity matters. The Echevarria, Vogt & Short training programme is structured but real classroom uptake takes time. Honest evidence picture: SIOP markets itself as \"the only scientifically validated model of sheltered instruction,\" but most of the evidence comes from studies authored by the model's developers (Echevarria, Vogt, Short and their teams). Independent replications exist (e.g., Watkins-Goffman thesis 2024 systematic review of 31 articles) but no clean independent meta-analysis. EEF Oral language interventions +6m is the relevant umbrella because SIOP components (comprehensible input, structured interaction, oral rehearsal) sit inside that strand. Treat the SIOP-branded claims with the same caution you would treat any developer-evaluated framework — the underlying components have stronger evidence than the branded protocol.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/eal-language-development/sheltered-instruction-lesson-modifier/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
