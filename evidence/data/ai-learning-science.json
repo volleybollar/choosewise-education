@@ -144,6 +144,34 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/productive-failure-desirable-difficulty-designer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "ai-learning-science/worked-example-to-problem-solving-transition-designer",
+      "manning_name": "worked-example-to-problem-solving-transition-designer",
+      "display_title": "Worked Example to Problem Solving Transition Designer",
+      "description": "Design when and how to move students from studying worked examples to solving problems on their own — anchored in the expertise-reversal effect. Keep novices in high-assistance mode (full worked examples → completion problems → faded steps), move them to independent problem-solving as prior knowledge grows, and use diagnostic info to detect the crossover instead of assuming everyone is at the same place.",
+      "tags": [
+        "expertise-reversal",
+        "Kalyuga",
+        "Renkl",
+        "worked-examples",
+        "fading",
+        "completion-problems",
+        "scaffolding",
+        "cognitive-load"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.51,
+      "effect_d_source": "Tetzlaff, Simonsmeier, Peters & Brod",
+      "effect_d_journal": "Learning and Instruction",
+      "effect_d_year": 2025,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "No materials cost, but the skill needs diagnostic information about each learner's prior knowledge to decide when to fade — without that, you fade at the wrong time for half the class. Tetzlaff et al. (60 studies, 5,924 participants) found low-prior-knowledge learners gained d=0.51 from high-assistance instruction while high-prior-knowledge learners gained d=−0.43 from low-assistance instruction. The effect is asymmetrical: over-helping novices is worse than under-helping experts, so when uncertain, lean toward more scaffolding and fade conservatively. Effect is weaker for younger students and humanities/language learning.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/worked-example-to-problem-solving-transition-designer/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
