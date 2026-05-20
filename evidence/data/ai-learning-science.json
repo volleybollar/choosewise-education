@@ -229,6 +229,33 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/formative-assessment-loop-designer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "ai-learning-science/technological-pedagogical-content-knowledge-developer",
+      "manning_name": "technological-pedagogical-content-knowledge-developer",
+      "display_title": "Technological Pedagogical Content Knowledge Developer",
+      "description": "Work through the TPACK lens (Mishra & Koehler) for a specific technology or AI tool — what pedagogy the tool affords, what content knowledge it carries assumptions about, and where teacher knowledge has to bridge the three. Use when adopting an AI tool, reviewing ed-tech, or planning a tech-integration cycle so the integration is pedagogically aligned, not just procurement-driven.",
+      "tags": [
+        "TPACK",
+        "Mishra-Koehler",
+        "technology-integration",
+        "AI-in-education",
+        "pedagogical-content-knowledge",
+        "professional-learning",
+        "ed-tech"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "No materials cost; the lift is professional judgment time. The honest evidence picture: TPACK is a teacher-knowledge framework (Mishra & Koehler 2006), not a discrete intervention, so it does not have a clean student-outcome meta-analysis. Wang et al. (2022) meta-analysed the relationship between TPACK and IT-integration self-efficacy across 28 effect sizes (7,777 teachers) and found r=0.607 — but that is a correlation between two teacher self-reports, not an effect on learning. The closest legitimate cross-reference is the EEF Digital technology strand (+4 months) — TPACK is the framework for how to make that digital integration pedagogically sound. Include the card because TPACK structures the conversation when adopting AI tools; mark unverified because the framework itself is not meta-analysed against student outcomes.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/technological-pedagogical-content-knowledge-developer/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
