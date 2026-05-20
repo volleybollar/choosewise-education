@@ -134,6 +134,31 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/agency-scaffold-generator/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "wellbeing-motivation-agency/restorative-practice-protocol-designer",
+      "manning_name": "restorative-practice-protocol-designer",
+      "display_title": "Restorative Practice Protocol Designer",
+      "description": "Design restorative protocols — community-building circles, restorative conferences, peer mediation, repair conversations — that address harm and rebuild relationships instead of just punishing, while keeping accountability visible. Skip the 'feelings circle' caricature: real RP is structured, named, and time-bounded.",
+      "tags": [
+        "restorative-practice",
+        "conflict-resolution",
+        "relationships",
+        "accountability",
+        "repair"
+      ],
+      "effect_months": 3,
+      "effect_months_source": "EEF Toolkit — Behaviour interventions strand",
+      "effect_months_year": 2021,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "RP fidelity requires substantial PD (5+ days typical), whole-school adoption for cultural coherence, and protected time for circles and conferences. Augustine et al.'s RAND Pittsburgh RCT found reductions in suspensions but null on academic outcomes — meaning RP delivers on its primary aim (relationships, conflict resolution) but should not be sold as an academic intervention. School-RP literature lacks a quality meta-analysis with a clean overall effect size; evidence is mixed across RCTs (Acosta 2019 null, Augustine 2018 positive on suspensions, Darling-Hammond 2022 positive on academics in observational data).",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/restorative-practice-protocol-designer/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
