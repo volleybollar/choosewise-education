@@ -29,6 +29,32 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/belonging-classroom-culture-designer/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "wellbeing-motivation-agency/motivation-diagnostic-task-redesign",
+      "manning_name": "motivation-diagnostic-task-redesign",
+      "display_title": "Motivation Diagnostic & Task Redesign",
+      "description": "Diagnose which of the three Self-Determination Theory needs — autonomy, competence, relatedness — is undermet for a student or a class, then redesign the task to address it: meaningful choices, calibrated challenge, explicit rationale, and connection to peers' work instead of vague 'engagement' tweaks.",
+      "tags": [
+        "motivation",
+        "SDT",
+        "self-determination",
+        "autonomy",
+        "engagement",
+        "task-design"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.58,
+      "effect_d_source": "Wang, Wang et al.",
+      "effect_d_journal": "Learning and Motivation",
+      "effect_d_year": 2024,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Teachers need working knowledge of the three SDT needs, diagnostic skill to spot which one is undermet, and the will to actually rework assignments — adding meaningful choices, calibrating challenge, articulating rationale. No materials cost; the lift is conceptual and habitual. Diagnostic step matters because generic 'autonomy' fixes (free choice) can backfire when competence is the real bottleneck.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/motivation-diagnostic-task-redesign/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
