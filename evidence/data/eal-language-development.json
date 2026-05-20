@@ -59,6 +59,34 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/eal-language-development/language-demand-analyser/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "eal-language-development/scaffolded-task-modifier",
+      "manning_name": "scaffolded-task-modifier",
+      "display_title": "Scaffolded Task Modifier",
+      "description": "Modify an existing classroom task so EAL learners can access it without losing the cognitive demand — the Walqui/Gibbons \"high challenge, high support\" principle. Add language scaffolds (frames, glossaries, visuals, oral rehearsal) that reduce the linguistic load while preserving the thinking the task was designed to require.",
+      "tags": [
+        "scaffolding",
+        "task-modification",
+        "differentiation",
+        "EAL",
+        "cognitive-demand",
+        "Walqui",
+        "Gibbons",
+        "high-challenge-high-support"
+      ],
+      "effect_months": 6,
+      "effect_months_source": "EEF Toolkit — Oral language interventions strand",
+      "effect_months_year": 2021,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "No materials cost; the lift is design judgment. The key risk this skill addresses: well-meaning scaffolding often quietly strips cognitive demand along with the language barrier — students end up doing an easier task in plain English instead of the original task with linguistic support. Walqui's \"high challenge, high support\" principle and Gibbons' work on scaffolding for ELLs ground the practice. Anchor: EEF Oral language interventions +6 months (high evidence security) — the scaffolds this skill produces (frames, visuals, rehearsal, glossaries) sit within that strand. The EAL-specific scaffolding literature is well-developed conceptually but lacks an isolated meta-analysis with a clean effect size; Belland et al. 2017 (computer-based scaffolding in STEM, g=0.46) shows the broader scaffolding principle holds but is not EAL-specific.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/eal-language-development/scaffolded-task-modifier/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
