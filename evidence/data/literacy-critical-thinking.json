@@ -128,6 +128,31 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/source-credibility-evaluation-protocol/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "literacy-critical-thinking/media-literacy-deconstruction-protocol",
+      "manning_name": "media-literacy-deconstruction-protocol",
+      "display_title": "Media Literacy Deconstruction Protocol",
+      "description": "Teach students to deconstruct media texts — adverts, news framing, social posts, film — using the classical media literacy questions: who made this, for whom, what's included, what's omitted, what techniques are used to persuade, and whose interests does it serve.",
+      "tags": [
+        "media-literacy",
+        "critical-thinking",
+        "representation",
+        "persuasion",
+        "deconstruction"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.37,
+      "effect_d_source": "Jeong, Cho & Hwang",
+      "effect_d_journal": "Journal of Communication",
+      "effect_d_year": 2012,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "No materials cost — the media itself is the material — but teachers need to know specific persuasion techniques (visual framing, advertising rhetoric, sound design), how to scaffold deconstruction questions, and how to adapt across media types. Jeong et al. found that interventions with more sessions outperform shorter ones, so a single 'critical media literacy' lesson does not buy durable effects.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/media-literacy-deconstruction-protocol/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
