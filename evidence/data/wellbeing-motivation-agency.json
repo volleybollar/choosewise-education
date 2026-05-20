@@ -55,6 +55,33 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/motivation-diagnostic-task-redesign/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "wellbeing-motivation-agency/ruler-emotional-literacy-sequence",
+      "manning_name": "ruler-emotional-literacy-sequence",
+      "display_title": "RULER Emotional Literacy Sequence",
+      "description": "Run the RULER sequence — Recognise, Understand, Label, Express, Regulate — using the mood meter and classroom charter so students build emotional vocabulary and self-regulation strategies they can actually use, instead of generic 'feelings posters' that never get referenced again.",
+      "tags": [
+        "RULER",
+        "emotional-intelligence",
+        "Brackett",
+        "Yale",
+        "SEL",
+        "emotional-literacy",
+        "mood-meter"
+      ],
+      "effect_months": 4,
+      "effect_months_source": "EEF Toolkit — Social and emotional learning strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.22,
+      "effect_d_source": "Cipriano, Strambler, Naples, Ha, Kirk, Wood et al.",
+      "effect_d_journal": "Child Development",
+      "effect_d_year": 2023,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Full RULER fidelity includes Yale Center training and coaching (real PD cost) but lighter adoption — RULER acronym, mood meter, classroom charter — can be run by trained teachers without certification. Either way, emotional literacy needs sustained practice across the year, not a single 'feelings unit'. Cipriano et al. found SAFE programs (Sequenced, Active, Focused, Explicit) outperform less structured rollouts.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/ruler-emotional-literacy-sequence/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
