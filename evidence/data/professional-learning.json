@@ -80,6 +80,32 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/lesson-study-cycle-designer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "professional-learning/teacher-inquiry-cycle-designer",
+      "manning_name": "teacher-inquiry-cycle-designer",
+      "display_title": "Teacher Inquiry Cycle Designer",
+      "description": "Design a structured teacher inquiry cycle — Timperley's spiral or an action-research loop — that starts from real student-learning evidence, moves through collaborative interpretation, agreed action, and re-measurement, instead of vague 'reflection' that never closes the loop.",
+      "tags": [
+        "inquiry",
+        "Timperley",
+        "practitioner-research",
+        "action-research",
+        "data-informed",
+        "professional-learning"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.41,
+      "effect_d_source": "Ansyari et al.",
+      "effect_d_journal": "Studies in Educational Evaluation",
+      "effect_d_year": 2025,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "Real inquiry cycles take terms or years to run properly: a full loop from collecting student-learning evidence, interpreting it as a team, agreeing action, and re-measuring impact. Ansyari et al. found heterogeneity: effects are largest when collaboration is genuine and leadership actively supports the inquiry. The honest comparison: generic teacher PD sits around d=0.05–0.09 (Sims 2025; 2025 128-study meta-analysis); disciplined inquiry with collaboration and support reaches g=0.41 — but only when the structural conditions are in place.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/teacher-inquiry-cycle-designer/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
