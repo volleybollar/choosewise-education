@@ -201,6 +201,34 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/ai-facilitated-collaborative-learning-designer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "ai-learning-science/formative-assessment-loop-designer",
+      "manning_name": "formative-assessment-loop-designer",
+      "display_title": "Formative Assessment Loop Designer",
+      "description": "Design the inner and outer assessment loops that make AI-mediated instruction actually responsive — each student response feeds into the next instructional move within a task (inner loop: VanLehn) and into the next task in the sequence (outer loop), built on the Black & Wiliam formative-assessment tradition so the AI is doing assessment-for-learning, not just delivering more content.",
+      "tags": [
+        "formative-assessment",
+        "Black-Wiliam",
+        "VanLehn",
+        "inner-loop",
+        "outer-loop",
+        "assessment-loop",
+        "adaptive",
+        "feedback"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.25,
+      "effect_d_source": "Yao, Amos, Snider & Brown",
+      "effect_d_journal": "Educational Research and Evaluation",
+      "effect_d_year": 2024,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "No materials cost for the design itself. The lift is treating each student turn as diagnostic data — what does this response tell us about the student's state, and what move should follow? Yao et al.'s d=0.25 is the conservative meta-analytic anchor for formative assessment broadly; the AI-loop wrapper inherits that evidence and adds VanLehn's separate step-based dialogue effect (d=0.76, see Intelligent Tutoring Dialogue Designer) when the loop is implemented as a true ITS. LLM-based prototypes that follow the inner/outer-loop structure are cheap to build but the evidence base is extrapolated from ITS research, not yet directly tested at scale.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/formative-assessment-loop-designer/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
