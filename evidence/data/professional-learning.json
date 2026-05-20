@@ -131,6 +131,34 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/lesson-observation-protocol-designer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "professional-learning/pedagogical-content-knowledge-developer",
+      "manning_name": "pedagogical-content-knowledge-developer",
+      "display_title": "Pedagogical Content Knowledge Developer",
+      "description": "Build the specific knowledge teachers need to teach their subject well — common misconceptions, productive analogies, the order to introduce ideas, the bits that always trip students up. Shulman's PCK: not just knowing the content, knowing how to teach it.",
+      "tags": [
+        "PCK",
+        "pedagogical-content-knowledge",
+        "teacher-development",
+        "content-knowledge",
+        "misconceptions",
+        "Shulman",
+        "professional-learning",
+        "knowledge-contingent"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.52,
+      "effect_d_source": "Lynch, Gonzalez, Hill & Merritt",
+      "effect_d_journal": "AERA Open",
+      "effect_d_year": 2025,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "PCK is the most subject-specific form of teacher learning, which makes it expensive: subject-specialist PD facilitators (often hard to find at scale), sustained engagement, and a separate PD track per subject area. Lynch et al.'s d=0.52 is the proximal effect on teacher knowledge — the construct PCK directly grows. The downstream effect on student achievement is more modest (d=0.21). Hill, Rowan & Ball 2008 found teachers with stronger Mathematical Knowledge for Teaching produced student gains equivalent to 2–3 extra weeks of instruction per year. Evidence is strongest in STEM; PCK in language and social-science subjects is less well meta-analysed.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/pedagogical-content-knowledge-developer/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
