@@ -28,6 +28,31 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/reading-comprehension-strategy-selector/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "literacy-critical-thinking/text-complexity-analyser",
+      "manning_name": "text-complexity-analyser",
+      "display_title": "Text Complexity Analyser & Scaffold Designer",
+      "description": "Analyse what makes a text hard for your students — vocabulary, sentence structure, background knowledge, text structure — and design targeted scaffolds (pre-teaching, graphic organisers, signal-word work, chunking) so students can climb a challenging text instead of being filtered out by it.",
+      "tags": [
+        "text-complexity",
+        "reading",
+        "scaffolding",
+        "vocabulary",
+        "differentiation"
+      ],
+      "effect_months": 7,
+      "effect_months_source": "EEF Toolkit — Reading comprehension strategies strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.37,
+      "effect_d_source": "Bogaerds-Hazenberg et al.",
+      "effect_d_journal": "Reading Research Quarterly",
+      "effect_d_year": 2021,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Teachers need PD in recognising text structures (cause-effect, compare-contrast, problem-solution), signal-words, and how to design graphic organisers and pre-teaching that fit the specific text. No materials cost but real lesson-design work — and Bogaerds-Hazenberg's delayed-posttest finding (effects faded without sustained practice) means scaffolds have to be revisited across the year, not deployed once.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/text-complexity-analyser/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
