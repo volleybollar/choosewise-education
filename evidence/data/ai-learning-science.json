@@ -172,6 +172,35 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/worked-example-to-problem-solving-transition-designer/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "ai-learning-science/ai-facilitated-collaborative-learning-designer",
+      "manning_name": "ai-facilitated-collaborative-learning-designer",
+      "display_title": "AI-Facilitated Collaborative Learning Designer",
+      "description": "Design AI-supported group tasks that structure interaction, balance participation, and surface the regulation moves that make CSCL actually work — building on the Dillenbourg / Järvelä CSCL tradition and Slavin's cooperative-learning principles, with AI used to prompt, mirror, and scaffold the group rather than replace it.",
+      "tags": [
+        "collaboration",
+        "CSCL",
+        "Dillenbourg",
+        "Järvelä",
+        "cooperative-learning",
+        "Slavin",
+        "group-work",
+        "AI-facilitation",
+        "regulation"
+      ],
+      "effect_months": 5,
+      "effect_months_source": "EEF Toolkit — Collaborative learning approaches strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.71,
+      "effect_d_source": "Xu, Feng, Ning, Wang, Zhou & Li",
+      "effect_d_journal": "Humanities and Social Sciences Communications",
+      "effect_d_year": 2025,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "No materials cost; the lift is in task design. Effective CSCL requires positive interdependence, individual accountability, and a structured role for the technology (Dillenbourg) — not just 'put students in a chat'. Xu et al. (48 studies) report ES=0.71 for technology-supported collaboration broadly, but the AI-facilitated subset is still small: the headline mixes CSCL evidence with the assumption that AI inherits it. EEF rates the evidence security as low (212 studies, large unexplained variance, few recent independent evaluations). Real risks: free-riding, social loafing, and AI taking over the cognitive work the group was supposed to do.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/ai-facilitated-collaborative-learning-designer/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
