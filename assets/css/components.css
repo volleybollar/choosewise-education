@@ -1708,7 +1708,7 @@
   color: #475569;
   margin: 6px 0 12px 0;
   line-height: 1.5;
-  max-width: 640px;
+  max-width: none;
 }
 .et-meta-row {
   display: flex;
@@ -1748,6 +1748,7 @@
   color: var(--et-disclaimer-fg);
   line-height: 1.55;
 }
+.et-disclaimer ul li { max-width: none; }
 .et-disclaimer ul li + li { margin-top: 6px; }
 .et-disclaimer ul li strong { color: #1c1917; }
 .et-disclaimer a { color: #92400e; font-weight: 600; }
