@@ -108,6 +108,32 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/self-efficacy-builder-sequence/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "wellbeing-motivation-agency/agency-scaffold-generator",
+      "manning_name": "agency-scaffold-generator",
+      "display_title": "Agency Scaffold Generator",
+      "description": "Build scaffolds that move students from teacher-directed to self-directed — meaningful choice structures, voice routines that actually get acted on, and a gradual release sequence (modelling, guided practice, independent work) instead of throwing them into the deep end and calling it autonomy.",
+      "tags": [
+        "agency",
+        "student-voice",
+        "choice",
+        "autonomy",
+        "self-regulation",
+        "gradual-release"
+      ],
+      "effect_months": 7,
+      "effect_months_source": "EEF Toolkit — Metacognition and self-regulation strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.63,
+      "effect_d_source": "Su & Reeve",
+      "effect_d_journal": "Educational Psychology Review",
+      "effect_d_year": 2011,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Mindset shift from director to coach is the real cost — teachers need to design meaningful choice structures (not 'pick a colour'), run gradual release sequences (modelling → guided → independent), and develop the skill of actually receiving and acting on student voice. Su & Reeve found brief skill-based training (1–3 h) was effective, so the start-up is modest — but transfer to durable classroom practice requires follow-through.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/agency-scaffold-generator/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
