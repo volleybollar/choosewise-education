@@ -53,6 +53,31 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/text-complexity-analyser/SKILL.md",
       "verification_status": "verified"
+    },
+    {
+      "id": "literacy-critical-thinking/disciplinary-writing-scaffold",
+      "manning_name": "disciplinary-writing-scaffold",
+      "display_title": "Disciplinary Writing Scaffold",
+      "description": "Design discipline-specific writing scaffolds — Toulmin for argument, CER (claim-evidence-reasoning) for science, IMRAD for lab reports, narrative arc for English — so students learn the genre conventions of each subject, not just generic 'good writing' that lands nowhere.",
+      "tags": [
+        "disciplinary-literacy",
+        "writing",
+        "genre-pedagogy",
+        "scaffold",
+        "academic-language"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.59,
+      "effect_d_source": "Graham, Tate & Yang",
+      "effect_d_journal": "Journal of Educational Psychology",
+      "effect_d_year": 2023,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Teachers need to know their discipline's genre conventions (different for science, history, English), model them, and embed scaffolds into existing writing tasks. Higher PD lift than reciprocal teaching because scaffolds must be discipline-specific, but no materials cost. Sustained PD matters — scaffolds work when teachers can model the discipline's reasoning, not just supply a template.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/disciplinary-writing-scaffold/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
