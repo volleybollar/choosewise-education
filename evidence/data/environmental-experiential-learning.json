@@ -120,6 +120,35 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/ecological-inquiry-anchor-designer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "environmental-experiential-learning/interdisciplinary-real-world-connection-mapper",
+      "manning_name": "interdisciplinary-real-world-connection-mapper",
+      "display_title": "Interdisciplinary Real-World Connection Mapper",
+      "description": "Map the cross-disciplinary connections that anchor a unit in a real-world context — the move that links one subject's content to another via a problem, place or phenomenon that doesn't respect timetable boundaries. Anchored on Zhou, Dong & Wang (2025) Research in Science Education — a meta-analysis of 40 studies (79 effect sizes, 15,577 students) reporting STEM integration vs traditional instruction g=0.661 (95% CI 0.548–0.774). The actionable moderator finding sits directly under this skill: effect sizes were largest for context integration, smaller for content integration, smallest for tool integration — meaning the real-world-context mapping move is where the evidence is strongest. Triangulated against two important boundary conditions: (1) Chen, Chen, Wang, Tsai & Kirschner (2025) Review of Educational Research is the bigger and newer anchor (109 studies, 2010–2022) reporting medium knowledge effects, but is actively contested by a 2026 RER commentary (García-Carmona, Toma & Quílez-Pardo) flagging two methodological flaws — inclusion of studies that don't meet integrated-STEM inclusion criteria, and failure to isolate disciplinary integration from confounding instructional factors. (2) Kreijkes & Greatorex (2024) Review of Education conducted a review-of-reviews of integrated-curriculum approaches (1990–mid-2022, 9 reviews) and rated all of them critically low quality on AMSTAR 2; their conclusion — subject identity and progression must lead, integration is a tool not a structure — is the right framing for this skill. Use to plan the cross-curricular mapping that anchors a real-world unit; pair with Phenomenon-Based Unit Anchor in Global & Cross-Cultural Pedagogies (same primary source, curriculum-design level) and Backwards Design Unit Planner in Curriculum & Assessment Design.",
+      "tags": [
+        "interdisciplinary",
+        "real-world",
+        "STEM-integration",
+        "context-integration",
+        "cross-curricular",
+        "Zhou-Dong-Wang",
+        "Chen-Kirschner",
+        "Kreijkes-Greatorex",
+        "Research-in-Science-Education"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.66,
+      "effect_d_source": "Zhou, Dong & Wang",
+      "effect_d_journal": "Research in Science Education",
+      "effect_d_year": 2025,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "The conceptual move — pick a real-world anchor, map which curriculum content from which subjects it pulls in, then sequence the connections — is straightforward to plan but expensive to deliver well. Three concrete costs: (1) cross-departmental coordination — the strongest version of this skill needs at least two teachers planning together across subject boundaries, which collides with timetabling, planning-time allocation, and departmental identity (Kreijkes & Greatorex's point about 'subject identity must lead' is real); (2) integration depth discipline — Zhou et al.'s moderator finding is actionable: prioritise context integration (real-world problem frames cross-disciplinary inquiry) over tool integration (using the same software across subjects), because the effect-size differential is large; (3) assessment alignment — cross-curricular work doesn't fit single-subject grade reporting, so assessment needs an explicit decision about whether the unit produces subject-specific grades, a combined grade, or both. Source-recency note: the Chen et al. 2025 RER meta-analysis is bigger and newer, but the 2026 García-Carmona commentary identifying inclusion-criteria and confounding flaws means using it as the primary anchor would carry the contestation forward; Zhou 2025's precise g=0.66 with a clean uncontested methodology is the better citation. For Swedish schools the closest natural home is ämnesövergripande arbete in middle years and project-based upper-secondary units; Kreijkes & Greatorex's cautionary point — subject identity and progression have to lead — is the implementation principle that distinguishes good cross-curricular mapping from cosmetic integration that dilutes both subjects.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/interdisciplinary-real-world-connection-mapper/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
