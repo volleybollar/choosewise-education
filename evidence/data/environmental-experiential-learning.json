@@ -91,6 +91,35 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/experiential-learning-cycle-designer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "environmental-experiential-learning/ecological-inquiry-anchor-designer",
+      "manning_name": "ecological-inquiry-anchor-designer",
+      "display_title": "Ecological Inquiry Anchor Designer",
+      "description": "Anchor a unit of work in a piece of local living systems — a hedgerow, a pond, a stretch of urban canal, a tree on the school grounds — so the curriculum content emerges from sustained inquiry into that ecosystem rather than being delivered onto it. Anchored on van de Wetering, Leijten, Spitzer & Thomaes (2022) Journal of Environmental Psychology — a meta-analysis of 169 studies (512 effect sizes, 176,007 participants, 43 countries, 5 decades) reporting environmental attitudes g=0.384, intentions g=0.256 and self-reported behaviour g=0.410. Knowledge effects were larger (g=0.953) but the card anchors on attitudes because the knowledge effect is the classic curriculum-test inflation pattern — pre/post tests typically measure what was just taught. The 5-decade span itself is honest: the field's mainstream measurement model is stable enough that recent meta-analyses (e.g. the 2025 climate-change-education meta in Frontiers in Education: knowledge g=0.77, attitudes g=0.39, behaviour g=0.36) reproduce the same effect-size profile on narrower content. Honest evidence framing: no matching EEF strand exists — Outdoor Adventure Learning was downgraded for evidence security and covers a different construct (adventure activities, not ecological inquiry) anyway, so we don't map to it. Pairs with Place-Based Inquiry Anchor in the Global & Cross-Cultural Pedagogies domain (same anchor source, curriculum-design level); this card operates at the lesson-sequence / inquiry-launch level.",
+      "tags": [
+        "ecological-inquiry",
+        "environmental-education",
+        "inquiry",
+        "local-ecosystems",
+        "biodiversity",
+        "van-de-Wetering",
+        "attitudes",
+        "Journal-of-Environmental-Psychology",
+        "place-based"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.38,
+      "effect_d_source": "van de Wetering, Leijten, Spitzer & Thomaes",
+      "effect_d_journal": "Journal of Environmental Psychology",
+      "effect_d_year": 2022,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "The conceptual move — pick a local ecological anchor, return to it repeatedly across the unit, let curriculum content emerge from sustained observation — is straightforward to plan. The real cost lives in three places: (1) ecological literacy gap — most secondary teachers have subject training, not field-naturalist training, and need scaffolding to read a hedgerow or pond as a curriculum object rather than a backdrop; (2) repeated access — the anchor only pays off if students return to it multiple times across weeks (one visit produces a memorable lesson, not an inquiry arc), which collides with timetabling; (3) assessment redesign — observation-driven inquiry doesn't fit a typical end-of-unit test, so assessment needs to handle field notes, hypotheses tested over time, and reflective writing. The attitudes effect (g=0.38) is real and durable; the knowledge effect headline (g=0.95) is partly test-inflation and shouldn't be the implementation case. For Swedish schools the closest natural homes are biologi and NO field studies in middle years and laboration cycles in upper secondary; pair with the Outdoor Learning Sequence Designer card for the lesson-by-lesson outdoor structure. Source-reuse note: van de Wetering 2022 also anchors Place-Based Inquiry Anchor in Global & Cross-Cultural Pedagogies — that card is curriculum-design level (which anchor to choose for a unit); this card is inquiry-launch level (how to design the inquiry sequence the anchor supports).",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/ecological-inquiry-anchor-designer/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
