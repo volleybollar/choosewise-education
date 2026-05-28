@@ -148,6 +148,36 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/kud-knowledge-type-mapper/SKILL.md",
       "verification_status": "unverified"
+    },
+    {
+      "id": "curriculum-assessment/curriculum-knowledge-architecture-designer",
+      "manning_name": "curriculum-knowledge-architecture-designer",
+      "display_title": "Curriculum Knowledge Architecture Designer",
+      "description": "Map the epistemic structure of a subject to determine knowledge types and inform curriculum sequencing. Built on Basil Bernstein's distinction between hierarchical knowledge structures (vertical integration, each level depends on the last — maths, physics, formal logic) and horizontal knowledge structures (segmented knowledge with multiple legitimate entry points — literature, history, social sciences), extended by Karl Maton's Legitimation Code Theory (2014) which adds the expert / knower distinction (strong specialised codes in disciplinary STEM vs strong cultural-identity content in disciplinary humanities). The mapping informs how the curriculum should be sequenced and what kinds of assessment fit. Use when designing courses, restructuring programmes, or analysing a subject's knowledge architecture before scope-and-sequence work. Verification status: unverified — this is philosophical scholarship in the sociology of education rather than intervention research. Bernstein and Maton produce no pooled student-outcome effect sizes (that's not the kind of question their tradition answers); what they produce is a precise theoretical vocabulary for the architectural question that scope-and-sequence work then operationalises.",
+      "tags": [
+        "knowledge-structure",
+        "curriculum-architecture",
+        "Bernstein",
+        "Maton",
+        "Legitimation-Code-Theory",
+        "epistemic-design",
+        "hierarchical",
+        "horizontal",
+        "expert-knower",
+        "sociology-of-education"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "The cost is intellectual rather than logistical. Mapping a subject's knowledge architecture using Bernstein/Maton theory requires familiarity with the sociology-of-education literature most curriculum coordinators don't have, and the willingness to make claims about a discipline's epistemic shape that can be contested. Many subjects (especially the humanities) attract genuine scholarly disagreement about whether they have hierarchical or horizontal structure — the literature on whether literature is a horizontal knowledge structure is itself a horizontal knowledge structure, which is funny once and serious twice. Departments adopting this skill typically commission external consultation or invest in dedicated PD (Maton's Legitimation Code Theory has accredited training routes). Best used at the start of a major curriculum redesign — once a year, not termly. Pairs with Scope and Sequence Designer downstream: this card asks 'what is this subject's epistemic shape', the Scope and Sequence Designer asks 'given that shape, how should we sequence the programme'. Same unverified-because-philosophical pattern as the WEIRD validity checker (Global & Cross-Cultural Pedagogies) and the curriculum-alignment domain's foundational scholarship cards.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/curriculum-knowledge-architecture-designer/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
