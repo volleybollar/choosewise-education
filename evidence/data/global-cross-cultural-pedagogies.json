@@ -65,6 +65,36 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/cpa-sequence-designer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/culturally-responsive-teaching-designer",
+      "manning_name": "culturally-responsive-teaching-designer",
+      "display_title": "Culturally Responsive Teaching Designer",
+      "description": "Redesign a lesson to centre students' cultural backgrounds, community knowledge, and lived experience in the curriculum, in instruction, and in classroom interaction. Built on Gay's culturally responsive teaching, Ladson-Billings' culturally relevant pedagogy, Paris & Alim's culturally sustaining pedagogy, and Hammond's \"ready for rigor\" framework. Honest evidence note: the most-cited review — Aronson & Laughter (2016) Review of Educational Research — is a qualitative synthesis of 45 empirical studies that consistently found positive student outcomes across content areas; it is not a pooled meta-analysis and reports no Cohen's d. The most recent quantitative meta-analysis (Cipriano et al. 2024 culturally responsive SEL) covered only 7 studies on SEL outcomes, not academic achievement primarily. The construct has 30+ years of conceptual scholarship and converging qualitative evidence; what it does not yet have is a robust Western-style pooled effect size on academic outcomes. We include the card with that gap visible because excluding it would treat measurement as a synonym for quality.",
+      "tags": [
+        "culturally-responsive",
+        "Gay",
+        "Ladson-Billings",
+        "Hammond",
+        "Paris",
+        "Alim",
+        "culturally-sustaining",
+        "equity",
+        "inclusion",
+        "identity"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "Implementing CRT is not a checklist of activities — it requires sustained professional learning on (1) cultural self-awareness, (2) knowledge of students' communities and out-of-school knowledge bases, (3) curricular redesign that integrates cultural content authentically rather than as add-on tokenism, and (4) classroom interaction patterns (questioning, discussion norms, error response) that support cultural identity. Hammond's Culturally Responsive Teaching and the Brain framework estimates 2–3 years of consistent PD for the practice to become embedded, with leadership-level commitment to curriculum review. Quick-fix CRT (multicultural celebration days, surface \"diverse\" examples) reliably fails to produce outcome effects — that is part of why the quantitative evidence base remains thin: the construct is operationalised so differently across studies that pooled effect sizes have not been credibly computed.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/culturally-responsive-teaching-designer/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
