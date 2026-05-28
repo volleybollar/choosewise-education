@@ -256,6 +256,34 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/technological-pedagogical-content-knowledge-developer/SKILL.md",
       "verification_status": "unverified"
+    },
+    {
+      "id": "ai-learning-science/learning-analytics-interpretation-guide",
+      "manning_name": "learning-analytics-interpretation-guide",
+      "display_title": "Learning Analytics Interpretation Guide",
+      "description": "Read LMS and quiz-platform learning-analytics dashboards and translate the patterns into teaching decisions — which students need re-teaching, which concepts the class collectively missed, which engagement signals are real versus noise. Anchored on the most recent meta-analysis: dashboards produce an around-average effect on academic performance (g=0.36), with the effect concentrated in higher education (K-12 effects are weaker) and in knowledge-acquisition outcomes (engagement and SEL outcomes show much smaller effects). Most useful when the dashboard data feeds directly into the next lesson, not just into report-card endpoints.",
+      "tags": [
+        "analytics",
+        "data",
+        "dashboards",
+        "LMS",
+        "formative",
+        "Siemens",
+        "data-literacy",
+        "interpretation"
+      ],
+      "effect_months": 4,
+      "effect_months_source": "EEF Toolkit — Digital technology strand",
+      "effect_months_year": 2021,
+      "effect_d": 0.36,
+      "effect_d_source": "Kokoç, Bütüner & Güler",
+      "effect_d_journal": "Journal of Research on Technology in Education",
+      "effect_d_year": 2025,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Dashboards exist natively in Canvas, Itslearning, Microsoft Education Insights and Google Classroom analytics — no procurement cost. The investment is in data literacy: teachers need to learn which patterns warrant action, which are noise, and how to read confidence around small-n classroom data. Roughly 3–5 hours of PD per teacher plus ongoing practice. Important caveats from Kokoç et al.'s moderator analysis: the effect concentrates in higher education and the meta-analytic effect lives mainly in knowledge-acquisition outcomes; Liu, Wang & Xu (2025) found effects on social-emotional and cognitive-skill outcomes are much smaller. A 2024 ACM systematic review (\"Have Learning Analytics Dashboards Lived Up to the Hype?\") concluded the evidence remains qualified, particularly for K-12.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-learning-science/learning-analytics-interpretation-guide/SKILL.md",
+      "verification_status": "verified"
     }
   ]
 }
