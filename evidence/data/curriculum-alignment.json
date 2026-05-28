@@ -33,6 +33,35 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-alignment/coverage-audit/SKILL.md",
       "verification_status": "unverified"
+    },
+    {
+      "id": "curriculum-alignment/curriculum-crosswalk",
+      "manning_name": "curriculum-crosswalk",
+      "display_title": "Curriculum Crosswalk",
+      "description": "Compare two or more band-tagged curriculum frameworks and produce a framework-neutral topic matrix showing coverage and gaps across all inputs, plus an optional reference-centric Professional Learning Community crosswalk document when a reference framework is supplied. Anchored on the methodological scholarship of curriculum alignment: Webb's Depth of Knowledge (1997, 2007) for cognitive-complexity coding, Porter's alignment index (2002) for the P in [0,1] agreement metric between any two coded curricula, Hess's Cognitive Rigor Matrix (2004–2012) for combining Bloom's revised taxonomy with Webb's DoK, and Anderson & Krathwohl (2001) for the cognitive-process dimensions. These methodological frameworks are how alignment gets measured; the crosswalk applies them. Verification status: shipped unverified because a crosswalk is a methodological tool, not an intervention — the upstream evidence (Schmidt, Guo & Houang 2021's OTL finding, the TIMSS curriculum-coverage tradition) addresses why alignment matters, not what a specific crosswalk procedure produces. Source-voice preservation is built into the methodology: the matrix records each framework's own labels rather than rewriting them.",
+      "tags": [
+        "curriculum-alignment",
+        "crosswalk",
+        "framework-comparison",
+        "Webb-alignment",
+        "Porter-content-analysis",
+        "Hess-Cognitive-Rigor-Matrix",
+        "Anderson-Krathwohl",
+        "PLC",
+        "source-voice-preservation"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "A crosswalk is more demanding than a coverage audit because both (or all) input frameworks need to be coded into the same content × cognitive matrix before they can be compared — and that coding is non-trivial when the source frameworks use different terminology, granularity, and implicit cognitive expectations. A two-framework crosswalk typically takes 12–25 hours per subject for a first pass; the time scales roughly linearly with the number of frameworks compared. Schools with internal curriculum coordinators already trained in Webb/Hess methodology absorb this cost more efficiently than schools commissioning external alignment consultants. The output's value compounds: once two frameworks are crosswalked, future additions (a new textbook, a new state standard, a new assessment) can be mapped against the same neutral matrix rather than re-comparing pairwise. Same unverified-because-methodological pattern as the Coverage Audit card.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-alignment/curriculum-crosswalk/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
