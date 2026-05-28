@@ -95,6 +95,37 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/culturally-responsive-teaching-designer/SKILL.md",
       "verification_status": "unverified"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/place-based-inquiry-anchor",
+      "manning_name": "place-based-inquiry-anchor",
+      "display_title": "Place-Based Inquiry Anchor",
+      "description": "Anchor curriculum learning in a specific local place — built environment, ecosystem, community, heritage — so students develop subject knowledge through the place rather than abstracted from it. Two traditions converge here: Sobel and Gruenewald's community-and-ecology-focused place-based education, which has a substantial meta-analytic base (Van de Wetering et al. 2022 found g=0.38 on attitudes and g=0.41 on behavior across 169 studies and 176,007 participants in 43 countries), and Castagno & Brayboy's Indigenous education tradition, which operates in interpretive scholarship without pooled effect sizes. The Indigenous tradition is not absent of evidence — it is evidenced differently. Use this skill when connecting academic content to students' local environment and heritage; pair with culturally responsive teaching when working with Indigenous, immigrant, or heritage-rich communities.",
+      "tags": [
+        "place-based",
+        "Indigenous-education",
+        "Castagno-Brayboy",
+        "Gruenewald",
+        "Sobel",
+        "local",
+        "land",
+        "community",
+        "stewardship",
+        "decolonising",
+        "environmental-education"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.38,
+      "effect_d_source": "van de Wetering, Leijten, Spitzer & Thomaes",
+      "effect_d_journal": "Journal of Environmental Psychology",
+      "effect_d_year": 2022,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Doesn't require special materials — the place is the material — but does require teacher time to (1) map curriculum standards to local-place opportunities, (2) build relationships with community partners (farms, museums, elders, municipal departments), and (3) handle logistics of out-of-classroom learning when relevant. Initial mapping is roughly 10–20 hours per teacher per subject; afterwards the place-curriculum connections compound and reuse across cohorts. Indigenous place-based education requires additional time and the participation of community knowledge-holders — not something a teacher implements alone. Source-outcome note: Van de Wetering et al. 2022 reports four outcome-family effect sizes (knowledge g=0.95, attitudes g=0.38, intentions g=0.26, behavior g=0.41); the toolkit anchors on the attitudes outcome (g=0.38) because it is the closest analog to engagement and affect with content, avoids inflating from curriculum-test alignment (the knowledge outcome), and sits in the middle of the meta's reported spread.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/place-based-inquiry-anchor/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
