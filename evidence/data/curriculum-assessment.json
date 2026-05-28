@@ -119,6 +119,35 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/scope-and-sequence-designer/SKILL.md",
       "verification_status": "unverified"
+    },
+    {
+      "id": "curriculum-assessment/kud-knowledge-type-mapper",
+      "manning_name": "kud-knowledge-type-mapper",
+      "display_title": "KUD Knowledge Type Mapper",
+      "description": "Classify curriculum content into Wiggins & McTighe's Know / Understand / Do categories to align teaching and assessment approaches. Different from the KUD Chart Author skill in the Curriculum Alignment domain: that skill authors a fresh KUD chart for a target objective (forward design); this skill takes existing curriculum content — inherited from textbooks, prior teachers, national standards — and classifies each item into K/U/D buckets so the right assessment method can be selected for each (diagnostic and routing). Bernstein's distinction between hierarchical and horizontal knowledge structures (Bernstein 1999, 2000) shapes the mapping: mathematics and physics Knows often have to precede Understands; literature and sociology Understands can legitimately sit alongside many Knows. Verification status: unverified — same UbD framework as the chart-authoring card, no pooled Cohen's d on student outcomes; Bernstein's knowledge-structures theory is philosophical scholarship rather than meta-analytic.",
+      "tags": [
+        "KUD",
+        "knowledge-type",
+        "assessment-routing",
+        "Wiggins-McTighe",
+        "Bernstein",
+        "hierarchical-knowledge",
+        "horizontal-knowledge",
+        "curriculum-mapping",
+        "UbD"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Routine classification once the school has internalised the K/U/D distinctions, but real cost lives in the disagreements that surface. Inherited curriculum content is often ambiguous between Know and Understand — 'explain photosynthesis' can sit in either bucket depending on whether the school treats it as factual recall of the equation or transferable understanding of energy conversion. Resolving those disagreements requires departmental conversations about what the school actually wants students to take away, which is valuable work but typical curriculum teams find slow. Plan for 6–12 hours per subject for an initial mapping pass, plus quarterly review as content shifts. Bernstein-informed mapping pays off most in vertically integrated subjects (maths, science) where mis-classification cascades — if a Year 8 'Understand' is treated as a Year 8 'Know' the Year 9 work that depended on it collapses. Same unverified-because-framework pattern as the KUD Chart Author card (Curriculum Alignment) and the Backwards Design Unit Planner card (this domain).",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/kud-knowledge-type-mapper/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
