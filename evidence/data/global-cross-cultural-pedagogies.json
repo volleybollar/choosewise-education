@@ -126,6 +126,35 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/place-based-inquiry-anchor/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/cross-cultural-task-validity-checker",
+      "manning_name": "cross-cultural-task-validity-checker",
+      "display_title": "Cross-Cultural Task Validity Checker",
+      "description": "Audit an educational practice for cultural assumptions and cross-cultural validity. Ask the WEIRD questions (Henrich, Heine & Norenzayan 2010): does the evidence base for this practice rest on Western, Educated, Industrialised, Rich, Democratic samples? What does it assume about parent-school relationships, classroom hierarchy, individual-versus-collective achievement, learning-as-display-of-knowledge? Where does it not transfer? Use when adapting curricula for diverse contexts, when questioning a \"universal\" practice claim, or when reviewing whether US/UK research generalises to a Swedish (or any non-WEIRD-default) context. Framework, not intervention — no Cohen's d applies; the value is in better adoption decisions and avoiding the install of practices whose evidence base doesn't generalise. The bias has persisted (Nielsen et al. 2017 found roughly 90% of developmental-psych samples still WEIRD a decade after the original paper); the Deffner, Rohrer & McElreath 2022 causal-modelling framework provides tools for thinking through which findings should and shouldn't generalise.",
+      "tags": [
+        "WEIRD-bias",
+        "Henrich",
+        "cross-cultural",
+        "cultural-assumptions",
+        "validity",
+        "decolonising",
+        "global-pedagogy",
+        "generalizability",
+        "evidence-critique"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "Doesn't require materials, PD investment, or curriculum change — it's a thinking discipline applied before adoption decisions. The cost is intellectual: leadership needs to be willing to look at evidence behind a \"proven practice\" and ask whether the proof transfers. Most useful at school and district decision points (curriculum adoption, programme rollout, technology procurement) where the savings from rejecting a poorly-transferring practice are large. Note on verification status: this is a framework, not an intervention, so the unverified tag is structural rather than a quality judgement — same pattern as TPACK Developer in the AI Learning Science domain. Not having a Cohen's d here is itself the point: practices that come with strong d-values from WEIRD samples may still fail in non-WEIRD contexts, so the framework warns specifically against treating high effect sizes as automatic warrants.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/cross-cultural-task-validity-checker/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
