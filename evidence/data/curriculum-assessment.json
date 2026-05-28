@@ -32,6 +32,35 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/differentiation-adapter/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "curriculum-assessment/project-brief-designer",
+      "manning_name": "project-brief-designer",
+      "display_title": "Project Brief Designer (PBL)",
+      "description": "Design a project-based learning brief with a driving question, milestones, and assessment criteria — the spine that turns PBL from 'fun activity' into substantive learning. Anchored on Chen & Yang's 2019 meta-analysis in Educational Research Review (d=0.71 across 30 studies, medium-to-large positive effect on academic achievement compared to traditional instruction). Triangulated with Zhang & Ma's 2023 Frontiers in Psychology meta-analysis (66 studies, 190 effect sizes) which adds a crucial moderator finding: duration matters significantly. Projects of 9–18 weeks produce the strongest effects (SMD=0.673); shorter projects (1–8 weeks) drop to SMD=0.498; single-experiment 'project days' drop further to SMD=0.359; and projects running beyond 18 weeks decline to SMD=0.300 as students lose focus. Most effective in Asian contexts, high school settings, and groups of 4–5. The driving question is the structural element that distinguishes PBL from generic group work — without it, projects drift into activity rather than inquiry.",
+      "tags": [
+        "PBL",
+        "project-based-learning",
+        "inquiry",
+        "driving-question",
+        "authentic-assessment",
+        "milestones",
+        "Chen-Yang",
+        "Zhang-Ma",
+        "duration-moderator"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.71,
+      "effect_d_source": "Chen & Yang",
+      "effect_d_journal": "Educational Research Review",
+      "effect_d_year": 2019,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "PBL requires substantive restructuring teachers cannot always make alone: (1) Time architecture — projects in the 9–18 week sweet spot need scheduled extended-period blocks, which most timetabling structures don't naturally support; (2) Assessment design — a project brief needs both formative milestones and a summative authentic-assessment plan, both of which require curriculum-design work beyond writing a standard test; (3) Teacher facilitation skill — facilitating productive inquiry around a driving question is non-trivial; teachers transitioning from direct instruction typically need 1–2 cycles before the facilitation patterns become natural; (4) Leadership protection — early PBL units tend to look messier than direct instruction, and leadership needs to read the mess as productive struggle rather than failure of management. Implementation-gap risk is real: the literature documents that PBL-as-implemented often defaults to 'group projects with little inquiry structure', which delivers little of the meta-analytic effect. Zhang & Ma 2023's duration moderator is the cleanest school-level lever to focus on: 9–18 weeks per project, smaller groups, fewer projects of greater depth. EEF strand note: EEF Collaborative Learning Approaches (+5 months) is conceptually adjacent because PBL is typically group-based, but PBL is not synonymous with collaborative learning (individual PBL exists and group work outside PBL is the rule rather than the exception), so we don't map.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/project-brief-designer/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
