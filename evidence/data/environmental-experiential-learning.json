@@ -32,6 +32,35 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/outdoor-learning-sequence-designer/SKILL.md",
       "verification_status": "unverified"
+    },
+    {
+      "id": "environmental-experiential-learning/service-learning-project-designer",
+      "manning_name": "service-learning-project-designer",
+      "display_title": "Service Learning Project Designer",
+      "description": "Design a service-learning project connecting genuine community need with embedded curriculum learning. Built on the work of Shelley Billig and others, with Celio, Durlak & Dymnicki's 2011 meta-analysis (62 studies, 11,837 students) reporting positive effects across five outcomes (attitudes toward self, attitudes toward school, civic engagement, social skills, academic performance) at d range 0.27–0.43. Honest evidence note: Filges et al.'s 2022 Campbell Systematic Review applied stricter methodological filters than Celio 2011 and concluded the evidence is inconclusive — 18 of 37 located studies were excluded for 'critical risk of bias', and too few remaining studies reported on the same outcome to pool effects. The card anchors on d=0.30 (conservative, toward the lower end of Celio's range) to acknowledge that the average implementation evidence is methodologically weaker than the headline d=0.43 suggests. Celio's actionable finding remains useful: programmes following recommended practices — linking explicitly to curriculum, including student voice, involving community partners genuinely, and structured reflection — produced larger effects than programmes lacking these elements.",
+      "tags": [
+        "service-learning",
+        "Billig",
+        "community",
+        "civic-engagement",
+        "experiential",
+        "reflection",
+        "Celio",
+        "Filges",
+        "Campbell-review"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.30,
+      "effect_d_source": "Celio, Durlak & Dymnicki",
+      "effect_d_journal": "Journal of Experiential Education",
+      "effect_d_year": 2011,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "Service learning done well requires structural commitments most schools don't have: (1) community partnerships — finding genuine community needs, building relationships with partners, sustaining those relationships across staff turnover; (2) structured reflection time — Celio's meta-analysis identified reflection as the strongest predictor of effect, but reflection requires planned time in the curriculum that often collides with subject content time; (3) assessment redesign — service learning's outcomes don't fit a typical end-of-unit test, so assessment design has to handle authentic performance and reflective writing; (4) safeguarding and logistics — students in community settings need safer-recruitment-style vetting of partner organisations, transport, supervision. Quick-fix service learning (one-off community visit, no reflection, no curriculum link) reliably produces small or null effects — Filges 2022's bias finding partly reflects programmes that didn't have these structural supports. PD investment is real — 1–2 cycles before a department can run quality service learning consistently. For Swedish schools, the closest natural home is samhällskunskap and biologi projects in upper secondary, where civic-engagement curriculum already provides the spine. Source-recency note: Celio 2011 is 15 years old, but no quality successor meta-analysis exists — Filges 2022 Campbell Review applied stricter filters and found insufficient data to pool, which is a downgrade signal worth carrying transparently rather than a replacement anchor.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/service-learning-project-designer/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
