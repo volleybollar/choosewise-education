@@ -149,6 +149,35 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/interdisciplinary-real-world-connection-mapper/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "environmental-experiential-learning/biophilic-learning-environment-designer",
+      "manning_name": "biophilic-learning-environment-designer",
+      "display_title": "Biophilic Learning Environment Designer",
+      "description": "Design the physical learning space so it has sustained contact with living systems — daylight, indoor plants, natural materials, views of green space, water elements, organic forms. Anchored on Kellert's biophilic design principles and Kaplan & Kaplan's Attention Restoration Theory (ART) — directed attention depletes through sustained classroom work, and 'soft fascinations' (leaves moving, clouds, water) restore it. The evidence anchor is Liu, Yang & Shao (2025) Educational Psychology Review three-level meta-analysis — 74 reports, 669 effect sizes, 3,032,512 participants across the lifespan. Honest framing of the effect-size profile: social functioning r=0.208 (d≈0.43, moderate); academic performance r=0.065 (d≈0.13, small); cognitive functioning r=0.034 (d≈0.07, essentially trivial). The wellness case for biophilic classroom design is real; the academic-achievement case is honestly weak; the cognitive-functioning case at the pooled level barely moves. The field's enthusiasm for biophilic classroom design runs ahead of the pooled effect-size evidence on learning outcomes — use this skill primarily for the social/affective/wellbeing case (overlaps with the Belonging Climate Builder card in Wellbeing, Motivation & Agency), not as a primary academic-achievement lever. Also note: the 2025 meta covers nature contact across the lifespan broadly, not biophilic classroom design specifically — it's the best meta-analytic proxy available but the construct match is approximate. Vella-Brodrick & Gilowska (2022) Educational Psychology Review's earlier PRISMA-guided systematic review (12 studies, ages 5–18) found substantial support for cognitive benefits on selective attention, sustained attention and working memory; the larger 2025 meta-analytic synthesis attenuates that picture once pooled across the lifespan and across study designs, which is a 'narrower review showed bigger effects, larger meta found smaller pooled effects' pattern worth carrying forward transparently. No matching EEF strand: built-environment / biophilic interventions don't map cleanly to any EEF strand.",
+      "tags": [
+        "biophilic-design",
+        "built-environment",
+        "Kellert",
+        "Kaplan",
+        "attention-restoration-theory",
+        "Vella-Brodrick",
+        "Liu-Yang-Shao",
+        "nature-contact",
+        "learning-environment"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.13,
+      "effect_d_source": "Liu, Yang & Shao",
+      "effect_d_journal": "Educational Psychology Review",
+      "effect_d_year": 2025,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "Biophilic retrofit is expensive in absolute terms — daylight modifications, indoor plant systems, natural-material surfaces, view-of-green-space provisions, water elements — and the case for the cost lives mostly in the wellbeing/social-functioning evidence (d≈0.43 from Liu et al. 2025), not the academic-achievement evidence (d≈0.13) or cognitive-functioning evidence (d≈0.07). Three concrete implementation considerations: (1) New build vs retrofit: biophilic principles cost roughly 1–3% on new-build school projects but 10–25% on deep retrofits of existing buildings — the case for retrofit needs to be made on wellbeing grounds, not learning grounds; (2) Maintenance burden: indoor plants in classrooms require sustained gardening labour that schools rarely budget for, and dying plants signal neglect — start small (one resilient species per classroom, e.g. pothos or sansevieria) and grow only what is sustainable; (3) Outdoor-window access: of all biophilic interventions, view-of-green-space from a classroom window is the cheapest to deliver and the closest to the cognitive-restoration mechanism in ART — prioritise this in classroom-allocation decisions. Verification-status note: shipped as verified-partial because Liu et al. 2025 provides pooled effect sizes for academic and cognitive outcomes, but the construct match is approximate (nature contact broadly across lifespan, not biophilic classroom design specifically). The wellbeing case is the honest case — biophilic design as social/affective infrastructure, not academic-achievement intervention.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/biophilic-learning-environment-designer/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
