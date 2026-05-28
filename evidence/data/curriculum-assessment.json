@@ -90,6 +90,35 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/backwards-design-unit-planner/SKILL.md",
       "verification_status": "unverified"
+    },
+    {
+      "id": "curriculum-assessment/scope-and-sequence-designer",
+      "manning_name": "scope-and-sequence-designer",
+      "display_title": "Scope and Sequence Designer",
+      "description": "Design a scope and sequence showing vertical and horizontal curriculum coherence across a programme or year. Vertical coherence = topics build on prior topics in a defensible order (Bruner's spiral curriculum at scale: revisit core concepts with increasing complexity). Horizontal coherence = topics across subjects at the same year level support each other rather than conflict (the maths the science class needs is taught before that science unit). Built on Bruner's 1960 Process of Education and 1966 Toward a Theory of Instruction, and the learning-progressions tradition (Heritage 2008, Corcoran, Mosher & Rogat 2009, National Academies Taking Science to School 2007). Sits at the architectural level above the Coverage Audit, Learning Progression Builder, and Developmental Band Translator cards — those operate on individual items, single progressions, and band-tagging respectively; this card designs the meta-structure that the others fill in. Verification status: unverified. Scope-and-sequence work has no isolated meta-analysis; the underlying scholarship is interpretive (Bruner) and methodological (learning-progressions tradition) rather than pooled-effect-size.",
+      "tags": [
+        "scope-and-sequence",
+        "curriculum-coherence",
+        "vertical-coherence",
+        "horizontal-coherence",
+        "learning-progressions",
+        "programme-design",
+        "Bruner",
+        "spiral-curriculum",
+        "Heritage"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "Scope and sequence design is multi-year committee work, not single-teacher work. For a full-school subject programme, the typical cost is: (1) 80–200 person-hours of curriculum-team time per subject, spread across one or two academic years; (2) leadership protection so the team can resist the recurring temptation to bolt on new content rather than re-sequence existing content; (3) subject expertise + child-development expertise — getting Bruner-style spiral right requires knowing both the discipline's internal logic and what students at each developmental band can productively engage with; (4) horizontal coordination meetings so that subject teams' choices don't conflict at the same year level. This is the most operationally expensive skill in the domain because the work is permanent — bad scope-and-sequence locks in years of suboptimal sequencing — but the per-student cost amortises across cohorts once the design stabilises. Schools rarely run scope-and-sequence work from scratch; most adapt published frameworks (national curricula, IB programme guides, Cambridge Pathway) and adjust at the margin. Same unverified-because-methodological pattern as the other architectural cards in this domain (Backwards Design Unit Planner) and in Curriculum Alignment (Coverage Audit, Developmental Band Translator).",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/scope-and-sequence-designer/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
