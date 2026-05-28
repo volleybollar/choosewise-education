@@ -184,6 +184,35 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/phenomenon-based-unit-anchor/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/reggio-documentation-protocol",
+      "manning_name": "reggio-documentation-protocol",
+      "display_title": "Reggio Documentation Protocol",
+      "description": "Design a pedagogical documentation protocol for making children's learning processes visible — photographs, transcribed conversations, samples of work, observation notes — and re-visiting them collaboratively with the children, teachers, and families to interpret what learning was happening and decide what to plan next. Built on Malaguzzi's founding work at Reggio Emilia and Carlina Rinaldi's subsequent theoretical development; an alternative to assessment-as-measurement that treats children as competent meaning-makers. Honest evidence note: pedagogical documentation as a discrete practice has no meta-analysis isolating its effect; the broader Reggio approach was rigorously evaluated by Biroli, Del Boca, Heckman et al. 2018 in Research in Economics — they found significant positive long-run effects on employment, socio-emotional skills, high school graduation, voting, and obesity when comparing Reggio to no formal childcare, but small and statistically insignificant differences when comparing Reggio to other formal childcare (state, religious). The tradition's scholarly evidence is interpretive (Rinaldi's In Dialogue with Reggio Emilia 2006, Hundred Languages exhibition catalogue, EECER documentation studies); the quantitative comparative evidence does not establish a Reggio-specific advantage over other quality early-years programmes.",
+      "tags": [
+        "Reggio-Emilia",
+        "documentation",
+        "Rinaldi",
+        "Malaguzzi",
+        "visible-learning-processes",
+        "early-years",
+        "primary",
+        "observation",
+        "formative-assessment"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Material cost is modest (cameras, recording devices, paper/wall space for documentation panels — most schools already have these). The substantive cost is teacher PD on the receptive practices documentation requires: slow observation, listening before interpreting, holding multiple interpretations open, and bringing documentation back to children for their own reflection. Reggio-inspired settings typically invest in years of consistent leadership and visits to Reggio Emilia or other reference settings; English-language documentation training (Pen Green, Innovative Teacher Project, Sightlines Initiative in UK) takes 1–3 years to become embedded. The practice also requires structural time — joint planning blocks for staff to re-visit documentation together — which schools without staffing slack struggle to find. Verification-status note: shipped as unverified because pedagogical documentation as a discrete practice has not been meta-analysed in isolation, and the rigorous Biroli et al. 2018 quasi-experimental evaluation of the broader Reggio approach found small/insignificant differences against other quality early-years programmes.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/reggio-documentation-protocol/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
