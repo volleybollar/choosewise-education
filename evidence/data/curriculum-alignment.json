@@ -62,6 +62,36 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-alignment/curriculum-crosswalk/SKILL.md",
       "verification_status": "unverified"
+    },
+    {
+      "id": "curriculum-alignment/kud-chart-author",
+      "manning_name": "kud-chart-author",
+      "display_title": "KUD Chart Author",
+      "description": "Author or review Know / Understand / Do (KUD) charts for competency-based learning targets across developmental bands. KUD is the operational tool from Wiggins & McTighe's Understanding by Design framework: distinguish the factual knowledge students should know, the enduring understandings they should grasp (transferable cross-context concepts), and the skills and performances they should be able to do. Handles seven input types from raw curriculum documents to existing learning-target sets; routes to upstream skills when stronger inputs are available. Verification status: shipped unverified. The UbD framework has substantial qualitative research — Yurtseven 2021 meta-synthesis found consistent positives for cognitive growth, engagement, and motivation but documented persistent implementation gaps where teachers stay anchored to activity-based rather than backward design. No quantitative meta-analysis with pooled Cohen's d exists. The discipline of the KUD chart is what it forces: identifying enduring understandings (Wiggins & McTighe 2005) rather than just topical content.",
+      "tags": [
+        "KUD",
+        "curriculum-design",
+        "learning-targets",
+        "Wiggins-McTighe",
+        "backward-design",
+        "Understanding-by-Design",
+        "UbD",
+        "progression",
+        "assessment-design",
+        "competency-based"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "The KUD chart itself is structurally simple — three columns, items per column — but writing a good one requires content expertise (especially for the Understand tier, where naming the durable transferable concept is non-trivial) and UbD training. Teachers without backward-design experience tend to overload the Know column with topics, leave the Understand column thin, and fill the Do column with classroom activities rather than performances of understanding. PD investment for a department to author quality KUD charts is roughly 8–16 hours of structured work plus ongoing peer review. The chart pays off across multiple downstream products: it constrains learning-target writing, anchors assessment design, and surfaces gaps between intended understanding and what classroom activities actually develop. Same unverified-because-methodological pattern as Coverage Audit and Curriculum Crosswalk — UbD is a framework with strong qualitative research (Yurtseven 2021 meta-synthesis) but no pooled student-outcome effect size.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-alignment/kud-chart-author/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
