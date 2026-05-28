@@ -213,6 +213,36 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/reggio-documentation-protocol/SKILL.md",
       "verification_status": "unverified"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/emergent-project-design-scaffold",
+      "manning_name": "emergent-project-design-scaffold",
+      "display_title": "Emergent Project Design Scaffold",
+      "description": "Scaffold an emergent project from observed children's interests and fascinations, using Reggio-inspired progettazione: identify a recurring interest, set provocations (open-ended materials, questions, encounters with experts), document the children's first responses, then plan next steps based on what the children's responses revealed they were thinking about — instead of pre-deciding the project arc. Best for early years and primary settings where the curriculum has flexibility. Honest evidence note: no meta-analysis isolates emergent curriculum as a discrete practice. The most recent systematic review (Tay & Mukherjee 2025 European Early Childhood Education Research Journal, 39 studies) is thematic, not quantitative — it identifies recurring themes (children's agency, co-leadership, documentation, virtual adaptation) without pooled effect sizes. Biroli, Del Boca, Heckman et al. 2018 evaluated the broader Reggio approach and found significant long-run benefits vs no formal childcare but small and insignificant differences vs other formal childcare. The tradition's evidence base is interpretive scholarship (Rinaldi, Edwards, Gandini, Forman The Hundred Languages of Children); a Reggio-specific quantitative advantage over other quality early-years programmes has not been established.",
+      "tags": [
+        "Reggio-Emilia",
+        "emergent-curriculum",
+        "project-approach",
+        "progettazione",
+        "Rinaldi",
+        "Malaguzzi",
+        "provocations",
+        "early-years",
+        "primary",
+        "child-led"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "No special materials cost — the project's materials emerge from the children's interests (natural objects, recycled materials, open-ended art supplies). The substantive cost is structural: teachers need extended planning time to interpret children's responses and redesign next steps weekly rather than following a pre-set curriculum, and leadership needs to accept that the curriculum's shape will not be predictable in advance — which conflicts with traditional accountability frameworks that measure pre-specified outcomes. Reggio-inspired pre-schools typically run with two teachers per group plus an atelierista (studio teacher), a staffing ratio higher than most national systems can fund. Lower-cost adaptations (single teacher with documentation panels but without atelier work) are common but the literature suggests they capture less of the effect — though we cannot quantify that loss because the meta-analytic evidence isn't there. Same unverified-because-framework pattern as the Reggio Documentation Protocol card.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/emergent-project-design-scaffold/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
