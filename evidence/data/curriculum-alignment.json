@@ -92,6 +92,36 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-alignment/kud-chart-author/SKILL.md",
       "verification_status": "unverified"
+    },
+    {
+      "id": "curriculum-alignment/developmental-band-translator",
+      "manning_name": "developmental-band-translator",
+      "display_title": "Developmental Band Translator",
+      "description": "Tag harness-decomposed curriculum items (KUDs, learning targets, criteria) with a school's developmental-band metadata while preserving source voice and labels. Supply the band schema; the skill derives mapping rules from it rather than imposing external bands. The theoretical anchor is Vygotsky's Zone of Proximal Development — tasks within a learner's ZPD produce growth; tasks below produce coasting and tasks above produce stagnation. The methodological tradition is learning progressions (Heritage 2008, Corcoran, Mosher & Rogat 2009, Taking Science to School National Academies 2007) and Wiggins & McTighe's developmental considerations in Understanding by Design. Verification status: shipped unverified. No meta-analysis quantifies the effect of band-tagging itself; the gain materialises in classroom design downstream — teachers using the band-tagged map to sequence tasks at appropriate difficulty — and that design work is not separable from the broader pedagogical decisions the school makes around it. Source-voice preservation matters: the skill records each item under the school's own band labels rather than reanchoring to an external taxonomy, so the work survives schema migration and accreditation review.",
+      "tags": [
+        "developmental-bands",
+        "curriculum-alignment",
+        "band-mapping",
+        "source-voice-preservation",
+        "Wiggins-McTighe",
+        "Vygotsky",
+        "ZPD",
+        "learning-progressions",
+        "Heritage",
+        "framework-translation"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "The tagging itself is operationally straightforward once the band schema is articulated — items get walked against the schema's descriptors and assigned. The substantive cost lives upstream and downstream: (1) upstream, the school needs a clear band schema with cognitive descriptors per band (often itself an effortful curriculum-team product, especially if the school has just adopted a new framework with different bands); (2) downstream, the band-tagged map only produces gains if teachers actually use it to sequence tasks at ZPD-aware difficulty. A naive band tag without instructional follow-through changes nothing in classrooms. Initial tagging is typically 6–15 hours per subject; ongoing maintenance is low once the schema stabilises. Same unverified-because-methodological pattern as the other three cards in this domain — Vygotsky's ZPD and the learning-progressions tradition are conceptually robust but the band-tagging procedure itself has no pooled student-outcome effect size.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-alignment/developmental-band-translator/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
