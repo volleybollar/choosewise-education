@@ -155,6 +155,35 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/cross-cultural-task-validity-checker/SKILL.md",
       "verification_status": "unverified"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/phenomenon-based-unit-anchor",
+      "manning_name": "phenomenon-based-unit-anchor",
+      "display_title": "Phenomenon-Based Unit Anchor",
+      "description": "Anchor a multidisciplinary teaching unit in a real-world phenomenon that requires multiple subject lenses to understand fully — climate, migration, food systems, urban planning, a particular building, a local river — so students engage subject content through the phenomenon rather than abstracted from it. The Finnish 2016 core curriculum (POPS-2016) makes at least one such multidisciplinary module per school year mandatory; the approach is associated with Lonka and the Helsinki research group. Honest evidence positioning: phenomenon-based learning as a broad pedagogy has no clean independent meta-analysis (Adipat 2024 is a conceptual review; Kreijkes & Greatorex 2024 found the integrated-curriculum review literature is methodologically weak). The closest meta-analytic proxy is its most-studied subset: STEM integration. Zhou, Dong & Wang's 2025 meta-analysis in Research in Science Education found integrated STEM produced a substantial achievement gain (g=0.66 across 40 studies, 15,577 students), with the largest effects from context integration (anchoring in a real phenomenon) and inquiry-based pedagogy — both core to phenomenon-based learning.",
+      "tags": [
+        "phenomenon-based-learning",
+        "Finland",
+        "POPS-2016",
+        "Lonka",
+        "cross-curricular",
+        "interdisciplinary",
+        "transversal-competences",
+        "STEM-integration",
+        "inquiry"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.66,
+      "effect_d_source": "Zhou, Dong & Wang",
+      "effect_d_journal": "Research in Science Education",
+      "effect_d_year": 2025,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "Requires whole-school commitment, not single-teacher adoption: coordinated multidisciplinary modules need timetable changes, joint planning time across subject teachers, leadership willingness to accept that not every subject hour produces a discrete subject lesson, and assessment frameworks that recognise cross-disciplinary competence (often poorly served by national subject-by-subject tests). The Finnish implementation took 5+ years of sustained PD and curriculum redesign at school level; smaller-scale pilot adoption is possible but typically delivers smaller effects. Zhou et al. 2025's moderator finding is the lever to focus on: anchor in a real-world context (phenomenon-based, the strong mover) rather than just content coordination across subjects, and use inquiry-based pedagogy over project-based. Source-construct caveat: the toolkit anchors on STEM integration as proxy because phenomenon-based learning broadly has no clean meta-analysis — Adipat 2024 is a conceptual review and the broader integrated-curriculum review literature was assessed as methodologically weak by Kreijkes & Greatorex 2024. The STEM-integration meta captures the cross-disciplinary mechanism but not the humanities/arts side of full Finnish PBL.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/phenomenon-based-unit-anchor/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
