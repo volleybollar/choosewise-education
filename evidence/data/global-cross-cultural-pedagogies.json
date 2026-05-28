@@ -243,6 +243,37 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/emergent-project-design-scaffold/SKILL.md",
       "verification_status": "unverified"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/ubuntu-collective-knowledge-task-designer",
+      "manning_name": "ubuntu-collective-knowledge-task-designer",
+      "display_title": "Ubuntu Collective Knowledge Task Designer",
+      "description": "Design learning tasks built on Ubuntu philosophy — Umuntu ngumuntu ngabantu, \"a person is a person through other persons\" — that treat knowledge as collectively constructed and learner success as bound to community contribution rather than individual ranking. Tasks centre on mutual responsibility, collective sense-making, and the obligation to contribute one's understanding to the group's understanding. Rooted in the scholarship of Mkabela, Letseka, Higgs, Le Grange and Waghid on African philosophy of education. Honest evidence note: Ubuntu pedagogy operates in an interpretive scholarly tradition that does not translate cleanly into Cohen's d. A 2024 PRISMA literature review of empirical studies 2014-2024 documents growing scholarly interest, particularly in South African teacher education, but no quantitative meta-analysis with pooled effect sizes exists. The Western collaborative-learning meta-analytic literature (EEF Collaborative learning approaches strand, +5 months) overlaps mechanically with Ubuntu task design but rests on different ontological assumptions about why collective work matters — Ubuntu names that difference rather than dissolving it.",
+      "tags": [
+        "Ubuntu",
+        "Mkabela",
+        "Letseka",
+        "Waghid",
+        "Le-Grange",
+        "African-philosophy",
+        "collective-knowledge",
+        "communalism",
+        "community",
+        "collaboration",
+        "decolonising"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "No special materials cost — Ubuntu task design is a redesign of existing learning tasks, not a new programme. The cost lives in two places: (1) teacher PD on the underlying philosophy and on facilitating collective sense-making rather than individual demonstration, which typically requires 6–12 hours of structured engagement with the African philosophy of education literature, and (2) assessment redesign — Ubuntu task design conflicts directly with individualist assessment frameworks that rank students against each other, so coherent implementation requires either curriculum-area assessment changes or hybrid approaches that capture collective contribution alongside individual demonstration. For Swedish schools, the closest legitimate translation is teaching tasks where individual grades depend partly on the group's collective product — already familiar from Vygotskian sociocultural learning but with a stronger ethical and relational framing. Best entry point: pair with existing Cooperative Learning structures (Kagan, Slavin) but reframe the rationale.",
+      "manning_label": "emerging",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/ubuntu-collective-knowledge-task-designer/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
