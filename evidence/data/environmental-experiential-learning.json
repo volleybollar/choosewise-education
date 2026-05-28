@@ -3,5 +3,35 @@
   "domain_label": "Environmental & Experiential Learning",
   "domain_description": "Skills for learning that happens through direct experience and with the environment as a partner rather than a backdrop. Outdoor learning sequences, service learning, Kolb-style experiential learning cycles, ecological inquiry anchored in local living systems, interdisciplinary real-world connection mapping, and biophilic classroom design. Pairs naturally with the Place-Based Inquiry Anchor and Phenomenon-Based Unit Anchor cards in the Global &amp; Cross-Cultural Pedagogies domain — those operate at the curriculum-design level; the cards here operate at the lesson-sequence and physical-environment level. Evidence base is mixed: outdoor adventure learning has a clean EEF strand, service learning and environmental education have multiple solid meta-analyses, while biophilic design and the experiential-learning-cycle literature are stronger on conceptual scholarship than pooled student-outcome effect sizes.",
   "last_reviewed": "2026-05-28",
-  "skills": []
+  "skills": [
+    {
+      "id": "environmental-experiential-learning/outdoor-learning-sequence-designer",
+      "manning_name": "outdoor-learning-sequence-designer",
+      "display_title": "Outdoor Learning Sequence Designer",
+      "description": "Design a structured outdoor learning sequence embedding curriculum objectives in an available outdoor space (school grounds, local park, garden, hedgerow). The discipline is keeping the curriculum in the lesson — outdoor time without a learning goal is recreation, not outdoor learning. Honest evidence note: the most recent quality synthesis is Pulido et al. 2025 Education Sciences (scoping review of 41 studies, 10,453 students preschool through college) which finds outdoor teaching 'appears to improve learning in sciences, reading, writing, social studies and mathematics', but reports no pooled effect size because most underlying studies lack control groups, use small samples, or rely on qualitative data. The EEF Outdoor Adventure Learning strand has been downgraded to 'insufficient security to communicate a months' progress figure' and covers a different construct anyway (climbing, ropes, survival — not curriculum-embedded outdoor teaching). The Rickinson et al. 2004 UK research review remains the canonical reference but is too old to anchor a current effect-size claim. Use this skill while expecting modest evidence quality; pair with the more strongly evidenced cards in the domain (Service Learning Project Designer, Ecological Inquiry Anchor Designer) where the meta-analytic base is firmer.",
+      "tags": [
+        "outdoor-learning",
+        "EEF",
+        "Rickinson",
+        "outside-classroom",
+        "fieldwork",
+        "nature",
+        "Pulido",
+        "scoping-review",
+        "school-grounds"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Outdoor learning sequence design is conceptually straightforward but practically demanding for three reasons: (1) risk-assessment overhead — even on school grounds, taking students outdoors triggers safeguarding paperwork that didn't apply indoors; (2) weather adaptability — sequences need a 'wet weather alternative' plan, which doubles the planning work; (3) classroom-management transfer — teachers proficient at indoor classroom management often struggle with the looser physical structure of outdoor learning, and need a coaching cycle to develop new routines (gathering signals, attention-getters, transitions between activity points). For schools with usable green space, initial setup is roughly 4–8 hours per teacher per subject; ongoing planning marginal. For schools without natural outdoor space, the cost compounds (transport to local sites, additional supervision ratios) and the case for prioritising other cards in this domain becomes stronger. Verification-status note: shipped unverified because the scoping-review evidence base (Pulido et al. 2025) does not produce pooled effect sizes and the EEF Outdoor Adventure Learning strand was downgraded to 'insufficient security to communicate a months' progress figure' — and covers a different construct (adventure activities, not curriculum-embedded outdoor teaching) anyway.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/outdoor-learning-sequence-designer/SKILL.md",
+      "verification_status": "unverified"
+    }
+  ]
 }
