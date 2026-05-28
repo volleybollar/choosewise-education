@@ -3,5 +3,38 @@
   "domain_label": "Global & Cross-Cultural Pedagogies",
   "domain_description": "Pedagogical traditions that don't all originate in — or get evaluated by — Western meta-analytic research: Singapore Math's Concrete-Pictorial-Abstract sequence, Marton's Variation Theory (developed in Sweden and Hong Kong), Finnish phenomenon-based learning, Reggio Emilia's documentation practice, Ubuntu collective-knowledge tasks, Indigenous place-based inquiry, and the culturally responsive teaching tradition built on Banks, Gay, Ladson-Billings and Hammond. Editorial note: Western meta-analytic standards apply unevenly to non-Western pedagogical traditions. Variation Theory and CPA carry robust meta-analyses; culturally responsive teaching has a growing meta-analytic base; Ubuntu, Reggio, and place-based pedagogies operate in interpretive scholarly traditions without standardised effect sizes. We show that gap honestly rather than excluding traditions for not being measured on Western terms — the gap is partly a measurement problem, not always a quality problem.",
   "last_reviewed": "2026-05-28",
-  "skills": []
+  "skills": [
+    {
+      "id": "global-cross-cultural-pedagogies/variation-theory-task-designer",
+      "manning_name": "variation-theory-task-designer",
+      "display_title": "Variation Theory Task Designer",
+      "description": "Design tasks built on Marton's Variation Theory — make critical features of a concept discernible by holding everything constant except the feature you want students to see. Four patterns: contrast (varying values to reveal an aspect), separation (varying one aspect while others are fixed), generalization (varying surface appearance while the principle is fixed), fusion (varying multiple critical aspects simultaneously). Anchored on the meta-analysis of the underlying mechanism — comparing cases and contrasting examples — at d=0.50 (Alfieri et al. 2013). The pedagogical theory (Marton, Pang, Kullberg, Runesson) has a substantial Hong Kong and Swedish learning-study tradition built around it, but that tradition reports outcomes in interpretive case-study form rather than pooled effect sizes — so we anchor on the mechanism meta-analysis.",
+      "tags": [
+        "variation-theory",
+        "Marton",
+        "Pang",
+        "Kullberg",
+        "Runesson",
+        "contrast",
+        "critical-features",
+        "discernment",
+        "Hong-Kong",
+        "Sweden",
+        "Learning-Study",
+        "mathematics"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.50,
+      "effect_d_source": "Alfieri, Nokes-Malach & Schunn",
+      "effect_d_journal": "Educational Psychologist",
+      "effect_d_year": 2013,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Variation theory task design requires the teacher to identify the critical features of a concept (often non-obvious) and design tasks where those features are systematically varied while irrelevant ones are held constant. The discipline is taught most effectively through Learning Study cycles — small teams of teachers planning, teaching, and analysing the same lesson in iteration. Roughly 8–15 hours of structured PD per cycle, but the design discipline transfers across subjects and year groups once internalised. NCETM's UK Teaching for Mastery uses variation as one of its five \"Big Ideas\" — schools already inside that programme have most of the infrastructure. Source-age caveat: Alfieri et al. 2013 is the cleanest meta-analytic anchor for the mechanism (comparing cases / contrasting examples, d=0.50) but is 13 years old. Searches in the 5-year and 10-year windows found no newer quality meta-analysis on the same construct; the variation-theory literature 2017+ (Kullberg, Marton, Pang, Runesson) is rich but operates in interpretive learning-study tradition without pooled effect sizes.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/variation-theory-task-designer/SKILL.md",
+      "verification_status": "verified-partial"
+    }
+  ]
 }
