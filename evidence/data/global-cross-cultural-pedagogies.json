@@ -35,6 +35,36 @@
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/variation-theory-task-designer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "global-cross-cultural-pedagogies/cpa-sequence-designer",
+      "manning_name": "cpa-sequence-designer",
+      "display_title": "Concrete-Pictorial-Abstract Sequence Designer",
+      "description": "Design a Concrete-Pictorial-Abstract learning sequence — start with manipulatives that let students physically model the concept (Cuisenaire rods, base-10 blocks, fraction bars), move to pictorial representations that preserve the structural relationships (bar models, number lines, area diagrams), then connect to abstract symbolic notation. Built on Bruner's enactive-iconic-symbolic theory and operationalised in Singapore Maths via the bar-model method. Anchored on Sokolowski (2018) meta-analysis of representations in elementary mathematics at g=0.53. Two caveats: a more recent meta on multiple-vs-single representations across all mathematical domains (Liu, Ji & Guo 2026, Educational Psychology Review) found a more modest g=0.29; and the EEF's RCT of UK Mathematics Mastery (which used CPA-based Inspire Maths) showed smaller programme-level effects than the Singapore literature suggests. Effects depend heavily on whether the abstract phase actually arrives — manipulatives held too long, or not connected back to symbolic notation, lose the effect.",
+      "tags": [
+        "CPA",
+        "Singapore-maths",
+        "Bruner",
+        "manipulatives",
+        "bar-model",
+        "concreteness-fading",
+        "representations",
+        "mathematics",
+        "primary",
+        "elementary"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.53,
+      "effect_d_source": "Sokolowski",
+      "effect_d_journal": "IAFOR Journal of Education",
+      "effect_d_year": 2018,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "Manipulatives have a one-off material cost (Cuisenaire rods, base-10 blocks, fraction bars — roughly 200–500 SEK per classroom set, or free with paper-based alternatives). The real cost is teacher PD: knowing which manipulative maps to which concept, when to fade from concrete to pictorial, and how to verbalise the connection to abstract notation. Singapore Math programmes (Inspire Maths, Maths — No Problem!, Math in Focus) bundle materials with structured PD; commitment is typically a 2–3 year curriculum adoption with ongoing teacher training. Carbonneau, Marley & Selig 2013's key moderator: studies with high instructional guidance produced larger effects than low-guidance studies — manipulatives in students' hands without explicit teacher framing do not produce the effect. Source-recency note: Sokolowski 2018 is the cleanest construct match (elementary math representations) and falls within the 10-year window; the more recent Liu, Ji & Guo 2026 found a smaller g=0.29 across a broader scope (multi vs single representations in all maths domains).",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/global-cross-cultural-pedagogies/cpa-sequence-designer/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
