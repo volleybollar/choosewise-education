@@ -61,6 +61,36 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/service-learning-project-designer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "environmental-experiential-learning/experiential-learning-cycle-designer",
+      "manning_name": "experiential-learning-cycle-designer",
+      "display_title": "Experiential Learning Cycle Designer",
+      "description": "Structure a direct experience into a full learning cycle with concrete experience, reflection, and conceptual transfer. Anchored on Kolb's experiential learning theory (concrete experience → reflective observation → abstract conceptualization → active experimentation), with foundational lineage to Dewey's experience-and-reflection model. Burch et al.'s 2019 meta-analysis in Decision Sciences Journal of Innovative Education (89 studies with control groups, 43-year span) reports d=0.43 for experiential pedagogies vs traditional instruction, robust across moderators. Ranken, Wyse, Manyukhina & Bradbury's 2025 rapid evidence assessment in The Curriculum Journal (88 studies 2013-2023, ages 4-14) triangulates with subject-specific findings: strong evidence for science and mathematics, mixed for language and literacy, and particularly positive effects for at-risk students. Honest framing: the meta-analytic evidence covers experiential teaching broadly (at least concrete experience + reflection); it doesn't isolate Kolb's full four-stage cycle, which is often partially operationalised in practice. Use when planning field trips, simulations, laboratory work, role-plays, or practical tasks where the reflection-to-concept step is the critical move that distinguishes learning from activity.",
+      "tags": [
+        "experiential-learning",
+        "simulation",
+        "service-learning",
+        "Dewey",
+        "Kolb",
+        "reflection",
+        "direct-experience",
+        "Burch",
+        "Ranken",
+        "concrete-experience"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.43,
+      "effect_d_source": "Burch, Giambatista, Batchelor, Burch, Hoover & Heller",
+      "effect_d_journal": "Decision Sciences Journal of Innovative Education",
+      "effect_d_year": 2019,
+      "implementation_cost": "medium",
+      "implementation_cost_rationale": "The concrete-experience phase is usually easy to organise (the activity itself). The substantial cost lives in the reflection-to-concept transfer — most experiential teaching produces concrete experience and skips the reflection step that converts experience into transferable understanding. Teachers need protocols for structured reflection (journaling prompts, debriefing structures, group reflective dialogue) and time in the curriculum to use them, which often collides with content-coverage pressure. Ranken 2025's subject-specific finding is actionable: prioritise experiential cycles in science and mathematics where the evidence is strongest; treat language and literacy gains as bonus rather than primary justification. For Swedish schools, the closest natural homes are NO/SO field studies in middle years and laborationer in upper secondary science — both already structurally support concrete experience but often skimp on reflection time. Note: the meta-analytic d=0.43 covers experiential teaching broadly (concrete experience + reflection at minimum); it doesn't isolate Kolb's full four-stage cycle, which is often partially operationalised in practice — so the card framing prioritises the reflection step as the critical move.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/experiential-learning-cycle-designer/SKILL.md",
+      "verification_status": "verified-partial"
     }
   ]
 }
