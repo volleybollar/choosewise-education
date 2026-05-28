@@ -61,6 +61,35 @@
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/project-brief-designer/SKILL.md",
       "verification_status": "verified-partial"
+    },
+    {
+      "id": "curriculum-assessment/backwards-design-unit-planner",
+      "manning_name": "backwards-design-unit-planner",
+      "display_title": "Backwards Design Unit Planner",
+      "description": "Plan a unit using Wiggins & McTighe's backwards design — Stage 1 identify desired results (enduring understandings, transfer goals, essential questions, knowledge and skills), Stage 2 determine acceptable evidence (performance tasks, other evidence), Stage 3 plan learning experiences and instruction. The discipline is structural: assessment evidence is designed before activities, so activities have a clear target rather than the more common pattern of teaching content and then writing a test on it. Use when starting a new unit or redesigning an existing one from standards. Same evidence anchor as the Curriculum Alignment domain's KUD Chart Author card — Wiggins & McTighe 1998/2005/2011 foundational scholarship and Yurtseven 2021 qualitative meta-synthesis — but operating at unit-level rather than objective-level. Verification status: unverified. UbD has a substantial qualitative research base finding positives for cognitive growth, engagement, and motivation, and documenting implementation gaps where teachers default to activity-based planning, but no quantitative meta-analysis with pooled Cohen's d on student outcomes exists.",
+      "tags": [
+        "UbD",
+        "backwards-design",
+        "unit-planning",
+        "curriculum",
+        "alignment",
+        "Wiggins-McTighe",
+        "Stage-1-2-3",
+        "enduring-understandings",
+        "performance-tasks"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "high",
+      "implementation_cost_rationale": "Authoring a UbD unit takes substantially more time than writing a conventional unit plan — teachers consistently report 8–20 hours per unit for a quality Stage 1+2+3 plan during the learning curve, dropping to 4–8 hours once the structural patterns become natural. The substantive cost is conceptual: Stage 1 requires naming durable transferable understandings (not just topics), Stage 2 requires designing performance tasks that actually generate evidence of those understandings (not just multiple-choice tests on the topics), and Stage 3 requires planning activities that build toward the performance tasks. Departments that try to adopt UbD as a template without underlying PD on these conceptual moves typically produce shallow Stage 1 work — and Yurtseven 2021's meta-synthesis explicitly documents this as the persistent implementation gap. The cost is justified only if the school commits to multi-cycle peer review and revision of UbD units; one-shot adoption typically loses the rigour. Same unverified-because-framework pattern as the KUD Chart Author card in the Curriculum Alignment domain — UbD has strong qualitative research support but no pooled Cohen's d on student outcomes.",
+      "manning_label": "strong",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/backwards-design-unit-planner/SKILL.md",
+      "verification_status": "unverified"
     }
   ]
 }
