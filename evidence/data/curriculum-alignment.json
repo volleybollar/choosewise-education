@@ -3,5 +3,36 @@
   "domain_label": "Curriculum Alignment",
   "domain_description": "Tools for the work of coordinating what is taught against what is required and what is assessed. Coverage audits, framework crosswalks, KUD (Know/Understand/Do) chart authoring, and developmental band translation. The evidence question for this domain is different from intervention domains: alignment doesn't teach students — it helps the school's teaching reach what it intends to teach. The evidence base is methodological (Webb's Depth of Knowledge, Porter's content-analysis indices, Wiggins & McTighe's backward design, Squires' alignment scholarship) rather than pooled-effect-size; the value of these tools lies in process discipline and audit transparency, not in a per-student Cohen's d.",
   "last_reviewed": "2026-05-28",
-  "skills": []
+  "skills": [
+    {
+      "id": "curriculum-alignment/coverage-audit",
+      "manning_name": "coverage-audit",
+      "display_title": "Coverage Audit",
+      "description": "Take a curriculum framework and a statutory or accreditation requirement list; produce a coverage table, gap summary, and CSV showing which framework content covers each requirement and where gaps exist. The audit itself doesn't teach — it surfaces what is and isn't covered, so the school can decide what to add, drop, or sequence differently. The evidence behind doing this work lives in Opportunity-to-Learn research: Schmidt, Guo & Houang (2021) found in US PISA 2012 mathematics data that OTL's effect on achievement was approximately 4× the effect of socioeconomic status; the TIMSS curriculum analysis tradition (Schmidt & Houang and colleagues across multiple cycles) consistently finds positive associations between coverage and achievement; Squires (2012) reviewed alignment research and reported consistent benefits when written, taught, and tested curriculum align. None of this generates a Cohen's d for the audit itself — the audit is a tool, and the gain materialises only if the school acts on what it reveals.",
+      "tags": [
+        "coverage-audit",
+        "OTL",
+        "opportunity-to-learn",
+        "accreditation",
+        "statutory-compliance",
+        "curriculum-alignment",
+        "gap-analysis",
+        "Schmidt",
+        "Houang",
+        "TIMSS"
+      ],
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
+      "implementation_cost": "low",
+      "implementation_cost_rationale": "The audit is essentially structured comparison work — a curriculum coordinator (or AI-assisted skill) reads both the framework and the requirement list, walks through the framework topic-by-topic noting coverage of each requirement, and produces the gap summary. Time investment is concentrated rather than ongoing: roughly 4–12 hours per subject per year for a first audit, less for repeat cycles once the comparison structure exists. The downstream cost — actually remediating identified gaps — varies enormously and lives in curriculum-redesign work, not in the audit itself. The audit's value compounds: schools that run it annually catch standard drift and accreditation surprises before they become crises. Verification-status note: shipped unverified because no meta-analysis exists for the audit-as-practice; the supporting Opportunity-to-Learn literature is correlational (Schmidt, Guo & Houang 2021 in Journal of Curriculum Studies; the TIMSS curriculum analysis tradition; Squires 2012 Clearing House alignment-research review) and addresses why content coverage matters rather than what a specific audit procedure produces.",
+      "manning_label": "moderate",
+      "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-alignment/coverage-audit/SKILL.md",
+      "verification_status": "unverified"
+    }
+  ]
 }
