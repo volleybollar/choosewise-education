@@ -6,37 +6,5 @@
     "status": "available",
     "url": "/guides/claude/",
     "cover_image": "/assets/images/guide-covers/claude.svg"
-  },
-  {
-    "id": "gemini-notebooklm",
-    "title": "Gemini & NotebookLM for teachers and school leaders",
-    "tool": "Gemini / NotebookLM",
-    "status": "available",
-    "url": "/guides/gemini-notebooklm/",
-    "cover_image": "/assets/images/guide-covers/gemini.svg"
-  },
-  {
-    "id": "apple-intelligence",
-    "title": "Apple Intelligence for teachers and school leaders",
-    "tool": "Apple Intelligence",
-    "status": "available",
-    "url": "/guides/apple-intelligence/",
-    "cover_image": "/assets/images/guide-covers/apple.svg"
-  },
-  {
-    "id": "copilot",
-    "title": "Microsoft Copilot for teachers and school leaders",
-    "tool": "Copilot",
-    "status": "available",
-    "url": "/guides/copilot/",
-    "cover_image": "/assets/images/guide-covers/copilot.svg"
-  },
-  {
-    "id": "ai-for-students",
-    "title": "Should students use AI in class?",
-    "tool": "Pedagogical decision guide",
-    "status": "available",
-    "url": "/guides/ai-for-students/",
-    "cover_image": "/assets/images/guide-covers/ai-for-students.svg"
   }
 ]

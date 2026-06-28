@@ -6,37 +6,5 @@
     "status": "available",
     "url": "/sv/guider/claude/",
     "cover_image": "/assets/images/guide-covers/claude.svg"
-  },
-  {
-    "id": "gemini-notebooklm",
-    "title": "Gemini & NotebookLM för lärare och skolledare",
-    "tool": "Gemini / NotebookLM",
-    "status": "available",
-    "url": "/sv/guider/gemini-notebooklm/",
-    "cover_image": "/assets/images/guide-covers/gemini.svg"
-  },
-  {
-    "id": "apple-intelligence",
-    "title": "Apple Intelligence för lärare och skolledare",
-    "tool": "Apple Intelligence",
-    "status": "available",
-    "url": "/sv/guider/apple-intelligence/",
-    "cover_image": "/assets/images/guide-covers/apple.svg"
-  },
-  {
-    "id": "copilot",
-    "title": "Microsoft Copilot för lärare och skolledare",
-    "tool": "Copilot",
-    "status": "available",
-    "url": "/sv/guider/copilot/",
-    "cover_image": "/assets/images/guide-covers/copilot.svg"
-  },
-  {
-    "id": "ai-for-elever",
-    "title": "Ska eleverna använda AI på lektionstid?",
-    "tool": "Pedagogisk beslutsguide",
-    "status": "available",
-    "url": "/sv/guider/ai-for-elever/",
-    "cover_image": "/assets/images/guide-covers/ai-for-elever.svg"
   }
 ]
