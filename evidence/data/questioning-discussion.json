@@ -2,7 +2,7 @@
   "domain_id": "questioning-discussion",
   "domain_label": "Questioning & Discussion",
   "domain_description": "Classroom talk that actually develops thinking — dialogic moves that extend reasoning, discussion protocols that structure participation, Socratic sequences that go deeper, and argument scaffolds that give students a way to reason out loud. All interventions cross-referenced to peer-reviewed meta-analyses where one exists.",
-  "last_reviewed": "2026-05-18",
+  "last_reviewed": "2026-06-28",
   "skills": [
     {
       "id": "questioning-discussion/dialogic-teaching-move-generator",
@@ -13,15 +13,15 @@
       "effect_months": 6,
       "effect_months_source": "EEF Toolkit — Oral language interventions strand",
       "effect_months_year": 2021,
-      "effect_d": 0.52,
-      "effect_d_source": "Tao & Chen",
-      "effect_d_journal": "Educational Research Review",
-      "effect_d_year": 2024,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
       "implementation_cost": "medium",
       "implementation_cost_rationale": "Dialogic moves require teacher practice — revoicing, pressing for reasoning, and uptake aren't natural defaults for most teachers and need scripted prompts initially. PCK-heavy but no materials, no structural change. Mastery develops over weeks of deliberate use.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/questioning-discussion/dialogic-teaching-move-generator/SKILL.md",
-      "verification_status": "verified"
+      "verification_status": "verified-partial"
     },
     {
       "id": "questioning-discussion/discussion-protocol-selector",
@@ -32,15 +32,15 @@
       "effect_months": 6,
       "effect_months_source": "EEF Toolkit — Oral language interventions strand",
       "effect_months_year": 2021,
-      "effect_d": 0.52,
-      "effect_d_source": "Tao & Chen",
-      "effect_d_journal": "Educational Research Review",
-      "effect_d_year": 2024,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
       "implementation_cost": "low",
       "implementation_cost_rationale": "Selecting a protocol takes minutes; running one takes 10-30 min of lesson time. No materials beyond a topic and norms sheet. Most protocols are teachable to a class in one orientation lesson.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/questioning-discussion/discussion-protocol-selector/SKILL.md",
-      "verification_status": "verified"
+      "verification_status": "verified-partial"
     },
     {
       "id": "questioning-discussion/socratic-questioning-sequence-generator",
@@ -51,15 +51,15 @@
       "effect_months": 6,
       "effect_months_source": "EEF Toolkit — Oral language interventions strand",
       "effect_months_year": 2021,
-      "effect_d": 0.52,
-      "effect_d_source": "Tao & Chen",
-      "effect_d_journal": "Educational Research Review",
-      "effect_d_year": 2024,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
       "implementation_cost": "medium",
       "implementation_cost_rationale": "Designing a Socratic sequence requires real prep — anticipating where students will likely land on each question, planning probes for each predictable answer branch, calibrating depth. PCK-heavy. Once mastered, the technique scales, but each new topic needs fresh sequence design.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/questioning-discussion/socratic-questioning-sequence-generator/SKILL.md",
-      "verification_status": "verified"
+      "verification_status": "verified-partial"
     },
     {
       "id": "literacy-critical-thinking/argument-structure-scaffold-generator",
@@ -70,15 +70,15 @@
       "effect_months": 6,
       "effect_months_source": "EEF Toolkit — Oral language interventions strand",
       "effect_months_year": 2021,
-      "effect_d": 0.52,
-      "effect_d_source": "Tao & Chen",
-      "effect_d_journal": "Educational Research Review",
-      "effect_d_year": 2024,
+      "effect_d": null,
+      "effect_d_source": null,
+      "effect_d_journal": null,
+      "effect_d_year": null,
       "implementation_cost": "low",
       "implementation_cost_rationale": "A scaffold is a one-page template; once a teacher learns the framework (Toulmin/PEEL/CER), generating new scaffolds for new topics takes minutes. Students need a single orientation lesson then apply per assignment.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/argument-structure-scaffold-generator/SKILL.md",
-      "verification_status": "verified"
+      "verification_status": "verified-partial"
     }
   ]
 }
