@@ -5,8 +5,12 @@ Jekyll (no `.nojekyll` file), and Jekyll ignores any folder whose name starts wi
 `_`. So everything under `_unpublished/` returns 404 on the live site, while the
 files stay safely in the repo at their original relative paths.
 
-Parked on 2026-06-28: all AI guides **except Claude** (English + Swedish).
-Claude stays published at `/guides/claude/` and `/sv/guider/claude/`.
+Parked on 2026-06-28: all AI guides **except Claude** (English + Swedish) — the
+guide pages AND their downloadable artifacts (PDFs under
+`assets/pdfs/guides/`, print-A4 + quick-start HTML under `exports/`).
+Claude stays published at `/guides/claude/` and `/sv/guider/claude/`, and its
+PDFs/exports stay live too. The `.py` PDF build scripts in `exports/` were left
+in place (build tooling, not published content).
 
 `/ai-or-human/` and `/sv/ai-eller-manniska/` were intentionally left published.
 
@@ -122,6 +126,26 @@ commit: `git revert <commit>` (or ask Claude to do it).
   }
 ```
 
-> Note: there are also print/PDF versions of these guides under `/exports/`
-> (e.g. `exports/copilot-print-a4-en.html`). Those were left in place; park them
-> too if you want the content fully offline.
+## Parked PDFs and export HTML (restore = move back to original path)
+
+The downloadable PDFs and their print/quick-start HTML were parked too, under the
+same mirrored paths. To republish a guide's downloads, move them back:
+
+```sh
+# PDFs (example: Copilot) — run from repo root:
+git mv _unpublished/assets/pdfs/guides/copilot-guide-en.pdf       assets/pdfs/guides/copilot-guide-en.pdf
+git mv _unpublished/assets/pdfs/guides/copilot-guide-sv.pdf       assets/pdfs/guides/copilot-guide-sv.pdf
+git mv _unpublished/assets/pdfs/guides/copilot-quick-start-en.pdf assets/pdfs/guides/copilot-quick-start-en.pdf
+git mv _unpublished/assets/pdfs/guides/copilot-quick-start-sv.pdf assets/pdfs/guides/copilot-quick-start-sv.pdf
+
+# Export HTML (example: Copilot):
+git mv _unpublished/exports/copilot-print-a4-en.html   exports/copilot-print-a4-en.html
+git mv _unpublished/exports/copilot-print-a4-sv.html   exports/copilot-print-a4-sv.html
+git mv _unpublished/exports/copilot-quick-start-en.html exports/copilot-quick-start-en.html
+git mv _unpublished/exports/copilot-quick-start-sv.html exports/copilot-quick-start-sv.html
+```
+
+The other guides (gemini-notebooklm, apple-intelligence, ai-for-students /
+ai-for-elever) follow the exact same pattern — see `_unpublished/assets/pdfs/guides/`
+and `_unpublished/exports/` for the full list. The `.py` build scripts that
+generate these PDFs are still in `exports/` if you ever need to regenerate them.
