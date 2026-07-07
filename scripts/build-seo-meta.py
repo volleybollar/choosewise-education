@@ -48,6 +48,8 @@ PAIR_MAP = {
     "/notebooklm-styles/": "/sv/notebooklm-stilar/",
     "/blog/": "/sv/blog/",
     "/about/": "/sv/om/",
+    "/ai-or-human/": "/sv/ai-eller-manniska/",
+    "/infographic-styles/": "/sv/infografik-stilar/",
     "/guides/claude/": "/sv/guider/claude/",
     "/guides/gemini-notebooklm/": "/sv/guider/gemini-notebooklm/",
     "/guides/apple-intelligence/": "/sv/guider/apple-intelligence/",
@@ -136,7 +138,8 @@ LAST_UPDATED_LABEL = {
 
 # Pages to skip (templates, admin, brainstorm dumps, etc.)
 EXCLUDE_DIR_PARTS = {".git", ".superpowers", ".playwright-mcp", "exports",
-                     "node_modules", "scripts", "assets/partials"}
+                     "node_modules", "scripts", "assets/partials",
+                     "_unpublished"}
 EXCLUDE_FILES = {
     "blog/post.html",
     "sv/blog/post.html",
