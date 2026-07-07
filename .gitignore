@@ -34,3 +34,10 @@ __pycache__/
 /gemini-guide-*.png
 /research-presentation.html
 /excalidraw.log
+
+# Internal research & planning docs (competitor screenshots, specs, plans)
+# — not part of the shippable site
+/docs/
+
+# One-off content-migration scripts
+/scripts/fix-lar-dig-*.py

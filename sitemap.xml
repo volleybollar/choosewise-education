@@ -11,6 +11,9 @@
   <url>
     <loc>https://choosewise.education/ai-or-human/</loc>
     <lastmod>2026-04-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/ai-or-human/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/ai-eller-manniska/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/ai-or-human/"/>
   </url>
   <url>
     <loc>https://choosewise.education/blog/</loc>
@@ -68,7 +71,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/evidence/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-28</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/literacy-critical-thinking/</loc>
@@ -84,7 +87,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/evidence/questioning-discussion/</loc>
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-06-28</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/self-regulated-learning/</loc>
@@ -104,6 +107,9 @@
   <url>
     <loc>https://choosewise.education/infographic-styles/</loc>
     <lastmod>2026-04-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/infographic-styles/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/infografik-stilar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/infographic-styles/"/>
   </url>
   <url>
     <loc>https://choosewise.education/notebooklm-styles/</loc>
@@ -588,6 +594,9 @@
   <url>
     <loc>https://choosewise.education/sv/ai-eller-manniska/</loc>
     <lastmod>2026-04-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/ai-or-human/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/ai-eller-manniska/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/ai-or-human/"/>
   </url>
   <url>
     <loc>https://choosewise.education/sv/blog/</loc>
@@ -621,6 +630,9 @@
   <url>
     <loc>https://choosewise.education/sv/infografik-stilar/</loc>
     <lastmod>2026-04-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/infographic-styles/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/infografik-stilar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/infographic-styles/"/>
   </url>
   <url>
     <loc>https://choosewise.education/sv/notebooklm-stilar/</loc>
