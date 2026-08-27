@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Placeholder "before" image: shown for codes whose example pair
+     has not been generated yet. Same 4:3 ratio as the real photos (1448x1086). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1448 1086" role="img" aria-label="Original photo — example coming soon">
+  <!-- warm tan background, matches the site's bg-alt color token -->
+  <rect width="1448" height="1086" fill="#f2ede2"/>
+  <!-- dashed frame hints "something goes here" -->
+  <rect x="36" y="36" width="1376" height="1014" fill="none" stroke="#d8d0bf" stroke-width="4" stroke-dasharray="18 14" rx="16"/>
+  <!-- Icon + text sit in the LEFT half: the slider starts at 50/50, and this
+       side is clipped from the right, so left-of-center stays fully visible. -->
+  <g transform="translate(-362 0)">
+    <!-- simple photo icon: frame, sun, mountains -->
+    <g transform="translate(604 353)">
+      <rect width="240" height="180" rx="14" fill="none" stroke="#a09a8c" stroke-width="10"/>
+      <circle cx="70" cy="60" r="24" fill="#a09a8c"/>
+      <path d="M20 160 L95 85 L140 130 L175 95 L220 160 Z" fill="#a09a8c"/>
+    </g>
+    <text x="724" y="650" text-anchor="middle" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="52" font-weight="600" fill="#1a1a18">Original photo</text>
+    <text x="724" y="720" text-anchor="middle" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="40" fill="#6b6b65">Example coming soon</text>
+  </g>
+</svg>

@@ -34,6 +34,12 @@ Interactive tests where visitors check whether they can tell AI-generated text, 
 
 A curated catalogue of 140 visual styles (with prompts) for generating NotebookLM video overviews and slide decks.
 
+## Visual Codes
+
+- [50 visual codes for ChatGPT — English](https://choosewise.education/visual-codes/)
+
+Fifty one-word, slash-prefixed prompts (such as /cutaway, /anatomy, /ghosted) that turn an uploaded photo into a teaching visual in ChatGPT. Sorted into eight categories; every code is demonstrated with a draggable before/after slider on the same photo, and the page explains how to make your own.
+
 ## Presentation Skills
 
 - [Presentation Skills landing — English](https://choosewise.education/presentation-skills/)
