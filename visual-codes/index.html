@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>50 visual codes for ChatGPT — choosewise.education</title>
+  <meta name="description" content="50 one-word visual codes for ChatGPT with clear classroom value. Upload a photo, type a code like /cutaway, and get a teaching visual — each code shown with a before/after slider.">
+  <meta property="og:title" content="50 visual codes for ChatGPT">
+  <meta property="og:description" content="Upload a photo, type one code, get a teaching visual. Every code shown with a before/after slider.">
+  <meta property="og:image" content="https://choosewise.education/assets/images/brand/og/visualcodes-en.png">
+  <!-- Same shared stylesheets as every page on the site -->
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+  <!-- Page-local styles: step cards, code cards and the before/after slider.
+       No other page uses them, so they stay in this folder rather than in the
+       shared CSS — same pattern as /guides/claude/. -->
+  <link rel="stylesheet" href="visual-codes.css">
+<!-- seo:start (build-seo-meta.py) -->
+<link rel="canonical" href="https://choosewise.education/visual-codes/">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."}]}</script>
+<!-- seo:end -->
+</head>
+<body class="page-visual-codes">
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- ───── Hook: two finished examples before any text ─────
+         Hand-written here (rather than rendered from JSON) so they load
+         immediately, above the fold. visual-codes.js wires up the sliders. -->
+    <section class="vc-hero container">
+      <div class="vc-hero__grid">
+
+        <div class="vc-compare">
+          <img src="images/cow-skeletonview.webp"
+               srcset="images/cow-skeletonview-584w.webp 584w, images/cow-skeletonview.webp 1168w"
+               sizes="(min-width: 900px) 540px, 92vw"
+               alt="Result after sending /skeletonview to ChatGPT" decoding="async">
+          <span class="vc-compare__chip vc-compare__chip--after">/skeletonview</span>
+          <div class="vc-compare__before">
+            <img src="images/cow-before.webp"
+                 srcset="images/cow-before-584w.webp 584w, images/cow-before.webp 1168w"
+                 sizes="(min-width: 900px) 540px, 92vw"
+                 alt="Original photo of a cow" decoding="async">
+            <span class="vc-compare__chip vc-compare__chip--before">Original</span>
+          </div>
+          <button class="vc-compare__handle" role="slider" aria-label="Compare original and /skeletonview result"
+                  aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50% original">
+            <span class="vc-compare__grip" aria-hidden="true">&#9664;&#9654;</span>
+          </button>
+        </div>
+
+        <div class="vc-compare">
+          <img src="images/house-ghosted.webp"
+               srcset="images/house-ghosted-584w.webp 584w, images/house-ghosted.webp 1168w"
+               sizes="(min-width: 900px) 540px, 92vw"
+               alt="Result after sending /ghosted to ChatGPT" decoding="async">
+          <span class="vc-compare__chip vc-compare__chip--after">/ghosted</span>
+          <div class="vc-compare__before">
+            <img src="images/house-before.webp"
+                 srcset="images/house-before-584w.webp 584w, images/house-before.webp 1168w"
+                 sizes="(min-width: 900px) 540px, 92vw"
+                 alt="Original photo of a house" decoding="async">
+            <span class="vc-compare__chip vc-compare__chip--before">Original</span>
+          </div>
+          <button class="vc-compare__handle" role="slider" aria-label="Compare original and /ghosted result"
+                  aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50% original">
+            <span class="vc-compare__grip" aria-hidden="true">&#9664;&#9654;</span>
+          </button>
+        </div>
+
+      </div>
+      <p class="vc-hero__caption">Drag the handle in either image. These are two of the codes — <code>/skeletonview</code> and <code>/ghosted</code> — each applied to an ordinary photo (<code>/ghosted</code> needed one added sentence, shown on its card below). The full library of 50, and the instructions for making your own, follow below.</p>
+    </section>
+
+    <!-- ───── Hero: what this page is, in two sentences ───── -->
+    <section class="page-hero container">
+      <span class="eyebrow" data-reveal>ChatGPT</span>
+      <h1 data-reveal>50 visual codes for ChatGPT</h1>
+      <p class="lede" data-reveal>Upload one photo, type one word, and ChatGPT turns it into a teaching visual — a cutaway, an anatomy diagram, a blueprint. The codes are not official ChatGPT commands, just one-word prompts the image model understands remarkably well. Drag the slider on any card to see exactly what each code does to the same photo.</p>
+    </section>
+
+    <!-- ───── Answer capsule for search engines and AI assistants,
+               same pattern as the Infographic styles page ───── -->
+    <section class="seo-answer" data-reveal>
+      <h2 class="seo-answer__question">What is a visual code for ChatGPT?</h2>
+      <p class="seo-answer__capsule">A visual code is a one-word, slash-prefixed prompt — like /cutaway or /anatomy — that you send to ChatGPT together with an uploaded photo. The image model reads the word as an instruction and returns a transformed version of the same picture: a cutaway view, an X-ray, a labelled anatomy diagram, a technical blueprint. This page collects 50 codes with clear classroom value, sorted into eight categories, each demonstrated with a draggable before/after slider on the same photo.</p>
+    </section>
+
+    <!-- ───── How-to: the main purpose of the page, so it sits above the images ───── -->
+    <section class="container section--flush-top" id="how-to">
+      <h2 data-reveal>Make your own in 30 seconds</h2>
+      <div class="vc-steps" data-reveal>
+        <div class="vc-step">
+          <span class="vc-step__number">01</span>
+          <h3>Upload a photo</h3>
+          <p>Any photo works: an object, an animal, a place, a screenshot — or a picture you have generated.</p>
+        </div>
+        <div class="vc-step">
+          <span class="vc-step__number">02</span>
+          <h3>Type one code</h3>
+          <p>Send just the codeword and nothing else — for example <code>/cutaway</code>. That single word is the whole prompt.</p>
+        </div>
+        <div class="vc-step">
+          <span class="vc-step__number">03</span>
+          <h3>Ask for labels</h3>
+          <p>Want text in the image? Add <em>“with clear labels in English”</em> — or in any language your class works in.</p>
+        </div>
+        <div class="vc-step">
+          <span class="vc-step__number">04</span>
+          <h3>Keep it comparable</h3>
+          <p>Add <em>“keep the same subject, pose, scale and framing”</em>. Without it the model quietly zooms or re-crops, and the two images no longer line up.</p>
+        </div>
+      </div>
+      <!-- Codes that need one extra detail — explained here, and shown per card -->
+      <p class="vc-note" data-reveal>Most codes work on their own. A few cannot: “compare two versions” and “show the change” are impossible to follow unless the model knows <em>compare with what</em> or <em>change into what</em>. Those cards carry an <strong>Add</strong> line with the exact words to append.</p>
+      <p class="vc-note" data-reveal>Use the same trick whenever a result disappoints. One word is usually enough, but if the word leaves too much room for interpretation the model will pick the shallowest reading — often just labelling the surface instead of transforming the picture. When that happens, add the context you had in mind: not <code>/anatomy</code> but <em>“/anatomy — show the internal organs beneath the skin”</em>. You are not breaking the method; you are telling it which of several possible answers you were after.</p>
+      <!-- Combine tip — uses the site's standard callout component -->
+      <div class="callout" data-reveal>
+        <p class="callout__headline">Level up: combine codes</p>
+        <p>The codes are plain prompts, so they stack. Try sending two or more in the same message: <code>/cutaway /annotatedphoto</code> gives you an opened-up view with labels, <code>/anatomy /educationalposter</code> turns an animal photo into a labelled classroom poster. Two or three compatible codes usually beats one — experiment.</p>
+      </div>
+    </section>
+
+    <!-- ───── Category sections are rendered here from codes-en.json
+               by visual-codes.js — one section per category, one card
+               (codeword + description + slider) per code ───── -->
+    <div id="vc-root">
+      <noscript><p class="container">This page needs JavaScript to show the code cards and sliders.</p></noscript>
+    </div>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <!-- GSAP powers the same subtle scroll reveals as the rest of the site -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/include.js"></script>
+  <script defer src="/assets/js/copy-to-clipboard.js"></script>
+  <script defer src="/assets/js/scroll-reveals.js"></script>
+  <script defer src="visual-codes.js"></script>
+</body>
+</html>
