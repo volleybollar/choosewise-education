@@ -24,6 +24,7 @@ SECTIONS = [
     ("prompts-en",         "Prompts",                   "for schools",            "CHOOSEWISE.EDUCATION", "#2d5a3f"),
     ("notebooklm-en",      "140 visual styles",         "for NotebookLM",         "CHOOSEWISE.EDUCATION", "#2d5a3f"),
     ("evidence-en",        "Evidence Toolkit",          "for schools",            "CHOOSEWISE.EDUCATION", "#2d5a3f"),
+    ("visualcodes-en",     "50 visual codes",           "for ChatGPT",            "CHOOSEWISE.EDUCATION", "#2d5a3f"),
     ("about-en",           "Johan Lindström",           "Education consultant",   "CHOOSEWISE.EDUCATION", "#c66b3d"),
     # Swedish
     ("wise-sv",            "RÄTT-modellen",             "för utbildning",         "CHOOSEWISE.EDUCATION", "#2d5a3f"),

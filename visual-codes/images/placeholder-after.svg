@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Placeholder "after" image: shown for codes whose example pair
+     has not been generated yet. Same 4:3 ratio as the real photos (1448x1086). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1448 1086" role="img" aria-label="ChatGPT result — example coming soon">
+  <!-- warm tan background, matches the site's bg-alt color token -->
+  <rect width="1448" height="1086" fill="#f2ede2"/>
+  <!-- dashed frame in forest green marks this as the "result" side -->
+  <rect x="36" y="36" width="1376" height="1014" fill="none" stroke="#b9c9be" stroke-width="4" stroke-dasharray="18 14" rx="16"/>
+  <!-- Icon + text sit in the RIGHT half: the "before" layer covers the left
+       half at the 50/50 start position, so right-of-center stays fully visible. -->
+  <g transform="translate(362 0)">
+    <!-- sparkle icon: the "transformed" side -->
+    <g fill="#2d5a3f">
+      <path d="M724 350 L748 440 L838 464 L748 488 L724 578 L700 488 L610 464 L700 440 Z"/>
+      <path d="M840 330 L851 370 L891 381 L851 392 L840 432 L829 392 L789 381 L829 370 Z" opacity="0.55"/>
+    </g>
+    <text x="724" y="650" text-anchor="middle" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="52" font-weight="600" fill="#2d5a3f">ChatGPT result</text>
+    <text x="724" y="720" text-anchor="middle" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="40" fill="#6b6b65">Example coming soon</text>
+  </g>
+</svg>

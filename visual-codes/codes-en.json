@@ -1,0 +1,371 @@
+{
+  "_readme": "Data for the Visual codes page. To add a code: add an object to the right category's 'codes' array. 'before'/'after' point to a webp pair in images/ (same subject, 4:3). Every webp must exist in TWO widths: name.webp (1168w) and name-584w.webp — the page builds srcset from that naming. Leave before/after out while the pair is not generated yet; the page then shows placeholder images automatically.",
+  "categories": [
+    {
+      "id": "see-inside",
+      "title": "See inside",
+      "intro": "Open up the subject and show what the eye cannot see — the classic teaching move.",
+      "codes": [
+        {
+          "code": "/cutaway",
+          "description": "Opens the outer shell so students can look straight into the machine, building or vehicle.",
+          "before": "images/airplane-before.webp",
+          "after": "images/airplane-cutaway.webp"
+        },
+        {
+          "code": "/xray",
+          "description": "Turns the photo into an X-ray view that reveals what hides under the surface.",
+          "before": "images/smartphone-before.webp",
+          "after": "images/smartphone-xray.webp"
+        },
+        {
+          "code": "/crosssection",
+          "description": "Slices the subject cleanly through the middle, like a diagram in a textbook.",
+          "before": "images/volcano-before.webp",
+          "after": "images/volcano-crosssection.webp"
+        },
+        {
+          "code": "/explodedview",
+          "description": "Pulls the parts apart in mid-air so every component and its place become visible.",
+          "before": "images/smartphone-before.webp",
+          "after": "images/smartphone-explodedview.webp"
+        },
+        {
+          "code": "/layers",
+          "description": "Separates the subject into stacked layers — ideal for anything built up in strata.",
+          "before": "images/turf-before.webp",
+          "after": "images/turf-layers.webp"
+        },
+        {
+          "code": "/anatomy",
+          "description": "Labels the body systems and structures of an animal or person, straight on the photo.",
+          "before": "images/cow-before.webp",
+          "after": "images/cow-anatomy.webp",
+          "addition": "show the internal organs and skeleton beneath the skin, not just external body parts"
+        },
+        {
+          "code": "/skeletonview",
+          "description": "Shows the bones or supporting framework beneath the subject.",
+          "before": "images/cow-before.webp",
+          "after": "images/cow-skeletonview.webp"
+        },
+        {
+          "code": "/hiddenparts",
+          "description": "Reveals the components concealed behind a smooth, closed surface.",
+          "before": "images/thermos-before.webp",
+          "after": "images/thermos-hiddenparts.webp",
+          "addition": "make the outer steel shell transparent so the concealed inner chamber, the double wall and the vacuum gap between them become visible"
+        },
+        {
+          "code": "/ghosted",
+          "description": "Lets the hidden structure show through as faint outlines, leaving the outside intact.",
+          "before": "images/house-before.webp",
+          "after": "images/house-ghosted.webp",
+          "addition": "make the walls and roof semi-transparent so the rooms, floors and timber frame inside show through as faint outlines"
+        }
+      ]
+    },
+    {
+      "id": "science-scales",
+      "title": "Zoom to science scales",
+      "intro": "Bridge the visible world and the scales students can only imagine.",
+      "codes": [
+        {
+          "code": "/cellularview",
+          "description": "Zooms from the photo down to cell level — a bridge from the visible to the microscopic.",
+          "before": "images/leaf-before.webp",
+          "after": "images/leaf-cellularview.webp"
+        },
+        {
+          "code": "/molecularview",
+          "description": "Goes one step further and shows the subject at molecular scale.",
+          "before": "images/waterglass-before.webp",
+          "after": "images/waterglass-molecularview.webp"
+        },
+        {
+          "code": "/thermalview",
+          "description": "Repaints the scene the way a heat camera sees it — great for energy and physics lessons.",
+          "before": "images/house-before.webp",
+          "after": "images/house-thermalview.webp"
+        },
+        {
+          "code": "/magneticfield",
+          "description": "Draws the invisible magnetic field lines around the subject.",
+          "before": "images/magnet-before.webp",
+          "after": "images/magnet-magneticfield.webp"
+        }
+      ]
+    },
+    {
+      "id": "how-things-work",
+      "title": "How things work",
+      "intro": "Turn any photo into a functional explanation of what is really going on.",
+      "codes": [
+        {
+          "code": "/howitworks",
+          "description": "The all-round explainer: turns the photo into a visual walkthrough of how the thing works.",
+          "before": "images/earbuds-before.webp",
+          "after": "images/earbuds-howitworks.webp"
+        },
+        {
+          "code": "/mechanism",
+          "description": "Zooms in on the gears, springs and levers that make the subject work.",
+          "before": "images/clock-before.webp",
+          "after": "images/clock-mechanism.webp"
+        },
+        {
+          "code": "/energyflow",
+          "description": "Traces how power moves through the subject, from source to output.",
+          "before": "images/windturbine-before.webp",
+          "after": "images/windturbine-energyflow.webp"
+        },
+        {
+          "code": "/flowdiagram",
+          "description": "Shows how air, water, blood or data streams through the subject.",
+          "before": "images/runner-before.webp",
+          "after": "images/runner-flowdiagram.webp",
+          "addition": "show how blood flows through the body"
+        },
+        {
+          "code": "/forceanalysis",
+          "description": "Visualises the forces at play — pressure, weight, lift, stress.",
+          "before": "images/airplane-before.webp",
+          "after": "images/airplane-forceanalysis.webp"
+        },
+        {
+          "code": "/motionpath",
+          "description": "Draws the path a moving part, or the whole subject, follows.",
+          "before": "images/basketball-before.webp",
+          "after": "images/basketball-motionpath.webp"
+        },
+        {
+          "code": "/inputoutput",
+          "description": "Shows what enters the system and what comes out the other end.",
+          "before": "images/tree-before.webp",
+          "after": "images/tree-inputoutput.webp",
+          "addition": "show what goes into the tree and what comes out during photosynthesis"
+        }
+      ]
+    },
+    {
+      "id": "processes-time",
+      "title": "Processes and time",
+      "intro": "Stretch a single moment into a sequence, a history or a whole life.",
+      "codes": [
+        {
+          "code": "/lifecycle",
+          "description": "Expands the photo into a full life cycle, from beginning to end.",
+          "before": "images/butterfly-before.webp",
+          "after": "images/butterfly-lifecycle.webp"
+        },
+        {
+          "code": "/timeline",
+          "description": "Places the subject on a timeline and shows how it developed.",
+          "before": "images/castle-before.webp",
+          "after": "images/castle-timeline.webp"
+        },
+        {
+          "code": "/timelapse",
+          "description": "Compresses a slow process into a single image.",
+          "before": "images/plant-before.webp",
+          "after": "images/plant-timelapse.webp"
+        },
+        {
+          "code": "/stepsequence",
+          "description": "Breaks a task into numbered frames, step by step.",
+          "before": "images/pancakes-before.webp",
+          "after": "images/pancakes-stepsequence.webp"
+        },
+        {
+          "code": "/beforeafter",
+          "description": "Shows the change — what it looked like, and what it became.",
+          "before": "images/newbike-before.webp",
+          "after": "images/newbike-beforeafter.webp"
+        },
+        {
+          "code": "/assemblysequence",
+          "description": "Shows how the separate parts go together, in numbered stages.",
+          "before": "images/chair-before.webp",
+          "after": "images/chair-assemblysequence.webp"
+        }
+      ]
+    },
+    {
+      "id": "compare-decide",
+      "title": "Compare and decide",
+      "intro": "Put things side by side and let students reason about the difference.",
+      "codes": [
+        {
+          "code": "/scalecomparison",
+          "description": "Puts the subject next to a hand or a person so its real size lands.",
+          "before": "images/whale-before.webp",
+          "after": "images/whale-scalecomparison.webp"
+        },
+        {
+          "code": "/sidebyside",
+          "description": "Lines up two versions in matching views so differences jump out.",
+          "before": "images/smartphone-before.webp",
+          "after": "images/smartphone-sidebyside.webp",
+          "addition": "compare it with a mobile phone from 2005 and label this one 2026"
+        },
+        {
+          "code": "/proscons",
+          "description": "Turns the subject into a clear advantages-and-drawbacks visual.",
+          "before": "images/smartphone-before.webp",
+          "after": "images/smartphone-proscons.webp"
+        },
+        {
+          "code": "/decisiontree",
+          "description": "Maps the choices: what to do next at every branch.",
+          "before": "images/recycling-before.webp",
+          "after": "images/recycling-decisiontree.webp",
+          "addition": "draw a branching yes/no flowchart for sorting each item into the right recycling bin"
+        }
+      ]
+    },
+    {
+      "id": "technical-math",
+      "title": "Technical drawing and math",
+      "intro": "Give any object the engineer's treatment — lines, grids, measurements and perspective.",
+      "codes": [
+        {
+          "code": "/blueprint",
+          "description": "Redraws the photo as a classic technical blueprint.",
+          "before": "images/airplane-before.webp",
+          "after": "images/airplane-blueprint.webp"
+        },
+        {
+          "code": "/schematic",
+          "description": "Reduces the subject to a clean functional diagram.",
+          "before": "images/flashlight-before.webp",
+          "after": "images/flashlight-schematic.webp",
+          "addition": "redraw it as a technical circuit diagram with standard symbols for the battery, switch and lamp"
+        },
+        {
+          "code": "/technicaldrawing",
+          "description": "Shows accurate front, side and top views, like an engineer's sheet.",
+          "before": "images/bicycle-before.webp",
+          "after": "images/bicycle-technicaldrawing.webp"
+        },
+        {
+          "code": "/dimensionview",
+          "description": "Adds measurements around the subject — instant math material.",
+          "before": "images/whale-before.webp",
+          "after": "images/whale-dimensionview.webp"
+        },
+        {
+          "code": "/scalegrid",
+          "description": "Lays a grid over the subject for talking about size and proportion.",
+          "before": "images/house-before.webp",
+          "after": "images/house-scalegrid.webp"
+        },
+        {
+          "code": "/vanishingpoint",
+          "description": "Exposes the perspective lines — a gift for art class.",
+          "before": "images/corridor-before.webp",
+          "after": "images/corridor-vanishingpoint.webp"
+        },
+        {
+          "code": "/contourmap",
+          "description": "Translates height and depth into contour lines, like a map.",
+          "before": "images/landscape-before.webp",
+          "after": "images/landscape-contourmap.webp"
+        },
+        {
+          "code": "/cadview",
+          "description": "Presents the subject as a CAD model, the way an engineer would draw it.",
+          "before": "images/drone-before.webp",
+          "after": "images/drone-cadview.webp"
+        },
+        {
+          "code": "/materialmap",
+          "description": "Identifies which material each part is made of.",
+          "before": "images/bicycle-before.webp",
+          "after": "images/bicycle-materialmap.webp",
+          "addition": "colour-code every region by the material it is made of — steel, aluminium, rubber, leather, plastic — with a colour key, not by part name"
+        }
+      ]
+    },
+    {
+      "id": "annotations",
+      "title": "Classroom-ready annotations",
+      "intro": "Keep the photo, add the teaching layer on top.",
+      "codes": [
+        {
+          "code": "/annotatedphoto",
+          "description": "Keeps the photo intact and adds clean labels right on it.",
+          "before": "images/bicycle-before.webp",
+          "after": "images/bicycle-annotatedphoto.webp"
+        },
+        {
+          "code": "/whiteboard",
+          "description": "Redraws the image as a hand-drawn whiteboard explanation.",
+          "before": "images/landscape-before.webp",
+          "after": "images/landscape-whiteboard.webp"
+        },
+        {
+          "code": "/educationalposter",
+          "description": "Turns the photo into a poster with facts and labels.",
+          "before": "images/butterfly-before.webp",
+          "after": "images/butterfly-educationalposter.webp"
+        },
+        {
+          "code": "/infographic",
+          "description": "Converts the subject into a data-rich infographic.",
+          "before": "images/smartphone-before.webp",
+          "after": "images/smartphone-infographic.webp"
+        },
+        {
+          "code": "/instructioncard",
+          "description": "Condenses the task into a compact visual instruction card.",
+          "before": "images/pancakes-before.webp",
+          "after": "images/pancakes-instructioncard.webp"
+        },
+        {
+          "code": "/protectivegear",
+          "description": "Shows the safety equipment the situation calls for.",
+          "before": "images/lab-before.webp",
+          "after": "images/lab-protectivegear.webp"
+        }
+      ]
+    },
+    {
+      "id": "body-life",
+      "title": "Body, life and environment",
+      "intro": "Turn a photo of a body, an animal or a place into biology teaching material.",
+      "codes": [
+        {
+          "code": "/musclemap",
+          "description": "Labels the major muscles and shows where they sit.",
+          "before": "images/runner-before.webp",
+          "after": "images/runner-musclemap.webp"
+        },
+        {
+          "code": "/organmap",
+          "description": "Labels the internal organs — the dissection diagram without the dissection.",
+          "before": "images/fish-before.webp",
+          "after": "images/fish-organmap.webp"
+        },
+        {
+          "code": "/rangeofmotion",
+          "description": "Shows how far a joint can move, and in which directions.",
+          "before": "images/runner-before.webp",
+          "after": "images/runner-rangeofmotion.webp"
+        },
+        {
+          "code": "/habitatview",
+          "description": "Moves the animal into the environment it actually lives in.",
+          "before": "images/polarbear-before.webp",
+          "after": "images/polarbear-habitatview.webp"
+        },
+        {
+          "code": "/interactionmap",
+          "description": "Maps how the species in a place depend on one another.",
+          "before": "images/pond-before.webp",
+          "after": "images/pond-interactionmap.webp",
+          "addition": "draw the food web showing which animals and plants in this pond depend on each other, with arrows for who eats whom"
+        }
+      ]
+    }
+  ]
+}
