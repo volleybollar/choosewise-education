@@ -87,19 +87,23 @@ def test_no_legacy_palette_in_published_files():
     )
 
 
-def test_page_local_css_uses_tokens_not_hex():
-    """Granskningsfokus 5: sidlokal CSS gick runt tokens förut."""
-    page_local = [
-        ROOT / "guides/claude/styles.css",
-        ROOT / "sv/guider/claude/styles.css",
-        ROOT / "visual-codes/visual-codes.css",
-    ]
+def test_css_uses_tokens_not_hex():
+    """Granskningsfokus 5, breddad (fix-rond 1): sidlokal CSS gick runt
+    tokens förut. En handplockad fillista har varit fel tre gånger i den
+    här vågen, så detta skannar ALL publicerad CSS istället — allt utom
+    tokens.css självt, som äger de faktiska hex-värdena bakom varje token.
+    Nycklas på sökväg relativt ROOT, inte path.name, så att
+    guides/claude/styles.css och sv/guider/claude/styles.css (samma
+    filnamn, olika mappar) inte kollapsar till en nyckel i en felrapport."""
+    tokens_css = ROOT / "assets/css/tokens.css"
     offenders = {}
-    for path in page_local:
+    for path in published_files((".css",)):
+        if path == tokens_css:
+            continue
         found = re.findall(r"#[0-9a-fA-F]{3,8}\b", path.read_text(encoding="utf-8"))
         if found:
-            offenders[path.name] = sorted(set(found))
-    assert offenders == {}, f"Sidlokal CSS hårdkodar färg: {offenders}"
+            offenders[str(path.relative_to(ROOT))] = sorted(set(found))
+    assert offenders == {}, f"CSS hårdkodar färg utanför tokens.css: {offenders}"
 
 
 NON_TOKEN_HEX_FORBIDDEN = [
@@ -130,7 +134,8 @@ def test_generated_pages_carry_no_palette():
         if not path.exists():
             continue
         text = path.read_text(encoding="utf-8")
-        assert not re.search(r"#[0-9a-fA-F]{6}\b", text), f"{path.name} bär färgvärden"
+        found = re.findall(r"#[0-9a-fA-F]{6}\b", text)
+        assert not found, f"{path.name} bär färgvärden: {sorted(set(found))}"
 
 
 # ───────────────────────────────────────────────────────────────────────
@@ -178,6 +183,31 @@ def test_no_forbidden_font_families_declared():
     )
 
 
+# Ordagrant ur presentation-skills/module-2/index.html, rad 117 (den
+# svenska systerraden på sv/presentationsteknik/modul-2/index.html säger
+# samma sak med andra ord). Detta är INTE "Interrogate" eller
+# "International" — "Fraunces" och "Inter" står här som fullständiga,
+# korrekt \b-avgränsade fristående ord, utan någon font-family-kontext i
+# närheten. Det är den här meningen som motiverar hela designen: en bar
+# \b(NAMN)\b-skanning skulle träffa den (bevisat av _NAIVE_BARE_PATTERN
+# nedan), och den enda anledningen FONT_FAMILY_PATTERN inte gör det är
+# kravet på ett föregående "font-family:"/"font-family=".
+REAL_PROSE_FALSE_POSITIVE = (
+    "Sans-serif (e.g. Helvetica, Inter, Arial) is usually perceived as "
+    "easier to read from a distance; serif (e.g. Garamond, Fraunces, "
+    "Times) can feel heavier but adds character. Pick one family and "
+    "stick with it."
+)
+
+# Vad FONT_FAMILY_PATTERN INTE får bli: en bar gränsmatchning utan krav på
+# font-family-kontext. Finns bara för att bevisa att meningen ovan är en
+# genuin \b-träff för "Fraunces" och "Inter" — inget annat.
+_NAIVE_BARE_PATTERN = re.compile(
+    r"\b(" + "|".join(re.escape(name) for name in FORBIDDEN_FONT_FAMILIES) + r")\b",
+    re.IGNORECASE,
+)
+
+
 def test_font_family_pattern_ignores_prose():
     """Mönstret ska inte triggas av ord som råkar innehålla ett förbjudet
     namn som delsträng ("Interrogate" innehåller "Inter", "International"
@@ -192,3 +222,17 @@ def test_font_family_pattern_ignores_prose():
     assert FONT_FAMILY_PATTERN.search("font-family='Work Sans', sans-serif")
     assert FONT_FAMILY_PATTERN.search('font-family="Hanken Grotesk, Inter, sans-serif"')
     assert FONT_FAMILY_PATTERN.search("font-family:Playfair Display,serif")
+
+    # Sanity: bekräfta att meningen verkligen är en bar \b-träff, så att
+    # assertionen nedan betyder något (annars skulle den kunna passera av
+    # fel anledning).
+    assert _NAIVE_BARE_PATTERN.search(REAL_PROSE_FALSE_POSITIVE), (
+        "sanity-kontrollen gick sönder: meningen innehåller inte längre "
+        "en bar \\b-träff — regressionstestet nedan har då inget att bevisa"
+    )
+    # Den riktiga regressionsvakten: om kravet på font-family-kontext
+    # någonsin tas bort (t ex vid en framtida "förenkling" till en bar
+    # delsträngs- eller \b-skanning), blir FONT_FAMILY_PATTERN i praktiken
+    # samma mönster som _NAIVE_BARE_PATTERN ovan — och den här raden går
+    # rött, precis över den undervisningstext den skyddar.
+    assert not FONT_FAMILY_PATTERN.search(REAL_PROSE_FALSE_POSITIVE)
