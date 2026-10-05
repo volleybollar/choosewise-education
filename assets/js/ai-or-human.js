@@ -155,6 +155,8 @@
     const resetBtn = rootEl.querySelector('[data-quiz-reset]');
     const feedback = rootEl.querySelector('[data-quiz-feedback]');
     const hints = Array.from(rootEl.querySelectorAll('[data-quiz-hint]'));
+    const revealBtn = rootEl.querySelector('[data-quiz-reveal]');
+    const revealNumbers = rootEl.querySelector('[data-quiz-answer-numbers]');
     const tmpl = rootEl.dataset.feedbackTemplate || 'Score: {score}/9';
 
     // Truth set: numbers (as strings) that are NOT AI.
@@ -180,6 +182,27 @@
       feedback.hidden = true;
       feedback.textContent = '';
       hints.forEach(h => { h.open = false; });
+      flipReveal(false);
+    }
+
+    // Answer button: flips to show the numbers of the AI-generated images.
+    // The numbers are derived from notAI (data-correct-not-ai) so the answer key
+    // lives in one place; the separator is language-neutral and the label text
+    // stays in the per-language HTML.
+    function flipReveal(toFlipped) {
+      if (!revealBtn) return;
+      revealBtn.classList.toggle('is-flipped', toFlipped);
+      revealBtn.setAttribute('aria-pressed', String(toFlipped));
+    }
+
+    if (revealBtn && revealNumbers) {
+      revealNumbers.textContent = checks
+        .filter(cb => !notAI.has(cb.value))
+        .map(cb => cb.value)
+        .join(' · ');
+      revealBtn.addEventListener('click', () => {
+        flipReveal(!revealBtn.classList.contains('is-flipped'));
+      });
     }
 
     submitBtn.addEventListener('click', onSubmit);
