@@ -64,11 +64,29 @@ def _fingerprint(page: str) -> Counter:
     return Counter("".join(page.split()))
 
 
-@pytest.mark.parametrize("slug", SAMPLES)
-def test_content_is_unchanged(slug):
+# Fix-rond: ett saknat facit gav pytest.skip, inte pytest.fail. Efter en
+# omstart eller en färsk klon av repot finns inget /tmp/pdf-parity-before,
+# och grinden som bevisar "inte ett ord ändrat" degraderar tyst till tystnad
+# i stället för att fela — en suite full av gula skip kan se grön ut i
+# sammanfattningen utan att ha bevisat något. Ett saknat facit är nu ett
+# fel, med instruktionen för hur det återskapas i meddelandet.
+def _require_baseline(slug: str) -> Path:
     baseline = BEFORE / f"{slug}.txt"
     if not baseline.exists():
-        pytest.skip(f"Inget facit för {slug} — kör steg 1 först")
+        pytest.fail(
+            f"Inget facit för {slug} i {BEFORE} — testet kan inte bevisa att "
+            "innehållet är oförändrat utan det. Återskapa med:\n"
+            "  mkdir -p /tmp/pdf-parity-before\n"
+            "  for f in teachers-en principals-en matematik-sv larare-sv skolchefer-sv; do\n"
+            '    pdftotext -layout "assets/pdfs/prompts/$f.pdf" "/tmp/pdf-parity-before/$f.txt"\n'
+            "  done"
+        )
+    return baseline
+
+
+@pytest.mark.parametrize("slug", SAMPLES)
+def test_content_is_unchanged(slug):
+    baseline = _require_baseline(slug)
     before = _pages(baseline.read_text())
     after = _pages(extract(PDF_DIR / f"{slug}.pdf"))
     moved = _moved(before, after)
@@ -85,10 +103,7 @@ def test_content_is_unchanged(slug):
 # ───────────────────────────────────────────────────────────────────────
 
 def _load_baseline_pages(slug: str) -> list[str]:
-    baseline = BEFORE / f"{slug}.txt"
-    if not baseline.exists():
-        pytest.skip(f"Inget facit för {slug} — kör steg 1 först")
-    return _pages(baseline.read_text())
+    return _pages(_require_baseline(slug).read_text())
 
 
 def _moved(before_pages: list[str], after_pages: list[str]) -> list[int]:

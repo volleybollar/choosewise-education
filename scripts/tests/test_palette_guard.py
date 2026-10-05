@@ -125,14 +125,17 @@ def test_no_known_non_token_hex_in_published_files():
 
 
 def test_generated_pages_carry_no_palette():
-    """De ~150 genererade sidorna ska ärva allt från delad CSS."""
+    """De ~150 genererade sidorna ska ärva allt från delad CSS.
+
+    `if not path.exists(): continue` gjorde testet grönt av fel anledning
+    om ett av proven bytte namn eller flyttades — det hade då inte
+    bevisat något alls. Ett saknat prov är nu ett fel, inte en tyst hopp."""
     samples = [
         ROOT / "prompts/teachers/index.html",
         ROOT / "sv/promptar/larare/index.html",
     ]
     for path in samples:
-        if not path.exists():
-            continue
+        assert path.exists(), f"{path.relative_to(ROOT)} finns inte — provet kan inte bevisa något"
         text = path.read_text(encoding="utf-8")
         found = re.findall(r"#[0-9a-fA-F]{6}\b", text)
         assert not found, f"{path.name} bär färgvärden: {sorted(set(found))}"
@@ -150,12 +153,21 @@ def test_generated_pages_carry_no_palette():
 # Evidence Toolkit-sidornas text (bekräftat: 180 träffar för ordstammen
 # "interrogat*" i spårade filer). Mönstret kräver att namnet står som ett
 # eget ord direkt efter "font-family:" eller "font-family=" (SVG).
+#
+# Värdeklassen [^;"'>] kunde inte korsa ett citattecken, så en stack som
+# `font-family: Georgia, 'Playfair Display', serif` — bara EN av flera
+# namn citerad, ett vanligt mönster när bara namn med mellanslag behöver
+# citeras — var osynlig för mönstret. Breddad till [^;>{}]: "}" stoppar
+# vid en CSS-regelgräns, ">" fortfarande vid slutet på en HTML
+# style="…"-attribut-sträng, men citattecken får nu finnas mitt i värdet.
+# Bekräftat: ger noll nya träffar mot det nuvarande korpuset (samma
+# resultat som förut på alla riktiga fall), så den landar grön.
 # ───────────────────────────────────────────────────────────────────────
 
 FORBIDDEN_FONT_FAMILIES = ["Fraunces", "Work Sans", "Inter", "Playfair Display"]
 
 FONT_FAMILY_PATTERN = re.compile(
-    r'font-family\s*[:=]\s*["\']?[^;"\'>]*\b('
+    r'font-family\s*[:=]\s*["\']?[^;>{}]*\b('
     + "|".join(re.escape(name) for name in FORBIDDEN_FONT_FAMILIES)
     + r")\b",
     re.IGNORECASE,
@@ -222,6 +234,10 @@ def test_font_family_pattern_ignores_prose():
     assert FONT_FAMILY_PATTERN.search("font-family='Work Sans', sans-serif")
     assert FONT_FAMILY_PATTERN.search('font-family="Hanken Grotesk, Inter, sans-serif"')
     assert FONT_FAMILY_PATTERN.search("font-family:Playfair Display,serif")
+    # Regression: bara ETT av flera namn citerat ("Georgia, 'Playfair
+    # Display', serif") var blint för den gamla [^;"'>]-värdeklassen, som
+    # inte kunde korsa citattecknet mitt i värdet.
+    assert FONT_FAMILY_PATTERN.search("font-family: Georgia, 'Playfair Display', serif;")
 
     # Sanity: bekräfta att meningen verkligen är en bar \b-träff, så att
     # assertionen nedan betyder något (annars skulle den kunna passera av
