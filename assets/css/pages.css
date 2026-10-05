@@ -310,7 +310,7 @@
 .prompt-filter:hover { border-color: var(--color-highlight); color: var(--color-highlight); }
 .prompt-filter.is-active {
   background: var(--color-highlight);
-  color: #fff;
+  color: var(--color-text);
   border-color: var(--color-highlight);
 }
 
