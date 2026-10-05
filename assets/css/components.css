@@ -27,6 +27,24 @@
 }
 .btn--primary:hover { background: var(--color-accent-hover); box-shadow: var(--shadow-md); color: var(--color-dark-text); }
 
+/* Avstängd knapp — samma form, tydligt inaktivt uttryck. Webbläsarens egen
+   nedtoning räcker inte: en avstängd btn--primary såg nästan ut som en aktiv.
+   Gäller både primary och secondary, därför på .btn och inte på varianterna.
+   :hover måste upprepas eftersom .btn--primary:hover annars färgar tillbaka den. */
+.btn:disabled {
+  background: var(--color-bg-alt);
+  color: var(--color-text-soft);
+  border-color: var(--color-border);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.btn:disabled:hover {
+  background: var(--color-bg-alt);
+  color: var(--color-text-soft);
+  box-shadow: none;
+}
+.btn:disabled:active { transform: none; }
+
 .btn--secondary {
   background: transparent;
   color: var(--color-text);
