@@ -25,6 +25,14 @@ text i "ord". Ersatt med en per-sida teckenmultimängd (Counter över alla
 icke-blanka tecken), som är okänslig för tokenisering men fångar varje
 verklig textändring. Bevis på det senare: test_fingerprint-testerna
 nedan.
+
+Fingeravtryckets kända begränsning: det är en multimängd PER SIDA, så det
+är blint för omkastning INOM en sida — två meningar som byter plats på
+samma sida, med samma tecken kvar, skulle passera. Medvetet och korrekt
+avvägt (en CSS-omstyling kastar inte om textens ordning, bara färg och
+typsnitt) men värt att säga rakt ut, eftersom testets enda uppgift är att
+vara pålitligt. Flytt ÖVER en sidgräns fångas fortfarande (se
+test_fingerprint_catches_text_moved_across_a_page_boundary).
 """
 import subprocess
 from collections import Counter
@@ -63,14 +71,7 @@ def test_content_is_unchanged(slug):
         pytest.skip(f"Inget facit för {slug} — kör steg 1 först")
     before = _pages(baseline.read_text())
     after = _pages(extract(PDF_DIR / f"{slug}.pdf"))
-    assert len(before) == len(after), (
-        f"{slug}: sidantalet ändrades, {len(before)} -> {len(after)}"
-    )
-    moved = [
-        i + 1
-        for i, (a, b) in enumerate(zip(before, after))
-        if _fingerprint(a) != _fingerprint(b)
-    ]
+    moved = _moved(before, after)
     assert moved == [], f"{slug}: innehållet ändrades på sida {moved}"
 
 
@@ -159,6 +160,24 @@ def test_swedish_characters_survive(slug):
     assert any(ch in text for ch in "åäöÅÄÖ"), "svenska tecken saknas helt"
     # Ett saknat snitt ger ofta ersättningstecken i stället för diakriter.
     assert "�" not in text
+
+
+@pytest.mark.parametrize("slug", ["larare-sv", "teachers-en"])
+def test_font_is_not_a_fallback(slug):
+    """Helvetica (näst i fontstacken) renderar å/ä/ö lika bra som Hanken
+    Grotesk, så test_swedish_characters_survive skulle förbli grönt även om
+    @font-face-sökvägen gick sönder och renderaren tyst föll tillbaka — samma
+    osynliga felklass som drabbade delningskortsrenderaren tidigare i den här
+    vågen. Ett svenskt och ett engelskt prov, så att ett språkspecifikt
+    byggfel inte kan gömma sig."""
+    result = subprocess.run(
+        ["pdffonts", str(PDF_DIR / f"{slug}.pdf")],
+        capture_output=True, text=True, check=True,
+    )
+    assert "HankenGrotesk" in result.stdout, (
+        f"{slug}: inbäddat typsnitt är inte Hanken Grotesk — "
+        f"renderaren har troligen fallit tillbaka:\n{result.stdout}"
+    )
 
 
 def test_every_pack_rendered():
