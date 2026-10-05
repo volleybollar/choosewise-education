@@ -26,6 +26,12 @@
   box-shadow: var(--shadow-sm);
 }
 .btn--primary:hover { background: var(--color-accent-hover); box-shadow: var(--shadow-md); color: var(--color-dark-text); }
+/* .btn--primary's own resting box-shadow above is the same specificity as
+   the global :focus-visible rule, so on source order alone it silently
+   wins and the button never shows a focus ring anywhere, light or dark
+   background, keyboard or not. Naming the class again here (two
+   selectors = higher specificity) makes the ring win unconditionally. */
+.btn--primary:focus-visible { box-shadow: var(--shadow-focus); }
 
 /* Avstängd knapp — samma form, tydligt inaktivt uttryck. Webbläsarens egen
    nedtoning räcker inte: en avstängd btn--primary såg nästan ut som en aktiv.
@@ -2015,6 +2021,14 @@
   color: var(--color-dark-text);
   box-sizing: border-box;
   resize: vertical;
+}
+/* The base ::placeholder rule (base.css) assumes a paper background —
+   this field's is var(--et-prompt-hint-bg), the accent navy, where
+   --color-text-muted falls to 2.2:1. --color-dark-text is the token this
+   site already uses for text on that exact background (4.5:1+). */
+.et-prompt-builder textarea::placeholder {
+  color: var(--color-dark-text);
+  opacity: 1;
 }
 .et-prompt-builder button {
   display: inline-block;

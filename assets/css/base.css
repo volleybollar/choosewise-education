@@ -38,6 +38,16 @@ input, button, textarea, select {
   color: inherit;
 }
 
+/* No ::placeholder rule existed anywhere, so placeholder text fell back
+   to each browser's own default colour instead of the brand's. --color-
+   text-muted clears 4.5:1 on the paper background every .input/.et-search/
+   textarea sits on. opacity:1 is needed because some browsers dim
+   placeholders further on top of whatever colour is set here. */
+::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: var(--weight-heading);
@@ -65,6 +75,27 @@ a:hover { color: var(--color-accent-hover); }
   outline: none;
   box-shadow: var(--shadow-focus);
   border-radius: var(--radius-sm);
+}
+
+/* --shadow-focus is --color-focus, the site's own accent blue — invisible
+   against a surface that is itself that colour. .hero, .footer,
+   .flipcard__back and .et-prompt-builder are every container in the
+   shared stylesheets with a dark (--color-dark-bg or --color-text)
+   background, so route their focus ring to --color-focus-on-dark instead.
+   .btn--primary needs naming a second time here: it carries its own resting
+   box-shadow (components.css) at the same specificity as a bare
+   :focus-visible, so inside these containers it needs an explicitly more
+   specific selector to make sure the dark ring — not the light one, not
+   the resting shadow — wins regardless of file load order. */
+.hero :focus-visible,
+.footer :focus-visible,
+.flipcard__back :focus-visible,
+.et-prompt-builder :focus-visible,
+.hero .btn--primary:focus-visible,
+.footer .btn--primary:focus-visible,
+.flipcard__back .btn--primary:focus-visible,
+.et-prompt-builder .btn--primary:focus-visible {
+  box-shadow: 0 0 0 3px var(--color-focus-on-dark);
 }
 
 .container {

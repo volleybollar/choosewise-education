@@ -46,3 +46,42 @@ def test_surface_copper_is_never_used_as_text(path):
         if HIGHLIGHT_AS_TEXT.search(line)
     ]
     assert hits == [], f"{path.name} använder ytkoppar som textfärg på rad {hits}"
+
+
+# NOTE: --color-focus-on-dark existed in tokens.css, with its own
+# passing contrast test, for an entire wave before anyone noticed it was
+# never consumed — a token that only exists in the tin, not on the wall.
+# test_tokens.py's checks are all pure token-value arithmetic; none of
+# them can see whether a token is wired into a real declaration. This
+# guard reads actual rule bodies instead: for every selector that
+# mentions :focus or :focus-visible in the shared stylesheets, grab its
+# declaration block up to the next "}" (good enough — none of this
+# codebase's focus rules are themselves nested inside another block) and
+# assert both focus tokens appear in at least one of them, literally.
+FOCUS_SELECTOR = re.compile(r":focus(?:-visible)?[^{]*\{")
+
+
+def _focus_rule_bodies(text: str) -> str:
+    bodies = []
+    for m in FOCUS_SELECTOR.finditer(text):
+        end = text.find("}", m.end())
+        if end != -1:
+            bodies.append(text[m.end() : end])
+    return " ".join(bodies)
+
+
+def test_focus_tokens_are_consumed_by_a_real_focus_rule():
+    """Granskningsfokus 1 (task 10, fix round 1): en osynlig fokusring
+    kom igenom trots grön testsvit eftersom ingenting mätte om
+    --color-focus-on-dark faktiskt användes någonstans. Båda
+    fokustokens måste nu förekomma, bokstavligen, i minst en
+    :focus/:focus-visible-regel i de delade stilmallarna."""
+    text = "\n".join(p.read_text(encoding="utf-8") for p in shared_stylesheets())
+    bodies = _focus_rule_bodies(text)
+    assert "var(--color-focus-on-dark)" in bodies, (
+        "ingen :focus-regel i de delade css-filerna använder "
+        "--color-focus-on-dark — tokenen riskerar att bli obrukad igen"
+    )
+    assert "var(--color-focus)" in bodies, (
+        "ingen :focus-regel i de delade css-filerna använder --color-focus"
+    )
