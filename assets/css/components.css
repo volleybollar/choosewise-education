@@ -428,7 +428,7 @@
 .module-topbar__progress-dot--current {
   background: var(--color-highlight);
   border-color: var(--color-highlight);
-  color: var(--color-dark-text);
+  color: var(--color-text);
 }
 .course-progress__dot--current { box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-highlight) 15%, transparent); }
 .module-topbar__progress-dot--current { box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-highlight) 15%, transparent); }
@@ -522,7 +522,7 @@
   color: var(--color-text-soft);
 }
 .module-card__status--done    { color: var(--color-accent); }
-.module-card__status--current { color: var(--color-highlight); }
+.module-card__status--current { color: var(--color-highlight-ink); }
 
 .module-card__title {
   font-family: var(--font-display);
@@ -554,7 +554,7 @@
   gap: 0.35rem;
 }
 .module-card__deepdive-tag {
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   font-weight: 500;
 }
 
@@ -624,7 +624,7 @@
 .deepdive-cta:hover { transform: translateY(-1px); }
 .deepdive-cta__icon {
   font-size: 2rem;
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
 }
 .deepdive-cta__title {
   font-family: var(--font-display);
@@ -640,7 +640,7 @@
   margin: 0;
 }
 .deepdive-cta__arrow {
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   font-weight: 500;
 }
 @media (max-width: 720px) {
@@ -691,7 +691,7 @@
   width: 80px;
   height: 80px;
   margin-bottom: var(--space-3);
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
 }
 .module-symbol svg {
   width: 100%;

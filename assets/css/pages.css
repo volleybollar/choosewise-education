@@ -31,7 +31,7 @@
 .hero__sub { color: rgba(247,243,237,0.85); font-size: 1.25rem; margin-top: var(--space-5); max-width: 42ch; }
 .hero__cta { display: flex; gap: var(--space-4); margin-top: var(--space-7); flex-wrap: wrap; justify-content: center; }
 .hero__cta .btn--ghost { color: var(--color-dark-text); }
-.hero__cta .btn--ghost:hover { color: var(--color-highlight); }
+.hero__cta .btn--ghost:hover { color: var(--color-highlight-on-dark); }
 
 /* ───── Hero — WISE/RÄTT animerad signatur ─────
    SVG-diagram ligger absolut bakom text-innehållet. Vid sidladdning
@@ -152,7 +152,7 @@
   font-style: italic;
 }
 .framework-note strong { color: var(--color-text); font-style: normal; font-weight: 500; }
-.eyebrow { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-highlight); font-weight: 500; display: block; margin-bottom: var(--space-3); }
+.eyebrow { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-highlight-ink); font-weight: 500; display: block; margin-bottom: var(--space-3); }
 .eyebrow--framework { font-size: 1.125rem; letter-spacing: 0.1em; margin-bottom: var(--space-4); }
 
 /* ───── Two-col generic ───── */
@@ -248,7 +248,7 @@
   font-size: var(--fs-caption);
   letter-spacing: var(--tracking-loose);
   text-transform: uppercase;
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   font-weight: 500;
   display: block;
   margin-bottom: var(--space-3);
@@ -273,11 +273,11 @@
   position: absolute;
   left: var(--space-4); top: var(--space-4);
   font-family: var(--font-display);
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   font-weight: 500;
 }
 .example-prompts em {
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   background: rgba(198, 107, 61, 0.08);
   padding: 0 3px;
   border-radius: 2px;
@@ -307,7 +307,7 @@
   cursor: pointer;
   transition: all 150ms ease;
 }
-.prompt-filter:hover { border-color: var(--color-highlight); color: var(--color-highlight); }
+.prompt-filter:hover { border-color: var(--color-highlight); color: var(--color-highlight-ink); }
 .prompt-filter.is-active {
   background: var(--color-highlight);
   color: var(--color-text);
@@ -335,7 +335,7 @@
 }
 .prompt-card__eyebrow {
   font-size: var(--fs-caption); letter-spacing: var(--tracking-loose);
-  text-transform: uppercase; color: var(--color-highlight); font-weight: 500;
+  text-transform: uppercase; color: var(--color-highlight-ink); font-weight: 500;
   margin-bottom: var(--space-3);
 }
 .prompt-card__title {

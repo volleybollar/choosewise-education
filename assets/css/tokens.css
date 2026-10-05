@@ -18,10 +18,12 @@
   --color-accent-hover: #082C55;
   --color-deep:         #07284D;  /* footer, hero */
 
-  /* Koppar har två värden. Ytor och grafik tar --color-highlight.
-     All kopparfärgad TEXT tar --color-highlight-ink (5,2:1). */
+  /* Koppar har tre värden. Ytor och grafik tar --color-highlight, aldrig text.
+     Kopparfärgad TEXT tar --color-highlight-ink på ljusa ytor (5,2:1)
+     eller --color-highlight-on-dark på mörka band (7,2:1 på mörkt band, 9,4:1 i footern). */
   --color-highlight:     #C2793A;
   --color-highlight-ink: #9C5A24;
+  --color-highlight-on-dark: #E8C9A8;
   --color-highlight-hover: #A9642C;
 
   --color-dark-bg:      #0B3A6F;
