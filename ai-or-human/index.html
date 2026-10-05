@@ -158,9 +158,21 @@
         </details>
       </div>
 
-      <div class="quiz-controls">
+      <!-- The image test's control row is a grid (see .quiz-controls--with-reveal in
+           components.css) so the answer button below can span both columns and end up
+           exactly as wide as Done! + Reset together. -->
+      <div class="quiz-controls quiz-controls--with-reveal">
         <button type="button" class="btn btn--primary" data-quiz-submit>Done!</button>
         <button type="button" class="btn btn--primary" data-quiz-reset>Reset</button>
+        <!-- Flipping answer button: the front shows the label, the back shows the numbers
+             of the AI-generated images. The numbers are filled in by ai-or-human.js from
+             the section's data-correct-not-ai, so the answer key lives in one place only. -->
+        <button type="button" class="btn btn--primary answer-flip" data-quiz-reveal aria-pressed="false">
+          <span class="answer-flip__inner">
+            <span class="answer-flip__face answer-flip__front">Reveal the answers</span>
+            <span class="answer-flip__face answer-flip__back"><span class="visually-hidden">AI-generated images: </span><span data-quiz-answer-numbers></span></span>
+          </span>
+        </button>
       </div>
       <p class="quiz-feedback" data-quiz-feedback hidden aria-live="polite"></p>
 

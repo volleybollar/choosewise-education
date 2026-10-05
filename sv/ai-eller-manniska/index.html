@@ -158,9 +158,21 @@
         </details>
       </div>
 
-      <div class="quiz-controls">
+      <!-- Kontrollraden i bildtestet är ett grid (se .quiz-controls--with-reveal i
+           components.css) så facitknappen nedan kan spänna över båda kolumnerna och
+           därmed bli exakt lika bred som Klar! + Nollställ tillsammans. -->
+      <div class="quiz-controls quiz-controls--with-reveal">
         <button type="button" class="btn btn--primary" data-quiz-submit>Klar!</button>
         <button type="button" class="btn btn--primary" data-quiz-reset>Nollställ</button>
+        <!-- Vändbar facitknapp: framsidan visar etiketten, baksidan numren på de
+             AI-genererade bilderna. Numren fylls i av ai-or-human.js ur sektionens
+             data-correct-not-ai, så facit bara finns på ett ställe. -->
+        <button type="button" class="btn btn--primary answer-flip" data-quiz-reveal aria-pressed="false">
+          <span class="answer-flip__inner">
+            <span class="answer-flip__face answer-flip__front">Visa rätt svar</span>
+            <span class="answer-flip__face answer-flip__back"><span class="visually-hidden">AI-genererade bilder: </span><span data-quiz-answer-numbers></span></span>
+          </span>
+        </button>
       </div>
       <p class="quiz-feedback" data-quiz-feedback hidden aria-live="polite"></p>
 
