@@ -657,7 +657,9 @@ Förväntat: FAIL med fem filer listade.
 | `#D1D5DB` | `var(--color-border)` |
 | `#FFFFFF`, `#FDFCFA`, `#FAFBFC`, `#FFF8F4` | `var(--color-bg)` |
 
-`guides/claude/index.html` och `sv/guider/claude/index.html` — de 34 förekomsterna sitter i inbäddade `<svg>`-diagram med `fill=` och `stroke=`. SVG-attribut kan ta `var()` när de står i samma dokument, så:
+`guides/claude/index.html` och `sv/guider/claude/index.html` — de 34 förekomsterna sitter i inbäddade `<svg>`-diagram med `fill=`, `stroke=` och `font-family=`.
+
+**Använd `style`-attributet, inte presentationsattributet.** `fill="var(--x)"` fungerar i Chromium (verifierat 2026-10-05) men stödet i äldre Safari är osäkert, och ett tyst fel här gör diagrammen osynliga på en av sajtens mest besökta sidor. `style="fill: var(--x)"` är vanlig CSS och fungerar överallt. Samma arbete att skriva, ingen risk att väga.
 
 ```html
 <!-- före -->
@@ -665,9 +667,11 @@ Förväntat: FAIL med fem filer listade.
 <text ... font-family="Playfair Display, serif" font-weight="700" fill="#1B2733">Chat</text>
 
 <!-- efter -->
-<rect x="200" y="60" width="130" height="130" rx="10" fill="var(--color-accent)"/>
-<text ... font-family="var(--font-display)" font-weight="300" fill="var(--color-accent)">Chat</text>
+<rect x="200" y="60" width="130" height="130" rx="10" style="fill: var(--color-accent)"/>
+<text ... style="font-family: var(--font-display); font-weight: 300; fill: var(--color-accent)">Chat</text>
 ```
+
+Har ett element redan ett `style`-attribut, slå ihop deklarationerna i stället för att lägga till ett andra.
 
 Varje `font-family="Playfair Display, serif"` byts mot `font-family="var(--font-display)"`, och `font-weight="700"` mot `font-weight="300"` på rubrikliknande text i diagrammen — annars bryts regeln om att display aldrig sätts fet (spec §6.4).
 

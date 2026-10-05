@@ -65,20 +65,23 @@ Ersätter blocket `/* ───── Colors ───── */` i `assets/css/t
 | `--color-accent-hover` | `#082C55` | hover | — |
 | `--color-deep` | `#07284D` | footer och hero, ett steg djupare än bandet | — |
 | `--color-highlight` | `#C2793A` | koppar i **ytor och grafik** | — |
-| `--color-highlight-ink` | `#9C5A24` | koppar i **text** | 5,2:1 |
+| `--color-highlight-ink` | `#9C5A24` | koppar i **text på ljus yta** | 5,2:1 |
+| `--color-highlight-on-dark` | `#E8C9A8` | koppar i **text på mörkt band** | 7,2:1 mot bandet |
 | `--color-dark-bg` | `#0B3A6F` | mörkt band | — |
 | `--color-dark-text` | `#EFF2F6` | text på mörkt band | 10,1:1 |
 | `--color-focus` | `#0B3A6F` | fokusring på papper | 10,9:1 |
 | `--color-focus-on-dark` | `#E8C9A8` | fokusring på mörkt band | 7,4:1 mot bandet |
 
-**Fyra tillgänglighetsregler som följer av mätningen, och som inte får brytas:**
+**Fem tillgänglighetsregler som följer av mätningen, och som inte får brytas:**
 
 1. `--color-text-muted` är `#656F7B`, inte den ljusare nyans som visades i mockupen. Den ljusare låg på 2,9:1 och klarade inte AA för brödtext.
-2. **Koppar har två tokens.** `--color-highlight` (`#C2793A`) används i ytor, linjer och grafik. All kopparfärgad **text** — etiketter, versalsatta rubriker — använder `--color-highlight-ink` (`#9C5A24`, 5,2:1). Den ljusare låg på 3,3:1.
+2. **Koppar har tre tokens, och rollerna får aldrig blandas.** `--color-highlight` (`#C2793A`) används i ytor, linjer och grafik — **aldrig i text**. Kopparfärgad text på ljus yta tar `--color-highlight-ink` (`#9C5A24`, 5,2:1 mot papper, 4,8:1 mot sektionsbandet). Kopparfärgad text på mörkt band tar `--color-highlight-on-dark` (`#E8C9A8`, 7,2:1). `--color-highlight` som textfärg faller på **varje** yta sajten har: 3,3:1 mot papper, 3,1:1 mot sektionsbandet, 3,3:1 mot det mörka bandet, 4,3:1 mot footern. Mätt 2026-10-05.
 3. **Kopparknappar har mörk text** (`--color-text` på `--color-highlight`, 5,1:1). Vit text på koppar ger 3,4:1 och är inte tillåtet.
 4. **Fokusringen har två värden.** `--color-focus` är samma blå som det mörka bandet, så en ring i den färgen blir osynlig mot bandet och tangentbordsnavigering slutar synas i CTA-sektionerna. Mot mörk botten används `--color-focus-on-dark` (`#E8C9A8`, ljus koppar).
 
-Dessa fyra är inte smakfrågor. Publiken är skolor, och tillgänglighet är en trovärdighetsfråga i den sektorn.
+5. **`--color-accent` och `--color-dark-bg` har samma värde (`#0B3A6F`) men olika roller.** Det är avsiktligt — bandet ÄR varumärkesfärgen — men det är också en fälla: en bokstavlig mappning av en mörk källfärg till `--color-accent` på en yta som redan är `--color-dark-bg` ger 1,00:1, alltså osynlig text. Fällan har slagit till två gånger under våg 1 (fokusringen, och WISE-bokstäverna i hero). **På mörk botten gäller: text tar `--color-dark-text`, kopparaccent tar `--color-highlight-on-dark`, fokus tar `--color-focus-on-dark`.** `--color-accent` används aldrig som förgrund mot ett mörkt band.
+
+Dessa fem är inte smakfrågor. Publiken är skolor, och tillgänglighet är en trovärdighetsfråga i den sektorn.
 
 ### Skuggor
 
@@ -126,7 +129,16 @@ Utan dessa blir resultatet en omfärgad gammal sajt, inte en ny design.
 
 WISE-diagrammets färgsättning är inte dekor. Sajten säger uttryckligen: *"Notice that the third step is coloured differently. That's deliberate."* W, I och E är reflekterande steg; S är beslutsögonblicket.
 
-Semantiken överlever bytet: **W/I/E blir blå (`--color-accent`), S blir koppar (`--color-highlight`).** Gäller `assets/images/brand/wise-framework.svg`, hero-animationen på startsidan och WISE-sidan i båda språkversioner.
+Semantiken överlever bytet: **W/I/E blir blå, S blir koppar.** Men diagrammet är ritat som konturcirklar med en bokstav inuti, och de två delarna tar olika token:
+
+| Del | Token | Varför |
+|---|---|---|
+| Cirkelns kontur, W/I/E | `--color-accent` | grafik |
+| Bokstaven, W/I/E | `--color-accent` | text, 10,9:1 mot papper |
+| Cirkelns kontur, beslutssteget | `--color-highlight` | grafik — ytkoppar är tillåten här |
+| Bokstaven, beslutssteget | `--color-highlight-ink` | **text**, 5,2:1. Ytkoppar ger 3,3:1 och är förbjuden som text |
+
+Att låta bokstaven ärva konturens token är den uppenbara genvägen och den faller på kontrast. Gäller `assets/images/brand/wise-framework.svg`, hero-animationen på startsidan och WISE-sidan i båda språkversioner.
 
 ## 8. Omfattning
 
