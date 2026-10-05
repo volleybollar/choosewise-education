@@ -248,7 +248,7 @@
   left: 50%;
   width: 2px;
   transform: translateX(-50%);
-  background: #fff;
+  background: var(--color-bg);
   box-shadow: 0 0 4px rgba(26, 26, 24, 0.4);
 }
 /* Round grip with ‹ › arrows */
@@ -257,7 +257,7 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--color-bg);
   box-shadow: var(--shadow-md);
   color: var(--color-text);
   font-size: var(--fs-caption);

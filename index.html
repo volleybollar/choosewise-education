@@ -32,24 +32,24 @@
       <!-- Animerad WISE-signatur i bakgrunden. Ringen ritas från norr (W)
            och medurs, pilarna pekar med spetsen mitt emellan varje par av
            bokstäver, och cirklarna "klipper ut" den grå ringen där de
-           landar via fill="#1a1a18" (matchar hero-bakgrunden). -->
+           landar via fill="var(--color-dark-bg)" (matchar hero-bakgrunden). -->
       <svg class="hero__svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <defs>
           <marker id="hero-arr-en" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-            <path d="M 0 1 L 10 5 L 0 9 z" fill="#e8e2d5"/>
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--color-border)"/>
           </marker>
         </defs>
-        <circle class="ring-dashed" cx="300" cy="300" r="220" fill="none" stroke="#e8e2d5" stroke-width="1.5" stroke-dasharray="4 8" transform="rotate(-90 300 300)"/>
-        <g class="arrow-group" fill="none" stroke="#e8e2d5" stroke-width="2">
+        <circle class="ring-dashed" cx="300" cy="300" r="220" fill="none" stroke="var(--color-border)" stroke-width="1.5" stroke-dasharray="4 8" transform="rotate(-90 300 300)"/>
+        <g class="arrow-group" fill="none" stroke="var(--color-border)" stroke-width="2">
           <path class="arrow-path p1" d="M 392.98 100.61 A 220 220 0 0 1 455.56 144.44" marker-end="url(#hero-arr-en)"/>
           <path class="arrow-path p2" d="M 499.39 392.98 A 220 220 0 0 1 455.56 455.56" marker-end="url(#hero-arr-en)"/>
           <path class="arrow-path p3" d="M 207.02 499.39 A 220 220 0 0 1 144.44 455.56" marker-end="url(#hero-arr-en)"/>
           <path class="arrow-path p4" d="M 100.61 207.02 A 220 220 0 0 1 144.44 144.44" marker-end="url(#hero-arr-en)"/>
         </g>
-        <g class="letter-circle letter-1"><circle cx="300" cy="80"  r="54" fill="#1a1a18" stroke="#2d5a3f" stroke-width="2"/><text x="300" y="95"  text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#2d5a3f">W</text></g>
-        <g class="letter-circle letter-2"><circle cx="520" cy="300" r="54" fill="#1a1a18" stroke="#2d5a3f" stroke-width="2"/><text x="520" y="315" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#2d5a3f">I</text></g>
-        <g class="letter-circle letter-3"><circle cx="300" cy="520" r="54" fill="#1a1a18" stroke="#c66b3d" stroke-width="2"/><text x="300" y="535" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#c66b3d">S</text></g>
-        <g class="letter-circle letter-4"><circle cx="80"  cy="300" r="54" fill="#1a1a18" stroke="#2d5a3f" stroke-width="2"/><text x="80"  y="315" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="600" fill="#2d5a3f">E</text></g>
+        <g class="letter-circle letter-1"><circle cx="300" cy="80"  r="54" fill="var(--color-dark-bg)" stroke="var(--color-dark-text)" stroke-width="2"/><text x="300" y="95"  text-anchor="middle" font-family="var(--font-display)" font-size="44" font-weight="var(--weight-display)" fill="var(--color-dark-text)">W</text></g>
+        <g class="letter-circle letter-2"><circle cx="520" cy="300" r="54" fill="var(--color-dark-bg)" stroke="var(--color-dark-text)" stroke-width="2"/><text x="520" y="315" text-anchor="middle" font-family="var(--font-display)" font-size="44" font-weight="var(--weight-display)" fill="var(--color-dark-text)">I</text></g>
+        <g class="letter-circle letter-3"><circle cx="300" cy="520" r="54" fill="var(--color-dark-bg)" stroke="var(--color-highlight-on-dark)" stroke-width="2"/><text x="300" y="535" text-anchor="middle" font-family="var(--font-display)" font-size="44" font-weight="var(--weight-display)" fill="var(--color-highlight-on-dark)">S</text></g>
+        <g class="letter-circle letter-4"><circle cx="80"  cy="300" r="54" fill="var(--color-dark-bg)" stroke="var(--color-dark-text)" stroke-width="2"/><text x="80"  y="315" text-anchor="middle" font-family="var(--font-display)" font-size="44" font-weight="var(--weight-display)" fill="var(--color-dark-text)">E</text></g>
       </svg>
       <div class="hero__overlay"></div>
       <div class="container hero__content">
