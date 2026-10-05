@@ -1188,6 +1188,19 @@
   align-items: center;
   margin-top: var(--space-5);
 }
+/* Instruktionsrad ovanför knappraden i textprovet — förklarar varför
+   "Visa svar" är avstängd tills två texter är valda. Centrerad trots
+   base.css max-width på p via margin-inline: auto. */
+.quiz-instruction {
+  margin: var(--space-6) auto 0;
+  text-align: center;
+  font-size: var(--fs-small);
+  color: var(--color-text-soft);
+}
+.quiz-instruction[hidden] { display: none; }
+/* Knappraden hamnar närmare sin egen förklaring än den annars skulle. */
+.quiz-instruction + .quiz-controls { margin-top: var(--space-3); }
+
 .quiz-options {
   display: flex;
   flex-wrap: wrap;

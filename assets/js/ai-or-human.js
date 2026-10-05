@@ -42,6 +42,7 @@
     const submitBtn = rootEl.querySelector('[data-quiz-submit]');
     const resetBtn = rootEl.querySelector('[data-quiz-reset]');
     const feedback = rootEl.querySelector('[data-quiz-feedback]');
+    const instruction = rootEl.querySelector('[data-quiz-instruction]');
     const tmpl = rootEl.dataset.feedbackTemplate || 'Score: {score}/2';
 
     let phase = 'select'; // 'select' | 'revealed'
@@ -118,6 +119,7 @@
       feedback.textContent = tmpl.replace('{score}', String(score));
       feedback.hidden = false;
       submitBtn.disabled = true;
+      if (instruction) instruction.hidden = true;
       // Reveal the rating widget for this test.
       revealRating(rootEl);
     }
@@ -132,6 +134,7 @@
       getAllCards().forEach(c => flipCard(c, 'front'));
       feedback.hidden = true;
       feedback.textContent = '';
+      if (instruction) instruction.hidden = false;
       phase = 'select';
       syncSubmitState();
     }
