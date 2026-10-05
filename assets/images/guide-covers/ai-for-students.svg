@@ -8,5 +8,5 @@
   <rect width="800" height="500" fill="url(#g-ai-students)"/>
   <text x="400" y="240" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="46" font-weight="500" fill="#faf7f2" opacity="0.95">Should students</text>
   <text x="400" y="298" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="46" font-weight="500" fill="#faf7f2" opacity="0.95">use AI in class?</text>
-  <text x="400" y="360" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="600" letter-spacing="3" fill="#c8a86b" opacity="0.85">PEDAGOGICAL DECISION GUIDE</text>
+  <text x="400" y="360" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="600" letter-spacing="3" fill="#E8C9A8" opacity="0.85">PEDAGOGICAL DECISION GUIDE</text>
 </svg>
