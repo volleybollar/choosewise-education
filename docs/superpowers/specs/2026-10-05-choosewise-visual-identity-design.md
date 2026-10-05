@@ -10,7 +10,7 @@
 
 Johan bygger ett engelskspråkigt Skool-community under Choosewise-varumärket. Sajten och communityt ska kännas som samma avsändare. Dagens uttryck (grädde, skogsgrön, terrakotta, Fraunces + Work Sans) byts mot ett nytt som Johan valt fram mot två referenser: ElevenLabs lugna, ljusa minimalism och den blå/bronsa paletten på crestiorabooks.com/play.html.
 
-Framgång mäts som: en besökare som kommer från Skool till sajten, eller tvärtom, ska inte behöva fundera på om det är samma avsändare — och sajten ska vara minst lika läsbar som idag på sina 235 textsidor.
+Framgång mäts som: en besökare som kommer från Skool till sajten, eller tvärtom, ska inte behöva fundera på om det är samma avsändare — och sajten ska vara minst lika läsbar som idag på sina 189 publicerade sidor.
 
 ## 2. Fattade beslut
 
@@ -34,7 +34,19 @@ Crestiora Books är anonymt. Johans namn får aldrig kopplas dit, och choosewise
 
 **Inget av de värdena, och inget av de typsnitten, får användas på choosewise.education.** Paletten nedan är medvetet konstruerad för att ligga i samma temperatur utan att dela ett enda värde: mättad kobolt i stället för avmättad skiffer, koppar (rödare, mörkare) i stället för mässing (gulare, ljusare), humanistisk grotesk i stället för hög-kontrastserif.
 
-Samma regel gäller åt andra hållet i våg 2: nio av dagens export-mallar kör redan Crestioras navy, mässing och Playfair. De ska bort.
+**Kopplingen finns redan, och den är publicerad.** Verifierat 2026-10-05:
+
+| Fil | Förekomster |
+|---|---|
+| `guides/claude/index.html` | 34 — i inbäddade SVG-diagram, med `font-family="Playfair Display, serif"` |
+| `sv/guider/claude/index.html` | 34 — samma |
+| `guides/claude/styles.css` | `#1B2733`, `#C8A86B`, `#F6F3EE`, `#2E4057` |
+| `sv/guider/claude/styles.css` | samma |
+| `sv/blog/posts/tva-grona-rutor-av-sextio.html` | `#1B2733`, `#F6F3EE` |
+
+Claude-guiden nås från huvudmenyn. Det är alltså inte en bortglömd fil utan en av sajtens mest framskjutna sidor — satt i Crestioras exakta palett och display-typsnitt, på en sajt där Johan är namngiven avsändare. **Städningen av dessa fem filer är obligatorisk i våg 1, inte valfri.**
+
+Samma regel gäller i våg 2: nio av dagens export-mallar kör också Crestioras navy, mässing och Playfair. De ska bort.
 
 ## 4. Färgtokens
 
@@ -56,15 +68,17 @@ Ersätter blocket `/* ───── Colors ───── */` i `assets/css/t
 | `--color-highlight-ink` | `#9C5A24` | koppar i **text** | 5,2:1 |
 | `--color-dark-bg` | `#0B3A6F` | mörkt band | — |
 | `--color-dark-text` | `#EFF2F6` | text på mörkt band | 10,1:1 |
-| `--color-focus` | `#0B3A6F` | fokusring | — |
+| `--color-focus` | `#0B3A6F` | fokusring på papper | 10,9:1 |
+| `--color-focus-on-dark` | `#E8C9A8` | fokusring på mörkt band | 7,4:1 mot bandet |
 
-**Tre tillgänglighetsregler som följer av mätningen, och som inte får brytas:**
+**Fyra tillgänglighetsregler som följer av mätningen, och som inte får brytas:**
 
 1. `--color-text-muted` är `#656F7B`, inte den ljusare nyans som visades i mockupen. Den ljusare låg på 2,9:1 och klarade inte AA för brödtext.
 2. **Koppar har två tokens.** `--color-highlight` (`#C2793A`) används i ytor, linjer och grafik. All kopparfärgad **text** — etiketter, versalsatta rubriker — använder `--color-highlight-ink` (`#9C5A24`, 5,2:1). Den ljusare låg på 3,3:1.
 3. **Kopparknappar har mörk text** (`--color-text` på `--color-highlight`, 5,1:1). Vit text på koppar ger 3,4:1 och är inte tillåtet.
+4. **Fokusringen har två värden.** `--color-focus` är samma blå som det mörka bandet, så en ring i den färgen blir osynlig mot bandet och tangentbordsnavigering slutar synas i CTA-sektionerna. Mot mörk botten används `--color-focus-on-dark` (`#E8C9A8`, ljus koppar).
 
-Dessa tre är inte smakfrågor. Publiken är skolor, och tillgänglighet är en trovärdighetsfråga i den sektorn.
+Dessa fyra är inte smakfrågor. Publiken är skolor, och tillgänglighet är en trovärdighetsfråga i den sektorn.
 
 ### Skuggor
 
@@ -88,7 +102,16 @@ Knappar och taggar `999px` (piller). Kort `16px`. Inputs `4px`. Nuvarande `--rad
 - **Radavstånd:** `--lh-tight` ändras från 1.1 till **1.16**. Gäller alla språk. Skälet är att Å, Ä och Ö i låg vikt kommer för nära raden ovanför vid tajtare värde; ett enda värde för båda språken är mindre bräckligt än ett svenskt undantag som glöms bort.
 - Den flytande `clamp()`-skalan behålls oförändrad. Det är vikten som ändras, inte storlekarna.
 
-Båda typsnitten är variabla, under OFL och självhostas i `assets/fonts/` precis som Fraunces och Work Sans gör idag. Inga anrop till Google Fonts från den publicerade sajten — integritetskravet i dagens `fonts.css` gäller fortsatt.
+Båda typsnitten är under OFL och självhostas i `assets/fonts/` precis som Fraunces och Work Sans gör idag. Inga anrop till Google Fonts från den publicerade sajten — integritetskravet i dagens `fonts.css` gäller fortsatt.
+
+**Kravet är redan brutet idag.** Fyra publicerade sidor hämtar typsnitt direkt från `fonts.googleapis.com`: `guides/claude/index.html`, `sv/guider/claude/index.html`, `wise-framework.html` och `ratt-modellen.html`. Det innebär att besökarnas IP-adresser i praktiken delas med Google på just de sidorna, trots att resten av sajten självhostar för att undvika det. De fyra anropen tas bort i våg 1.
+
+**Filformaten skiljer sig** (verifierat mot Google Fonts 2026-10-05):
+
+- **Hanken Grotesk** är variabel, `font-weight: 300 600` i en enda fil. Täcker alla tre vikter vi använder.
+- **Instrument Serif** är **inte** variabel. Den finns bara i vikt 400, som två statiska filer — rak och kursiv. Båda behövs; citaten sätts i kursiv.
+
+Latin-subsetet räcker för svenska (å, ä, ö ligger i U+0000–00FF), men latin-ext laddas också för säkerhets skull.
 
 ## 6. Användningsregler
 
@@ -117,8 +140,10 @@ Innehåll, texter, URL:er, sidstruktur, navigation, de ~100 Visual Codes-bildern
 |---|---|---|
 | `tokens.css`, `fonts.css` | 2 filer; nya typsnitt självhostade | Sajten laddar utan nätverksanrop till fonts.googleapis.com |
 | `components.css` | 127 hårdkodade färger (slate/blå/violett/bärnsten) tokeniseras | `grep -oE '#[0-9a-fA-F]{3,8}' assets/css/` ger träffar enbart i `tokens.css` |
-| 33 sidor med egen `<style>` | genomgång en och en | Före/efter-skärmbild per sida i 3 bredder |
-| ~150 genererade sidor | körs om med befintliga skript | `git diff` visar enbart färg- och typsnittsändringar |
+| 5 sidor med egen `<style>` | `wise-framework.html`, `ratt-modellen.html` (båda föräldralösa — se §9.7), `sv/blog/posts/tva-grona-rutor-av-sextio.html`, `presentation-skills/module-6/deep-dive/`, `sv/presentationsteknik/modul-6/fordjupning/` | Före/efter-skärmbild per sida i 3 bredder |
+| 3 sidlokala CSS-filer | `guides/claude/styles.css`, `sv/guider/claude/styles.css` (Crestioras palett — se §3), `visual-codes/visual-codes.css` | Inga Crestiora-värden kvar; sidorna renderar oförändrat i layout |
+| Claude-guidens inbäddade SVG | 34 förekomster per språkversion i `guides/claude/index.html` och `sv/guider/claude/index.html` | `grep` på Crestiora-värden ger noll träffar i publicerade filer |
+| ~150 genererade sidor | **inget arbete** — de bär noll färgvärden och ärver allt från delad CSS (verifierat 2026-10-05) | Stickprov: `grep` på färg/typsnitt i en genererad promptsida ger noll träffar |
 | 27 SVG:er + hero-animationen | handarbete | Okulär kontroll i EN och SV |
 | 12 og-kort | SVG uppdateras, **PNG-renderingen skriptas** i stället för att göras för hand | Delningsförhandsvisning testad skarpt efter publicering |
 | 124 prompt-PDF:er | `exports/prompts/_prompt-print.css` + `build-prompts-pdf.py` | 5 stickprov: omslag, sidbrytningar och sidnummer intakta |
@@ -159,6 +184,7 @@ Alla är dokumenterade i tidigare sessioner och har kostat tid förut.
 4. **og-bildernas PNG-steg är manuellt idag.** Det är den punkt som mest sannolikt glöms bort, eftersom felet syns först när någon delar en länk. Skriptas i våg 1.
 5. **`p, li { max-width: 40rem }`** i `base.css` slår mot sidor med egen layout. Sidlokal CSS är accepterad på den här sajten — ändra inte den globala regeln.
 6. **Arbetsflöde:** feature-branch och PR med merge-commit, inte squash.
+7. **Två föräldralösa filer i repots rot.** `wise-framework.html` och `ratt-modellen.html` saknas i `sitemap.xml` och länkas inte från någon sida — de är kvar sedan innan `/wise/` och `/sv/ratt/` fanns. GitHub Pages serverar dem ändå. De stylas om tillsammans med resten (de är publikt nåbara och ska inte stå kvar i gammal palett), men **de raderas inte** i det här arbetet. Att avgöra om de ska bort är ett eget beslut för Johan.
 
 ## 10. Definition av klart — våg 1
 
@@ -173,7 +199,7 @@ Alla är dokumenterade i tidigare sessioner och har kostat tid förut.
 
 ## 11. Ingen temaväxlare
 
-Det blir en rak ersättning, inte ett nytt tema vid sidan av det gamla. Skälet: dubbla teman betyder dubbel underhållsbörda på en sajt Johan ska kunna ändra själv, och alla 235 sidor skulle behöva fungera i båda lägena. Den nya stilen blir default i samma stund som PR:en mergas.
+Det blir en rak ersättning, inte ett nytt tema vid sidan av det gamla. Skälet: dubbla teman betyder dubbel underhållsbörda på en sajt Johan ska kunna ändra själv, och alla 189 sidor skulle behöva fungera i båda lägena. Den nya stilen blir default i samma stund som PR:en mergas.
 
 ## 12. Öppna frågor
 
