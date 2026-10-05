@@ -19,32 +19,40 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 # accent_hex tints the gradient's right stop and the wordmark.
 SECTIONS = [
     # English
-    ("wise-en",            "The WISE Framework",        "for Education",          "CHOOSEWISE.EDUCATION", "#2d5a3f"),
-    ("guides-en",          "AI Guides",                 "for schools",            "CHOOSEWISE.EDUCATION", "#2d5a3f"),
-    ("prompts-en",         "Prompts",                   "for schools",            "CHOOSEWISE.EDUCATION", "#2d5a3f"),
-    ("notebooklm-en",      "140 visual styles",         "for NotebookLM",         "CHOOSEWISE.EDUCATION", "#2d5a3f"),
-    ("evidence-en",        "Evidence Toolkit",          "for schools",            "CHOOSEWISE.EDUCATION", "#2d5a3f"),
-    ("visualcodes-en",     "50 visual codes",           "for ChatGPT",            "CHOOSEWISE.EDUCATION", "#2d5a3f"),
-    ("about-en",           "Johan Lindström",           "Education consultant",   "CHOOSEWISE.EDUCATION", "#c66b3d"),
+    ("wise-en",            "The WISE Framework",        "for Education",          "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("guides-en",          "AI Guides",                 "for schools",            "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("prompts-en",         "Prompts",                   "for schools",            "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("notebooklm-en",      "140 visual styles",         "for NotebookLM",         "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("evidence-en",        "Evidence Toolkit",          "for schools",            "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("visualcodes-en",     "50 visual codes",           "for ChatGPT",            "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("about-en",           "Johan Lindström",           "Education consultant",   "CHOOSEWISE.EDUCATION", "#C2793A"),
     # Swedish
-    ("wise-sv",            "RÄTT-modellen",             "för utbildning",         "CHOOSEWISE.EDUCATION", "#2d5a3f"),
-    ("guides-sv",          "AI-guider",                 "för skolan",             "CHOOSEWISE.EDUCATION", "#2d5a3f"),
-    ("prompts-sv",         "Promptar",                  "för skolan",             "CHOOSEWISE.EDUCATION", "#2d5a3f"),
-    ("notebooklm-sv",      "140 visuella stilar",       "för NotebookLM",         "CHOOSEWISE.EDUCATION", "#2d5a3f"),
-    ("about-sv",           "Johan Lindström",           "Skolutvecklingskonsult", "CHOOSEWISE.EDUCATION", "#c66b3d"),
+    ("wise-sv",            "RÄTT-modellen",             "för utbildning",         "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("guides-sv",          "AI-guider",                 "för skolan",             "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("prompts-sv",         "Promptar",                  "för skolan",             "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("notebooklm-sv",      "140 visuella stilar",       "för NotebookLM",         "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("about-sv",           "Johan Lindström",           "Skolutvecklingskonsult", "CHOOSEWISE.EDUCATION", "#C2793A"),
 ]
 
 TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
+    <style>
+      @font-face {{
+        font-family: 'Hanken Grotesk';
+        src: url('../../../fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2') format('woff2');
+        font-weight: 300 600;
+        font-style: normal;
+      }}
+    </style>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1a1a18"/>
+      <stop offset="0%" stop-color="#07284D"/>
       <stop offset="100%" stop-color="{accent}"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <text x="80" y="360" font-family="Fraunces,Georgia,serif" font-size="{size1}" font-weight="500" fill="#faf7f2">{line1}</text>
-  <text x="80" y="{y2}" font-family="Fraunces,Georgia,serif" font-size="{size2}" font-weight="500" fill="#faf7f2">{line2}</text>
-  <text x="80" y="540" font-family="Work Sans,Inter,sans-serif" font-size="24" fill="#c66b3d" letter-spacing="2">{eyebrow}</text>
+  <text x="80" y="360" font-family="Hanken Grotesk, sans-serif" font-size="{size1}" font-weight="300" fill="#FBFAF8">{line1}</text>
+  <text x="80" y="{y2}" font-family="Hanken Grotesk, sans-serif" font-size="{size2}" font-weight="300" fill="#FBFAF8">{line2}</text>
+  <text x="80" y="540" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="500" fill="#EFF2F6" letter-spacing="2">{eyebrow}</text>
 </svg>
 """
 

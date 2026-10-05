@@ -5,22 +5,29 @@
 
 /* ── Design tokens (mirror tokens.css on the live site) ── */
 :root {
-  --color-bg:           #faf7f2;
-  --color-bg-alt:       #f2ede2;
-  --color-text:         #1a1a18;
-  --color-text-soft:    #6b6b65;
-  --color-accent:       #2d5a3f;
-  --color-highlight:    #c66b3d;
-  --color-border:       #e8e2d5;
-  --color-dark-bg:      #1a1a18;
-  --color-dark-text:    #f7f3ed;
+  --color-bg:           #FBFAF8;
+  --color-bg-alt:       #EFF2F6;
+  --color-text:         #0C1A2E;
+  --color-text-soft:    #4E5A68;
+  --color-accent:       #0B3A6F;
+  --color-highlight:    #C2793A;
+  --color-highlight-ink:#9C5A24;
+  --color-highlight-on-dark: #E8C9A8;
+  --color-border:       #DDE3EA;
+  --color-dark-bg:      #0B3A6F;
+  --color-dark-text:    #EFF2F6;
 
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-body:    'Work Sans', -apple-system, sans-serif;
+  --font-display: 'Hanken Grotesk', Helvetica, sans-serif;
+  --font-body:    'Hanken Grotesk', Helvetica, sans-serif;
 }
 
-/* ── Fonts: same as the site ── */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&display=swap');
+/* ── Fonts: self-hosted, same file the live site uses. No Google calls. ── */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: url('../../assets/fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2') format('woff2');
+  font-weight: 300 600;
+  font-style: normal;
+}
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { background: var(--color-bg); }
@@ -41,17 +48,17 @@ body {
 
   @bottom-left {
     content: "choosewise.education";
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Hanken Grotesk', sans-serif;
     font-size: 8pt;
-    color: #6b6b65;
+    color: var(--color-text-soft);
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
   @bottom-right {
     content: counter(page);
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Hanken Grotesk', sans-serif;
     font-size: 10pt;
-    color: #1a1a18;
+    color: var(--color-text);
   }
 }
 
@@ -85,7 +92,7 @@ body {
   font-size: 8pt;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   font-weight: 500;
 }
 .cover__top a { color: inherit; text-decoration: none; }
@@ -96,7 +103,7 @@ body {
   font-size: 9pt;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   font-weight: 500;
   margin-bottom: 8mm;
 }
@@ -150,7 +157,7 @@ body {
   width: 24mm; height: 24mm;
   border: 1.2pt solid var(--color-highlight);
   border-radius: 50%;
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   font-family: var(--font-display);
   line-height: 1;
 }
@@ -163,7 +170,7 @@ body {
 h1, h2, h3 { font-family: var(--font-display); color: var(--color-text); font-weight: 500; }
 h1 { font-size: 28pt; line-height: 1.1; letter-spacing: -0.01em; }
 h2 { font-size: 18pt; line-height: 1.15; letter-spacing: -0.01em; }
-h3 { font-size: 12pt; font-weight: 600; }
+h3 { font-size: 12pt; }
 
 p { margin-bottom: 3mm; max-width: 68ch; }
 
@@ -178,7 +185,7 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
   font-size: 8pt;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   font-weight: 500;
   margin-bottom: 4mm;
   display: flex;
@@ -199,7 +206,7 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
 .glossary dt {
   font-family: var(--font-display);
   font-size: 12pt;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-accent);
   margin-top: 4mm;
 }
@@ -222,7 +229,7 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
   break-before: page;
 }
 .framework-box h3 { margin-bottom: 2mm; color: var(--color-accent); }
-.framework-box dt { font-family: var(--font-display); font-weight: 600; color: var(--color-text); display: inline; }
+.framework-box dt { font-family: var(--font-display); font-weight: 500; color: var(--color-text); display: inline; }
 .framework-box dd { display: inline; color: var(--color-text-soft); margin-inline-start: 2mm; }
 .framework-box dd::after { content: ""; display: block; margin-bottom: 2mm; }
 
@@ -240,7 +247,7 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
 }
 .chatbot-list strong {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-accent);
 }
 
@@ -253,6 +260,7 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
   border-radius: 2pt;
 }
 .callout h3 { color: var(--color-accent); margin-bottom: 2mm; }
+.callout strong { font-weight: 500; }
 .callout--warning { border-left: 3pt solid var(--color-highlight); }
 
 /* ══════════════════════════════════════════════════════════
@@ -284,15 +292,15 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
   font-family: var(--font-display);
   font-size: 10pt;
   font-weight: 500;
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   letter-spacing: 0.02em;
 }
 
-/* Terracotta highlight on bracket placeholders — inserted via JS at load */
+/* Copper highlight on bracket placeholders — inserted via JS at load */
 .bracket {
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   font-style: italic;
-  background: rgba(198, 107, 61, 0.06);
+  background: rgba(194, 121, 58, 0.06);
   padding: 0 1.5pt;
   border-radius: 1pt;
   font-weight: 500;
@@ -318,7 +326,7 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
 }
 .mega-toc li:last-child { border-bottom: 0.5pt solid var(--color-border); }
 .mega-toc__num {
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   font-weight: 500;
   margin-right: 3mm;
   font-variant-numeric: tabular-nums;
@@ -333,7 +341,7 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
   font-size: 8pt;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   font-weight: 500;
   margin-bottom: 3mm;
 }
@@ -352,7 +360,7 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
 .megaprompt__section-heading {
   font-family: var(--font-display);
   font-size: 10pt;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-accent);
@@ -364,7 +372,7 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
   font-size: 10pt;
   line-height: 1.55;
   color: var(--color-text);
-  padding-left: 5mm;   /* aligns body with heading text after the terracotta rule */
+  padding-left: 5mm;   /* aligns body with heading text after the copper rule */
 }
 .megaprompt__body p { margin-bottom: 2.5mm; max-width: 75ch; }
 .megaprompt__body ol, .megaprompt__body ul {
@@ -372,7 +380,7 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
   padding: 0;
 }
 .megaprompt__body li { margin-bottom: 1.5mm; }
-.megaprompt__body strong { font-weight: 600; color: var(--color-accent); }
+.megaprompt__body strong { font-weight: 500; color: var(--color-accent); }
 
 /* Section break inside a megaprompt body (em-dash separator in source PDF).
    Render as a thin full-width line — much cleaner than a row of fragmented dashes. */
@@ -402,7 +410,7 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
   font-size: 9pt;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--color-highlight);
+  color: var(--color-highlight-on-dark);
   font-weight: 500;
   margin-bottom: 8mm;
 }
@@ -415,7 +423,7 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
   max-width: 14ch;
 }
 .page--back p {
-  color: rgba(247, 243, 237, 0.8);
+  color: rgba(239, 242, 246, 0.8);
   font-size: 11pt;
   max-width: 40ch;
   margin-top: 6mm;
@@ -430,7 +438,7 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
 }
 .back__cta-list li {
   padding: 5mm 7mm;
-  background: rgba(247, 243, 237, 0.06);
+  background: rgba(239, 242, 246, 0.06);
   border-left: 2pt solid var(--color-highlight);
 }
 .back__cta-list strong {
@@ -447,7 +455,10 @@ a { color: var(--color-accent); text-decoration: underline; text-decoration-thic
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  color: rgba(247, 243, 237, 0.55);
+  /* alpha raised 0.55 → 0.6 (fix-rond): the new dark-bg (#0B3A6F) is lighter
+     than the old near-black one, so the old alpha only reached 4.17:1 here —
+     below AA 4.5:1. 0.6 clears it at 4.66:1. */
+  color: rgba(239, 242, 246, 0.6);
   font-size: 8pt;
   letter-spacing: 0.1em;
   text-transform: uppercase;

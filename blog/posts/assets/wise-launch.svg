@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <style>
+    @font-face {
+      font-family: 'Hanken Grotesk';
+      src: url('/assets/fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2') format('woff2');
+      font-weight: 300 600; font-style: normal;
+    }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0%" stop-color="#FBFAF8"/><stop offset="100%" stop-color="#EFF2F6"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0B3A6F" opacity="0.55"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g>
+    <circle cx="800" cy="372" r="196" fill="none" stroke="#DDE3EA" stroke-width="1.5" stroke-dasharray="5 8"/>
+    <path d="M 867.0 187.8 A 196 196 0 0 1 984.2 305.0" fill="none" stroke="#0B3A6F" stroke-width="2.5" opacity="0.45" marker-end="url(#arrow)"/>
+    <path d="M 984.2 439.0 A 196 196 0 0 1 867.0 556.2" fill="none" stroke="#0B3A6F" stroke-width="2.5" opacity="0.45" marker-end="url(#arrow)"/>
+    <path d="M 733.0 556.2 A 196 196 0 0 1 615.8 439.0" fill="none" stroke="#0B3A6F" stroke-width="2.5" opacity="0.45" marker-end="url(#arrow)"/>
+    <path d="M 615.8 305.0 A 196 196 0 0 1 733.0 187.8" fill="none" stroke="#0B3A6F" stroke-width="2.5" opacity="0.45" marker-end="url(#arrow)"/>
+    <circle cx="800.0" cy="176.0" r="52" fill="#FBFAF8" stroke="#0B3A6F" stroke-width="2.5"/>
+    <text x="800.0" y="191.9" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="46" font-weight="300" fill="#0B3A6F">W</text>
+    <circle cx="996.0" cy="372.0" r="52" fill="#FBFAF8" stroke="#0B3A6F" stroke-width="2.5"/>
+    <text x="996.0" y="387.9" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="46" font-weight="300" fill="#0B3A6F">I</text>
+    <circle cx="800.0" cy="568.0" r="52" fill="#FBFAF8" stroke="#C2793A" stroke-width="2.5"/>
+    <text x="800.0" y="583.9" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="46" font-weight="300" fill="#9C5A24">S</text>
+    <circle cx="604.0" cy="372.0" r="52" fill="#FBFAF8" stroke="#0B3A6F" stroke-width="2.5"/>
+    <text x="604.0" y="387.9" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="46" font-weight="300" fill="#0B3A6F">E</text>
+    <text x="800" y="368" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="19" font-weight="400" fill="#4E5A68">Professional</text>
+    <text x="800" y="395" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="19" font-weight="400" fill="#4E5A68">judgment</text>
+  </g>
+  <text x="800.0" y="752" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="54"
+        font-weight="300" fill="#0C1A2E" letter-spacing="-1.6">The right tool at the right time.</text>
+  <text x="800.0" y="866" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="16"
+        font-weight="500" fill="#656F7B" letter-spacing="2.2">CHOOSEWISE.EDUCATION</text>
+</svg>

@@ -6,5 +6,5 @@
     </linearGradient>
   </defs>
   <rect width="800" height="500" fill="url(#g-apple)"/>
-  <text x="400" y="270" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="56" font-weight="500" fill="#faf7f2" opacity="0.95">Apple Intelligence</text>
+  <text x="400" y="270" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="56" font-weight="300" fill="#FBFAF8" opacity="0.95">Apple Intelligence</text>
 </svg>

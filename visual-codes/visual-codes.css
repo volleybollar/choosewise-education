@@ -25,7 +25,7 @@
 .vc-step__number {
   font-family: var(--font-mono);
   font-size: var(--fs-small);
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   display: block;
   margin-bottom: var(--space-2);
 }
@@ -140,7 +140,7 @@
   font-size: var(--fs-caption);
   letter-spacing: var(--tracking-loose);
   text-transform: uppercase;
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   margin-right: var(--space-2);
 }
 
@@ -248,7 +248,7 @@
   left: 50%;
   width: 2px;
   transform: translateX(-50%);
-  background: #fff;
+  background: var(--color-bg);
   box-shadow: 0 0 4px rgba(26, 26, 24, 0.4);
 }
 /* Round grip with ‹ › arrows */
@@ -257,7 +257,7 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--color-bg);
   box-shadow: var(--shadow-md);
   color: var(--color-text);
   font-size: var(--fs-caption);

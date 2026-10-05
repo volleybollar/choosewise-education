@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <style>
+    @font-face {
+      font-family: 'Hanken Grotesk';
+      src: url('/assets/fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2') format('woff2');
+      font-weight: 300 600; font-style: normal;
+    }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0%" stop-color="#FBFAF8"/><stop offset="100%" stop-color="#EFF2F6"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0B3A6F" opacity="0.55"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g>
+    <circle cx="600" cy="262" r="140" fill="none" stroke="#DDE3EA" stroke-width="1.5" stroke-dasharray="5 8"/>
+    <path d="M 647.9 130.4 A 140 140 0 0 1 731.6 214.1" fill="none" stroke="#0B3A6F" stroke-width="2.5" opacity="0.45" marker-end="url(#arrow)"/>
+    <path d="M 731.6 309.9 A 140 140 0 0 1 647.9 393.6" fill="none" stroke="#0B3A6F" stroke-width="2.5" opacity="0.45" marker-end="url(#arrow)"/>
+    <path d="M 552.1 393.6 A 140 140 0 0 1 468.4 309.9" fill="none" stroke="#0B3A6F" stroke-width="2.5" opacity="0.45" marker-end="url(#arrow)"/>
+    <path d="M 468.4 214.1 A 140 140 0 0 1 552.1 130.4" fill="none" stroke="#0B3A6F" stroke-width="2.5" opacity="0.45" marker-end="url(#arrow)"/>
+    <circle cx="600.0" cy="122.0" r="38" fill="#FBFAF8" stroke="#0B3A6F" stroke-width="2.5"/>
+    <text x="600.0" y="133.4" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="33" font-weight="300" fill="#0B3A6F">R</text>
+    <circle cx="740.0" cy="262.0" r="38" fill="#FBFAF8" stroke="#0B3A6F" stroke-width="2.5"/>
+    <text x="740.0" y="273.4" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="33" font-weight="300" fill="#0B3A6F">Ä</text>
+    <circle cx="600.0" cy="402.0" r="38" fill="#FBFAF8" stroke="#C2793A" stroke-width="2.5"/>
+    <text x="600.0" y="413.4" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="33" font-weight="300" fill="#9C5A24">T</text>
+    <circle cx="460.0" cy="262.0" r="38" fill="#FBFAF8" stroke="#0B3A6F" stroke-width="2.5"/>
+    <text x="460.0" y="273.4" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="33" font-weight="300" fill="#0B3A6F">T</text>
+    <text x="600" y="258" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="14" font-weight="400" fill="#4E5A68">Professionellt</text>
+    <text x="600" y="280" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="14" font-weight="400" fill="#4E5A68">omdöme</text>
+  </g>
+  <text x="600.0" y="528" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="40"
+        font-weight="300" fill="#0C1A2E" letter-spacing="-1.2">Rätt verktyg vid rätt tillfälle.</text>
+  <text x="600.0" y="596" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="12"
+        font-weight="500" fill="#656F7B" letter-spacing="2.2">CHOOSEWISE.EDUCATION</text>
+</svg>

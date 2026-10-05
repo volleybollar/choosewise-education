@@ -38,14 +38,24 @@ input, button, textarea, select {
   color: inherit;
 }
 
+/* No ::placeholder rule existed anywhere, so placeholder text fell back
+   to each browser's own default colour instead of the brand's. --color-
+   text-muted clears 4.5:1 on the paper background every .input/.et-search/
+   textarea sits on. opacity:1 is needed because some browsers dim
+   placeholders further on top of whatever colour is set here. */
+::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: var(--weight-heading);
   line-height: var(--lh-tight);
   letter-spacing: var(--tracking-tight);
 }
 
-h1 { font-size: var(--fs-display); }
+h1 { font-size: var(--fs-display); font-weight: var(--weight-display); }
 h2 { font-size: var(--fs-h1); }
 h3 { font-size: var(--fs-h2); }
 h4 { font-size: var(--fs-h3); }
@@ -61,6 +71,22 @@ a {
 
 a:hover { color: var(--color-accent-hover); }
 
+/* This used to be a single accent-blue ring, routed to a lighter copper
+   ring on a hand-picked list of "dark" containers (.hero, .footer,
+   .flipcard__back, .et-prompt-builder, .cta-band) via class-name
+   selectors below. That guessed the background from the container's
+   CLASS NAME, not its actual computed colour, and the guess broke the
+   first time a page reused one of those names on a light container:
+   guides/claude/styles.css and its Swedish twin define their OWN .hero
+   and .footer, both var(--color-bg) — light paper, not a dark band — so
+   the routed light-copper ring measured 1.51:1 on them. Fixing that by
+   adding more selectors only delays the next instance; the next page
+   with its own .hero breaks it again, silently, because the CSS is
+   correct in isolation and no guard can see a background it never reads.
+   Replaced with a two-tone ring carried entirely by --shadow-focus
+   (tokens.css): a near-black inner line plus a near-white outer line, so
+   one of the two always contrasts with whatever is actually behind the
+   focused element. No container list, so nothing to keep in sync. */
 :focus-visible {
   outline: none;
   box-shadow: var(--shadow-focus);
