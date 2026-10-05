@@ -25,7 +25,7 @@
 .vc-step__number {
   font-family: var(--font-mono);
   font-size: var(--fs-small);
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   display: block;
   margin-bottom: var(--space-2);
 }
@@ -140,7 +140,7 @@
   font-size: var(--fs-caption);
   letter-spacing: var(--tracking-loose);
   text-transform: uppercase;
-  color: var(--color-highlight);
+  color: var(--color-highlight-ink);
   margin-right: var(--space-2);
 }
 
