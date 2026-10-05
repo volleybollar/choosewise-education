@@ -1,19 +1,27 @@
-/* Self-hosted variable fonts for privacy + performance */
+/* Självhostade typsnitt — integritet och prestanda.
+   Inga anrop till Google från den publicerade sajten. */
 
 @font-face {
-  font-family: 'Fraunces';
-  src: url('../fonts/fraunces/Fraunces-VariableFont.woff2') format('woff2'),
-       url('../fonts/fraunces/Fraunces-VariableFont.ttf') format('truetype-variations');
-  font-weight: 300 900;
+  font-family: 'Hanken Grotesk';
+  src: url('../fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2') format('woff2');
+  font-weight: 300 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Instrument Serif är inte variabel — vikt 400, två statiska filer. */
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('../fonts/instrument-serif/InstrumentSerif-Regular.woff2') format('woff2');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Work Sans';
-  src: url('../fonts/work-sans/WorkSans-VariableFont.woff2') format('woff2'),
-       url('../fonts/work-sans/WorkSans-VariableFont.ttf') format('truetype-variations');
-  font-weight: 300 700;
-  font-style: normal;
+  font-family: 'Instrument Serif';
+  src: url('../fonts/instrument-serif/InstrumentSerif-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
   font-display: swap;
 }
