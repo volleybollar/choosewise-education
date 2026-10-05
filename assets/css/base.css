@@ -71,44 +71,26 @@ a {
 
 a:hover { color: var(--color-accent-hover); }
 
+/* This used to be a single accent-blue ring, routed to a lighter copper
+   ring on a hand-picked list of "dark" containers (.hero, .footer,
+   .flipcard__back, .et-prompt-builder, .cta-band) via class-name
+   selectors below. That guessed the background from the container's
+   CLASS NAME, not its actual computed colour, and the guess broke the
+   first time a page reused one of those names on a light container:
+   guides/claude/styles.css and its Swedish twin define their OWN .hero
+   and .footer, both var(--color-bg) — light paper, not a dark band — so
+   the routed light-copper ring measured 1.51:1 on them. Fixing that by
+   adding more selectors only delays the next instance; the next page
+   with its own .hero breaks it again, silently, because the CSS is
+   correct in isolation and no guard can see a background it never reads.
+   Replaced with a two-tone ring carried entirely by --shadow-focus
+   (tokens.css): a near-black inner line plus a near-white outer line, so
+   one of the two always contrasts with whatever is actually behind the
+   focused element. No container list, so nothing to keep in sync. */
 :focus-visible {
   outline: none;
   box-shadow: var(--shadow-focus);
   border-radius: var(--radius-sm);
-}
-
-/* --shadow-focus is --color-focus, the site's own accent blue — invisible
-   against a surface that is itself that colour. .hero, .footer,
-   .flipcard__back and .et-prompt-builder are every container in the
-   shared stylesheets with a dark (--color-dark-bg or --color-text)
-   background, so route their focus ring to --color-focus-on-dark instead.
-   .cta-band is the same problem from a page-local stylesheet: it's the
-   dark download band in guides/claude/styles.css and its Swedish twin
-   (background: var(--color-accent)), and neither file carries any focus
-   rule of its own, so its button and ghost link fell through to the bare
-   :focus-visible above and rendered a --color-focus ring on a band that
-   is itself --color-accent — the same colour both times, 1:1, invisible.
-   Named here so both language versions get the fix from one shared rule
-   instead of two now-diverging page-local ones.
-   .btn--primary needs naming a second time here: it carries its own resting
-   box-shadow (components.css) at the same specificity as a bare
-   :focus-visible, so inside these containers it needs an explicitly more
-   specific selector to make sure the dark ring — not the light one, not
-   the resting shadow — wins regardless of file load order. .cta-band's own
-   buttons use page-local .button--primary rather than the shared
-   .btn--primary, so this compound is precautionary here — it still
-   protects any shared-component button a future edit adds to this band. */
-.hero :focus-visible,
-.footer :focus-visible,
-.flipcard__back :focus-visible,
-.et-prompt-builder :focus-visible,
-.cta-band :focus-visible,
-.hero .btn--primary:focus-visible,
-.footer .btn--primary:focus-visible,
-.flipcard__back .btn--primary:focus-visible,
-.et-prompt-builder .btn--primary:focus-visible,
-.cta-band .btn--primary:focus-visible {
-  box-shadow: 0 0 0 3px var(--color-focus-on-dark);
 }
 
 .container {

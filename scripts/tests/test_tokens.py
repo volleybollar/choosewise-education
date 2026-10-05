@@ -207,7 +207,17 @@ def test_shadow_focus_is_opaque_and_token_based():
     shared_stylesheets() explicitly excludes tokens.css, where
     --shadow-focus is defined. This is the one test that actually reads
     it. Proven to fail red against the old rgba(...,0.28) value, green
-    against the fix."""
+    against the fix.
+
+    Fix-rond (tvåtonad ring): --shadow-focus bar tidigare en enda ring i
+    --color-focus, dirigerad till --color-focus-on-dark per containerns
+    klassnamn i base.css — en gissning som gick sönder på
+    guides/claude/styles.css egna, ljusa .hero/.footer (1,51:1). Ersatt av
+    en tvåtonad ring byggd direkt av --color-text och --color-bg, så en av
+    de två alltid kontrasterar oavsett bakgrund. Assertionen uppdaterad
+    till den nya kompositionen; test_css_discipline.py:s
+    test_focus_visible_ring_is_two_toned vaktar separat att en riktig
+    :focus-visible-regel faktiskt konsumerar --shadow-focus."""
     tokens = parse_tokens()
     shadow = tokens["--shadow-focus"]
     assert "rgba(" not in shadow, (
@@ -215,6 +225,7 @@ def test_shadow_focus_is_opaque_and_token_based():
         "ring komposit:ar till nästan samma färg som ytan den ligger på "
         "och blir osynlig, oavsett vilken yta"
     )
-    assert "var(--color-focus)" in shadow, (
-        f"--shadow-focus bygger inte längre på tokenen --color-focus: {shadow}"
+    assert "var(--color-text)" in shadow and "var(--color-bg)" in shadow, (
+        f"--shadow-focus bygger inte längre på den tvåtonade kompositionen "
+        f"(--color-text + --color-bg): {shadow}"
     )

@@ -86,6 +86,7 @@ def test_surface_copper_is_never_used_as_text(path):
 # codebase's focus rules are themselves nested inside another block) and
 # assert both focus tokens appear in at least one of them, literally.
 FOCUS_SELECTOR = re.compile(r":focus(?:-visible)?[^{]*\{")
+FOCUS_VISIBLE_SELECTOR = re.compile(r":focus-visible[^{]*\{")
 
 
 def _focus_rule_bodies(text: str) -> str:
@@ -97,21 +98,77 @@ def _focus_rule_bodies(text: str) -> str:
     return " ".join(bodies)
 
 
+def _focus_visible_rule_bodies(text: str) -> str:
+    bodies = []
+    for m in FOCUS_VISIBLE_SELECTOR.finditer(text):
+        end = text.find("}", m.end())
+        if end != -1:
+            bodies.append(text[m.end() : end])
+    return " ".join(bodies)
+
+
 def test_focus_tokens_are_consumed_by_a_real_focus_rule():
     """Granskningsfokus 1 (task 10, fix round 1): en osynlig fokusring
     kom igenom trots grön testsvit eftersom ingenting mätte om
-    --color-focus-on-dark faktiskt användes någonstans. Båda
-    fokustokens måste nu förekomma, bokstavligen, i minst en
-    :focus/:focus-visible-regel — numera i ALL publicerad CSS (uppgift 4),
-    inte bara assets/css/*.css. Blockerare 2 (den osynliga fokusringen på
-    .cta-band i guides/claude/styles.css) existerade just för att den
-    filen aldrig korsade den här vakten."""
+    --color-focus-on-dark faktiskt användes någonstans — numera i ALL
+    publicerad CSS (uppgift 4), inte bara assets/css/*.css.
+
+    Fix-rond (det tvåtonade fokusringen): --color-focus-on-dark gick från
+    "nästan oanvänd" till "avsiktligt oanvänd". Den gamla fokusringen
+    valde mellan --color-focus och --color-focus-on-dark genom att gissa
+    bakgrunden från containerns KLASSNAMN (.hero, .footer, .cta-band, …)
+    — en gissning som gick sönder första gången en sida återanvände ett
+    av de namnen på en ljus container (guides/claude/styles.css egna
+    .hero/.footer är var(--color-bg), inte ett mörkt band; den dirigerade
+    ljusa kopparringen mätte 1,51:1 där). Ersatt av en tvåtonad ring
+    (--color-text + --color-bg, se --shadow-focus i tokens.css) som är
+    robust mot bakgrunden utan att behöva känna till den. Den gamla
+    assertionen för --color-focus-on-dark tas bort härifrån —
+    test_focus_visible_ring_is_two_toned nedan vaktar den nya formen
+    istället. --color-focus lever kvar och vaktas fortfarande här: den
+    används direkt av .et-search:focus (en outline, inte boxskuggeringen)."""
     text = "\n".join(p.read_text(encoding="utf-8") for p in published_stylesheets())
     bodies = _focus_rule_bodies(text)
-    assert "var(--color-focus-on-dark)" in bodies, (
-        "ingen :focus-regel i publicerad css använder "
-        "--color-focus-on-dark — tokenen riskerar att bli obrukad igen"
-    )
     assert "var(--color-focus)" in bodies, (
         "ingen :focus-regel i publicerad css använder --color-focus"
+    )
+
+
+def _shadow_focus_value() -> str:
+    """Real :focus-visible rules only ever say `box-shadow: var(--shadow-
+    focus);` — the two-tone composition itself lives one level of
+    indirection away, in tokens.css. A guard that scans published_
+    stylesheets() (which deliberately excludes tokens.css, same as every
+    other guard in this file) for the literal strings "var(--color-text)"
+    / "var(--color-bg)" would never find them and would fail red forever,
+    regardless of whether the ring is actually two-toned — the same shape
+    of bug as a test that can never pass, just facing the other way.
+    Resolving the one level of indirection here keeps the real check in
+    test_focus_visible_ring_is_two_toned honest on both sides."""
+    tokens_text = (ROOT / "assets/css/tokens.css").read_text(encoding="utf-8")
+    m = re.search(r"--shadow-focus:\s*([^;]+);", tokens_text)
+    assert m, "--shadow-focus saknas i tokens.css"
+    return m.group(1)
+
+
+def test_focus_visible_ring_is_two_toned():
+    """Fix-rond: --shadow-focus bytte från en enfärgad ring, dirigerad per
+    containerns klassnamn, till en tvåtonad ring (en nästan-svart linje +
+    en nästan-vit linje) som kontrasterar mot vilken bakgrund som helst
+    utan att gissa vilken färg containern har. Vakten har två delar:
+    att en riktig :focus-visible-regel i publicerad CSS faktiskt
+    konsumerar --shadow-focus (inte bara att tokenen finns), och att
+    --shadow-focus självt är byggt av båda tonerna (inte bara en sträng
+    någonstans i en fil)."""
+    text = "\n".join(p.read_text(encoding="utf-8") for p in published_stylesheets())
+    bodies = _focus_visible_rule_bodies(text)
+    assert "var(--shadow-focus)" in bodies, (
+        "ingen :focus-visible-regel i publicerad css använder --shadow-focus"
+    )
+    shadow = _shadow_focus_value()
+    assert "var(--color-text)" in shadow, (
+        f"--shadow-focus saknar den mörka tonen (--color-text): {shadow}"
+    )
+    assert "var(--color-bg)" in shadow, (
+        f"--shadow-focus saknar den ljusa tonen (--color-bg): {shadow}"
     )

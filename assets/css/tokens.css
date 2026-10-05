@@ -29,7 +29,12 @@
   --color-dark-bg:      #0B3A6F;
   --color-dark-text:    #EFF2F6;
 
-  /* Fokusringen har två värden: den blå är osynlig mot det blå bandet. */
+  /* --color-focus-on-dark is no longer consumed by the site's main focus
+     ring (see --shadow-focus below) — kept because the spec and
+     test_tokens.py's contrast checks still reference it as a value, and
+     because removing a token is a bigger, separate decision than fixing
+     the ring. --color-focus is still used directly by .et-search:focus
+     in components.css (a plain outline, not the box-shadow ring). */
   --color-focus:         #0B3A6F;
   --color-focus-on-dark: #E8C9A8;
 
@@ -94,7 +99,21 @@
   --shadow-sm: 0 1px 2px rgba(12,26,46,0.04);
   --shadow-md: 0 1px 3px rgba(12,26,46,0.05);
   --shadow-lg: 0 2px 8px rgba(12,26,46,0.06);
-  --shadow-focus: 0 0 0 3px var(--color-focus);
+  /* Used to be a single ring in --color-focus, routed to --color-focus-
+     on-dark on a hand-picked list of "dark" containers (.hero, .footer,
+     .cta-band, ...) via class-name selectors in base.css. That guess
+     broke the first time a page reused one of those class names on a
+     LIGHT container: the Claude guide's own .hero and .footer are
+     var(--color-bg), so the routed ring (light copper) measured 1.51:1
+     on them — the exact invisible-ring defect the routing was built to
+     prevent, just moved to a different page. No list of class names can
+     be complete, because the next page with its own .hero breaks it
+     again, and nothing can see that from the CSS alone — it is correct
+     in isolation. Replaced with a two-tone ring: a near-black inner line
+     and a near-white outer line, so one of the two always contrasts with
+     whatever is actually behind the focused element, regardless of class
+     name. Every consumer of --shadow-focus gets this for free. */
+  --shadow-focus: 0 0 0 2px var(--color-text), 0 0 0 4px var(--color-bg);
 
   /* ───── Motion ───── */
   --ease-out: cubic-bezier(0.2, 0.7, 0.3, 1);
