@@ -102,7 +102,7 @@
 
 .nav__brand {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.125rem;
   color: var(--color-text);
   text-decoration: none;
@@ -587,7 +587,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-accent);
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: var(--space-2);
 }
 .exercise__prompt {
@@ -792,7 +792,7 @@
 .digit-memory__digits {
   font-family: var(--font-display);
   font-size: clamp(2rem, 6vw, 3.25rem);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.18em;
   text-align: center;
   background: var(--color-text);
@@ -821,7 +821,7 @@
 .digit-memory__score {
   font-family: var(--font-display);
   font-size: 3.5rem;
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
   color: var(--color-accent);
   line-height: 1;
@@ -915,7 +915,7 @@
 .text-memory__score {
   font-family: var(--font-display);
   font-size: 3.5rem;
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
   color: var(--color-accent);
   line-height: 1;
@@ -1037,7 +1037,7 @@
   font-family: var(--font-display);
   font-size: 1.6rem;
   line-height: 1;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-accent);
 }
 .memory__choice-label { flex: 0 0 auto; }
@@ -1077,7 +1077,7 @@
 .memory__interstitial-countdown {
   font-family: var(--font-display);
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-accent);
   margin-top: var(--space-3);
   line-height: 1;
@@ -1092,7 +1092,7 @@
 .memory__score {
   font-family: var(--font-display);
   font-size: 3.5rem;
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
   color: var(--color-accent);
   line-height: 1;
@@ -1124,7 +1124,7 @@
   letter-spacing: 0.01em;
 }
 .page-last-updated__label {
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-text);
 }
 
@@ -1676,7 +1676,7 @@
 .skill-title {
   font-family: var(--font-display);
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 500;
   margin: 0;
   color: var(--color-text);
   line-height: 1.25;
@@ -1710,7 +1710,7 @@
   padding: 4px 10px;
   border-radius: 999px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.2;
 }
 .metric-pill { color: var(--et-band-fg); }
@@ -1744,7 +1744,7 @@
   border-radius: 3px;
   font-size: 10px;
   margin-left: 4px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .skill-footer {
@@ -1769,7 +1769,7 @@
   padding: 4px 8px;
   font-size: 12.5px;
   color: var(--color-accent);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   font-family: inherit;
 }
@@ -1794,7 +1794,7 @@
 .et-domain-title {
   font-family: var(--font-display);
   font-size: clamp(22px, 3vw, 28px);
-  font-weight: 600;
+  font-weight: 500;
   margin: 0;
   color: var(--color-text);
   display: flex;
@@ -1811,7 +1811,7 @@
   background: var(--color-accent);
   padding: 3px 12px;
   border-radius: 999px;
-  font-weight: 600;
+  font-weight: 500;
 }
 .et-domain-desc {
   font-size: 14px;
@@ -1849,7 +1849,7 @@
   font-size: 14px;
   color: var(--color-highlight-ink);
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 500;
 }
 .et-disclaimer ul {
   margin: 0;
@@ -1861,7 +1861,7 @@
 .et-disclaimer ul li { max-width: none; }
 .et-disclaimer ul li + li { margin-top: 6px; }
 .et-disclaimer ul li strong { color: var(--color-text); }
-.et-disclaimer a { color: var(--color-highlight-ink); font-weight: 600; }
+.et-disclaimer a { color: var(--color-highlight-ink); font-weight: 500; }
 
 /* Toolbar: search + sort + tag filter */
 .et-toolbar {
@@ -1929,7 +1929,7 @@
   font-family: var(--font-display);
   font-size: 16px;
   color: var(--color-accent);
-  font-weight: 600;
+  font-weight: 500;
 }
 .et-structure > p {
   margin: 0 0 10px 0;
@@ -1962,7 +1962,7 @@
   border-radius: 50%;
   text-align: center;
   line-height: 20px;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 11px;
   margin-right: 8px;
 }
@@ -1991,7 +1991,7 @@
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--color-text-muted);
 }
 .et-domain-card.is-live .dc-status { color: var(--color-accent); }
@@ -2000,7 +2000,7 @@
   font-size: 16px;
   color: var(--color-text);
   margin: 4px 0 4px 0;
-  font-weight: 600;
+  font-weight: 500;
 }
 .et-domain-card .dc-meta { font-size: 12px; color: var(--color-text-soft); }
 .et-domain-card .dc-arrow {
@@ -2061,7 +2061,7 @@
   border: 0;
   border-radius: 4px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   margin-top: 10px;
   cursor: pointer;
   font-family: inherit;
@@ -2155,7 +2155,7 @@
   padding: 8px 16px;
   border-radius: 6px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   font-family: inherit;
 }
@@ -2163,7 +2163,7 @@
 .et-copy-feedback {
   font-size: 12px;
   color: var(--color-accent);
-  font-weight: 600;
+  font-weight: 500;
   opacity: 0;
   transition: opacity 200ms;
 }
@@ -2180,7 +2180,7 @@
   color: var(--color-text-soft);
 }
 .et-sources strong { color: var(--color-accent); font-family: var(--font-display); }
-.et-sources a { color: var(--color-accent); font-weight: 600; }
+.et-sources a { color: var(--color-accent); font-weight: 500; }
 
 /* Inline validation error — prompt builder */
 .et-inline-error {

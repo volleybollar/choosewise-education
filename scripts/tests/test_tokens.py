@@ -5,11 +5,14 @@ Varje påstående här kommer från docs/superpowers/specs/
 Ändras ett värde i specen ska det ändras här i samma commit.
 """
 import re
+import sys
 from pathlib import Path
 
 import pytest
 
-ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from brandguard import ROOT, published_files  # noqa: E402
+
 TOKENS = ROOT / "assets/css/tokens.css"
 
 
@@ -89,14 +92,47 @@ def test_display_weight_is_never_bold():
     assert int(tokens["--weight-display"]) <= 300
 
 
-def test_shared_css_uses_weight_tokens_for_headings():
-    """base.css och pages.css fick inte behålla Fraunces gamla vikter."""
-    base = (ROOT / "assets/css/base.css").read_text(encoding="utf-8")
-    pages = (ROOT / "assets/css/pages.css").read_text(encoding="utf-8")
-    assert "var(--weight-display)" in base
-    assert "var(--weight-heading)" in base
-    assert "font-weight: 500;\n  line-height: var(--lh-tight)" not in base
-    assert "var(--weight-display)" in pages
+# Granskningsfokus (fix-rond, uppgift 6): den ursprungliga versionen av
+# den här vakten letade efter de bokstavliga strängarna "var(--weight-
+# display)" och "var(--weight-heading)" NÅGONSTANS i base.css/pages.css —
+# den kan inte se om en rubrik faktiskt använder dem, och den öppnade
+# aldrig components.css, som bar 25 deklarationer på vikt 600 eller 700,
+# inklusive .nav__brand (sajtens ordmärke, display-typsnitt, på varje
+# sida). Fjärde testet i det här projektet som inte kan fela på det det
+# påstår sig vakta. Ersatt: läs varje font-weight-deklaration i all
+# publicerad CSS och fäll den om värdet inte är 300, 400 eller 500 —
+# skalan specen faktiskt definierar (§5). Siffervärden som 300/400/500
+# räknas, liksom var(--weight-*) (som redan är låsta till skalan av
+# test_weight_token_has_spec_value ovan); allt annat numeriskt — 600, 700,
+# osv — fälls. @font-face-radens "font-weight: 300 600;" (variabel-
+# typsnittets kapacitetsintervall, inte en tillämpad vikt) matchar inte
+# mönstret, eftersom intervallformen aldrig följs direkt av ";" eller "}".
+FONT_WEIGHT_DECLARATION = re.compile(r"font-weight:\s*(\d{3})\s*[;}]")
+ALLOWED_WEIGHTS = {"300", "400", "500"}
+
+
+def published_stylesheets():
+    return sorted(p for p in published_files((".css",)) if p != TOKENS)
+
+
+@pytest.mark.parametrize(
+    "path", published_stylesheets(), ids=lambda p: str(p.relative_to(ROOT))
+)
+def test_font_weight_values_stay_on_the_scale(path):
+    """Spec §5: display/heading/body/emphasis är 300/400/500 — aldrig fetare.
+    Läser den faktiska deklarationen i stället för att leta efter en
+    tokensträng någonstans i filen (se not ovan)."""
+    text = path.read_text(encoding="utf-8")
+    offenders = [
+        (i + 1, m.group(1))
+        for i, line in enumerate(text.splitlines())
+        for m in FONT_WEIGHT_DECLARATION.finditer(line)
+        if m.group(1) not in ALLOWED_WEIGHTS
+    ]
+    assert offenders == [], (
+        f"{path.relative_to(ROOT)} har font-weight utanför skalan "
+        f"(300/400/500) på rad:värde {offenders}"
+    )
 
 
 # (förgrund, bakgrund, minsta kontrast, vad det är)
