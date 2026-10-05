@@ -13,10 +13,6 @@
   --color-text-light: var(--color-text-muted);   /* muted text */
   --color-warning:    var(--color-highlight-ink);   /* Watch Out only */
 
-  /* ── Typography ── */
-  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono:    'SF Mono', 'Monaco', 'Courier New', monospace;
-
   /* ── Spacing ── */
   --space-1: 8px;
   --space-2: 16px;
@@ -33,8 +29,8 @@
   --radius-pill: 999px;
 
   /* ── Shadow ── */
-  --shadow-card: 0 1px 3px rgba(26, 39, 51, 0.04), 0 4px 12px rgba(26, 39, 51, 0.06);
-  --shadow-card-hover: 0 4px 8px rgba(26, 39, 51, 0.06), 0 12px 24px rgba(26, 39, 51, 0.08);
+  --shadow-card: 0 1px 3px rgba(12, 26, 46, 0.04), 0 4px 12px rgba(12, 26, 46, 0.06);
+  --shadow-card-hover: 0 4px 8px rgba(12, 26, 46, 0.06), 0 12px 24px rgba(12, 26, 46, 0.08);
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -265,7 +261,7 @@
 .jl-page .button--primary:hover {
   background: var(--color-secondary);
   transform: translateY(-1px);
-  box-shadow: 0 10px 30px rgba(26, 39, 51, 0.18);
+  box-shadow: 0 10px 30px rgba(12, 26, 46, 0.18);
   color: white;
 }
 .jl-page .button--ghost {
@@ -297,7 +293,7 @@
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: saturate(180%) blur(12px);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid rgba(26, 39, 51, 0.06);
+  border-bottom: 1px solid rgba(12, 26, 46, 0.06);
   padding: var(--space-2) var(--space-3);
   display: none;
 }
@@ -384,7 +380,7 @@
   background: white;
   border-radius: var(--radius-card);
   padding: var(--space-3);
-  border: 1px solid rgba(26, 39, 51, 0.06);
+  border: 1px solid rgba(12, 26, 46, 0.06);
   box-shadow: var(--shadow-card);
 }
 
@@ -545,7 +541,7 @@
   border-radius: var(--radius-card);
   margin-bottom: var(--space-1);
   padding: 0;
-  border: 1px solid rgba(26, 39, 51, 0.08);
+  border: 1px solid rgba(12, 26, 46, 0.08);
   box-shadow: var(--shadow-card);
   overflow: hidden;
 }
@@ -637,7 +633,7 @@
   text-align: center;
   font-size: 14px;
   color: var(--color-text-light);
-  border-top: 1px solid rgba(26, 39, 51, 0.08);
+  border-top: 1px solid rgba(12, 26, 46, 0.08);
   background: var(--color-bg);
 }
 .jl-page .footer a { color: var(--color-text); }

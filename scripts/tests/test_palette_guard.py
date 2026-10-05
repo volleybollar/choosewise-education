@@ -18,6 +18,20 @@ CRESTIORA_FORBIDDEN = [
     "F6F3EE",          # grädde
     "2E4057",          # slate
     "Playfair Display",
+    # Decimal spellings av samma fyra hex-värden. scan() matchar bokstavligt
+    # (ingen regex), så dessa täcker bara den exakta mellanslags-formatteringen
+    # "rgba(R, G, B" som filerna faktiskt använder — inte varje whitespace-
+    # variant. Medvetet val: scan() delas med Task 8:s LEGACY_FORBIDDEN, och
+    # att göra den regex-baserad för whitespace-okänslighet hör inte till
+    # den här uppgiften.
+    "rgba(26, 39, 51",   # navy, decimal
+    "rgb(26, 39, 51",
+    "rgba(200, 168, 107",  # mässing, decimal
+    "rgb(200, 168, 107",
+    "rgba(246, 243, 238",  # grädde, decimal
+    "rgb(246, 243, 238",
+    "rgba(46, 64, 87",   # slate, decimal
+    "rgb(46, 64, 87",
 ]
 
 
