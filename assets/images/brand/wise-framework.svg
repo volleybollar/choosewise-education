@@ -14,10 +14,10 @@
     <path d="M 506.74 375.24 A 220 220 0 0 1 375.24 506.73" fill="none" stroke="#0B3A6F" stroke-width="2" opacity="0.5" marker-end="url(#arr-en)"/>
     <path d="M 224.76 506.73 A 220 220 0 0 1 93.27 375.24" fill="none" stroke="#0B3A6F" stroke-width="2" opacity="0.5" marker-end="url(#arr-en)"/>
     <path d="M 93.27 224.76 A 220 220 0 0 1 224.76 93.27" fill="none" stroke="#0B3A6F" stroke-width="2" opacity="0.5" marker-end="url(#arr-en)"/>
-    <g><circle cx="300" cy="80"  r="54" fill="none" stroke="#0B3A6F" stroke-width="2"/><text x="300" y="95"  text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="44" font-weight="600" fill="#0B3A6F">W</text></g>
-    <g><circle cx="520" cy="300" r="54" fill="none" stroke="#0B3A6F" stroke-width="2"/><text x="520" y="315" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="44" font-weight="600" fill="#0B3A6F">I</text></g>
-    <g><circle cx="300" cy="520" r="54" fill="none" stroke="#C2793A" stroke-width="2"/><text x="300" y="535" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="44" font-weight="600" fill="#9C5A24">S</text></g>
-    <g><circle cx="80"  cy="300" r="54" fill="none" stroke="#0B3A6F" stroke-width="2"/><text x="80"  y="315" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="44" font-weight="600" fill="#0B3A6F">E</text></g>
+    <g><circle cx="300" cy="80"  r="54" fill="none" stroke="#0B3A6F" stroke-width="2"/><text x="300" y="95"  text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="44" font-weight="300" fill="#0B3A6F">W</text></g>
+    <g><circle cx="520" cy="300" r="54" fill="none" stroke="#0B3A6F" stroke-width="2"/><text x="520" y="315" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="44" font-weight="300" fill="#0B3A6F">I</text></g>
+    <g><circle cx="300" cy="520" r="54" fill="none" stroke="#C2793A" stroke-width="2"/><text x="300" y="535" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="44" font-weight="300" fill="#9C5A24">S</text></g>
+    <g><circle cx="80"  cy="300" r="54" fill="none" stroke="#0B3A6F" stroke-width="2"/><text x="80"  y="315" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="44" font-weight="300" fill="#0B3A6F">E</text></g>
     <text x="300" y="285" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="18" fill="#4E5A68">Professional</text>
     <text x="300" y="310" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="18" fill="#4E5A68">judgment</text>
   </g>

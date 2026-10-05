@@ -2,7 +2,7 @@
 <!-- Placeholder "after" image: shown for codes whose example pair
      has not been generated yet. Same 4:3 ratio as the real photos (1448x1086). -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1448 1086" role="img" aria-label="ChatGPT result — example coming soon">
-  <!-- warm tan background, matches the site's bg-alt color token -->
+  <!-- cool pale blue-grey background, matches the site's bg-alt color token -->
   <rect width="1448" height="1086" fill="#EFF2F6"/>
   <!-- dashed frame in forest green marks this as the "result" side -->
   <rect x="36" y="36" width="1376" height="1014" fill="none" stroke="#b9c9be" stroke-width="4" stroke-dasharray="18 14" rx="16"/>
