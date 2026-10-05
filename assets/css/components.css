@@ -1602,11 +1602,24 @@
 
 /* Calibration palette — muted earth tones, NOT bright traffic-light.
    Used for the effect-size pills on Evidence Toolkit skill cards.
-   Bands are CALIBRATION (relative to typical schooling effect), not VALUE. */
+   Bands are CALIBRATION (relative to typical schooling effect), not VALUE.
+
+   Three bands, three visually distinct surfaces — the band's NAME appears
+   nowhere on the pill (only the metric, e.g. "+4 months"), so colour alone
+   carries "below/around/above typical schooling". --color-deep was tried
+   for "above" and rejected: 1.30:1 against --color-accent, two near-
+   identical dark blues. --color-text instead mirrors the EU AI Act pyramid
+   in the Claude guide (guides/claude/index.html) — copper / near-black /
+   blue read as genuinely different colours, not shades of the same one.
+   Band-vs-band, measured 2026-10-05:
+     below (--color-highlight) vs around (--color-accent): 3.29:1 — different hue
+     around (--color-accent)   vs above (--color-text):    1.54:1 — blue vs near-black
+     below (--color-highlight) vs above (--color-text):    5.06:1
+   --et-band-fg on --color-text: 15.55:1 — clears the 4.5:1 floor. */
 :root {
-  --et-band-below-bg: var(--color-highlight);   /* warm umber */
-  --et-band-around-bg: var(--color-accent);  /* deep blue */
-  --et-band-above-bg: var(--color-accent);   /* forest green */
+  --et-band-below-bg: var(--color-highlight);   /* copper */
+  --et-band-around-bg: var(--color-accent);  /* blue */
+  --et-band-above-bg: var(--color-text);   /* near-black — distinct from the blue "around" band */
   --et-band-none-bg: var(--color-border-strong);    /* neutral grey for no-data */
   --et-band-fg: var(--color-dark-text);
 
