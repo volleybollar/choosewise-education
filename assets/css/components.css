@@ -32,6 +32,16 @@
    background, keyboard or not. Naming the class again here (two
    selectors = higher specificity) makes the ring win unconditionally. */
 .btn--primary:focus-visible { box-shadow: var(--shadow-focus); }
+/* task 10 fix round 4: .btn's own transition (above) includes box-shadow
+   at --dur-fast (150ms), so the rule above was correctly winning the
+   whole time, but getComputedStyle() read mid-transition — near 0ms
+   after the Tab press that triggers it — still reports the resting
+   --shadow-sm it is animating FROM, not the focus ring it is animating
+   TO. A real user perceives the ring as instant at 150ms; a test or
+   tool that checks immediately does not. Zero out the transition the
+   moment :focus-visible is true so the ring has no "mid-flight" state
+   to be caught in, for any future keyboard or automated check. */
+.btn:focus-visible { transition: none; }
 
 /* Avstängd knapp — samma form, tydligt inaktivt uttryck. Webbläsarens egen
    nedtoning räcker inte: en avstängd btn--primary såg nästan ut som en aktiv.
