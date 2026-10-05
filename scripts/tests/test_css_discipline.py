@@ -1,10 +1,13 @@
 """Färg bor i tokens.css. Ingen annanstans i assets/css/."""
 import re
+import sys
 from pathlib import Path
 
 import pytest
 
-ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from brandguard import ROOT, published_files  # noqa: E402
+
 CSS_DIR = ROOT / "assets/css"
 
 HEX = re.compile(r"#[0-9a-fA-F]{3,8}\b")
@@ -12,6 +15,17 @@ HEX = re.compile(r"#[0-9a-fA-F]{3,8}\b")
 
 def shared_stylesheets():
     return sorted(p for p in CSS_DIR.glob("*.css") if p.name != "tokens.css")
+
+
+# Uppgift 4: de två vakterna nedan (ytkoppar-som-text och fokustoken) körde
+# bara mot assets/css/*.css. Det gapet gömde Blockerare 3 (visual-codes.css)
+# och bidrog till Blockerare 2 (guides/claude/styles.css) — sidlokal CSS
+# som aldrig korsade en vakt. Samma breddning som hex-vakten i
+# test_palette_guard.py redan fått: all publicerad CSS, utom tokens.css
+# självt (som äger de faktiska hex-värdena bakom varje token).
+def published_stylesheets():
+    tokens_css = ROOT / "assets/css/tokens.css"
+    return sorted(p for p in published_files((".css",)) if p != tokens_css)
 
 
 @pytest.mark.parametrize("path", shared_stylesheets(), ids=lambda p: p.name)
@@ -27,15 +41,28 @@ def test_no_hardcoded_hex_outside_tokens(path):
 # so it also flagged pure `border-color: var(--color-highlight);` declarations, which are
 # correct as-is (surfaces/borders are exactly what --color-highlight is for). Confirmed by
 # running both patterns side by side against the real files: the naive one hit 17 lines
-# across pages.css/components.css, 5 of which were `border-color:` only. The lookbehinds
-# below exclude those while still matching every real `color:` (and `color:` immediately
-# after another declaration on the same line, e.g. `border-color: ...; color: ...;`).
-HIGHLIGHT_AS_TEXT = re.compile(
-    r"(?<!border-)(?<!background-)color:\s*var\(--color-highlight\)\s*[;}]"
+# across pages.css/components.css, 5 of which were `border-color:` only.
+#
+# Uppgift 4 (breddning till all publicerad CSS) hittade samma problem i en
+# annan form: `(?<!border-)(?<!background-)` bara utesluter de exakta
+# 7/11-teckensprefixen "border-" och "background-" omedelbart före "color:".
+# guides/claude/styles.css (sidlokal, aldrig skannad förut) har både
+# `text-decoration-color: var(--color-highlight);` (en understrykningslinje
+# — grafik, inte text) och `border-bottom-color: var(--color-highlight);`
+# (en kantlinje) — ingen av dem matchar de gamla lookbehindsen eftersom
+# prefixen är "-decoration-" respektive "-bottom-", inte "border-"/
+# "background-". Båda är legitima (texten själv står i --color-text /
+# --color-highlight-ink på samma rader). Lösningen är generell i stället för
+# fler specialfall: "color:" räknas bara som en riktig textfärg-deklaration
+# om den INTE är en sammansatt *-color-egenskap, dvs den får inte föregås av
+# ett bindestreck. Bekräftat: ger samma träffar som förut på de äkta
+# fallen (visual-codes.css) och noll nya falska positiva.
+HIGHLIGHT_AS_TEXT = re.compile(r"(?<!-)color:\s*var\(--color-highlight\)\s*[;}]")
+
+
+@pytest.mark.parametrize(
+    "path", published_stylesheets(), ids=lambda p: str(p.relative_to(ROOT))
 )
-
-
-@pytest.mark.parametrize("path", shared_stylesheets(), ids=lambda p: p.name)
 def test_surface_copper_is_never_used_as_text(path):
     """Spec §4 regel 2: --color-highlight är en yta, aldrig text.
     Som textfärg faller den på varje yta sajten har (3,1-4,3:1)."""
@@ -45,7 +72,7 @@ def test_surface_copper_is_never_used_as_text(path):
         for i, line in enumerate(text.splitlines())
         if HIGHLIGHT_AS_TEXT.search(line)
     ]
-    assert hits == [], f"{path.name} använder ytkoppar som textfärg på rad {hits}"
+    assert hits == [], f"{path.relative_to(ROOT)} använder ytkoppar som textfärg på rad {hits}"
 
 
 # NOTE: --color-focus-on-dark existed in tokens.css, with its own
@@ -75,13 +102,16 @@ def test_focus_tokens_are_consumed_by_a_real_focus_rule():
     kom igenom trots grön testsvit eftersom ingenting mätte om
     --color-focus-on-dark faktiskt användes någonstans. Båda
     fokustokens måste nu förekomma, bokstavligen, i minst en
-    :focus/:focus-visible-regel i de delade stilmallarna."""
-    text = "\n".join(p.read_text(encoding="utf-8") for p in shared_stylesheets())
+    :focus/:focus-visible-regel — numera i ALL publicerad CSS (uppgift 4),
+    inte bara assets/css/*.css. Blockerare 2 (den osynliga fokusringen på
+    .cta-band i guides/claude/styles.css) existerade just för att den
+    filen aldrig korsade den här vakten."""
+    text = "\n".join(p.read_text(encoding="utf-8") for p in published_stylesheets())
     bodies = _focus_rule_bodies(text)
     assert "var(--color-focus-on-dark)" in bodies, (
-        "ingen :focus-regel i de delade css-filerna använder "
+        "ingen :focus-regel i publicerad css använder "
         "--color-focus-on-dark — tokenen riskerar att bli obrukad igen"
     )
     assert "var(--color-focus)" in bodies, (
-        "ingen :focus-regel i de delade css-filerna använder --color-focus"
+        "ingen :focus-regel i publicerad css använder --color-focus"
     )
