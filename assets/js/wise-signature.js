@@ -27,8 +27,9 @@
     // (pages.css) with no default opacity of its own — only this branch
     // and the GSAP timeline below ever hide/show panels — so all four
     // stacked and overlapped for every reduced-motion visitor, on both
-    // the homepage and /wise/. Only the first panel should show, per the
-    // file header above ("shows all letters and first panel instantly").
+    // /wise/ and /sv/ratt/ (the only two pages that load this script).
+    // Only the first panel should show, per the file header above
+    // ("shows all letters and first panel instantly").
     letters.forEach(l => { l.style.opacity = '1'; });
     panels.forEach((p, i) => {
       if (i === 0) {
