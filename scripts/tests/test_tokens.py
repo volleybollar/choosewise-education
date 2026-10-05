@@ -158,3 +158,27 @@ def test_reduced_motion_block_survives():
     text = TOKENS.read_text(encoding="utf-8")
     assert "prefers-reduced-motion" in text
     assert re.search(r"--dur-fast:\s*0ms", text)
+
+
+def test_shadow_focus_is_opaque_and_token_based():
+    """Task 10, fix round 2: --shadow-focus used to be
+    rgba(11,58,111,0.28) — 28% alpha composites to roughly the colour of
+    whatever it sits on, so the ring was invisible on every surface, not
+    only dark ones. test_focus_ring_is_visible_against_dark_band (above)
+    only compares --color-focus-on-dark to --color-dark-bg as raw
+    values; it cannot see that the ring itself was translucent, and
+    test_css_discipline.py's focus-rule guard can't either —
+    shared_stylesheets() explicitly excludes tokens.css, where
+    --shadow-focus is defined. This is the one test that actually reads
+    it. Proven to fail red against the old rgba(...,0.28) value, green
+    against the fix."""
+    tokens = parse_tokens()
+    shadow = tokens["--shadow-focus"]
+    assert "rgba(" not in shadow, (
+        f"--shadow-focus är transparent igen ({shadow}) — en halvgenomskinlig "
+        "ring komposit:ar till nästan samma färg som ytan den ligger på "
+        "och blir osynlig, oavsett vilken yta"
+    )
+    assert "var(--color-focus)" in shadow, (
+        f"--shadow-focus bygger inte längre på tokenen --color-focus: {shadow}"
+    )

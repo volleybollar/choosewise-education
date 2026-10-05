@@ -22,10 +22,21 @@
   const narrow = window.matchMedia('(max-width: 900px)').matches;
 
   if (reduced) {
+    // Bug fixed in task 10 fix round 2: this used to set every panel to
+    // opacity 1 at once. .wise-panel is "position: absolute; inset: 0"
+    // (pages.css) with no default opacity of its own — only this branch
+    // and the GSAP timeline below ever hide/show panels — so all four
+    // stacked and overlapped for every reduced-motion visitor, on both
+    // the homepage and /wise/. Only the first panel should show, per the
+    // file header above ("shows all letters and first panel instantly").
     letters.forEach(l => { l.style.opacity = '1'; });
-    panels.forEach((p) => {
-      p.classList.add('is-visible');
-      p.style.opacity = '1';
+    panels.forEach((p, i) => {
+      if (i === 0) {
+        p.classList.add('is-visible');
+        p.style.opacity = '1';
+      } else {
+        p.style.opacity = '0';
+      }
     });
     return;
   }

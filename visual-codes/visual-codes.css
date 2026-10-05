@@ -98,11 +98,7 @@
   transition: background var(--dur-fast) var(--ease-out);
 }
 .vc-card__code:hover { background: var(--color-copy-hover); }
-/* --color-copy (its own background) is the same navy as --color-focus, so
-   the shared --shadow-focus ring would be invisible here too — this is a
-   page-local dark surface the shared stylesheets' container list can't
-   know about, so it needs its own --color-focus-on-dark override. */
-.vc-card__code:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--color-focus-on-dark); }
+.vc-card__code:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
 .vc-card__hint {
   font-size: var(--fs-caption);
   color: var(--color-text-soft);
