@@ -1492,6 +1492,55 @@
 }
 .rating-row__thanks[hidden] { display: none; }
 
+/* ───── Visa rätt svar — vändbar facitknapp (bildtestet) ─────
+   Kontrollraden görs om till ett grid med två innehållsbreda kolumner
+   (Klar/Done + Nollställ/Reset). Facitknappen spänner över båda och blir
+   därmed exakt lika bred som de två tillsammans — utan hårdkodade pixlar,
+   och det håller även när etiketterna har olika längd på sv och en. */
+.quiz-controls--with-reveal {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+}
+
+/* Själva vändningen använder samma teknik som flipcards ovan: den inre
+   wrappern roterar i 3D, framsidan ligger i flödet och bestämmer höjden,
+   baksidan ligger absolut ovanpå och är förvänd 180°. min-width: 0 hindrar
+   knappens egen text från att tvinga grid-kolumnerna bredare. */
+.answer-flip {
+  grid-column: 1 / -1;
+  min-width: 0;
+  display: block;
+  position: relative;
+  padding: 0;
+  text-align: center;
+  perspective: 600px;
+  -webkit-perspective: 600px;
+}
+.answer-flip__inner {
+  display: block;
+  position: relative;
+  transition: transform var(--dur-medium) var(--ease-in-out);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+.answer-flip.is-flipped .answer-flip__inner {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+.answer-flip__face {
+  display: block;
+  padding: var(--space-3) var(--space-5);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.answer-flip__back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
 /* Mobile responsive */
 @media (max-width: 720px) {
   .quiz-grid--2x2 { grid-template-columns: 1fr; }
