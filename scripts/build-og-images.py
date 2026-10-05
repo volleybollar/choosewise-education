@@ -52,7 +52,7 @@ TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" wid
   <rect width="1200" height="630" fill="url(#bg)"/>
   <text x="80" y="360" font-family="Hanken Grotesk, sans-serif" font-size="{size1}" font-weight="300" fill="#FBFAF8">{line1}</text>
   <text x="80" y="{y2}" font-family="Hanken Grotesk, sans-serif" font-size="{size2}" font-weight="300" fill="#FBFAF8">{line2}</text>
-  <text x="80" y="540" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="500" fill="#E8C9A8" letter-spacing="2">{eyebrow}</text>
+  <text x="80" y="540" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="500" fill="#EFF2F6" letter-spacing="2">{eyebrow}</text>
 </svg>
 """
 

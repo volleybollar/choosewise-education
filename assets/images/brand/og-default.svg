@@ -1,5 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
+    <style>
+      @font-face {
+        font-family: 'Hanken Grotesk';
+        src: url('../../fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2') format('woff2');
+        font-weight: 300 600;
+        font-style: normal;
+      }
+    </style>
     <linearGradient id="b" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#0C1A2E"/>
       <stop offset="100%" stop-color="#0B3A6F"/>
@@ -8,5 +16,5 @@
   <rect width="1200" height="630" fill="url(#b)"/>
   <text x="80" y="360" font-family="Hanken Grotesk, sans-serif" font-size="72" font-weight="300" fill="#FBFAF8">The right tool</text>
   <text x="80" y="440" font-family="Hanken Grotesk, sans-serif" font-size="72" font-weight="300" fill="#FBFAF8">at the right time.</text>
-  <text x="80" y="530" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="500" fill="#E8C9A8" letter-spacing="2">CHOOSEWISE.EDUCATION</text>
+  <text x="80" y="530" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="500" fill="#EFF2F6" letter-spacing="2">CHOOSEWISE.EDUCATION</text>
 </svg>

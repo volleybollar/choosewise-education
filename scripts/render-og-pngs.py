@@ -17,7 +17,9 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
-OG_DIR = ROOT / "assets/images/brand/og"
+BRAND_DIR = ROOT / "assets/images/brand"
+OG_DIR = BRAND_DIR / "og"
+OG_DEFAULT = BRAND_DIR / "og-default.svg"
 PORT = 8799
 
 
@@ -33,6 +35,8 @@ def serve() -> socketserver.TCPServer:
 def main() -> None:
     httpd = serve()
     svgs = sorted(OG_DIR.glob("*.svg"))
+    if OG_DEFAULT.exists():
+        svgs.append(OG_DEFAULT)
     if not svgs:
         raise SystemExit("Inga SVG-filer i assets/images/brand/og/")
 
