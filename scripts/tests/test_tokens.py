@@ -16,9 +16,10 @@ TOKENS = ROOT / "assets/css/tokens.css"
 def parse_tokens(path: Path = TOKENS) -> dict[str, str]:
     """Plocka ut varje --namn: värde; ur :root-blocket."""
     text = path.read_text(encoding="utf-8")
+    root_text = text.split("@media", 1)[0]
     return {
         m.group(1): m.group(2).strip()
-        for m in re.finditer(r"(--[a-z0-9-]+)\s*:\s*([^;]+);", text)
+        for m in re.finditer(r"(--[a-z0-9-]+)\s*:\s*([^;]+);", root_text)
     }
 
 
@@ -64,6 +65,37 @@ def test_colour_token_has_spec_value(name, value):
     tokens = parse_tokens()
     assert name in tokens, f"{name} saknas i tokens.css"
     assert tokens[name].upper() == value.upper()
+
+
+EXPECTED_WEIGHTS = {
+    "--weight-display": "300",
+    "--weight-heading": "400",
+    "--weight-body": "400",
+    "--weight-emphasis": "500",
+}
+
+
+@pytest.mark.parametrize("name,value", EXPECTED_WEIGHTS.items())
+def test_weight_token_has_spec_value(name, value):
+    tokens = parse_tokens()
+    assert name in tokens, f"{name} saknas i tokens.css"
+    assert tokens[name] == value
+
+
+def test_display_weight_is_never_bold():
+    """Spec §5: den lätta display-vikten bär hela riktningen."""
+    tokens = parse_tokens()
+    assert int(tokens["--weight-display"]) <= 300
+
+
+def test_shared_css_uses_weight_tokens_for_headings():
+    """base.css och pages.css fick inte behålla Fraunces gamla vikter."""
+    base = (ROOT / "assets/css/base.css").read_text(encoding="utf-8")
+    pages = (ROOT / "assets/css/pages.css").read_text(encoding="utf-8")
+    assert "var(--weight-display)" in base
+    assert "var(--weight-heading)" in base
+    assert "font-weight: 500;\n  line-height: var(--lh-tight)" not in base
+    assert "var(--weight-display)" in pages
 
 
 # (förgrund, bakgrund, minsta kontrast, vad det är)

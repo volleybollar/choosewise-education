@@ -27,7 +27,7 @@
   padding: var(--space-6) var(--space-5);
   width: 100%;
 }
-.hero__headline { font-size: var(--fs-display); font-weight: 400; max-width: 16ch; color: var(--color-dark-text); }
+.hero__headline { font-size: var(--fs-display); font-weight: var(--weight-display); max-width: 16ch; color: var(--color-dark-text); }
 .hero__sub { color: rgba(247,243,237,0.85); font-size: 1.25rem; margin-top: var(--space-5); max-width: 42ch; }
 .hero__cta { display: flex; gap: var(--space-4); margin-top: var(--space-7); flex-wrap: wrap; justify-content: center; }
 .hero__cta .btn--ghost { color: var(--color-dark-text); }

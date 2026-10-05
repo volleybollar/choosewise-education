@@ -40,12 +40,12 @@ input, button, textarea, select {
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: var(--weight-heading);
   line-height: var(--lh-tight);
   letter-spacing: var(--tracking-tight);
 }
 
-h1 { font-size: var(--fs-display); }
+h1 { font-size: var(--fs-display); font-weight: var(--weight-display); }
 h2 { font-size: var(--fs-h1); }
 h3 { font-size: var(--fs-h2); }
 h4 { font-size: var(--fs-h3); }

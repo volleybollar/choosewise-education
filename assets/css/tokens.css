@@ -44,6 +44,12 @@
   --font-quote:   'Instrument Serif', Georgia, 'Times New Roman', serif;
   --font-mono:    'SF Mono', Menlo, Monaco, monospace;
 
+  /* Vikter — display sätts aldrig fet, spec §5 */
+  --weight-display:  300;
+  --weight-heading:  400;
+  --weight-body:     400;
+  --weight-emphasis: 500;
+
   /* Fluid type scale — clamp() for responsive */
   --fs-display: clamp(2.25rem, 4vw + 0.75rem, 3.5rem);
   --fs-h1:      clamp(2rem, 4vw + 0.5rem, 3.5rem);
