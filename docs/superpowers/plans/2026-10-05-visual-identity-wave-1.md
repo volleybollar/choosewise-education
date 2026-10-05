@@ -471,6 +471,7 @@ git commit -m "feat(fonts): self-host Hanken Grotesk and Instrument Serif, drop 
 **Filer:**
 - Skapa: `scripts/tests/test_css_discipline.py`
 - Ändra: `assets/css/components.css` (127 hårdkodade värden)
+- Ändra: `assets/css/pages.css` rad 313 (`color: #fff` på kopparfärgad bakgrund)
 
 **Gränssnitt:**
 - Konsumerar: tokennamnen från uppgift 1.
@@ -511,7 +512,19 @@ def test_no_hardcoded_hex_outside_tokens(path):
 /usr/bin/python3 -m pytest scripts/tests/test_css_discipline.py -v
 ```
 
-Förväntat: FAIL på `components.css` med 127 värden. `base.css` och `pages.css` passerar redan.
+Förväntat: FAIL på **två** filer — `components.css` med 127 värden, och `pages.css` med ett. `base.css` passerar redan.
+
+Den enda träffen i `pages.css` sitter på rad 313 och är inte bara ett hårdkodat värde, utan ett brott mot spec §4 regel 3:
+
+```css
+.prompt-filter.is-active {
+  background: var(--color-highlight);
+  color: #fff;            /* vit på koppar = 3,4:1, otillåtet */
+  border-color: var(--color-highlight);
+}
+```
+
+Det är det aktiva filterpillret på promptsidan. Byt `#fff` mot `var(--color-text)` — mörk text på koppar ger 5,1:1.
 
 - [ ] **Steg 3: Byt de hårdkodade värdena mot tokens**
 
@@ -551,8 +564,8 @@ Förväntat: PASS för alla fyra stilmallar.
 - [ ] **Steg 5: Commit**
 
 ```bash
-git add assets/css/components.css scripts/tests/test_css_discipline.py
-git commit -m "refactor(css): tokenise the 127 hardcoded colours in components.css"
+git add assets/css/components.css assets/css/pages.css scripts/tests/test_css_discipline.py
+git commit -m "refactor(css): tokenise hardcoded colours, fix white-on-copper filter pill"
 ```
 
 ---
