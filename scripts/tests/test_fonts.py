@@ -43,3 +43,10 @@ def test_no_published_file_calls_google_fonts():
         if "fonts.googleapis.com" in text or "fonts.gstatic.com" in text:
             offenders.append(str(path.relative_to(ROOT)))
     assert offenders == [], f"Hämtar typsnitt från Google: {offenders}"
+
+
+def test_published_files_excludes_untracked_files():
+    """Vakten ska spegla vad GitHub Pages serverar — bara spårade filer.
+    research-presentation.html är gitignorerad och får inte scannas."""
+    names = {p.name for p in published_files()}
+    assert "research-presentation.html" not in names
