@@ -1,7 +1,7 @@
 # Blueprint — överlämning
 
 **Datum:** 2026-10-05
-**Status:** PR #28 öppen, **inte mergad**. 40 commits på `feat/visual-identity-blueprint`.
+**Status:** PR #28 **MERGAD 2026-10-05** som merge-commit `851c9f5`. 41 commits från `feat/visual-identity-blueprint` ligger i `main` och Blueprint är live på choosewise.education (Pages-bygget grönt, live-CSS verifierad). Svit 110/110 både före och efter mergen. Grenen är inte raderad.
 **LÄS FÖRST** vid fortsättning. Specen är den bindande auktoriteten, planen argumenterar från den.
 
 ---
