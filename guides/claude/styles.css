@@ -344,9 +344,18 @@
 .jl-page .callout p { margin-bottom: var(--space-1); }
 .jl-page .callout p:last-child { margin-bottom: 0; }
 
+/* Johans notis är en avsides kommentar i hans egen röst — inte en varning.
+   Den skiljs från Watch Out genom FORM, inte färg: ingen färgstapel, utan
+   hårfina linjer över och under, som en indragen marginalanteckning. Form
+   fungerar oavsett färgseende och i alla storlekar. En andra varm nyans
+   övervägdes och mättes: tegel mot koppar gav bara 2,4:1 — för svagt. */
 .jl-page .callout--johan {
-  border-color: var(--color-highlight);
-  background: var(--color-surface);
+  border-left: none;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0;
+  background: transparent;
+  padding: var(--space-3) 0 var(--space-2);
 }
 .jl-page .callout--johan .callout__label { color: var(--color-highlight-ink); }
 .jl-page .callout--johan .callout__signature {
@@ -367,9 +376,12 @@
 }
 .jl-page .callout--try .callout__label { color: var(--color-text); }
 
+/* Watch Out behåller stapeln OCH får en svag varm fyllning, så varningen är
+   den av de tre som trycker på. Etiketten (--color-warning = koppar-ink) mäter
+   4,65:1 mot den tonade bottnen, brödtexten 6,07:1. */
 .jl-page .callout--watch {
-  border-color: var(--color-warning);
-  background: var(--color-bg);
+  border-color: var(--color-highlight);
+  background: color-mix(in srgb, var(--color-highlight) 10%, var(--color-bg));
 }
 .jl-page .callout--watch .callout__label { color: var(--color-warning); }
 
