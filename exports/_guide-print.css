@@ -195,4 +195,171 @@ strong, b { font-weight: 500; }
 }
 
 /* ── Quick start: 20 av 46 klasser är gemensamma mellan de tio
-      quick start-mallarna. Kärnan bor här, resten lokalt. Uppgift 5. ── */
+      quick start-mallarna. Kärnan bor här, resten lokalt. Uppgift 5.
+      Källa: exports/claude-quick-start-en.html, översatt enligt tabellen.
+      idx/text/name lyfts till odelade (ej scopade) klasser eftersom
+      deras lokala wrapper skiljer mellan mallfamiljerna (.win vs
+      .seven-item, .rtf-card vs .feature-mini vs .triple-card) — en
+      scopad regel hade missat hälften av mallarna. masthead/page-footer/
+      closing/watchout/license-line heter likadant i alla tio, så eyebrow/
+      page-num/brand/msg/url/label scopas under dem i stället. subtitle
+      scopas under .page--quickstart eftersom licenssidan redan äger en
+      odelad .subtitle (uppgift 4) — annars hade den sista regeln i
+      filen tyst vunnit över licenssidans. ── */
+
+.page--quickstart { padding: 18mm 20mm; }
+.page1 { page-break-after: always; }
+.page2 { page-break-before: always; }
+
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 14px;
+}
+.masthead .eyebrow {
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.masthead .page-num {
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.page--quickstart .subtitle {
+  font-family: var(--font-quote);
+  font-size: 17px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
+}
+
+.lede {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-text-soft);
+  max-width: 155mm;
+  margin-bottom: 18px;
+}
+
+.section { margin-bottom: 14px; }
+
+/* idx/text/name: se kommentaren ovan — odelade med flit. */
+.idx {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--color-accent);
+  min-width: 14px;
+}
+.text {
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: var(--color-text-soft);
+}
+.text strong {
+  color: var(--color-text);
+  display: block;
+  font-size: 11px;
+  margin-bottom: 1px;
+}
+.name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 3px 0 3px;
+}
+
+.watchout {
+  background: color-mix(in srgb, var(--color-highlight) 12%, var(--color-bg));
+  border-left: 3px solid var(--color-highlight);
+  padding: 10px 14px;
+  border-radius: 2px;
+  margin-top: 6px;
+}
+.watchout .label {
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-highlight-ink);
+  display: block;
+  margin-bottom: 4px;
+}
+.watchout p {
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: var(--color-text-soft);
+  margin: 0;
+}
+
+.page-footer {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 9.5px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.3px;
+}
+.page-footer .brand {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: 10.5px;
+  color: var(--color-text-muted);
+}
+
+.closing {
+  background: var(--color-dark-bg);
+  color: var(--color-dark-text);
+  padding: 14px 18px;
+  border-radius: 3px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.closing .msg {
+  font-family: var(--font-quote);
+  font-size: 13.5px;
+  font-style: italic;
+  color: var(--color-dark-text);
+  line-height: 1.4;
+}
+.closing .url {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-highlight-on-dark);
+  white-space: nowrap;
+}
+
+.license-line {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-border);
+  font-size: 8.5px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.license-line strong { color: var(--color-text-muted); }

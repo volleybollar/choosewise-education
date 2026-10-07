@@ -3,102 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <title>Microsoft Copilot Quick Start — for teachers</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../exports/_guide-print.css">
 <style>
-  /* ═══ Microsoft Copilot Quick Start — 2-page A4 ═══
-     Palette: navy #1B2733, graphite #3E4A57, brass #C8A86B, cream #F6F3EE
-     Fonts:   Playfair Display (headings), Inter (body)
-  */
-  @page { size: A4; margin: 0; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* ═══ Microsoft Copilot Quick Start — 2-page A4 ═══ */
   body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    color: #1B2733;
-    background: #F6F3EE;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
     font-size: 11px;
     line-height: 1.55;
   }
 
-  .page {
-    width: 210mm;
-    height: 297mm;
-    padding: 18mm 20mm;
-    display: flex;
-    flex-direction: column;
-  }
-  .page1 { page-break-after: always; }
-  .page2 { page-break-before: always; }
-
-  /* ─── Page header ─── */
-  .masthead {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(27, 39, 51, 0.14);
-    margin-bottom: 14px;
-  }
-  .masthead .eyebrow {
-    font-family: 'Inter', sans-serif;
-    font-size: 9.5px;
-    font-weight: 700;
-    letter-spacing: 2.4px;
-    text-transform: uppercase;
-    color: #C8A86B;
-  }
-  .masthead .page-num {
-    font-family: 'Inter', sans-serif;
-    font-size: 9.5px;
-    font-weight: 500;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: #9a9a94;
-  }
-
   h1 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 30px;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1.08;
     letter-spacing: -0.6px;
-    color: #1B2733;
+    color: var(--color-text);
     margin-bottom: 6px;
-  }
-  .subtitle {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 14px;
-    font-weight: 400;
-    font-style: italic;
-    color: #3E4A57;
-    margin-bottom: 14px;
-  }
-  .lede {
-    font-size: 12px;
-    line-height: 1.6;
-    color: #3E4A57;
-    max-width: 160mm;
-    margin-bottom: 16px;
   }
 
   /* ─── Section ─── */
-  .section { margin-bottom: 12px; }
   .section h2 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1.2;
-    color: #1B2733;
+    color: var(--color-text);
     margin-bottom: 6px;
   }
   .section h2 .accent {
     display: inline-block;
     width: 28px;
     height: 2px;
-    background: #C8A86B;
+    background: var(--color-highlight);
     vertical-align: middle;
     margin-right: 10px;
     position: relative;
@@ -107,7 +43,7 @@
   .section p {
     font-size: 10.5px;
     line-height: 1.55;
-    color: #3E4A57;
+    color: var(--color-text-soft);
     margin-bottom: 5px;
   }
 
@@ -119,32 +55,15 @@
     margin-top: 6px;
   }
   .feature-mini {
-    background: #faf7f2;
-    border-left: 3px solid #3E4A57;
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-text-soft);
     padding: 9px 12px 10px;
     border-radius: 2px;
-  }
-  .feature-mini .idx {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1;
-    color: #3E4A57;
-    display: block;
-    margin-bottom: 2px;
-  }
-  .feature-mini .name {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: #1B2733;
-    display: block;
-    margin-bottom: 3px;
   }
   .feature-mini p {
     font-size: 10px;
     line-height: 1.5;
-    color: #3E4A57;
+    color: var(--color-text-soft);
     margin: 0;
   }
 
@@ -160,123 +79,12 @@
     gap: 10px;
     padding: 4px 0;
   }
-  .win .idx {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.1;
-    color: #3E4A57;
-    min-width: 16px;
-  }
-  .win .text {
-    font-size: 10.5px;
-    line-height: 1.5;
-    color: #3E4A57;
-  }
-  .win .text strong {
-    color: #1B2733;
-    font-weight: 700;
-    display: block;
-    font-size: 11px;
-    margin-bottom: 1px;
-  }
-
-  /* ─── Watch out ─── */
-  .watchout {
-    background: #faf3e2;
-    border-left: 3px solid #C8A86B;
-    padding: 10px 14px;
-    border-radius: 2px;
-    margin-top: 10px;
-  }
-  .watchout .label {
-    font-family: 'Inter', sans-serif;
-    font-size: 8.5px;
-    font-weight: 700;
-    letter-spacing: 1.6px;
-    text-transform: uppercase;
-    color: #a07d2e;
-    display: block;
-    margin-bottom: 4px;
-  }
-  .watchout p {
-    font-size: 10.5px;
-    line-height: 1.5;
-    color: #3E4A57;
-    margin: 0;
-  }
-
-  /* ─── Footer ─── */
-  .page-footer {
-    margin-top: auto;
-    padding-top: 10px;
-    border-top: 1px solid rgba(27, 39, 51, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-size: 9.5px;
-    color: #9a9a94;
-    letter-spacing: 0.3px;
-  }
-  .page-footer .brand {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
-    font-size: 10.5px;
-    color: #3E4A57;
-  }
-
-  /* ─── Closing CTA (page 2) ─── */
-  .closing {
-    background: #1B2733;
-    color: #F6F3EE;
-    padding: 14px 18px;
-    border-radius: 3px;
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-  }
-  .closing .msg {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 13px;
-    font-style: italic;
-    color: #F6F3EE;
-    line-height: 1.4;
-  }
-  .closing .url {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.6px;
-    text-transform: uppercase;
-    color: #C8A86B;
-    white-space: nowrap;
-  }
-
-  /* ─── License line (bottom of last page) ─── */
-  .license-line {
-    margin-top: 10px;
-    padding-top: 8px;
-    border-top: 1px solid rgba(27, 39, 51, 0.08);
-    font-size: 8.5px;
-    color: #9a9a94;
-    letter-spacing: 0.25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-  }
-  .license-line strong {
-    color: #3E4A57;
-    font-weight: 600;
-  }
 </style>
 </head>
 <body>
 
 <!-- ═══════════════ PAGE 1 ═══════════════ -->
-<div class="page page1">
+<div class="page page--quickstart page1">
   <div class="masthead">
     <span class="eyebrow">Microsoft Copilot Quick Start · for teachers</span>
     <span class="page-num">01 / 02</span>
@@ -343,7 +151,7 @@
 </div>
 
 <!-- ═══════════════ PAGE 2 ═══════════════ -->
-<div class="page page2">
+<div class="page page--quickstart page2">
   <div class="masthead">
     <span class="eyebrow">5 things to try in Microsoft 365 today</span>
     <span class="page-num">02 / 02</span>

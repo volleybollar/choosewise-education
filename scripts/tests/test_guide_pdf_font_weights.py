@@ -36,10 +36,22 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from pdf_fingerprint import ROOT  # noqa: E402
 
-# Empty after task 4 — see module docstring. Tasks 5/6 append paths (relative
-# to ROOT, same spelling as pdf_fingerprint.GUIDE_PDFS) as they convert each
-# guide's A4 body to Blueprint. Task 9 asserts this list == GUIDE_PDFS.
-CONVERTED_PDFS: list[str] = []
+# Populated by task 5 with the ten quick-start PDFs (fully converted — each
+# quick start is its own PDF, not a chapter inside a larger guide). Task 6
+# appends the twelve A4 guides as they convert. Task 9 asserts this list ==
+# GUIDE_PDFS.
+CONVERTED_PDFS: list[str] = [
+    "assets/pdfs/guides/claude-quick-start-en.pdf",
+    "assets/pdfs/guides/claude-quick-start-sv.pdf",
+    "assets/pdfs/presentation-skills-summary-en.pdf",
+    "assets/pdfs/presentationsteknik-sammanfattning-sv.pdf",
+    "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-en.pdf",
+    "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-sv.pdf",
+    "_unpublished/assets/pdfs/guides/copilot-quick-start-en.pdf",
+    "_unpublished/assets/pdfs/guides/copilot-quick-start-sv.pdf",
+    "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf",
+    "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-sv.pdf",
+]
 
 # A font's PostScript name carries its weight as a name fragment
 # (…_SemiBold, …-Bold, …-Black, …-Heavy) — there is no numeric weight to
