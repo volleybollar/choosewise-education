@@ -56,10 +56,13 @@ GUIDE_TEMPLATE_GLOBS = (
     "_unpublished/exports/*.html",
 )
 
-# nlm-140-prompts-en.html genereras av exports/build-nlm-prompts-en.py och
-# vaktas där — den räknas inte som handskriven mall. (Den matchar inga av
-# globarna ovan ändå, så det här är ett dokumenterat säkerhetsnät, inte det
-# som faktiskt håller den borta.)
+# nlm-140-prompts-en.html är dropped ur våg 2a (ruling 2026-10-07): dess
+# builder läser /tmp/nlm-prompts-en-chunk{1..4}.json, filer som inte finns
+# och aldrig committats, så PDF:en går inte att bygga om från repot alls.
+# Ingenting vaktar idag dess palett, typsnitt eller vikter — se
+# scripts/tests/pdf_fingerprint.py. (Den matchar inga av globarna ovan
+# ändå, så det här är ett dokumenterat säkerhetsnät, inte det som
+# faktiskt håller den borta.)
 GENERATED = {"nlm-140-prompts-en.html"}
 
 

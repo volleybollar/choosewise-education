@@ -348,8 +348,17 @@ def test_only_blueprint_typefaces_in_font_family_context(path):
     Times) can feel heavier…") — en vakt utan kontext slår larm på sin egen
     undervisning. Genom att bara läsa inuti font-family:-deklarationer
     träffar vakten verklig CSS-användning, aldrig prosa som nämner ett
-    typsnittsnamn i förbigående."""
-    families = re.findall(r"font-family:\s*([^;}]+)", path.read_text(encoding="utf-8"))
+    typsnittsnamn i förbigående.
+
+    Värdeklassen stänger vid \"/' lika väl som vid ;/} (uppgift 9:s fynd):
+    utan det skulle en framtida inline-stil utan avslutande semikolon
+    ("style=\"font-family:var(--font-quote)\"", där attributet avslutas av
+    citattecknet, inte ett semikolon) fånga in all text efter sig — ända
+    till nästa ; eller } någonstans senare i filen — och ett sammanträffande
+    typsnittsnamn i den texten skulle då larma på en fullt godkänd
+    deklaration. Det valfria ledande citattecknet konsumeras separat så att
+    en citerad deklaration som font-family: 'Playfair Display' ändå fångas."""
+    families = re.findall(r"font-family:\s*[\"']?([^;}\"'>]+)", path.read_text(encoding="utf-8"))
     banned = [f for f in families
               if re.search(r"Playfair|Fraunces|Work Sans|\bInter\b", f)]
     assert not banned, f"{path.name}: {banned}"
