@@ -1,0 +1,73 @@
+/* ════════════════════════════════════════════════════════
+   Delad A4-tryckstil för choosewise.educations guider.
+   Används av licenssidorna, quick starts och A4-guiderna.
+   A4-guiderna har egen layout och hämtar bara färg och
+   typsnitt härifrån — deras klassvokabulär delas inte.
+   ════════════════════════════════════════════════════════ */
+
+:root {
+  --color-bg:                #FBFAF8;
+  --color-bg-alt:            #EFF2F6;
+  --color-text:              #0C1A2E;
+  --color-text-soft:         #4E5A68;
+  --color-text-muted:        #656F7B;
+  --color-border:            #DDE3EA;
+  --color-accent:            #0B3A6F;
+  --color-deep:              #07284D;
+
+  /* Kopparn har tre värden. Ytor och grafik tar --color-highlight, aldrig text.
+     Kopparfärgad TEXT tar --color-highlight-ink på ljusa ytor
+     eller --color-highlight-on-dark på mörka band. */
+  --color-highlight:         #C2793A;
+  --color-highlight-ink:     #9C5A24;
+  --color-highlight-on-dark: #E8C9A8;
+
+  /* --color-dark-bg har SAMMA värde som --color-accent. Accent som
+     förgrund mot mörkt band ger 1,00:1 — använd --color-dark-text. */
+  --color-dark-bg:           #0B3A6F;
+  --color-dark-text:         #EFF2F6;
+
+  --font-display: 'Hanken Grotesk', Helvetica, sans-serif;
+  --font-body:    'Hanken Grotesk', Helvetica, sans-serif;
+  --font-quote:   'Instrument Serif', Georgia, serif;
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: url('../assets/fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2') format('woff2');
+  font-weight: 300 600;
+  font-style: normal;
+}
+/* Instrument Serif enbart i citat. Mallarna sätter underrubriker och
+   signaturer i kursiv serif idag (Playfair italic), så kursiven behövs. */
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('../assets/fonts/instrument-serif/InstrumentSerif-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('../assets/fonts/instrument-serif/InstrumentSerif-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* ── A4-bas, delad av alla tre underfamiljerna ── */
+@page { size: A4; margin: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { background: var(--color-bg); }
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.page { width: 210mm; height: 297mm; display: flex; flex-direction: column; }
+
+/* ── Licenssidan: 13 av 14 klasser är gemensamma mellan de fyra
+      licensmallarna, så hela layouten bor här. Skrivs i uppgift 4. ── */
+
+/* ── Quick start: 20 av 46 klasser är gemensamma mellan de tio
+      quick start-mallarna. Kärnan bor här, resten lokalt. Uppgift 5. ── */
