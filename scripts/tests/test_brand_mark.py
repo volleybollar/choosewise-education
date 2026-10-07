@@ -175,13 +175,20 @@ def test_hidden_pages_get_the_favicon_too():
 
 OG_DIR = ROOT / "assets/images/brand/og"
 OG_SVGS = sorted(OG_DIR.glob("*.svg"))
+OG_DEFAULT = ROOT / "assets/images/brand/og-default.svg"
+
+# The twelve section cards plus og-default.svg — the file the site-wide
+# og:image tag actually points at. It is not one of the twelve (see
+# test_there_are_twelve_og_cards below, which must keep counting exactly
+# that) but it gets the mark too, so it needs the same two guards.
+ALL_OG_CARDS = OG_SVGS + [OG_DEFAULT]
 
 
 def test_there_are_twelve_og_cards():
     assert len(OG_SVGS) == 12, [p.name for p in OG_SVGS]
 
 
-@pytest.mark.parametrize("svg", OG_SVGS, ids=lambda p: p.name)
+@pytest.mark.parametrize("svg", ALL_OG_CARDS, ids=lambda p: p.name)
 def test_every_og_card_carries_the_mark(svg):
     """Samma banddata som källan — inte en egen teckning av nålen."""
     text = svg.read_text(encoding="utf-8")
@@ -190,7 +197,7 @@ def test_every_og_card_carries_the_mark(svg):
     assert "#E8C9A8" in text, f"{svg.name}: norrspetsen ska vara ljus koppar mot mörkt"
 
 
-@pytest.mark.parametrize("svg", OG_SVGS, ids=lambda p: p.name)
+@pytest.mark.parametrize("svg", ALL_OG_CARDS, ids=lambda p: p.name)
 def test_the_png_was_rendered_after_the_svg(svg):
     """og-taggarna pekar på PNG. En SVG med märket och en gammal PNG ser
     oförändrad ut för varje delad länk, och felet upptäcks aldrig."""
