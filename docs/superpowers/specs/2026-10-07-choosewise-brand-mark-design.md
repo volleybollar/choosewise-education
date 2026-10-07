@@ -106,7 +106,7 @@ Båda bannermåtten levereras eftersom det inte är avgjort om Choosewise ska ha
 
 ### og-korten
 
-De 12 befintliga delningskorten i `assets/images/brand/og/` får märket uppe till vänster. De är ljusa, så märket tar sitt ljusa skick. SVG:erna uppdateras och **PNG:erna renderas om** — og-taggarna pekar på PNG, och det steget är det som oftast glöms bort eftersom felet syns först när någon delar en länk.
+De 12 befintliga delningskorten i `assets/images/brand/og/` får märket uppe till vänster. Korten har **mörk botten** — en övertoning från `#07284D` till `#0B3A6F` — så märket tar sitt **mörka** skick. SVG:erna uppdateras och PNG:erna renderas om med `scripts/render-og-pngs.py`, som redan finns sedan våg 1 och startar en lokal server så att de självhostade typsnitten laddas.
 
 ### Guidernas omslag
 
@@ -121,6 +121,8 @@ Uppdelningen är avsiktlig. Våg 2a rör varenda tryckmall ändå, och att låta
 Det betyder **ett skript att ändra, inte 199 filer**, och att en ny sida får faviconen automatiskt nästa gång skriptet körs.
 
 De fyra filerna utan `<head>` är partialer som inkluderas i andra sidor. De ska inte ha favicon och ska inte räknas som misslyckanden.
+
+**En fälla i skriptet:** `build_seo_block` returnerar tidigt för sökvägarna i `HIDDEN_PATHS` och skickar då bara en `noindex`-tagg — ingen canonical, ingen JSON-LD. Läggs faviconlänkarna i den vanliga grenen får de dolda guidsidorna ingen favicon. Länkarna ska därför byggas **före** den tidiga returen och ingå i båda grenarna.
 
 ## 5. Vakter
 
@@ -148,7 +150,7 @@ Varje vakt ska prövas mot sitt eget felfall innan den godkänns — i våg 1 vi
 ## 7. Fällor
 
 1. **`build-seo-meta.py` bumpar "Last updated"** ur git-commitdatum på varje sida den rör. En körning som bara lägger till faviconlänkar sätter nytt datum på 199 sidor. Kontrollera vad skriptet rör och återställ orelaterade sidor före push.
-2. **og-PNG:erna renderas inte av skriptet.** `build-og-images.py` gör bara SVG. PNG-steget är manuellt och är den punkt som mest sannolikt glöms, eftersom felet syns först när någon delar en länk.
+2. **Två og-skript, olika uppgifter.** `build-og-images.py` genererar SVG; `render-og-pngs.py` renderar SVG till PNG via en lokal server. og-taggarna pekar på PNG, så en ändring som bara rör SVG syns inte när någon delar en länk. Kör alltid båda, i den ordningen.
 3. **Förhandsvisning körs alltid på ny port.** Safari cachar hårt, och favicon är det webbläsare cachar allra hårdast — en gammal ikon kan sitta kvar långt efter att filen bytts.
 4. **`git add -A` används aldrig.** Repot har ett trettiotal ocommittade ändringar som hör till Johan.
 5. **`/usr/bin/python3` är enda interpretern** med pytest och playwright. Homebrews 3.14 saknar båda.
