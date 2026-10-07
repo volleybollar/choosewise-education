@@ -95,10 +95,16 @@ def test_no_font_weight_outside_the_scale():
 
 def test_font_face_variable_range_is_exempt_from_the_scale():
     """The scale guard above must not reach into @font-face — the Hanken
-    Grotesk variable range `300 600` describes the file, not a usage,
-    and must stay untouched by tasks 4-6."""
-    assert re.search(r"font-weight:\s*300\s+600\s*;", css()), \
-        "Hanken Grotesk @font-face-intervallet 300 600 saknas eller har ändrats"
+    Grotesk variable range describes the file, not a usage, and must stay
+    untouched by the usage-level guard above.
+
+    Narrowed from `300 600` to `300 500` (slutgranskningens fynd 3): the
+    wider range let an unstyled <strong>/<b>'s native-700 request clamp
+    silently to 600 and embed HankenGrotesk-Regular_SemiBold. `300 500`
+    makes that structurally impossible — a request above 500 now misses
+    this face entirely instead of clamping into it."""
+    assert re.search(r"font-weight:\s*300\s+500\s*;", css()), \
+        "Hanken Grotesk @font-face-intervallet 300 500 saknas eller har ändrats"
 
 
 def test_copper_is_never_used_as_text_colour():
@@ -337,6 +343,42 @@ def test_no_old_palette_in_the_templates(path):
 
 
 @pytest.mark.parametrize("path", TEMPLATES, ids=lambda p: p.name)
+def test_templates_have_zero_hardcoded_hex(path):
+    """test_no_old_palette_in_the_templates ovan bannlyser bara sex kända
+    värden (Crestiora + gammal choosewise) — en helt ny, okänd hårdkodad
+    hexfärg (varken en känd gammal palett eller en Blueprint-token) skulle
+    glida igenom den vakten obemärkt. Facit idag (slutgranskningens fynd 3)
+    är att alla 26 mallar bär NOLL hårdkodade hexfärger — precis som den
+    delade stilmallens egen test_hex_colours_appear_only_in_the_root_block
+    kräver för _guide-print.css. Den här vakten påstår samma sak för
+    mallarna, som bara ska hämta färg ur variablerna."""
+    hexes = re.findall(r"#[0-9a-fA-F]{3,8}\b", path.read_text(encoding="utf-8"))
+    assert not hexes, f"{path.name} bär hårdkodade hexfärger: {sorted(set(hexes))}"
+
+
+_CSS_LINK_RE = re.compile(
+    r'<link[^>]+rel=["\']stylesheet["\'][^>]+href=["\']([^"\']*_guide-print\.css)["\']'
+)
+
+
+@pytest.mark.parametrize("path", TEMPLATES, ids=lambda p: p.name)
+def test_templates_link_a_resolving_guide_print_css(path):
+    """Facit idag (slutgranskningens fynd 3) är att alla 26 mallar länkar
+    DEN DELADE stilmallen — ingen egen kopia, ingen trasig relativ sökväg.
+    Detta var tidigare obevisat: en mall kunde i princip länka en sökväg
+    som inte finns (eller ingen _guide-print.css alls) utan att något test
+    märkte det, så länge mallen själv inte råkade innehålla ett bannlyst
+    ord. Löses ut strukturellt (path.parent / href), inte bara en
+    sträng-närvaro-kontroll — samma distinktion som
+    test_guide_asset_paths.py gör för bildsökvägar."""
+    text = path.read_text(encoding="utf-8")
+    m = _CSS_LINK_RE.search(text)
+    assert m, f"{path.name}: ingen <link rel=\"stylesheet\" href=\"...guide-print.css\"> hittades"
+    resolved = (path.parent / m.group(1)).resolve()
+    assert resolved.exists(), f"{path.name}: länkad stilmall löser inte ut: {m.group(1)}"
+
+
+@pytest.mark.parametrize("path", TEMPLATES, ids=lambda p: p.name)
 def test_no_external_font_calls(path):
     assert "fonts.googleapis.com" not in path.read_text(encoding="utf-8")
 
@@ -369,7 +411,20 @@ def test_no_font_weight_outside_the_scale_in_templates(path):
     """Käll-nivå-syskon till test_no_font_weight_outside_the_scale ovan,
     men för mallarnas egna inline-stilar i stället för den delade filen.
     Täcker inte HTML-utan-CSS-fallet (se styckeskommentaren ovan) — det
-    äger render-nivå-vakten i test_guide_pdf_font_weights.py."""
-    weights = re.findall(r"font-weight:\s*(\d{3})", path.read_text(encoding="utf-8"))
-    outside = sorted({w for w in weights if w not in {"300", "400", "500"}})
-    assert not outside, f"{path.name}: vikter utanför skalan {outside}"
+    äger render-nivå-vakten i test_guide_pdf_font_weights.py.
+
+    Symmetrisk med syskontestet ovan (slutgranskningens fynd 2): den
+    gamla versionen matchade bara \\d{3} och skulle ha släppt igenom
+    `font-weight: bold` i en mall helt ospårat. Samma tokenisering som
+    syskontestet — splitta hela deklarationen på whitespace, tillåt bara
+    300/400/500 eller nyckelordet `normal` (= 400), flagga allt annat
+    (bold/bolder/lighter och tal utanför skalan, inklusive ett andra tal
+    i en flervärdesdeklaration)."""
+    allowed_numeric = {"300", "400", "500"}
+    violations = []
+    for declaration in re.findall(r"font-weight:\s*([^;}\"'>]+)", path.read_text(encoding="utf-8")):
+        for token in declaration.split():
+            if token == "normal" or token in allowed_numeric:
+                continue
+            violations.append(token)
+    assert not violations, f"{path.name}: vikter utanför skalan {sorted(set(violations))}"

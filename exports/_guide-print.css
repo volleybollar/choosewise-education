@@ -37,7 +37,17 @@
 @font-face {
   font-family: 'Hanken Grotesk';
   src: url('../assets/fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2') format('woff2');
-  font-weight: 300 600;
+  /* Narrowed from 300 600 (slutgranskningens fynd 3): the Blueprint scale
+     only ever uses 300/400/500. Declaring the face's own range as 300 500
+     makes the clamp-to-600 trap (an unstyled <strong>/<b> requesting the
+     browser's native 700, which this variable font's old 300-600 range
+     silently clamped to 600 and embedded as HankenGrotesk-Regular_SemiBold)
+     structurally impossible instead of relying solely on the global
+     `strong, b { font-weight: 500; }` rule below plus the render-level
+     guard (test_guide_pdf_font_weights.py). A request above 500 now falls
+     through to this face's declared sans-serif fallback entirely — loud
+     and visible, not a silent heavier embed. */
+  font-weight: 300 500;
   font-style: normal;
 }
 /* Instrument Serif enbart i citat. Mallarna sätter underrubriker och

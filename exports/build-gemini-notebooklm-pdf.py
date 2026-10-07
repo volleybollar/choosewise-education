@@ -26,10 +26,19 @@ root = Path(__file__).parent.parent
 
 
 def footer(title: str, page_label: str) -> str:
+    # Standard (light-page) footer — color mirrors --color-text-muted
+    # (#656F7B) in exports/_guide-print.css; change both together if the
+    # token moves. print-color-adjust: exact required: Playwright's
+    # footer_template renders in an isolated context where Chromium's
+    # print "economy" mode otherwise silently darkens this toward
+    # near-black (verified: #656F7B without it rendered as ~#202327 at
+    # 300dpi). This guide's cover gets no footer at all (with_footer=False
+    # below), so there is no dark-cover variant to mirror here.
     return f"""
-<div style="font-size: 8pt; color: #a5a59f; width: 100%; padding: 0 22mm;
+<div style="font-size: 8pt; color: #656F7B; width: 100%; padding: 0 22mm;
             display: flex; justify-content: space-between; align-items: center;
-            font-family: 'Inter', -apple-system, sans-serif;">
+            -webkit-print-color-adjust: exact; print-color-adjust: exact;
+            font-family: 'Hanken Grotesk', Helvetica, sans-serif;">
   <span>{title}</span>
   <span>{page_label} <span class="pageNumber"></span></span>
 </div>

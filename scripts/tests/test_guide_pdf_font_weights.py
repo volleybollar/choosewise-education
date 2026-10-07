@@ -34,7 +34,7 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from pdf_fingerprint import ROOT  # noqa: E402
+from pdf_fingerprint import GUIDE_PDFS, ROOT  # noqa: E402
 
 # Populated by task 5 with the ten quick-start PDFs (fully converted — each
 # quick start is its own PDF, not a chapter inside a larger guide). Task 6
@@ -83,6 +83,18 @@ def embedded_font_names(pdf_path: Path) -> list[str]:
     ).stdout
     lines = out.splitlines()[2:]  # drop the header row + its dashed underline
     return [line.split()[0] for line in lines if line.strip()]
+
+
+def test_converted_pdfs_covers_every_guide_pdf():
+    """Facit ska inte tappa en PDF tyst — samma mönster som
+    test_guide_pdf_parity.py/test_guide_pdf_body_text.py:s egna
+    test_baseline_covers_every_guide_pdf. Den här filens docstring har
+    sagt sedan uppgift 4 att uppgift 9 måste lägga till precis det här
+    påståendet; det gjordes aldrig. Utan det skulle en PDF som läggs till
+    i fp.GUIDE_PDFS senare aldrig få sin vikt vaktad av det här render-
+    nivå-lagret — det enda lagret som kan se en vikt utan någon
+    font-weight-deklaration i källkoden alls (se modulens docstring)."""
+    assert sorted(CONVERTED_PDFS) == sorted(GUIDE_PDFS)
 
 
 def test_forbidden_weight_detector_catches_a_semibold_name():

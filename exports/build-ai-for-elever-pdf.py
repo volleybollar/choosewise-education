@@ -16,22 +16,38 @@ root = Path(__file__).parent.parent
 
 
 def cover_footer(title: str) -> str:
-    """Footer used on the dark cover (page 1) — white title, no page number."""
+    """Footer used on the dark cover (page 1) — white title, no page number.
+
+    Color mirrors --color-dark-text (#EFF2F6) in exports/_guide-print.css;
+    change both together if the token moves. print-color-adjust: exact is
+    required: Playwright's footer_template renders in an isolated context
+    where Chromium's print "economy" mode otherwise silently darkens this
+    toward grey (verified: #EFF2F6 without it rendered as ~#9D9FA2 at
+    300dpi).
+    """
     return f"""
-<div style="font-size: 8pt; color: #faf7f2; width: 100%; padding: 0 16mm 0 16mm;
+<div style="font-size: 8pt; color: #EFF2F6; width: 100%; padding: 0 16mm 0 16mm;
             display: flex; justify-content: flex-start; align-items: center;
-            font-family: 'Inter', -apple-system, sans-serif;">
+            -webkit-print-color-adjust: exact; print-color-adjust: exact;
+            font-family: 'Hanken Grotesk', Helvetica, sans-serif;">
   <span>{title}</span>
 </div>
 """
 
 
 def standard_footer(title: str, page_label: str) -> str:
-    """Footer used on pages 2+ — grey title + page number."""
+    """Footer used on pages 2+ — grey title + page number.
+
+    Color mirrors --color-text-muted (#656F7B) in exports/_guide-print.css;
+    change both together if the token moves. print-color-adjust: exact
+    required for the same reason as cover_footer above (verified: #656F7B
+    without it rendered as ~#202327 at 300dpi — near-black, not the token).
+    """
     return f"""
-<div style="font-size: 8pt; color: #8a8a85; width: 100%; padding: 0 16mm 0 16mm;
+<div style="font-size: 8pt; color: #656F7B; width: 100%; padding: 0 16mm 0 16mm;
             display: flex; justify-content: space-between; align-items: center;
-            font-family: 'Inter', -apple-system, sans-serif;">
+            -webkit-print-color-adjust: exact; print-color-adjust: exact;
+            font-family: 'Hanken Grotesk', Helvetica, sans-serif;">
   <span>{title}</span>
   <span>{page_label} <span class="pageNumber"></span></span>
 </div>
