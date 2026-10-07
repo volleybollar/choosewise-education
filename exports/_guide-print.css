@@ -66,6 +66,16 @@ body {
 }
 .page { width: 210mm; height: 297mm; display: flex; flex-direction: column; }
 
+/* <strong>/<b> carry no CSS font-weight of their own, so the browser
+   requests its native bold — 700. Hanken Grotesk is a variable font
+   whose declared weight axis tops out at 600 (@font-face above), so
+   that request clamps to 600 and HankenGrotesk-Regular_SemiBold gets
+   embedded. Both 700 and the clamped 600 are outside the display
+   300 / heading 400 / body 400 / emphasis 500 scale. This rule pins
+   every <strong>/<b> in the shared vocabulary to the scale's one
+   emphasis weight instead of trusting the browser's default. */
+strong, b { font-weight: 500; }
+
 /* ── Licenssidan ── */
 
 .page--license {
@@ -149,7 +159,6 @@ body {
 }
 
 .link {
-  font-family: monospace;
   font-size: 10pt;
   color: var(--color-accent);
   border-bottom: 1px solid var(--color-highlight);
