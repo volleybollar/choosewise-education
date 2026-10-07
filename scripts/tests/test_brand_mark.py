@@ -11,10 +11,15 @@ import re
 from pathlib import Path
 
 import pytest
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[2]
 DARK = ROOT / "assets/images/brand/mark-on-dark.svg"
 LIGHT = ROOT / "assets/images/brand/mark-on-light.svg"
+
+FAVICON_SVG = ROOT / "favicon.svg"
+FAVICON_ICO = ROOT / "favicon.ico"
+APPLE_TOUCH = ROOT / "apple-touch-icon.png"
 
 NEEDLE_NORTH = "M32 6 L37.5 32 L26.5 32 Z"
 NEEDLE_SOUTH = "M32 58 L37.5 32 L26.5 32 Z"
@@ -98,3 +103,33 @@ def test_the_two_states_share_one_geometry():
         text = re.sub(r'  <!--.*?-->\n', '', text, flags=re.DOTALL)
         return re.sub(r'(fill|stroke)="#[0-9a-fA-F]{6}"', r'\1="X"', text)
     assert skeleton(DARK) == skeleton(LIGHT)
+
+
+def test_favicon_files_exist():
+    for f in (FAVICON_SVG, FAVICON_ICO, APPLE_TOUCH):
+        assert f.exists(), f"{f.name} saknas"
+
+
+def test_apple_touch_icon_is_180_square():
+    assert Image.open(APPLE_TOUCH).size == (180, 180)
+
+
+def test_ico_carries_both_sizes():
+    """En .ico med bara en storlek låter webbläsaren skala ned 32 till 16."""
+    with Image.open(FAVICON_ICO) as im:
+        sizes = set(im.info.get("sizes", ()))
+    assert {(16, 16), (32, 32)} <= sizes, f"ico innehåller {sorted(sizes)}"
+
+
+def test_favicons_have_the_brand_ground_not_transparency():
+    """Ett märke utan botten försvinner mot mörkt flikgränssnitt.
+
+    Hörnpixeln ligger utanför hörnradien och är alltså genomskinlig i en
+    rundad ruta — mätpunkten är därför mitt på vänsterkanten, som ligger
+    på bottnen.
+    """
+    im = Image.open(APPLE_TOUCH).convert("RGBA")
+    r, g, b, a = im.getpixel((2, im.height // 2))
+    assert a == 255, "bottnen är genomskinlig"
+    assert (r, g, b) == (0x0B, 0x3A, 0x6F), f"fel bottenfärg: {(r, g, b)}"
+    assert "#0B3A6F" in FAVICON_SVG.read_text(encoding="utf-8")

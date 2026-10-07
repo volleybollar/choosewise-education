@@ -83,3 +83,38 @@ def render_png(page, svg_text: str, w: int, h: int, out: Path) -> None:
         wait_until="load")
     page.wait_for_timeout(220)   # typsnittet ska hinna in innan bilden tas
     page.screenshot(path=str(out), omit_background=True)
+
+
+def build_favicons(page) -> None:
+    """Tre filer: SVG för moderna webbläsare, .ico för äldre, PNG för hemskärm."""
+    (ROOT / "favicon.svg").write_text(tile_svg(64), encoding="utf-8")
+
+    render_png(page, tile_svg(180), 180, 180, ROOT / "apple-touch-icon.png")
+
+    # .ico ska innehålla BÅDE 16 och 32. Utelämnas sizes skriver Pillow en
+    # enda bild, och äldre webbläsare skalar då 32 ned till 16 själva med
+    # dåligt resultat.
+    render_png(page, tile_svg(32), 32, 32, ROOT / "_ico32.png")
+    img = Image.open(ROOT / "_ico32.png").convert("RGBA")
+    img.save(ROOT / "favicon.ico", sizes=[(16, 16), (32, 32)])
+    (ROOT / "_ico32.png").unlink()
+
+
+def main() -> None:
+    with sync_playwright() as pw:
+        httpd = serve()
+        browser = pw.chromium.launch()
+        page = browser.new_page()
+        try:
+            # set_content ärver det aktuella dokumentets ursprung. Utan den
+            # här navigeringen är sidan about:blank och absoluta sökvägar
+            # (t.ex. typsnitt) kan inte slå upp mot servern.
+            page.goto(f"http://127.0.0.1:{PORT}/")
+            build_favicons(page)
+        finally:
+            browser.close()
+            httpd.shutdown()
+
+
+if __name__ == "__main__":
+    main()
