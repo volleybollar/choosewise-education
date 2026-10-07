@@ -31,7 +31,11 @@ PUBLISHED_GUIDE_PDFS = [
     "assets/pdfs/presentationsteknik-guide-sv.pdf",
     "assets/pdfs/presentation-skills-summary-en.pdf",
     "assets/pdfs/presentationsteknik-sammanfattning-sv.pdf",
-    "assets/pdfs/nlm-140-prompts-en.pdf",
+    # nlm-140-prompts-en.pdf dropped from the wave (ruling 2026-10-07): its
+    # builder reads /tmp/nlm-prompts-en-chunk{1..4}.json, those chunks don't
+    # exist and were never committed, so the PDF can't be rebuilt from this
+    # repo at all. Recovering the chunks (or re-translating) is its own job —
+    # don't re-add this path until that's solved.
 ]
 
 UNPUBLISHED_GUIDE_PDFS = [

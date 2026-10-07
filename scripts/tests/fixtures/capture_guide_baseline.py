@@ -1,4 +1,4 @@
-"""Fångar facit för de 23 guide-PDF:erna. Körs EN gång, före stilbytet.
+"""Fångar facit för de 22 guide-PDF:erna. Körs EN gång, före stilbytet.
 
 Körs den igen efter en stiländring skriver den över facit med det nya
 läget och paritetstestet slutar betyda något. Den vägrar därför skriva
