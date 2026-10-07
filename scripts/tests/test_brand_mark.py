@@ -7,6 +7,7 @@ beskrivna.
 """
 from __future__ import annotations
 
+import importlib.util
 import re
 from pathlib import Path
 
@@ -202,3 +203,23 @@ def test_the_png_was_rendered_after_the_svg(svg):
     box = im.crop((60, 50, 200, 190)).getcolors(140 * 140) or []
     assert any(c == (0xE8, 0xC9, 0xA8) for _, c in box), \
         f"{png.name} saknar märkets koppar — PNG:en är inte omrenderad"
+
+
+# scripts/build-og-images.py has a hyphen in its name too, so it's loaded
+# from its file path the same way it loads build-brand-assets.py itself.
+_spec = importlib.util.spec_from_file_location(
+    "build_og_images", ROOT / "scripts/build-og-images.py")
+_build_og_images = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_build_og_images)
+
+
+def test_the_generator_itself_composes_cards_with_the_mark():
+    """Vaktar generatorns eget TEMPLATE, inte bara filer som redan
+    committats. Går den här röd har build-og-images.py tappat märket
+    INNAN någon hinner köra den och skriva över de committade korten."""
+    svg = _build_og_images.TEMPLATE.format(
+        accent="#0B3A6F", line1="x", line2="y", eyebrow="z",
+        size1=80, size2=80, y2=450, mark=_build_og_images.MARK,
+    )
+    for d in (NEEDLE_NORTH, NEEDLE_SOUTH):
+        assert f'd="{d}"' in svg, "generatorns TEMPLATE saknar nålen"
