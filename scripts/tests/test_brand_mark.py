@@ -144,12 +144,15 @@ FAVICON_LINKS = (
 )
 
 PAGES = [p for p in brandguard.published_files((".html",))
-         if "<head" in p.read_text(encoding="utf-8", errors="replace")]
+         if "<head" in p.read_text(encoding="utf-8", errors="replace")
+         and "scripts" not in p.relative_to(ROOT).parts]
 
 
 def test_the_page_count_is_what_we_think():
-    """199 av 203. Faller globbet ihop vaktar resten ingenting."""
-    assert len(PAGES) == 199, len(PAGES)
+    """198 av 203. scripts/ är verktygsfixturer, inte sidor — en ny fil
+    där ska inte kunna ändra talet tyst. Faller globbet ihop vaktar
+    resten ingenting."""
+    assert len(PAGES) == 198, len(PAGES)
 
 
 @pytest.mark.parametrize("path", PAGES, ids=lambda p: str(p.relative_to(ROOT)))
