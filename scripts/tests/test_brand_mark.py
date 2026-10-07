@@ -48,6 +48,33 @@ def test_both_needle_halves_are_exact(path: Path):
 
 
 @pytest.mark.parametrize("path", list(STATES), ids=lambda p: p.name)
+def test_ring_stroke_colour(path: Path):
+    """Ringens stroke måste matcha sitt färgläge."""
+    text = path.read_text(encoding="utf-8")
+    ring = re.search(r'<circle[^>]*r="21"[^>]*>', text)
+    assert ring, "ringen med radie 21 saknas"
+    assert f'stroke="{STATES[path]["ring"]}"' in ring.group(0)
+
+
+@pytest.mark.parametrize("path", list(STATES), ids=lambda p: p.name)
+def test_north_needle_fill_colour(path: Path):
+    """Nålens norra del måste ha rätt färg för sitt läge."""
+    text = path.read_text(encoding="utf-8")
+    north = re.search(rf'<path[^>]*d="{NEEDLE_NORTH}"[^>]*>', text)
+    assert north, f"nålen norr {NEEDLE_NORTH} saknas"
+    assert f'fill="{STATES[path]["north"]}"' in north.group(0)
+
+
+@pytest.mark.parametrize("path", list(STATES), ids=lambda p: p.name)
+def test_south_needle_fill_colour(path: Path):
+    """Nålens södra del måste ha rätt färg för sitt läge."""
+    text = path.read_text(encoding="utf-8")
+    south = re.search(rf'<path[^>]*d="{NEEDLE_SOUTH}"[^>]*>', text)
+    assert south, f"nålen söder {NEEDLE_SOUTH} saknas"
+    assert f'fill="{STATES[path]["south"]}"' in south.group(0)
+
+
+@pytest.mark.parametrize("path", list(STATES), ids=lambda p: p.name)
 def test_needle_eye_takes_the_ground_colour(path: Path):
     """Nålsögat är ett HÅL i nålen. Får det nålens färg försvinner det."""
     text = path.read_text(encoding="utf-8")
