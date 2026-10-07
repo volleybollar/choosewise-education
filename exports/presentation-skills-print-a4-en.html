@@ -3,29 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Speaking so they remember — A guide to presentation skills</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_guide-print.css">
 <style>
-  /* ────────────────────────────────────────────────
-     DESIGN TOKENS — same Nordic Editorial palette
-     as the Claude Guide
-     ──────────────────────────────────────────────── */
-  :root {
-    --color-primary:    #1B2733;
-    --color-secondary:  #2E4057;
-    --color-accent:     #C8A86B;
-    --color-light:      #E8E4DC;
-    --color-surface:    #F6F3EE;
-    --color-bg:         #FFFFFF;
-    --color-text:       #1A1A1F;
-    --color-text-light: #6B7280;
-    --color-warning:    #B8553F;
-
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-
+  /* Tokens, fonts and the A4 base come from the shared stylesheet;
+     this file keeps only its own bespoke layout, coloured from the
+     shared variables. */
   html { background: var(--color-bg); }
   * { box-sizing: border-box; }
 
@@ -35,12 +17,12 @@
 
     @bottom-center {
       content: "JOHAN LINDSTRÖM · SPEAKING SO THEY REMEMBER";
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: var(--font-body);
       font-size: 8pt;
       font-weight: 400;
-      color: #6B7280;
+      color: var(--color-text-muted);
       letter-spacing: 1.5px;
-      border-top: 1px solid #E8E4DC;
+      border-top: 1px solid var(--color-border);
       padding-top: 4mm;
       vertical-align: top;
     }
@@ -73,7 +55,7 @@
   .cover {
     width: 210mm;
     height: 297mm;
-    background: var(--color-primary);
+    background: var(--color-dark-bg);
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -86,14 +68,14 @@
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 12mm;
-    background: var(--color-primary);
+    background: var(--color-dark-bg);
     z-index: 10;
   }
   .cover-top-bar {
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 12mm;
-    background: var(--color-accent);
+    background: var(--color-highlight);
     z-index: 5;
   }
   .cover-photo {
@@ -114,7 +96,7 @@
     right: 0;
     bottom: 0;
     padding: 18mm 28mm 28mm 28mm;
-    background: var(--color-primary);
+    background: var(--color-dark-bg);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -126,22 +108,22 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--color-accent);
+    background: var(--color-highlight);
   }
   .cover-tag {
     font-size: 9pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--color-accent);
+    color: var(--color-highlight-on-dark);
     margin-bottom: 4mm;
   }
   .cover h1 {
     font-family: var(--font-display);
     font-size: 38pt;
-    font-weight: 900;
+    font-weight: 400;
     line-height: 1.05;
-    color: white;
+    color: var(--color-dark-text);
     margin: 0 0 4mm 0;
     border: none;
     letter-spacing: -0.5px;
@@ -149,7 +131,7 @@
   .cover-subtitle {
     font-size: 12pt;
     font-weight: 300;
-    color: var(--color-light);
+    color: var(--color-dark-text);
     margin-bottom: 6mm;
     line-height: 1.45;
     max-width: 130mm;
@@ -157,15 +139,15 @@
   .cover-divider {
     width: 24mm;
     height: 2px;
-    background: var(--color-accent);
+    background: var(--color-highlight);
     margin-bottom: 4mm;
   }
   .cover-brand {
     font-size: 9pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--color-light);
+    color: var(--color-dark-text);
   }
 
   /* Cover fallback if image is missing */
@@ -176,11 +158,11 @@
     right: 0;
     height: 173mm;
     width: 100%;
-    background: linear-gradient(135deg, #2E4057 0%, #1B2733 100%);
+    background: linear-gradient(135deg, var(--color-deep) 0%, var(--color-dark-bg) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(232, 228, 220, 0.4);
+    color: var(--color-dark-text);
     font-size: 10pt;
     font-style: italic;
     letter-spacing: 1px;
@@ -196,8 +178,8 @@
   .pagebreak { break-before: page; }
 
   .part-header {
-    background: var(--color-primary);
-    color: white;
+    background: var(--color-dark-bg);
+    color: var(--color-dark-text);
     padding: 14mm 22mm 12mm 22mm;
     margin: 0 0 6mm 0;
     break-before: page;
@@ -205,24 +187,24 @@
   }
   .part-header .part-label {
     font-size: 9pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--color-accent);
+    color: var(--color-highlight-on-dark);
     margin-bottom: 4mm;
   }
   .part-header h1 {
     font-family: var(--font-display);
     font-size: 32pt;
-    font-weight: 700;
-    color: white;
+    font-weight: 400;
+    color: var(--color-dark-text);
     margin: 0 0 4mm 0;
     border: none;
     line-height: 1.1;
   }
   .part-header .part-desc {
     font-size: 11pt;
-    color: var(--color-light);
+    color: var(--color-dark-text);
     font-weight: 300;
     max-width: 130mm;
     line-height: 1.6;
@@ -233,33 +215,33 @@
      ──────────────────────────────────────────────── */
   h1 {
     font-family: var(--font-display);
-    color: var(--color-primary);
+    color: var(--color-accent);
     font-size: 22pt;
-    font-weight: 700;
+    font-weight: 500;
     margin: 8mm 0 4mm;
     line-height: 1.2;
     border: none;
   }
   h2 {
     font-family: var(--font-display);
-    color: var(--color-secondary);
+    color: var(--color-deep);
     font-size: 14pt;
-    font-weight: 700;
+    font-weight: 500;
     margin: 6mm 0 2mm;
     padding-bottom: 1.5mm;
-    border-bottom: 1px solid var(--color-accent);
+    border-bottom: 1px solid var(--color-highlight);
     break-after: avoid;
   }
   h3 {
     font-family: var(--font-display);
-    color: var(--color-primary);
+    color: var(--color-accent);
     font-size: 12pt;
-    font-weight: 700;
+    font-weight: 500;
     margin: 4mm 0 1.5mm;
     break-after: avoid;
   }
   p { margin: 0 0 3mm 0; }
-  strong { color: var(--color-primary); font-weight: 700; }
+  strong { color: var(--color-accent); }
   em { font-style: italic; }
   ul, ol { margin: 0 0 3mm 0; padding-left: 6mm; }
   li { margin-bottom: 1.5mm; }
@@ -277,7 +259,7 @@
   }
   .callout .callout-label {
     font-size: 8.5pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 1.5mm;
@@ -287,34 +269,34 @@
   .callout p:last-child { margin-bottom: 0; }
 
   .callout-johan {
-    border-left-color: var(--color-accent);
-    background: var(--color-surface);
+    border-left-color: var(--color-highlight);
+    background: var(--color-bg-alt);
   }
-  .callout-johan .callout-label { color: var(--color-accent); }
+  .callout-johan .callout-label { color: var(--color-highlight-ink); }
   .callout-johan .signature {
     display: block;
     margin-top: 2mm;
-    font-family: var(--font-display);
+    font-family: var(--font-quote);
     font-style: italic;
     font-size: 10pt;
-    color: var(--color-accent);
+    color: var(--color-highlight-ink);
     text-align: right;
   }
 
   .callout-try {
-    border-left-color: var(--color-primary);
-    background: white;
-    border: 1px solid var(--color-light);
+    border-left-color: var(--color-accent);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
     border-left-width: 1.5mm;
-    border-left-color: var(--color-primary);
+    border-left-color: var(--color-accent);
   }
-  .callout-try .callout-label { color: var(--color-primary); }
+  .callout-try .callout-label { color: var(--color-accent); }
 
   .callout-watch {
-    border-left-color: var(--color-warning);
-    background: #FFF8F4;
+    border-left-color: var(--color-deep);
+    background: var(--color-bg-alt);
   }
-  .callout-watch .callout-label { color: var(--color-warning); }
+  .callout-watch .callout-label { color: var(--color-deep); }
 
   /* ────────────────────────────────────────────────
      IMAGES
@@ -328,13 +310,13 @@
   }
 
   .screenshot-placeholder {
-    border: 2px dashed var(--color-text-light);
-    background: #F8F9FA;
+    border: 2px dashed var(--color-text-muted);
+    background: var(--color-bg-alt);
     height: 60mm;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     font-size: 9pt;
     font-style: italic;
     margin: 4mm 0 6mm;
@@ -346,7 +328,7 @@
      BAD / BETTER / BEST CARDS
      ──────────────────────────────────────────────── */
   .bbb-card {
-    border: 1px solid var(--color-light);
+    border: 1px solid var(--color-border);
     border-left-width: 1.5mm;
     border-radius: 0 2mm 2mm 0;
     padding: 4mm 5mm;
@@ -366,26 +348,28 @@
   }
   .bbb-label {
     font-family: var(--font-display);
-    font-weight: 700;
+    font-weight: 500;
     font-size: 13pt;
   }
   .bbb-body {
     font-size: 10pt;
     line-height: 1.6;
     color: var(--color-text);
-    background: var(--color-surface);
+    background: var(--color-bg-alt);
     padding: 3mm 4mm;
     border-radius: 1mm;
   }
-  .bbb-bad    { border-left-color: var(--color-warning); }
-  .bbb-bad .bbb-dot   { background: var(--color-warning); }
-  .bbb-bad .bbb-label { color: var(--color-warning); }
-  .bbb-better { border-left-color: var(--color-accent); }
-  .bbb-better .bbb-dot   { background: var(--color-accent); }
-  .bbb-better .bbb-label { color: var(--color-accent); }
-  .bbb-best   { border-left-color: #5C8A6D; }
-  .bbb-best .bbb-dot   { background: #5C8A6D; }
-  .bbb-best .bbb-label { color: #5C8A6D; }
+  /* Bad / Better / Best — same positional convention used throughout this
+     wave: "bad" colourless, "better" copper, "best" navy. */
+  .bbb-bad    { border-left-color: var(--color-border); }
+  .bbb-bad .bbb-dot   { background: var(--color-border); }
+  .bbb-bad .bbb-label { color: var(--color-text-muted); }
+  .bbb-better { border-left-color: var(--color-highlight); }
+  .bbb-better .bbb-dot   { background: var(--color-highlight); }
+  .bbb-better .bbb-label { color: var(--color-highlight-ink); }
+  .bbb-best   { border-left-color: var(--color-accent); }
+  .bbb-best .bbb-dot   { background: var(--color-accent); }
+  .bbb-best .bbb-label { color: var(--color-accent); }
 
   /* ────────────────────────────────────────────────
      CHECKLIST
@@ -398,7 +382,7 @@
   .checklist li {
     padding: 2.5mm 0 2.5mm 9mm;
     position: relative;
-    border-bottom: 1px solid var(--color-light);
+    border-bottom: 1px solid var(--color-border);
     font-size: 11pt;
   }
   .checklist li:before {
@@ -408,9 +392,9 @@
     top: 3.5mm;
     width: 5mm;
     height: 5mm;
-    border: 1.5px solid var(--color-accent);
+    border: 1.5px solid var(--color-highlight);
     border-radius: 1mm;
-    background: white;
+    background: var(--color-bg);
   }
   .checklist-numbered {
     list-style: none;
@@ -424,7 +408,7 @@
     align-items: center;
     gap: 4mm;
     padding: 2mm 0;
-    border-bottom: 1px solid var(--color-light);
+    border-bottom: 1px solid var(--color-border);
     font-size: 10.5pt;
     line-height: 1.45;
   }
@@ -433,13 +417,13 @@
     flex: 0 0 auto;
     width: 7mm;
     height: 7mm;
-    background: var(--color-accent);
-    color: white;
+    background: var(--color-highlight);
+    color: var(--color-bg);
     border-radius: 1mm;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 700;
+    font-weight: 500;
     font-family: var(--font-display);
     font-size: 11pt;
     line-height: 1;
@@ -452,7 +436,7 @@
   .toc-page {
     width: 210mm;
     height: 297mm;
-    background: var(--color-surface);
+    background: var(--color-bg-alt);
     box-sizing: border-box;
     padding: 22mm 28mm;
     display: flex;
@@ -468,7 +452,7 @@
     margin: 0 0 4mm 0;
     padding-bottom: 4mm;
     font-size: 26pt;
-    color: var(--color-primary);
+    color: var(--color-accent);
     position: relative;
   }
   .toc-page h1::after {
@@ -478,7 +462,7 @@
     bottom: 0;
     width: 20mm;
     height: 2px;
-    background: var(--color-accent);
+    background: var(--color-highlight);
   }
 
   .toc-list { list-style: none; padding: 0; margin: 4mm 0 0 0; }
@@ -488,45 +472,45 @@
     justify-content: space-between;
     align-items: baseline;
     padding: 2.8mm 0;
-    border-bottom: 1px dotted rgba(107, 114, 128, 0.35);
+    border-bottom: 1px dotted color-mix(in srgb, var(--color-text-muted) 35%, transparent);
     font-size: 11pt;
   }
   .toc-list li .toc-title {
     color: var(--color-text);
     font-family: var(--font-display);
-    font-weight: 700;
+    font-weight: 500;
     font-size: 12pt;
   }
   .toc-list li .toc-page-num {
     font-family: var(--font-display);
-    font-weight: 700;
-    color: var(--color-accent);
+    font-weight: 500;
+    color: var(--color-highlight-ink);
     font-size: 12pt;
     padding-right: 3mm;
   }
 
   .toc-list li.toc-part-row {
-    background: var(--color-primary);
+    background: var(--color-dark-bg);
     padding: 4.5mm 0 4.5mm 6mm;
     margin: 4mm 0 2mm 0;
     border-bottom: none;
-    border-left: 2.5mm solid var(--color-accent);
+    border-left: 2.5mm solid var(--color-highlight);
     border-radius: 0 1.5mm 1.5mm 0;
   }
   .toc-list li.toc-part-row .toc-title {
-    color: white;
+    color: var(--color-dark-text);
     font-size: 14pt;
-    font-weight: 700;
+    font-weight: 500;
   }
   .toc-list li.toc-part-row .toc-page-num {
-    color: var(--color-accent);
+    color: var(--color-highlight-on-dark);
     font-size: 15pt;
   }
 
   .toc-list li.toc-sub {
     padding: 2mm 0 2mm 8mm;
     font-size: 10pt;
-    border-bottom: 1px dotted rgba(107, 114, 128, 0.25);
+    border-bottom: 1px dotted color-mix(in srgb, var(--color-text-muted) 25%, transparent);
   }
   .toc-list li.toc-sub .toc-title {
     color: var(--color-text);
@@ -545,7 +529,7 @@
     width: 30mm;
     height: 30mm;
     border-radius: 50%;
-    border: 2px solid var(--color-accent);
+    border: 2px solid var(--color-highlight);
     object-fit: cover;
     object-position: center 15%;
     display: block;
@@ -555,12 +539,12 @@
     width: 30mm;
     height: 30mm;
     border-radius: 50%;
-    background: var(--color-surface);
-    border: 2px solid var(--color-accent);
+    background: var(--color-bg-alt);
+    border: 2px solid var(--color-highlight);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     font-size: 7pt;
     margin: 3mm 0;
     font-style: italic;
@@ -576,7 +560,7 @@
   }
   .diagram-caption {
     font-size: 9pt;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     font-style: italic;
     margin-top: 2mm;
   }
@@ -592,37 +576,39 @@
     counter-increment: seven;
     position: relative;
     padding: 3mm 0 3mm 14mm;
-    border-bottom: 1px solid var(--color-light);
+    border-bottom: 1px solid var(--color-border);
     font-size: 10.5pt;
     line-height: 1.55;
   }
   .seven-list li:before {
+    /* Copper text on a navy badge — same role as a dark band, so it
+       takes --color-highlight-on-dark, never --color-highlight-ink. */
     content: counter(seven);
     position: absolute;
     left: 0;
     top: 3mm;
     width: 9mm;
     height: 9mm;
-    background: var(--color-primary);
-    color: var(--color-accent);
+    background: var(--color-dark-bg);
+    color: var(--color-highlight-on-dark);
     font-family: var(--font-display);
-    font-weight: 700;
+    font-weight: 500;
     font-size: 14pt;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 1mm;
   }
-  .seven-list li strong { color: var(--color-primary); }
+  .seven-list li strong { color: var(--color-accent); }
 
   /* Pull-quote — used for Sinek/memory-fact lines etc. */
   .pullquote {
-    font-family: var(--font-display);
+    font-family: var(--font-quote);
     font-style: italic;
     font-size: 16pt;
     line-height: 1.4;
-    color: var(--color-secondary);
-    border-left: 2.5mm solid var(--color-accent);
+    color: var(--color-deep);
+    border-left: 2.5mm solid var(--color-highlight);
     padding: 2mm 0 2mm 6mm;
     margin: 5mm 0;
     break-inside: avoid;
@@ -635,7 +621,7 @@
     font-size: 9pt;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
   }
 </style>
 </head>
@@ -729,23 +715,23 @@
   <div class="diagram-figure" style="margin: 3mm 0 2mm;">
     <svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 140mm; height: auto;">
       <!-- Three parallel tracks -->
-      <rect x="40" y="50" width="180" height="120" rx="10" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
-      <text x="130" y="100" font-family="Playfair Display, serif" font-size="20" font-weight="700" fill="#1B2733" text-anchor="middle">Slides</text>
-      <text x="130" y="124" font-family="Inter, sans-serif" font-size="9" font-weight="500" letter-spacing="1.2" fill="#6B7280" text-anchor="middle">WHAT THEY SEE</text>
-      <text x="130" y="146" font-family="Inter, sans-serif" font-size="8" fill="#6B7280" text-anchor="middle">visual anchors</text>
+      <rect x="40" y="50" width="180" height="120" rx="10" fill="var(--color-bg-alt)" stroke="var(--color-border)" stroke-width="1"/>
+      <text x="130" y="100" font-family="var(--font-display)" font-size="20" font-weight="500" fill="var(--color-accent)" text-anchor="middle">Slides</text>
+      <text x="130" y="124" font-family="var(--font-body)" font-size="9" font-weight="500" letter-spacing="1.2" fill="var(--color-text-muted)" text-anchor="middle">WHAT THEY SEE</text>
+      <text x="130" y="146" font-family="var(--font-body)" font-size="8" fill="var(--color-text-muted)" text-anchor="middle">visual anchors</text>
 
-      <rect x="250" y="50" width="180" height="120" rx="10" fill="#1B2733"/>
-      <text x="340" y="100" font-family="Playfair Display, serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">Body &amp; voice</text>
-      <text x="340" y="124" font-family="Inter, sans-serif" font-size="9" font-weight="500" letter-spacing="1.2" fill="#C8A86B" text-anchor="middle">WHAT THEY FEEL</text>
-      <text x="340" y="146" font-family="Inter, sans-serif" font-size="8" fill="#E8E4DC" text-anchor="middle">credibility, energy</text>
+      <rect x="250" y="50" width="180" height="120" rx="10" fill="var(--color-dark-bg)"/>
+      <text x="340" y="100" font-family="var(--font-display)" font-size="20" font-weight="500" fill="var(--color-dark-text)" text-anchor="middle">Body &amp; voice</text>
+      <text x="340" y="124" font-family="var(--font-body)" font-size="9" font-weight="500" letter-spacing="1.2" fill="var(--color-highlight-on-dark)" text-anchor="middle">WHAT THEY FEEL</text>
+      <text x="340" y="146" font-family="var(--font-body)" font-size="8" fill="var(--color-dark-text)" text-anchor="middle">credibility, energy</text>
 
-      <rect x="460" y="50" width="180" height="120" rx="10" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
-      <text x="550" y="100" font-family="Playfair Display, serif" font-size="20" font-weight="700" fill="#1B2733" text-anchor="middle">Words</text>
-      <text x="550" y="124" font-family="Inter, sans-serif" font-size="9" font-weight="500" letter-spacing="1.2" fill="#6B7280" text-anchor="middle">WHAT THEY HEAR</text>
-      <text x="550" y="146" font-family="Inter, sans-serif" font-size="8" fill="#6B7280" text-anchor="middle">the argument, the story</text>
+      <rect x="460" y="50" width="180" height="120" rx="10" fill="var(--color-bg-alt)" stroke="var(--color-border)" stroke-width="1"/>
+      <text x="550" y="100" font-family="var(--font-display)" font-size="20" font-weight="500" fill="var(--color-accent)" text-anchor="middle">Words</text>
+      <text x="550" y="124" font-family="var(--font-body)" font-size="9" font-weight="500" letter-spacing="1.2" fill="var(--color-text-muted)" text-anchor="middle">WHAT THEY HEAR</text>
+      <text x="550" y="146" font-family="var(--font-body)" font-size="8" fill="var(--color-text-muted)" text-anchor="middle">the argument, the story</text>
 
-      <line x1="220" y1="110" x2="250" y2="110" stroke="#C8A86B" stroke-width="2"/>
-      <line x1="430" y1="110" x2="460" y2="110" stroke="#C8A86B" stroke-width="2"/>
+      <line x1="220" y1="110" x2="250" y2="110" stroke="var(--color-highlight)" stroke-width="2"/>
+      <line x1="430" y1="110" x2="460" y2="110" stroke="var(--color-highlight)" stroke-width="2"/>
     </svg>
   </div>
 
@@ -827,7 +813,7 @@
     <div class="bbb-body">"What I want you to do differently next month is to base your assessment decisions on the same evidence — so that the pupils in 9C aren't penalised for ending up in the wrong classroom. That's why we're talking about the policy today."</div>
   </div>
 
-  <p style="font-style: italic; color: var(--color-text-light); font-size: 10pt; margin-top: 4mm;">The best version doesn't say what — it says what the audience should do differently, and why it matters right now.</p>
+  <p style="font-style: italic; color: var(--color-text-muted); font-size: 10pt; margin-top: 4mm;">The best version doesn't say what — it says what the audience should do differently, and why it matters right now.</p>
 </div>
 
 <div class="content pagebreak">
@@ -916,13 +902,13 @@
   <p>This is the most common pitfall in the whole presentation situation: your slide makes it harder for the audience to listen to you. Reading and listening in parallel doesn't work — and if the audience is forced to choose, they choose to read. You then stand there for ten seconds talking to an audience that has stopped listening.</p>
   <p>The three most common variants and what you do instead:</p>
 
-  <h2>1. Wall of text → quote or highlight</h2>
+  <h2>1. Wall of text <span style="font-weight: 400;">→</span> quote or highlight</h2>
   <p>A page of text projected on a slide is asking the audience to switch off and start reading. The best fix is not to have the whole text on the slide at all — quote the key sentence, point to the source, talk about the implications. The middle ground, when you really do need to show the whole paragraph, is to highlight what matters and tone down the rest. Then the text functions as a reference and your voice leads the reading.</p>
 
-  <h2>2. The bullet list → one core message or images with labels</h2>
+  <h2>2. The bullet list <span style="font-weight: 400;">→</span> one core message or images with labels</h2>
   <p>Eight bullets isn't an agenda — it's a list the audience will remember none of. Two questions to ask: is there really only one of the bullets that matters? Show that one and say the rest. Or: does each bullet really tie to an anchor? Then swap the bullets for images with short labels — now there's something to look at, not something to read.</p>
 
-  <h2>3. The table → the number that matters</h2>
+  <h2>3. The table <span style="font-weight: 400;">→</span> the number that matters</h2>
   <p>The whole Excel table projected on a slide is useless. The audience sees a grid pattern and not what you're trying to say. Pull out the single number that actually matters, make it large, say what it means. The table can come along as a handout if anyone wants to verify the context.</p>
 
   <div class="callout callout-watch">
@@ -1067,8 +1053,8 @@
   <p>This guide isn't a collection of tricks. It's a call to move attention — from your slides to the audience, from what you yourself want to say to what the audience actually remembers, from what feels safe (a text-heavy slide as a note) to what works (an image, a sentence, a pause). It isn't more work. It's different work.</p>
   <p>And remember: you don't get better as a presenter by reading a book. You get better by presenting, recording yourself, watching it back, adjusting, presenting again. The craft lives on the other side of repetition. This guide is a starting map — the rest is yours.</p>
 
-  <p style="margin-top: 8mm; font-style: italic; color: var(--color-text-light);">Good luck the next time you stand up.</p>
-  <p style="font-style: italic; color: var(--color-text-light); text-align: right;">— Johan</p>
+  <p style="margin-top: 8mm; font-style: italic; color: var(--color-text-muted);">Good luck the next time you stand up.</p>
+  <p style="font-style: italic; color: var(--color-text-muted); text-align: right;">— Johan</p>
 </div>
 
 <!-- ═══════════════════════════════════════════════════
@@ -1093,7 +1079,7 @@
     <li><strong>The blog</strong> — analytical writing on schools, AI and digitalisation — beyond the headlines.</li>
   </ul>
 
-  <p style="margin-top: 4mm; font-size: 9pt; color: var(--color-text-light); font-style: italic;">Written with the help of Claude, edited by the author. The structure, the positions and the editorial judgement are the author's.</p>
+  <p style="margin-top: 4mm; font-size: 9pt; color: var(--color-text-muted); font-style: italic;">Written with the help of Claude, edited by the author. The structure, the positions and the editorial judgement are the author's.</p>
 </div>
 
 </body>

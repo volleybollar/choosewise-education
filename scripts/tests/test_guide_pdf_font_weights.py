@@ -51,6 +51,21 @@ CONVERTED_PDFS: list[str] = [
     "_unpublished/assets/pdfs/guides/copilot-quick-start-sv.pdf",
     "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf",
     "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-sv.pdf",
+    # Task 6 — the twelve A4 guides (ten PDFs; claude and ai-for-elever/
+    # students pair two language templates into one builder each, the
+    # other four templates are each their own PDF).
+    "assets/pdfs/guides/claude-guide-en.pdf",
+    "assets/pdfs/guides/claude-guide-sv.pdf",
+    "assets/pdfs/presentation-skills-guide-en.pdf",
+    "assets/pdfs/presentationsteknik-guide-sv.pdf",
+    "_unpublished/assets/pdfs/guides/apple-intelligence-guide-en.pdf",
+    "_unpublished/assets/pdfs/guides/apple-intelligence-guide-sv.pdf",
+    "_unpublished/assets/pdfs/guides/copilot-guide-en.pdf",
+    "_unpublished/assets/pdfs/guides/copilot-guide-sv.pdf",
+    "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf",
+    "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-sv.pdf",
+    "_unpublished/assets/pdfs/guides/ai-for-elever-sv.pdf",
+    "_unpublished/assets/pdfs/guides/ai-for-students-en.pdf",
 ]
 
 # A font's PostScript name carries its weight as a name fragment

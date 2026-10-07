@@ -3,30 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Guide till Claude för lärare och skolledare — Johan Lindström</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_guide-print.css">
 <style>
   /* ────────────────────────────────────────────────
-     DESIGN TOKENS — Nordic Editorial palette
-     ──────────────────────────────────────────────── */
-  :root {
-    --color-primary:    #1B2733;
-    --color-secondary:  #2E4057;
-    --color-accent:     #C8A86B;
-    --color-light:      #E8E4DC;
-    --color-surface:    #F6F3EE;
-    --color-bg:         #FFFFFF;
-    --color-text:       #1A1A1F;
-    --color-text-light: #6B7280;
-    --color-warning:    #B8553F;
-
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-
-  /* ────────────────────────────────────────────────
-     PAGE & RESET
+     PAGE & RESET — tokens, fonts and the A4 base come from
+     the shared stylesheet; this file keeps only its own
+     bespoke layout, coloured from the shared variables.
      ──────────────────────────────────────────────── */
   html { background: var(--color-bg); }
   * { box-sizing: border-box; }
@@ -38,12 +20,12 @@
     /* Footer rendered by the page engine itself — always at the bottom */
     @bottom-center {
       content: "JOHAN LINDSTRÖM · GUIDE TILL CLAUDE FÖR LÄRARE OCH SKOLLEDARE";
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: var(--font-body);
       font-size: 8pt;
       font-weight: 400;
-      color: #6B7280;
+      color: var(--color-text-muted);
       letter-spacing: 1.5px;
-      border-top: 1px solid #E8E4DC;
+      border-top: 1px solid var(--color-border);
       padding-top: 4mm;
       vertical-align: top;
     }
@@ -81,7 +63,7 @@
   .cover {
     width: 210mm;
     height: 297mm;
-    background: var(--color-primary);
+    background: var(--color-dark-bg);
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -94,14 +76,14 @@
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 12mm;
-    background: var(--color-primary);
+    background: var(--color-dark-bg);
     z-index: 10;
   }
   .cover-top-bar {
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 12mm;
-    background: var(--color-accent);
+    background: var(--color-highlight);
     z-index: 5;
   }
   .cover-photo {
@@ -122,7 +104,7 @@
     right: 0;
     bottom: 0;
     padding: 18mm 28mm 28mm 28mm;
-    background: var(--color-primary);
+    background: var(--color-dark-bg);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -134,22 +116,22 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--color-accent);
+    background: var(--color-highlight);
   }
   .cover-tag {
     font-size: 9pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--color-accent);
+    color: var(--color-highlight-on-dark);
     margin-bottom: 4mm;
   }
   .cover h1 {
     font-family: var(--font-display);
     font-size: 34pt;
-    font-weight: 900;
+    font-weight: 400;
     line-height: 1.05;
-    color: white;
+    color: var(--color-dark-text);
     margin: 0 0 4mm 0;
     border: none;
     letter-spacing: -0.5px;
@@ -157,7 +139,7 @@
   .cover-subtitle {
     font-size: 12pt;
     font-weight: 300;
-    color: var(--color-light);
+    color: var(--color-dark-text);
     margin-bottom: 6mm;
     line-height: 1.45;
     max-width: 130mm;
@@ -165,15 +147,15 @@
   .cover-divider {
     width: 24mm;
     height: 2px;
-    background: var(--color-accent);
+    background: var(--color-highlight);
     margin-bottom: 4mm;
   }
   .cover-brand {
     font-size: 9pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--color-light);
+    color: var(--color-dark-text);
   }
 
   /* ────────────────────────────────────────────────
@@ -194,8 +176,8 @@
      clean break behaviour.
      ──────────────────────────────────────────────── */
   .part-header {
-    background: var(--color-primary);
-    color: white;
+    background: var(--color-dark-bg);
+    color: var(--color-dark-text);
     padding: 14mm 22mm 12mm 22mm;
     margin: 0 0 6mm 0;
     break-before: page;
@@ -203,24 +185,24 @@
   }
   .part-header .part-label {
     font-size: 9pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--color-accent);
+    color: var(--color-highlight-on-dark);
     margin-bottom: 4mm;
   }
   .part-header h1 {
     font-family: var(--font-display);
     font-size: 32pt;
-    font-weight: 700;
-    color: white;
+    font-weight: 400;
+    color: var(--color-dark-text);
     margin: 0 0 4mm 0;
     border: none;
     line-height: 1.1;
   }
   .part-header .part-desc {
     font-size: 11pt;
-    color: var(--color-light);
+    color: var(--color-dark-text);
     font-weight: 300;
     max-width: 130mm;
     line-height: 1.6;
@@ -231,33 +213,33 @@
      ──────────────────────────────────────────────── */
   h1 {
     font-family: var(--font-display);
-    color: var(--color-primary);
+    color: var(--color-accent);
     font-size: 22pt;
-    font-weight: 700;
+    font-weight: 500;
     margin: 8mm 0 4mm;
     line-height: 1.2;
     border: none;
   }
   h2 {
     font-family: var(--font-display);
-    color: var(--color-secondary);
+    color: var(--color-deep);
     font-size: 14pt;
-    font-weight: 700;
+    font-weight: 500;
     margin: 6mm 0 2mm;
     padding-bottom: 1.5mm;
-    border-bottom: 1px solid var(--color-accent);
+    border-bottom: 1px solid var(--color-highlight);
     break-after: avoid;
   }
   h3 {
     font-family: var(--font-display);
-    color: var(--color-primary);
+    color: var(--color-accent);
     font-size: 12pt;
-    font-weight: 700;
+    font-weight: 500;
     margin: 4mm 0 1.5mm;
     break-after: avoid;
   }
   p { margin: 0 0 3mm 0; }
-  strong { color: var(--color-primary); font-weight: 700; }
+  strong { color: var(--color-accent); }
   em { font-style: italic; }
   ul, ol { margin: 0 0 3mm 0; padding-left: 6mm; }
   li { margin-bottom: 1.5mm; }
@@ -275,7 +257,7 @@
   }
   .callout .callout-label {
     font-size: 8.5pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 1.5mm;
@@ -285,34 +267,34 @@
   .callout p:last-child { margin-bottom: 0; }
 
   .callout-johan {
-    border-left-color: var(--color-accent);
-    background: var(--color-surface);
+    border-left-color: var(--color-highlight);
+    background: var(--color-bg-alt);
   }
-  .callout-johan .callout-label { color: var(--color-accent); }
+  .callout-johan .callout-label { color: var(--color-highlight-ink); }
   .callout-johan .signature {
     display: block;
     margin-top: 2mm;
-    font-family: var(--font-display);
+    font-family: var(--font-quote);
     font-style: italic;
     font-size: 10pt;
-    color: var(--color-accent);
+    color: var(--color-highlight-ink);
     text-align: right;
   }
 
   .callout-try {
-    border-left-color: var(--color-primary);
-    background: white;
-    border: 1px solid var(--color-light);
+    border-left-color: var(--color-accent);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
     border-left-width: 1.5mm;
-    border-left-color: var(--color-primary);
+    border-left-color: var(--color-accent);
   }
-  .callout-try .callout-label { color: var(--color-primary); }
+  .callout-try .callout-label { color: var(--color-accent); }
 
   .callout-watch {
-    border-left-color: var(--color-warning);
-    background: #FFF8F4;
+    border-left-color: var(--color-deep);
+    background: var(--color-bg-alt);
   }
-  .callout-watch .callout-label { color: var(--color-warning); }
+  .callout-watch .callout-label { color: var(--color-deep); }
 
   /* ────────────────────────────────────────────────
      IMAGES & FIGURES
@@ -333,13 +315,13 @@
   }
 
   .screenshot-placeholder {
-    border: 2px dashed var(--color-text-light);
-    background: #F8F9FA;
+    border: 2px dashed var(--color-text-muted);
+    background: var(--color-bg-alt);
     height: 60mm;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     font-size: 9pt;
     font-style: italic;
     margin: 4mm 0 6mm;
@@ -358,28 +340,28 @@
     break-inside: avoid;
   }
   th {
-    background: var(--color-primary);
-    color: white;
+    background: var(--color-dark-bg);
+    color: var(--color-dark-text);
     padding: 2mm 2.5mm;
     text-align: left;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 8.5pt;
     letter-spacing: 0.5px;
   }
   td {
     padding: 1.8mm 2.5mm;
-    border-bottom: 1px solid var(--color-light);
+    border-bottom: 1px solid var(--color-border);
     vertical-align: top;
     line-height: 1.45;
   }
-  tr:nth-child(even) td { background: var(--color-surface); }
+  tr:nth-child(even) td { background: var(--color-bg-alt); }
 
   /* ────────────────────────────────────────────────
      PROMPT CARDS (used in appendix)
      ──────────────────────────────────────────────── */
   .prompt-card {
-    background: var(--color-surface);
-    border-left: 1mm solid var(--color-accent);
+    background: var(--color-bg-alt);
+    border-left: 1mm solid var(--color-highlight);
     padding: 3mm 5mm;
     margin: 2mm 0 4mm 0;
     border-radius: 0 1.5mm 1.5mm 0;
@@ -388,12 +370,11 @@
   .prompt-card-title {
     font-family: var(--font-display);
     font-size: 11pt;
-    font-weight: 700;
-    color: var(--color-primary);
+    font-weight: 500;
+    color: var(--color-accent);
     margin: 0 0 2mm 0;
   }
   .prompt-card-text {
-    font-family: 'SF Mono', 'Monaco', monospace;
     font-size: 9pt;
     line-height: 1.55;
     color: var(--color-text);
@@ -405,7 +386,7 @@
      BAD / BETTER / BEST PROMPT CARDS
      ──────────────────────────────────────────────── */
   .bbb-card {
-    border: 1px solid var(--color-light);
+    border: 1px solid var(--color-border);
     border-left-width: 1.5mm;
     border-radius: 0 2mm 2mm 0;
     padding: 4mm 5mm;
@@ -425,28 +406,32 @@
   }
   .bbb-label {
     font-family: var(--font-display);
-    font-weight: 700;
+    font-weight: 500;
     font-size: 13pt;
   }
   .bbb-body {
-    font-family: 'SF Mono', 'Monaco', monospace;
     font-size: 9.5pt;
     line-height: 1.6;
     color: var(--color-text);
     white-space: pre-wrap;
-    background: var(--color-surface);
+    background: var(--color-bg-alt);
     padding: 3mm 4mm;
     border-radius: 1mm;
   }
-  .bbb-bad    { border-left-color: var(--color-warning); }
-  .bbb-bad .bbb-dot   { background: var(--color-warning); }
-  .bbb-bad .bbb-label { color: var(--color-warning); }
-  .bbb-better { border-left-color: var(--color-accent); }
-  .bbb-better .bbb-dot   { background: var(--color-accent); }
-  .bbb-better .bbb-label { color: var(--color-accent); }
-  .bbb-best   { border-left-color: #5C8A6D; }
-  .bbb-best .bbb-dot   { background: #5C8A6D; }
-  .bbb-best .bbb-label { color: #5C8A6D; }
+  /* Bad / Better / Best: same three-way convention as the quick starts —
+     "bad" is deliberately colourless (--color-border), "better" takes the
+     one copper tone (surface + ink text), "best" takes the brand navy.
+     Blueprint has no alarm/success hue, so this is a positional mapping,
+     not a hue-for-hue one — see the task report. */
+  .bbb-bad    { border-left-color: var(--color-border); }
+  .bbb-bad .bbb-dot   { background: var(--color-border); }
+  .bbb-bad .bbb-label { color: var(--color-text-muted); }
+  .bbb-better { border-left-color: var(--color-highlight); }
+  .bbb-better .bbb-dot   { background: var(--color-highlight); }
+  .bbb-better .bbb-label { color: var(--color-highlight-ink); }
+  .bbb-best   { border-left-color: var(--color-accent); }
+  .bbb-best .bbb-dot   { background: var(--color-accent); }
+  .bbb-best .bbb-label { color: var(--color-accent); }
 
   /* ────────────────────────────────────────────────
      CHECKLIST
@@ -459,7 +444,7 @@
   .checklist li {
     padding: 2.5mm 0 2.5mm 9mm;
     position: relative;
-    border-bottom: 1px solid var(--color-light);
+    border-bottom: 1px solid var(--color-border);
     font-size: 11pt;
   }
   .checklist li:before {
@@ -469,9 +454,9 @@
     top: 3.5mm;
     width: 5mm;
     height: 5mm;
-    border: 1.5px solid var(--color-accent);
+    border: 1.5px solid var(--color-highlight);
     border-radius: 1mm;
-    background: white;
+    background: var(--color-bg);
   }
   .checklist-numbered {
     list-style: none;
@@ -485,7 +470,7 @@
     align-items: center;                 /* reliable vertical centring for single- and multi-line items */
     gap: 4mm;
     padding: 2mm 0;
-    border-bottom: 1px solid var(--color-light);
+    border-bottom: 1px solid var(--color-border);
     font-size: 10.5pt;
     line-height: 1.45;
   }
@@ -502,17 +487,17 @@
     flex: 0 0 auto;                       /* number sits as a normal flex item — align-items on parent centres it */
     width: 7mm;
     height: 7mm;
-    background: var(--color-accent);
-    color: white;
+    background: var(--color-highlight);
+    color: var(--color-bg);
     border-radius: 1mm;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 700;
+    font-weight: 500;
     font-family: var(--font-display);
     font-size: 11pt;
     line-height: 1;
-    padding-bottom: 0.4mm;                /* optical nudge: Playfair digits sit ~0.2mm below box centre without this */
+    padding-bottom: 0.4mm;                /* optical nudge: Hanken Grotesk digits sit ~0.2mm below box centre without this */
   }
   .checklist-numbered.compact li:before {
     width: 6mm;
@@ -528,7 +513,7 @@
   }
   .colophon-meta {
     font-size: 10pt;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     margin: 4mm 0 2mm;
   }
   .colophon-meta strong { color: var(--color-text); }
@@ -539,7 +524,7 @@
   .toc-page {
     width: 210mm;
     height: 297mm;
-    background: var(--color-surface);
+    background: var(--color-bg-alt);
     box-sizing: border-box;
     padding: 22mm 28mm;
     display: flex;
@@ -555,7 +540,7 @@
     margin: 0 0 4mm 0;
     padding-bottom: 4mm;
     font-size: 26pt;
-    color: var(--color-primary);
+    color: var(--color-accent);
     position: relative;
   }
   .toc-page h1::after {
@@ -565,7 +550,7 @@
     bottom: 0;
     width: 20mm;
     height: 2px;
-    background: var(--color-accent);
+    background: var(--color-highlight);
   }
 
   .toc-list { list-style: none; padding: 0; margin: 4mm 0 0 0; }
@@ -576,19 +561,19 @@
     justify-content: space-between;
     align-items: baseline;
     padding: 2.8mm 0;
-    border-bottom: 1px dotted rgba(107, 114, 128, 0.35);
+    border-bottom: 1px dotted color-mix(in srgb, var(--color-text-muted) 35%, transparent);
     font-size: 11pt;
   }
   .toc-list li .toc-title {
     color: var(--color-text);
     font-family: var(--font-display);
-    font-weight: 700;
+    font-weight: 500;
     font-size: 12pt;
   }
   .toc-list li .toc-page-num {
     font-family: var(--font-display);
-    font-weight: 700;
-    color: var(--color-accent);
+    font-weight: 500;
+    color: var(--color-highlight-ink);
     font-size: 12pt;
     padding-right: 3mm;            /* consistent breathing room; keeps all numbers in one column */
   }
@@ -597,20 +582,20 @@
      Right padding = 0 so the page number aligns vertically with
      the numbers on regular and sub rows. */
   .toc-list li.toc-part-row {
-    background: var(--color-primary);
+    background: var(--color-dark-bg);
     padding: 4.5mm 0 4.5mm 6mm;
     margin: 4mm 0 2mm 0;
     border-bottom: none;
-    border-left: 2.5mm solid var(--color-accent);
+    border-left: 2.5mm solid var(--color-highlight);
     border-radius: 0 1.5mm 1.5mm 0;
   }
   .toc-list li.toc-part-row .toc-title {
-    color: white;
+    color: var(--color-dark-text);
     font-size: 14pt;
-    font-weight: 700;
+    font-weight: 500;
   }
   .toc-list li.toc-part-row .toc-page-num {
-    color: var(--color-accent);
+    color: var(--color-highlight-on-dark);
     font-size: 15pt;
   }
 
@@ -618,7 +603,7 @@
   .toc-list li.toc-sub {
     padding: 2mm 0 2mm 8mm;
     font-size: 10pt;
-    border-bottom: 1px dotted rgba(107, 114, 128, 0.25);
+    border-bottom: 1px dotted color-mix(in srgb, var(--color-text-muted) 25%, transparent);
   }
   .toc-list li.toc-sub .toc-title {
     color: var(--color-text);
@@ -637,12 +622,12 @@
     width: 24mm;
     height: 24mm;
     border-radius: 50%;
-    background: var(--color-surface);
-    border: 2px solid var(--color-accent);
+    background: var(--color-bg-alt);
+    border: 2px solid var(--color-highlight);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     font-size: 7pt;
     margin: 3mm 0;
     font-style: italic;
@@ -667,7 +652,7 @@
   }
   .diagram-caption {
     font-size: 9pt;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     font-style: italic;
     margin-top: 2mm;
   }
@@ -704,7 +689,7 @@
   <p class="colophon-meta"><strong>Författare:</strong> Johan Lindström</p>
   <p class="colophon-meta"><strong>Utgåva:</strong> Första upplagan, april 2026</p>
   <p class="colophon-meta"><strong>Utgivare:</strong> Johan Lindström</p>
-  <p class="colophon-meta"><strong>Webbplats:</strong> <a href="https://choosewise.education" style="color: inherit; text-decoration: underline; text-decoration-color: var(--color-accent);">choosewise.education</a></p>
+  <p class="colophon-meta"><strong>Webbplats:</strong> <a href="https://choosewise.education" style="color: inherit; text-decoration: underline; text-decoration-color: var(--color-highlight);">choosewise.education</a></p>
 
   <h2 style="margin-top: 14mm;">Användning &amp; rättigheter</h2>
   <p>Guiden får spridas fritt med angivande av författare. Skriv gärna ut den, skicka den till kollegor och distribuera den inom din skola. Den får däremot inte säljas, ommärkas som någon annans verk eller publiceras utan författaransvisning. Om du tycker den är användbar — dela källänken i stället för en kopierad fil. Då når guiden dem den är skriven för, och innehållet hålls aktuellt.</p>
@@ -789,30 +774,30 @@
   <div class="diagram-figure">
     <svg viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 170mm; height: auto;">
       <!-- Baseline -->
-      <line x1="40" y1="200" x2="640" y2="200" stroke="#6B7280" stroke-width="0.8" opacity="0.4"/>
+      <line x1="40" y1="200" x2="640" y2="200" stroke="var(--color-text-muted)" stroke-width="0.8" opacity="0.4"/>
 
       <!-- Node 1 — Chat -->
-      <rect x="40" y="60" width="130" height="130" rx="10" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
-      <text x="105" y="112" font-family="Playfair Display, serif" font-size="22" font-weight="700" fill="#1B2733" text-anchor="middle">Chat</text>
-      <text x="105" y="144" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#6B7280" text-anchor="middle">GRATIS + BETALD</text>
+      <rect x="40" y="60" width="130" height="130" rx="10" fill="var(--color-bg-alt)" stroke="var(--color-border)" stroke-width="1"/>
+      <text x="105" y="112" font-family="var(--font-display)" font-size="22" font-weight="500" fill="var(--color-accent)" text-anchor="middle">Chat</text>
+      <text x="105" y="144" font-family="var(--font-body)" font-size="9" font-weight="500" letter-spacing="1.5" fill="var(--color-text-muted)" text-anchor="middle">GRATIS + BETALD</text>
 
       <!-- Node 2 — Cowork -->
-      <rect x="200" y="60" width="130" height="130" rx="10" fill="#1B2733"/>
-      <text x="265" y="112" font-family="Playfair Display, serif" font-size="22" font-weight="700" fill="white" text-anchor="middle">Cowork</text>
-      <text x="265" y="144" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#C8A86B" text-anchor="middle">ENDAST BETALD</text>
+      <rect x="200" y="60" width="130" height="130" rx="10" fill="var(--color-dark-bg)"/>
+      <text x="265" y="112" font-family="var(--font-display)" font-size="22" font-weight="500" fill="var(--color-dark-text)" text-anchor="middle">Cowork</text>
+      <text x="265" y="144" font-family="var(--font-body)" font-size="9" font-weight="500" letter-spacing="1.5" fill="var(--color-highlight-on-dark)" text-anchor="middle">ENDAST BETALD</text>
       <!-- Accent badge -->
-      <rect x="231" y="74" width="68" height="14" rx="7" fill="#C8A86B"/>
-      <text x="265" y="84" font-family="Inter, sans-serif" font-size="7" font-weight="700" letter-spacing="1.2" fill="#1B2733" text-anchor="middle">NY 2026</text>
+      <rect x="231" y="74" width="68" height="14" rx="7" fill="var(--color-highlight)"/>
+      <text x="265" y="84" font-family="var(--font-body)" font-size="7" font-weight="500" letter-spacing="1.2" fill="var(--color-accent)" text-anchor="middle">NY 2026</text>
 
       <!-- Node 3 — Code -->
-      <rect x="360" y="60" width="130" height="130" rx="10" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
-      <text x="425" y="112" font-family="Playfair Display, serif" font-size="22" font-weight="700" fill="#1B2733" text-anchor="middle">Code</text>
-      <text x="425" y="144" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#6B7280" text-anchor="middle">BETALD · TEKNISK</text>
+      <rect x="360" y="60" width="130" height="130" rx="10" fill="var(--color-bg-alt)" stroke="var(--color-border)" stroke-width="1"/>
+      <text x="425" y="112" font-family="var(--font-display)" font-size="22" font-weight="500" fill="var(--color-accent)" text-anchor="middle">Code</text>
+      <text x="425" y="144" font-family="var(--font-body)" font-size="9" font-weight="500" letter-spacing="1.5" fill="var(--color-text-muted)" text-anchor="middle">BETALD · TEKNISK</text>
 
       <!-- Node 4 — Mobile -->
-      <rect x="520" y="60" width="130" height="130" rx="10" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
-      <text x="585" y="112" font-family="Playfair Display, serif" font-size="22" font-weight="700" fill="#1B2733" text-anchor="middle">Mobil</text>
-      <text x="585" y="144" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#6B7280" text-anchor="middle">GRATIS + BETALD</text>
+      <rect x="520" y="60" width="130" height="130" rx="10" fill="var(--color-bg-alt)" stroke="var(--color-border)" stroke-width="1"/>
+      <text x="585" y="112" font-family="var(--font-display)" font-size="22" font-weight="500" fill="var(--color-accent)" text-anchor="middle">Mobil</text>
+      <text x="585" y="144" font-family="var(--font-body)" font-size="9" font-weight="500" letter-spacing="1.5" fill="var(--color-text-muted)" text-anchor="middle">GRATIS + BETALD</text>
     </svg>
     <p class="diagram-caption">Fyra ytor, en modellfamilj. Det mesta av ditt arbete sker till en början i Chat.</p>
   </div>
@@ -860,7 +845,7 @@
       </tr>
     </tbody>
   </table>
-  <p style="font-size: 9pt; color: var(--color-text-light); font-style: italic;">Priserna stämmer per april 2026 och är omräknade från Anthropics dollarpriser. Se <em>claude.ai</em> för aktuella priser. Det är Anthropics planer för enskilda användare; team- och enterpriseplaner skiljer sig både i pris och innehåll.</p>
+  <p style="font-size: 9pt; color: var(--color-text-muted); font-style: italic;">Priserna stämmer per april 2026 och är omräknade från Anthropics dollarpriser. Se <em>claude.ai</em> för aktuella priser. Det är Anthropics planer för enskilda användare; team- och enterpriseplaner skiljer sig både i pris och innehåll.</p>
 
   <div class="callout callout-watch">
     <span class="callout-label">Se upp · Integritet</span>
@@ -915,7 +900,7 @@
 
 <!-- ─── BAD / BETTER / BEST SPREAD ─── -->
 <div class="content pagebreak">
-  <h1>Dålig → Bättre → Bäst</h1>
+  <h1>Dålig <span style="font-weight: 400;">→</span> Bättre <span style="font-weight: 400;">→</span> Bäst</h1>
   <p>Samma ämne, tre utkast av samma prompt. Varje utkast blir mer specifikt om vad Claude behöver veta. Outputkvaliteten stiger med promptens precision — inte med dess längd.</p>
 
   <div class="bbb-card bbb-bad">
@@ -952,7 +937,7 @@ Format:
 Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</div>
   </div>
 
-  <p style="font-style: italic; color: var(--color-text-light); font-size: 10pt; margin-top: 4mm;">Den bästa prompten är inte längre för syns skull. Varje ord förtjänar sin plats genom att minska det Claude måste gissa.</p>
+  <p style="font-style: italic; color: var(--color-text-muted); font-size: 10pt; margin-top: 4mm;">Den bästa prompten är inte längre för syns skull. Varje ord förtjänar sin plats genom att minska det Claude måste gissa.</p>
 </div>
 
 <!-- ─── FIVE QUICK WINS ─── -->
@@ -1000,7 +985,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</div>
     <li>Jag har bestämt vilka kategorier av data som är okej att dela med Claude, och vilka som inte är det</li>
   </ul>
 
-  <p style="margin-top: 8mm; font-style: italic; color: var(--color-text-light);">Om du svarar nej på någon av punkterna, stanna kvar här ett tag till innan du går vidare till Del 2.</p>
+  <p style="margin-top: 8mm; font-style: italic; color: var(--color-text-muted);">Om du svarar nej på någon av punkterna, stanna kvar här ett tag till innan du går vidare till Del 2.</p>
 </div>
 
 <!-- ═══════════════════════════════════════════════════
@@ -1019,7 +1004,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</div>
   <p>Projects är en arbetsyta inne i Claude. Du skapar en, ger den ett namn, laddar upp referensfiler och skriver en uppsättning egna instruktioner. Varje samtal du startar inne i det projektet bygger på de filerna och följer de instruktionerna — utan att du behöver klistra in dem igen.</p>
   <p>Det är här Claude slutar vara allmänt hjälpsam och börjar bli din kompetenta assistent. Samma prompt som producerade ett kompetent-men-blekt arbetsblad utanför ett Projekt producerar ett arbetsblad som passar dina elever när det körs inne i en. Skillnaden handlar inte om att Claude arbetar hårdare; den handlar om att Claude arbetar med mer kontext.</p>
 
-  <img src="../sv/guider/claude/assets/screenshot-projects-sidebar.png" class="image-figure" alt="Claude Desktop med sidomenyn för Projects" style="margin: 6mm 0; border: 1px solid var(--color-light); border-radius: 2mm;" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Skärmbild saknas: screenshot-projects-sidebar.png&lt;/div&gt;';">
+  <img src="../sv/guider/claude/assets/screenshot-projects-sidebar.png" class="image-figure" alt="Claude Desktop med sidomenyn för Projects" style="margin: 6mm 0; border: 1px solid var(--color-border); border-radius: 2mm;" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Skärmbild saknas: screenshot-projects-sidebar.png&lt;/div&gt;';">
 
   <h2>Vad du ska ladda upp till ditt första Projekt</h2>
   <p>Välj ditt huvudsakliga undervisningsområde — det ämne eller den årskurs där du lägger mest tid. Skapa ett Projekt för det. Ladda upp fem saker som tillsammans beskriver din arbetssituation:</p>
@@ -1086,35 +1071,35 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</div>
   <p><em>"Jag är svensklärare i åk 8 i en kommunal skola i Malmö med bred spridning i kunskapsnivå. Jag undervisar fyra klasser med runt tjugofem elever. Jag värderar evidensbaserad praktik, jag vill ha output som är ren och klassrumsklar, och jag föredrar svensk språkriktighet enligt Svenska skrivregler."</em></p>
   <p>Claude kommer ihåg det mellan samtal. Du kan granska varje minne som sparats — och radera vilket som helst — i Inställningar när som helst.</p>
 
-  <img src="../sv/guider/claude/assets/screenshot-memory-settings.png" class="image-figure" alt="Inställningspanelen för Memory i Claude" style="margin: 6mm 0; border: 1px solid var(--color-light); border-radius: 2mm;" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Skärmbild saknas: screenshot-memory-settings.png&lt;/div&gt;';">
+  <img src="../sv/guider/claude/assets/screenshot-memory-settings.png" class="image-figure" alt="Inställningspanelen för Memory i Claude" style="margin: 6mm 0; border: 1px solid var(--color-border); border-radius: 2mm;" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Skärmbild saknas: screenshot-memory-settings.png&lt;/div&gt;';">
 
   <!-- Project architecture diagram -->
   <div class="diagram-figure">
     <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 150mm; height: auto;">
       <!-- Connecting lines (drawn first so circles sit on top) -->
-      <line x1="300" y1="220" x2="300" y2="60" stroke="#C8A86B" stroke-width="1.3"/>
-      <line x1="300" y1="220" x2="161" y2="300" stroke="#C8A86B" stroke-width="1.3"/>
-      <line x1="300" y1="220" x2="439" y2="300" stroke="#C8A86B" stroke-width="1.3"/>
+      <line x1="300" y1="220" x2="300" y2="60" stroke="var(--color-highlight)" stroke-width="1.3"/>
+      <line x1="300" y1="220" x2="161" y2="300" stroke="var(--color-highlight)" stroke-width="1.3"/>
+      <line x1="300" y1="220" x2="439" y2="300" stroke="var(--color-highlight)" stroke-width="1.3"/>
 
       <!-- Top: Instructions -->
-      <circle cx="300" cy="60" r="55" fill="#F6F3EE" stroke="#C8A86B" stroke-width="1.5"/>
-      <text x="300" y="58" font-family="Playfair Display, serif" font-size="14" font-weight="700" fill="#1B2733" text-anchor="middle">Instruktioner</text>
-      <text x="300" y="76" font-family="Inter, sans-serif" font-size="9" fill="#6B7280" text-anchor="middle">vem Claude är</text>
+      <circle cx="300" cy="60" r="55" fill="var(--color-bg-alt)" stroke="var(--color-highlight)" stroke-width="1.5"/>
+      <text x="300" y="58" font-family="var(--font-display)" font-size="14" font-weight="500" fill="var(--color-accent)" text-anchor="middle">Instruktioner</text>
+      <text x="300" y="76" font-family="var(--font-body)" font-size="9" fill="var(--color-text-muted)" text-anchor="middle">vem Claude är</text>
 
       <!-- Centre: Project -->
-      <circle cx="300" cy="220" r="60" fill="#1B2733"/>
-      <text x="300" y="218" font-family="Playfair Display, serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">Project</text>
-      <text x="300" y="238" font-family="Inter, sans-serif" font-size="9" fill="#C8A86B" text-anchor="middle">bestående kontext</text>
+      <circle cx="300" cy="220" r="60" fill="var(--color-dark-bg)"/>
+      <text x="300" y="218" font-family="var(--font-display)" font-size="17" font-weight="500" fill="var(--color-dark-text)" text-anchor="middle">Project</text>
+      <text x="300" y="238" font-family="var(--font-body)" font-size="9" fill="var(--color-highlight-on-dark)" text-anchor="middle">bestående kontext</text>
 
       <!-- Lower-left: Files -->
-      <circle cx="161" cy="300" r="55" fill="#F6F3EE" stroke="#C8A86B" stroke-width="1.5"/>
-      <text x="161" y="298" font-family="Playfair Display, serif" font-size="14" font-weight="700" fill="#1B2733" text-anchor="middle">Filer</text>
-      <text x="161" y="316" font-family="Inter, sans-serif" font-size="9" fill="#6B7280" text-anchor="middle">det Claude läser</text>
+      <circle cx="161" cy="300" r="55" fill="var(--color-bg-alt)" stroke="var(--color-highlight)" stroke-width="1.5"/>
+      <text x="161" y="298" font-family="var(--font-display)" font-size="14" font-weight="500" fill="var(--color-accent)" text-anchor="middle">Filer</text>
+      <text x="161" y="316" font-family="var(--font-body)" font-size="9" fill="var(--color-text-muted)" text-anchor="middle">det Claude läser</text>
 
       <!-- Lower-right: Conversations -->
-      <circle cx="439" cy="300" r="55" fill="#F6F3EE" stroke="#C8A86B" stroke-width="1.5"/>
-      <text x="439" y="298" font-family="Playfair Display, serif" font-size="13" font-weight="700" fill="#1B2733" text-anchor="middle">Samtal</text>
-      <text x="439" y="316" font-family="Inter, sans-serif" font-size="9" fill="#6B7280" text-anchor="middle">där arbetet sker</text>
+      <circle cx="439" cy="300" r="55" fill="var(--color-bg-alt)" stroke="var(--color-highlight)" stroke-width="1.5"/>
+      <text x="439" y="298" font-family="var(--font-display)" font-size="13" font-weight="500" fill="var(--color-accent)" text-anchor="middle">Samtal</text>
+      <text x="439" y="316" font-family="var(--font-body)" font-size="9" fill="var(--color-text-muted)" text-anchor="middle">där arbetet sker</text>
     </svg>
     <p class="diagram-caption">Project är den minsta enhet av ackumulerat värde i Claude. Sätt upp den en gång; dra nytta av den i varje samtal.</p>
   </div>
@@ -1162,7 +1147,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</div>
   <p>Cowork är en flik inne i Claude Desktop på betalda planer. Anthropics egen beskrivning är värd att citera: "Claude Cowork använder samma agentiska arkitektur som driver Claude Code, nu tillgänglig inne i Claude Desktop utan att du behöver öppna terminalen. I stället för att svara på en prompt i taget kan Claude ta sig an komplexa uppgifter i flera steg och utföra dem åt dig."</p>
   <p>Den praktiska skillnaden: i Chat kör du en prompt, väntar på svaret, avgör sedan nästa steg. I Cowork beskriver du en uppgift i flera steg och Claude arbetar sig igenom den, använder verktyg under vägen, tills uppgiften är klar. Du är kvar i loopen — du kan se på, avbryta och omdirigera — men du gör inte den manuella orkestreringen.</p>
 
-  <img src="../sv/guider/claude/assets/screenshot-cowork-tab.png" class="image-figure" alt="Claude Desktop med Cowork-fliken öppen" style="margin: 6mm 0; border: 1px solid var(--color-light); border-radius: 2mm;" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Skärmbild saknas: screenshot-cowork-tab.png&lt;/div&gt;';">
+  <img src="../sv/guider/claude/assets/screenshot-cowork-tab.png" class="image-figure" alt="Claude Desktop med Cowork-fliken öppen" style="margin: 6mm 0; border: 1px solid var(--color-border); border-radius: 2mm;" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Skärmbild saknas: screenshot-cowork-tab.png&lt;/div&gt;';">
 
   <h2>När du ska greppa efter Cowork i stället för Chat</h2>
   <p>Cowork förtjänar sin plats på uppgifter som annars skulle kräva att du skriver tre, fem eller tio kedjade prompter själv. T ex:</p>
@@ -1292,29 +1277,29 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</div>
   <div class="diagram-figure">
     <svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 140mm; height: auto;">
       <!-- Tier 1 (top — Unacceptable) -->
-      <polygon points="300,30 380,30 400,90 280,90" fill="#B8553F"/>
-      <text x="340" y="57" font-family="Playfair Display, serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">Oacceptabel</text>
-      <text x="340" y="75" font-family="Inter, sans-serif" font-size="8" fill="white" text-anchor="middle">förbjuden</text>
+      <polygon points="300,30 380,30 400,90 280,90" fill="var(--color-highlight)"/>
+      <text x="340" y="57" font-family="var(--font-display)" font-size="13" font-weight="500" fill="var(--color-dark-text)" text-anchor="middle">Oacceptabel</text>
+      <text x="340" y="75" font-family="var(--font-body)" font-size="8" fill="var(--color-dark-text)" text-anchor="middle">förbjuden</text>
       <!-- Example callout -->
-      <text x="415" y="65" font-family="Inter, sans-serif" font-size="9" fill="#1B2733">t ex social poängsättning av elever</text>
+      <text x="415" y="65" font-family="var(--font-body)" font-size="9" fill="var(--color-accent)">t ex social poängsättning av elever</text>
 
       <!-- Tier 2 — High -->
-      <polygon points="280,90 400,90 430,180 250,180" fill="#1B2733"/>
-      <text x="340" y="130" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="white" text-anchor="middle">Hög risk</text>
-      <text x="340" y="150" font-family="Inter, sans-serif" font-size="8" fill="#C8A86B" text-anchor="middle">stränga skyldigheter</text>
-      <text x="445" y="140" font-family="Inter, sans-serif" font-size="9" fill="#1B2733">t ex antagning, betygssättning, ordningsomdöme</text>
+      <polygon points="280,90 400,90 430,180 250,180" fill="var(--color-dark-bg)"/>
+      <text x="340" y="130" font-family="var(--font-display)" font-size="15" font-weight="500" fill="var(--color-dark-text)" text-anchor="middle">Hög risk</text>
+      <text x="340" y="150" font-family="var(--font-body)" font-size="8" fill="var(--color-highlight-on-dark)" text-anchor="middle">stränga skyldigheter</text>
+      <text x="445" y="140" font-family="var(--font-body)" font-size="9" fill="var(--color-accent)">t ex antagning, betygssättning, ordningsomdöme</text>
 
       <!-- Tier 3 — Limited -->
-      <polygon points="250,180 430,180 470,280 210,280" fill="#2E4057"/>
-      <text x="340" y="225" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="white" text-anchor="middle">Begränsad risk</text>
-      <text x="340" y="245" font-family="Inter, sans-serif" font-size="8" fill="#C8A86B" text-anchor="middle">transparenskrav</text>
-      <text x="485" y="235" font-family="Inter, sans-serif" font-size="9" fill="#1B2733">t ex chatbottar riktade till elever</text>
+      <polygon points="250,180 430,180 470,280 210,280" fill="var(--color-deep)"/>
+      <text x="340" y="225" font-family="var(--font-display)" font-size="15" font-weight="500" fill="var(--color-dark-text)" text-anchor="middle">Begränsad risk</text>
+      <text x="340" y="245" font-family="var(--font-body)" font-size="8" fill="var(--color-highlight-on-dark)" text-anchor="middle">transparenskrav</text>
+      <text x="485" y="235" font-family="var(--font-body)" font-size="9" fill="var(--color-accent)">t ex chatbottar riktade till elever</text>
 
       <!-- Tier 4 — Minimal -->
-      <polygon points="210,280 470,280 510,360 170,360" fill="#F6F3EE" stroke="#E8E4DC" stroke-width="1"/>
-      <text x="340" y="315" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#1B2733" text-anchor="middle">Minimal risk</text>
-      <text x="340" y="335" font-family="Inter, sans-serif" font-size="8" fill="#6B7280" text-anchor="middle">allmän användning</text>
-      <text x="525" y="325" font-family="Inter, sans-serif" font-size="9" fill="#1B2733">t ex lektionsplanering, sammanfattning</text>
+      <polygon points="210,280 470,280 510,360 170,360" fill="var(--color-bg-alt)" stroke="var(--color-border)" stroke-width="1"/>
+      <text x="340" y="315" font-family="var(--font-display)" font-size="15" font-weight="500" fill="var(--color-accent)" text-anchor="middle">Minimal risk</text>
+      <text x="340" y="335" font-family="var(--font-body)" font-size="8" fill="var(--color-text-muted)" text-anchor="middle">allmän användning</text>
+      <text x="525" y="325" font-family="var(--font-body)" font-size="9" fill="var(--color-accent)">t ex lektionsplanering, sammanfattning</text>
     </svg>
     <p class="diagram-caption">Riskklassificeringen avgör skyldigheterna. De flesta lärares dagliga Claude-användning ligger i de två nedre nivåerna; skolledare som inför AI för antagning, betygssättning eller ordningsomdömen måste förhålla sig till skyldigheterna för högrisk.</p>
   </div>
@@ -1553,7 +1538,7 @@ Undvik jargong. Om en term är oundviklig, definiera den i en mening.</pre>
 
   <p style="margin-top: 10mm;">Välj RÄTT.</p>
 
-  <p style="margin-top: 12mm; padding-top: 6mm; border-top: 1px solid var(--color-accent); font-style: italic; color: var(--color-text-light);">För uppdateringar, en utökad onlineversion av guiden, fler prompter och övriga AI-nyheter och resurser — besök min webbplats: <strong style="color: var(--color-primary); font-style: normal;"><a href="https://choosewise.education" style="color: inherit; text-decoration: underline; text-decoration-color: var(--color-accent);">choosewise.education</a></strong></p>
+  <p style="margin-top: 12mm; padding-top: 6mm; border-top: 1px solid var(--color-highlight); font-style: italic; color: var(--color-text-muted);">För uppdateringar, en utökad onlineversion av guiden, fler prompter och övriga AI-nyheter och resurser — besök min webbplats: <strong style="color: var(--color-accent); font-style: normal;"><a href="https://choosewise.education" style="color: inherit; text-decoration: underline; text-decoration-color: var(--color-highlight);">choosewise.education</a></strong></p>
 </div>
 
 <!-- ═══════════════════════════════════════════════════
@@ -1568,15 +1553,15 @@ Undvik jargong. Om en term är oundviklig, definiera den i en mening.</pre>
 
   <p>Han är grundare av JL Skolutveckling AB, genom vilket han skriver, föreläser och rådgiver om AI i skolan, källkritik, EU:s AI-förordning, och vad som faktiskt får AI-införande på hela skolan att fungera. Hans texter utmanar medienarrativ och prioriterar evidensbaserad praktik framför nyhetsvärde. Johan skriver och talar på både svenska och engelska, och fördelar tiden mellan skolbesök, ledarcoachning, och det långsiktiga arbete som blir till guider som denna.</p>
 
-  <p style="margin-top: 6mm; font-size: 10pt;"><strong style="color: var(--color-primary);">Webbplats:</strong> <a href="https://choosewise.education" style="color: inherit; text-decoration: underline; text-decoration-color: var(--color-accent);">choosewise.education</a><br>
-  <strong style="color: var(--color-primary);">LinkedIn:</strong> <a href="https://www.linkedin.com/in/johan-lindstr%C3%B6m-b290a85/" style="color: inherit; text-decoration: underline; text-decoration-color: var(--color-accent);">linkedin.com/in/johan-lindström</a></p>
+  <p style="margin-top: 6mm; font-size: 10pt;"><strong style="color: var(--color-accent);">Webbplats:</strong> <a href="https://choosewise.education" style="color: inherit; text-decoration: underline; text-decoration-color: var(--color-highlight);">choosewise.education</a><br>
+  <strong style="color: var(--color-accent);">LinkedIn:</strong> <a href="https://www.linkedin.com/in/johan-lindstr%C3%B6m-b290a85/" style="color: inherit; text-decoration: underline; text-decoration-color: var(--color-highlight);">linkedin.com/in/johan-lindström</a></p>
 </div>
 
 <!-- ═══════════════════════════════════════════════════
      REFERENCES & CREDITS — flows on same page as About the author
      ═══════════════════════════════════════════════════ -->
 <div class="content">
-  <h2 style="margin-top: 6mm; border: none; font-size: 13pt; color: var(--color-primary);">Källor &amp; krediteringar</h2>
+  <h2 style="margin-top: 6mm; border: none; font-size: 13pt; color: var(--color-accent);">Källor &amp; krediteringar</h2>
 
   <ul class="references-list">
     <li><strong>Paul Matthews</strong> — <em>Claude Quick Start Guide for Teachers (K–12)</em>. De tre principerna som ramverk är bearbetade med tack från hans arbete. <em>paulmatthews.ai</em></li>
@@ -1589,7 +1574,7 @@ Undvik jargong. Om en term är oundviklig, definiera den i en mening.</pre>
     <li><strong>Codecademy</strong> — <em>How to Build Claude Skills</em>. <em>codecademy.com</em></li>
   </ul>
 
-  <p style="margin-top: 3mm; font-size: 9pt; color: var(--color-text-light); text-align: center; padding-top: 2.5mm; border-top: 1px solid var(--color-light);">Första upplagan · april 2026 · © Johan Lindström</p>
+  <p style="margin-top: 3mm; font-size: 9pt; color: var(--color-text-muted); text-align: center; padding-top: 2.5mm; border-top: 1px solid var(--color-border);">Första upplagan · april 2026 · © Johan Lindström</p>
 </div>
 
 </body>

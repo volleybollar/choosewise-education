@@ -1,88 +1,85 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Gemini &amp; NotebookLM för lärare och skolledare</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../exports/_guide-print.css">
 <style>
-  /* ─── Page geometry ─── */
-  /* @page margins apply to every physical page, including continuation
-     pages when a .page div overflows. 22mm top keeps the first line clear
-     of the top edge on every page. 16mm bottom reserves room for the
-     running footer. The cover is special-cased to margin:0 so its gradient
-     fills the full A4 and no footer is drawn on it. */
-  @page { size: A4; margin: 22mm 0 16mm 0; }
+  /* Tokens, @font-face and the A4 base come from the shared stylesheet.
+     This file keeps its own @page margins (it reserves a running-footer
+     band the shared base doesn't know about) and all of its own bespoke
+     components, coloured from the shared variables. */
+  @page { margin: 22mm 0 16mm 0; }
   @page :first { margin: 0; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { background: #faf7f2; }
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #1a1a18;
     font-size: 10.5pt;
     line-height: 1.55;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
     font-weight: 400;
   }
 
   /* ─── Typography ─── */
-  h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: #1a1a18; }
-  h1 { font-size: 40pt; line-height: 1.05; letter-spacing: -0.8pt; font-weight: 900; }
+  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; color: var(--color-accent); }
+  h1 { font-size: 40pt; line-height: 1.05; letter-spacing: -0.8pt; font-weight: 400; }
   h2 { font-size: 26pt; line-height: 1.1; margin: 0 0 12pt; }
   h3 { font-size: 16pt; line-height: 1.2; margin: 16pt 0 6pt; }
-  h4 { font-size: 12pt; line-height: 1.25; margin: 12pt 0 4pt; font-weight: 700; }
+  h4 { font-size: 12pt; line-height: 1.25; margin: 12pt 0 4pt; font-weight: 500; }
   p { margin: 0 0 8pt; }
   p + p { margin-top: 0; }
   em { font-style: italic; }
-  strong { font-weight: 600; }
-  a { color: #1a1a18; text-decoration: underline; text-decoration-color: #c66b3d; text-decoration-thickness: 0.5pt; }
+
+  a { color: var(--color-text); text-decoration: underline; text-decoration-color: var(--color-highlight); text-decoration-thickness: 0.5pt; }
   ul, ol { margin: 6pt 0 10pt 18pt; }
   li { margin-bottom: 3pt; }
 
   .eyebrow {
     display: block;
-    font-family: 'Inter', sans-serif;
     font-size: 9pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 2.4pt;
     text-transform: uppercase;
-    color: #c66b3d;
+    color: var(--color-highlight-ink);
     margin-bottom: 10pt;
   }
 
   p.lede {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-quote);
     font-size: 13pt;
     line-height: 1.45;
     font-weight: 400;
-    color: #3a3a38;
+    color: var(--color-text-soft);
     margin: 0 0 14pt;
     font-style: italic;
   }
 
   /* ─── Page wrappers ─── */
-  /* Content area is 259mm (297 − 22mm top − 16mm bottom). .page only needs
-     horizontal padding now since @page handles top/bottom breathing room.
-     The cover overrides min-height back to 297mm because @page :first
-     gives it margin:0 (full A4). */
+  /* The shared base's .page sets a fixed height:297mm plus
+     display:flex/flex-direction:column, built for the other guide
+     families' one-div-per-sheet pages. This family's .page divs are
+     *sections* that flow across several physical pages (@page's own
+     margin reserves the running-footer band), so height must stay auto
+     and the box plain block — otherwise content gets clipped into a
+     fixed 297mm flex box instead of flowing, silently losing pages. */
   .page {
     width: 210mm;
+    height: auto;
     min-height: 259mm;
+    display: block;
     padding: 0 22mm;
     position: relative;
     page-break-after: always;
   }
   .page:last-child { page-break-after: auto; }
 
-  /* Keep checklists together so a single item doesn't orphan onto a new page */
   ol.checklist { page-break-inside: avoid; break-inside: avoid; }
 
   /* ─── Cover page ─── */
+  /* Translated to the shared dark-band pair (--color-dark-bg/--color-deep)
+     rather than preserving the original terracotta-to-black gradient —
+     see the task report: every other dark cover in this family now
+     grounds on --color-dark-bg, and this guide's cover is no exception. */
   .cover {
-    background: linear-gradient(135deg, #c66b3d 0%, #1a1a18 100%);
-    color: #faf7f2;
+    background: linear-gradient(135deg, var(--color-dark-bg) 0%, var(--color-deep) 100%);
+    color: var(--color-dark-text);
     padding: 30mm 26mm;
     display: flex;
     flex-direction: column;
@@ -90,28 +87,27 @@
     min-height: 297mm;
   }
   .cover .eyebrow {
-    color: rgba(250, 247, 242, 0.82);
+    color: color-mix(in srgb, var(--color-dark-text) 82%, transparent);
     font-size: 9.5pt;
     letter-spacing: 3pt;
   }
   .cover h1 {
-    color: #faf7f2;
+    color: var(--color-dark-text);
     font-size: 46pt;
     line-height: 1.03;
-    font-weight: 900;
+    font-weight: 400;
     letter-spacing: -1pt;
     margin: 14pt 0 16pt;
     max-width: 160mm;
-    /* Fix för f/ö-kollision i Playfair Display: aktivera kerning + contextual alternates */
     font-kerning: normal;
     font-feature-settings: "kern" 1, "calt" 1, "liga" 1;
   }
   .cover .cover__lede {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-quote);
     font-style: italic;
     font-size: 14pt;
     line-height: 1.45;
-    color: rgba(250, 247, 242, 0.86);
+    color: color-mix(in srgb, var(--color-dark-text) 86%, transparent);
     max-width: 150mm;
     margin-bottom: 10pt;
   }
@@ -123,15 +119,14 @@
   }
   .cover__diagram svg { width: 140mm; height: auto; }
   .cover__signature {
-    border-top: 0.5pt solid rgba(250, 247, 242, 0.35);
+    border-top: 0.5pt solid color-mix(in srgb, var(--color-dark-text) 35%, transparent);
     padding-top: 10pt;
     font-size: 10pt;
     letter-spacing: 0.6pt;
   }
   .cover__signature strong {
     display: block;
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
+    font-family: var(--font-display);
     font-size: 14pt;
     letter-spacing: 1.4pt;
     text-transform: uppercase;
@@ -139,7 +134,7 @@
   }
   .cover__signature .cover__attr {
     display: block;
-    color: rgba(250, 247, 242, 0.75);
+    color: color-mix(in srgb, var(--color-dark-text) 75%, transparent);
     font-size: 9pt;
     margin-top: 3pt;
   }
@@ -151,22 +146,21 @@
     display: flex;
     align-items: baseline;
     padding: 8pt 0;
-    border-bottom: 0.4pt dotted #c9c6be;
+    border-bottom: 0.4pt dotted var(--color-border);
     font-size: 11pt;
   }
   .toc__list li:last-child { border-bottom: none; }
   .toc__list .toc__title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-weight: 500;
     flex: 1;
-    color: #1a1a18;
+    color: var(--color-text);
   }
   .toc__list .toc__sub {
     display: block;
-    font-family: 'Inter', sans-serif;
     font-size: 9pt;
     font-weight: 400;
-    color: #5a5a57;
+    color: var(--color-text-muted);
     margin-top: 2pt;
     font-style: normal;
   }
@@ -174,10 +168,9 @@
     display: none;
   }
   .toc__list .toc__page {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 10pt;
-    color: #1a1a18;
+    color: var(--color-text);
     min-width: 16pt;
     text-align: right;
   }
@@ -187,24 +180,25 @@
     border-left: 3pt solid;
     padding: 10pt 14pt;
     margin: 12pt 0;
-    background: #fbf8f1;
+    background: var(--color-bg-alt);
     border-radius: 2pt;
     page-break-inside: avoid;
   }
-  .callout--johan { border-color: #c66b3d; background: #f9ede2; }
-  .callout--johan .callout__label { color: #c66b3d; }
-  .callout--watch { border-color: #c69c3c; background: #f8efd3; }
-  .callout--watch .callout__label { color: #a07d2e; }
-  .callout--try { border-color: #2d5a3f; background: #e3ecdf; }
-  .callout--try .callout__label { color: #2d5a3f; }
+  .callout--johan { border-color: var(--color-highlight); background: var(--color-bg-alt); }
+  .callout--johan .callout__label { color: var(--color-highlight-ink); }
+  /* Watch takes --color-deep, not copper — Johan's note already owns the
+     copper slot, and the two callouts must stay visually distinct. */
+  .callout--watch { border-color: var(--color-deep); background: var(--color-bg-alt); }
+  .callout--watch .callout__label { color: var(--color-deep); }
+  .callout--try { border-color: var(--color-accent); background: var(--color-bg-alt); }
+  .callout--try .callout__label { color: var(--color-accent); }
   .callout__label {
     display: block;
     font-size: 8.5pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1.8pt;
     text-transform: uppercase;
     margin-bottom: 4pt;
-    font-family: 'Inter', sans-serif;
   }
   .callout p { margin-bottom: 6pt; }
   .callout p:last-child { margin-bottom: 0; }
@@ -212,44 +206,44 @@
     display: block;
     text-align: right;
     font-style: italic;
-    color: #5a5a57;
+    color: var(--color-text-muted);
     margin-top: 4pt;
     font-size: 9.5pt;
   }
 
   /* ─── Cards (Bad/Better/Best, Gem instruction) ─── */
   .card {
-    border-left: 4pt solid #c66b3d;
+    border-left: 4pt solid var(--color-highlight);
     padding: 9pt 14pt;
     margin: 8pt 0;
-    background: #fbf8f1;
+    background: var(--color-bg-alt);
     border-radius: 2pt;
     page-break-inside: avoid;
   }
-  .card--warning { border-color: #c69c3c; }
-  .card--accent { border-color: #c66b3d; }
-  .card--success { border-color: #5C8A6D; }
+  /* Three card variants, three distinct tokens: warning=deep (shares the
+     watch-callout's role), accent=copper, success=navy accent. */
+  .card--warning { border-color: var(--color-deep); }
+  .card--accent { border-color: var(--color-highlight); }
+  .card--success { border-color: var(--color-accent); }
   .card__label {
     font-size: 9pt;
     letter-spacing: 1.4pt;
-    font-weight: 700;
+    font-weight: 500;
     display: block;
     margin-bottom: 4pt;
-    font-family: 'Inter', sans-serif;
   }
-  .card--warning .card__label { color: #c69c3c; }
-  .card--accent .card__label { color: #c66b3d; }
-  .card--success .card__label { color: #5C8A6D; }
+  .card--warning .card__label { color: var(--color-deep); }
+  .card--accent .card__label { color: var(--color-highlight-ink); }
+  .card--success .card__label { color: var(--color-accent); }
   .card pre, .card .card__text {
-    font-family: 'JetBrains Mono', 'Menlo', 'Courier New', monospace;
     font-size: 9.5pt;
     line-height: 1.5;
     white-space: pre-wrap;
-    color: #2a2a28;
+    color: var(--color-text);
     margin: 0;
   }
   .card p { margin: 0; }
-  .card--italic p { font-style: italic; color: #3a3a38; }
+  .card--italic p { font-style: italic; color: var(--color-text-soft); }
 
   /* ─── Checklists ─── */
   ol.checklist {
@@ -274,14 +268,13 @@
     width: 16pt;
     height: 16pt;
     border-radius: 50%;
-    background: #c66b3d;
-    color: #faf7f2;
+    background: var(--color-highlight);
+    color: var(--color-bg);
     font-size: 8.5pt;
-    font-weight: 700;
+    font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Inter', sans-serif;
   }
 
   /* ─── Diagram / SVG ─── */
@@ -289,7 +282,7 @@
   .diagram svg { width: 100%; max-width: 160mm; height: auto; }
   .diagram__caption {
     font-size: 9pt;
-    color: #5a5a57;
+    color: var(--color-text-muted);
     font-style: italic;
     margin-top: 6pt;
     max-width: 150mm;
@@ -307,26 +300,25 @@
   /* ─── Prompt cards (all expanded) ─── */
   .prompts-group { margin-top: 14pt; }
   .prompt-card {
-    border-left: 3pt solid #2d5a3f;
-    background: #fbf8f1;
+    border-left: 3pt solid var(--color-accent);
+    background: var(--color-bg-alt);
     padding: 9pt 12pt;
     margin: 8pt 0;
     border-radius: 2pt;
     page-break-inside: avoid;
   }
   .prompt-card__title {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-display);
     font-size: 11.5pt;
-    font-weight: 700;
-    color: #1a1a18;
+    font-weight: 500;
+    color: var(--color-text);
     margin-bottom: 5pt;
   }
   .prompt-card__text {
-    font-family: 'JetBrains Mono', 'Menlo', 'Courier New', monospace;
     font-size: 8.5pt;
     line-height: 1.5;
     white-space: pre-wrap;
-    color: #3a3a38;
+    color: var(--color-text-soft);
     margin: 0;
   }
 
@@ -334,21 +326,21 @@
   .faq-item {
     margin-bottom: 10pt;
     padding: 8pt 0;
-    border-bottom: 0.4pt solid #eceae4;
+    border-bottom: 0.4pt solid var(--color-border);
     page-break-inside: avoid;
   }
   .faq-item:last-child { border-bottom: none; }
   .faq-item__q {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-display);
     font-size: 12pt;
-    font-weight: 700;
-    color: #1a1a18;
+    font-weight: 500;
+    color: var(--color-text);
     margin-bottom: 4pt;
   }
   .faq-item__a {
     font-size: 10pt;
     line-height: 1.55;
-    color: #3a3a38;
+    color: var(--color-text-soft);
   }
   .faq-item__a p { margin-bottom: 5pt; }
   .faq-item__a p:last-child { margin-bottom: 0; }
@@ -361,8 +353,8 @@
     margin: 14pt 0 8pt;
   }
   .style-card {
-    background: #fbf8f1;
-    border: 0.4pt solid #eceae4;
+    background: var(--color-bg-alt);
+    border: 0.4pt solid var(--color-border);
     border-radius: 4pt;
     overflow: hidden;
     page-break-inside: avoid;
@@ -376,25 +368,25 @@
   .style-card__label { padding: 6pt 9pt 8pt; }
   .style-card__label strong {
     display: block;
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-display);
     font-size: 10.5pt;
     margin-bottom: 2pt;
-    font-weight: 700;
+    font-weight: 500;
   }
   .style-card__label span {
     display: block;
     font-size: 8.5pt;
-    color: #5a5a57;
+    color: var(--color-text-muted);
     line-height: 1.4;
   }
   .styles-grid__cta {
     text-align: center;
     margin-top: 10pt;
     font-size: 10pt;
-    color: #3a3a38;
+    color: var(--color-text-soft);
     font-style: italic;
   }
-  .styles-grid__cta a { color: #c66b3d; font-weight: 600; }
+  .styles-grid__cta a { color: var(--color-highlight-ink); }
 
   /* ─── Closing page ─── */
   .closing {
@@ -405,65 +397,60 @@
     padding: 30mm 26mm;
   }
   .closing__quote {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-quote);
     font-size: 22pt;
     font-weight: 400;
     font-style: italic;
-    color: #1a1a18;
+    color: var(--color-text);
     line-height: 1.3;
     margin-bottom: 24pt;
   }
   .closing__cta {
-    font-family: 'Inter', sans-serif;
     font-size: 11pt;
-    color: #3a3a38;
+    color: var(--color-text-soft);
     margin-bottom: 20pt;
     line-height: 1.5;
   }
-  .closing__cta strong { color: #c66b3d; }
+  .closing__cta strong { color: var(--color-highlight-ink); }
   .closing__signature {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-quote);
     font-size: 13pt;
     font-style: italic;
-    color: #1a1a18;
+    color: var(--color-text);
     margin-top: 18pt;
   }
   .closing__attr {
     font-size: 9.5pt;
     letter-spacing: 2pt;
     text-transform: uppercase;
-    color: #5a5a57;
+    color: var(--color-text-muted);
     margin-top: 6pt;
-    font-family: 'Inter', sans-serif;
   }
   .closing__license {
     margin-top: 32pt;
     padding-top: 14pt;
-    border-top: 1px solid rgba(26, 26, 24, 0.1);
-    font-family: 'Inter', sans-serif;
+    border-top: 1px solid var(--color-border);
     font-size: 8.5pt;
-    color: #8a8a85;
+    color: var(--color-text-muted);
     line-height: 1.5;
     max-width: 360pt;
     margin-left: auto;
     margin-right: auto;
   }
   .closing__license strong {
-    color: #3a3a38;
-    font-weight: 600;
+    color: var(--color-text-soft);
   }
   .closing__made-with {
     margin-top: 24pt;
     padding: 10pt 14pt;
-    font-family: 'Inter', sans-serif;
     font-size: 9pt;
     font-style: italic;
-    color: #5a5a57;
+    color: var(--color-text-muted);
     line-height: 1.55;
     max-width: 360pt;
     margin-left: auto;
     margin-right: auto;
-    border-top: 0.5pt dashed rgba(26, 26, 24, 0.18);
+    border-top: 0.5pt dashed var(--color-border);
     padding-top: 12pt;
   }
 
@@ -487,18 +474,18 @@
 
   <div class="cover__diagram">
     <svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
-      <rect x="80" y="50" width="220" height="160" rx="12" fill="#faf7f2" stroke="#f2eee6" stroke-width="1"/>
-      <text x="190" y="110" font-family="Playfair Display, serif" font-size="26" font-weight="700" fill="#1a1a18" text-anchor="middle">Gemini</text>
-      <text x="190" y="140" font-family="Inter, sans-serif" font-size="11" fill="#5a5a57" text-anchor="middle">Generativ · öppen domän</text>
-      <text x="190" y="168" font-family="Inter, sans-serif" font-size="10" fill="#5a5a57" text-anchor="middle">App · Webb · Mobil · Workspace</text>
-      <line x1="305" y1="120" x2="375" y2="120" stroke="#faf7f2" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.95"/>
-      <line x1="305" y1="140" x2="375" y2="140" stroke="#faf7f2" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.95"/>
-      <text x="340" y="108" font-family="Inter, sans-serif" font-size="9" fill="#faf7f2" text-anchor="middle" letter-spacing="1" opacity="0.9">DUBBEL-</text>
-      <text x="340" y="158" font-family="Inter, sans-serif" font-size="9" fill="#faf7f2" text-anchor="middle" letter-spacing="1" opacity="0.9">RIKTAD</text>
-      <rect x="380" y="50" width="220" height="160" rx="12" fill="#1a1a18"/>
-      <text x="490" y="110" font-family="Playfair Display, serif" font-size="24" font-weight="700" fill="#faf7f2" text-anchor="middle">NotebookLM</text>
-      <text x="490" y="140" font-family="Inter, sans-serif" font-size="11" fill="#c69c3c" text-anchor="middle">Förankrad · källor först</text>
-      <text x="490" y="168" font-family="Inter, sans-serif" font-size="10" fill="#c69c3c" text-anchor="middle">Webb · Mobil · Gemini-app</text>
+      <rect x="80" y="50" width="220" height="160" rx="12" fill="var(--color-bg)" stroke="var(--color-border)" stroke-width="1"/>
+      <text x="190" y="110" font-family="var(--font-display)" font-size="26" font-weight="500" fill="var(--color-text)" text-anchor="middle">Gemini</text>
+      <text x="190" y="140" font-family="var(--font-body)" font-size="11" fill="var(--color-text-muted)" text-anchor="middle">Generativ · öppen domän</text>
+      <text x="190" y="168" font-family="var(--font-body)" font-size="10" fill="var(--color-text-muted)" text-anchor="middle">App · Webb · Mobil · Workspace</text>
+      <line x1="305" y1="120" x2="375" y2="120" stroke="var(--color-dark-text)" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.95"/>
+      <line x1="305" y1="140" x2="375" y2="140" stroke="var(--color-dark-text)" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.95"/>
+      <text x="340" y="108" font-family="var(--font-body)" font-size="9" fill="var(--color-dark-text)" text-anchor="middle" letter-spacing="1" opacity="0.9">DUBBEL-</text>
+      <text x="340" y="158" font-family="var(--font-body)" font-size="9" fill="var(--color-dark-text)" text-anchor="middle" letter-spacing="1" opacity="0.9">RIKTAD</text>
+      <rect x="380" y="50" width="220" height="160" rx="12" fill="var(--color-deep)"/>
+      <text x="490" y="110" font-family="var(--font-display)" font-size="24" font-weight="500" fill="var(--color-dark-text)" text-anchor="middle">NotebookLM</text>
+      <text x="490" y="140" font-family="var(--font-body)" font-size="11" fill="var(--color-highlight-on-dark)" text-anchor="middle">Förankrad · källor först</text>
+      <text x="490" y="168" font-family="var(--font-body)" font-size="10" fill="var(--color-highlight-on-dark)" text-anchor="middle">Webb · Mobil · Gemini-app</text>
     </svg>
   </div>
 
@@ -633,19 +620,19 @@
 
   <div class="diagram">
     <svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
-      <line x1="40" y1="220" x2="640" y2="220" stroke="#5a5a57" stroke-width="0.8" opacity="0.4"/>
-      <rect x="80" y="50" width="220" height="160" rx="12" fill="#fbf8f1" stroke="#eceae4" stroke-width="1"/>
-      <text x="190" y="110" font-family="Playfair Display, serif" font-size="26" font-weight="700" fill="#1a1a18" text-anchor="middle">Gemini</text>
-      <text x="190" y="140" font-family="Inter, sans-serif" font-size="11" fill="#5a5a57" text-anchor="middle">Generativ · öppen domän</text>
-      <text x="190" y="168" font-family="Inter, sans-serif" font-size="10" fill="#5a5a57" text-anchor="middle">App · Webb · Mobil · Workspace</text>
-      <line x1="305" y1="120" x2="375" y2="120" stroke="#c66b3d" stroke-width="1.5" stroke-dasharray="4 3"/>
-      <line x1="305" y1="140" x2="375" y2="140" stroke="#c66b3d" stroke-width="1.5" stroke-dasharray="4 3"/>
-      <text x="340" y="108" font-family="Inter, sans-serif" font-size="9" fill="#c66b3d" text-anchor="middle" letter-spacing="1">DUBBEL-</text>
-      <text x="340" y="158" font-family="Inter, sans-serif" font-size="9" fill="#c66b3d" text-anchor="middle" letter-spacing="1">RIKTAD</text>
-      <rect x="380" y="50" width="220" height="160" rx="12" fill="#1a1a18"/>
-      <text x="490" y="110" font-family="Playfair Display, serif" font-size="24" font-weight="700" fill="#faf7f2" text-anchor="middle">NotebookLM</text>
-      <text x="490" y="140" font-family="Inter, sans-serif" font-size="11" fill="#c69c3c" text-anchor="middle">Förankrad · källor först</text>
-      <text x="490" y="168" font-family="Inter, sans-serif" font-size="10" fill="#c69c3c" text-anchor="middle">Webb · Mobil · Gemini-app</text>
+      <line x1="40" y1="220" x2="640" y2="220" stroke="var(--color-text-muted)" stroke-width="0.8" opacity="0.4"/>
+      <rect x="80" y="50" width="220" height="160" rx="12" fill="var(--color-bg-alt)" stroke="var(--color-border)" stroke-width="1"/>
+      <text x="190" y="110" font-family="var(--font-display)" font-size="26" font-weight="500" fill="var(--color-text)" text-anchor="middle">Gemini</text>
+      <text x="190" y="140" font-family="var(--font-body)" font-size="11" fill="var(--color-text-muted)" text-anchor="middle">Generativ · öppen domän</text>
+      <text x="190" y="168" font-family="var(--font-body)" font-size="10" fill="var(--color-text-muted)" text-anchor="middle">App · Webb · Mobil · Workspace</text>
+      <line x1="305" y1="120" x2="375" y2="120" stroke="var(--color-highlight)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <line x1="305" y1="140" x2="375" y2="140" stroke="var(--color-highlight)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="340" y="108" font-family="var(--font-body)" font-size="9" fill="var(--color-highlight-ink)" text-anchor="middle" letter-spacing="1">DUBBEL-</text>
+      <text x="340" y="158" font-family="var(--font-body)" font-size="9" fill="var(--color-highlight-ink)" text-anchor="middle" letter-spacing="1">RIKTAD</text>
+      <rect x="380" y="50" width="220" height="160" rx="12" fill="var(--color-dark-bg)"/>
+      <text x="490" y="110" font-family="var(--font-display)" font-size="24" font-weight="500" fill="var(--color-dark-text)" text-anchor="middle">NotebookLM</text>
+      <text x="490" y="140" font-family="var(--font-body)" font-size="11" fill="var(--color-highlight-on-dark)" text-anchor="middle">Förankrad · källor först</text>
+      <text x="490" y="168" font-family="var(--font-body)" font-size="10" fill="var(--color-highlight-on-dark)" text-anchor="middle">Webb · Mobil · Gemini-app</text>
     </svg>
     <p class="diagram__caption">Två vyer, ett Google-konto. Gemini genererar ur öppen kunskap; NotebookLM syntetiserar ur dina egna källor. Sedan april 2026 synkroniseras de två dubbelriktat.</p>
   </div>
@@ -704,21 +691,21 @@
     <p>Öppna Gemini. Skriv en prompt enligt RTF-anatomin — Roll, Uppgift, Format — för en verklig uppgift som ligger på ditt bord den här veckan. När det första utkastet kommer, be om två ändringar och kör igen. Be om ytterligare en. Lägg märke till vad som förändras mellan utkast ett och tre. Det är din kompetensutveckling i praktiken.</p>
   </div>
 
-  <h3>Dålig → Bättre → Bäst</h3>
+  <h3>Dålig <span style="font-weight: 400;">→</span> Bättre <span style="font-weight: 400;">→</span> Bäst</h3>
   <p>Samma ämne, tre utkast av samma prompt. Varje utkast blir mer specifikt om vad Gemini behöver veta. Outputkvaliteten stiger med promptens precision — inte med dess längd.</p>
 
   <div class="card card--warning">
-    <span class="card__label">● DÅLIG</span>
+    <span class="card__label"><span style="font-weight: 400;">●</span> DÅLIG</span>
     <p class="card__text">Förklara vattnets kretslopp.</p>
   </div>
 
   <div class="card card--accent">
-    <span class="card__label">● BÄTTRE</span>
+    <span class="card__label"><span style="font-weight: 400;">●</span> BÄTTRE</span>
     <p class="card__text">Förklara vattnets kretslopp för elever i årskurs 6. Gör det lätt att förstå.</p>
   </div>
 
   <div class="card card--success">
-    <span class="card__label">● BÄST</span>
+    <span class="card__label"><span style="font-weight: 400;">●</span> BÄST</span>
     <pre class="card__text">Agera som en erfaren NO-lärare för åk 6.
 
 Uppgift: Skriv en förklaring av vattnets kretslopp på en sida, anpassad för ett klassrum i åk 6 med bred spridning i kunskapsnivå. Ta med de fyra centrala stegen och ett verkligt exempel för varje steg.
@@ -732,7 +719,7 @@ Format:
 Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
   </div>
 
-  <p style="font-style: italic; color: #5a5a57; font-size: 10pt;">Den bästa prompten är inte längre för syns skull. Varje ord förtjänar sin plats genom att minska det Gemini måste gissa.</p>
+  <p style="font-style: italic; color: var(--color-text-muted); font-size: 10pt;">Den bästa prompten är inte längre för syns skull. Varje ord förtjänar sin plats genom att minska det Gemini måste gissa.</p>
 
   <h3>Tänk källor först — så är NotebookLM annorlunda</h3>
   <p>NotebookLM vänder på Geminis ansats. I stället för att starta med din avsikt och be Gemini generera ur sin allmänna kunskap om världen startar du med källor — dokument, länkar, videor, anteckningar du själv har valt — och ber NotebookLM syntetisera ur dem. Tre saker faller ut ur det enda designvalet, och var och en spelar roll för klassrummet.</p>
@@ -1051,26 +1038,26 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
   <div class="diagram">
     <svg viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg">
       <!-- Minimal risk -->
-      <rect x="80" y="250" width="520" height="50" rx="6" fill="#D4E4D4" stroke="#8AAE8A" stroke-width="0.8"/>
-      <text x="110" y="282" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#1a1a18">Minimal risk</text>
-      <text x="590" y="282" font-family="Inter, sans-serif" font-size="11" fill="#4A6B4A" text-anchor="end">standard — inga nya skyldigheter</text>
+      <rect x="80" y="250" width="520" height="50" rx="6" fill="var(--color-bg-alt)" stroke="var(--color-border)" stroke-width="0.8"/>
+      <text x="110" y="282" font-family="var(--font-display)" font-size="15" font-weight="500" fill="var(--color-text)">Minimal risk</text>
+      <text x="590" y="282" font-family="var(--font-body)" font-size="11" fill="var(--color-text-muted)" text-anchor="end">standard — inga nya skyldigheter</text>
 
       <!-- Limited risk -->
-      <rect x="80" y="185" width="520" height="50" rx="6" fill="#F5ECD0" stroke="#C69C3C" stroke-width="0.8"/>
-      <text x="110" y="217" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#1a1a18">Begränsad risk</text>
-      <text x="590" y="217" font-family="Inter, sans-serif" font-size="11" fill="#A07D2E" text-anchor="end">transparensskyldighet — AI måste redovisas</text>
+      <rect x="80" y="185" width="520" height="50" rx="6" fill="var(--color-bg-alt)" stroke="var(--color-highlight)" stroke-width="0.8"/>
+      <text x="110" y="217" font-family="var(--font-display)" font-size="15" font-weight="500" fill="var(--color-text)">Begränsad risk</text>
+      <text x="590" y="217" font-family="var(--font-body)" font-size="11" fill="var(--color-highlight-ink)" text-anchor="end">transparensskyldighet — AI måste redovisas</text>
 
       <!-- High risk -->
-      <rect x="80" y="120" width="520" height="50" rx="6" fill="#F5D8CC" stroke="#C66B3D" stroke-width="0.8"/>
-      <text x="110" y="152" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#1a1a18">Hög risk</text>
-      <text x="590" y="152" font-family="Inter, sans-serif" font-size="11" fill="#A4482B" text-anchor="end">betygsättning · antagning · beteendebedömning</text>
+      <rect x="80" y="120" width="520" height="50" rx="6" fill="var(--color-bg-alt)" stroke="var(--color-deep)" stroke-width="0.8"/>
+      <text x="110" y="152" font-family="var(--font-display)" font-size="15" font-weight="500" fill="var(--color-text)">Hög risk</text>
+      <text x="590" y="152" font-family="var(--font-body)" font-size="11" fill="var(--color-deep)" text-anchor="end">betygsättning · antagning · beteendebedömning</text>
 
       <!-- Prohibited -->
-      <rect x="80" y="55" width="520" height="50" rx="6" fill="#8C2F1F" stroke="#5A1E13" stroke-width="0.8"/>
-      <text x="110" y="87" font-family="Playfair Display, serif" font-size="15" font-weight="700" fill="#F6F3EE">Förbjuden</text>
-      <text x="590" y="87" font-family="Inter, sans-serif" font-size="11" fill="#F6F3EE" text-anchor="end">social scoring · manipulation — får inte användas</text>
+      <rect x="80" y="55" width="520" height="50" rx="6" fill="var(--color-dark-bg)" stroke="var(--color-deep)" stroke-width="0.8"/>
+      <text x="110" y="87" font-family="var(--font-display)" font-size="15" font-weight="500" fill="var(--color-dark-text)">Förbjuden</text>
+      <text x="590" y="87" font-family="var(--font-body)" font-size="11" fill="var(--color-dark-text)" text-anchor="end">social scoring · manipulation — får inte användas</text>
 
-      <text x="40" y="80" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="2" fill="#5a5a57" transform="rotate(-90, 40, 180)">RISK →</text>
+      <text x="40" y="80" font-family="var(--font-body)" font-size="10" font-weight="500" letter-spacing="2" fill="var(--color-text-muted)" transform="rotate(-90, 40, 180)">RISK <tspan style="font-weight: 400;">→</tspan></text>
     </svg>
     <p class="diagram__caption">EU:s AI-förordnings fyra risknivåer. De flesta lärares användning av Gemini och NotebookLM ligger i Minimal eller Begränsad. Hög risk börjar när AI påverkar tillgång till utbildning — betygsättning, antagning, beteendebedömning.</p>
   </div>

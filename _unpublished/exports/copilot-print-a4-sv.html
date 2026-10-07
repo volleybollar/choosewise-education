@@ -1,57 +1,38 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Microsoft Copilot — Guide för lärare och skolledare</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../exports/_guide-print.css">
 <style>
-  /* ─── Apple-graphite palette (shared across choosewise guides) ─── */
-  :root {
-    --color-navy:     #1B2733;
-    --color-graphite: #3E4A57;
-    --color-brass:    #C8A86B;
-    --color-cream:    #F6F3EE;
-    --color-text:     #1A1A1F;
-    --color-muted:    #5a5a57;
-    --color-soft:     #8a8a85;
-    --color-hairline: #dcd8d0;
-    --color-rule:     #c9c6be;
-  }
-
-  /* ─── Page geometry ─── */
-  @page { size: A4; margin: 0; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { background: var(--color-cream); }
+  /* Tokens, @font-face, the A4 @page rule and .page's own width/height/
+     flex come from the shared stylesheet. This file adds only what the
+     shared base doesn't set — body typography and all of its own bespoke
+     components — coloured from the shared variables. */
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: var(--color-text);
     font-size: 10.5pt;
     line-height: 1.55;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
     font-weight: 400;
   }
 
   /* ─── Typography ─── */
   h1, h2, h3, h4 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 700;
-    color: var(--color-navy);
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--color-accent);
   }
-  h1 { font-size: 40pt; line-height: 1.05; letter-spacing: -0.8pt; font-weight: 900; }
+  h1 { font-size: 40pt; line-height: 1.05; letter-spacing: -0.8pt; font-weight: 400; }
   h2 { font-size: 26pt; line-height: 1.1; margin: 0 0 12pt; }
   h3 { font-size: 16pt; line-height: 1.22; margin: 16pt 0 6pt; }
-  h4 { font-size: 12pt; line-height: 1.25; margin: 12pt 0 4pt; font-weight: 700; }
+  h4 { font-size: 12pt; line-height: 1.25; margin: 12pt 0 4pt; font-weight: 500; }
   p { margin: 0 0 8pt; }
   p + p { margin-top: 0; }
   em { font-style: italic; }
-  strong { font-weight: 600; }
+
   a {
-    color: var(--color-navy);
+    color: var(--color-accent);
     text-decoration: underline;
-    text-decoration-color: var(--color-brass);
+    text-decoration-color: var(--color-highlight);
     text-decoration-thickness: 0.5pt;
   }
   ul, ol { margin: 6pt 0 10pt 18pt; }
@@ -59,29 +40,28 @@
 
   .eyebrow {
     display: block;
-    font-family: 'Inter', sans-serif;
     font-size: 9pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 2.4pt;
     text-transform: uppercase;
-    color: var(--color-brass);
+    color: var(--color-highlight-ink);
     margin-bottom: 10pt;
   }
 
   p.lede {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-quote);
     font-size: 13pt;
     line-height: 1.45;
     font-weight: 400;
-    color: var(--color-graphite);
+    color: var(--color-text-soft);
     margin: 0 0 14pt;
     font-style: italic;
   }
 
   /* ─── Page wrappers ─── */
+  /* .page's width/min-height/display/flex-direction come from the shared
+     base; this adds padding and break behaviour only. */
   .page {
-    width: 210mm;
-    min-height: 297mm;
     padding: 18mm 20mm;
     position: relative;
     page-break-after: always;
@@ -94,41 +74,41 @@
   /* ─── Cover page ─── */
   .cover {
     background:
-      linear-gradient(150deg, #0f1620 0%, var(--color-navy) 55%, var(--color-graphite) 100%);
-    color: var(--color-cream);
+      linear-gradient(150deg, var(--color-deep) 0%, var(--color-dark-bg) 55%, var(--color-deep) 100%);
+    color: var(--color-dark-text);
     padding: 28mm 24mm;
     justify-content: space-between;
     min-height: 297mm;
   }
   .cover .eyebrow {
-    color: var(--color-brass);
+    color: var(--color-highlight-on-dark);
     opacity: 0.92;
     font-size: 9.5pt;
     letter-spacing: 3pt;
   }
   .cover h1 {
-    color: var(--color-cream);
+    color: var(--color-dark-text);
     font-size: 54pt;
     line-height: 1.0;
-    font-weight: 900;
+    font-weight: 400;
     letter-spacing: -1.2pt;
     margin: 14pt 0 8pt;
     max-width: 165mm;
   }
   .cover__subtitle {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-quote);
     font-style: italic;
     font-size: 20pt;
-    color: rgba(246, 243, 238, 0.78);
+    color: color-mix(in srgb, var(--color-dark-text) 78%, transparent);
     margin: 0 0 18pt;
     font-weight: 400;
   }
   .cover__lede {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-quote);
     font-style: italic;
     font-size: 13.5pt;
     line-height: 1.5;
-    color: rgba(246, 243, 238, 0.82);
+    color: color-mix(in srgb, var(--color-dark-text) 82%, transparent);
     max-width: 155mm;
     margin: 18pt 0 10pt;
   }
@@ -145,36 +125,34 @@
     align-items: center;
     justify-content: center;
     padding: 8pt 16pt;
-    background: rgba(246, 243, 238, 0.06);
-    border: 0.6pt solid rgba(200, 168, 107, 0.45);
+    background: color-mix(in srgb, var(--color-dark-text) 6%, transparent);
+    border: 0.6pt solid color-mix(in srgb, var(--color-highlight) 45%, transparent);
     border-radius: 999px;
-    font-family: 'Inter', sans-serif;
     font-size: 9pt;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 1.5pt;
     text-transform: uppercase;
-    color: rgba(246, 243, 238, 0.88);
+    color: color-mix(in srgb, var(--color-dark-text) 88%, transparent);
   }
 
   .cover__signature {
-    border-top: 0.5pt solid rgba(246, 243, 238, 0.28);
+    border-top: 0.5pt solid color-mix(in srgb, var(--color-dark-text) 28%, transparent);
     padding-top: 12pt;
     font-size: 10pt;
     letter-spacing: 0.6pt;
   }
   .cover__signature strong {
     display: block;
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
+    font-family: var(--font-display);
     font-size: 14pt;
     letter-spacing: 1.4pt;
     text-transform: uppercase;
     margin-bottom: 2pt;
-    color: var(--color-cream);
+    color: var(--color-dark-text);
   }
   .cover__signature .cover__attr {
     display: block;
-    color: rgba(246, 243, 238, 0.7);
+    color: color-mix(in srgb, var(--color-dark-text) 70%, transparent);
     font-size: 9pt;
     margin-top: 3pt;
   }
@@ -186,109 +164,105 @@
     display: flex;
     align-items: baseline;
     padding: 9pt 0;
-    border-bottom: 0.4pt dotted var(--color-rule);
+    border-bottom: 0.4pt dotted var(--color-border);
     font-size: 11pt;
   }
   .toc__list li:last-child { border-bottom: none; }
   .toc__list .toc__title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-weight: 500;
     flex: 1;
-    color: var(--color-navy);
+    color: var(--color-accent);
   }
   .toc__list .toc__sub {
     display: block;
-    font-family: 'Inter', sans-serif;
     font-size: 9pt;
     font-weight: 400;
-    color: var(--color-muted);
+    color: var(--color-text-muted);
     margin-top: 2pt;
     font-style: normal;
   }
   .toc__list .toc__dots {
     flex: 0 0 auto;
     margin: 0 6pt;
-    color: var(--color-rule);
+    color: var(--color-border);
     font-size: 9pt;
     letter-spacing: 1pt;
   }
   .toc__list .toc__page {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 10pt;
-    color: var(--color-navy);
+    color: var(--color-accent);
     min-width: 22pt;
     text-align: right;
   }
 
-  /* ─── Part opener ─── */
+  /* ─── Part opener (at top of a part's first page) ─── */
   .part-opener {
     display: flex;
     gap: 16pt;
     align-items: flex-start;
     margin-bottom: 8pt;
     padding-bottom: 10pt;
-    border-bottom: 0.4pt solid var(--color-hairline);
+    border-bottom: 0.4pt solid var(--color-border);
   }
   .part-opener__number {
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
+    font-family: var(--font-display);
     font-size: 64pt;
+    font-weight: 400;
     line-height: 0.85;
-    color: var(--color-brass);
+    color: var(--color-highlight-ink);
     flex: 0 0 auto;
     letter-spacing: -3pt;
   }
   .part-opener__eyebrow {
-    font-family: 'Inter', sans-serif;
     font-size: 9pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 2.4pt;
     text-transform: uppercase;
-    color: var(--color-brass);
+    color: var(--color-highlight-ink);
     margin-bottom: 6pt;
   }
   .part-opener__title {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-display);
     font-size: 28pt;
-    font-weight: 700;
-    color: var(--color-navy);
+    font-weight: 500;
+    color: var(--color-accent);
     line-height: 1.05;
     margin: 0 0 8pt;
   }
   .part-opener__lede {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-quote);
     font-style: italic;
     font-size: 12.5pt;
-    color: var(--color-graphite);
+    color: var(--color-text-soft);
     line-height: 1.45;
   }
 
-  /* ─── Explainer box (CDP) ─── */
+  /* ─── Explainer box (PCC) ─── */
   .explainer-box {
-    background: #efece4;
-    border-left: 4pt solid var(--color-brass);
+    background: var(--color-bg-alt);
+    border-left: 4pt solid var(--color-highlight);
     padding: 12pt 16pt;
     margin: 12pt 0;
     border-radius: 2pt;
     page-break-inside: auto;
   }
   .explainer-box__title {
-    font-family: 'Inter', sans-serif;
     font-size: 9pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1.8pt;
     text-transform: uppercase;
-    color: var(--color-brass);
+    color: var(--color-highlight-ink);
     margin-bottom: 8pt;
   }
   .explainer-box p { margin-bottom: 7pt; }
   .explainer-box p:last-child { margin-bottom: 0; }
 
-  /* ─── Sidenote ─── */
+  /* ─── Sidenote (worth-knowing) ─── */
   .sidenote {
-    background: #f1ede3;
-    border: 0.5pt solid var(--color-hairline);
+    background: var(--color-bg-alt);
+    border: 0.5pt solid var(--color-border);
     padding: 11pt 14pt;
     margin: 14pt 0 0;
     border-radius: 3pt;
@@ -296,12 +270,11 @@
     page-break-inside: avoid;
   }
   .sidenote__title {
-    font-family: 'Inter', sans-serif;
     font-size: 9pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1.4pt;
     text-transform: uppercase;
-    color: var(--color-graphite);
+    color: var(--color-text-soft);
     margin-bottom: 6pt;
   }
   .sidenote p { margin-bottom: 5pt; }
@@ -311,27 +284,27 @@
   .feature-card {
     margin: 14pt 0 18pt;
     padding-top: 6pt;
-    border-top: 0.4pt solid var(--color-hairline);
+    border-top: 0.4pt solid var(--color-border);
   }
   .feature-card:first-of-type { border-top: none; padding-top: 0; }
   .feature-card h3 {
-    color: var(--color-navy);
+    color: var(--color-accent);
     margin: 0 0 6pt;
   }
   .feature-card__what {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-quote);
     font-style: italic;
     font-size: 11.5pt;
-    color: var(--color-graphite);
+    color: var(--color-text-soft);
     line-height: 1.5;
     margin-bottom: 10pt;
   }
   .feature-card__mac-note {
-    background: #ecebe4;
+    background: var(--color-bg-alt);
     padding: 7pt 11pt;
-    border-left: 2pt solid var(--color-soft);
+    border-left: 2pt solid var(--color-text-muted);
     font-size: 9.5pt;
-    color: var(--color-graphite);
+    color: var(--color-text-soft);
     margin-top: 8pt;
     border-radius: 2pt;
   }
@@ -355,13 +328,13 @@
     top: 7pt;
     width: 6pt;
     height: 1.4pt;
-    background: var(--color-brass);
+    background: var(--color-highlight);
   }
 
   /* ─── Processing callout (where it runs) ─── */
   .processing-callout {
-    background: #e9e6dd;
-    border-left: 3pt solid var(--color-navy);
+    background: var(--color-bg-alt);
+    border-left: 3pt solid var(--color-accent);
     padding: 9pt 14pt;
     margin: 10pt 0;
     border-radius: 2pt;
@@ -369,12 +342,11 @@
     page-break-inside: avoid;
   }
   .processing-callout__title {
-    font-family: 'Inter', sans-serif;
     font-size: 9pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1.6pt;
     text-transform: uppercase;
-    color: var(--color-navy);
+    color: var(--color-accent);
     margin-bottom: 4pt;
   }
   .processing-callout p { margin: 0; }
@@ -402,30 +374,29 @@
     width: 16pt;
     height: 16pt;
     border-radius: 50%;
-    background: var(--color-navy);
-    color: var(--color-cream);
+    background: var(--color-dark-bg);
+    color: var(--color-dark-text);
     font-size: 8.5pt;
-    font-weight: 700;
+    font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Inter', sans-serif;
   }
 
-  /* ─── Warning box (licensing confusion) ─── */
+  /* ─── Warning box (ChatGPT exception) ─── */
   .warning-box {
-    background: #f4ecd9;
-    border-left: 4pt solid var(--color-brass);
+    background: var(--color-bg-alt);
+    border-left: 4pt solid var(--color-highlight);
     padding: 14pt 16pt;
     margin: 14pt 0;
     border-radius: 2pt;
     page-break-inside: auto;
   }
   .warning-box__title {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-quote);
     font-size: 14pt;
-    font-weight: 700;
-    color: var(--color-navy);
+    font-weight: 500;
+    color: var(--color-accent);
     margin-bottom: 8pt;
     font-style: italic;
   }
@@ -440,38 +411,40 @@
     font-size: 9.5pt;
   }
   table.sku-table thead tr {
-    border-bottom: 1.2pt solid var(--color-navy);
+    border-bottom: 1.2pt solid var(--color-accent);
   }
   table.sku-table th {
     text-align: left;
     padding: 8pt 8pt 6pt;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 8.5pt;
     letter-spacing: 1.4pt;
     text-transform: uppercase;
-    color: var(--color-navy);
+    color: var(--color-accent);
   }
   table.sku-table td {
     padding: 8pt 8pt;
-    border-bottom: 0.4pt solid var(--color-hairline);
+    border-bottom: 0.4pt solid var(--color-border);
     vertical-align: top;
     line-height: 1.4;
-    color: var(--color-graphite);
+    color: var(--color-text-soft);
   }
   table.sku-table td.sku-name {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    color: var(--color-navy);
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--color-accent);
     font-size: 10pt;
   }
+  /* "Yes"/"no" cells: no green/red exists in the palette, so the
+     distinction is carried by the one warm tone vs. plain body text
+     rather than invented colour-for-colour (see task report). */
   table.sku-table td.sku-cdp-yes {
-    color: #3b6b3b;
-    font-weight: 600;
+    color: var(--color-highlight-ink);
+    font-weight: 500;
   }
   table.sku-table td.sku-cdp-no {
-    color: #8a4a2a;
-    font-weight: 600;
+    color: var(--color-text-muted);
+    font-weight: 500;
   }
 
   /* ─── Policy list (5 big numerals) ─── */
@@ -496,11 +469,11 @@
     position: absolute;
     left: 0;
     top: -4pt;
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
+    font-family: var(--font-display);
+    font-weight: 400;
     font-size: 28pt;
     line-height: 1;
-    color: var(--color-brass);
+    color: var(--color-highlight-ink);
     letter-spacing: -1pt;
   }
 
@@ -513,21 +486,21 @@
   }
   .faq-item {
     padding: 4pt 0 5pt;
-    border-top: 0.4pt solid var(--color-hairline);
+    border-top: 0.4pt solid var(--color-border);
     page-break-inside: avoid;
   }
   .faq-item__q {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-display);
     font-size: 9.5pt;
-    font-weight: 700;
-    color: var(--color-navy);
+    font-weight: 500;
+    color: var(--color-accent);
     margin-bottom: 2pt;
     line-height: 1.25;
   }
   .faq-item__a {
     font-size: 8pt;
     line-height: 1.4;
-    color: var(--color-graphite);
+    color: var(--color-text-soft);
   }
   .faq-item__a p { margin-bottom: 3pt; }
   .faq-item__a p:last-child { margin-bottom: 0; }
@@ -539,44 +512,41 @@
     padding: 30mm 26mm;
   }
   .closing__quote {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-quote);
     font-size: 22pt;
     font-weight: 400;
     font-style: italic;
-    color: var(--color-navy);
+    color: var(--color-accent);
     line-height: 1.3;
     margin-bottom: 24pt;
   }
   .closing__cta {
-    font-family: 'Inter', sans-serif;
     font-size: 11pt;
-    color: var(--color-graphite);
+    color: var(--color-text-soft);
     margin-bottom: 20pt;
     line-height: 1.5;
   }
-  .closing__cta strong { color: var(--color-brass); }
+  .closing__cta strong { color: var(--color-highlight-ink); }
   .closing__signature {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-quote);
     font-size: 13pt;
     font-style: italic;
-    color: var(--color-navy);
+    color: var(--color-accent);
     margin-top: 18pt;
   }
   .closing__attr {
     font-size: 9.5pt;
     letter-spacing: 2pt;
     text-transform: uppercase;
-    color: var(--color-muted);
+    color: var(--color-text-muted);
     margin-top: 6pt;
-    font-family: 'Inter', sans-serif;
   }
   .closing__license {
     margin-top: 32pt;
     padding-top: 14pt;
-    border-top: 1px solid rgba(27, 39, 51, 0.12);
-    font-family: 'Inter', sans-serif;
+    border-top: 1px solid var(--color-border);
     font-size: 8.5pt;
-    color: var(--color-soft);
+    color: var(--color-text-soft);
     line-height: 1.5;
     max-width: 360pt;
     margin-left: auto;
@@ -584,18 +554,16 @@
     text-align: left;
   }
   .closing__license strong {
-    color: var(--color-graphite);
-    font-weight: 600;
+    color: var(--color-text-soft);
   }
 
   /* ─── Part label (used on FAQ) ─── */
   .part-label {
-    font-family: 'Inter', sans-serif;
     font-size: 9pt;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 2.4pt;
     text-transform: uppercase;
-    color: var(--color-brass);
+    color: var(--color-highlight-ink);
     margin-bottom: 8pt;
   }
 
@@ -739,7 +707,7 @@
     </thead>
     <tbody>
       <tr>
-        <td class="sku-name">Copilot (gratis webb)<br><span style="font-family: Inter; font-weight: 400; font-size: 8.5pt; color: var(--color-muted);">copilot.microsoft.com</span></td>
+        <td class="sku-name">Copilot (gratis webb)<br><span style="font-weight: 400; font-size: 8.5pt; color: var(--color-text-muted);">copilot.microsoft.com</span></td>
         <td>Vem som helst med ett privat Microsoft-konto (MSA)</td>
         <td class="sku-cdp-no">Nej — konsumentvillkor</td>
         <td>Gratis</td>
@@ -1094,8 +1062,8 @@
     <p><strong>Funktioner i appen i Word, Excel, PowerPoint, Outlook, Teams; grundning av Chat-prompter i tenantfiler.</strong> Dessa kräver en betald Microsoft 365 Copilot-plats (~350 kr/användare/mån). Grund-Copilot Chat utan licens har fortfarande CDP men når inte in i era tenantdata.</p>
   </div>
 
-  <div class="processing-callout" style="background: #f4ecd9; border-left-color: var(--color-brass);">
-    <p class="processing-callout__title" style="color: #8a6f2f;">Konsument-Copilot — inte täckt av guidens regelefterlevnadsberättelse</p>
+  <div class="processing-callout" style="background: var(--color-bg-alt); border-left-color: var(--color-highlight);">
+    <p class="processing-callout__title" style="color: var(--color-highlight-ink);">Konsument-Copilot — inte täckt av guidens regelefterlevnadsberättelse</p>
     <p>copilot.microsoft.com på ett privat MSA, eller Copilot Pro. Andra villkor, ingen CDP, ingen tenant-avgränsning, ingen DPA-täckning. Betrakta det som en separat produktkategori. Del 3 argumenterar för att blockera det på tenantnivå där er administrationsverktygssats tillåter det.</p>
   </div>
 
