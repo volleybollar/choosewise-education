@@ -79,3 +79,29 @@ def fingerprint(page: str) -> str:
 
 def fingerprints(pdf: Path) -> list[str]:
     return [fingerprint(p) for p in pages(extract(pdf))]
+
+
+def image_sizes(pdf: Path) -> list[list[int]]:
+    """Width/height of every real image embedded in the PDF.
+
+    Smask rows (alpha-channel masks that ride along with an image, not
+    images themselves) are excluded. Sorted so re-encoding order doesn't
+    matter. The text fingerprint above is blind to images by design — this
+    is what catches a restyling (or a broken relative path) that silently
+    drops or swaps one.
+    """
+    result = subprocess.run(
+        ["pdfimages", "-list", str(pdf)],
+        capture_output=True, text=True, check=True,
+    )
+    sizes = []
+    for line in result.stdout.splitlines()[2:]:
+        parts = line.split()
+        if len(parts) < 5 or parts[2] != "image":
+            continue
+        sizes.append([int(parts[3]), int(parts[4])])
+    return sorted(sizes)
+
+
+def capture(pdf: Path) -> dict:
+    return {"pages": fingerprints(pdf), "images": image_sizes(pdf)}

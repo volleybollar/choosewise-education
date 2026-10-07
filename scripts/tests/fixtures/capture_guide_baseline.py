@@ -24,8 +24,9 @@ for rel in fp.GUIDE_PDFS:
     path = fp.ROOT / rel
     if not path.exists():
         sys.exit(f"saknas: {rel}")
-    data[rel] = fp.fingerprints(path)
-    print(f"{len(data[rel]):3} sidor  {rel}")
+    entry = fp.capture(path)
+    data[rel] = entry
+    print(f"{len(entry['pages']):3} sidor  {len(entry['images']):2} bilder  {rel}")
 
 fp.BASELINE.parent.mkdir(parents=True, exist_ok=True)
 fp.BASELINE.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
