@@ -170,6 +170,18 @@ EXCLUDE_FILES = {
     "404.html",
 }
 
+# FAVICON_ONLY_PATHS must be a subset of EXCLUDE_FILES: both lists agree by
+# maintenance today, not by construction. If a path were ever in
+# FAVICON_ONLY_PATHS but NOT in EXCLUDE_FILES, the main pass below would
+# process it first and inject_head would still run — but then the
+# favicon-only pass would run on it too and, because inject_head clears
+# BOTH the seo block and the favicon block on every call, strip that
+# page's canonical, hreflang and JSON-LD along with the favicon links it
+# meant to (re)inject.
+assert set(FAVICON_ONLY_PATHS) <= EXCLUDE_FILES, (
+    f"FAVICON_ONLY_PATHS has paths not in EXCLUDE_FILES: "
+    f"{set(FAVICON_ONLY_PATHS) - EXCLUDE_FILES}")
+
 
 def is_excluded(rel_path: str) -> bool:
     parts = Path(rel_path).parts

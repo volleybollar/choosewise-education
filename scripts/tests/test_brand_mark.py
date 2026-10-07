@@ -124,18 +124,38 @@ def test_ico_carries_both_sizes():
     assert {(16, 16), (32, 32)} <= sizes, f"ico innehåller {sorted(sizes)}"
 
 
-def test_favicons_have_the_brand_ground_not_transparency():
-    """Ett märke utan botten försvinner mot mörkt flikgränssnitt.
+def test_favicon_ico_keeps_the_rounded_transparent_corner():
+    """favicon.svg/.ico live inside browser tab chrome, so their 22 % rounded
+    corners are genuinely transparent by design — that chrome shows through.
+    The true corner pixel sits outside the rounded radius and is
+    transparent, so the probe sits mid-edge instead, which is on the
+    brand-blue fill. (apple-touch-icon.png is the opposite case — see
+    test_apple_touch_icon_has_opaque_square_corners below.)
+    """
+    with Image.open(FAVICON_ICO) as im:
+        im.size = (32, 32)
+        im.load()
+        frame = im.convert("RGBA")
+    r, g, b, a = frame.getpixel((2, frame.height // 2))
+    assert a == 255, "bottnen vid kanten är genomskinlig"
+    assert (r, g, b) == (0x0B, 0x3A, 0x6F), f"fel bottenfärg: {(r, g, b)}"
+    corner_a = frame.getpixel((0, 0))[3]
+    assert corner_a == 0, "hörnet förväntas vara genomskinligt (rundad ruta)"
+    assert "#0B3A6F" in FAVICON_SVG.read_text(encoding="utf-8")
 
-    Hörnpixeln ligger utanför hörnradien och är alltså genomskinlig i en
-    rundad ruta — mätpunkten är därför mitt på vänsterkanten, som ligger
-    på bottnen.
+
+def test_apple_touch_icon_has_opaque_square_corners():
+    """iOS applies its own squircle mask and composites transparency over
+    BLACK, so a rounded, transparent-cornered touch icon gets dark corners
+    on the home screen. apple-touch-icon.png is therefore a square, fully
+    opaque tile (radius 0) — unlike favicon.svg/.ico above, its true
+    corners must carry the brand ground, not transparency.
     """
     im = Image.open(APPLE_TOUCH).convert("RGBA")
-    r, g, b, a = im.getpixel((2, im.height // 2))
-    assert a == 255, "bottnen är genomskinlig"
-    assert (r, g, b) == (0x0B, 0x3A, 0x6F), f"fel bottenfärg: {(r, g, b)}"
-    assert "#0B3A6F" in FAVICON_SVG.read_text(encoding="utf-8")
+    for x, y in ((0, 0), (im.width - 1, im.height - 1)):
+        r, g, b, a = im.getpixel((x, y))
+        assert a == 255, f"hörnet ({x},{y}) är genomskinligt"
+        assert (r, g, b) == (0x0B, 0x3A, 0x6F), f"fel bottenfärg i hörnet: {(r, g, b)}"
 
 
 FAVICON_LINKS = (
@@ -264,15 +284,24 @@ def test_generated_card_carries_the_marks_own_paths(rel):
 # regression that stripped the mark but kept the canvas size would ship a
 # blank blue square as the Skool logo with every other guard green.
 #
-# tile_svg() centres the mark at 62 % of the tile (inner = size * 0.62)
-# and maps the mark's own 0..64 viewBox onto that inner square. The
-# north needle (M32 6 L37.5 32 L26.5 32 Z) narrows to a point at y=6 and
+# tile_svg() centres the mark at _MARK_INNER_FRACTION of the tile (inner =
+# size * _MARK_INNER_FRACTION) and maps the mark's own 0..64 viewBox onto
+# that inner square. Imported from the generator itself, the same way
+# TEMPLATE is imported from build-og-images.py above — a copy of the
+# fraction here would go stale the moment tile_svg() changes it.
+#
+# The north needle (M32 6 L37.5 32 L26.5 32 Z) narrows to a point at y=6 and
 # widens towards y=32; the box below is inset from all three of its
 # edges across that y-range in the 64-grid, so mapping it through the
 # same scale/offset keeps it inside the needle at any tile size the
 # generator produces — it is derived from the geometry, not fitted to
 # today's output.
-_MARK_INNER_FRACTION = 0.62  # must match tile_svg()'s `inner = size * 0.62`
+_spec_bba = importlib.util.spec_from_file_location(
+    "build_brand_assets", ROOT / "scripts/build-brand-assets.py")
+_build_brand_assets = importlib.util.module_from_spec(_spec_bba)
+_spec_bba.loader.exec_module(_build_brand_assets)
+
+_MARK_INNER_FRACTION = _build_brand_assets._MARK_INNER_FRACTION
 _NORTH_NEEDLE_SAFE_BOX = (30.5, 14, 33.5, 30)  # x0, y0, x1, y1 in the 64-grid
 
 

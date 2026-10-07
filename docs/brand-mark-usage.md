@@ -49,3 +49,17 @@ Märket är litet med flit: på ett guidomslag är titeln avsändaren och
 märket bara signaturen. Under titeln går kopparlinjen, och under den
 `CHOOSEWISE.EDUCATION` spärrat — i `#E8C9A8` mot mörkt, `#9C5A24` mot
 ljust.
+
+`#9C5A24` är inte ett femte märkesfärgläge — det är `--color-highlight-ink`,
+designtokenet för kopparfärgad TEXT på ljus botten (5,2:1 kontrast). Det är
+samma token som sajtens brödtext använder när den sätter koppar mot
+`#FBFAF8`/`#EFF2F6`, inte en ny färg uppfunnen för guidomslaget. Märkets
+egna två färglägen (ovan) har fortfarande bara fyra värden.
+
+## og-korten
+
+De 12 delningskorten i `assets/images/brand/og/` genereras av
+`scripts/build-og-images.py` (SVG) och `scripts/render-og-pngs.py` (PNG).
+`assets/images/brand/og-default.svg` är **inte** en av de tolv och är
+**handskriven** — en framtida omkörning av `build-og-images.py` skriver
+inte över den, så lägg märket där för hand om den filen ändras.

@@ -4,7 +4,7 @@
 
 **Mål:** Choosewise får ett märke — nålen genom ringen — som favicon, Skool-logga, Skool-omslag, LinkedIn-tillgångar och på de 12 delningskorten, allt härlett ur en enda källa och bevisat med test.
 
-**Arkitektur:** Två SVG-källfiler bär geometrin. Allt annat genereras ur dem av ett skript: faviconer, PNG-tillgångar, og-kort. Faviconlänkarna når sidorna genom `build-seo-meta.py`, som redan injicerar ett block i varje `<head>` — ett skript att ändra i stället för 199 filer. En vakt jämför banddata i varje märkesbärande SVG mot källan, så att ingen yta kan få en egen teckning.
+**Arkitektur:** Två SVG-källfiler bär geometrin. Allt annat genereras ur dem av ett skript: faviconer, PNG-tillgångar, og-kort. Faviconlänkarna når sidorna genom `build-seo-meta.py`, som redan injicerar ett block i varje `<head>` — ett skript att ändra i stället för 198 filer (203 spårade HTML-filer, minus `scripts/test-course.html` som är en fixtur, minus de fyra partialerna utan `<head>`). En vakt jämför banddata i varje märkesbärande SVG mot källan, så att ingen yta kan få en egen teckning.
 
 **Teknikstack:** Playwright (Chromium) för SVG→PNG via lokal server, Pillow för `.ico`, pytest. `/usr/bin/python3` (3.9.6) är **enda** interpretern med pytest, playwright och Pillow.
 
@@ -30,7 +30,7 @@ Kopierade ordagrant ur specen. Varje uppgifts krav omfattar det här avsnittet.
 Fem fall specen förutsätter men som ingen uppgifts tester annars når. Var och en har fått sitt test i den uppgift som äger koden.
 
 1. **Dolda guidsidor.** `build_seo_block` returnerar tidigt för `HIDDEN_PATHS` med bara en `noindex`-tagg. Byggs faviconlänkarna efter den returen får sex guidsidor per språk ingen favicon. → Uppgift 4 testar en sida ur `HIDDEN_PATHS` uttryckligen.
-2. **Sidor utan `<head>`.** Fyra publicerade filer är partialer. `inject_head` returnerar dem orörda, och vakten måste räkna 199 av 203 utan att kalla de fyra för fel. → Uppgift 4.
+2. **Sidor utan `<head>`.** Fyra publicerade filer är partialer. `inject_head` returnerar dem orörda, och vakten måste räkna 198 av 203 (se arkitekturavsnittet ovan för uträkningen) utan att kalla de fyra för fel. → Uppgift 4.
 3. **Transparent favicon mot mörkt flikgränssnitt.** Märket utan botten försvinner i mörkt läge. Alla tre faviconfilerna ska ha varumärkesblå botten. → Uppgift 3 mäter en pixel mitt på vänsterkanten, som ligger på bottnen; hörnen är genomskinliga i en rundad ruta och duger inte som mätpunkt.
 4. **`.ico` med bara en storlek.** Pillow skriver gärna en enda bild om `sizes` utelämnas, och då skalar äldre webbläsare 32 ned till 16 med dåligt resultat. → Uppgift 3 testar att filen innehåller både 16 och 32.
 5. **og-kort som ändras i SVG men inte i PNG.** og-taggarna pekar på PNG. Ett kort vars SVG fått märket men vars PNG är gammal ser oförändrat ut för varje delad länk. → Uppgift 5 jämför märkets närvaro i PNG-pixlarna, inte bara i SVG-källan.
@@ -454,8 +454,8 @@ PAGES = [p for p in brandguard.published_files((".html",))
 
 
 def test_the_page_count_is_what_we_think():
-    """199 av 203. Faller globbet ihop vaktar resten ingenting."""
-    assert len(PAGES) == 199, len(PAGES)
+    """198 av 203. Faller globbet ihop vaktar resten ingenting."""
+    assert len(PAGES) == 198, len(PAGES)
 
 
 @pytest.mark.parametrize("path", PAGES, ids=lambda p: str(p.relative_to(ROOT)))
@@ -481,7 +481,7 @@ def test_hidden_pages_get_the_favicon_too():
 /usr/bin/python3 -m pytest scripts/tests/test_brand_mark.py -q -k favicon
 ```
 
-Förväntat: 199 fel på länkarna plus det dolda fallet.
+Förväntat: 198 fel på länkarna plus det dolda fallet.
 
 - [ ] **Steg 3: Lägg länkarna i seo-blocket, före den tidiga returen**
 
@@ -876,7 +876,7 @@ block i varje `<head>`. Länkarna byggs före den tidiga returen för
 `HIDDEN_PATHS`, så även de dolda guidsidorna får dem.
 
 Fyra vakter, var och en prövad mot sitt eget felfall: geometrin, paletten,
-att faviconen når alla 199 sidor, och att varje tillgång bär märkets egna
+att faviconen når alla 198 sidor, och att varje tillgång bär märkets egna
 banor i stället för en egen teckning.
 
 Utanför: sajtens header (ordmärket står kvar som text) och guidernas

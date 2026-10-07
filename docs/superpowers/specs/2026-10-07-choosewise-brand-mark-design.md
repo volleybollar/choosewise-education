@@ -114,11 +114,11 @@ Omslagets utformning **bestäms här** och **tillämpas i våg 2a**. Märket sit
 
 Uppdelningen är avsiktlig. Våg 2a rör varenda tryckmall ändå, och att låta spår A öppna samma filer skulle betyda att två grenar skriver i samma rader.
 
-## 4. Hur faviconen når 199 sidor
+## 4. Hur faviconen når 198 sidor
 
-`scripts/build-seo-meta.py` injicerar redan ett block i varje sidas `<head>` mellan `<!-- seo:start -->` och `<!-- seo:end -->`, och täcker 199 av repots 203 publicerade HTML-filer. Faviconlänkarna läggs i det blocket.
+`scripts/build-seo-meta.py` injicerar redan ett block i varje sidas `<head>` mellan `<!-- seo:start -->` och `<!-- seo:end -->`, och täcker 198 av repots 203 publicerade HTML-filer: 203 spårade HTML-filer, minus `scripts/test-course.html` (en verktygsfixtur, inte en sida), minus de fyra partialerna utan `<head>` = 198. Räkna inte om det på nytt — det är den uträkningen, varje gång.
 
-Det betyder **ett skript att ändra, inte 199 filer**, och att en ny sida får faviconen automatiskt nästa gång skriptet körs.
+Det betyder **ett skript att ändra, inte 198 filer**, och att en ny sida får faviconen automatiskt nästa gång skriptet körs.
 
 De fyra filerna utan `<head>` är partialer som inkluderas i andra sidor. De ska inte ha favicon och ska inte räknas som misslyckanden.
 
@@ -130,7 +130,7 @@ Utan tester kan nästa ändring tyst införa en andra teckning av märket. Fyra 
 
 1. **En enda källa.** Varje SVG som bär märket innehåller exakt de banor som står i §2. Ett test jämför banddata mot källfilerna och blir rött om någon ritat om nålen på en enskild yta.
 2. **Paletten.** Mark-filerna och de genererade tillgångarna innehåller bara de fyra värden som anges i §2 — `#FBFAF8`, `#0B3A6F`, `#E8C9A8`, `#C2793A`. Inga Crestiora-värden, ingen gammal grön.
-3. **Faviconen når varje sida.** Varje publicerad HTML-fil med `<head>` innehåller de tre faviconlänkarna. Testet räknar 199 och blir rött om injektionen missar en fil.
+3. **Faviconen når varje sida.** Varje publicerad HTML-fil med `<head>` innehåller de tre faviconlänkarna. Testet räknar 198 (se §4) och blir rött om injektionen missar en fil.
 4. **Filerna finns och har rätt mått.** `favicon.ico` innehåller 16 och 32, `apple-touch-icon.png` är 180×180, Skool-omslaget är exakt 1400×790.
 
 Varje vakt ska prövas mot sitt eget felfall innan den godkänns — i våg 1 visade sig fyra tester inte kunna bli röda på det de påstod sig vakta.
@@ -139,7 +139,7 @@ Varje vakt ska prövas mot sitt eget felfall innan den godkänns — i våg 1 vi
 
 1. Märket finns som två källfiler och varje annan tillgång är härledd ur dem, bevisat av vakt 1.
 2. `favicon.svg`, `favicon.ico` och `apple-touch-icon.png` ligger i repots rot och visas i flikraden på en lokalt serverad sida.
-3. Faviconen syns på alla 199 sidor med `<head>`, i både EN och SV.
+3. Faviconen syns på alla 198 sidor med `<head>`, i både EN och SV.
 4. Skool-loggan och omslaget 1400×790 finns som PNG, och omslaget är granskat i Skools egen beskärning.
 5. LinkedIn-tillgångarna finns i alla tre måtten.
 6. De 12 og-korten har märket, och **PNG:erna är omrenderade**, inte bara SVG:erna.
@@ -149,7 +149,7 @@ Varje vakt ska prövas mot sitt eget felfall innan den godkänns — i våg 1 vi
 
 ## 7. Fällor
 
-1. **`build-seo-meta.py` bumpar "Last updated"** ur git-commitdatum på varje sida den rör. En körning som bara lägger till faviconlänkar sätter nytt datum på 199 sidor. Kontrollera vad skriptet rör och återställ orelaterade sidor före push.
+1. **`build-seo-meta.py` bumpar "Last updated"** ur git-commitdatum på varje sida den rör. En körning som bara lägger till faviconlänkar sätter nytt datum på 198 sidor. Kontrollera vad skriptet rör och återställ orelaterade sidor före push.
 2. **Två og-skript, olika uppgifter.** `build-og-images.py` genererar SVG; `render-og-pngs.py` renderar SVG till PNG via en lokal server. og-taggarna pekar på PNG, så en ändring som bara rör SVG syns inte när någon delar en länk. Kör alltid båda, i den ordningen.
 3. **Förhandsvisning körs alltid på ny port.** Safari cachar hårt, och favicon är det webbläsare cachar allra hårdast — en gammal ikon kan sitta kvar långt efter att filen bytts.
 4. **`git add -A` används aldrig.** Repot har ett trettiotal ocommittade ändringar som hör till Johan.
