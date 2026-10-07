@@ -170,3 +170,35 @@ def test_hidden_pages_get_the_favicon_too():
     assert "noindex" in text, "testet pekar på fel sida — den här är inte dold"
     for link in FAVICON_LINKS:
         assert link in text, f"dold sida saknar {link}"
+
+
+OG_DIR = ROOT / "assets/images/brand/og"
+OG_SVGS = sorted(OG_DIR.glob("*.svg"))
+
+
+def test_there_are_twelve_og_cards():
+    assert len(OG_SVGS) == 12, [p.name for p in OG_SVGS]
+
+
+@pytest.mark.parametrize("svg", OG_SVGS, ids=lambda p: p.name)
+def test_every_og_card_carries_the_mark(svg):
+    """Samma banddata som källan — inte en egen teckning av nålen."""
+    text = svg.read_text(encoding="utf-8")
+    for d in (NEEDLE_NORTH, NEEDLE_SOUTH):
+        assert f'd="{d}"' in text, f"{svg.name} saknar nålen"
+    assert "#E8C9A8" in text, f"{svg.name}: norrspetsen ska vara ljus koppar mot mörkt"
+
+
+@pytest.mark.parametrize("svg", OG_SVGS, ids=lambda p: p.name)
+def test_the_png_was_rendered_after_the_svg(svg):
+    """og-taggarna pekar på PNG. En SVG med märket och en gammal PNG ser
+    oförändrad ut för varje delad länk, och felet upptäcks aldrig."""
+    png = svg.with_suffix(".png")
+    assert png.exists(), f"{png.name} saknas"
+    im = Image.open(png).convert("RGB")
+    assert im.size == (1200, 630)
+    # Märket sitter uppe till vänster. Finns ljus koppar i den rutan har
+    # PNG:en renderats om efter att märket lades in.
+    box = im.crop((60, 50, 200, 190)).getcolors(140 * 140) or []
+    assert any(c == (0xE8, 0xC9, 0xA8) for _, c in box), \
+        f"{png.name} saknar märkets koppar — PNG:en är inte omrenderad"

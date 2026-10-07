@@ -14,6 +14,14 @@
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#b)"/>
+  <!-- Märket, hämtat ur assets/images/brand/mark-on-dark.svg. Ändras det
+       där ska det ändras här — vakten i test_brand_mark.py jämför banorna. -->
+  <svg x="80" y="64" width="112" height="112" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="21" fill="none" stroke="#FBFAF8" stroke-width="2.5"/>
+    <path d="M32 58 L37.5 32 L26.5 32 Z" fill="#FBFAF8"/>
+    <path d="M32 6 L37.5 32 L26.5 32 Z" fill="#E8C9A8"/>
+    <circle cx="32" cy="32" r="2.6" fill="#0B3A6F"/>
+  </svg>
   <text x="80" y="360" font-family="Hanken Grotesk, sans-serif" font-size="72" font-weight="300" fill="#FBFAF8">The right tool</text>
   <text x="80" y="440" font-family="Hanken Grotesk, sans-serif" font-size="72" font-weight="300" fill="#FBFAF8">at the right time.</text>
   <text x="80" y="530" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="500" fill="#EFF2F6" letter-spacing="2">CHOOSEWISE.EDUCATION</text>
