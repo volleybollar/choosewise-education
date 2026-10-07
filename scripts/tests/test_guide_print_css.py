@@ -124,13 +124,26 @@ def test_copper_is_never_used_as_text_colour():
 # .eyebrow eller .signature.
 #
 # Lösningen: varje regel i ett underfamilj-block ska bära sin egen
-# .page--familj-klass. Markörerna nedan (SCOPE-GUARD:BEGIN/END <familj>)
-# avgränsar varje sådant block i CSS-källan. De är fristående från de
-# beskrivande rubrikkommentarerna ("── Licenssidan ──" osv) med flit: en
-# omskriven rubrik ska inte kunna göra att vakten tyst slutar kontrollera
-# ett block. Om en markör saknas eller är felstavad upptäcker
-# test_scope_guard_markers_exist_and_cover_the_expected_families det
-# (exakt mängdjämförelse, inte "minst noll träffar").
+# .page--familj-klass. Markörerna nedan (SCOPE-GUARD:BEGIN/END <namn>)
+# avgränsar varje sådant block — INKLUSIVE bas-blocket (:root … strong,b),
+# som är det enda undantaget från scope-kravet eftersom dess jobb är att
+# gälla överallt. De är fristående från de beskrivande rubrikkommentarerna
+# ("── Licenssidan ──" osv) med flit: en omskriven rubrik ska inte kunna
+# göra att vakten tyst slutar kontrollera ett block.
+#
+# Re-review hittade två hål i en första version av den här vakten:
+#   1. Ett HELT NYTT block utan egna markörer (t.ex. en framtida uppgift 6
+#      som lägger till `.page--a4-foo { … }` utan SCOPE-GUARD-kommentarer)
+#      kom igenom obemärkt, eftersom vakten bara läste INNANFÖR befintliga
+#      markörer — den frågade "är det som står mellan markörerna scopat?"
+#      i stället för "finns det något UTANFÖR markörerna?". Fixat genom
+#      test_every_selector_lies_inside_a_marked_region, som maskerar bort
+#      allt täckt innehåll och kräver att inget en selektor blir kvar.
+#   2. Scope-kontrollen var en delsträngskontroll (`scope_class not in
+#      selector`), så `.page--license-note` såg ut att "innehålla"
+#      `.page--license` trots att det är ett helt annat, längre klassnamn.
+#      Fixat med en strukturell regex (gränsbevakad lookahead) i
+#      _selector_has_scope.
 
 SCOPE_GUARD_RE = re.compile(
     r"/\*\s*SCOPE-GUARD:BEGIN\s+(?P<name>[\w-]+)\s*\*/(?P<body>.*?)"
@@ -138,16 +151,33 @@ SCOPE_GUARD_RE = re.compile(
     re.S,
 )
 
-# De enda två underfamiljerna i den här filen idag. A4-guiderna (uppgift 6)
-# delar bara tokens/typsnitt/.page härifrån, inte en klassvokabulär (se
-# kommentaren överst i filen) — de ska alltså INTE få ett eget SCOPE-GUARD-
-# block. Om de någon gång gör det, uppdatera den här mängden medvetet;
-# vakten ska inte tyst acceptera fler eller färre block än så här.
-EXPECTED_SCOPED_FAMILIES = {"page--license", "page--quickstart"}
+# Varje region i filen idag. "base" är den delade grunden (:root, @font-face,
+# @page, *, html, body, .page, strong/b) och är undantagen scope-kravet —
+# att gälla överallt ÄR dess jobb. page--license och page--quickstart är de
+# enda två underfamiljerna. A4-guiderna (uppgift 6) delar bara tokens/
+# typsnitt/.page härifrån, inte en klassvokabulär (se kommentaren överst i
+# filen) — de ska alltså INTE få ett eget SCOPE-GUARD-block. Om de någon
+# gång gör det, uppdatera den här mängden medvetet; vakten ska inte tyst
+# acceptera fler eller färre regioner än så här.
+EXPECTED_REGIONS = {"base", "page--license", "page--quickstart"}
+SCOPE_EXEMPT_REGIONS = {"base"}
 
 
 def _strip_comments(text: str) -> str:
     return re.sub(r"/\*.*?\*/", "", text, flags=re.S)
+
+
+def _blank(text: str, start: int, end: int) -> str:
+    """Replace text[start:end] with spaces (newlines kept) so positions and
+    line numbers in the rest of the string stay valid."""
+    masked = "".join(ch if ch == "\n" else " " for ch in text[start:end])
+    return text[:start] + masked + text[end:]
+
+
+def _blank_comments(text: str) -> str:
+    def repl(m: re.Match) -> str:
+        return "".join(ch if ch == "\n" else " " for ch in m.group(0))
+    return re.sub(r"/\*.*?\*/", repl, text, flags=re.S)
 
 
 def _selectors_in_block(block: str) -> list[str]:
@@ -163,44 +193,94 @@ def _selectors_in_block(block: str) -> list[str]:
     return out
 
 
-def test_scope_guard_markers_exist_and_cover_the_expected_families():
-    """Red-proof for the guard below: without this check, deleting or
-    renaming a SCOPE-GUARD marker would make
-    test_every_selector_in_a_subfamily_block_carries_its_page_scope scan
-    zero selectors for that family and pass vacuously — a guard that quietly
+def _selector_has_scope(selector: str, family: str) -> bool:
+    """Structural check, not a substring check: `.page--license` must appear
+    as its own class token. `.page--license`, `.page--license.page1` and
+    `.page--license .title` all match; `.page--license-note` must not —
+    the character right after the family name must not continue a word/
+    hyphen, or it is a different, longer class name wearing our prefix."""
+    pattern = re.compile(rf"\.{re.escape(family)}(?![\w-])")
+    return bool(pattern.search(selector))
+
+
+def test_scope_guard_markers_exist_and_cover_the_expected_regions():
+    """Red-proof for the guards below: without this check, deleting or
+    renaming a SCOPE-GUARD marker would make the other two guards scan zero
+    selectors for that region and pass vacuously — a guard that quietly
     covers nothing. This test fails loudly instead."""
     found = {m.group("name") for m in SCOPE_GUARD_RE.finditer(css())}
-    assert found == EXPECTED_SCOPED_FAMILIES, (
+    assert found == EXPECTED_REGIONS, (
         f"SCOPE-GUARD-block hittades för {sorted(found)}, förväntade "
-        f"{sorted(EXPECTED_SCOPED_FAMILIES)}. En borttagen, felstavad eller "
-        "obalanserad BEGIN/END-markör gör att blocket slutar skyddas."
+        f"{sorted(EXPECTED_REGIONS)}. En borttagen, felstavad eller "
+        "obalanserad BEGIN/END-markör gör att regionen slutar skyddas."
     )
     begins = len(re.findall(r"/\*\s*SCOPE-GUARD:BEGIN\s+[\w-]+\s*\*/", css()))
     ends = len(re.findall(r"/\*\s*SCOPE-GUARD:END\s+[\w-]+\s*\*/", css()))
-    assert begins == ends == len(EXPECTED_SCOPED_FAMILIES), \
+    assert begins == ends == len(EXPECTED_REGIONS), \
         f"obalanserade SCOPE-GUARD-markörer: {begins} BEGIN, {ends} END"
 
 
-def test_every_selector_in_a_subfamily_block_carries_its_page_scope():
-    """Every selector between a family's SCOPE-GUARD markers must include
-    that family's own `.page--xxx` class — as an ancestor (`.page--quickstart
-    .foo`), or, for a class that sits on the very same element as the scope
-    class (`.page1`/`.page2`, alongside `.page--quickstart` on one <div>),
-    compounded directly (`.page--quickstart.page1`).
+def test_every_selector_lies_inside_a_marked_region():
+    """Gap 1 (re-review): a wholly new rule written outside every
+    SCOPE-GUARD region — exactly what a future task adding a third
+    sub-family without its own markers would do — must fail here, naming
+    the selector and the line it's on. Masks out everything that IS inside
+    a known region (markers included) and every comment, then asserts
+    nothing that looks like a selector remains in what's left.
 
-    Red-proof (run by hand, not kept as a test — a real regression would
-    defeat its own guard): add `.foo { color: red; }` anywhere inside the
-    page--license block and this test fails naming `page--license: '.foo'`;
-    remove it and it is green again. This is exactly the shape of the bug
-    the reviewer found (.eyebrow without a .page--license prefix)."""
+    Red-proof: append `.page--a4-foo { padding: 10mm; }` anywhere after the
+    last SCOPE-GUARD:END marker and this test fails, naming it and its
+    line; remove it and it is green again."""
+    text = css()
+    masked = text
+    for match in SCOPE_GUARD_RE.finditer(text):
+        masked = _blank(masked, match.start(), match.end())
+    masked = _blank_comments(masked)
+
+    violations = []
+    for sel_match in re.finditer(r"([^{}]+)\{", masked):
+        chunk = sel_match.group(1)
+        chunk_start = sel_match.start(1)
+        offset = 0
+        for part in chunk.split(","):
+            local = part.strip()
+            if local:
+                abs_pos = chunk_start + offset + part.find(local)
+                line = text.count("\n", 0, abs_pos) + 1
+                violations.append(f"line {line}: {local!r}")
+            offset += len(part) + 1  # +1 for the comma separator
+    assert not violations, (
+        "Selektorer utanför alla SCOPE-GUARD-regioner (ett nytt block utan "
+        f"egna markörer smyger förbi scopningen): {violations}"
+    )
+
+
+def test_every_selector_in_a_scoped_region_structurally_carries_its_page_scope():
+    """Gap 2 (re-review): the per-selector check must be structural, not a
+    substring test — `.page--license-note` is a different, longer class
+    name and must not be accepted as "containing" `.page--license`.
+
+    Every selector between a non-exempt region's SCOPE-GUARD markers must
+    include that region's own `.page--xxx` class — as an ancestor
+    (`.page--quickstart .foo`), or, for a class that sits on the very same
+    element as the scope class (`.page1`/`.page2`, alongside
+    `.page--quickstart` on one <div>), compounded directly
+    (`.page--quickstart.page1`). `base` is exempt — applying everywhere is
+    its job.
+
+    Red-proof: add `.page--license-note { color: red; }` anywhere inside
+    the page--license block and this test fails naming it; remove it and
+    it is green again. (A bare `.foo` with no `.page--` prefix at all is
+    also caught — same failure, simpler case.)"""
     violations = []
     for match in SCOPE_GUARD_RE.finditer(css()):
         family = match.group("name")
-        scope_class = f".{family}"
+        if family in SCOPE_EXEMPT_REGIONS:
+            continue
         for selector in _selectors_in_block(match.group("body")):
-            if scope_class not in selector:
+            if not _selector_has_scope(selector, family):
                 violations.append(f"{family}: {selector!r}")
     assert not violations, (
-        "Dessa selektorer saknar sitt eget .page--scope och kan läcka till "
-        f"andra underfamiljer: {violations}"
+        "Dessa selektorer saknar sitt eget .page--scope som ett strukturellt "
+        f"klasstoken (inte bara som delsträng): {violations}"
     )

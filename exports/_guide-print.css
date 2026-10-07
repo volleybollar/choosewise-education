@@ -5,6 +5,8 @@
    typsnitt härifrån — deras klassvokabulär delas inte.
    ════════════════════════════════════════════════════════ */
 
+/* SCOPE-GUARD:BEGIN base */
+
 :root {
   --color-bg:                #FBFAF8;
   --color-bg-alt:            #EFF2F6;
@@ -75,6 +77,8 @@ body {
    every <strong>/<b> in the shared vocabulary to the scale's one
    emphasis weight instead of trusting the browser's default. */
 strong, b { font-weight: 500; }
+
+/* SCOPE-GUARD:END base */
 
 /* ── Licenssidan ──
    Varje regel i det här blocket scopas under .page--license. Det är inte
