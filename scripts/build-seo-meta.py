@@ -345,15 +345,25 @@ def build_faqpage(canonical_path: str, faqs: list):
 
 def build_seo_block(canonical_path: str, lang: str, html: str,
                     last_modified: str) -> str:
+    # Faviconen gäller varje sida, även de dolda. Raderna byggs därför
+    # FÖRE den tidiga returen för HIDDEN_PATHS — läggs de efter får de
+    # sex guidsidorna per språk ingen favicon.
+    favicon = [
+        '<link rel="icon" href="/favicon.svg" type="image/svg+xml">',
+        '<link rel="icon" href="/favicon.ico" sizes="32x32">',
+        '<link rel="apple-touch-icon" href="/apple-touch-icon.png">',
+    ]
     # Hidden pages: emit only a noindex robots tag, no canonical/hreflang/JSON-LD.
     if canonical_path in HIDDEN_PATHS:
-        return (f'{SEO_MARK_START}\n'
-                f'<meta name="robots" content="noindex,nofollow">\n'
-                f'{SEO_MARK_END}')
+        return "\n".join([SEO_MARK_START,
+                          '<meta name="robots" content="noindex,nofollow">',
+                          *favicon,
+                          SEO_MARK_END])
     canonical_url = BASE_URL + canonical_path
     lines = [
         SEO_MARK_START,
         f'<link rel="canonical" href="{canonical_url}">',
+        *favicon,
     ]
     pair = get_pair(canonical_path)
     if pair:

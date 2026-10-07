@@ -13,6 +13,8 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
+from . import brandguard
+
 ROOT = Path(__file__).resolve().parents[2]
 DARK = ROOT / "assets/images/brand/mark-on-dark.svg"
 LIGHT = ROOT / "assets/images/brand/mark-on-light.svg"
@@ -133,3 +135,35 @@ def test_favicons_have_the_brand_ground_not_transparency():
     assert a == 255, "bottnen är genomskinlig"
     assert (r, g, b) == (0x0B, 0x3A, 0x6F), f"fel bottenfärg: {(r, g, b)}"
     assert "#0B3A6F" in FAVICON_SVG.read_text(encoding="utf-8")
+
+
+FAVICON_LINKS = (
+    '<link rel="icon" href="/favicon.svg" type="image/svg+xml">',
+    '<link rel="icon" href="/favicon.ico" sizes="32x32">',
+    '<link rel="apple-touch-icon" href="/apple-touch-icon.png">',
+)
+
+PAGES = [p for p in brandguard.published_files((".html",))
+         if "<head" in p.read_text(encoding="utf-8", errors="replace")]
+
+
+def test_the_page_count_is_what_we_think():
+    """199 av 203. Faller globbet ihop vaktar resten ingenting."""
+    assert len(PAGES) == 199, len(PAGES)
+
+
+@pytest.mark.parametrize("path", PAGES, ids=lambda p: str(p.relative_to(ROOT)))
+def test_every_page_links_the_favicon(path):
+    text = path.read_text(encoding="utf-8")
+    missing = [l for l in FAVICON_LINKS if l not in text]
+    assert not missing, f"{path.relative_to(ROOT)} saknar {missing}"
+
+
+def test_hidden_pages_get_the_favicon_too():
+    """build_seo_block returnerar tidigt för HIDDEN_PATHS med bara en
+    noindex-tagg. Byggs länkarna efter den returen får guidsidorna ingen."""
+    hidden = ROOT / "guides/claude/index.html"
+    text = hidden.read_text(encoding="utf-8")
+    assert "noindex" in text, "testet pekar på fel sida — den här är inte dold"
+    for link in FAVICON_LINKS:
+        assert link in text, f"dold sida saknar {link}"
