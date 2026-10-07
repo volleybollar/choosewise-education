@@ -109,3 +109,98 @@ def test_copper_is_never_used_as_text_colour():
            if m.strip() == "--color-highlight"]
     assert not bad, "--color-highlight används som textfärg; ta --color-highlight-ink " \
                     "på ljus botten eller --color-highlight-on-dark på mörkt band"
+
+
+# ── Sub-family scoping guard ──────────────────────────────────────────────
+#
+# Task 5's review: licensblockets bara `.eyebrow { margin-bottom: 18pt }`
+# (ett generiskt, oscopat klassnamn) läckte in i varje quick start-masthead,
+# eftersom `.masthead .eyebrow` aldrig satte sin egen margin — CSS kaskadar
+# per EGENSKAP, inte per regel, så en helt orelaterad bar-selektor längre
+# ner i filen vinner ändå på den enda egenskap den ensam deklarerar. Samma
+# fälla väntade i licensblockets återstående tolv bara selektorer (.title,
+# .body, .subtitle, .link, .signature, .terms, .divider, …) — och alla tolv
+# A4-guider som uppgift 6 ska koppla till den här filen använder redan
+# .eyebrow eller .signature.
+#
+# Lösningen: varje regel i ett underfamilj-block ska bära sin egen
+# .page--familj-klass. Markörerna nedan (SCOPE-GUARD:BEGIN/END <familj>)
+# avgränsar varje sådant block i CSS-källan. De är fristående från de
+# beskrivande rubrikkommentarerna ("── Licenssidan ──" osv) med flit: en
+# omskriven rubrik ska inte kunna göra att vakten tyst slutar kontrollera
+# ett block. Om en markör saknas eller är felstavad upptäcker
+# test_scope_guard_markers_exist_and_cover_the_expected_families det
+# (exakt mängdjämförelse, inte "minst noll träffar").
+
+SCOPE_GUARD_RE = re.compile(
+    r"/\*\s*SCOPE-GUARD:BEGIN\s+(?P<name>[\w-]+)\s*\*/(?P<body>.*?)"
+    r"/\*\s*SCOPE-GUARD:END\s+(?P=name)\s*\*/",
+    re.S,
+)
+
+# De enda två underfamiljerna i den här filen idag. A4-guiderna (uppgift 6)
+# delar bara tokens/typsnitt/.page härifrån, inte en klassvokabulär (se
+# kommentaren överst i filen) — de ska alltså INTE få ett eget SCOPE-GUARD-
+# block. Om de någon gång gör det, uppdatera den här mängden medvetet;
+# vakten ska inte tyst acceptera fler eller färre block än så här.
+EXPECTED_SCOPED_FAMILIES = {"page--license", "page--quickstart"}
+
+
+def _strip_comments(text: str) -> str:
+    return re.sub(r"/\*.*?\*/", "", text, flags=re.S)
+
+
+def _selectors_in_block(block: str) -> list[str]:
+    """Every selector-list text (what precedes each `{`) inside one block,
+    comments stripped, split on top-level commas into individual selectors."""
+    clean = _strip_comments(block)
+    out = []
+    for match in re.finditer(r"([^{}]+)\{", clean):
+        for part in match.group(1).split(","):
+            part = part.strip()
+            if part:
+                out.append(part)
+    return out
+
+
+def test_scope_guard_markers_exist_and_cover_the_expected_families():
+    """Red-proof for the guard below: without this check, deleting or
+    renaming a SCOPE-GUARD marker would make
+    test_every_selector_in_a_subfamily_block_carries_its_page_scope scan
+    zero selectors for that family and pass vacuously — a guard that quietly
+    covers nothing. This test fails loudly instead."""
+    found = {m.group("name") for m in SCOPE_GUARD_RE.finditer(css())}
+    assert found == EXPECTED_SCOPED_FAMILIES, (
+        f"SCOPE-GUARD-block hittades för {sorted(found)}, förväntade "
+        f"{sorted(EXPECTED_SCOPED_FAMILIES)}. En borttagen, felstavad eller "
+        "obalanserad BEGIN/END-markör gör att blocket slutar skyddas."
+    )
+    begins = len(re.findall(r"/\*\s*SCOPE-GUARD:BEGIN\s+[\w-]+\s*\*/", css()))
+    ends = len(re.findall(r"/\*\s*SCOPE-GUARD:END\s+[\w-]+\s*\*/", css()))
+    assert begins == ends == len(EXPECTED_SCOPED_FAMILIES), \
+        f"obalanserade SCOPE-GUARD-markörer: {begins} BEGIN, {ends} END"
+
+
+def test_every_selector_in_a_subfamily_block_carries_its_page_scope():
+    """Every selector between a family's SCOPE-GUARD markers must include
+    that family's own `.page--xxx` class — as an ancestor (`.page--quickstart
+    .foo`), or, for a class that sits on the very same element as the scope
+    class (`.page1`/`.page2`, alongside `.page--quickstart` on one <div>),
+    compounded directly (`.page--quickstart.page1`).
+
+    Red-proof (run by hand, not kept as a test — a real regression would
+    defeat its own guard): add `.foo { color: red; }` anywhere inside the
+    page--license block and this test fails naming `page--license: '.foo'`;
+    remove it and it is green again. This is exactly the shape of the bug
+    the reviewer found (.eyebrow without a .page--license prefix)."""
+    violations = []
+    for match in SCOPE_GUARD_RE.finditer(css()):
+        family = match.group("name")
+        scope_class = f".{family}"
+        for selector in _selectors_in_block(match.group("body")):
+            if scope_class not in selector:
+                violations.append(f"{family}: {selector!r}")
+    assert not violations, (
+        "Dessa selektorer saknar sitt eget .page--scope och kan läcka till "
+        f"andra underfamiljer: {violations}"
+    )
