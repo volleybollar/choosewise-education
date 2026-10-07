@@ -11,6 +11,8 @@ from pathlib import Path
 
 import pytest
 
+from . import brandguard
+
 ROOT = Path(__file__).resolve().parents[2]
 CSS = ROOT / "exports" / "_guide-print.css"
 
@@ -284,3 +286,81 @@ def test_every_selector_in_a_scoped_region_structurally_carries_its_page_scope()
         "Dessa selektorer saknar sitt eget .page--scope som ett strukturellt "
         f"klasstoken (inte bara som delsträng): {violations}"
     )
+
+
+# ── Guidfamiljens egna mallar (uppgift 8) ─────────────────────────────────
+#
+# Allt ovanför det här stycket vaktar DEN DELADE STILMALLEN
+# (exports/_guide-print.css) — en enda fil. Det här stycket vaktar de 26
+# HANDSKRIVNA MALLARNA själva: deras inline <style>-block och markup.
+# published_files() (brandguard.py) utesluter hela exports/, vilket var
+# rätt så länge mallarna låg utanför arbetet — nu ligger de inne, och utan
+# den här vakten kan nästa redigering smyga tillbaka Playfair eller en
+# Crestiora-färg i en mall utan att ett enda test blir rött.
+#
+# Det här dubblerar inte de andra vakterna:
+#   - test_guide_asset_paths.py kontrollerar bildvägar, inte palett/typsnitt.
+#   - test_guide_pdf_font_weights.py läser inbäddade typsnittsNAMN i
+#     RENDRADE PDF:er (pdffonts) — det fångar vikter som kommer från HTML
+#     utan någon CSS-deklaration alls (se not nedan). Vakterna här läser
+#     mallarnas KÄLLTEXT och fångar bara det som faktiskt står i en
+#     font-weight- eller font-family-deklaration. De två lagren täcker
+#     olika saker med samma avsikt; ingen av dem kan ersätta den andra.
+#   - test_guide_pdf_parity.py / test_guide_pdf_body_text.py vaktar
+#     INNEHÅLLET (ord, rubriker), inte paletten eller typsnitten.
+#
+# Vikter-från-HTML-utan-CSS (uppgift 4:s fynd): en ostylad <strong> renderas
+# i webbläsarens nativa 700, vilket det rörliga typsnittet klämmer till 600
+# — ett viktbrott utan en enda font-weight-deklaration någonstans. Det
+# globala `strong, b { font-weight: 500; }` i _guide-print.css täcker det
+# scenariot i dag. test_no_font_weight_outside_the_scale_in_templates
+# nedan kan alltså inte se den klassen av fel — den läser bara
+# font-weight-token i mallarnas KÄLLTEXT. Det är render-nivå-vakten
+# (test_guide_pdf_font_weights.py) som äger det fallet; den här vakten äger
+# bara det som uttryckligen står skrivet i en mall.
+
+TEMPLATES = list(brandguard.guide_templates())
+
+
+def test_the_glob_finds_every_template():
+    """26 handskrivna mallar. Faller globbet ihop tyst vaktar resten
+    ingenting — värdet är verifierat mot det faktiska filsystemet, inte
+    bara ihoptänkt (se uppgift 8:s rapport)."""
+    assert len(TEMPLATES) == 26, [p.name for p in TEMPLATES]
+
+
+@pytest.mark.parametrize("path", TEMPLATES, ids=lambda p: p.name)
+def test_no_old_palette_in_the_templates(path):
+    text = path.read_text(encoding="utf-8")
+    for value in CRESTIORA + OLD_CHOOSEWISE:
+        assert value.lower() not in text.lower(), f"{path.name} bär {value}"
+
+
+@pytest.mark.parametrize("path", TEMPLATES, ids=lambda p: p.name)
+def test_no_external_font_calls(path):
+    assert "fonts.googleapis.com" not in path.read_text(encoding="utf-8")
+
+
+@pytest.mark.parametrize("path", TEMPLATES, ids=lambda p: p.name)
+def test_only_blueprint_typefaces_in_font_family_context(path):
+    """Matcha i font-family-kontext. Sajten undervisar om design och nämner
+    typsnittsnamn i brödtext (t.ex. presentation-skills/module-2: "Fraunces,
+    Times) can feel heavier…") — en vakt utan kontext slår larm på sin egen
+    undervisning. Genom att bara läsa inuti font-family:-deklarationer
+    träffar vakten verklig CSS-användning, aldrig prosa som nämner ett
+    typsnittsnamn i förbigående."""
+    families = re.findall(r"font-family:\s*([^;}]+)", path.read_text(encoding="utf-8"))
+    banned = [f for f in families
+              if re.search(r"Playfair|Fraunces|Work Sans|\bInter\b", f)]
+    assert not banned, f"{path.name}: {banned}"
+
+
+@pytest.mark.parametrize("path", TEMPLATES, ids=lambda p: p.name)
+def test_no_font_weight_outside_the_scale_in_templates(path):
+    """Käll-nivå-syskon till test_no_font_weight_outside_the_scale ovan,
+    men för mallarnas egna inline-stilar i stället för den delade filen.
+    Täcker inte HTML-utan-CSS-fallet (se styckeskommentaren ovan) — det
+    äger render-nivå-vakten i test_guide_pdf_font_weights.py."""
+    weights = re.findall(r"font-weight:\s*(\d{3})", path.read_text(encoding="utf-8"))
+    outside = sorted({w for w in weights if w not in {"300", "400", "500"}})
+    assert not outside, f"{path.name}: vikter utanför skalan {outside}"
