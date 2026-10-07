@@ -50,14 +50,14 @@ PDF_KW = dict(
 
 jobs = [
     (
-        root / "exports/copilot-print-a4-en.html",
-        root / "assets/pdfs/guides/copilot-guide-en.pdf",
+        root / "_unpublished/exports/copilot-print-a4-en.html",
+        root / "_unpublished/assets/pdfs/guides/copilot-guide-en.pdf",
         "Microsoft Copilot for teachers and school leaders",
         "Page",
     ),
     (
-        root / "exports/copilot-print-a4-sv.html",
-        root / "assets/pdfs/guides/copilot-guide-sv.pdf",
+        root / "_unpublished/exports/copilot-print-a4-sv.html",
+        root / "_unpublished/assets/pdfs/guides/copilot-guide-sv.pdf",
         "Microsoft Copilot för lärare och skolledare",
         "Sida",
     ),

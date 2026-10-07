@@ -52,14 +52,14 @@ PDF_KW = dict(
 
 jobs = [
     (
-        root / "exports/ai-for-elever-print-a4-sv.html",
-        root / "assets/pdfs/guides/ai-for-elever-sv.pdf",
+        root / "_unpublished/exports/ai-for-elever-print-a4-sv.html",
+        root / "_unpublished/assets/pdfs/guides/ai-for-elever-sv.pdf",
         "Ska eleverna använda AI på lektionstid?",
         "Sida",
     ),
     (
-        root / "exports/ai-for-students-print-a4-en.html",
-        root / "assets/pdfs/guides/ai-for-students-en.pdf",
+        root / "_unpublished/exports/ai-for-students-print-a4-en.html",
+        root / "_unpublished/assets/pdfs/guides/ai-for-students-en.pdf",
         "Should students use AI in class?",
         "Page",
     ),

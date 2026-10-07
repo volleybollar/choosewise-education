@@ -48,14 +48,14 @@ PDF_KW = dict(
 
 jobs = [
     (
-        root / "exports/apple-intelligence-print-a4-en.html",
-        root / "assets/pdfs/guides/apple-intelligence-guide-en.pdf",
+        root / "_unpublished/exports/apple-intelligence-print-a4-en.html",
+        root / "_unpublished/assets/pdfs/guides/apple-intelligence-guide-en.pdf",
         "Apple Intelligence for teachers and school leaders",
         "Page",
     ),
     (
-        root / "exports/apple-intelligence-print-a4-sv.html",
-        root / "assets/pdfs/guides/apple-intelligence-guide-sv.pdf",
+        root / "_unpublished/exports/apple-intelligence-print-a4-sv.html",
+        root / "_unpublished/assets/pdfs/guides/apple-intelligence-guide-sv.pdf",
         "Apple Intelligence för lärare och skolledare",
         "Sida",
     ),

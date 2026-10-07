@@ -40,13 +40,13 @@ EMPTY_HEADER = "<div></div>"
 
 jobs = [
     (
-        root / "exports/gemini-notebooklm-print-a4-en.html",
-        root / "assets/pdfs/guides/gemini-notebooklm-guide-en.pdf",
+        root / "_unpublished/exports/gemini-notebooklm-print-a4-en.html",
+        root / "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf",
         footer("Gemini &amp; NotebookLM for teachers and school leaders", "Page"),
     ),
     (
-        root / "exports/gemini-notebooklm-print-a4-sv.html",
-        root / "assets/pdfs/guides/gemini-notebooklm-guide-sv.pdf",
+        root / "_unpublished/exports/gemini-notebooklm-print-a4-sv.html",
+        root / "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-sv.pdf",
         footer("Gemini &amp; NotebookLM för lärare och skolledare", "Sida"),
     ),
 ]
