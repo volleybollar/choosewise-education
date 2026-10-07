@@ -254,3 +254,70 @@ def test_generated_card_carries_the_marks_own_paths(rel):
     text = (ROOT / "assets/images/brand" / rel).read_text(encoding="utf-8")
     for d in (NEEDLE_NORTH, NEEDLE_SOUTH):
         assert f'd="{d}"' in text, f"{rel} har en egen teckning av nålen"
+
+
+# --- Guard A: the two SVG-less tiles --------------------------------------
+#
+# skool/logo.png and linkedin/page-logo.png come straight out of
+# tile_svg() with no companion .svg on disk, so only their pixel
+# dimensions were guarded (test_asset_exists_with_exact_size above). A
+# regression that stripped the mark but kept the canvas size would ship a
+# blank blue square as the Skool logo with every other guard green.
+#
+# tile_svg() centres the mark at 62 % of the tile (inner = size * 0.62)
+# and maps the mark's own 0..64 viewBox onto that inner square. The
+# north needle (M32 6 L37.5 32 L26.5 32 Z) narrows to a point at y=6 and
+# widens towards y=32; the box below is inset from all three of its
+# edges across that y-range in the 64-grid, so mapping it through the
+# same scale/offset keeps it inside the needle at any tile size the
+# generator produces — it is derived from the geometry, not fitted to
+# today's output.
+_MARK_INNER_FRACTION = 0.62  # must match tile_svg()'s `inner = size * 0.62`
+_NORTH_NEEDLE_SAFE_BOX = (30.5, 14, 33.5, 30)  # x0, y0, x1, y1 in the 64-grid
+
+
+def _mark_sample_box(tile_size: int) -> tuple[int, int, int, int]:
+    inner = tile_size * _MARK_INNER_FRACTION
+    off = (tile_size - inner) / 2
+    scale = inner / 64
+    x0, y0, x1, y1 = _NORTH_NEEDLE_SAFE_BOX
+    return (
+        round(off + x0 * scale), round(off + y0 * scale),
+        round(off + x1 * scale), round(off + y1 * scale),
+    )
+
+
+@pytest.mark.parametrize("rel", ["skool/logo.png", "linkedin/page-logo.png"])
+def test_svg_less_tiles_carry_the_marks_copper(rel):
+    """No .svg to text-match against, so this opens the PNG itself and
+    looks for the mark's copper in the region the north needle actually
+    occupies — the same technique test_the_png_was_rendered_after_the_svg
+    uses for the og cards."""
+    path = ROOT / "assets/images/brand" / rel
+    im = Image.open(path).convert("RGB")
+    box = _mark_sample_box(im.size[0])
+    colours = im.crop(box).getcolors(im.size[0] * im.size[1]) or []
+    assert any(c == (0xE8, 0xC9, 0xA8) for _, c in colours), (
+        f"{rel}: no copper in the north-needle region {box} — mark missing?")
+
+
+# --- Guard B: the font path ------------------------------------------------
+#
+# The three generated card SVGs declare an @font-face whose src url
+# points at the self-hosted Hanken Grotesk file. A mistyped or stale
+# path renders the card in a system fallback without failing loudly.
+# This catches a wrong or stale path; it does not catch a font that
+# exists but fails to load in time at render — that needs a browser,
+# and a browser-driven document.fonts.check test would trade this
+# sub-second static suite for one with the flakiness that brings.
+_FONT_URL = re.compile(r'url\("?([^")]+?)"?\)')
+
+
+@pytest.mark.parametrize("rel", ["skool/cover.svg", "linkedin/page-banner.svg",
+                                 "linkedin/personal-banner.svg"])
+def test_generated_card_font_path_exists(rel):
+    text = (ROOT / "assets/images/brand" / rel).read_text(encoding="utf-8")
+    match = _FONT_URL.search(text)
+    assert match, f"{rel}: no @font-face src url found"
+    font_path = ROOT / match.group(1).lstrip("/")
+    assert font_path.exists(), f"{rel}: font path {match.group(1)} does not exist"
