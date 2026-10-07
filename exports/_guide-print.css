@@ -66,8 +66,124 @@ body {
 }
 .page { width: 210mm; height: 297mm; display: flex; flex-direction: column; }
 
-/* ── Licenssidan: 13 av 14 klasser är gemensamma mellan de fyra
-      licensmallarna, så hela layouten bor här. Skrivs i uppgift 4. ── */
+/* ── Licenssidan ── */
+
+.page--license {
+  padding: 36mm 28mm;
+  justify-content: center;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 10pt;
+  font-weight: 500;
+  letter-spacing: 3pt;
+  text-transform: uppercase;
+  color: var(--color-highlight-ink);
+  margin-bottom: 18pt;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 36pt;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin-bottom: 10pt;
+}
+
+.subtitle {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: 15pt;
+  color: var(--color-text-muted);
+  margin-bottom: 32pt;
+}
+
+.divider {
+  width: 48pt;
+  height: 2px;
+  background: var(--color-highlight);
+  margin: 0 auto 32pt;
+}
+
+.body {
+  font-size: 11.5pt;
+  line-height: 1.65;
+  color: var(--color-text-soft);
+  max-width: 420pt;
+  margin: 0 auto 24pt;
+}
+
+.body strong {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.terms {
+  max-width: 420pt;
+  margin: 0 auto 32pt;
+  text-align: left;
+}
+
+.term-row {
+  display: flex;
+  gap: 16pt;
+  padding: 10pt 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 10.5pt;
+  line-height: 1.5;
+}
+.term-row:last-child { border-bottom: none; }
+
+.term-label {
+  flex: 0 0 80pt;
+  font-weight: 500;
+  color: var(--color-text);
+  letter-spacing: 0.3pt;
+}
+
+.term-body {
+  flex: 1;
+  color: var(--color-text-soft);
+}
+
+.link {
+  font-family: monospace;
+  font-size: 10pt;
+  color: var(--color-accent);
+  border-bottom: 1px solid var(--color-highlight);
+  padding-bottom: 1pt;
+}
+
+.signature {
+  margin-top: 40pt;
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: 12pt;
+  color: var(--color-text);
+}
+
+.attribution {
+  margin-top: 6pt;
+  font-size: 8.5pt;
+  letter-spacing: 2pt;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* .colophon-note: bara presentation-skills/presentationsteknik-mallarna
+   använder den (2 av 4), men den är ändå del av licenssidans layout. */
+.colophon-note {
+  margin-top: 28pt;
+  font-size: 9.5pt;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  max-width: 360pt;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+}
 
 /* ── Quick start: 20 av 46 klasser är gemensamma mellan de tio
       quick start-mallarna. Kärnan bor här, resten lokalt. Uppgift 5. ── */
