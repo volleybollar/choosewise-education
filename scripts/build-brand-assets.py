@@ -100,17 +100,83 @@ def build_favicons(page) -> None:
     (ROOT / "_ico32.png").unlink()
 
 
+def card_svg(w: int, h: int, mark_size: int, mark_x: int, mark_y: int,
+             title: str | None, subtitle: str | None,
+             title_pt: int, sub_pt: int, text_x: int,
+             title_y: int, sub_y: int, band: int) -> str:
+    """Mörkt kort med märket, rubrik, underrubrik och kopparbandet nederst.
+
+    Bandet är samma band som sajtens footer. Det är det som binder
+    Skool och LinkedIn till sajten visuellt.
+    """
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
+        f'viewBox="0 0 {w} {h}">',
+        '<style>@font-face{font-family:"Hanken Grotesk";'
+        'src:url("/assets/fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2") '
+        'format("woff2");font-weight:300 600}</style>',
+        f'<rect width="{w}" height="{h}" fill="{BLUE}"/>',
+        f'<rect y="{h - band}" width="{w}" height="{band}" fill="#C2793A"/>',
+        f'<svg x="{mark_x}" y="{mark_y}" width="{mark_size}" height="{mark_size}" '
+        f'viewBox="0 0 64 64">{mark_markup("dark")}</svg>',
+    ]
+    if title:
+        parts.append(
+            f'<text x="{text_x}" y="{title_y}" font-family="Hanken Grotesk, sans-serif" '
+            f'font-size="{title_pt}" font-weight="300" fill="{CREAM}" '
+            f'letter-spacing="-2">{title}</text>')
+    if subtitle:
+        parts.append(
+            f'<text x="{text_x}" y="{sub_y}" font-family="Hanken Grotesk, sans-serif" '
+            f'font-size="{sub_pt}" font-weight="400" fill="{COPPER_DK}" '
+            f'letter-spacing="1.6">{subtitle}</text>')
+    parts.append("</svg>")
+    return "".join(parts)
+
+
+TITLE = "Choosewise"
+SUBTITLE = "AI &amp; EdTech for Educators"
+
+
+def build_skool(page) -> None:
+    out = BRAND / "skool"
+    render_png(page, tile_svg(1024, radius_pct=0), 1024, 1024, out / "logo.png")
+    cover = card_svg(1400, 790, 168, 112, 150, TITLE, SUBTITLE,
+                     104, 42, 112, 438, 512, 24)
+    (out / "cover.svg").write_text(cover, encoding="utf-8")
+    render_png(page, cover, 1400, 790, out / "cover.png")
+
+
+def build_linkedin(page) -> None:
+    out = BRAND / "linkedin"
+    render_png(page, tile_svg(300, radius_pct=0), 300, 300, out / "page-logo.png")
+
+    page_banner = card_svg(1128, 191, 88, 56, 46, TITLE, SUBTITLE,
+                           46, 21, 176, 94, 130, 8)
+    (out / "page-banner.svg").write_text(page_banner, encoding="utf-8")
+    render_png(page, page_banner, 1128, 191, out / "page-banner.png")
+
+    # Den personliga bannern: LinkedIn lägger profilbilden över vänstra
+    # delen, så märket och texten börjar längre in än på sidbannern.
+    personal = card_svg(1584, 396, 120, 90, 138, TITLE, SUBTITLE,
+                        62, 28, 248, 196, 246, 12)
+    (out / "personal-banner.svg").write_text(personal, encoding="utf-8")
+    render_png(page, personal, 1584, 396, out / "personal-banner.png")
+
+
 def main() -> None:
     with sync_playwright() as pw:
         httpd = serve()
         browser = pw.chromium.launch()
-        page = browser.new_page()
+        page = browser.new_page(device_scale_factor=1)
         try:
             # set_content ärver det aktuella dokumentets ursprung. Utan den
             # här navigeringen är sidan about:blank och absoluta sökvägar
             # (t.ex. typsnitt) kan inte slå upp mot servern.
             page.goto(f"http://127.0.0.1:{PORT}/")
             build_favicons(page)
+            build_skool(page)
+            build_linkedin(page)
         finally:
             browser.close()
             httpd.shutdown()

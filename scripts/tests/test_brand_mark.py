@@ -230,3 +230,27 @@ def test_the_generator_itself_composes_cards_with_the_mark():
     )
     for d in (NEEDLE_NORTH, NEEDLE_SOUTH):
         assert f'd="{d}"' in svg, "generatorns TEMPLATE saknar nålen"
+
+
+EXPECTED_SIZES = {
+    "skool/logo.png": (1024, 1024),
+    "skool/cover.png": (1400, 790),
+    "linkedin/page-logo.png": (300, 300),
+    "linkedin/page-banner.png": (1128, 191),
+    "linkedin/personal-banner.png": (1584, 396),
+}
+
+
+@pytest.mark.parametrize("rel,size", EXPECTED_SIZES.items())
+def test_asset_exists_with_exact_size(rel, size):
+    path = ROOT / "assets/images/brand" / rel
+    assert path.exists(), f"{rel} saknas"
+    assert Image.open(path).size == size
+
+
+@pytest.mark.parametrize("rel", ["skool/cover.svg", "linkedin/page-banner.svg",
+                                 "linkedin/personal-banner.svg"])
+def test_generated_card_carries_the_marks_own_paths(rel):
+    text = (ROOT / "assets/images/brand" / rel).read_text(encoding="utf-8")
+    for d in (NEEDLE_NORTH, NEEDLE_SOUTH):
+        assert f'd="{d}"' in text, f"{rel} har en egen teckning av nålen"
