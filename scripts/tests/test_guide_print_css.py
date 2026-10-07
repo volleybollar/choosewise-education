@@ -63,11 +63,40 @@ def test_fonts_are_self_hosted():
         assert (CSS.parent / rel).resolve().exists(), f"typsnittsfilen saknas: {rel}"
 
 
+def _without_font_face_blocks(text: str) -> str:
+    """@font-face describes what the font FILE supports, not how a weight
+    is used — a variable font's range (e.g. `300 600`) is correct there
+    and must not be read as a usage. Strip those blocks before scanning
+    for actual weight usages."""
+    return re.sub(r"@font-face\s*\{[^}]*\}", "", text, flags=re.S)
+
+
 def test_no_font_weight_outside_the_scale():
-    """Display 300, rubrik 400, brödtext 400, betoning 500. Inget annat."""
-    weights = re.findall(r"font-weight:\s*(\d{3})", css())
-    outside = sorted({w for w in weights if w not in {"300", "400", "500"}})
-    assert not outside, f"vikter utanför skalan: {outside}"
+    """Display 300, rubrik 400, brödtext 400, betoning 500. Inget annat.
+
+    Only usages count (outside @font-face). A usage must resolve to the
+    scale: 300, 400, 500, or the keyword `normal` (= 400). `bold`,
+    `bolder`, `lighter` and any numeric value outside the scale are
+    violations — including a second number in a multi-value declaration.
+    """
+    text = _without_font_face_blocks(css())
+    allowed_numeric = {"300", "400", "500"}
+    violations = []
+    for declaration in re.findall(r"font-weight:\s*([^;]+);", text):
+        for token in declaration.split():
+            if token == "normal" or token in allowed_numeric:
+                continue
+            violations.append(token)
+    assert not violations, \
+        f"vikter utanför skalan (utanför @font-face): {sorted(set(violations))}"
+
+
+def test_font_face_variable_range_is_exempt_from_the_scale():
+    """The scale guard above must not reach into @font-face — the Hanken
+    Grotesk variable range `300 600` describes the file, not a usage,
+    and must stay untouched by tasks 4-6."""
+    assert re.search(r"font-weight:\s*300\s+600\s*;", css()), \
+        "Hanken Grotesk @font-face-intervallet 300 600 saknas eller har ändrats"
 
 
 def test_copper_is_never_used_as_text_colour():
