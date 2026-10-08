@@ -245,7 +245,7 @@ Kontrollerat 2026-10-08 mot officiella källor. **Cowork har ändrats väsentlig
 - **§6**, det svenska passet, får mer nyskriven text att hantera. Omskrivna avsnitt skrivs direkt i Johans röst, inte översatta från den engelska omskrivningen. Det är skillnaden mellan att skriva svenska och att översätta.
 - **§9**, fixturerna, får större rörelse. Omfångningen är fortfarande selektiv till de fyra Claude-nycklarna, men diffen inom dem blir stor. Kravet står kvar: verifiera att bara de fyra nycklarna rör sig.
 - **Utrullningens ojämnhet** måste hanteras i den omskrivna texten. Guiden ska inte hänga på om läsaren fått sammanslagningen eller inte.
-- **Claude Docs och Claude Slides** (lanserade 2026-09-16, alla planer) hör in i Artifacts-avsnittet som "väsentligt nytt", och blir egna poster i inventeringen.
+- **Claude Design, Claude Slides och Claude Docs** (lanserade 2026-09-16) hör in i Artifacts-avsnittet som "väsentligt nytt", och blir egna poster i inventeringen. **Rättat 2026-10-08:** det är tre funktioner, inte två, och de ligger på **betalplanerna — inte på Free**. `claude.com/pricing` visar raden "Claude Design, Slides, Docs" som Nej för Free och Ja för Pro och Max; annonseringen säger "All three are in beta on paid plans". Specens tidigare lydelse "alla planer" var fel och hade skrivit in en osanning i guiden.
 - **Modellnamnen** i plantabellen är inte fastställda. Release notes antyder Sonnet 5.5, Opus 5.5 och Haiku 5.5 under september–oktober 2026, men uppgiften kom via en sammanfattande hämtning och är inte ordagrant läst. Egna poster i inventeringen med direktläst källa innan något skrivs.
 
 ## 15. Dokument
