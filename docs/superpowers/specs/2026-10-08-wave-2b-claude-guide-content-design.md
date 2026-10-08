@@ -204,11 +204,13 @@ Kontrollerat 2026-10-08 mot officiella källor. **Cowork har ändrats väsentlig
 
 **Utrullningen är ojämn, och det gäller alla vägar nedan.** Sammanslagningen har nått Pro och Max; Team och Free följer "soon". En lärare på Free och en på Pro ser alltså inte samma Claude. Guiden måste antingen säga vad som gäller per plan eller skrivas så att den inte hänger på utrullningsläget.
 
-### Tre vägar, omfånget går tillbaka till Johan
+### Vägvalet
+
+**Johans beslut 2026-10-08: väg 2.** De två bärande avsnitten skrivs om. De tre vägarna står kvar nedan som motivering till varför.
 
 **Väg 1 — minsta sanning.** Rätta påståendena där de står: inte Desktop-exklusivt, körs i molnet, finns på Pro/Max/Team/Enterprise. Behåll Cowork som eget avsnitt och guidens nuvarande ram. Billigast, och ingen ompaginering värd namnet. Men guiden fortsätter lära ut ett val mellan Chat och Cowork som håller på att upphöra, och är inaktuell igen inom månader.
 
-**Väg 2 — skriv om de två bärande avsnitten. Rekommenderad.** Behåll guidens tredelning, byt ramen: från "fyra platser du går till" till "ett Claude som gör olika saker beroende på vad du ber om". Cowork-avsnittet blir ett avsnitt om agentiskt arbete — vad det är, när det lönar sig, vad som ändras i ansvar och datahantering — utan att hänga på ett fliknamn som försvinner. GDPR-sektionen rättas för molnkörningen. Två avsnitt skrivs om i fyra filer; resten av guiden rättas post för post som planerat. Ompaginering i alla fyra PDF:er och motsvarande fixturrörelse.
+**Väg 2 — skriv om de två bärande avsnitten. VALD.** Behåll guidens tredelning, byt ramen: från "fyra platser du går till" till "ett Claude som gör olika saker beroende på vad du ber om". Cowork-avsnittet blir ett avsnitt om agentiskt arbete — vad det är, när det lönar sig, vad som ändras i ansvar och datahantering — utan att hänga på ett fliknamn som försvinner. GDPR-sektionen rättas för molnkörningen. Två avsnitt skrivs om i fyra filer; resten av guiden rättas post för post som planerat. Ompaginering i alla fyra PDF:er och motsvarande fixturrörelse.
 
 **Väg 3 — vänta ut utrullningen.** Skjut Cowork-avsnitten till en senare runda och leverera resten av 2b nu. Minst risk att skriva om ett rörligt mål två gånger. Men guiden publiceras då med två avsnitt som vi vet beskriver en produkt som upphört, och det är svårt att försvara i ett medlemsvärde.
 
@@ -222,9 +224,16 @@ Kontrollerat 2026-10-08 mot officiella källor. **Cowork har ändrats väsentlig
 - **ChatGPT-jämförelsen:** skrivs om till något som inte är en jämförelse. Johans skäl: custom GPTs håller på att försvinna, så påståendet blir fel oavsett formulering. Posten i inventeringen är alltså inte "belägg jämförelsen" utan "ersätt den med ett påstående om vad Projects gör".
 - **Upplagan:** andra upplagan, oktober 2026. Se §7.
 
-### Väntar på Johan
+- **Cowork-omfånget:** väg 2 enligt §13. De två bärande avsnitten skrivs om, ramen byts från "fyra platser du går till" till "ett Claude som gör olika saker beroende på vad du ber om", och GDPR-sektionen rättas för molnkörningen.
 
-- **Cowork-omfånget**, väg 1, 2 eller 3 enligt §13. Planen skrivs inte förrän den är avgjord — vägvalet avgör hur stor planen är.
+### Konsekvenser av väg 2 för resten av specen
+
+- **§2 punkt 3** växer: utöver rättningar och tillägg omfattar leveransen en omskrivning av "Understanding the Claude ecosystem" och Cowork-avsnittet i del 3, i fyra filer.
+- **§6**, det svenska passet, får mer nyskriven text att hantera. Omskrivna avsnitt skrivs direkt i Johans röst, inte översatta från den engelska omskrivningen. Det är skillnaden mellan att skriva svenska och att översätta.
+- **§9**, fixturerna, får större rörelse. Omfångningen är fortfarande selektiv till de fyra Claude-nycklarna, men diffen inom dem blir stor. Kravet står kvar: verifiera att bara de fyra nycklarna rör sig.
+- **Utrullningens ojämnhet** måste hanteras i den omskrivna texten. Guiden ska inte hänga på om läsaren fått sammanslagningen eller inte.
+- **Claude Docs och Claude Slides** (lanserade 2026-09-16, alla planer) hör in i Artifacts-avsnittet som "väsentligt nytt", och blir egna poster i inventeringen.
+- **Modellnamnen** i plantabellen är inte fastställda. Release notes antyder Sonnet 5.5, Opus 5.5 och Haiku 5.5 under september–oktober 2026, men uppgiften kom via en sammanfattande hämtning och är inte ordagrant läst. Egna poster i inventeringen med direktläst källa innan något skrivs.
 
 ## 15. Dokument
 
