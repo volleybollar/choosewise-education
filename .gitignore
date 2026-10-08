@@ -41,3 +41,6 @@ __pycache__/
 
 # One-off content-migration scripts
 /scripts/fix-lar-dig-*.py
+
+# Isolerade arbetsytor (git worktrees)
+.worktrees/
