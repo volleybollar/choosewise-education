@@ -183,8 +183,8 @@ P13 | en | Transparency risk | aktiv
 P13 | en | Minimal or no risk | aktiv
 P13 | en | phases in through 2026 and beyond | borttaget
 P13 | en | Limited risk | borttaget
-# P14: Task 9 byter stämpeln till oktober 2026 — uppdatera denna rad samtidigt.
-P14 | en | April 2026 | aktiv
+# P14: Task 9 har bytt stämpeln till oktober 2026; raden bevakar den nya strängen.
+P14 | en | October 2026 | aktiv
 P15 | en | Claude Docs | aktiv
 P15 | en | Claude Slides | aktiv
 P15 | en | Claude Design | aktiv
