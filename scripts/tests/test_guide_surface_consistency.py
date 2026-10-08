@@ -17,7 +17,7 @@ from .factinventory import Row
 
 def test_comparison_normalises_whitespace_and_dashes():
     """Granskningsfokus 3: typografi får inte göra vakten falskt röd."""
-    assert surfacecheck.normalise("~$20 / mo") == surfacecheck.normalise("~$20 / mo")
+    assert surfacecheck.normalise("~$20 / mo") == surfacecheck.normalise("~$20 / mo")
     assert surfacecheck.normalise("april–2026") == surfacecheck.normalise("april-2026")
     assert surfacecheck.normalise("a  b\n c") == surfacecheck.normalise("a b c")
 
@@ -55,6 +55,16 @@ def test_derived_rows_require_their_source_row_to_be_resolved():
     surfaces = {("sv", "web"): "ca 200 kr / mån", ("sv", "print"): "ca 200 kr / mån"}
     problems = surfacecheck.check(rows, surfaces)
     assert any(p.kind == "saknar_motpart" for p in problems)
+
+
+def test_an_english_only_row_needs_no_swedish_counterpart():
+    """Granskningsfokus 5, andra riktningen: ett engelskt påstående får
+    sakna svensk motsvarighet helt legitimt — bara kronvärdet hänger på
+    dollarvärdet och får inte rättas ensamt, inte tvärtom."""
+    rows = [Row("P05", "en", "Second edition", "aktiv")]
+    surfaces = {("en", "web"): "Second edition", ("en", "print"): "Second edition"}
+    problems = surfacecheck.check(rows, surfaces)
+    assert not any(p.kind == "saknar_motpart" for p in problems)
 
 
 def test_the_real_inventory_parses_and_the_real_surfaces_agree():
