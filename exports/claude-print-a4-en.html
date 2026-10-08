@@ -720,7 +720,7 @@
     <li class="toc-sub"><span class="toc-title">Styles, Memory &amp; five classroom workflows</span><span class="toc-page-num">20</span></li>
 
     <li class="toc-part-row"><span class="toc-title">Part 3 — Scale &amp; Lead</span><span class="toc-page-num">24</span></li>
-    <li class="toc-sub"><span class="toc-title">Cowork · Skills · Claude Code</span><span class="toc-page-num">24</span></li>
+    <li class="toc-sub"><span class="toc-title">Handing over a task · Skills · Claude Code</span><span class="toc-page-num">24</span></li>
     <li class="toc-sub"><span class="toc-title">Whole-school rollout &amp; ethics</span><span class="toc-page-num">29</span></li>
 
     <li class="toc-part-row"><span class="toc-title">Bonus — For EU readers</span><span class="toc-page-num">33</span></li>
@@ -768,7 +768,7 @@
 <div class="content pagebreak">
   <h1>Understanding the Claude ecosystem</h1>
 
-  <p>Claude is not a single product. Most teachers will spend most of their time in one place — chat — but it is worth knowing what the other surfaces are, because they serve different purposes and some require a paid plan. Five minutes spent on this page saves a lot of confusion later.</p>
+  <p>Claude is one product, and the question is never which one to open. It is how much you are asking for. A question gets an answer. A whole job gets taken on and carried out. The only real fork is Claude Code, a separate tool for people who work in a terminal, and most teachers will never need it. Five minutes spent on this page saves a lot of confusion later.</p>
 
   <!-- Ecosystem diagram -->
   <div class="diagram-figure">
@@ -776,43 +776,32 @@
       <!-- Baseline -->
       <line x1="40" y1="200" x2="640" y2="200" stroke="var(--color-text-muted)" stroke-width="0.8" opacity="0.4"/>
 
-      <!-- Node 1 — Chat -->
-      <rect x="40" y="60" width="130" height="130" rx="10" fill="var(--color-bg-alt)" stroke="var(--color-border)" stroke-width="1"/>
-      <text x="105" y="112" font-family="var(--font-display)" font-size="22" font-weight="500" fill="var(--color-accent)" text-anchor="middle">Chat</text>
-      <text x="105" y="144" font-family="var(--font-body)" font-size="9" font-weight="500" letter-spacing="1.5" fill="var(--color-text-muted)" text-anchor="middle">FREE + PAID</text>
+      <!-- Node 1 — Claude: one surface, two kinds of request -->
+      <rect x="40" y="60" width="380" height="130" rx="10" fill="var(--color-dark-bg)"/>
+      <text x="230" y="104" font-family="var(--font-display)" font-size="22" font-weight="500" fill="var(--color-dark-text)" text-anchor="middle">Claude</text>
+      <text x="230" y="130" font-family="var(--font-body)" font-size="11" fill="var(--color-dark-text)" text-anchor="middle">ask a question — or hand over a whole task</text>
+      <text x="230" y="160" font-family="var(--font-body)" font-size="9" font-weight="500" letter-spacing="1.5" fill="var(--color-highlight-on-dark)" text-anchor="middle">WEB · DESKTOP · MOBILE</text>
 
-      <!-- Node 2 — Cowork -->
-      <rect x="200" y="60" width="130" height="130" rx="10" fill="var(--color-dark-bg)"/>
-      <text x="265" y="112" font-family="var(--font-display)" font-size="22" font-weight="500" fill="var(--color-dark-text)" text-anchor="middle">Cowork</text>
-      <text x="265" y="144" font-family="var(--font-body)" font-size="9" font-weight="500" letter-spacing="1.5" fill="var(--color-highlight-on-dark)" text-anchor="middle">PAID ONLY</text>
-      <!-- Accent badge -->
-      <rect x="231" y="74" width="68" height="14" rx="7" fill="var(--color-highlight)"/>
-      <text x="265" y="84" font-family="var(--font-body)" font-size="7" font-weight="500" letter-spacing="1.2" fill="var(--color-accent)" text-anchor="middle">NEW 2026</text>
-
-      <!-- Node 3 — Code -->
-      <rect x="360" y="60" width="130" height="130" rx="10" fill="var(--color-bg-alt)" stroke="var(--color-border)" stroke-width="1"/>
-      <text x="425" y="112" font-family="var(--font-display)" font-size="22" font-weight="500" fill="var(--color-accent)" text-anchor="middle">Code</text>
-      <text x="425" y="144" font-family="var(--font-body)" font-size="9" font-weight="500" letter-spacing="1.5" fill="var(--color-text-muted)" text-anchor="middle">PAID · TECHNICAL</text>
-
-      <!-- Node 4 — Mobile -->
-      <rect x="520" y="60" width="130" height="130" rx="10" fill="var(--color-bg-alt)" stroke="var(--color-border)" stroke-width="1"/>
-      <text x="585" y="112" font-family="var(--font-display)" font-size="22" font-weight="500" fill="var(--color-accent)" text-anchor="middle">Mobile</text>
-      <text x="585" y="144" font-family="var(--font-body)" font-size="9" font-weight="500" letter-spacing="1.5" fill="var(--color-text-muted)" text-anchor="middle">FREE + PAID</text>
+      <!-- Node 2 — Claude Code -->
+      <rect x="450" y="60" width="190" height="130" rx="10" fill="var(--color-bg-alt)" stroke="var(--color-border)" stroke-width="1"/>
+      <text x="545" y="104" font-family="var(--font-display)" font-size="22" font-weight="500" fill="var(--color-accent)" text-anchor="middle">Claude Code</text>
+      <text x="545" y="130" font-family="var(--font-body)" font-size="11" fill="var(--color-text-muted)" text-anchor="middle">for people who work in a terminal</text>
+      <text x="545" y="160" font-family="var(--font-body)" font-size="9" font-weight="500" letter-spacing="1.5" fill="var(--color-text-muted)" text-anchor="middle">PAID · TECHNICAL</text>
     </svg>
-    <p class="diagram-caption">Four surfaces, one model family. Most of your work initially happens in Chat.</p>
+    <p class="diagram-caption">One Claude, reached from a browser, a desktop app or a phone. The choice that matters is not where you go — it is how much you hand over.</p>
   </div>
 
-  <h2>Chat — the conversational interface</h2>
-  <p>Chat is Claude as most people know it: type a prompt, get a response, iterate. It runs at claude.ai in a browser, in the Claude Desktop app on macOS and Windows, and in the mobile apps. The free tier gives you access to Claude Sonnet, file uploads, web search, memory across conversations, and the ability to produce downloadable documents. This is where ninety per cent of teachers will do ninety per cent of their work.</p>
+  <h2>One Claude, two kinds of request</h2>
+  <p>The first kind is the conversation everybody pictures: you type a prompt, read the response, decide the next step, and type again. You are steering, one move at a time. The second kind is a job description rather than a question — several steps, several outputs, one finished result — and here Claude plans the work, carries it out, and uses tools along the way until it is finished. Same account, same conversation list, same box you type into. You are not selecting a product. You are deciding how much of the work to hand over, and Part 3 is where the second kind is taught properly.</p>
+  <p>Anthropic used to keep the two apart, as chat and as a separate mode called Cowork, and is now merging them into a single Claude — the Pro and Max plans first, with Team and Free to follow. Two colleagues may therefore see slightly different screens for a while. It changes nothing in this guide: if your Claude still offers Cowork as a separate choice, handing a job over costs you one extra click, and everything written here applies unchanged.</p>
 
-  <h2>Cowork — agentic mode inside Claude Desktop (paid)</h2>
-  <p>Cowork is newer, and it is worth learning about because it changes what Claude can do for you in a single request. Anthropic describes it this way: "Claude Cowork uses the same agentic architecture that powers Claude Code, now accessible within Claude Desktop and without opening the terminal. Instead of responding to prompts one at a time, Claude can take on complex, multi-step tasks and execute them on your behalf." Cowork sits as a tab inside Claude Desktop on paid plans. You will meet it properly in Part 3.</p>
+  <h2>Where you reach Claude</h2>
+  <p>At claude.ai in a browser, in the Claude Desktop app on macOS and Windows, and in the iOS and Android apps — one account, the same conversations in all three. There is also a Claude side panel for Chrome. It is available on the Max and Team plans, is rolling out to Pro, and on Enterprise plans appears wherever an administrator has switched it on.</p>
+  <p>Do not underrate the phone. Voice input is the hidden productivity feature: a teacher I work with drafts her weekly parent communications during her commute by dictating, then edits on the laptop at home. The phone is not where you build; it is where you capture and review.</p>
+  <p>None of this requires a paid plan to try. The free tier gives you access to Claude Sonnet, file uploads, web search, memory across conversations, and the ability to produce downloadable documents. Ninety per cent of teachers will do ninety per cent of their work with no more than that.</p>
 
   <h2>Claude Code — the developer tool (paid, technical)</h2>
-  <p>Claude Code is a command-line tool for developers and IT-curious staff. It lets Claude read and write files on your computer and run programs. For most teachers this is not a daily tool, but it is where Claude becomes most powerful — and where your school's tech staff or curriculum lead may want to spend time. Part 3 includes a short glimpse so you know what it is.</p>
-
-  <h2>Mobile — Claude on the go</h2>
-  <p>The iOS and Android apps give you the same Chat on a smaller screen. Voice input is particularly useful: a teacher I work with drafts her weekly parent communications during her commute by dictating, then edits on the laptop at home. Mobile is not where you build; it is where you capture and review.</p>
+  <p>This is the one place where you really do choose between two things: opening Claude, or opening Claude Code. Claude Code is a command-line tool for developers and IT-curious staff. It lets Claude read and write files on your computer and run programs. For most teachers this is not a daily tool, but it is where Claude becomes most powerful — and where your school's tech staff or curriculum lead may want to spend time. Part 3 includes a short glimpse so you know what it is.</p>
 
   <h2>What you get on each plan</h2>
   <table>
@@ -835,7 +824,7 @@
         <td><strong>Pro</strong></td>
         <td>~$20 / month</td>
         <td>A teacher's daily workhorse</td>
-        <td>Everything in Free, plus access to Opus, <em>Cowork</em>, larger usage limits, unlimited Projects, extended thinking</td>
+        <td>Everything in Free, plus access to Opus, <em>handing over whole tasks</em>, larger usage limits, unlimited Projects, extended thinking</td>
       </tr>
       <tr>
         <td><strong>Max</strong></td>
@@ -873,7 +862,7 @@
   <p>Fastest start. No install, no permissions, no IT ticket. Open the browser, sign in, start typing. If you only want to try Claude before committing to anything, this is where to begin.</p>
 
   <h3>Desktop app (macOS and Windows)</h3>
-  <p>Recommended for daily use. The desktop app runs outside your browser, which means you are not fighting thirty open tabs when you want to think. It also happens to be where Cowork lives on paid plans, so if you upgrade, this is where you will be working.</p>
+  <p>Recommended for daily use. The desktop app runs outside your browser, which means you are not fighting thirty open tabs when you want to think. It is also the route to anything on your own machine: when a task needs a local file or your browser, Claude reaches it through the desktop app.</p>
 
   <h3>Mobile (iOS and Android)</h3>
   <p>Install both. Voice input is the hidden productivity feature. A ten-minute walk between classrooms is long enough to dictate a draft parent email, a feedback summary, or a rough lesson outline. You edit the text later, on a proper keyboard. What gets written on the walk would otherwise never get written.</p>
@@ -978,7 +967,7 @@ Pitch: students reading at Year 5 to Year 7 level.</div>
 
   <ul class="checklist">
     <li>I have created a Claude account and signed in at claude.ai</li>
-    <li>I know which surface (Chat, Cowork, Code, Mobile) is which, and which require a paid plan</li>
+    <li>I know the difference between asking Claude a question and handing over a whole task — and which of the two my plan gives me today</li>
     <li>I have written at least three prompts using the RTF anatomy — Role, Task, Format</li>
     <li>I have iterated on at least one prompt — improving it through two rounds of feedback — for a real task</li>
     <li>I have completed at least one of the five quick wins for a lesson or task this week</li>
@@ -1143,27 +1132,30 @@ Pitch: students reading at Year 5 to Year 7 level.</div>
 <div class="content">
   <img src="../guides/claude/assets/part-3-opener.jpg" class="image-figure" alt="" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot; style=&quot;height: 70mm;&quot;&gt;Part 3 opener image · drop part-3-opener.jpg into pdf/assets/&lt;/div&gt;';">
 
-  <h1>Cowork — agentic workflows without the terminal</h1>
-  <p>Cowork is a tab inside Claude Desktop on paid plans. Anthropic's own description is worth quoting: "Claude Cowork uses the same agentic architecture that powers Claude Code, now accessible within Claude Desktop and without opening the terminal. Instead of responding to prompts one at a time, Claude can take on complex, multi-step tasks and execute them on your behalf."</p>
-  <p>The practical difference: in Chat, you run one prompt, wait for the response, then decide the next step. In Cowork, you describe a multi-step task and Claude works through it, using tools as it goes, until the task is done. You stay in the loop — you can watch, interrupt, and redirect — but you are not doing the manual orchestration.</p>
+  <h1>Handing Claude a whole task</h1>
+  <p>Parts 1 and 2 were about asking better questions. This part begins with the opposite move: not asking a question at all, but describing a job and letting Claude carry it out. Several steps, several outputs, one finished result. Claude plans the work, does it, and uses tools along the way until it is done — the same agentic machinery that drives Claude Code, without a terminal anywhere in sight.</p>
+  <p>You remain in the loop while it works. You can watch each step, interrupt, and point it somewhere else. What you have stopped doing is the orchestration: the chaining of one prompt into the next, which is the part that used to eat the morning.</p>
+  <p>Anthropic used to sell this as a separate mode called Cowork, and is merging it into Claude itself — the Pro and Max plans first, with Team and Free to follow. If your account still shows Cowork as its own choice, this chapter is what sits behind it. If it does not, you describe the job in the ordinary way and Claude takes it from there. The work, and your responsibility for the result, are identical either way.</p>
 
-  <img src="../guides/claude/assets/screenshot-cowork-tab.png" class="image-figure" alt="Claude Desktop showing the Cowork tab" style="margin: 6mm 0; border: 1px solid var(--color-border); border-radius: 2mm;" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Screenshot pending: screenshot-cowork-tab.png&lt;/div&gt;';">
+  <h2>Where the work actually runs</h2>
+  <p>This is worth a paragraph of its own, because it decides what a school may legitimately use this for. The work does not happen on your laptop. Claude's work runs in an isolated environment on Anthropic's servers, separate from your computer and your network; on Team and Enterprise plans that cloud execution is still in beta. Local files are not out of reach — when a task needs a file on your machine, or your browser, Claude reaches it through the Claude Desktop app — but the processing itself happens on Anthropic's side. The data discipline section later in this part, and the bonus chapter for EU readers, both turn on that fact.</p>
 
-  <h2>When to reach for Cowork instead of Chat</h2>
-  <p>Cowork earns its keep on tasks that would otherwise require you to write three, five, or ten chained prompts yourself. For example:</p>
+  <h2>When to hand over instead of ask</h2>
+  <p>Handing over earns its keep on tasks that would otherwise require you to write three, five, or ten chained prompts yourself. For example:</p>
   <ul>
     <li>"Plan a five-week unit on photosynthesis. Include weekly learning objectives, one lesson outline per week, a formative assessment in week three, a summative project brief for week five, and a single-page parent-facing overview."</li>
     <li>"Draft a parent newsletter for this month. Pull the events from the attached school calendar, add a short note from the head teacher, a celebration of three students' achievements (I will supply the names as placeholders), and a reminder about the upcoming assessment week. Format as one printable A4 page."</li>
     <li>"Produce a consistent set of differentiated resources for the Year 9 Industrial Revolution unit: one simplified reading, one at-level reading, one extension reading, a vocabulary sheet with child-friendly definitions, and a retrieval quiz, for each of the four lesson topics."</li>
   </ul>
-  <p>Each of these would have been a morning of chained prompts in Chat. In Cowork, each is a single request.</p>
+  <p>Each of these would have been a morning of chained prompts. Handed over whole, each is a single request.</p>
 
-  <h2>A school leader's Cowork example</h2>
-  <p>A principal I worked with recently used Cowork to produce the first draft of a staff handbook. She uploaded the school's existing policies, a template from a partner school, and the leadership team's notes from a planning day. She asked Cowork to produce a unified draft, preserving the school's voice, flagging any contradictions between the existing policies, and producing a one-page summary of key changes. Cowork took about six minutes. Editing the draft into the final version took another two hours. The alternative — starting from scratch — would have taken a weekend.</p>
+  <h2>A school leader's example</h2>
+  <p>A principal I worked with recently handed Claude a whole job: the first draft of a staff handbook. She uploaded the school's existing policies, a template from a partner school, and the leadership team's notes from a planning day, and described the job in one go: a unified draft that preserved the school's voice, a list of every contradiction it found between the existing policies, and a one-page summary of what had changed. Claude took about six minutes. Editing the draft into the final version took her another two hours. The alternative — starting from a blank page — would have taken a weekend.</p>
+  <p>Note what the six minutes did not do. It did not decide what the school's position should be on anything. It produced a draft that a professional then argued with for two hours, which is exactly the right division of labour.</p>
 
   <div class="callout callout-watch">
     <span class="callout-label">Watch Out · Autonomy</span>
-    <p>Cowork is more autonomous than Chat. It will take several steps in sequence without checking in between every one. That speed is the point — but it also means errors can propagate further before you catch them. Read everything it produces before you send it anywhere or act on it. Treat every Cowork output like a draft from a junior colleague who works very fast and sometimes gets things confidently wrong.</p>
+    <p>A handed-over task is far more autonomous than a conversation. Claude takes several steps in sequence without checking in between every one. That speed is the point — but it also means errors can propagate further before you catch them. Read everything it produces before you send it anywhere or act on it. Treat every finished task like a draft from a junior colleague who works very fast and sometimes gets things confidently wrong.</p>
   </div>
 </div>
 
@@ -1234,7 +1226,8 @@ Pitch: students reading at Year 5 to Year 7 level.</div>
 
   <h2>Data discipline</h2>
   <p>The rule from Part 2 repeats here, at the school level: decide in advance which categories of data are acceptable to share with Claude and which are not. Public curriculum documents and your own lesson notes are usually fine. Student names, grades, health information, behavioural records, parent contact details, anything that identifies a young person — never.</p>
-  <p>Apply the same discipline to <strong>giving Claude access to folders and connected services</strong>. Cowork, Claude Code, and MCP integrations can reach into your filesystem, your email, your cloud storage. Only grant access to folders and tools that contain data you would be comfortable sharing in a chat. Treat folder access the way you would treat handing someone the key to a filing cabinet: only when necessary, only to the specific drawer that contains what the task requires, and never the whole cabinet by default.</p>
+  <p>Apply the same discipline to <strong>giving Claude access to folders and connected services</strong>. Handed-over tasks, Claude Code, and MCP integrations can reach into your filesystem, your email, your cloud storage. Only grant access to folders and tools that contain data you would be comfortable sharing in a chat. Treat folder access the way you would treat handing someone the key to a filing cabinet: only when necessary, only to the specific drawer that contains what the task requires, and never the whole cabinet by default.</p>
+  <p>And be clear with yourself about where the work is done, because it is easy to assume wrongly. A task you start in the desktop app does not run in the desktop app. Claude's work runs in an isolated environment on Anthropic's servers, separate from your computer and your network — cloud execution that is still in beta on the Team and Enterprise plans. The desktop app is the route to your local files, not the place the work happens: it is how Claude reaches a file on your machine, or your browser, while the task itself runs on Anthropic's side. For a school in the EU this is the difference between local processing on a teacher's laptop and processing by a provider outside your own infrastructure — and only the second of those is actually true. Grant folder access on that understanding, and take the question to the bonus chapter, where the GDPR consequences are set out.</p>
 
   <h2>Automating the wrong things</h2>
   <p>The worst use of AI in education is not cheating. It is teachers using AI to produce work that should not exist, for students who use AI to complete it, for teachers who use AI to mark it. A feedback loop of automation on both sides of a task that has lost its purpose.</p>
