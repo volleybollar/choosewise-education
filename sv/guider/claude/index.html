@@ -115,7 +115,7 @@
     <h3>Var du når Claude</h3>
     <p>Du når Claude på claude.ai i webbläsaren, i Claude Desktop-appen på macOS och Windows, och i apparna för iOS och Android — samma konto på alla tre. Det finns dessutom en sidopanel för Claude i Chrome, tillgänglig på planerna Max och Team, under utrullning till Pro, och på Enterprise där en administratör har slagit på den.</p>
     <p>Telefonen är underskattad. Röstinmatningen är den dolda produktivitetsfunktionen: en lärare jag arbetar med dikterar utkasten till veckans föräldrabrev under arbetsresan och redigerar sedan på laptopen hemma. Mobilen är inte där du bygger; den är där du fångar upp och granskar.</p>
-    <p>Du behöver ingen betald plan för att komma åt webben, appen eller mobilen. Den kostnadsfria nivån ger dig tillgång till Claude Sonnet, filuppladdning, webbsökning, minne mellan samtal och möjlighet att skapa nedladdningsbara dokument. Det är här en stor del av lärarna kommer att göra majoriteten av sitt arbete till en början.</p>
+    <p>Du behöver ingen betald plan för att komma åt webben, appen eller mobilen. Den kostnadsfria nivån ger dig tillgång till Claude Sonnet 5.5, filuppladdning, webbsökning, minne mellan samtal och möjlighet att skapa nedladdningsbara dokument. Det är här en stor del av lärarna kommer att göra majoriteten av sitt arbete till en början.</p>
 
     <h3>Claude Code — utvecklarverktyget (betald, tekniskt)</h3>
     <p>Det här är det enda stället där du faktiskt väljer mellan två saker: att öppna Claude, eller att öppna Claude Code. Claude Code är ett kommandoradsverktyg för utvecklare och IT-nyfiken personal. Det låter Claude läsa och skriva filer på din dator och köra program. För de flesta lärare är det inte ett verktyg för vardagen, men det är här Claude blir som mest kraftfullt — och det är där skolans tekniker eller utvecklingsledare kan vilja lägga sin tid. Del 3 innehåller en kort översikt så att du vet vad det är.</p>
@@ -135,13 +135,13 @@
           <td><strong>Free</strong></td>
           <td>0 kr</td>
           <td>Att prova verktyget; lätt privat användning</td>
-          <td>Chat (Sonnet), webbsökning, minne, filuppladdning, filskapande, mobilappar</td>
+          <td>Claude Sonnet 5.5, webbsökning, minne, filuppladdning, filskapande, mobilappar</td>
         </tr>
         <tr>
           <td><strong>Pro</strong></td>
           <td>ca 200 kr / mån</td>
           <td>En lärares dagliga arbetshäst</td>
-          <td>Allt i Free, plus tillgång till Opus, <em>att lämna över hela jobb</em>, högre användningstak, obegränsat antal Projects, extended thinking</td>
+          <td>Allt i Free, plus tillgång till Opus 5.5, <em>att lämna över hela jobb</em>, högre användningstak, obegränsat antal Projects</td>
         </tr>
         <tr>
           <td><strong>Max</strong></td>
@@ -155,7 +155,7 @@
 
     <div class="callout callout--watch">
       <span class="callout__label">Se upp · Integritet</span>
-      <p>På planerna för enskilda användare kan dina samtal användas för att träna modellen, som standard. Öppna Inställningar → Privacy och granska alternativet. Om du skriver något om elever — även avidentifierat — gå igenom skolans AI-policy innan du fortsätter, och stäng av modellträningen om du är osäker.</p>
+      <p>Det är en inställning på ditt eget konto som avgör om dina samtal används för att träna Anthropics modeller, och det enda svar som går att lita på är det ditt konto ger dig. Kontrollen ligger ett steg djupare än de flesta letar: öppna Inställningar → Privacy, följ länken <em>Privacy Settings</em>, och under Preferences hittar du <strong>Help improve our AI models</strong> — "Allow the use of your chats and coding sessions to train and improve Anthropic AI models." Läs av hur den står innan du skriver något om elever, även avidentifierat. Gå igenom skolans AI-policy också, och stäng av inställningen om du är osäker.</p>
     </div>
   </div>
 </section>
@@ -172,7 +172,7 @@
 
     <h3>Skapa ett konto</h3>
     <p>Gå till <em>claude.ai</em> och registrera dig. Du kan logga in via Google eller Apple, eller skapa konto med valfri e-postadress. För att avgöra om Claude är ett användbart verktyg för dig kan du inledningsvis prova ett gratis privatkonto — ladda bara inte upp känslig data. Om du bedömer att din skola bör ha Claude-konton åt er finns det flera steg som behöver hanteras och lösas innan ni är igång.</p>
-    <p>Den kostnadsfria nivån är på riktigt användbar. Du får Claude Sonnet, minne mellan samtal, webbsökning, filuppladdning och filskapande, samt mobilapparna. Det mesta i den här guiden fungerar på den kostnadsfria nivån. Börja där. Uppgradera först när du märker att användningen tar slut mitt i en produktiv session — inte tidigare.</p>
+    <p>Den kostnadsfria nivån är på riktigt användbar. Du får Claude Sonnet 5.5, minne mellan samtal, webbsökning, filuppladdning och filskapande, samt mobilapparna. Det mesta i den här guiden fungerar på den kostnadsfria nivån. Börja där. Uppgradera först när du märker att användningen tar slut mitt i en produktiv session — inte tidigare.</p>
 
     <h4>Webb (claude.ai)</h4>
     <p>Snabbast igång. Ingen installation, inga behörigheter, inget IT-ärende. Öppna webbläsaren, logga in, börja skriva.</p>
@@ -317,6 +317,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
     <h3>Artifacts — gör samtal till nedladdningsbara dokument</h3>
     <p>När du ber Claude skapa något — ett arbetsblad, en matris, en quiz, ett brev hem, en ordlista — kan verktyget producera en nedladdningsbar fil direkt i samtalet. Dessa dyker upp bredvid chatten som artifacts. Du laddar ner dem, redigerar dem och itererar, utan att lämna webbläsaren.</p>
     <p>Vanliga outputformat: Word-dokument, PDF, PowerPoint-presentationer, Excel-kalkyler med formler, ren text, HTML, Markdown. För det mesta klassrumsmaterialet är det Word eller PDF du vill ha.</p>
+    <p>Vid sidan av de formaten finns tre nyare artifact-typer: <strong>Claude Docs</strong> för dokument, <strong>Claude Slides</strong> för presentationer och <strong>Claude Design</strong>, som tar in det visuella formgivningsarbetet i själva samtalet. Till skillnad från formaten ovan ligger alla tre på betalplanerna, inte på Free — värt att veta innan du bygger en studiedag runt dem.</p>
 
     <h3>Filer — låt Claude läsa din kursplan</h3>
     <p>Claude hanterar långa dokument exceptionellt bra. Du kan ladda upp PDF:er, Word-dokument, kalkyler, bilder och presentationer. Filuppladdning är där Claude förtjänar sin mest underskattade plats: att läsa de dokument du aldrig själv hinner läsa.</p>
@@ -338,7 +339,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
     <p>Styles är röst-presets. Du sparar en som heter "Föräldrakommunikation — varmt, tydligt, professionellt, ingen jargong" och en annan som heter "Lärarkonferens-brief — koncist, handlingsorienterat, med punktlistor". När du startar en relevant uppgift väljer du Stylen ur en rullista, och outputen kommer fram redan i den röst du vill ha. De flesta lärare landar i tre eller fyra Styles. Det räcker vanligen för att täcka åttio procent av skrivuppgifterna.</p>
 
     <h4>Memory</h4>
-    <p>Claude kan komma ihåg saker om dig mellan samtal — din roll, årskursen du undervisar i, din skolkontext, hur du vill att outputen ska formateras. Du aktiverar funktionen en gång, och den jobbar sedan i bakgrunden. Öppna Inställningar, hitta Memory-avsnittet och slå på det. Berätta om dig själv i vanliga meningar i de första samtalen. Du kan granska varje minne som sparats — och radera vilket som helst — i Inställningar när som helst.</p>
+    <p>Claude kan komma ihåg saker om dig mellan samtal — din roll, årskursen du undervisar i, din skolkontext, hur du vill att outputen ska formateras. Det är inte ett reglage du slår på. Inställningar har ett eget Memory-avsnitt, och där ligger tre separata reglage: <strong>Search and reference chats</strong>, som låter Claude söka tillbaka i tidigare samtal; <strong>Generate memory from chats</strong>, som låter Claude bygga minne av det du skriver; och <strong>Include sensitive topics in memory</strong>, som avgör om uppgifter som hälsotillstånd eller religiös övertygelse sparas alls. De står inte i samma läge från början, så läs alla tre i stället för att utgå från att ett klick har avgjort saken — och i en skola läser du det tredje noggrannast. Berätta sedan om dig själv i vanliga meningar i de första samtalen. Samma avsnitt listar vad Claude har sparat, så det är också där du ser vad verktyget tror att det vet om dig.</p>
 
     <img src="assets/screenshot-memory-settings.png" alt="Inställningspanelen för Memory i Claude" style="width: 100%; margin: var(--space-3) 0; border-radius: var(--radius-card); border: 1px solid var(--color-light); box-shadow: var(--shadow-card);" onerror="this.outerHTML='&lt;div class=&quot;screenshot-placeholder&quot;&gt;Skärmbild saknas: screenshot-memory-settings.png&lt;/div&gt;';" loading="lazy" decoding="async">
 
@@ -427,12 +428,12 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
       <p>En överlämnad uppgift är betydligt mer autonom än ett samtal. Claude tar flera steg i följd utan att stämma av mellan varje steg. Den hastigheten är själva poängen — men den innebär också att fel kan propagera längre innan du fångar dem. Läs allt som produceras innan du skickar det någonstans eller agerar på det. Behandla varje färdig uppgift som ett utkast från en junior kollega som arbetar mycket snabbt och ibland har självsäkert fel.</p>
     </div>
 
-    <h3>Custom Skills — dina återanvändbara undervisningsagenter</h3>
+    <h3>Skills — dina återanvändbara undervisningsagenter</h3>
     <p>Skills är små, namngivna instruktioner som Claude laddar in när den känner igen en relevant uppgift. Du bygger en, ger den ett namn, och från och med då triggas Skillen automatiskt i varje samtal där uppgiften passar. Det är ett sätt att lära Claude de specifika mönster du använder, så att du inte behöver förklara dem varje gång.</p>
     <p>Tänk dig en Skill som heter <em>differentiera-tre-nivåer</em>. Du skriver den en gång. Den beskriver exakt hur du vill att vilken text som helst ska skrivas om på en enklare läsnivå, på nivå, och i en utvidgad version, med gemensamt fetad nyckelvokabulär och en ordlista. Från och med då, varje gång du klistrar in en text och ber om "differentiera den här", tillämpar Claude Skillen exakt.</p>
     <p>En annan kandidat: <em>föräldrabrev-mall</em>. Skolans ton, din föredragna struktur, den vanliga avslutningen. Skriven en gång, anropad när den behövs.</p>
     <p>Tregångsregeln. Om du märker att du förklarar samma mönster för Claude mer än tre gånger är det dags att göra det till en Skill.</p>
-    <p>Du behöver inte bygga varje Skill från noll. Det finns en aktiv community som öppet delar högkvalitativa utbildnings-Skills på GitHub — för differentiering, retrieval practice, återkoppling, föräldrakommunikation och mycket annat. Ladda ner de som passar ditt arbete och installera dem i din egen Claude. Gareth Mannings repo <em>claude-education-skills</em> är en bra utgångspunkt; en sökning på GitHub efter <em>claude skills</em> ger många fler.</p>
+    <p>Du behöver inte bygga varje Skill från noll. Det finns en aktiv community som öppet delar högkvalitativa utbildnings-Skills på GitHub — för differentiering, retrieval practice, återkoppling, föräldrakommunikation och mycket annat. Ladda ner de som passar ditt arbete och installera dem i din egen Claude. Gareth Mannings repo <em>education-agent-skills</em> är en bra utgångspunkt; en sökning på GitHub efter <em>claude skills</em> ger många fler.</p>
 
     <h3>Claude Code — en inblick</h3>
     <p>För de flesta lärare är Claude Code inte ett verktyg för vardagen. Men det är värt att veta att det finns, eftersom det är där Claude blir som mest kraftfullt, och där skolans IT-personal eller utvecklingsledare kan vilja lägga sin tid.</p>
@@ -479,7 +480,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
     </div>
 
     <h4>Datadisciplin</h4>
-    <p>Regeln från Del 2 återkommer här, på skolnivå: bestäm i förväg vilka kategorier av data som är okej att dela med Claude och vilka som inte är det. Tillämpa samma disciplin på <strong>att ge Claude tillgång till mappar och kopplade tjänster</strong>. Överlämnade uppgifter, Claude Code och MCP-integrationer kan nå ditt filsystem, din e-post, din molnlagring. Ge bara tillgång till mappar och verktyg som innehåller data du skulle vara bekväm med att dela i en chatt. Behandla mapptillgång så som du skulle behandla att lämna ut nyckeln till ett arkivskåp: bara när det är nödvändigt, bara till den specifika lådan, och aldrig hela skåpet som standard.</p>
+    <p>Regeln från Del 2 återkommer här, på skolnivå: bestäm i förväg vilka kategorier av data som är okej att dela med Claude och vilka som inte är det. Tillämpa samma disciplin på <strong>att ge Claude tillgång till mappar och kopplade tjänster</strong>. Överlämnade uppgifter, Claude Code och Connectors — Anthropics namn för funktionen som kopplar Claude till dina övriga verktyg och datakällor, byggd på ett protokoll som heter MCP — kan nå ditt filsystem, din e-post, din molnlagring. Ge bara tillgång till mappar och verktyg som innehåller data du skulle vara bekväm med att dela i en chatt. Behandla mapptillgång så som du skulle behandla att lämna ut nyckeln till ett arkivskåp: bara när det är nödvändigt, bara till den specifika lådan, och aldrig hela skåpet som standard.</p>
     <p><strong>Håll reda på var arbetet faktiskt sker.</strong> Det är lätt att anta att en uppgift du startar i desktopappen också stannar i den. Den gör inte det. Claudes arbete körs i en isolerad miljö på Anthropics servrar, skild från din dator och ditt nätverk — en molnkörning som på Team och Enterprise fortfarande är i beta. Desktopappen är vägen till dina lokala filer, inte platsen där arbetet görs: det är genom appen Claude når en fil på din dator eller din webbläsare, medan uppgiften i sig körs hos Anthropic. För en svensk skola är det just den omständigheten som avgör den fråga ert dataskyddsombud kommer att ställa: det här är behandling hos en leverantör utanför er egen infrastruktur, inte lokal behandling på en lärares dator. Ge mapptillgång utifrån det, och ta frågan vidare till bonuskapitlet, där konsekvenserna för GDPR står utskrivna.</p>
 
     <h4>Att automatisera fel saker</h4>
@@ -514,7 +515,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
     <p>Om din skola använder Claude rutinmässigt bör skolans registerförteckning spegla det. När du inför en ny rutinmässig användning av Claude, berätta det för dataskyddsombudet.</p>
 
     <h3>EU:s AI-förordning — vad den betyder för skolan</h3>
-    <p>EU:s AI-förordning trädde i kraft 2024 och fasas in under 2026 och framåt. Den klassificerar AI-användning efter risknivå och kopplar skyldigheter till varje nivå. Skola och utbildning omfattas uttryckligen, och flera vanliga användningar i skolan klassas som högrisk.</p>
+    <p>EU:s AI-förordning trädde i kraft den 1 augusti 2024 och blev tillämplig den 2 augusti 2026. Den klassificerar AI-användning efter risknivå och kopplar skyldigheter till varje nivå. Skola och utbildning omfattas uttryckligen: kommissionen räknar AI som avgör tillgången till utbildning — bedömning av prov, till exempel — som högrisk. De högriskskyldigheterna har skjutits fram genom AI-omnibusen och gäller från den 2 december 2027. Det är tid att förbereda sig, inte ett undantag. En skyldighet gäller redan, och har gjort det sedan den 2 februari 2025: AI-kunnighet, alltså att de i organisationen som använder systemen också ska vara kompetenta att göra det.</p>
 
     <div class="diagram">
       <svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 520px; margin: 0 auto;">
@@ -527,19 +528,19 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
         <text x="340" y="150" font-size="8" style="font-family: var(--font-body); fill: var(--color-highlight-on-dark)" text-anchor="middle">stränga skyldigheter</text>
         <text x="445" y="140" font-size="9" style="font-family: var(--font-body); fill: var(--color-text)">t ex antagning, betygssättning, uppförande</text>
         <polygon points="250,180 430,180 470,280 210,280" style="fill: var(--color-accent)"/>
-        <text x="340" y="225" font-size="15" style="font-family: var(--font-display); font-weight: 300; fill: var(--color-dark-text)" text-anchor="middle">Begränsad risk</text>
+        <text x="340" y="225" font-size="15" style="font-family: var(--font-display); font-weight: 300; fill: var(--color-dark-text)" text-anchor="middle">Transparensrisk</text>
         <text x="340" y="245" font-size="8" style="font-family: var(--font-body); fill: var(--color-highlight-on-dark)" text-anchor="middle">transparenskrav</text>
         <text x="485" y="235" font-size="9" style="font-family: var(--font-body); fill: var(--color-text)">t ex chatbottar riktade till elever</text>
         <polygon points="210,280 470,280 510,360 170,360" style="fill: var(--color-bg-alt); stroke: var(--color-border)" stroke-width="1"/>
-        <text x="340" y="315" font-size="15" style="font-family: var(--font-display); font-weight: 300; fill: var(--color-text)" text-anchor="middle">Minimal risk</text>
+        <text x="340" y="315" font-size="15" style="font-family: var(--font-display); font-weight: 300; fill: var(--color-text)" text-anchor="middle">Minimal eller ingen risk</text>
         <text x="340" y="335" font-size="8" style="font-family: var(--font-body); fill: var(--color-text-muted)" text-anchor="middle">allmän användning</text>
         <text x="525" y="325" font-size="9" style="font-family: var(--font-body); fill: var(--color-text)">t ex lektionsplanering, sammanfattning</text>
       </svg>
       <p class="diagram__caption">Riskklassificeringen avgör skyldigheterna. De flesta lärares dagliga användning ligger i de två nedre nivåerna.</p>
     </div>
 
-    <p><strong>Minimal risk:</strong> lektionsplanering, utkast till kommunikation, sammanfattning av egna anteckningar. Vanlig dataskyddsdisciplin gäller.</p>
-    <p><strong>Begränsad risk:</strong> chatbottar riktade till elever, eller Claude-drivna verktyg som interagerar med elever direkt. Transparenskrav gäller: eleverna måste få veta att de interagerar med en AI.</p>
+    <p><strong>Minimal eller ingen risk:</strong> lektionsplanering, utkast till kommunikation, sammanfattning av egna anteckningar. Vanlig dataskyddsdisciplin gäller.</p>
+    <p><strong>Transparensrisk:</strong> chatbottar riktade till elever, eller Claude-drivna verktyg som interagerar med elever direkt. Transparenskrav gäller: eleverna måste få veta att de interagerar med en AI.</p>
     <p><strong>Hög risk:</strong> AI som används för att bedöma elever på sätt som avgör tillgången till utbildning — antagning, betygssättning, bedömning av uppförande. Stränga skyldigheter gäller. Involvera skolans dataskyddsombud och juridisk rådgivning innan du sätter något i drift här.</p>
     <p><strong>Oacceptabel risk:</strong> förbjudet rakt av. Social poängsättning, känsloigenkänningssystem som används för bedömning, system som utnyttjar sårbarheter hos barn.</p>
 
@@ -551,7 +552,7 @@ Nivå: elever som läser på en nivå motsvarande åk 5 till åk 7.</pre>
       <li>Policyn utser en enskild ägare med ansvar för AI-användningen på skolan</li>
       <li>Vi har bestämt vilka kategorier av data som är okej att dela med Claude — och vilka som inte är det</li>
       <li>Personalen vet hur man avidentifierar elevdata före uppladdning</li>
-      <li>Vi har gått igenom Claudes integritetsinställningar, inklusive möjligheten att avstå från modellträning</li>
+      <li>Vi har gått igenom Claudes integritetsinställningar och kontrollerat hur <em>Help improve our AI models</em> står på de konton vi använder</li>
       <li>Vår registerförteckning (artikel 30) speglar all rutinmässig användning av Claude</li>
       <li>Vi har klassificerat våra avsedda användningar mot risknivåerna i EU:s AI-förordning</li>
       <li>Vi har involverat vårt dataskyddsombud i eventuella högrisk-användningar</li>
@@ -966,14 +967,14 @@ Undvik jargong. Om en term är oundviklig, definiera den i en mening.</pre>
     <details class="faq-item">
       <summary>Räcker den kostnadsfria nivån?</summary>
       <div class="faq-body">
-        <p>För de flesta lärare, ja — åtminstone de första månaderna. Den kostnadsfria nivån ger dig Claude Sonnet, minne mellan samtal, webbsökning, filuppladdning och filskapande. Uppgradera till Pro när du märker att användningen tar slut mitt i en session, eller när du vill kunna lämna över hela jobb i flera steg i stället för att prompta dig fram ett steg i taget.</p>
+        <p>För de flesta lärare, ja — åtminstone de första månaderna. Den kostnadsfria nivån ger dig Claude Sonnet 5.5, minne mellan samtal, webbsökning, filuppladdning och filskapande. Uppgradera till Pro när du märker att användningen tar slut mitt i en session, eller när du vill kunna lämna över hela jobb i flera steg i stället för att prompta dig fram ett steg i taget.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>Vad är skillnaden mellan Claude och ChatGPT?</summary>
       <div class="faq-body">
-        <p>Båda är kompetenta AI-assistenter. I lärares arbetsflöden brukar tre skillnader spela roll: Claudes texter är ofta mindre generiska (outputen behöver mindre redigering); Claude hanterar långa dokument exceptionellt bra, vilket märks när du läser styrdokument och policy-PDF:er; och Claudes Projects-funktion är enklare än ChatGPT:s custom GPTs, vilket de flesta lärare upplever som lättare att ta till sig.</p>
+        <p>Båda är kompetenta AI-assistenter. I lärares arbetsflöden brukar tre saker spela roll: Claudes texter är ofta mindre generiska (outputen behöver mindre redigering); Claude hanterar långa dokument exceptionellt bra, vilket märks när du läser styrdokument och policy-PDF:er; och Projects håller din kontext — dina dokument och dina stående instruktioner — på plats genom alla samtal inuti dem, så att du inte behöver förklara din skola på nytt varje gång du börjar om.</p>
       </div>
     </details>
 
@@ -1022,7 +1023,7 @@ Undvik jargong. Om en term är oundviklig, definiera den i en mening.</pre>
     <details class="faq-item">
       <summary>Vad betyder EU:s AI-förordning för mitt klassrum (kort svar)?</summary>
       <div class="faq-body">
-        <p>För det mesta undervisningsarbetet — lektionsplanering, kommunikation, differentiering — väldigt lite. Du befinner dig i kategorin minimal risk och vanlig dataskyddsdisciplin gäller. AI-förordningen spelar roll framför allt när AI används för att bedöma elever på sätt som påverkar tillgången till utbildning: antagning, betygssättning, bedömning av uppförande. Om din skola överväger något av det, involvera ert dataskyddsombud och juridisk rådgivning. Se bonuskapitlet ovan för hela bilden.</p>
+        <p>För det mesta undervisningsarbetet — lektionsplanering, kommunikation, differentiering — väldigt lite. Du befinner dig i den lägsta kategorin (minimal eller ingen risk) och vanlig dataskyddsdisciplin gäller. AI-förordningen spelar roll framför allt när AI används för att bedöma elever på sätt som påverkar tillgången till utbildning: antagning, betygssättning, bedömning av uppförande. Om din skola överväger något av det, involvera ert dataskyddsombud och juridisk rådgivning. Se bonuskapitlet ovan för hela bilden.</p>
       </div>
     </details>
 
