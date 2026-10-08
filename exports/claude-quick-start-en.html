@@ -3,102 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <title>Claude Quick Start — for teachers</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_guide-print.css">
 <style>
-  @page { size: A4; margin: 0; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: 'Work Sans', -apple-system, sans-serif;
-    color: #1e1e1c;
-    background: #f7f4ec;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
     font-size: 11px;
     line-height: 1.55;
   }
 
-  .page {
-    width: 210mm;
-    height: 297mm;
-    padding: 18mm 20mm;
-    display: flex;
-    flex-direction: column;
-  }
-  .page1 { page-break-after: always; }
-  .page2 { page-break-before: always; }
-
-  /* ─── Page header ─── */
-  .masthead {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(30, 30, 28, 0.12);
-    margin-bottom: 14px;
-  }
-  .masthead .eyebrow {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 9.5px;
-    font-weight: 600;
-    letter-spacing: 2.4px;
-    text-transform: uppercase;
-    color: #2f4a3a;
-  }
-  .masthead .page-num {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 9.5px;
-    font-weight: 500;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: #a5a59f;
-  }
-
   h1 {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 34px;
     font-weight: 400;
     line-height: 1.08;
     letter-spacing: -0.7px;
-    color: #1e1e1c;
+    color: var(--color-text);
     margin-bottom: 6px;
-  }
-  .subtitle {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 17px;
-    font-weight: 300;
-    font-style: italic;
-    color: #5a5a57;
-    margin-bottom: 14px;
-  }
-  .lede {
-    font-size: 12px;
-    line-height: 1.6;
-    color: #3a3a38;
-    max-width: 155mm;
-    margin-bottom: 18px;
   }
 
   /* ─── Section ─── */
-  .section { margin-bottom: 14px; }
   .section h2 {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 18px;
-    font-weight: 450;
+    font-weight: 400;
     line-height: 1.2;
-    color: #1e1e1c;
+    color: var(--color-text);
     margin-bottom: 4px;
   }
   .section h2 .num {
-    color: #2f4a3a;
+    color: var(--color-accent);
     font-weight: 500;
     margin-right: 8px;
   }
   .section p {
     font-size: 11px;
     line-height: 1.55;
-    color: #3a3a38;
+    color: var(--color-text-soft);
     margin-bottom: 6px;
   }
 
@@ -110,34 +49,26 @@
     margin-top: 8px;
   }
   .rtf-card {
-    background: #fbf8f1;
-    border-left: 3px solid #2f4a3a;
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-accent);
     padding: 10px 12px;
     border-radius: 2px;
   }
-  .rtf-card:nth-child(2) { border-color: #a07d2e; }
-  .rtf-card:nth-child(3) { border-color: #b35a3a; }
+  .rtf-card:nth-child(2) { border-color: var(--color-highlight); }
+  .rtf-card:nth-child(3) { border-color: var(--color-deep); }
   .rtf-card .letter {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 22px;
     font-weight: 500;
     line-height: 1;
-    color: #2f4a3a;
+    color: var(--color-accent);
   }
-  .rtf-card:nth-child(2) .letter { color: #a07d2e; }
-  .rtf-card:nth-child(3) .letter { color: #b35a3a; }
-  .rtf-card .name {
-    display: block;
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 13px;
-    font-weight: 500;
-    color: #1e1e1c;
-    margin: 3px 0 3px;
-  }
+  .rtf-card:nth-child(2) .letter { color: var(--color-highlight-ink); }
+  .rtf-card:nth-child(3) .letter { color: var(--color-deep); }
   .rtf-card p {
     font-size: 10.5px;
     line-height: 1.5;
-    color: #3a3a38;
+    color: var(--color-text-soft);
     margin: 0;
   }
 
@@ -149,31 +80,30 @@
     margin-top: 6px;
   }
   .bbb-card {
-    background: #fbf8f1;
-    border-top: 2px solid #c4c0b2;
+    background: var(--color-bg-alt);
+    border-top: 2px solid var(--color-border);
     padding: 8px 10px;
     border-radius: 2px;
   }
-  .bbb-card.better { border-color: #c69c3c; }
-  .bbb-card.best   { border-color: #2f4a3a; }
+  .bbb-card.better { border-color: var(--color-highlight); }
+  .bbb-card.best   { border-color: var(--color-accent); }
   .bbb-card .label {
-    font-family: 'Work Sans', sans-serif;
     font-size: 8.5px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1.6px;
     text-transform: uppercase;
-    color: #a5a59f;
+    color: var(--color-text-muted);
     display: block;
     margin-bottom: 4px;
   }
-  .bbb-card.better .label { color: #a07d2e; }
-  .bbb-card.best   .label { color: #2f4a3a; }
+  .bbb-card.better .label { color: var(--color-highlight-ink); }
+  .bbb-card.best   .label { color: var(--color-accent); }
   .bbb-card .sample {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: var(--font-quote);
     font-size: 10.5px;
     line-height: 1.45;
     font-style: italic;
-    color: #3a3a38;
+    color: var(--color-text-soft);
     white-space: pre-wrap;
   }
 
@@ -189,26 +119,6 @@
     gap: 10px;
     padding: 4px 0;
   }
-  .win .idx {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.1;
-    color: #2f4a3a;
-    min-width: 14px;
-  }
-  .win .text {
-    font-size: 10.5px;
-    line-height: 1.5;
-    color: #3a3a38;
-  }
-  .win .text strong {
-    color: #1e1e1c;
-    font-weight: 600;
-    display: block;
-    font-size: 11px;
-    margin-bottom: 1px;
-  }
 
   /* ─── Two-column setup ─── */
   .two-col {
@@ -218,103 +128,12 @@
     margin-top: 4px;
   }
   .two-col p { margin-bottom: 4px; }
-
-  /* ─── Watch out ─── */
-  .watchout {
-    background: #f5ecd0;
-    border-left: 3px solid #a07d2e;
-    padding: 10px 14px;
-    border-radius: 2px;
-    margin-top: 6px;
-  }
-  .watchout .label {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 8.5px;
-    font-weight: 700;
-    letter-spacing: 1.6px;
-    text-transform: uppercase;
-    color: #a07d2e;
-    display: block;
-    margin-bottom: 4px;
-  }
-  .watchout p {
-    font-size: 10.5px;
-    line-height: 1.5;
-    color: #3a3a38;
-    margin: 0;
-  }
-
-  /* ─── Footer ─── */
-  .page-footer {
-    margin-top: auto;
-    padding-top: 10px;
-    border-top: 1px solid rgba(30, 30, 28, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-size: 9.5px;
-    color: #a5a59f;
-    letter-spacing: 0.3px;
-  }
-  .page-footer .brand {
-    font-family: 'Fraunces', Georgia, serif;
-    font-style: italic;
-    font-size: 10.5px;
-    color: #5a5a57;
-  }
-
-  /* ─── Closing CTA (page 2) ─── */
-  .closing {
-    background: #1e1e1c;
-    color: #f7f4ec;
-    padding: 14px 18px;
-    border-radius: 3px;
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-  }
-  .closing .msg {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 13.5px;
-    font-style: italic;
-    color: #f7f4ec;
-    line-height: 1.4;
-  }
-  .closing .url {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.6px;
-    text-transform: uppercase;
-    color: #d4e8db;
-    white-space: nowrap;
-  }
-
-  /* ─── License line (bottom of last page) ─── */
-  .license-line {
-    margin-top: 10px;
-    padding-top: 8px;
-    border-top: 1px solid rgba(30, 30, 28, 0.08);
-    font-size: 8.5px;
-    color: #a5a59f;
-    letter-spacing: 0.25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-  }
-  .license-line strong {
-    color: #5a5a57;
-    font-weight: 600;
-  }
 </style>
 </head>
 <body>
 
 <!-- ═══════════════ PAGE 1 ═══════════════ -->
-<div class="page page1">
+<div class="page page--quickstart page1">
   <div class="masthead">
     <span class="eyebrow">Claude Quick Start · for teachers</span>
     <span class="page-num">01 / 02</span>
@@ -380,7 +199,7 @@
 </div>
 
 <!-- ═══════════════ PAGE 2 ═══════════════ -->
-<div class="page page2">
+<div class="page page--quickstart page2">
   <div class="masthead">
     <span class="eyebrow">Claude Quick Start · after the first hour</span>
     <span class="page-num">02 / 02</span>
@@ -394,7 +213,7 @@
     <p>Pick the subject or year you spend most of your time on. Create a Project in Claude, upload five reference files, and write one custom instruction. Every conversation inside that Project draws on the files and follows the instruction — you stop pasting context and start compounding it.</p>
     <div class="two-col">
       <div>
-        <p><strong style="color:#1e1e1c;font-weight:600;">Upload these five:</strong></p>
+        <p><strong style="color:var(--color-text);">Upload these five:</strong></p>
         <p>· Your curriculum or syllabus for the subject and year</p>
         <p>· Your scope and sequence or term planner</p>
         <p>· Your school's style or communications guide</p>
@@ -402,16 +221,16 @@
         <p>· Three de-identified student work samples</p>
       </div>
       <div>
-        <p><strong style="color:#1e1e1c;font-weight:600;">Add one instruction:</strong></p>
-        <p style="font-family:'Fraunces',Georgia,serif;font-style:italic;color:#3a3a38;">"You are an experienced Year 8 teacher in a mixed-ability school. Outputs should be classroom-ready, follow the uploaded style guide, never produce more than I asked for, and use British English."</p>
+        <p><strong style="color:var(--color-text);">Add one instruction:</strong></p>
+        <p style="font-family:var(--font-quote);font-style:italic;color:var(--color-text-soft);">"You are an experienced Year 8 teacher in a mixed-ability school. Outputs should be classroom-ready, follow the uploaded style guide, never produce more than I asked for, and use British English."</p>
       </div>
     </div>
   </div>
 
   <div class="section">
     <h2>Turn on Memory. Save two Styles.</h2>
-    <p><strong style="color:#1e1e1c;font-weight:600;">Memory</strong> lets Claude remember your role, school, and formatting preferences across conversations. Open Settings → Memory, turn it on, and tell Claude about yourself in plain sentences over your first few chats. Every memory is reviewable and deletable.</p>
-    <p><strong style="color:#1e1e1c;font-weight:600;">Styles</strong> are voice presets. Save one called <em>Parent communication — warm, clear, no jargon</em> and another <em>Staff brief — concise, bullet-led</em>. Pick from the dropdown when you start a task. Three or four Styles cover eighty per cent of a teacher's recurring writing.</p>
+    <p><strong style="color:var(--color-text);">Memory</strong> lets Claude remember your role, school, and formatting preferences across conversations. Open Settings → Memory, turn it on, and tell Claude about yourself in plain sentences over your first few chats. Every memory is reviewable and deletable.</p>
+    <p><strong style="color:var(--color-text);">Styles</strong> are voice presets. Save one called <em>Parent communication — warm, clear, no jargon</em> and another <em>Staff brief — concise, bullet-led</em>. Pick from the dropdown when you start a task. Three or four Styles cover eighty per cent of a teacher's recurring writing.</p>
   </div>
 
   <div class="section">

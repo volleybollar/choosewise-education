@@ -8,10 +8,10 @@ from playwright.sync_api import sync_playwright
 
 root = Path(__file__).parent.parent
 jobs = [
-    (root / "exports/copilot-quick-start-en.html",
-     root / "assets/pdfs/guides/copilot-quick-start-en.pdf"),
-    (root / "exports/copilot-quick-start-sv.html",
-     root / "assets/pdfs/guides/copilot-quick-start-sv.pdf"),
+    (root / "_unpublished/exports/copilot-quick-start-en.html",
+     root / "_unpublished/assets/pdfs/guides/copilot-quick-start-en.pdf"),
+    (root / "_unpublished/exports/copilot-quick-start-sv.html",
+     root / "_unpublished/assets/pdfs/guides/copilot-quick-start-sv.pdf"),
 ]
 
 with sync_playwright() as p:

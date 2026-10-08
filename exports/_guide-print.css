@@ -1,0 +1,400 @@
+/* ════════════════════════════════════════════════════════
+   Delad A4-tryckstil för choosewise.educations guider.
+   Används av licenssidorna, quick starts och A4-guiderna.
+   A4-guiderna har egen layout och hämtar bara färg och
+   typsnitt härifrån — deras klassvokabulär delas inte.
+   ════════════════════════════════════════════════════════ */
+
+/* SCOPE-GUARD:BEGIN base */
+
+:root {
+  --color-bg:                #FBFAF8;
+  --color-bg-alt:            #EFF2F6;
+  --color-text:              #0C1A2E;
+  --color-text-soft:         #4E5A68;
+  --color-text-muted:        #656F7B;
+  --color-border:            #DDE3EA;
+  --color-accent:            #0B3A6F;
+  --color-deep:              #07284D;
+
+  /* Kopparn har tre värden. Ytor och grafik tar --color-highlight, aldrig text.
+     Kopparfärgad TEXT tar --color-highlight-ink på ljusa ytor
+     eller --color-highlight-on-dark på mörka band. */
+  --color-highlight:         #C2793A;
+  --color-highlight-ink:     #9C5A24;
+  --color-highlight-on-dark: #E8C9A8;
+
+  /* --color-dark-bg har SAMMA värde som --color-accent. Accent som
+     förgrund mot mörkt band ger 1,00:1 — använd --color-dark-text. */
+  --color-dark-bg:           #0B3A6F;
+  --color-dark-text:         #EFF2F6;
+
+  --font-display: 'Hanken Grotesk', Helvetica, sans-serif;
+  --font-body:    'Hanken Grotesk', Helvetica, sans-serif;
+  --font-quote:   'Instrument Serif', Georgia, serif;
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: url('../assets/fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2') format('woff2');
+  /* Narrowed from 300 600 (slutgranskningens fynd 3): the Blueprint scale
+     only ever uses 300/400/500. Declaring the face's own range as 300 500
+     makes the clamp-to-600 trap (an unstyled <strong>/<b> requesting the
+     browser's native 700, which this variable font's old 300-600 range
+     silently clamped to 600 and embedded as HankenGrotesk-Regular_SemiBold)
+     structurally impossible instead of relying solely on the global
+     `strong, b { font-weight: 500; }` rule below plus the render-level
+     guard (test_guide_pdf_font_weights.py). A request above 500 now falls
+     through to this face's declared sans-serif fallback entirely — loud
+     and visible, not a silent heavier embed. */
+  font-weight: 300 500;
+  font-style: normal;
+}
+/* Instrument Serif enbart i citat. Mallarna sätter underrubriker och
+   signaturer i kursiv serif idag (Playfair italic), så kursiven behövs. */
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('../assets/fonts/instrument-serif/InstrumentSerif-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('../assets/fonts/instrument-serif/InstrumentSerif-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* ── A4-bas, delad av alla tre underfamiljerna ── */
+@page { size: A4; margin: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { background: var(--color-bg); }
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.page { width: 210mm; height: 297mm; display: flex; flex-direction: column; }
+
+/* <strong>/<b> carry no CSS font-weight of their own, so the browser
+   requests its native bold — 700. Hanken Grotesk is a variable font
+   whose declared weight axis tops out at 600 (@font-face above), so
+   that request clamps to 600 and HankenGrotesk-Regular_SemiBold gets
+   embedded. Both 700 and the clamped 600 are outside the display
+   300 / heading 400 / body 400 / emphasis 500 scale. This rule pins
+   every <strong>/<b> in the shared vocabulary to the scale's one
+   emphasis weight instead of trusting the browser's default. */
+strong, b { font-weight: 500; }
+
+/* SCOPE-GUARD:END base */
+
+/* ── Licenssidan ──
+   Varje regel i det här blocket scopas under .page--license. Det är inte
+   kosmetiskt: utan scope är varje klassnamn här (.eyebrow, .title, .body,
+   .link, .signature, .terms, .divider, …) global och kan läcka in i varje
+   annan underfamilj som råkar återanvända samma namn — vilket hände:
+   licenssidans bara .eyebrow { margin-bottom: 18pt } låg kvar och trängde
+   igenom quick starts .masthead .eyebrow (som aldrig satte sin egen
+   margin), så alla tio quick start-mastheads fick 18pt extra höjd.
+   test_guide_print_css.py::test_subfamily_selectors_are_scoped vaktar att
+   det inte händer igen. Se SCOPE-GUARD-markörerna nedan. */
+/* SCOPE-GUARD:BEGIN page--license */
+
+.page--license {
+  padding: 36mm 28mm;
+  justify-content: center;
+  text-align: center;
+}
+
+.page--license .eyebrow {
+  font-size: 10pt;
+  font-weight: 500;
+  letter-spacing: 3pt;
+  text-transform: uppercase;
+  color: var(--color-highlight-ink);
+  margin-bottom: 18pt;
+}
+
+.page--license .title {
+  font-family: var(--font-display);
+  font-size: 36pt;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin-bottom: 10pt;
+}
+
+.page--license .subtitle {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: 15pt;
+  color: var(--color-text-muted);
+  margin-bottom: 32pt;
+}
+
+.page--license .divider {
+  width: 48pt;
+  height: 2px;
+  background: var(--color-highlight);
+  margin: 0 auto 32pt;
+}
+
+.page--license .body {
+  font-size: 11.5pt;
+  line-height: 1.65;
+  color: var(--color-text-soft);
+  max-width: 420pt;
+  margin: 0 auto 24pt;
+}
+
+.page--license .body strong {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.page--license .terms {
+  max-width: 420pt;
+  margin: 0 auto 32pt;
+  text-align: left;
+}
+
+.page--license .term-row {
+  display: flex;
+  gap: 16pt;
+  padding: 10pt 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 10.5pt;
+  line-height: 1.5;
+}
+.page--license .term-row:last-child { border-bottom: none; }
+
+.page--license .term-label {
+  flex: 0 0 80pt;
+  font-weight: 500;
+  color: var(--color-text);
+  letter-spacing: 0.3pt;
+}
+
+.page--license .term-body {
+  flex: 1;
+  color: var(--color-text-soft);
+}
+
+.page--license .link {
+  font-size: 10pt;
+  color: var(--color-accent);
+  border-bottom: 1px solid var(--color-highlight);
+  padding-bottom: 1pt;
+}
+
+.page--license .signature {
+  margin-top: 40pt;
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: 12pt;
+  color: var(--color-text);
+}
+
+.page--license .attribution {
+  margin-top: 6pt;
+  font-size: 8.5pt;
+  letter-spacing: 2pt;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* .colophon-note: bara presentation-skills/presentationsteknik-mallarna
+   använder den (2 av 4), men den är ändå del av licenssidans layout. */
+.page--license .colophon-note {
+  margin-top: 28pt;
+  font-size: 9.5pt;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  max-width: 360pt;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+}
+
+/* SCOPE-GUARD:END page--license */
+
+/* ── Quick start: 20 av 46 klasser är gemensamma mellan de tio
+      quick start-mallarna. Kärnan bor här, resten lokalt. Uppgift 5.
+      Källa: exports/claude-quick-start-en.html, översatt enligt tabellen.
+
+      Varje regel scopas under .page--quickstart, av samma skäl som
+      licensblocket ovan: generiska namn (.subtitle, .section, .text, …)
+      är annars globala och läcker mellan underfamiljer. Det hände redan
+      en gång — licenssidans bara .eyebrow { margin-bottom: 18pt } satte
+      höjden på alla tio quick start-mastheads innan den här scopningen
+      fanns. idx/text/name hålls odelade *inom* .page--quickstart-scopet
+      (dvs. `.page--quickstart .idx`, inte `.page--quickstart .win .idx`)
+      eftersom deras lokala wrapper skiljer mellan mallfamiljerna (.win vs
+      .seven-item, .rtf-card vs .feature-mini vs .triple-card) — en regel
+      scopad på wrappern hade missat hälften av mallarna. masthead/
+      page-footer/closing/watchout/license-line heter likadant i alla
+      tio, så eyebrow/page-num/brand/msg/url/label scopas under dem också
+      (inom .page--quickstart). ── */
+/* SCOPE-GUARD:BEGIN page--quickstart */
+
+.page--quickstart { padding: 18mm 20mm; }
+.page--quickstart.page1 { page-break-after: always; }
+.page--quickstart.page2 { page-break-before: always; }
+
+.page--quickstart .masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 14px;
+}
+.page--quickstart .masthead .eyebrow {
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.page--quickstart .masthead .page-num {
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.page--quickstart .subtitle {
+  font-family: var(--font-quote);
+  font-size: 17px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
+}
+
+.page--quickstart .lede {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-text-soft);
+  max-width: 155mm;
+  margin-bottom: 18px;
+}
+
+.page--quickstart .section { margin-bottom: 14px; }
+
+/* idx/text/name: se kommentaren ovan — odelade från sin lokala wrapper
+   med flit, men alltid innanför .page--quickstart. */
+.page--quickstart .idx {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--color-accent);
+  min-width: 14px;
+}
+.page--quickstart .text {
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: var(--color-text-soft);
+}
+.page--quickstart .text strong {
+  color: var(--color-text);
+  display: block;
+  font-size: 11px;
+  margin-bottom: 1px;
+}
+.page--quickstart .name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 3px 0 3px;
+}
+
+.page--quickstart .watchout {
+  background: color-mix(in srgb, var(--color-highlight) 12%, var(--color-bg));
+  border-left: 3px solid var(--color-highlight);
+  padding: 10px 14px;
+  border-radius: 2px;
+  margin-top: 6px;
+}
+.page--quickstart .watchout .label {
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-highlight-ink);
+  display: block;
+  margin-bottom: 4px;
+}
+.page--quickstart .watchout p {
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: var(--color-text-soft);
+  margin: 0;
+}
+
+.page--quickstart .page-footer {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 9.5px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.3px;
+}
+.page--quickstart .page-footer .brand {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: 10.5px;
+  color: var(--color-text-muted);
+}
+
+.page--quickstart .closing {
+  background: var(--color-dark-bg);
+  color: var(--color-dark-text);
+  padding: 14px 18px;
+  border-radius: 3px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.page--quickstart .closing .msg {
+  font-family: var(--font-quote);
+  font-size: 13.5px;
+  font-style: italic;
+  color: var(--color-dark-text);
+  line-height: 1.4;
+}
+.page--quickstart .closing .url {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-highlight-on-dark);
+  white-space: nowrap;
+}
+
+.page--quickstart .license-line {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-border);
+  font-size: 8.5px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.page--quickstart .license-line strong { color: var(--color-text-muted); }
+
+/* SCOPE-GUARD:END page--quickstart */

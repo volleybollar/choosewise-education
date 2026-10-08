@@ -1,74 +1,92 @@
 # Blueprint — överlämning
 
-**Datum:** 2026-10-05
-**Status:** PR #28 **MERGAD 2026-10-05** som merge-commit `851c9f5`. 41 commits från `feat/visual-identity-blueprint` ligger i `main` och Blueprint är live på choosewise.education (Pages-bygget grönt, live-CSS verifierad). Svit 110/110 både före och efter mergen. Grenen är inte raderad.
-**LÄS FÖRST** vid fortsättning. Specen är den bindande auktoriteten, planen argumenterar från den.
+**Senast uppdaterad:** 2026-10-07
+**LÄS FÖRST** vid fortsättning. Specen är den bindande auktoriteten, planerna argumenterar från den.
 
 ---
 
-## Vad som är gjort
+## Var allt står just nu
 
-Choosewise.educations grafiska uttryck är bytt till **Blueprint**: djupblått som varumärkesfärg, koppar som enda varma ton, Hanken Grotesk som enda typsnitt med Instrument Serif enbart i citat. Innehållet är oförändrat — inte ett ord, en rubrik, en URL eller ett filnamn.
+| Del | Läge |
+|---|---|
+| **Våg 1** — sajtens färg och typografi | **MERGAD** som `851c9f5`, live på choosewise.education |
+| **Spår A** — märket, favicon, Skool | **PR #29 öppen**, gren `feat/blueprint-track-a-mark`, 15 commits, ej mergad |
+| **Våg 2a** — guidernas tryckmallar | **PR #30 öppen**, gren `feat/blueprint-wave-2a-guides`, 23 commits, svit 470, ej mergad |
+| **Våg 2b** — guidernas innehåll | Inte påbörjad |
+| Diagram- och social-exporterna | Inte påbörjad, Johans beslut: egen runda |
+| Visual Codes Vol. 1–3 | Inte påbörjad, **ingen plan äger den** |
 
-- PR: https://github.com/volleybollar/choosewise-education/pull/28
-- Spec: `docs/superpowers/specs/2026-10-05-choosewise-visual-identity-design.md`
-- Plan: `docs/superpowers/plans/2026-10-05-visual-identity-wave-1.md`
-- Loggbok med alla 44 besluten: `.superpowers/sdd/2026-10-05-visual-identity-wave-1/progress.md`
-- Skärmbilder och rapporter: `~/Desktop/choosewise-blueprint-granskning/`
+**Arbetskopian står på `feat/blueprint-wave-2a-guides`.** Johan har ~26 ocommittade filer under `exports/` och `assets/pdfs/wise/` som är hans eget attributionssvep. De ska aldrig commitas av det här arbetet.
 
-Testsviten gick från 0 till **110 tester** och vaktar nu paletten, kontrastvärdena, typsnitten, tokendisciplinen, viktskalan, hela filkorpusen och de 124 prompt-PDF:ernas innehåll per sida.
+De två öppna PR:erna rör inte varandra och kan mergas i valfri ordning.
 
-## Paletten
+---
 
-| Token | Värde | Roll |
+## Nästa steg, i ordning
+
+1. **Johan mergar PR #29 och #30** när han sett dem. Faviconen landar på 198 sidor i samma stund #29 mergas; #30 byter ut 22 guide-PDF:er varav 9 är publicerade.
+2. **Våg 2b — guidernas innehåll.** Fem guider i två språk, 10 sidor och 18 PDF:er, skrivna i april 2026. Varje faktapåstående ska kontrolleras mot verkligheten i båda språken. Specen §8 kallar detta en del av leveransen, inte en senare ambition, eftersom guiderna ska ligga som medlemsvärde i Skool. **Ingen plan finns än.**
+3. **Diagram- och social-exporterna.** Åtta mallar plus SVG, PNG och PDF för WISE och RÄTT. Johans beslut 2026-10-06: egen runda, gärna ihop med märket. Sju av åtta bär hans ocommittade ändringar — han bör commita svepet först.
+4. **Visual Codes Vol. 1–3** i `~/Projekt/Choosewise/visual-codes-pdf/`, utanför repot. Specen §8 räknar dem till våg 2; varken 2a:s eller 2b:s plan nämner dem. Tredje kopian av paletten.
+5. **NotebookLM-dokumentet** — se "Känt trasigt" nedan.
+
+---
+
+## Öppna beslut som väntar på Johan
+
+- **Paletten saknar en larmfärg.** Har nu tvingat fram kompromiss tre gånger: EU AI Act-pyramidens "Unacceptable", "Watch Out"-rutan, och quick startens DÅLIG/BÄTTRE/BÄST-rad där prickarna går grå → koppar → blå och inte läses som en progression. Ett enda nytt token löser alla tre.
+- **Instrument Serif används utanför citat.** Specen §2 binder det till citat, men den delade stilmallen sätter även underrubriker, signaturer och footerns varumärkessträng i kursiv serif — för att mallarna hade Playfair italic där. Medvetet oförändrat i våg 2a; motiveringen står bara i en CSS-kommentar och borde vara ett registrerat beslut.
+- **Evidence Toolkits band** "kring" vs "över": 1,54:1. Palettak sedan våg 1, inte ett förbiseende.
+- **Sajtens header** bär inget märke. Spår A:s spec säger nej idag; frågan kan tas när tecknet setts i bruk.
+- **Choosewise på LinkedIn:** egen sida eller Johans profil? Spår A levererar båda måtten tills det avgjorts.
+
+---
+
+## Känt trasigt eller begränsat
+
+**NotebookLM-dokumentet går inte att bygga om.** `exports/build-nlm-prompts-en.py:30` läser `/tmp/nlm-prompts-en-chunk{1..4}.json`. Filerna finns inte och har aldrig committats. Enda kopiorna av innehållet är den committade HTML:en, PDF:en och docx-filen. Dokumentet **utgick ur våg 2a** av det skälet och står kvar i Crestiora-palett med Playfair. Att laga byggaren — återskapa datan, eller skriva om den att läsa den committade HTML:en som källa — är ett eget jobb. Specens §10.7 "inga Crestiora-värden i publicerade filer" är alltså inte bokstavligt sant efter merge.
+
+**Sidfötterna sätts i Helvetica, inte Hanken Grotesk.** Playwrights `footer_template` renderas i en isolerad kontext som inte når självhostade typsnitt. Hanken Grotesk deklareras men löser inte ut. Verifierat per glyf med `pdftohtml -xml`. Att nå dit kräver typsnittet som data-URI i sidfotsmallen — eget jobb. Det som åtgärdades var det allvarliga: tidigare stod `'Inter'` där, vilket gav Times-Roman på 2,37–3,32:1.
+
+**Tio av 22 PDF:er är inte byte-identiska vid omrendering.** Skillnaden är Chromiums `CreationDate`/`ModDate`. En omrendering visar alltså alltid tio ändrade filer i `git status` även när ingenting ändrats. Innehållet är idempotent, verifierat på alla fyra vaktlager.
+
+---
+
+## Vad som vaktar vad
+
+Fyra lager, byggda i våg 2a. Ändra inget utan att veta vilket lager som äger frågan.
+
+| Lager | Fil | Äger |
 |---|---|---|
-| `--color-bg` | `#FBFAF8` | papper |
-| `--color-bg-alt` | `#EFF2F6` | svalt sektionsband |
-| `--color-text` | `#0C1A2E` | bläck |
-| `--color-text-soft` | `#4E5A68` | brödtext |
-| `--color-text-muted` | `#656F7B` | metadata |
-| `--color-border` | `#DDE3EA` | hårlinje |
-| `--color-accent` | `#0B3A6F` | varumärkesblå, **samma värde som `--color-dark-bg`** |
-| `--color-deep` | `#07284D` | footer, djupare band |
-| `--color-highlight` | `#C2793A` | koppar i **ytor och grafik, aldrig text** |
-| `--color-highlight-ink` | `#9C5A24` | koppar i **text på ljust** |
-| `--color-highlight-on-dark` | `#E8C9A8` | koppar i **text på mörkt** |
+| Sidvist textfingeravtryck | `scripts/tests/test_guide_pdf_parity.py` | att ingen text flyttar sig inom eller mellan sidor |
+| Dokumentnivåinvariant | `scripts/tests/test_guide_pdf_body_text.py` | att inget innehåll försvinner — kromet strippas, så ompaginering kan inte röra det |
+| Renderingsvakt | `scripts/tests/test_guide_pdf_font_weights.py` | att ingen PDF bäddar in ett typsnitt över viktskalan, även när vikten kommer ur HTML och inte CSS |
+| Statiska mallvakter | `test_guide_print_css.py`, `test_guide_asset_paths.py`, `test_build_scripts.py` | källan: palett, typsnitt i `font-family`-kontext, vikter, sökvägar, och att varje väljare i den delade stilmallen ligger i en SCOPE-GUARD-region med sin `.page--`-scope |
 
-Vikter: display 300, rubrik 400, brödtext 400, betoning 500. **Inget utanför skalan.**
+**Facit ligger i `scripts/tests/fixtures/`.** Fånga aldrig om det för att få grönt. Fånga om det bara när innehållet ändrats med avsikt, och verifiera då att bara de avsedda posterna rör sig.
 
-## Vad som ÅTERSTÅR att besluta
+---
 
-Inget av det blockerar en merge.
+## Fällor som kostat tid i det här programmet
 
-1. **Evidence Toolkit — banden.** "Kring" och "över" typisk skoleffekt skiljer bara **1,54:1**. Pillren visar bara siffran, aldrig bandets namn, så färgen är enda ledtråden. Det är ett **palettak**, inte ett förbiseende: `--color-accent` är redan så mörk att inget mörkare kan nå högre mot den. Vägen till 8–10:1 är att göra "över" **ljusare** än blå. Under det ligger en större fråga: färg ensam som informationsbärare är WCAG 1.4.1, och det var sant före det här arbetet.
+1. **En kontrastsiffra härledd ur deklarerad CSS är inte bevisad.** Chromiums print-economy-läge ändrade tyst färger i sidfotskontexten: en siffra mätt till 10,63:1 renderade i verkligheten 4,57:1 tills `print-color-adjust: exact` lades till. Pixelmät i den renderade filen. Gäller bakåt mot våg 1 och spår A.
+2. **Fråga alltid: skulle det här testet bli rött om felet kom tillbaka?** Våg 1 sköt fyra tester som inte kunde fallera. Våg 2a hittade flera till — en tom parametrisering, en vakt som bara läste mellan markörer, en delsträngsmatchning. Bryt vakten med flit och se den bli röd innan du litar på den.
+3. **Fingeravtryck på text är blinda för bilder.** En omrendering tappade åtta fotografier medan varje textkontroll passerade. Titta på en renderad sida.
+4. **`git checkout --` på en KATALOG raderar andras ocommittade arbete.** Hände i våg 2a och kostade två av Johans filer, som gick att återskapa av tur. Namnge alltid filer du själv ändrat; kopiera undan och återställ med `cp`.
+5. **`git add -A` används aldrig.** Repot har alltid ett trettiotal ocommittade filer som tillhör Johan.
+6. **`build-seo-meta.py` bumpar "Last updated"** ur git-commitdatum. En körning som bara skulle lägga till länkar sätter nytt datum på sidor vars innehåll inte rörts.
+7. **Generatorer äger sina filer.** `build-og-images.py` skriver om de tolv delningskorten ur en mall; en handredigering där raderas tyst vid nästa körning. Lägg ändringen i generatorn.
+8. **Sajten undervisar om design** och nämner typsnittsnamn i brödtext. Vakter måste matcha i `font-family`-kontext.
+9. **`/usr/bin/python3` (3.9.6) är enda interpretern** med pytest, playwright och Pillow.
 
-2. **Bloggkortens understrykningar.** Datum, rubrik och ingress är alla understrukna — hela kortet är en länk och understrykningen ärvs. **Preexisterande**, verifierat: varken `render-blog.js`, `posts-*.json` eller `text-decoration`-reglerna rördes av den här grenen.
+---
 
-3. **Paletten saknar en larmfärg.** Det har tvingat fram kompromisser två gånger: EU AI Act-pyramidens "Unacceptable" fick samma koppar som allt annat, och "Watch Out"-rutan fick lösas med form i stället för färg. Ett enda nytt token skulle lösa båda.
+## Dokument
 
-## Vad som INTE ingick — våg 2 och spår A
-
-- **Våg 2:** de 23 export-mallarna i `exports/` bryts ut till en delad `_guide-print.css`, guide-PDF:erna renderas om, och **sedan** uppdateras guidernas innehåll. Två steg, inte ett — om en PDF går sönder ska det gå att se om det var mallen eller texten. Nio av mallarna kör fortfarande Crestioras navy/mässing/Playfair. Visual Codes Vol. 1–3 utanför repot har en tredje kopia av paletten.
-- **Spår A:** märke, favicon och Skool-tillgångar. Sajten har **ingen logotyp och ingen favicon** — bara ett textordmärke. Skool kräver logotyp, favicon och omslag 1400×790, och det är de enda ytorna Skool låter en styra.
-
-## Fällor som kostade tid — läs dessa innan nästa ändring
-
-1. **Fokusringar mäts med Tab, aldrig med `.focus()`.** Chromium svarar `true` på `matches(':focus-visible')` utan att tillämpa stilen vid programmatiskt fokus. Tre separata verifieringar i det här arbetet var osunda av det skälet. Läs dessutom av värdet **minst 180 ms** efter tangenttrycket — `.btn` har en övergång på 150 ms och en tidigare avläsning fångar värdet mitt i.
-
-2. **Fyra tester kunde inte fallera på det de påstod sig vakta.** Ett token som fanns men aldrig användes. Ett paritetsbevis som bevisade en annan funktion än grinden. En typsnittsvakt som inte täckte sitt eget motiverande fall. En viktvakt som kontrollerade att strängar förekom *någonstans*. Mönstret: testet mätte färgen i burken, inte färgen på väggen. **Fråga alltid: skulle det här bli rött om felet kom tillbaka?**
-
-3. **Använd `brandguard.published_files()`, aldrig ad hoc-grep**, för frågor om vad som är publicerat. Egna grep-kommandon gav fel svar tre gånger: skiftlägeskänslighet missade två filer, och ett trasigt exkluderingsmönster rapporterade 27 falska träffar i `exports/`.
-
-4. **Sajten undervisar om design.** `presentation-skills/module-2` skriver "Fraunces, Times) can feel heavier…" i brödtext. En varumärkesvakt som matchar på typsnittsnamn utan `font-family`-kontext slår larm på din egen undervisning.
-
-5. **Helsidesbilder ljuger om sidor med scroll-animation.** WISE-sidan ser ut som att avsnitten hamnat mitt på sidan — det är verktyget som rullar ut hela scrollsträckan och klistrar in den klibbiga menyn. Fönsterstora bilder vid olika scrollägen visar sanningen.
-
-6. **`build-seo-meta.py` bumpar "Last updated"** ur git-commitdatum på varje sida vid en sajtbred commit. Kontrollera vad skriptet rör och återställ orelaterade sidor före push.
-
-7. **Förhandsvisning körs alltid på ny port** — `include.js` hämtar `header-*.html` separat och Safari cachar hårt.
-
-8. **`git add -A` används aldrig.** Repot har ~18 ocommittade ändringar som hör till Johan och inte till det här arbetet.
-
-## Interpretern
-
-`/usr/bin/python3` (3.9.6) är den **enda** som har `pytest` och `playwright`. Homebrews `python3` (3.14) saknar båda.
+- Spec våg 1 och 2: `docs/superpowers/specs/2026-10-05-choosewise-visual-identity-design.md`
+- Spec spår A: `docs/superpowers/specs/2026-10-07-choosewise-brand-mark-design.md`
+- Plan spår A: `docs/superpowers/plans/2026-10-07-track-a-brand-mark.md`
+- Plan våg 2a: `docs/superpowers/plans/2026-10-05-visual-identity-wave-2a-guides.md`
+- Märkets bruksregler: `docs/brand-mark-usage.md`
+- Beslutsloggar och PR-texter: `~/Desktop/choosewise-spar-a-forslag/`
+- PDF:erna att titta på: `~/Desktop/choosewise-guider-vag2a/` (kopior — kan vara inaktuella)

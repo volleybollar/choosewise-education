@@ -35,10 +35,11 @@ vara pålitligt. Flytt ÖVER en sidgräns fångas fortfarande (se
 test_fingerprint_catches_text_moved_across_a_page_boundary).
 """
 import subprocess
-from collections import Counter
 from pathlib import Path
 
 import pytest
+
+from . import pdf_fingerprint as fp
 
 ROOT = Path(__file__).resolve().parents[2]
 PDF_DIR = ROOT / "assets/pdfs/prompts"
@@ -46,22 +47,9 @@ BEFORE = Path("/tmp/pdf-parity-before")
 
 SAMPLES = ["teachers-en", "principals-en", "matematik-sv", "larare-sv", "skolchefer-sv"]
 
-
-def extract(pdf: Path) -> str:
-    return subprocess.run(
-        ["pdftotext", "-layout", str(pdf), "-"],
-        capture_output=True, text=True, check=True,
-    ).stdout
-
-
-def _pages(text: str) -> list[str]:
-    return text.split("\f")
-
-
-def _fingerprint(page: str) -> Counter:
-    """Teckenmultimängd utan blanksteg — okänslig för hur pdftotext
-    delar upp spärrade versaler, känslig för varje verklig textändring."""
-    return Counter("".join(page.split()))
+extract = fp.extract
+_pages = fp.pages
+_fingerprint = fp.fingerprint
 
 
 # Fix-rond: ett saknat facit gav pytest.skip, inte pytest.fail. Efter en
