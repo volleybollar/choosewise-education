@@ -17,7 +17,7 @@ from .factinventory import Row
 
 def test_comparison_normalises_whitespace_and_dashes():
     """Granskningsfokus 3: typografi får inte göra vakten falskt röd."""
-    assert surfacecheck.normalise("~$20 / mo") == surfacecheck.normalise("~$20 / mo")
+    assert surfacecheck.normalise("~$20\u00a0/ mo") == surfacecheck.normalise("~$20 / mo")
     assert surfacecheck.normalise("april–2026") == surfacecheck.normalise("april-2026")
     assert surfacecheck.normalise("a  b\n c") == surfacecheck.normalise("a b c")
 
