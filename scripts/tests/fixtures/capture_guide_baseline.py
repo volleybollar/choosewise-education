@@ -37,6 +37,8 @@ def _only_from_argv(argv: list) -> list:
 
 def main(argv: list) -> int:
     force = "--force" in argv
+    if argv and argv[-1] == "--only":
+        return _fail("--only kräver en sökväg efter sig")
     only = _only_from_argv(argv)
 
     if only:
