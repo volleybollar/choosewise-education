@@ -65,7 +65,7 @@ En post per påstående, med:
 - **utfall** — stämmer / ändrat till X / omskrivet / borttaget
 - **bockat per yta**, fyra bockar
 
-Inventeringen är tre saker på en gång: den källlogg specen §8 kräver, det enda som täpper fyrdubbleringen, och ett underlag som gör rundan återupptagbar över flera sessioner. Den blir också mallen för de fyra guider som följer.
+Inventeringen är tre saker på en gång: den källlogg den överordnade specens §8 kräver, det enda som täpper fyrdubbleringen, och ett underlag som gör rundan återupptagbar över flera sessioner. Den blir också mallen för de fyra guider som följer.
 
 **Ordningen är: inventera allt → kontrollera allt → redigera.** Inte påstående för påstående hela vägen. Skälet är att kontrollarbetet omfördelar sig självt — när Cowork visar sig ha ändrats faller flera andra poster ut som följdfrågor, och det vill man veta innan en enda rad är redigerad.
 
@@ -90,6 +90,8 @@ Cowork har 24 omnämnanden och två egna sektioner, och beskrivs som "agentic mo
 ## 6. Det svenska språkpasset
 
 Hela den svenska guiden granskas, inte bara de stycken som ändras av faktaskäl. Ribban är CLAUDE.md §3: skulle en svensk skolchef märka att texten är översatt?
+
+**Johans beslut 2026-10-08: texten ska bära hans röst.** Passet kör därför `voice`-skillen enligt CLAUDE.md §7, inte bara en språkstädning. `voice-humanizer` körs inte — CLAUDE.md §7 kräver uttrycklig begäran för den, och den har inte getts.
 
 Belagt i nuläget, som exempel på vad som söks:
 
@@ -183,13 +185,48 @@ Dessa är inte nya — de står i `docs/blueprint-handoff.md` och gäller här.
 | Upplagan är konsekvent | `grep` på "April 2026", "april 2026" och "First edition" i de sex filerna ger noll träffar; fjorton förekomster ändrade |
 | PDF:erna är byggda ur det nya innehållet | De fyra PDF:erna omrenderade, övriga arton orörda i `git status` |
 
-## 13. Öppna beslut
+## 13. Cowork-grindens utfall
 
-- **Johans röst i den svenska texten.** Specen binder svenskan till CLAUDE.md §3:s kvalitetsribba — naturlig professionell svenska. Om Johan dessutom vill att guiden ska bära hans personliga röst enligt `voice`-skillen, eller köras genom `voice-humanizer`, är det ett eget val han får göra. CLAUDE.md §7 säger att `voice-humanizer` bara aktiveras på uttrycklig begäran, så den körs inte av sig själv.
-- **Konkurrentpåståendet om ChatGPT.** Guiden påstår att Projects är enklare än custom GPTs. Ett konkurrentpåstående åldras snabbare än allt annat i guiden och är svårast att belägga med en källa som håller. Frågan är om det ska beläggas eller skrivas om till något som inte är en jämförelse. Avgörs som en post i inventeringen, men flaggas här eftersom svaret är en bedömning och inte ett faktum.
-- **Om Cowork har ändrats väsentligt** går omfånget tillbaka till Johan enligt §5. Det är inte ett beslut som kan tas i förväg.
+Kontrollerat 2026-10-08 mot officiella källor. **Cowork har ändrats väsentligt.** Guidens beskrivning håller inte längre.
 
-## 14. Dokument
+| Guiden påstår | Läget 2026-10-08 | Källa |
+|---|---|---|
+| Cowork är ett eget läge, en flik i Claude Desktop | Cowork och chat slås samman till ett Claude. Claude avgör självt om en förfrågan är ett snabbt svar eller en uppgift | `claude.com/resources/articles/cowork-is-now-claude`, annonserat 2026-09-16 |
+| Desktop-exklusivt | Webb, desktop och mobil, plus Chrome-sidopanel | `support.claude.com/.../get-started-with-claude-cowork` |
+| "paid plans" utan precisering | Pro, Max, Team, Enterprise. Sammanslagningen rullas ut på Pro och Max först; Team och Free följer | båda ovan |
+| Arbetet sker på din dator — guiden bygger sitt dataresonemang på det | Uppgifter körs i Anthropics moln, i en isolerad miljö. Fjärrkörning i beta sedan 2026-07-07 | `support.claude.com/.../release-notes`, `.../get-started-with-claude-cowork` |
+
+**Officiella källor är inte överens med sig själva.** `claude.com/docs/cowork/overview` beskriver fortfarande Cowork som "within Claude Desktop" och "Works directly on your computer" — det gamla läget — medan annonseringen och supportartikeln säger sammanslagning och moln. Dokumentationssidan är efter. Varje post i inventeringen ska därför bära *vilken* källa som sagt vad och när, inte bara att den är kontrollerad.
+
+**Konsekvensen är strukturell, inte en rättning.** 101 omnämnanden över de fyra ytorna — 25 EN webb, 25 SV webb, 26 EN print, 25 SV print — och fyra egna rubriker. Guiden är byggd kring Cowork som en *plats du går till*, och den platsen upphör. Två avsnitt bär hela resonemanget: "Understanding the Claude ecosystem" delar världen i Chat / Cowork / Code / Mobile, och del 3 lär ut när man väljer Cowork framför Chat — ett val som inte längre finns att göra.
+
+**Molnflytten träffar GDPR-sektionen.** Guiden riktar sig till EU-skolor och har ett eget regelverksavsnitt. Att Cowork arbetar på lärarens egen dator är ett av dess dataargument. Det är inte längre sant, och det påverkar vad en skola får göra.
+
+**Utrullningen är ojämn, och det gäller alla vägar nedan.** Sammanslagningen har nått Pro och Max; Team och Free följer "soon". En lärare på Free och en på Pro ser alltså inte samma Claude. Guiden måste antingen säga vad som gäller per plan eller skrivas så att den inte hänger på utrullningsläget.
+
+### Tre vägar, omfånget går tillbaka till Johan
+
+**Väg 1 — minsta sanning.** Rätta påståendena där de står: inte Desktop-exklusivt, körs i molnet, finns på Pro/Max/Team/Enterprise. Behåll Cowork som eget avsnitt och guidens nuvarande ram. Billigast, och ingen ompaginering värd namnet. Men guiden fortsätter lära ut ett val mellan Chat och Cowork som håller på att upphöra, och är inaktuell igen inom månader.
+
+**Väg 2 — skriv om de två bärande avsnitten. Rekommenderad.** Behåll guidens tredelning, byt ramen: från "fyra platser du går till" till "ett Claude som gör olika saker beroende på vad du ber om". Cowork-avsnittet blir ett avsnitt om agentiskt arbete — vad det är, när det lönar sig, vad som ändras i ansvar och datahantering — utan att hänga på ett fliknamn som försvinner. GDPR-sektionen rättas för molnkörningen. Två avsnitt skrivs om i fyra filer; resten av guiden rättas post för post som planerat. Ompaginering i alla fyra PDF:er och motsvarande fixturrörelse.
+
+**Väg 3 — vänta ut utrullningen.** Skjut Cowork-avsnitten till en senare runda och leverera resten av 2b nu. Minst risk att skriva om ett rörligt mål två gånger. Men guiden publiceras då med två avsnitt som vi vet beskriver en produkt som upphört, och det är svårt att försvara i ett medlemsvärde.
+
+**Rekommendationen är väg 2.** Guiden ligger som medlemsvärde i Skool. Väg 1 levererar något som är fel igen inom kort, och väg 3 publicerar medvetet något vi vet är fel. Väg 2 kostar en ompaginering, och ompagineringen var redan väntad eftersom du valde att lägga till väsentligt nytt.
+
+## 14. Beslut
+
+### Avgjort 2026-10-08
+
+- **Svenskans röst:** Johans egen röst, `voice`-skillen enligt CLAUDE.md §7. Se §6. `voice-humanizer` körs inte — den kräver uttrycklig begäran.
+- **ChatGPT-jämförelsen:** skrivs om till något som inte är en jämförelse. Johans skäl: custom GPTs håller på att försvinna, så påståendet blir fel oavsett formulering. Posten i inventeringen är alltså inte "belägg jämförelsen" utan "ersätt den med ett påstående om vad Projects gör".
+- **Upplagan:** andra upplagan, oktober 2026. Se §7.
+
+### Väntar på Johan
+
+- **Cowork-omfånget**, väg 1, 2 eller 3 enligt §13. Planen skrivs inte förrän den är avgjord — vägvalet avgör hur stor planen är.
+
+## 15. Dokument
 
 - Överordnad spec: `docs/superpowers/specs/2026-10-05-choosewise-visual-identity-design.md` §8
 - Våg 2a:s plan: `docs/superpowers/plans/2026-10-05-visual-identity-wave-2a-guides.md`
