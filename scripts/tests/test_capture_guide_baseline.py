@@ -11,6 +11,7 @@ from pathlib import Path
 
 import pytest
 
+from . import pdf_body_text as bt
 from . import pdf_fingerprint as fp
 
 _SPEC = importlib.util.spec_from_file_location(
@@ -60,6 +61,29 @@ def test_force_cannot_silently_reset_unrelated_entries():
         ["git", "show", f"HEAD:{fp.BASELINE.relative_to(fp.ROOT)}"],
         capture_output=True, text=True, check=True, cwd=fp.ROOT).stdout)
     current = json.loads(fp.BASELINE.read_text(encoding="utf-8"))
+    assert sorted(current) == sorted(fp.GUIDE_PDFS), "nyckeluppsättningen ändrades"
+    for rel in fp.GUIDE_PDFS:
+        if rel in CLAUDE:
+            continue
+        assert current[rel] == committed[rel], f"{rel} omfångades utan att röras"
+
+
+def test_force_cannot_silently_reset_unrelated_body_entries():
+    """Samma granskningsfokus, men för kroppstextfacit.
+
+    De två faciten skrivs av samma `_write`/`merge_baseline`-väg i dag,
+    men inget hindrar en framtida ändring från att grena isär de två
+    skrivvägarna — och då fångar sidfingeravtryckets test ovan ingenting
+    på kroppstextsidan. Den här kopian finns så att en sådan gren inte
+    kan tysta regressionen: `bt.BASELINE` måste täcka exakt 22 nycklar,
+    och de arton som inte är Claudes ska vara oförändrade mot det
+    committade läget. Testet jämför mot git, inte mot sig självt.
+    """
+    import json, subprocess
+    committed = json.loads(subprocess.run(
+        ["git", "show", f"HEAD:{bt.BASELINE.relative_to(fp.ROOT)}"],
+        capture_output=True, text=True, check=True, cwd=fp.ROOT).stdout)
+    current = json.loads(bt.BASELINE.read_text(encoding="utf-8"))
     assert sorted(current) == sorted(fp.GUIDE_PDFS), "nyckeluppsättningen ändrades"
     for rel in fp.GUIDE_PDFS:
         if rel in CLAUDE:
