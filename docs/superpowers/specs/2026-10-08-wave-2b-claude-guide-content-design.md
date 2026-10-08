@@ -3,7 +3,7 @@
 **Datum:** 2026-10-08
 **Status:** spec, väntar granskning
 **Hör till:** Blueprint-programmet. Överordnad spec: `2026-10-05-choosewise-visual-identity-design.md` §8, steg 2b.
-**Omfattar:** Claude-guiden, EN + SV. De fyra opublicerade guiderna följer i egna rundor på samma mönster.
+**Omfattar:** Claude-guiden, EN + SV. De fyra opublicerade guiderna följer i egna rundor på samma mönster — men **bara på engelska**, enligt Johans beslut 2026-10-08. Deras svenska versioner under `_unpublished/sv/guider/` lämnas i april 2026 och åldras. De är opublicerade, så ingen läser dem; frågan om de ska tas bort i stället för att stå kvar är ställd till Johan och obesvarad.
 
 ---
 
@@ -36,6 +36,10 @@ Varje faktapåstående i Claude-guiden finns på fyra ställen. De är inte speg
 
 `build-claude-pdf.py` renderar ur print-filen, inte ur webbsidan. Ingen av våg 2a:s fyra vakter ser skillnaden mellan de två ytorna.
 
+**Webbsidorna ingår, bekräftat av Johan 2026-10-08.** Guidens två publicerade webbsidor redigeras lika noga som print-källorna — de är inte en spegel av PDF:en utan en egen yta med egen formulering.
+
+Kontrollerat 2026-10-08: av sajtens 204 publicerade sidor bär **bara dessa två** volatila Claude-påståenden. Sajten i övrigt behöver ingen faktarättning i den här rundan. De tio sidor som visar "Senast uppdaterad" får datumet ur `build-seo-meta.py` och sköter sig själva.
+
 **Följeslagare som bär datum eller lättare fakta:**
 
 | Fil | Vad den bär |
@@ -44,6 +48,12 @@ Varje faktapåstående i Claude-guiden finns på fyra ställen. De är inte speg
 | `exports/claude-guide-license-{en,sv}.html` | "choosewise.education · April 2026" — upplagedatum |
 
 **PDF:er som renderas om:** `assets/pdfs/guides/claude-guide-{en,sv}.pdf`, `assets/pdfs/guides/claude-quick-start-{en,sv}.pdf`.
+
+### Känt fel utanför omfånget
+
+Guidernas landningssidor — `guides/index.html` och `sv/guider/index.html` — påstår att fem guider finns att hämta och räknar upp Copilot, Gemini/NotebookLM, Apple Intelligence, Claude och elevguiden. `guides-en.json` och `guides-sv.json` har bara Claude med status `available`; de fyra övriga ligger opublicerade. Den svenska sidans stycke är dessutom märkt i en kommentar som skrivet för att svarsmotorer ska kunna extrahera det fristående, så överdriften matas vidare.
+
+Johan tog 2026-10-08 ställning till att "webbsidorna" syftade på guidens egna sidor, inte landningssidorna. Felet står alltså kvar och åtgärdas inte här. Det är noterat för att det inte ska tappas bort — rimligen tas det när nästa guide publiceras och uppräkningen ändå ska stämma.
 
 ### Rörs inte
 
@@ -223,6 +233,9 @@ Kontrollerat 2026-10-08 mot officiella källor. **Cowork har ändrats väsentlig
 - **Svenskans röst:** Johans egen röst, `voice`-skillen enligt CLAUDE.md §7. Se §6. `voice-humanizer` körs inte — den kräver uttrycklig begäran.
 - **ChatGPT-jämförelsen:** skrivs om till något som inte är en jämförelse. Johans skäl: custom GPTs håller på att försvinna, så påståendet blir fel oavsett formulering. Posten i inventeringen är alltså inte "belägg jämförelsen" utan "ersätt den med ett påstående om vad Projects gör".
 - **Upplagan:** andra upplagan, oktober 2026. Se §7.
+- **Planens form:** en plan med grind i mitten, inte två planer. Inventering och faktakontroll före grinden, redigering efter. Skälet: inventeringen är det som gör redigeringen planerbar, och en uppdelning skulle tvinga fram en andra planeringsrunda på underlag vi redan har.
+- **Webbsidorna:** guidens egna två, redan ytor 1 och 2 i §3. Sajten i övrigt rörs inte.
+- **De fyra övriga guiderna:** bara engelska i sina kommande rundor.
 
 - **Cowork-omfånget:** väg 2 enligt §13. De två bärande avsnitten skrivs om, ramen byts från "fyra platser du går till" till "ett Claude som gör olika saker beroende på vad du ber om", och GDPR-sektionen rättas för molnkörningen.
 
