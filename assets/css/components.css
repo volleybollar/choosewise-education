@@ -1646,12 +1646,18 @@
 /* Skill card grid + cards */
 .et-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* min() så kortet får krympa under minbredden när skärmen är smalare än
+     så — utan den spränger rutnätet sidan vid 320 px. 360 och inte 300:
+     vid 300 blev korten ~310 px breda på en 1024-skärm, och då ryms inte
+     metric-blockets tre kolumner. Johans beslut 2026-10-09: hellre två
+     bredare kort per rad än ett staplat metric-block. */
+  grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr));
   gap: 14px;
   margin-top: 16px;
 }
 
 .skill-card {
+  container-type: inline-size;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: 10px;
@@ -1698,6 +1704,15 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
 }
+/* 1fr är minmax(auto, 1fr) — kolumnen kan aldrig bli smalare än sitt
+   min-content, så tre kolumner spränger sidan när kortet är smalt.
+   Container query och INTE media query: det är kortets bredd som avgör,
+   inte fönstrets. Vid 1024 px rymdes tre kort per rad och kolumnerna blev
+   ~87 px trots gott om fönsterbredd — en mobilbrytpunkt hade missat det.
+   Kräver container-type: inline-size på .skill-card ovan. */
+@container (max-width: 420px) {
+  .metric-block { grid-template-columns: 1fr; }
+}
 .metric-cell {
   display: flex;
   flex-direction: column;
@@ -1725,7 +1740,6 @@
   font-weight: 500;
   font-size: 12px;
   border-radius: 6px;
-  white-space: nowrap;  /* etiketten är längre än syskonen och bröt till två rader vid 12px */
 }
 
 .impl-pill--low { background: var(--et-impl-low-bg); color: var(--et-impl-low-fg); }
