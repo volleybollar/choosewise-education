@@ -67,6 +67,7 @@ Fem lager. De fyra första byggdes i våg 2a; det femte i våg 2b. Ändra inget 
 
 | Lager | Fil | Äger |
 |---|---|---|
+| **Rendering i webbläsare (nytt 2026-10-09)** | `scripts/tests/test_responsive_overflow.py` | att ingen Evidence-sida scrollar i sidled vid 320/390/768/1024 px, och att bandpillret inte spricker ut i fem rader. Sviten var helt statisk före det, vilket är exakt varför överflödsregressionen gick igenom |
 | Sidvist textfingeravtryck | `scripts/tests/test_guide_pdf_parity.py` | att ingen text flyttar sig inom eller mellan sidor |
 | Dokumentnivåinvariant | `scripts/tests/test_guide_pdf_body_text.py` | att inget innehåll försvinner — kromet strippas, så ompaginering kan inte röra det |
 | Renderingsvakt | `scripts/tests/test_guide_pdf_font_weights.py` | att ingen PDF bäddar in ett typsnitt över viktskalan, även när vikten kommer ur HTML och inte CSS |
@@ -96,6 +97,20 @@ Fem lager. De fyra första byggdes i våg 2a; det femte i våg 2b. Ändra inget 
 **Rörda filer:** `scripts/tests/surfacecheck.py` (13 rader), `scripts/tests/test_guide_surface_consistency.py`, `docs/guide-facts-claude.md` (statusens innebörd på tre ställen, plus daterade uppdateringar i P22 och P25 vars celler uttryckligen skrev ut begränsningen som nu är borta — de står kvar med motivering, aldrig strukna tyst). **`factinventory.py` rördes inte** — `_STATUSES` är oförändrad, vilket är hela poängen med beslutet.
 
 **Så gör nästa guide.** Kopiera vaktblockets mönster rakt av. En `aktiv` rad per volatilt påstående som ska stå på båda ytorna, och **en `borttaget`-rad för varje påstående rundan stryker eller rättar** — den sistnämnda är inte längre bara historik, den är det enda som hindrar att rättningen tas tillbaka. Kontrollera särskilt att en `borttaget`-sträng inte är en delsträng av legitim text: ordet "Cowork" står kvar överallt i Claude-guiden som laglig övergångstext, medan hela meningen "Cowork sits as a tab inside Claude Desktop" är förbjuden. Det är skillnaden mellan en vakt som fungerar och en som är röd från dag ett.
+
+---
+
+## Evidence-sidornas mobilöverflöd — LÖST 2026-10-09
+
+**Det var en regression från Evidence-fixen samma dag, inte ett gammalt fel.** Överlämningen och minnet sa att överflödet fanns före fixen; mätning mot `8af79cd` visade **noll överflöd** på alla kontrollerade sidor. Efter fixen stack 15 av 15 domänsidor ut, upp till 161 px vid 320 px och 117 px vid 1024 px.
+
+**Rotorsaken var `white-space: nowrap` på `.band-none`.** Den lades till för att hindra "no EEF strand" att brytas till två rader vid 12 px — och gjorde därmed rutnätskolumnens min-content till hela frasens bredd. `grid-template-columns: 1fr 1fr 1fr` är `minmax(auto, 1fr)` och kan **aldrig** krympa under min-content, så dokumentet blev bredare än fönstret. Isolerat genom att backa en regel i taget: nowrap ensam stod för 91 av 91 px vid 390 px, medan textstorlekarna stod för 14.
+
+**Tre ändringar, en per orsak:** nowrap borttagen; `@container (max-width: 420px)` staplar metric-blocket när **kortet** är smalt (inte när fönstret är det — vid 1024 px rymdes tre kort per rad och kolumnerna blev ~87 px, så en mobilbrytpunkt hade missat fallet); och `.et-card-grid` fick `minmax(min(360px, 100%), 1fr)` — `min()` för de sista 4 px vid 320 px, och 360 i stället för 300 så korten blir breda nog att behålla metric-blocket side-by-side på desktop. **Johans beslut:** hellre två bredare kort per rad vid 1024 px än tre smala med staplat metric-block.
+
+**Lärdomen:** 743 statiska tester såg ingenting. Bredd finns först när webbläsaren räknat. Det är samma lärdom som fälla 3 (fingeravtryck på text är blinda för bilder) i en ny förklädnad — och skälet till att vaktlagret ovan nu har en renderingsrad.
+
+**Kvar, orört:** `/blog/` sticker ut 24 px vid 320 px (`.blog-grid` kräver `minmax(320px, 1fr)`). Samma klass av fel, utanför den här rundans omfång. Evidence har dessutom kvar `side-tab` 32, `all-caps-body` 29 och `flat-type-hierarchy` 15 från impeccable-körningen.
 
 ---
 
