@@ -1,6 +1,6 @@
 # Blueprint — överlämning
 
-**Senast uppdaterad:** 2026-10-09 (förbudsvakten byggd)
+**Senast uppdaterad:** 2026-10-09 (sju PR:ar mergade; Copilot-guidens spec godkänd)
 **LÄS FÖRST** vid fortsättning. Specen är den bindande auktoriteten, planerna argumenterar från den.
 
 ---
@@ -13,6 +13,7 @@
 | **Spår A** — märket, favicon, Skool | **PR #29 öppen**, gren `feat/blueprint-track-a-mark`. Omarbetad 2026-10-09 efter Johans beslut: `main` inmergad (noll konflikter), underrubriken ändrad, og-korten utan märket. Svit 743. |
 | **Våg 2a** — guidernas tryckmallar | **MERGAD** 2026-10-08, PR #30, merge-commit `a67a47a` (72 filer, +5977/-4577). Gate för våg 2b. |
 | **Våg 2b** — guidernas innehåll | **MERGAD OCH LIVE** 2026-10-08. 44 commits på `main` (HEAD `d33a014`), pushade till origin, Pages-bygget grönt och live-sajten verifierad: åtta nya markörer på den engelska guidesidan, fyra på den svenska, **noll gamla**. Alla fyra PDF:er svarar 200 och innehåller det nya. Svit 484 passed, 0 skipped. Grenen och worktreen är borttagna. Historiken blev **linjär (fast-forward)** — till skillnad från våg 1 och 2a finns ingen merge-commit som namnger vågen; den är commits `86076ce..d33a014`. |
+| **Copilot-guiden** — första av de fyra | **SPEC GODKÄND 2026-10-09, inget byggt.** `docs/superpowers/specs/2026-10-09-copilot-guide-international-design.md`. Nästa steg: Johan läser specen, sedan skrivs implementationsplanen. |
 | Diagram- och social-exporterna | Inte påbörjad, Johans beslut: egen runda |
 | Visual Codes Vol. 1–3 | Inte påbörjad, **ingen plan äger den** |
 
@@ -26,7 +27,9 @@
 
 1. **~~FÖRBUDSVAKTEN~~ — BYGGD 2026-10-09.** Klar och grön före nästa guide, precis som avsett. Se egen sektion nedan för vad den gör och hur en ny guide använder den. **PR #31 öppen**, gren `feat/blueprint-forbidden-guard`, 3 commits, svit 489. Arbetskopian står på grenen.
 2. **Johan mergar PR #29** när han sett den. Faviconen landar på 198 sidor i samma stund den mergas — sajten har noll favicon-taggar i dag, så det är jordgloben som byts ut, inte ett märke som byts mot ett annat. **Symbolens omfång är beskuret 2026-10-09:** Skool, LinkedIn-sidan och faviconen, men **inte** og-delningskorten och inte sajtens header. (#30 — våg 2a — är redan mergad, se tabellen ovan.)
-3. **De fyra återstående guiderna (Copilot, Gemini/NotebookLM, Apple Intelligence, elevguiden), bara på engelska.** Samma mönster som Claude-guiden: en inventering i `docs/guide-facts-claude.md`:s form, fakta kontrollerade mot namngiven källa, fyra ytor stämda av mot varandra. Våg 2b lämnar både mallen och ett vaktlager (nedan) som nästa runda bör återanvända, och vaktlagrets kända brist är stängd sedan 2026-10-09 — mönstret kan nu kopieras rakt av utan att ärva en blind fläck.
+3. **COPILOT-GUIDEN — specen är godkänd, planen är nästa steg.** Läs `docs/superpowers/specs/2026-10-09-copilot-guide-international-design.md` först; den innehåller allt som avgjordes 2026-10-09 och allt som mättes upp. Kort: **leveransen är två engelska PDF:er till Skool-communityt, ingenting publiceras på sajten**, målgruppen är den engelskspråkiga skolvärlden och inte Sverige, layouten rörs inte utom två fel på omslaget, och tryckmallen är redan Blueprint. Tre fynd som ändrar bilden mot vad den här överlämningen tidigare antog: **utkasten finns och är färdiga** (i `_unpublished/`, 404 publikt), **våg 2a konverterade även de opublicerade mallarna**, och **Copilots fyra PDF:er ligger redan i båda facit-filerna**. Copilot är pilot; de tre andra tas i egna rundor med den som mall.
+
+4. ~~**De fyra återstående guiderna**, bara på engelska.~~ Ersatt av punkt 3 — en guide i taget, Johans beslut 2026-10-09. Den ursprungliga formuleringen: Samma mönster som Claude-guiden: en inventering i `docs/guide-facts-claude.md`:s form, fakta kontrollerade mot namngiven källa, fyra ytor stämda av mot varandra. Våg 2b lämnar både mallen och ett vaktlager (nedan) som nästa runda bör återanvända, och vaktlagrets kända brist är stängd sedan 2026-10-09 — mönstret kan nu kopieras rakt av utan att ärva en blind fläck.
 4. **Diagram- och social-exporterna.** Åtta mallar plus SVG, PNG och PDF för WISE och RÄTT. Johans beslut 2026-10-06: egen runda, gärna ihop med märket. Sju av åtta bär hans ocommittade ändringar — han bör commita svepet först.
 5. **Visual Codes Vol. 1–3** i `~/Projekt/Choosewise/visual-codes-pdf/`, utanför repot. Specen §8 räknar dem till våg 2; varken 2a:s eller 2b:s plan nämner dem. Tredje kopian av paletten.
 6. **NotebookLM-dokumentet** — se "Känt trasigt" nedan.
