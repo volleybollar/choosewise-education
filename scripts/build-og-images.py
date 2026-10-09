@@ -9,34 +9,11 @@ Idempotent: rewrites every file on each run.
 """
 from __future__ import annotations
 
-import importlib.util
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "assets/images/brand/og"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
-
-# scripts/build-brand-assets.py has a hyphen in its name, so it can't be
-# imported with a normal `import` statement — load it directly from its
-# file path instead, so mark_markup() (and its path data) stays defined
-# in exactly one place.
-_spec = importlib.util.spec_from_file_location(
-    "build_brand_assets", Path(__file__).resolve().parent / "build-brand-assets.py")
-_build_brand_assets = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(_build_brand_assets)
-mark_markup = _build_brand_assets.mark_markup
-
-# The mark, pulled from assets/images/brand/mark-on-dark.svg via
-# mark_markup() — never retyped. Position matches the hand-edited cards:
-# top-left corner, clear of every headline. test_brand_mark.py checks the
-# needle paths survive both this generator and the committed SVGs.
-MARK = (
-    '  <!-- Märket, hämtat ur assets/images/brand/mark-on-dark.svg. Ändras det\n'
-    '       där ska det ändras här — vakten i test_brand_mark.py jämför banorna. -->\n'
-    '  <svg x="80" y="64" width="112" height="112" viewBox="0 0 64 64">\n'
-    '    {inner}\n'
-    '  </svg>\n'
-).format(inner=mark_markup("dark").replace("\n  ", "\n    "))
 
 # Each section: (slug, line1, line2, eyebrow, accent_hex)
 # accent_hex tints the gradient's right stop and the wordmark.
@@ -73,7 +50,7 @@ TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" wid
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-{mark}  <text x="80" y="360" font-family="Hanken Grotesk, sans-serif" font-size="{size1}" font-weight="300" fill="#FBFAF8">{line1}</text>
+  <text x="80" y="360" font-family="Hanken Grotesk, sans-serif" font-size="{size1}" font-weight="300" fill="#FBFAF8">{line1}</text>
   <text x="80" y="{y2}" font-family="Hanken Grotesk, sans-serif" font-size="{size2}" font-weight="300" fill="#FBFAF8">{line2}</text>
   <text x="80" y="540" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="500" fill="#EFF2F6" letter-spacing="2">{eyebrow}</text>
 </svg>
@@ -102,7 +79,6 @@ def main() -> None:
             size1=size1,
             size2=size2,
             y2=y2,
-            mark=MARK,
         )
         out = OUT_DIR / f"{slug}.svg"
         out.write_text(svg, encoding="utf-8")

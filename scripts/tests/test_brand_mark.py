@@ -209,27 +209,16 @@ def test_there_are_twelve_og_cards():
 
 
 @pytest.mark.parametrize("svg", ALL_OG_CARDS, ids=lambda p: p.name)
-def test_every_og_card_carries_the_mark(svg):
-    """Samma banddata som källan — inte en egen teckning av nålen."""
+def test_no_og_card_carries_the_mark(svg):
+    """Johans beslut 2026-10-09: symbolen hör primärt till Skool-communityt.
+    og-korten är de stora bilderna folk ser när sajten delas — det är där
+    märket hade blivit "överallt". Korten bär ordmärket och inget mer.
+
+    Parametriseringen kan inte gå tom: test_there_are_twelve_og_cards
+    räknar källan."""
     text = svg.read_text(encoding="utf-8")
     for d in (NEEDLE_NORTH, NEEDLE_SOUTH):
-        assert f'd="{d}"' in text, f"{svg.name} saknar nålen"
-    assert "#E8C9A8" in text, f"{svg.name}: norrspetsen ska vara ljus koppar mot mörkt"
-
-
-@pytest.mark.parametrize("svg", ALL_OG_CARDS, ids=lambda p: p.name)
-def test_the_png_was_rendered_after_the_svg(svg):
-    """og-taggarna pekar på PNG. En SVG med märket och en gammal PNG ser
-    oförändrad ut för varje delad länk, och felet upptäcks aldrig."""
-    png = svg.with_suffix(".png")
-    assert png.exists(), f"{png.name} saknas"
-    im = Image.open(png).convert("RGB")
-    assert im.size == (1200, 630)
-    # Märket sitter uppe till vänster. Finns ljus koppar i den rutan har
-    # PNG:en renderats om efter att märket lades in.
-    box = im.crop((60, 50, 200, 190)).getcolors(140 * 140) or []
-    assert any(c == (0xE8, 0xC9, 0xA8) for _, c in box), \
-        f"{png.name} saknar märkets koppar — PNG:en är inte omrenderad"
+        assert f'd="{d}"' not in text, f"{svg.name} bär märket"
 
 
 # scripts/build-og-images.py has a hyphen in its name too, so it's loaded
@@ -240,16 +229,17 @@ _build_og_images = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_build_og_images)
 
 
-def test_the_generator_itself_composes_cards_with_the_mark():
-    """Vaktar generatorns eget TEMPLATE, inte bara filer som redan
-    committats. Går den här röd har build-og-images.py tappat märket
-    INNAN någon hinner köra den och skriva över de committade korten."""
-    svg = _build_og_images.TEMPLATE.format(
-        accent="#0B3A6F", line1="x", line2="y", eyebrow="z",
-        size1=80, size2=80, y2=450, mark=_build_og_images.MARK,
-    )
+def test_the_og_generator_does_not_stamp_the_mark():
+    """Generatorn äger korten (fälla 7) — en handredigering där raderas
+    tyst vid nästa körning. Det är alltså HÄR ett återinförande måste
+    fångas, innan någon kör skriptet och skriver över de committade
+    korten."""
+    source = (ROOT / "scripts/build-og-images.py").read_text(encoding="utf-8")
     for d in (NEEDLE_NORTH, NEEDLE_SOUTH):
-        assert f'd="{d}"' in svg, "generatorns TEMPLATE saknar nålen"
+        assert f'd="{d}"' not in source, \
+            "build-og-images.py stämplar märket på delningskorten igen"
+    assert "mark_markup" not in source, \
+        "build-og-images.py importerar märkets banor ur build-brand-assets.py igen"
 
 
 EXPECTED_SIZES = {
@@ -350,3 +340,4 @@ def test_generated_card_font_path_exists(rel):
     assert match, f"{rel}: no @font-face src url found"
     font_path = ROOT / match.group(1).lstrip("/")
     assert font_path.exists(), f"{rel}: font path {match.group(1)} does not exist"
+
