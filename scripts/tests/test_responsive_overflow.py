@@ -127,3 +127,47 @@ def test_the_band_pill_does_not_blow_out_on_desktop(site, browser):
         assert not bad, "\n".join(bad)
     finally:
         page.close()
+
+
+POSTS = [p for p in PAGES if "/posts/" in p]
+
+LONGEST_WORD = """() => {
+  const h = document.querySelector('.post__header h1');
+  if (!h) return null;
+  const probe = document.createElement('span');
+  probe.style.cssText =
+    'position:absolute;visibility:hidden;white-space:nowrap;font:' + getComputedStyle(h).font;
+  document.body.appendChild(probe);
+  let widest = 0, word = '';
+  for (const w of h.textContent.trim().split(/\\s+/)) {
+    probe.textContent = w;
+    const px = probe.getBoundingClientRect().width;
+    if (px > widest) { widest = px; word = w; }
+  }
+  probe.remove();
+  return {widest: Math.round(widest), room: h.clientWidth, word};
+}"""
+
+
+def test_a_post_title_never_breaks_mid_word_on_a_phone(site, browser):
+    """`overflow-wrap: break-word` hindrar överflödet men delar ordet.
+
+    Sajten heter choosewise.education — ett enda ord, 351 px brett vid
+    rubrikens 36 px, i en 272 px spalt. Utan den här vakten läser
+    rubriken "choosewise.educ / ation". Brytningen är inte ett fel i
+    sig, den är nätet; kravet är att nätet inte ska behöva användas på
+    sajtens eget namn.
+    """
+    page = browser.new_page(viewport={"width": WIDTHS[0], "height": 800})
+    try:
+        bad = []
+        for rel in POSTS:
+            page.goto(f"{site}/{rel}", wait_until="networkidle")
+            m = page.evaluate(LONGEST_WORD)
+            assert m, f"{rel}: ingen .post__header h1 — vakten vore tom"
+            if m["widest"] > m["room"]:
+                bad.append(f"{rel}: “{m['word']}” är {m['widest']} px "
+                           f"i en {m['room']} px spalt")
+        assert not bad, "\n".join(bad)
+    finally:
+        page.close()
