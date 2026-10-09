@@ -312,4 +312,17 @@ C22 | en | Sweden | borttaget
 # det som skiljer Outlook/Teams från C01:s standard-access-lista.
 C27 | en | Requires a Microsoft 365 Copilot license | borttaget
 C27 | en | content you have open | aktiv
+
+# C07: kvantifieringen "most" som EU Data Boundary-täckning, utan att säga
+# vad den INTE täcker. En bar "overwhelming majority"-rad övervägdes och
+# förkastades (se rapporten) — den strängen står kvar i EW 147, men i en
+# annan mening om EDP:s räckvidd för Del 2, inte om EU Data Boundary; en
+# förbudsrad på den hade varit röd direkt. De tre strängarna nedan är
+# rundans egna, distinkta kvantifierarformuleringar — ingen av dem
+# förekommer på någon av ytorna idag. Dashen i mittersta strängen är en
+# em dash som i källtexten; normalise() översätter den mot en hyphen vid
+# jämförelse, så skrivformen här är den ursprungliga.
+C07 | en | covers most Copilot data storage and processing | borttaget
+C07 | en | covers most — not all — of the relevant operations | borttaget
+C07 | en | applies to most Copilot operations | borttaget
 ```
