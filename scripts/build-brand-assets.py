@@ -189,7 +189,8 @@ def build_favicons(page) -> None:
 def card_svg(w: int, h: int, mark_size: int, mark_x: int, mark_y: int,
              title: str | None, subtitle: str | None,
              title_pt: int, sub_pt: int, text_x: int,
-             title_y: int, sub_y: int, band: int) -> str:
+             title_y: int, sub_y: int, band: int,
+             anchor: str = "start") -> str:
     """Mörkt kort med märket, rubrik, underrubrik och kopparbandet nederst.
 
     Bandet är samma band som sajtens footer. Det är det som binder
@@ -203,17 +204,23 @@ def card_svg(w: int, h: int, mark_size: int, mark_x: int, mark_y: int,
         'format("woff2");font-weight:300 600}</style>',
         f'<rect width="{w}" height="{h}" fill="{BLUE}"/>',
         f'<rect y="{h - band}" width="{w}" height="{band}" fill="#C2793A"/>',
-        f'<svg x="{mark_x}" y="{mark_y}" width="{mark_size}" height="{mark_size}" '
-        f'viewBox="0 0 64 64">{mark_markup("dark")}</svg>',
     ]
+    # mark_size=0 utelämnar märket helt. LinkedIn-omslaget använder det:
+    # avataren ÄR märket och lägger sig ovanpå omslagets nedre vänstra
+    # hörn, så ett märke där stod både dubbelt och i skymundan.
+    if mark_size:
+        parts.append(
+            f'<svg x="{mark_x}" y="{mark_y}" width="{mark_size}" height="{mark_size}" '
+            f'viewBox="0 0 64 64">{mark_markup("dark")}</svg>')
+    tail = f' text-anchor="{anchor}"' if anchor != "start" else ""
     if title:
         parts.append(
-            f'<text x="{text_x}" y="{title_y}" font-family="Hanken Grotesk, sans-serif" '
+            f'<text x="{text_x}" y="{title_y}"{tail} font-family="Hanken Grotesk, sans-serif" '
             f'font-size="{title_pt}" font-weight="300" fill="{CREAM}" '
             f'letter-spacing="-2">{title}</text>')
     if subtitle:
         parts.append(
-            f'<text x="{text_x}" y="{sub_y}" font-family="Hanken Grotesk, sans-serif" '
+            f'<text x="{text_x}" y="{sub_y}"{tail} font-family="Hanken Grotesk, sans-serif" '
             f'font-size="{sub_pt}" font-weight="400" fill="{COPPER_DK}" '
             f'letter-spacing="1.6">{subtitle}</text>')
     parts.append("</svg>")
@@ -239,18 +246,26 @@ def build_skool(page) -> None:
 
 
 def build_linkedin(page) -> None:
+    # LinkedIns spec, hämtad 2026-10-09: loggan rekommenderas 400×400
+    # (minst 268×268), sidans omslag 1512×256. Båda låg tidigare på en
+    # äldre spec, 300×300 och 1128×191.
     out = BRAND / "linkedin"
-    render_png(page, tile_svg(300, radius_pct=0), 300, 300, out / "page-logo.png")
+    render_png(page, tile_svg(400, radius_pct=0), 400, 400, out / "page-logo.png")
 
+    # Inget märke, och texten centrerad. Johans beslut 2026-10-09:
+    # företagssidans logga lägger sig över omslagets nedre vänstra hörn
+    # och mobilen beskär mot mitten, så vänstra ~20 % är osäker yta.
+    # Avataren visar redan märket precis där, så omslaget bär ordmärket
+    # ensamt — centrerat, vilket överlever både loggan och beskärningen.
     page_banner = card_svg(
-        w=1128, h=191, mark_size=88, mark_x=56, mark_y=46,
+        w=1512, h=256, mark_size=0, mark_x=0, mark_y=0,
         title=TITLE, subtitle=SUBTITLE,
-        title_pt=46, sub_pt=21, text_x=176,
-        title_y=94, sub_y=130, band=8,
+        title_pt=62, sub_pt=28, text_x=756,
+        title_y=126, sub_y=174, band=11, anchor="middle",
     )
     page_banner_svg_path = out / "page-banner.svg"
     page_banner_svg_path.write_text(page_banner, encoding="utf-8")
-    render_png(page, page_banner, 1128, 191, out / "page-banner.png",
+    render_png(page, page_banner, 1512, 256, out / "page-banner.png",
                svg_path=page_banner_svg_path)
 
     # Den personliga bannern: specen (§3) kräver att vänstra tredjedelen

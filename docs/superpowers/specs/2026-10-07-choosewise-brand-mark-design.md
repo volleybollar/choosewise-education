@@ -98,11 +98,13 @@ Omslaget: mörk blå botten, märket uppe till vänster, **Choosewise** i Hanken
 
 | Fil | Storlek |
 |---|---|
-| `assets/images/brand/linkedin/page-logo.png` | 300×300 |
-| `assets/images/brand/linkedin/page-banner.png` | 1128×191 |
+| `assets/images/brand/linkedin/page-logo.png` | ~~300×300~~ **400×400** |
+| `assets/images/brand/linkedin/page-banner.png` | ~~1128×191~~ **1512×256** |
 | `assets/images/brand/linkedin/personal-banner.png` | 1584×396 |
 
 **AVGJORT 2026-10-09:** Choosewise får en **egen sida**, och den personliga bannern **används inte** — Johans profil behåller sin egen avsändare, i linje med hattregeln att profilen är hans eget namn där han säljer sin tid. Sidan skapas nu för att säkra namnet och ge communityt någonstans att peka, men posterna fortsätter från profilen tills Skool öppnar: en ny sida startar på noll följare, och att byta kanal innan dess är att posta i ett tomt rum. Båda måtten ligger kvar committade. ~~Båda bannermåtten levereras eftersom det inte är avgjort om Choosewise ska ha en egen LinkedIn-sida eller leva på Johans profil.~~ Den personliga bannern håller vänstra tredjedelen fri från text där LinkedIn lägger profilbilden.
+
+**RÄTTAT 2026-10-09 — två fel i det här avsnittet.** (1) **Måtten var en äldre spec.** LinkedIns hjälpsida *Image specifications for your LinkedIn Pages and Career Pages*, hämtad 2026-10-09, anger loggan till **400×400** (minst 268×268) och sidans omslag till **1512×256**. 1512/256 är exakt samma proportion som 1128/191, så geometrin är skalad med 1,3404 och inte omritad. 300×300 låg över minimum men under rekommendationen. (2) **Antagandet att sidbannern inte har någon avatar att ta hänsyn till är fel.** Företagssidans logga lägger sig över omslagets nedre vänstra hörn, och på mobil beskärs omslaget mot mitten — vänstra ~20 % är alltså lika osäker yta som på den personliga bannern. I nuvarande layout ligger märket och början av ordmärket i den zonen.
 
 ### og-korten
 
