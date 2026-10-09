@@ -242,11 +242,18 @@ def test_the_og_generator_does_not_stamp_the_mark():
         "build-og-images.py importerar märkets banor ur build-brand-assets.py igen"
 
 
+# LinkedIns egen spec, hämtad 2026-10-09 från hjälpsidan "Image
+# specifications for your LinkedIn Pages and Career Pages": loggan
+# rekommenderas 400×400 (minst 268×268), omslaget 1512×256. De tidigare
+# måtten 300×300 och 1128×191 var en äldre spec — 300 ligger över
+# minimum men under rekommendationen och blir mjuk på retinaskärmar.
+# 1512/256 är exakt samma proportion som 1128/191, så bannern är skalad
+# rakt av och inte omdesignad.
 EXPECTED_SIZES = {
     "skool/logo.png": (1024, 1024),
     "skool/cover.png": (1400, 790),
-    "linkedin/page-logo.png": (300, 300),
-    "linkedin/page-banner.png": (1128, 191),
+    "linkedin/page-logo.png": (400, 400),
+    "linkedin/page-banner.png": (1512, 256),
     "linkedin/personal-banner.png": (1584, 396),
 }
 

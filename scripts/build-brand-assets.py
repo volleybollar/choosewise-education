@@ -239,18 +239,23 @@ def build_skool(page) -> None:
 
 
 def build_linkedin(page) -> None:
+    # LinkedIns spec, hämtad 2026-10-09: loggan rekommenderas 400×400
+    # (minst 268×268), sidans omslag 1512×256. Båda låg tidigare på en
+    # äldre spec, 300×300 och 1128×191.
     out = BRAND / "linkedin"
-    render_png(page, tile_svg(300, radius_pct=0), 300, 300, out / "page-logo.png")
+    render_png(page, tile_svg(400, radius_pct=0), 400, 400, out / "page-logo.png")
 
+    # 1512/256 är exakt samma proportion som det gamla 1128/191, så
+    # geometrin är skalad med 1,3404 och inte omritad.
     page_banner = card_svg(
-        w=1128, h=191, mark_size=88, mark_x=56, mark_y=46,
+        w=1512, h=256, mark_size=118, mark_x=75, mark_y=62,
         title=TITLE, subtitle=SUBTITLE,
-        title_pt=46, sub_pt=21, text_x=176,
-        title_y=94, sub_y=130, band=8,
+        title_pt=62, sub_pt=28, text_x=236,
+        title_y=126, sub_y=174, band=11,
     )
     page_banner_svg_path = out / "page-banner.svg"
     page_banner_svg_path.write_text(page_banner, encoding="utf-8")
-    render_png(page, page_banner, 1128, 191, out / "page-banner.png",
+    render_png(page, page_banner, 1512, 256, out / "page-banner.png",
                svg_path=page_banner_svg_path)
 
     # Den personliga bannern: specen (§3) kräver att vänstra tredjedelen
