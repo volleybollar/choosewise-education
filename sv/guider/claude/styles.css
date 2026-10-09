@@ -416,6 +416,14 @@
   overflow: hidden;
   box-shadow: var(--shadow-card);
 }
+/* Tabellen är bredare än spalten på en telefon. Scrollen läggs på en
+   omslutande låda och inte på tabellen själv: min-width på tabellen gör
+   annars SJÄLVA lådan bred, och då svämmar hela sidan över igen. 560 px
+   är avvägningen — utan den klämts kolumnerna ihop till ett par ord per
+   rad och raderna blev 838 px höga i stället för 216. */
+.jl-page .table-scroll { overflow-x: auto; margin: var(--space-3) 0; }
+.jl-page .table-scroll table { min-width: 560px; margin: 0; }
+
 .jl-page thead { background: var(--color-accent); }
 .jl-page th {
   color: white;

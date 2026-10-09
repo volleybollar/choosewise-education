@@ -16,6 +16,12 @@ html {
 }
 
 body {
+  /* Ett ord som inte ryms bryts hellre än spränger sidan. Sajtens eget
+     namn (choosewise.education, 351 px vid 36 px rubrik), svenska
+     sammansättningar som "skolmåltidspersonal" och nakna URL:er i
+     källistor är alla bredare än en telefonspalt. break-word bryter bara
+     det som ändå inte får plats — vanlig text påverkas inte. */
+  overflow-wrap: break-word;
   min-height: 100vh;
   background: var(--color-bg);
   color: var(--color-text);

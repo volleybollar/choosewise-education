@@ -299,7 +299,10 @@
 .flipcard__back .copy-btn:hover { background: var(--color-copy-hover); color: var(--color-dark-text); }
 .flipcard__back .copy-toast { background: var(--color-highlight); }
 
-.styles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-4); }
+/* min() — utan den beräknas kolumnen till 320 px i en 272 px bred
+   innehållsyta vid 320 px skärm. Samma fel som .blog-grid och
+   .et-card-grid hade. */
+.styles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: var(--space-4); }
 
 .skeleton--card { aspect-ratio: 16 / 9; border-radius: var(--radius-md); }
 
@@ -483,7 +486,8 @@
 /* ───── Course module cards (översiktsvy grid) ───── */
 .module-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  /* min() av samma skäl som .styles-grid ovan. */
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
   gap: var(--space-5);
   margin-top: var(--space-6);
 }
