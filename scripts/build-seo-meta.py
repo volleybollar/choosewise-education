@@ -19,6 +19,27 @@ SEO_MARK_START = "<!-- seo:start (build-seo-meta.py) -->"
 SEO_MARK_END = "<!-- seo:end -->"
 LU_MARK_START = "<!-- last-updated:start (build-seo-meta.py) -->"
 LU_MARK_END = "<!-- last-updated:end -->"
+FAVICON_MARK_START = "<!-- favicon:start (build-seo-meta.py) -->"
+FAVICON_MARK_END = "<!-- favicon:end -->"
+
+FAVICON_LINKS = (
+    '<link rel="icon" href="/favicon.svg" type="image/svg+xml">',
+    '<link rel="icon" href="/favicon.ico" sizes="32x32">',
+    '<link rel="apple-touch-icon" href="/apple-touch-icon.png">',
+)
+
+# Pages excluded from seo processing (EXCLUDE_FILES, below) for good reasons —
+# a wrong canonical on a template or a 404 page is worse than none — but
+# which are still real, publicly reachable pages and must still get the
+# favicon. Processed by a second pass in main() that injects ONLY the
+# favicon links, via their own marker pair.
+FAVICON_ONLY_PATHS = (
+    "404.html",
+    "blog/post.html",
+    "sv/blog/post.html",
+    "ratt-modellen.html",
+    "wise-framework.html",
+)
 
 # Pages that exist on disk but should be hidden from search engines and the
 # sitemap. Files are kept (still reachable by direct URL) but get a robots
@@ -148,6 +169,18 @@ EXCLUDE_FILES = {
     "ratt-modellen.html",
     "404.html",
 }
+
+# FAVICON_ONLY_PATHS must be a subset of EXCLUDE_FILES: both lists agree by
+# maintenance today, not by construction. If a path were ever in
+# FAVICON_ONLY_PATHS but NOT in EXCLUDE_FILES, the main pass below would
+# process it first and inject_head would still run — but then the
+# favicon-only pass would run on it too and, because inject_head clears
+# BOTH the seo block and the favicon block on every call, strip that
+# page's canonical, hreflang and JSON-LD along with the favicon links it
+# meant to (re)inject.
+assert set(FAVICON_ONLY_PATHS) <= EXCLUDE_FILES, (
+    f"FAVICON_ONLY_PATHS has paths not in EXCLUDE_FILES: "
+    f"{set(FAVICON_ONLY_PATHS) - EXCLUDE_FILES}")
 
 
 def is_excluded(rel_path: str) -> bool:
@@ -345,15 +378,20 @@ def build_faqpage(canonical_path: str, faqs: list):
 
 def build_seo_block(canonical_path: str, lang: str, html: str,
                     last_modified: str) -> str:
+    # Faviconen gäller varje sida, även de dolda. Raderna byggs därför
+    # FÖRE den tidiga returen för HIDDEN_PATHS — läggs de efter får de
+    # sex guidsidorna per språk ingen favicon.
     # Hidden pages: emit only a noindex robots tag, no canonical/hreflang/JSON-LD.
     if canonical_path in HIDDEN_PATHS:
-        return (f'{SEO_MARK_START}\n'
-                f'<meta name="robots" content="noindex,nofollow">\n'
-                f'{SEO_MARK_END}')
+        return "\n".join([SEO_MARK_START,
+                          '<meta name="robots" content="noindex,nofollow">',
+                          *FAVICON_LINKS,
+                          SEO_MARK_END])
     canonical_url = BASE_URL + canonical_path
     lines = [
         SEO_MARK_START,
         f'<link rel="canonical" href="{canonical_url}">',
+        *FAVICON_LINKS,
     ]
     pair = get_pair(canonical_path)
     if pair:
@@ -426,6 +464,9 @@ def build_last_updated_block(lang: str, last_modified: str) -> str:
 RE_OUR_BLOCK = re.compile(
     re.escape(SEO_MARK_START) + r'.*?' + re.escape(SEO_MARK_END) + r'\s*\n?',
     re.DOTALL)
+RE_FAVICON_BLOCK = re.compile(
+    re.escape(FAVICON_MARK_START) + r'.*?' + re.escape(FAVICON_MARK_END) + r'\s*\n?',
+    re.DOTALL)
 RE_LU_BLOCK = re.compile(
     re.escape(LU_MARK_START) + r'.*?' + re.escape(LU_MARK_END) + r'\s*\n?',
     re.DOTALL)
@@ -437,11 +478,18 @@ RE_OLD_HREFLANG = re.compile(
 
 def inject_head(html: str, block: str) -> str:
     html = RE_OUR_BLOCK.sub("", html)
+    html = RE_FAVICON_BLOCK.sub("", html)
     html = RE_OLD_CANONICAL.sub("", html)
     html = RE_OLD_HREFLANG.sub("", html)
     if "</head>" not in html:
         return html
     return html.replace("</head>", block + "\n</head>", 1)
+
+
+def build_favicon_only_block() -> str:
+    """For FAVICON_ONLY_PATHS: pages excluded from seo processing that must
+    still get the favicon. No canonical, no hreflang, no JSON-LD."""
+    return "\n".join([FAVICON_MARK_START, *FAVICON_LINKS, FAVICON_MARK_END])
 
 
 def inject_last_updated(html: str, block: str) -> str:
@@ -518,6 +566,22 @@ def main():
           f"{sum(1 for f in files if path_to_canonical(f) in BLOG_POSTS)}")
     print(f"  section landings updated: "
           f"{sum(1 for f in files if path_to_canonical(f) in SECTION_LANDINGS)}")
+
+    # ---- Favicon-only pass: pages excluded from seo processing above
+    # (templates, the 404 page, orphaned standalone pages) that must still
+    # carry the favicon. No canonical/hreflang/JSON-LD for these.
+    favicon_only_written = 0
+    favicon_block = build_favicon_only_block()
+    for rel in FAVICON_ONLY_PATHS:
+        path = ROOT / rel
+        html = path.read_text(encoding="utf-8")
+        new_html = inject_head(html, favicon_block)
+        if new_html != html:
+            if not dry_run:
+                path.write_text(new_html, encoding="utf-8")
+            favicon_only_written += 1
+    print(f"Favicon-only pages processed: {len(FAVICON_ONLY_PATHS)}, "
+          f"updates: {favicon_only_written}")
 
     # ---- Generate sitemap.xml with hreflang ----
     sitemap_lines = [
