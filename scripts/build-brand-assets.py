@@ -221,7 +221,7 @@ def card_svg(w: int, h: int, mark_size: int, mark_x: int, mark_y: int,
 
 
 TITLE = "Choosewise"
-SUBTITLE = "AI &amp; EdTech for Educators"
+SUBTITLE = "AI &amp; Digitalization for Educators"
 
 
 def build_skool(page) -> None:

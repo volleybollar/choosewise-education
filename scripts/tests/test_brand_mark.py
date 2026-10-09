@@ -341,3 +341,25 @@ def test_generated_card_font_path_exists(rel):
     font_path = ROOT / match.group(1).lstrip("/")
     assert font_path.exists(), f"{rel}: font path {match.group(1)} does not exist"
 
+
+SUBTITLE = "AI &amp; Digitalization for Educators"
+OLD_SUBTITLE = "AI &amp; EdTech for Educators"
+
+
+@pytest.mark.parametrize("rel", ["skool/cover.svg", "linkedin/page-banner.svg",
+                                 "linkedin/personal-banner.svg"])
+def test_the_subtitle_is_the_decided_one(rel):
+    """Johans beslut 2026-10-09. `digitalization` följer sajtens egen
+    -ize-konvention (382 förekomster mot 18 för -isation), och versalt D
+    matchar `Educators` på samma rad — gement bröt rytmen vid 42 px."""
+    text = (ROOT / "assets/images/brand" / rel).read_text(encoding="utf-8")
+    assert SUBTITLE in text, f"{rel} saknar den beslutade underrubriken"
+    assert OLD_SUBTITLE not in text, f"{rel} bär kvar den gamla underrubriken"
+
+
+def test_the_generator_owns_the_subtitle():
+    """Fälla 7: en handredigering i en genererad SVG raderas tyst vid
+    nästa körning. Strängen måste stå i generatorn, inte bara i filerna."""
+    source = (ROOT / "scripts/build-brand-assets.py").read_text(encoding="utf-8")
+    assert SUBTITLE in source
+    assert OLD_SUBTITLE not in source
