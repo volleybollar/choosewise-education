@@ -11,7 +11,7 @@
 
 choosewise.education har idag **varken logotyp eller favicon**. Sajten klarar sig på ett textordmärke, men två saker gör att det inte räcker längre:
 
-**Skool.** Communityn startar under namnet **Choosewise** med underrubriken **AI & EdTech for Educators**. Skool låter dig styra tre ytor — logotyp, favicon och omslagsbild 1400×790 — och inget annat. De tre bär hela den visuella igenkänningen mellan sajt och community.
+**Skool.** Communityn startar under namnet **Choosewise** med underrubriken **AI & Digitalization for Educators** (**ändrad 2026-10-09** från *AI & EdTech for Educators* på Johans begäran; `digitalization` följer sajtens egen -ize-konvention, 382 förekomster mot 18, och versalt D matchar `Educators` på samma rad). Skool låter dig styra tre ytor — logotyp, favicon och omslagsbild 1400×790 — och inget annat. De tre bär hela den visuella igenkänningen mellan sajt och community.
 
 **Flikraden.** En sida utan favicon visar webbläsarens tomma standardikon. Det är den vanligaste förekomsten av varumärket överhuvudtaget, och den är idag tom.
 
@@ -92,7 +92,7 @@ Alla tre är **märket på varumärkesblå botten** med hörnradie 22 %, inte m�
 | `assets/images/brand/skool/logo.png` | 1024×1024, blå botten |
 | `assets/images/brand/skool/cover.png` (+ `.svg`) | 1400×790 |
 
-Omslaget: mörk blå botten, märket uppe till vänster, **Choosewise** i Hanken Grotesk 300, underrubriken **AI & EdTech for Educators** i vikt 400 och `#E8C9A8`, samt kopparbandet nederst — samma band som sajtens footer, vilket är det som binder ytorna ihop.
+Omslaget: mörk blå botten, märket uppe till vänster, **Choosewise** i Hanken Grotesk 300, underrubriken **AI & Digitalization for Educators** i vikt 400 och `#E8C9A8`, samt kopparbandet nederst — samma band som sajtens footer, vilket är det som binder ytorna ihop.
 
 ### LinkedIn
 
@@ -102,11 +102,13 @@ Omslaget: mörk blå botten, märket uppe till vänster, **Choosewise** i Hanken
 | `assets/images/brand/linkedin/page-banner.png` | 1128×191 |
 | `assets/images/brand/linkedin/personal-banner.png` | 1584×396 |
 
-Båda bannermåtten levereras eftersom det inte är avgjort om Choosewise ska ha en egen LinkedIn-sida eller leva på Johans profil. Den personliga bannern håller vänstra tredjedelen fri från text där LinkedIn lägger profilbilden.
+**AVGJORT 2026-10-09:** Choosewise får en **egen sida**, och den personliga bannern **används inte** — Johans profil behåller sin egen avsändare, i linje med hattregeln att profilen är hans eget namn där han säljer sin tid. Sidan skapas nu för att säkra namnet och ge communityt någonstans att peka, men posterna fortsätter från profilen tills Skool öppnar: en ny sida startar på noll följare, och att byta kanal innan dess är att posta i ett tomt rum. Båda måtten ligger kvar committade. ~~Båda bannermåtten levereras eftersom det inte är avgjort om Choosewise ska ha en egen LinkedIn-sida eller leva på Johans profil.~~ Den personliga bannern håller vänstra tredjedelen fri från text där LinkedIn lägger profilbilden.
 
 ### og-korten
 
-De 12 befintliga delningskorten i `assets/images/brand/og/` får märket uppe till vänster. Korten har **mörk botten** — en övertoning från `#07284D` till `#0B3A6F` — så märket tar sitt **mörka** skick. SVG:erna uppdateras och PNG:erna renderas om med `scripts/render-og-pngs.py`, som redan finns sedan våg 1 och startar en lokal server så att de självhostade typsnitten laddas.
+**ÄNDRAT 2026-10-09 — Johans beslut: korten får INTE märket.** Symbolen hör primärt till Skool-communityt, och og-korten är de stora bilderna folk ser i flöden och chattar när sajten delas — det är där märket hade blivit varumärke överallt i stället för vägvisning. Korten står kvar som de är på `main`, redan Blueprint-korrekta, och bär ordmärket och inget mer. `build-og-images.py` är återställd och en vakt i `test_brand_mark.py` läser generatorns källa, eftersom generatorn äger korten (fälla 7) och en handredigering där raderas tyst vid nästa körning. Faviconen behålls — sajten hade noll favicon-taggar på alla 198 sidor, så alternativet var webbläsarens jordglob, och vid 16 px är märket vägvisare, inte uttalande. **Stycket nedan står kvar som historik över vad vågen planerade.**
+
+~~De 12 befintliga delningskorten i `assets/images/brand/og/` får märket uppe till vänster. Korten har mörk botten — en övertoning från `#07284D` till `#0B3A6F` — så märket tar sitt mörka skick. SVG:erna uppdateras och PNG:erna renderas om med `scripts/render-og-pngs.py`, som redan finns sedan våg 1 och startar en lokal server så att de självhostade typsnitten laddas.~~
 
 ### Guidernas omslag
 
@@ -142,7 +144,7 @@ Varje vakt ska prövas mot sitt eget felfall innan den godkänns — i våg 1 vi
 3. Faviconen syns på alla 198 sidor med `<head>`, i både EN och SV.
 4. Skool-loggan och omslaget 1400×790 finns som PNG, och omslaget är granskat i Skools egen beskärning.
 5. LinkedIn-tillgångarna finns i alla tre måtten.
-6. De 12 og-korten har märket, och **PNG:erna är omrenderade**, inte bara SVG:erna.
+6. ~~De 12 og-korten har märket~~ — **utgår 2026-10-09**, se §og-korten. Kriteriet är nu det omvända: inget og-kort bär märket, och generatorn stämplar det inte.
 7. Guidomslagets utformning är dokumenterad så att våg 2a kan tillämpa den utan nya beslut.
 8. Testsviten är grön, de fyra nya vakterna inräknade, och var och en har prövats mot sitt felfall.
 9. PR mergad och Pages-bygget verifierat skarpt, med faviconen kontrollerad på den publicerade sajten.
