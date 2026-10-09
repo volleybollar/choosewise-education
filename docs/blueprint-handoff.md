@@ -24,7 +24,7 @@
 
 ## Nästa steg, i ordning
 
-1. **~~FÖRBUDSVAKTEN~~ — BYGGD 2026-10-09.** Klar och grön före nästa guide, precis som avsett. Se egen sektion nedan för vad den gör och hur en ny guide använder den. Ocommittad i arbetskopian vid överlämning.
+1. **~~FÖRBUDSVAKTEN~~ — BYGGD 2026-10-09.** Klar och grön före nästa guide, precis som avsett. Se egen sektion nedan för vad den gör och hur en ny guide använder den. **PR #31 öppen**, gren `feat/blueprint-forbidden-guard`, 3 commits, svit 489. Arbetskopian står på grenen.
 2. **Johan mergar PR #29** när han sett den. Faviconen landar på 198 sidor i samma stund den mergas. (#30 — våg 2a — är redan mergad, se tabellen ovan.)
 3. **De fyra återstående guiderna (Copilot, Gemini/NotebookLM, Apple Intelligence, elevguiden), bara på engelska.** Samma mönster som Claude-guiden: en inventering i `docs/guide-facts-claude.md`:s form, fakta kontrollerade mot namngiven källa, fyra ytor stämda av mot varandra. Våg 2b lämnar både mallen och ett vaktlager (nedan) som nästa runda bör återanvända, och vaktlagrets kända brist är stängd sedan 2026-10-09 — mönstret kan nu kopieras rakt av utan att ärva en blind fläck.
 4. **Diagram- och social-exporterna.** Åtta mallar plus SVG, PNG och PDF för WISE och RÄTT. Johans beslut 2026-10-06: egen runda, gärna ihop med märket. Sju av åtta bär hans ocommittade ändringar — han bör commita svepet först.
