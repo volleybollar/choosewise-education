@@ -40,7 +40,6 @@ def _flat(rel: str) -> str:
 
 
 @pytest.mark.parametrize("rel", DELIVERED)
-@pytest.mark.xfail(reason="röd till Task 10 har renderat om PDF:erna", strict=True)
 def test_the_delivered_pdfs_carry_no_swedish_framing(rel):
     """Granskningsfokus 2."""
     flat = _flat(rel)
