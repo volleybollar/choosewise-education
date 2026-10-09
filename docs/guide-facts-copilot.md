@@ -230,7 +230,86 @@ får en `borttaget`-rad — den är det enda som hindrar att rättningen tas
 tillbaka.
 
 ```guard
-# Fylls i Task 10. Tills blocket har rader hoppar de parametriserade
-# vakterna över copilot, och Task 13 kräver 0 skipped i sviten — så ett
-# tomt block kan inte överleva rundan.
+# Engelska ytorna: EW `_unpublished/guides/copilot/index.html` (web)
+# + EP `_unpublished/exports/copilot-print-a4-en.html` (print).
+# QS står utanför vakten med avsikt (spec §7) och bevakas av
+# test_copilot_delivery.py.
+C09 | en | October 2026 | aktiv
+C09 | en | April 2026 | borttaget
+# C10: bara förbudsraden. Omslagsleden står på PRINTYTAN och har ingen
+# motsvarighet på webbytan — en `aktiv`-rad för den nya strängen vore
+# `saknas_på_en_yta` från första sekunden. Den nya leden bevakas i stället
+# av leveransvakten, som läser PDF:en.
+C10 | en | A practical guide for Swedish schools | borttaget
+C14 | en | Schrems II | borttaget
+C14 | en | GDPR | borttaget
+C15 | en | What depends on where you are | aktiv
+C15 | en | Readers outside Sweden | borttaget
+C15 | en | IMY | borttaget
+C12 | en | Skolverket | borttaget
+C02 | en | kr 350 | borttaget
+# C02: det sourcade USD-listpriset för tilläggsnivån. EDU-priset förblir
+# obelagt (spec: inget listpris finns att citera) och får därför ingen rad.
+C02 | en | USD 30.00 | aktiv
+C16 | en | I offer consulting for schools, primarily in Sweden | borttaget
+
+# C03: namnbytet CDP → EDP är rundans tyngsta rättning. Den bokstavliga
+# strängen "CDP" förekommer fortfarande sex gånger i EP, men bara inuti
+# CSS-klassnamn (`sku-cdp-yes`/`sku-cdp-no`, en gång i en <style>-regel).
+# surfacecheck.normalise stryker taggar OCH <style>-block innan jämförelsen,
+# så de förekomsterna är osynliga för vakten — därför är "CDP" en säker
+# förbudsrad, inte en fälla.
+C03 | en | Commercial Data Protection | borttaget
+C03 | en | CDP | borttaget
+# Case spelar roll (normalise gör ingen gemener-konvertering): EW skriver
+# "enterprise data protection (EDP)" med liten bokstav i löptext, EP har
+# samma gemena form på två ställen (590, 669) utöver en versal rubrikform
+# (771) som bara står på EP. Den gemena formen är den som står på BÅDA.
+C03 | en | enterprise data protection (EDP) | aktiv
+
+# C01: de gamla fyra SKU-namnen. OBS — "Microsoft 365 Copilot" och
+# "Copilot Pro" får INTE bli förbudsrader: båda namnen förekommer
+# fortfarande legitimt (Copilot Pro nämns som nedlagd produkt i
+# sidnoten om vad som ligger utanför guidens scope; "Microsoft 365
+# Copilot" lever vidare som en del av varje ny licensrads namn). De två
+# strängar som bara fanns i den gamla fyrdelade strukturen och
+# ingenstans annars:
+C01 | en | Copilot (free web) | borttaget
+C01 | en | Copilot Chat (with work/school account) | borttaget
+C01 | en | Copilot Chat (Basic) | aktiv
+C01 | en | Microsoft 365 Copilot (Basic) | aktiv
+C01 | en | Microsoft 365 Copilot (Premium) | aktiv
+
+# C05/C19: adressregeln. "copilot.cloud.microsoft" i sig kan INTE bli en
+# förbudsrad — värdnamnet står kvar på båda ytorna som den legitima
+# startpunkten för arbets-/skolkontot (det är numera KONTOT, inte
+# adressen, som avgör skyddet). Strängen nedan är den gamla
+# verifieringsinstruktionen ordagrant ur C19:s källcitat ("look for the
+# shield or Protected badge at copilot.cloud.microsoft", EW 138–140) —
+# den fångar det strukna påståendet utan att träffa den legitima adressen.
+# Läses ihop med C05, som är samma rättning sedd från andra hållet.
+C19 | en | look for the shield or Protected badge | borttaget
+
+# C11: enspråksfrågan ersatt av en jurisdiktionsneutral fråga.
+C11 | en | Swedish | borttaget
+C11 | en | Does Copilot work in languages other than English? | aktiv
+
+# C13: parallellversionen namnger inte längre språket.
+C13 | en | family's home language | aktiv
+
+# C21: det obelagda adminfunktionsnamnet och domänblockeringsrådet.
+# Microsoft avråder uttryckligen från domänblockering, så rådet går helt
+# — inte bara namnet på det.
+C21 | en | Access Protection for Copilot | borttaget
+C21 | en | the thirty minutes it takes to configure | borttaget
+
+# C22: Teams-calloutens Sverige/GDPR-mening. GDPR-ordet bevakas redan av
+# C14:s rad ovan; "Sweden" hör till den här posten specifikt.
+C22 | en | Sweden | borttaget
+
+# C27: Task 8:s egen vaktrekommendation (se posten ovan) — den gamla
+# allt-eller-inget-licensmeningen bort, "content you have open" kvar som
+# det som skiljer Outlook/Teams från C01:s standard-access-lista.
+C27 | en | Requires a Microsoft 365 Copilot license | borttaget
+C27 | en | content you have open | aktiv
 ```
