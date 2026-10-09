@@ -2,101 +2,41 @@
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<title>Presentationsteknik — A4-sammanfattning</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Presentationsteknik Quick Start — för lärare och skolledare</title>
+<link rel="stylesheet" href="_guide-print.css">
 <style>
-  @page { size: A4; margin: 0; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: 'Work Sans', -apple-system, sans-serif;
-    color: #1e1e1c;
-    background: #f7f4ec;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
     font-size: 11px;
     line-height: 1.55;
   }
 
-  .page {
-    width: 210mm;
-    height: 297mm;
-    padding: 18mm 20mm;
-    display: flex;
-    flex-direction: column;
-  }
-  .page1 { page-break-after: always; }
-  .page2 { page-break-before: always; }
-
-  .masthead {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(30, 30, 28, 0.12);
-    margin-bottom: 14px;
-  }
-  .masthead .eyebrow {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 9.5px;
-    font-weight: 600;
-    letter-spacing: 2.4px;
-    text-transform: uppercase;
-    color: #2f4a3a;
-  }
-  .masthead .page-num {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 9.5px;
-    font-weight: 500;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: #a5a59f;
-  }
-
   h1 {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 32px;
     font-weight: 400;
     line-height: 1.08;
     letter-spacing: -0.6px;
-    color: #1e1e1c;
+    color: var(--color-text);
     margin-bottom: 6px;
   }
-  .subtitle {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 16px;
-    font-weight: 300;
-    font-style: italic;
-    color: #5a5a57;
-    margin-bottom: 14px;
-  }
-  .lede {
-    font-size: 11.5px;
-    line-height: 1.6;
-    color: #3a3a38;
-    max-width: 155mm;
-    margin-bottom: 16px;
-  }
 
-  .section { margin-bottom: 12px; }
   .section h2 {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 17px;
-    font-weight: 450;
+    font-weight: 400;
     line-height: 1.2;
-    color: #1e1e1c;
+    color: var(--color-text);
     margin-bottom: 4px;
   }
   .section h2 .num {
-    color: #2f4a3a;
+    color: var(--color-accent);
     font-weight: 500;
     margin-right: 8px;
   }
   .section p {
     font-size: 10.8px;
     line-height: 1.55;
-    color: #3a3a38;
+    color: var(--color-text-soft);
     margin-bottom: 5px;
   }
 
@@ -108,34 +48,26 @@
     margin-top: 8px;
   }
   .triple-card {
-    background: #fbf8f1;
-    border-left: 3px solid #2f4a3a;
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-accent);
     padding: 10px 12px;
     border-radius: 2px;
   }
-  .triple-card:nth-child(2) { border-color: #a07d2e; }
-  .triple-card:nth-child(3) { border-color: #b35a3a; }
+  .triple-card:nth-child(2) { border-color: var(--color-highlight); }
+  .triple-card:nth-child(3) { border-color: var(--color-deep); }
   .triple-card .letter {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 22px;
     font-weight: 500;
     line-height: 1;
-    color: #2f4a3a;
+    color: var(--color-accent);
   }
-  .triple-card:nth-child(2) .letter { color: #a07d2e; }
-  .triple-card:nth-child(3) .letter { color: #b35a3a; }
-  .triple-card .name {
-    display: block;
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 13px;
-    font-weight: 500;
-    color: #1e1e1c;
-    margin: 3px 0 3px;
-  }
+  .triple-card:nth-child(2) .letter { color: var(--color-highlight-ink); }
+  .triple-card:nth-child(3) .letter { color: var(--color-deep); }
   .triple-card p {
     font-size: 10.2px;
     line-height: 1.5;
-    color: #3a3a38;
+    color: var(--color-text-soft);
     margin: 0;
   }
 
@@ -147,31 +79,30 @@
     margin-top: 6px;
   }
   .bbb-card {
-    background: #fbf8f1;
-    border-top: 2px solid #c4c0b2;
+    background: var(--color-bg-alt);
+    border-top: 2px solid var(--color-border);
     padding: 8px 10px;
     border-radius: 2px;
   }
-  .bbb-card.better { border-color: #c69c3c; }
-  .bbb-card.best   { border-color: #2f4a3a; }
+  .bbb-card.better { border-color: var(--color-highlight); }
+  .bbb-card.best   { border-color: var(--color-accent); }
   .bbb-card .label {
-    font-family: 'Work Sans', sans-serif;
     font-size: 8.5px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1.6px;
     text-transform: uppercase;
-    color: #a5a59f;
+    color: var(--color-text-muted);
     display: block;
     margin-bottom: 4px;
   }
-  .bbb-card.better .label { color: #a07d2e; }
-  .bbb-card.best   .label { color: #2f4a3a; }
+  .bbb-card.better .label { color: var(--color-highlight-ink); }
+  .bbb-card.best   .label { color: var(--color-accent); }
   .bbb-card .sample {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: var(--font-quote);
     font-size: 10.5px;
     line-height: 1.45;
     font-style: italic;
-    color: #3a3a38;
+    color: var(--color-text-soft);
   }
 
   /* Sju moduler-listan */
@@ -186,26 +117,6 @@
     gap: 10px;
     padding: 4px 0;
   }
-  .seven-item .idx {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.1;
-    color: #2f4a3a;
-    min-width: 14px;
-  }
-  .seven-item .text {
-    font-size: 10.2px;
-    line-height: 1.5;
-    color: #3a3a38;
-  }
-  .seven-item .text strong {
-    color: #1e1e1c;
-    font-weight: 600;
-    display: block;
-    font-size: 10.8px;
-    margin-bottom: 1px;
-  }
 
   .two-col {
     display: grid;
@@ -215,106 +126,20 @@
   }
   .two-col p { margin-bottom: 4px; font-size: 10.5px; }
 
-  .watchout {
-    background: #f5ecd0;
-    border-left: 3px solid #a07d2e;
-    padding: 10px 14px;
-    border-radius: 2px;
-    margin-top: 8px;
-  }
-  .watchout .label {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 8.5px;
-    font-weight: 700;
-    letter-spacing: 1.6px;
-    text-transform: uppercase;
-    color: #a07d2e;
-    display: block;
-    margin-bottom: 4px;
-  }
-  .watchout p {
-    font-size: 10.5px;
-    line-height: 1.5;
-    color: #3a3a38;
-    margin: 0;
-  }
-
-  .page-footer {
-    margin-top: auto;
-    padding-top: 10px;
-    border-top: 1px solid rgba(30, 30, 28, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-size: 9.5px;
-    color: #a5a59f;
-    letter-spacing: 0.3px;
-  }
-  .page-footer .brand {
-    font-family: 'Fraunces', Georgia, serif;
-    font-style: italic;
-    font-size: 10.5px;
-    color: #5a5a57;
-  }
-
-  .closing {
-    background: #1e1e1c;
-    color: #f7f4ec;
-    padding: 14px 18px;
-    border-radius: 3px;
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-  }
-  .closing .msg {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 13px;
-    font-style: italic;
-    color: #f7f4ec;
-    line-height: 1.4;
-  }
-  .closing .url {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.6px;
-    text-transform: uppercase;
-    color: #d4e8db;
-    white-space: nowrap;
-  }
-
   .colophon-line {
     margin-top: 10px;
     font-size: 8.5px;
-    color: #a5a59f;
+    color: var(--color-text-muted);
     letter-spacing: 0.25px;
     font-style: italic;
     text-align: center;
-  }
-  .license-line {
-    margin-top: 6px;
-    padding-top: 8px;
-    border-top: 1px solid rgba(30, 30, 28, 0.08);
-    font-size: 8.5px;
-    color: #a5a59f;
-    letter-spacing: 0.25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-  }
-  .license-line strong {
-    color: #5a5a57;
-    font-weight: 600;
   }
 </style>
 </head>
 <body>
 
 <!-- ═══════════════ SIDA 1 ═══════════════ -->
-<div class="page page1">
+<div class="page page--quickstart page1">
   <div class="masthead">
     <span class="eyebrow">Presentationsteknik · A4-sammanfattning</span>
     <span class="page-num">01 / 02</span>
@@ -375,14 +200,14 @@
     <h2><span class="num">4</span>Närvaron — blicken, pausen, slutet</h2>
     <div class="two-col">
       <div>
-        <p><strong style="color:#1e1e1c;font-weight:600;">Stå upp om du kan.</strong> Energin i rummet sjunker när du sitter. Ta plats. Plantera fötterna.</p>
-        <p><strong style="color:#1e1e1c;font-weight:600;">Titta på en person i taget.</strong> Tre sekunder per person — inte sökande över haven av huvuden.</p>
-        <p><strong style="color:#1e1e1c;font-weight:600;">Pausa när det är viktigt.</strong> Två sekunders tystnad efter en nyckelmening är kraftfullare än tre minuters retorik.</p>
+        <p><strong style="color:var(--color-text);">Stå upp om du kan.</strong> Energin i rummet sjunker när du sitter. Ta plats. Plantera fötterna.</p>
+        <p><strong style="color:var(--color-text);">Titta på en person i taget.</strong> Tre sekunder per person — inte sökande över haven av huvuden.</p>
+        <p><strong style="color:var(--color-text);">Pausa när det är viktigt.</strong> Två sekunders tystnad efter en nyckelmening är kraftfullare än tre minuters retorik.</p>
       </div>
       <div>
-        <p><strong style="color:#1e1e1c;font-weight:600;">Avsluta inte med "några frågor?"</strong> Avsluta med det du vill att publiken ska tänka på när de går ur rummet.</p>
-        <p><strong style="color:#1e1e1c;font-weight:600;">Berätta hellre än rapportera.</strong> En konkret berättelse fastnar bättre än fem abstrakta argument.</p>
-        <p><strong style="color:#1e1e1c;font-weight:600;">Tysta utfyllnadsljuden.</strong> "Eh", "asså", "liksom" — träna bort dem genom att höra dig själv.</p>
+        <p><strong style="color:var(--color-text);">Avsluta inte med "några frågor?"</strong> Avsluta med det du vill att publiken ska tänka på när de går ur rummet.</p>
+        <p><strong style="color:var(--color-text);">Berätta hellre än rapportera.</strong> En konkret berättelse fastnar bättre än fem abstrakta argument.</p>
+        <p><strong style="color:var(--color-text);">Tysta utfyllnadsljuden.</strong> "Eh", "asså", "liksom" — träna bort dem genom att höra dig själv.</p>
       </div>
     </div>
   </div>
@@ -395,7 +220,7 @@
 </div>
 
 <!-- ═══════════════ SIDA 2 ═══════════════ -->
-<div class="page page2">
+<div class="page page--quickstart page2">
   <div class="masthead">
     <span class="eyebrow">Presentationsteknik · digitalt, röst, sju meningar</span>
     <span class="page-num">02 / 02</span>
@@ -409,12 +234,12 @@
     <p>Skärmen tar bort de flesta signaler du brukar lita på. Du behöver kompensera med mycket annat — ljudet, kameran, blicken — för att fylla luckan.</p>
     <div class="two-col">
       <div>
-        <p><strong style="color:#1e1e1c;font-weight:600;">Bra ljud före bra bild.</strong> Headset eller extern mikrofon. Inbyggd dator-mikrofon räcker inte.</p>
-        <p><strong style="color:#1e1e1c;font-weight:600;">Kameran i ögonhöjd.</strong> Lyft datorn på en bok. Annars ser publiken upp i din näsa hela mötet.</p>
+        <p><strong style="color:var(--color-text);">Bra ljud före bra bild.</strong> Headset eller extern mikrofon. Inbyggd dator-mikrofon räcker inte.</p>
+        <p><strong style="color:var(--color-text);">Kameran i ögonhöjd.</strong> Lyft datorn på en bok. Annars ser publiken upp i din näsa hela mötet.</p>
       </div>
       <div>
-        <p><strong style="color:#1e1e1c;font-weight:600;">Titta på linsen, inte ansiktena.</strong> Det känns onaturligt — men det är där publiken upplever ögonkontakt.</p>
-        <p><strong style="color:#1e1e1c;font-weight:600;">Pausa medvetet och längre.</strong> Det digitala äter upp tystnader. Två sekunder live = fyra digitalt.</p>
+        <p><strong style="color:var(--color-text);">Titta på linsen, inte ansiktena.</strong> Det känns onaturligt — men det är där publiken upplever ögonkontakt.</p>
+        <p><strong style="color:var(--color-text);">Pausa medvetet och längre.</strong> Det digitala äter upp tystnader. Två sekunder live = fyra digitalt.</p>
       </div>
     </div>
   </div>
