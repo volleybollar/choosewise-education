@@ -59,6 +59,7 @@ Fem fel som specen förutsätter men som ingen uppgifts tester annars skulle få
 | `scripts/tests/factinventory.py` | inventeringssökväg per guide, parsern | Task 1 |
 | `scripts/tests/test_guide_surface_consistency.py` | ytvakten, nu parametriserad över guiderna | Task 1 |
 | `scripts/tests/test_copilot_delivery.py` | **ny** — leveransvakten: de två engelska PDF:erna är fria från svenskramning | Task 2 |
+| `scripts/tests/test_copilot_toc.py` | **ny** — innehållsförteckningens sidnummer mot den renderade PDF:en | Task 12 |
 | `docs/guide-facts-copilot.md` | **ny** — påståendeinventeringen med vaktblocket | Task 1 (skelett), 3 (poster), 4 (fakta), 10 (vaktrader) |
 | `_unpublished/exports/copilot-print-a4-en.html` | källan till huvud-PDF:en — den egentliga leveransen | Task 5–9, 11 |
 | `_unpublished/guides/copilot/index.html` | webbytan, hålls i sak synkad med printytan | Task 5–9 |
@@ -1111,10 +1112,17 @@ git commit -m "build(copilot): rendera om de två engelska PDF:erna ur det rätt
 ## Task 12: Innehållsförteckningen, bilderna och uppslagen
 
 **Filer:**
+- Skapa: `scripts/tests/test_copilot_toc.py`
 - Modifiera: `_unpublished/exports/copilot-print-a4-en.html` (rad 607–657, innehållsförteckningens sidnummer)
 - Modifiera: `_unpublished/assets/pdfs/guides/copilot-guide-en.pdf` (om numren ändrades)
 
-Spec §2 svarade fel på den här frågan (se Rättelse ovan): printytan har sex hårdkodade sidnummer i `toc__page`, och FAQ:ns står redan fel i dag — 23 i förteckningen, 24 i PDF:en. Del 3 har dessutom just skrivits om, så sidflödet kan ha flyttat sig. Det här steget går efter renderingen, aldrig före.
+**Gränssnitt:**
+- Förbrukar: `pdf_fingerprint.extract(path) -> str`, `pdf_fingerprint.pages(text) -> list[str]`, `pdf_fingerprint.ROOT`.
+- Producerar: inget andra uppgifter läser.
+
+Spec §2 svarade fel på den här frågan (se Rättelse ovan): printytan har sex hårdkodade sidnummer i `toc__page`, och FAQ:ns står redan fel i dag — 23 i förteckningen, 24 i PDF:en. Del 3 har dessutom just skrivits om, så sidflödet kan ha flyttat sig. Steget går efter renderingen, aldrig före.
+
+**Tillägg 2 utöver spec §7, uttryckligen flaggat:** numren får en **vakt**, inte bara en mätning. Skälet är inte prydlighet — det är våg 2b:s dyraste lärdom, ordagrant ur programmets överlämning: rundan granskade text sexton gånger och fann tre fel först när någon öppnade PDF:en, och det ena var innehållsförteckningens sidnummer, *13 av 15 rader fel, hårdkodade, ovaktade*. En mätning som bockas en gång fångar inte nästa guide; en vakt gör det. Vill Johan hålla rundan vid specens bokstav är det här det andra av två tillägg att stryka — då blir steg 2 och 3 en ren mätning och numren står ovaktade som de gör i dag.
 
 - [ ] **Steg 1: Mät var avsnitten faktiskt börjar**
 
@@ -1127,17 +1135,99 @@ for p in $(seq 1 30); do
 done
 ```
 
-- [ ] **Steg 2: Jämför med förteckningen**
+Läs utfallet noga innan du skriver testet. `pdftotext` spärrar versaler oförutsägbart — del-openarnas eyebrow kommer ut som `PA R T 3 · S T U D E N T D ATA`, och omslagets rubrik kan komma ut i omkastad ordning. **Ankarsträngarna i steg 2 väljs ur den här utskriften**, inte ur HTML:en, och de ska vara vanlig brödtext eller en `<h3>` — aldrig en spärrad etikett.
 
-```bash
-sed -n '607,657p' _unpublished/exports/copilot-print-a4-en.html | \
-  grep -E 'toc__(title|page)' | sed 's/<[^>]*>//g' | sed 's/^ *//'
+- [ ] **Steg 2: Skriv vakten**
+
+```python
+# scripts/tests/test_copilot_toc.py
+"""Innehållsförteckningens sidnummer mot den renderade PDF:en.
+
+Våg 2b:s dyraste fel: 13 av 15 hårdkodade sidnummer i Claude-guidens
+förteckning var fel, och ingen vakt såg det — texten granskades sexton
+gånger utan att någon öppnade dokumentet. Copilots förteckning bär sex
+nummer i klassen `toc__page`, och ett av dem (FAQ:n) var fel innan den
+här rundan började.
+
+Vakten läser numren ur mallen och letar upp varje avsnitts faktiska
+startsida i den renderade PDF:en. Ankarsträngarna är valda ur
+`pdftotext`-utskriften, inte ur HTML:en: extraktionen spärrar versaler
+oförutsägbart, så en spärrad etikett vore ett ankare som aldrig matchar.
+Sökningen börjar på sidan efter förteckningen själv — annars matchar
+varje ankare förteckningens egen rad.
+"""
+from __future__ import annotations
+
+import re
+
+import pytest
+
+from . import pdf_fingerprint as fp
+from . import surfacecheck
+
+TEMPLATE = "_unpublished/exports/copilot-print-a4-en.html"
+PDF = "_unpublished/assets/pdfs/guides/copilot-guide-en.pdf"
+TOC_PAGE = 2  # förteckningen står själv på sidan 2 och räknas inte som träff
+
+# Förteckningens rubrik (som den står i `toc__title`, före eventuell
+# `toc__sub`) -> en sträng som står på den sida avsnittet BÖRJAR på och
+# ingen tidigare sida. Nycklarna är lästa ur mallen 2026-10-09 och
+# normaliseras med surfacecheck.normalise, så `&amp;` jämförs som `&`.
+# ANKARNA nedan är hämtade ur mallen FÖRE omskrivningen — kontrollera
+# varje ankare mot steg 1:s utskrift och byt dem som Task 6 skrev om.
+ANCHORS = {
+    "Why this guide exists": "Why this guide exists",
+    "Part 1 · Get started": "Which product are you actually using?",
+    "Part 2 · Work smarter": "Copilot Chat (with your work data)",
+    "Part 3 · Compliance & licensing": "What CDP actually gives you",
+    "FAQ": "Questions teachers ask",
+    "About this guide": "the entire compliance story",
+}
+
+_TOC_ROW = re.compile(
+    r'<span class="toc__title">(?P<title>.*?)(?:<span class="toc__sub">.*?</span>)?'
+    r'\s*</span>.*?<span class="toc__page">(?P<page>\d+)</span>',
+    re.S)
+
+
+def toc_rows() -> list:
+    """surfacecheck.normalise gör entiteterna till tecken, så nyckeln
+    `Part 3 · Compliance & licensing` matchar markupens `&amp;`."""
+    html = (fp.ROOT / TEMPLATE).read_text(encoding="utf-8")
+    return [(surfacecheck.normalise(re.sub(r"<[^>]+>", " ", m.group("title"))),
+             int(m.group("page")))
+            for m in _TOC_ROW.finditer(html)]
+
+
+def test_the_toc_has_the_six_rows_we_think_it_has():
+    """Går regexen sönder blir listan tom, och en tom parametrisering är
+    en grön vakt som vaktar ingenting."""
+    rows = toc_rows()
+    assert len(rows) == 6, rows
+    assert [title for title, _ in rows] == list(ANCHORS), rows
+
+
+@pytest.mark.parametrize("title", list(ANCHORS))
+def test_every_toc_page_number_matches_the_rendered_pdf(title):
+    claimed = dict(toc_rows())[title]
+    anchor = surfacecheck.normalise(ANCHORS[title])
+    pages = [surfacecheck.normalise(page)
+             for page in fp.pages(fp.extract(fp.ROOT / PDF))]
+    actual = next((i + 1 for i, page in enumerate(pages)
+                   if i + 1 > TOC_PAGE and anchor in page), None)
+    assert actual is not None, (
+        f"ankaret {anchor!r} står inte på någon sida efter {TOC_PAGE} — "
+        "välj ett ankare ur pdftotext-utskriften, inte ur HTML:en")
+    assert actual == claimed, (
+        f"{title!r}: förteckningen säger {claimed}, avsnittet börjar på {actual}")
 ```
-Sex nummer: "Why this guide exists", "Part 1 · Get started", "Part 2 · Work smarter", "Part 3 · Compliance & licensing", "FAQ", "About this guide". Varje ska peka på den sida där avsnittet faktiskt börjar enligt steg 1. **Känt fel att rätta: FAQ:n.** Kontrollera alla sex, inte bara den.
 
-- [ ] **Steg 3: Rätta numren och rendera om**
+- [ ] **Steg 3: Kör vakten och rätta numren**
 
-Rätta `toc__page`-värdena i `_unpublished/exports/copilot-print-a4-en.html`, kör sedan Task 11:s steg 1–3 igen (kopiera undan svenska, rendera, återställ) och mät om med steg 1. Ett tvåsiffrigt nummer som byts mot ett annat tvåsiffrigt flyttar inte sidbrytningarna, men det ska verifieras och inte antas.
+Kör: `/usr/bin/python3 -m pytest scripts/tests/test_copilot_toc.py -v`
+Förväntat: minst FAQ-raden röd med `förteckningen säger 23, avsnittet börjar på 24` — eller andra nummer röda om del 3:s omskrivning flyttade sidflödet. Är **allt** grönt på första försöket: kontrollera att `test_the_toc_has_the_six_rows_we_think_it_has` verkligen passerade och att ankarna inte är så allmänna att de matchar en tidig sida. En vakt som inte setts bli röd vaktar ingenting, och här finns ett känt fel att se den fånga.
+
+Rätta `toc__page`-värdena i mallen till vad vakten rapporterar. Kör sedan Task 11:s steg 1–3 igen (kopiera undan svenska, rendera, återställ) och kör vakten på nytt. Ett tvåsiffrigt nummer som byts mot ett annat tvåsiffrigt flyttar inte sidbrytningarna, men det ska verifieras och inte antas.
 
 - [ ] **Steg 4: Titta på det renderade dokumentet**
 
@@ -1159,12 +1249,16 @@ wc -l /tmp/copilot-en.txt
 ```
 Läs hela filen. Det är sista chansen att se en mening som blev halv när ett stycke byttes ut.
 
-- [ ] **Steg 6: Commit**
+- [ ] **Steg 6: Kör hela sviten och commit**
+
+Kör: `/usr/bin/python3 -m pytest scripts/tests/ -q`
+Förväntat: 773 passed, 0 skipped (766 + 7 nya i den här uppgiften).
 
 ```bash
-git add _unpublished/exports/copilot-print-a4-en.html \
+git add scripts/tests/test_copilot_toc.py \
+        _unpublished/exports/copilot-print-a4-en.html \
         _unpublished/assets/pdfs/guides/copilot-guide-en.pdf
-git commit -m "fix(copilot): innehållsförteckningens sidnummer mot den renderade PDF:en"
+git commit -m "fix(copilot): innehållsförteckningens sidnummer, nu vaktade mot PDF:en"
 ```
 
 ---
@@ -1224,7 +1318,7 @@ git commit -m "test(copilot): omfånga facit för de två engelska PDF:erna, öv
 - [ ] **Steg 1: Hela sviten**
 
 Kör: `/usr/bin/python3 -m pytest scripts/tests/ -q`
-Förväntat: **766 passed, 0 skipped, 0 xfailed, 0 xpassed.** Står en skip kvar är ett vaktblock tomt; står en xfail kvar sitter markeringen från Task 2 i.
+Förväntat: **773 passed, 0 skipped, 0 xfailed, 0 xpassed.** Står en skip kvar är ett vaktblock tomt; står en xfail kvar sitter markeringen från Task 2 i.
 
 - [ ] **Steg 2: Gå igenom specens §9 rad för rad**
 
@@ -1292,5 +1386,5 @@ Specens §9, med planens tillägg:
 - [ ] Leveransvakten grön — och den har setts vara röd innan PDF:erna renderades om.
 - [ ] PDF-facit omfångat med `--only`, de tjugo andra nycklarna orörda.
 - [ ] Webbsidan rättad i sak och fri från Google Fonts och Crestioras typsnitt.
-- [ ] Innehållsförteckningens sex sidnummer stämmer mot den renderade PDF:en.
+- [ ] Innehållsförteckningens sex sidnummer stämmer mot den renderade PDF:en, och vakten som säger det har setts bli röd på FAQ-raden.
 - [ ] Det svenska divergensläget skrivet i överlämningen.
