@@ -664,7 +664,7 @@
 
   <p>Microsoft's naming is the single most confusing thing about this product. A teacher who opens <em>copilot.microsoft.com</em> on a personal browser and a teacher who clicks the Copilot icon inside Word on a work laptop have both used "Copilot". They have not used the same product. One path is a consumer service under Microsoft's consumer terms. The other is an enterprise-bounded service covered by the school's existing Microsoft 365 Data Processing Agreement. The prompts they type go to different places with different retention, training, and audit rules attached.</p>
 
-  <p>That distinction is not a detail. It is the entire compliance story for Copilot in a school setting, and Microsoft's own marketing does not make it easy to see. The rest of this guide is organised around making it visible — so a teacher can choose deliberately, and a rektor can write a policy that the staff will actually follow.</p>
+  <p>That distinction is not a detail. It is the entire compliance story for Copilot in a school setting, and Microsoft's own marketing does not make it easy to see. The rest of this guide is organised around making it visible — so a teacher can choose deliberately, and a principal can write a policy that the staff will actually follow.</p>
 
   <p>The genuine differentiator for schools is <strong>Commercial Data Protection (CDP)</strong>. When a user signs in with a work or school account, prompts and responses are bounded to the tenant, are not used to train Microsoft's foundation models, and inherit the school's existing data-processing agreement. That is a meaningful privacy posture — and it only applies when the user is signed in to the correct account. Sign-in is compliance. Everything else in Part 3 is a footnote to that sentence.</p>
 
@@ -853,7 +853,7 @@
       <li><strong>Drafting lesson plans from existing material:</strong> with M365 Copilot, type <code>/</code> in the chat and pick last year's OneNote section on photosynthesis. Ask for a refreshed plan for this year's group, with a differentiation column added.</li>
       <li><strong>Extracting action items from a meeting transcript:</strong> paste a long Teams transcript and ask for a numbered list of commitments by person. A forty-minute meeting becomes a ten-line follow-up in a minute.</li>
       <li><strong>Summarising a curriculum document:</strong> drop in a twenty-page Skolverket module or a school-improvement plan and request a one-page summary pitched for a department briefing.</li>
-      <li><strong>Tone-rewriting a parent email:</strong> paste a terse draft and ask for a warmer version, then a concise version, then one in plain language for a parent with Swedish as a second language.</li>
+      <li><strong>Tone-rewriting a parent email:</strong> paste a terse draft and ask for a warmer version, then a concise version, then one in plain language for a parent who is still learning the school's language of instruction.</li>
       <li><strong>Scaffolding differentiation ideas:</strong> describe a mixed-ability group and ask for three adjustments at the low-support end and three at the extension end. Treat the output as a starting draft, not the final plan.</li>
     </ul>
   </article>
@@ -1087,7 +1087,7 @@
   <span class="eyebrow">Part 2 · Before you read Part 3</span>
   <h3 style="margin-top: 0;">What changes when you put the manager's hat on</h3>
 
-  <p>Up to this point the guide has addressed the teacher at the classroom level: individual use, individual habit, individual email rewrite or slide-deck generation. That frame is where most staff will meet Copilot first and where the tool earns its daily value. Part 3 steps back and speaks to the skolchef, the rektor, the digital-lead, and the DPO — the people who have to answer "is this allowed?" before Copilot lands on a hundred staff laptops.</p>
+  <p>Up to this point the guide has addressed the teacher at the classroom level: individual use, individual habit, individual email rewrite or slide-deck generation. That frame is where most staff will meet Copilot first and where the tool earns its daily value. Part 3 steps back and speaks to the school director, the principal, the digital-lead, and the DPO — the people who have to answer "is this allowed?" before Copilot lands on a hundred staff laptops.</p>
 
   <p>Part 3 addresses six things specifically. First, what Commercial Data Protection actually gives you — the three contractual claims, the three honest qualifications, and the translation from legalese into something a staff meeting can understand. Second, why sign-in equals compliance: the single biggest point of failure is a teacher drifting onto consumer Copilot by accident. Third, where your data is stored and processed, and which of that an administrator can see and control. Fourth, the licensing landscape in practical terms: which seat does what, what a phased rollout looks like, and the cost conversation for a 200-seat school. Fifth, student data and age limits — Microsoft's own floor of 13 and older for Copilot with work/school accounts, plus the practical case for starting with teacher-only access even when licenses permit student use. Sixth, five concrete policy decisions the digital-lead can carry into a senior-leadership meeting on a single sheet.</p>
 
@@ -1127,7 +1127,7 @@
 
   <p>The fix is behavioural and technical. The behavioural fix is a one-sentence staff rule pinned to the wall: <strong>always sign in with the work/school account before you use Copilot.</strong> The visual cue is the shield at the top right and the school email on the profile icon. Train staff to check for it every time. Rehearse the check as part of the first-week onboarding, and include a screenshot in the one-page staff guideline.</p>
 
-  <p>The technical fix is tenant-level. If your admin tooling allows, block consumer Copilot at the tenant boundary — Microsoft has shipped conditional-access controls that let administrators prevent sign-in to consumer products from managed devices and managed browser profiles. Not every school tenant has the licensing tier that exposes every control, but most have enough to make the consumer path inconvenient rather than the default. Ask your admin what is possible in your specific tenant, and make the decision consciously.</p>
+  <p>The technical fix is tenant-level, and it is not a block on an address. Microsoft's own guidance is explicit: do not block the Copilot host name in order to keep personal accounts out, because a personal Microsoft account can reach the same host — and Microsoft neither recommends nor supports managing Copilot through selective domain, URL, IP or network-protocol filtering. What it points to instead is <strong>tenant restrictions v2</strong> together with Conditional Access to control which accounts can sign in, and the Copilot controls in the Microsoft 365 admin centre to decide which Copilot experiences staff see once they are in. Not every school tenant has the licensing tier that exposes every control. Ask your admin what is possible in your specific tenant, and make the decision consciously.</p>
 
   <div class="processing-callout">
     <p class="processing-callout__title">The one-sentence training line</p>
@@ -1225,7 +1225,7 @@
   <h3 style="margin-top: 0;">Five policy decisions for your school</h3>
 
   <ol class="policy-list">
-    <li><strong>Require signed-in work/school account for all Copilot use.</strong> Govern it at the tenant, not at the address: Microsoft's own guidance is to use tenant restrictions to control personal-account sign-in rather than to block Copilot host names, and the Copilot controls in the Microsoft 365 admin centre decide which Copilot experiences staff reach once they are signed in. The single behaviour that prevents almost every Copilot compliance problem is signing in with the right account. Make that the first line of the one-page staff guideline and rehearse it in onboarding.</li>
+    <li><strong>Require signed-in work/school account for all Copilot use.</strong> Govern it at the tenant, not at the address: Microsoft's own guidance is to use tenant restrictions v2 and Conditional Access to control personal-account sign-in rather than to block Copilot host names, and the Copilot controls in the Microsoft 365 admin centre decide which Copilot experiences staff reach once they are signed in. The single behaviour that prevents almost every Copilot compliance problem is signing in with the right account. Make that the first line of the one-page staff guideline and rehearse it in onboarding.</li>
 
     <li><strong>Document the Copilot paths in your own data-protection documentation.</strong> Three paths need lines: Microsoft 365 Copilot (paid, in-app), Copilot Chat with the work account (free with M365), and — if any staff use consumer Copilot on personal devices for adult-only tasks — the consumer path as a separately documented, narrower scope. For each one, record which account signs in, what the Microsoft Products and Services DPA covers, and where the processing happens.</li>
 
@@ -1271,7 +1271,7 @@
     <div class="faq-item">
       <p class="faq-item__q">Can I use Copilot with student data?</p>
       <div class="faq-item__a">
-        <p>De-identify first. Even with CDP, the school is still controller, and special-category student data (SEN, safeguarding, named grades) needs a lawful basis and a DPIA entry. Teacher-work content (generalised plans, staff notes, parent-email drafts) is generally fine on the CDP path. Named student data should be de-identified or avoided in the prompt entirely.</p>
+        <p>De-identify first. Even with CDP, the school is still the data controller, and sensitive student data (SEN, safeguarding, named grades) needs a basis and a record of it — what exactly, your own data-protection regime decides. Teacher-work content (generalised plans, staff notes, parent-email drafts) is generally fine on the CDP path. Named student data should be de-identified or avoided in the prompt entirely.</p>
       </div>
     </div>
 
@@ -1306,7 +1306,7 @@
     <div class="faq-item">
       <p class="faq-item__q">Where do I get help if something goes wrong?</p>
       <div class="faq-item__a">
-        <p>Microsoft's own documentation at <em>learn.microsoft.com/copilot</em>; the Microsoft 365 admin centre for tenant-level configuration; your Microsoft reseller or partner for licensing questions. For school-specific policy, DPIA drafting, or staffroom rollout questions, reach out via <em>choosewise.education</em>. Do not skip the release-notes check in your termly review — most "something changed" support tickets trace back to a monthly update.</p>
+        <p>Microsoft's own documentation at <em>learn.microsoft.com/copilot</em>; the Microsoft 365 admin centre for tenant-level configuration; your Microsoft reseller or partner for licensing questions. For school-specific policy, data-protection documentation, or staffroom rollout questions, reach out via <em>choosewise.education</em>. Do not skip the release-notes check in your termly review — most "something changed" support tickets trace back to a monthly update.</p>
       </div>
     </div>
 
