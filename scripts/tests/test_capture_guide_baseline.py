@@ -19,11 +19,12 @@ _SPEC = importlib.util.spec_from_file_location(
     Path(__file__).parent / "fixtures" / "capture_guide_baseline.py",
 )
 
-CLAUDE = [
-    "assets/pdfs/guides/claude-guide-en.pdf",
-    "assets/pdfs/guides/claude-guide-sv.pdf",
-    "assets/pdfs/guides/claude-quick-start-en.pdf",
-    "assets/pdfs/guides/claude-quick-start-sv.pdf",
+# De PDF:er den PÅGÅENDE rundan legitimt renderat om och därför fick
+# omfångas. Töms och fylls om i varje ny runda — aldrig radvis tillägg,
+# för en lista som bara växer slutar vakta något.
+RECAPTURED_THIS_ROUND = [
+    "_unpublished/assets/pdfs/guides/copilot-guide-en.pdf",
+    "_unpublished/assets/pdfs/guides/copilot-quick-start-en.pdf",
 ]
 
 
@@ -53,7 +54,7 @@ def test_force_cannot_silently_reset_unrelated_entries():
     """Granskningsfokus 1: de arton PDF:er rundan inte öppnat ska stå still.
 
     Facit på disk måste fortfarande täcka exakt 22 nycklar, och de
-    arton som inte är Claudes ska vara oförändrade mot det committade
+    tjugo som inte är rundans egna ska vara oförändrade mot det committade
     läget. Testet jämför mot git, inte mot sig självt.
     """
     import json, subprocess
@@ -63,7 +64,7 @@ def test_force_cannot_silently_reset_unrelated_entries():
     current = json.loads(fp.BASELINE.read_text(encoding="utf-8"))
     assert sorted(current) == sorted(fp.GUIDE_PDFS), "nyckeluppsättningen ändrades"
     for rel in fp.GUIDE_PDFS:
-        if rel in CLAUDE:
+        if rel in RECAPTURED_THIS_ROUND:
             continue
         assert current[rel] == committed[rel], f"{rel} omfångades utan att röras"
 
@@ -76,7 +77,7 @@ def test_force_cannot_silently_reset_unrelated_body_entries():
     skrivvägarna — och då fångar sidfingeravtryckets test ovan ingenting
     på kroppstextsidan. Den här kopian finns så att en sådan gren inte
     kan tysta regressionen: `bt.BASELINE` måste täcka exakt 22 nycklar,
-    och de arton som inte är Claudes ska vara oförändrade mot det
+    och de tjugo som inte är rundans egna ska vara oförändrade mot det
     committade läget. Testet jämför mot git, inte mot sig självt.
     """
     import json, subprocess
@@ -86,6 +87,6 @@ def test_force_cannot_silently_reset_unrelated_body_entries():
     current = json.loads(bt.BASELINE.read_text(encoding="utf-8"))
     assert sorted(current) == sorted(fp.GUIDE_PDFS), "nyckeluppsättningen ändrades"
     for rel in fp.GUIDE_PDFS:
-        if rel in CLAUDE:
+        if rel in RECAPTURED_THIS_ROUND:
             continue
         assert current[rel] == committed[rel], f"{rel} omfångades utan att röras"
