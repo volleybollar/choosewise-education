@@ -114,6 +114,67 @@ Fem lager. De fyra första byggdes i våg 2a; det femte i våg 2b. Ändra inget 
 
 ---
 
+## Överflöd i sidled — hela sajten, 2026-10-09
+
+**Alla 203 publicerade sidor mättes vid 320 px. 19 hade överflöd; alla är åtgärdade.** Evidence (15 sidor) var en regression från samma dags fix, se avsnittet ovan. Bloggen (5) och resten (14) hade fyra återkommande orsaker:
+
+| Orsak | Åtgärd |
+|---|---|
+| Rutnät med fast minbredd — `minmax(320px, 1fr)` i en 272 px innehållsyta | `minmax(min(320px, 100%), 1fr)` på `.blog-grid`, `.styles-grid`, `.module-grid`, `.et-card-grid` |
+| Långa obrytbara ord — `choosewise.education`, `skolmåltidspersonal`, nakna URL:er i källistor | `overflow-wrap: break-word` på `body`. Det fanns **ingen** sådan regel på sajten före detta |
+| Rubrikens golv — `--fs-display` har golvet 2.25rem, och det binder ända upp till 600 px | `.post__header h1` får samma kurva med golvet 1.65rem |
+| Tabeller bredare än spalten | Scroll på en omslutande låda, aldrig på tabellen |
+
+**Tabellfällan är värd att läsa innan någon rör en tabell igen.** Första försöket var `table { display: block; overflow-x: auto }` i base.css. Sviten blev grön — men guidernas egen `styles.css` har `.jl-page table { overflow: hidden }` för att klippa de rundade hörnen, och vann på specificitet. Tabellen slutade spränga sidan **genom att klippas**, och två kolumner blev oåtkomliga på telefon. Överflödsvakten kunde inte se skillnaden: klippt innehåll mäter noll. Därav en egen vakt — *en tabell som är bredare än sin spalt måste gå att scrolla, aldrig klippas*.
+
+Andra försöket var `min-width` på tabellen. Det gör **lådan** bred, inte innehållet, så sidan svämmade över igen. Scrollen måste ligga på en omslutande `.table-scroll`, med `min-width: 560px` på tabellen inuti. Utan den minbredden klämts kolumnerna ihop till ett par ord per rad och raderna blev **838 px höga i stället för 216**.
+
+**Vakten är inte uttömmande.** `scripts/tests/test_responsive_overflow.py` täcker 35 sidor — Evidence, bloggen och de sidor sweepen pekade ut. Alla 203 går inte att ha i sviten: det tar över tre minuter. Kör sweepen för hand när en ny mall tillkommer:
+
+```python
+# /usr/bin/python3, från repots rot. Serverar lokalt, mäter alla publicerade
+# sidor vid 320 px och skriver ut dem som scrollar i sidled.
+import sys, http.server, socketserver, threading, functools
+sys.path.insert(0, "scripts")
+from tests import brandguard
+from playwright.sync_api import sync_playwright
+
+class Quiet(http.server.SimpleHTTPRequestHandler):
+    def log_message(self, *a): pass
+class Server(socketserver.TCPServer): allow_reuse_address = True
+
+srv = Server(("127.0.0.1", 0), functools.partial(Quiet, directory="."))
+threading.Thread(target=srv.serve_forever, daemon=True).start()
+port = srv.server_address[1]
+
+urls = set()
+for f in brandguard.published_files((".html",)):
+    rel = f.relative_to(brandguard.ROOT).as_posix()
+    urls.add("" if rel == "index.html" else rel[:-10] if rel.endswith("/index.html") else rel)
+
+with sync_playwright() as pw:
+    b = pw.chromium.launch()
+    page = b.new_page(viewport={"width": 320, "height": 700})
+    for u in sorted(urls):
+        page.goto(f"http://127.0.0.1:{port}/{u}", wait_until="domcontentloaded")
+        page.wait_for_timeout(120)
+        over = page.evaluate(
+            "()=>document.documentElement.scrollWidth-document.documentElement.clientWidth")
+        if over > 0:
+            print(f"+{over:4d}px  /{u}")
+    b.close()
+srv.shutdown()
+```
+
+**Och hur man hittar boven när en sida svämmar över.** Två sonder, inte en — jag gick vilse på båda:
+
+- *Vilket element bryter ut ur sin förälder?* `r.right > clientWidth && parentRect.right <= clientWidth && förälderns overflow-x === "visible"`. Utan föräldervillkoret pekar den på barn som bara ärvt en bred förälder — `IMG`, `A.nav__link`.
+- *Vilket element är bredare än sin egen låda?* `el.scrollWidth > el.clientWidth`. Det är den som hittar långa ord och tabeller, och den första sonden ser dem inte.
+
+Ett filter som sållar bort breda element för att slippa fullbreddsbehållare dolde boven helt på inläggssidorna: sonden returnerade ingenting alls.
+
+---
+
 ## Fällor som kostat tid i det här programmet
 
 1. **En kontrastsiffra härledd ur deklarerad CSS är inte bevisad.** Chromiums print-economy-läge ändrade tyst färger i sidfotskontexten: en siffra mätt till 10,63:1 renderade i verkligheten 4,57:1 tills `print-color-adjust: exact` lades till. Pixelmät i den renderade filen. Gäller bakåt mot våg 1 och spår A.

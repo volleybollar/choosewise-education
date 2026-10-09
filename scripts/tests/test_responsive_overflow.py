@@ -1,7 +1,10 @@
 """Ingen sida får scrolla i sidled på en telefon.
 
-Täcker Evidence-sidorna och bloggen. Listan växer när fler sidor rättas —
-en sweep 2026-10-09 hittade 19 sidor med överflöd vid 320 px.
+Täcker Evidence, bloggen och de sidor en sweep över alla 203 publicerade
+sidor pekade ut. Vakten är inte uttömmande och kan inte bli det till
+rimlig kostnad: 203 sidladdningar tar över tre minuter. Kör hela
+sweepen för hand när en ny mall tillkommer — koden för den står i
+`docs/blueprint-handoff.md`.
 
 Varför ett renderingstest bland 743 statiska: regressionen som gav upphov
 till den här filen passerade hela sviten. `white-space: nowrap` lades på
@@ -37,6 +40,22 @@ PAGES = (
     + ["blog/", "sv/blog/"]
     + sorted(f"{d}/posts/{f.name}" for d in ("blog", "sv/blog")
              for f in (ROOT / d / "posts").glob("*.html"))
+    # De sidor en sweep över alla 203 publicerade sidor hittade 2026-10-09.
+    # Listan är explicit och inte globbad: det är just de här sidorna som
+    # bevisligen kunde fallera, och en glob över t ex prompts/ hade lagt
+    # 126 sidladdningar på sviten för ett fel som en enda av dem visade.
+    + [
+        "guides/claude/", "sv/guider/claude/",
+        "infographic-styles/", "sv/infografik-stilar/",
+        "notebooklm-styles/", "sv/notebooklm-stilar/",
+        "presentation-skills/", "sv/presentationsteknik/",
+        "presentation-skills/module-2/deep-dive/",
+        "sv/presentationsteknik/modul-2/fordjupning/",
+        "presentation-skills/module-4/deep-dive/",
+        "sv/presentationsteknik/modul-4/fordjupning/",
+        "sv/presentationsteknik/modul-1/",
+        "sv/promptar/skolmaltidspersonal/",
+    ]
 )
 
 MEASURE = "() => document.documentElement.scrollWidth - document.documentElement.clientWidth"
@@ -168,6 +187,39 @@ def test_a_post_title_never_breaks_mid_word_on_a_phone(site, browser):
             if m["widest"] > m["room"]:
                 bad.append(f"{rel}: “{m['word']}” är {m['widest']} px "
                            f"i en {m['room']} px spalt")
+        assert not bad, "\n".join(bad)
+    finally:
+        page.close()
+
+
+CLIPPED_TABLES = """() => [...document.querySelectorAll('table')]
+  .filter(t => t.scrollWidth > t.clientWidth + 1)
+  .map(t => ({ox: getComputedStyle(t).overflowX,
+              sw: t.scrollWidth, cw: t.clientWidth}))
+  .filter(t => t.ox !== 'auto' && t.ox !== 'scroll')"""
+
+
+def test_a_table_too_wide_for_its_column_scrolls_instead_of_clipping(site, browser):
+    """Fällan jag gick i när den här rundan skrevs.
+
+    En generell `table { overflow-x: auto }` i base.css gjorde sidan
+    grön — men guidernas egen styles.css har `.jl-page table
+    { overflow: hidden }` för att klippa de rundade hörnen, och vann på
+    specificitet. Tabellen slutade spränga sidan genom att KLIPPAS, och
+    två kolumner blev oåtkomliga på en telefon. Överflödsvakten kunde
+    inte se skillnaden: ett klippt innehåll mäter noll.
+
+    Kravet är därför skrivet för sig: en tabell som är bredare än sin
+    spalt måste gå att scrolla, aldrig klippas.
+    """
+    page = browser.new_page(viewport={"width": WIDTHS[0], "height": 800})
+    try:
+        bad = []
+        for rel in PAGES:
+            page.goto(f"{site}/{rel}", wait_until="networkidle")
+            for t in page.evaluate(CLIPPED_TABLES):
+                bad.append(f"{rel}: tabell {t['sw']} px i {t['cw']} px "
+                           f"med overflow-x: {t['ox']}")
         assert not bad, "\n".join(bad)
     finally:
         page.close()
