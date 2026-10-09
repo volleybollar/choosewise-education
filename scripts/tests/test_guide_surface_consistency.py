@@ -99,30 +99,105 @@ def test_an_english_only_row_needs_no_swedish_counterpart():
     assert not any(p.kind == "saknar_motpart" for p in problems)
 
 
-def test_the_real_inventory_parses_and_the_real_surfaces_agree():
-    rows = [r for r in factinventory.load() if r.status == "aktiv"]
+def test_comparison_unescapes_html_entities():
+    """Granskningsfokus 1: Copilots rubriker bär `&amp;`. En vaktrad
+    skriven som läsaren ser den ska matcha markupen, inte tvingas skriva
+    om sig till entiteten."""
+    assert surfacecheck.normalise("Compliance &amp; licensing") == \
+           surfacecheck.normalise("Compliance & licensing")
+    assert surfacecheck.normalise("13&nbsp;+") == surfacecheck.normalise("13 +")
+
+
+def test_an_unknown_guide_is_a_loud_error():
+    """Granskningsfokus 4: en guide som inte finns får inte ge en tom
+    ytkarta — då vaktar vakten ingenting och är grön för det."""
+    with pytest.raises(KeyError) as exc:
+        surfacecheck.surfaces_for("gemini")
+    assert "claude" in str(exc.value) and "copilot" in str(exc.value)
+
+    with pytest.raises(KeyError) as inv_exc:
+        factinventory.inventory_path("gemini")
+    assert "claude" in str(inv_exc.value) and "copilot" in str(inv_exc.value)
+
+
+@pytest.mark.parametrize("guide", surfacecheck.GUIDES)
+def test_every_guide_has_an_inventory_file(guide):
+    """Granskningsfokus 4, andra halvan: en guide i ytkartan utan
+    inventering kan aldrig få en vaktrad, och vakten vore tyst om det."""
+    assert factinventory.inventory_path(guide).exists()
+
+
+@pytest.mark.parametrize("guide", surfacecheck.GUIDES)
+def test_every_guide_surface_file_exists(guide):
+    for (lang, where), rel in surfacecheck.surfaces_for(guide).items():
+        assert (surfacecheck.ROOT / rel).is_file(), f"{guide} {lang}/{where}: {rel} saknas"
+
+
+def test_copilot_surfaces_are_the_unpublished_ones():
+    """Granskningsfokus 5: Copilot ligger i `_unpublished/`, som Pages
+    inte serverar. Pekar kartan på `guides/copilot/` läser vakten en fil
+    som inte finns — eller en dag den fel."""
+    rels = list(surfacecheck.surfaces_for("copilot").values())
+    assert len(rels) == 4
+    assert all(rel.startswith("_unpublished/") for rel in rels), rels
+
+
+def test_claudes_forbidden_list_is_not_empty():
+    """De parametriserade vakterna nedan hoppar över en guide vars
+    vaktblock är tomt, så att Copilot kan vara tom fram till Task 10.
+    Claudes block är fyllt sedan våg 2b och får inte tömmas i skydd av
+    den skip:en."""
+    rows = factinventory.load(factinventory.inventory_path("claude"))
+    assert [r for r in rows if r.status == "borttaget"]
+
+
+def _rows(guide: str, status: str) -> list:
+    return [r for r in factinventory.load(factinventory.inventory_path(guide))
+            if r.status == status]
+
+
+@pytest.mark.parametrize("guide", surfacecheck.GUIDES)
+def test_the_real_inventory_parses_and_the_real_surfaces_agree(guide):
+    rows = _rows(guide, "aktiv")
     if not rows:
-        pytest.skip("vaktblocket är tomt — fylls i Task 8")
-    problems = surfacecheck.check(rows, surfacecheck.read_surfaces())
+        pytest.skip(f"{guide}: vaktblocket har inga aktiv-rader — fylls i Task 10")
+    problems = surfacecheck.check(rows, surfacecheck.read_surfaces(guide))
     assert not problems, "\n".join(
         f"{p.id} [{p.lang}] {p.kind}: {p.detail}" for p in problems)
 
 
-def test_the_real_forbidden_list_is_absent_from_the_real_surfaces():
-    rows = [r for r in factinventory.load() if r.status == "borttaget"]
-    assert rows, "vaktblocket har inga borttaget-rader att vakta"
-    problems = surfacecheck.check(rows, surfacecheck.read_surfaces())
+@pytest.mark.parametrize("guide", surfacecheck.GUIDES)
+def test_the_real_forbidden_list_is_absent_from_the_real_surfaces(guide):
+    rows = _rows(guide, "borttaget")
+    if not rows:
+        pytest.skip(f"{guide}: vaktblocket har inga borttaget-rader — fylls i Task 10")
+    problems = surfacecheck.check(rows, surfacecheck.read_surfaces(guide))
     assert not problems, "\n".join(
         f"{p.id} [{p.lang}] {p.kind}: {p.detail}" for p in problems)
 
 
-def test_the_real_forbidden_list_would_catch_a_reintroduction():
-    """Fälla 2: en vakt som inte kan bli röd vaktar ingenting. Här skrivs
-    ett verkligt struket påstående tillbaka i en kopia av den verkliga
-    engelska webbytan, och bara det id:t ska bli rött."""
-    rows = [r for r in factinventory.load() if r.status == "borttaget"]
-    victim = next(r for r in rows if r.id == "P22" and r.lang == "en")
-    surfaces = dict(surfacecheck.read_surfaces())
+@pytest.mark.parametrize("guide", surfacecheck.GUIDES)
+def test_the_real_forbidden_list_would_catch_a_reintroduction(guide):
+    """Fälla 2: en vakt som inte setts bli röd vaktar ingenting. Här
+    skrivs ett verkligt struket påstående tillbaka i en kopia av den
+    verkliga engelska webbytan, och bara det id:t ska bli rött.
+
+    Offret är den kortaste engelska förbudsraden, inte ett hårdkodat id —
+    annars måste varje ny guide redigera testet. Precondition-assert:en
+    håller valet ärligt, för innehåller offrets värde en annan förbudsrad
+    blir två id:n röda och likhetsjämförelsen vore fel krav."""
+    rows = [r for r in _rows(guide, "borttaget") if r.lang == "en"]
+    if not rows:
+        pytest.skip(f"{guide}: inga engelska borttaget-rader — fylls i Task 10")
+    victim = min(rows, key=lambda r: len(r.value))
+    needle = surfacecheck.normalise(victim.value)
+    assert not [r for r in rows
+                if r.id != victim.id
+                and surfacecheck.normalise(r.value) in needle], \
+        f"{victim.id}:s värde innehåller en annan förbudsrad — välj ett annat offer"
+
+    surfaces = dict(surfacecheck.read_surfaces(guide))
     surfaces[("en", "web")] += " " + victim.value
     problems = surfacecheck.check(rows, surfaces)
-    assert [(p.id, p.lang, p.kind) for p in problems] == [("P22", "en", "återinfört")]
+    assert [(p.id, p.lang, p.kind) for p in problems] == \
+           [(victim.id, "en", "återinfört")]

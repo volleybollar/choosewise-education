@@ -11,7 +11,20 @@ from pathlib import Path
 from typing import NamedTuple
 
 ROOT = Path(__file__).resolve().parents[2]
-INVENTORY = ROOT / "docs" / "guide-facts-claude.md"
+INVENTORIES = {
+    "claude":  ROOT / "docs" / "guide-facts-claude.md",
+    "copilot": ROOT / "docs" / "guide-facts-copilot.md",
+}
+
+
+def inventory_path(guide: str) -> Path:
+    try:
+        return INVENTORIES[guide]
+    except KeyError:
+        raise KeyError(
+            f"okänd guide {guide!r}, kända: {sorted(INVENTORIES)}"
+        ) from None
+
 
 _BLOCK = re.compile(r"^```guard\s*$(.*?)^```\s*$", re.M | re.S)
 _STATUSES = {"aktiv", "borttaget"}
@@ -24,8 +37,8 @@ class Row(NamedTuple):
     status: str
 
 
-def load(path: Path = None) -> list:
-    text = (path or INVENTORY).read_text(encoding="utf-8")
+def load(path: Path) -> list:
+    text = path.read_text(encoding="utf-8")
     rows = []
     for block in _BLOCK.findall(text):
         for line in block.splitlines():
