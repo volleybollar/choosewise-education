@@ -29,6 +29,7 @@
 - **Inga enskilda lagar eller myndigheter namnges** i de engelska ytorna — det är gränsen mellan väg A och väg C. "Data controller" används som allmän yrkesterm, inte som hänvisning till en namngiven förordning. GDPR, Schrems II, EU Data Boundary, Skolverket och IMY ut ur brödtexten. **Undantag:** "EU Data Boundary" är ett *produktnamn* hos Microsoft; där det måste nämnas som produktfunktion (data residency) är det tillåtet, men aldrig som rättslig analys. Varje sådan förekomst får en post i inventeringen med motiveringen utskriven.
 - **CTA:n pekar på choosewise.education, inte på svensk konsultverksamhet.** Johans engelskspråkiga hatt är choosewise.education (CLAUDE.md §2). Meningen *"I offer consulting for schools, primarily in Sweden."* stryks och ersätts enligt Task 7. **Antagande som Johan får korrigera när han läser planen:** CTA:n säljer inte Johans tid i den här guiden, den pekar läsaren till choosewise.education och till communityt.
 - **Quick-starten står utanför ytkonsistensvakten** — avsiktligt, enligt spec §7. Den bevakas i stället av inventeringens förekomstkolumn, av PDF-vakterna, och av leveransvakten i Task 2.
+- **Radnumren i uppgifterna är mätta 2026-10-09, före rundans första ändring.** Task 5 tar bort tre rader ur `_unpublished/guides/copilot/index.html` (Google Fonts), så **varje webb-radnummer i Task 6–8 ligger tre rader lägre efter Task 5.** Printytans numrering flyttar sig på samma sätt när Task 6 skriver om del 3. Behandla numren som en karta till rätt stycke, aldrig som adress: lokalisera med `grep -n "<sträng>"` före varje ändring. Står strängen inte där numret säger är numret gammalt, inte texten fel.
 - **Sifferutfallen i stegen är räknade, inte mätta.** De utgår från `main`:s 752 och de tester planen lägger till; lägger du till ett test till räknar du om. Det som är bindande är **0 skipped och 0 xfailed i Task 14**, och att inget test-id från `main` har försvunnit.
 - **Prosa som beror på en källa skrivs inte i planen.** Där formuleringen är avgjord — omslaget, jurisdiktionsrutan, CTA:n, quick-startens sista mening — står den ordagrant här. Där meningen bär ett faktavärde står i stället vad den ska säga och vilken post som belägger den, eftersom en förskriven faktamening vore ett värde utan källa, och spec §6:s första regel förbjuder exakt det.
 - **Tio av 22 PDF:er är inte byte-identiska vid omrendering.** Skillnaden är Chromiums `CreationDate`/`ModDate`. En omrendering visar alltid ändrade filer även när innehållet är oförändrat — det är inte ett fynd.
@@ -363,25 +364,31 @@ DOC
 Kör: `/usr/bin/python3 -m pytest scripts/tests/test_guide_surface_consistency.py scripts/tests/test_factinventory.py -v`
 Förväntat: PASS. Copilots tre parametriseringar står som SKIPPED med "fylls i Task 10"; Claudes tre som PASSED.
 
-- [ ] **Steg 8: Jämför insamlade test-id:n mot `main`**
+- [ ] **Steg 8: Jämför testfunktionerna mot `main`**
 
-Fälla 1 i spec §8: `str.replace` utan `count` tog bort tre vakter i stället för en 2026-10-09, och sviten förblev grön. Parametrisering byter namn på tester — därför jämförs listorna, inte antalen.
+Fälla 1 i spec §8: `str.replace` utan `count` tog bort tre vakter i stället för en 2026-10-09, och sviten förblev grön. Parametrisering byter namn på tester — därför jämförs funktionslistorna, inte antalen.
+
+**Ingen `git stash`.** Stash-stacken delas mellan huvudkopian och alla worktrees, och en annan session kan poppa din post. `git show` läser `main`:s version utan att röra arbetskopian.
+
+```bash
+git show main:scripts/tests/test_guide_surface_consistency.py \
+  | grep -oE "^def test_[a-z_]+" | sed 's/^def //' | sort > /tmp/fn-main.txt
+grep -oE "^def test_[a-z_]+" scripts/tests/test_guide_surface_consistency.py \
+  | sed 's/^def //' | sort > /tmp/fn-now.txt
+comm -23 /tmp/fn-main.txt /tmp/fn-now.txt    # funktioner som FÖRSVUNNIT
+comm -13 /tmp/fn-main.txt /tmp/fn-now.txt    # funktioner som LAGTS TILL
+```
+Förväntat: första `comm` är **tom** — ingen testfunktion från `main` får ha försvunnit. Andra listar de sex nya. Försvann något: en vakt har tappats, stanna.
+
+Och att parametriseringen verkligen ger två varianter per verklig vakt:
 
 ```bash
 /usr/bin/python3 -m pytest scripts/tests/test_guide_surface_consistency.py \
-  --collect-only -q | sed '/^$/,$d' | sort > /tmp/ids-now.txt
-# -u krävs: docs/guide-facts-copilot.md är ospårad i det här läget och
-# en stash utan -u vägrar med "did not match any file known to git".
-# Sökvägarna är avgränsade till scripts/tests/ och inventeringen —
-# Johans ocommittade filer ligger i exports/ och assets/ och rörs inte.
-git stash push -u -- scripts/tests/ docs/guide-facts-copilot.md
+  --collect-only -q | grep -c "\[claude\]"
 /usr/bin/python3 -m pytest scripts/tests/test_guide_surface_consistency.py \
-  --collect-only -q | sed '/^$/,$d' | sort > /tmp/ids-main.txt
-git stash pop
-git stash list   # ska vara tom — blev den inte det, poppa innan du går vidare
-diff /tmp/ids-main.txt /tmp/ids-now.txt
+  --collect-only -q | grep -c "\[copilot\]"
 ```
-Förväntat: varje rad i `ids-main.txt` har en motsvarighet i `ids-now.txt` — de tre "verkliga" testerna som `[claude]`-varianter, de nio övriga oförändrade, plus de sex nya. **Inget `main`-id får ha försvunnit utan att dess `[claude]`-variant finns.** Saknas ett: en vakt har tappats, stanna.
+Förväntat: 5 och 5 — tre verkliga vakter plus `test_every_guide_has_an_inventory_file` och `test_every_guide_surface_file_exists`.
 
 - [ ] **Steg 9: Kör hela sviten**
 
@@ -1010,7 +1017,10 @@ Dessa är kända redan nu och **ska** finnas med (fler tillkommer ur Task 6–9)
 # test_copilot_delivery.py.
 C09 | en | October 2026 | aktiv
 C09 | en | April 2026 | borttaget
-C10 | en | A practical guide for schools running Microsoft 365 | aktiv
+# C10: bara förbudsraden. Omslagsleden står på PRINTYTAN och har ingen
+# motsvarighet på webbytan — en `aktiv`-rad för den nya strängen vore
+# `saknas_på_en_yta` från första sekunden. Den nya leden bevakas i stället
+# av leveransvakten, som läser PDF:en.
 C10 | en | A practical guide for Swedish schools | borttaget
 C14 | en | Schrems II | borttaget
 C14 | en | GDPR | borttaget
@@ -1021,7 +1031,7 @@ C02 | en | kr 350 | borttaget
 C16 | en | I offer consulting for schools, primarily in Sweden | borttaget
 ```
 
-**Två fällor i just det här steget.** En `aktiv`-rad vars sträng bara står på en yta ger `saknas_på_en_yta` — det betyder att Task 6–9 missade en yta, inte att raden ska skrivas om. En `aktiv`-rad som inte står någonstans ger `finns_ingenstans` och är nästan alltid ett stavfel i vaktblocket.
+**Tre fällor i just det här steget.** (1) En `aktiv`-rad vars sträng bara står på en yta ger `saknas_på_en_yta` — det betyder att Task 6–9 missade en yta, inte att raden ska skrivas om. (2) En `aktiv`-rad som inte står någonstans ger `finns_ingenstans` och är nästan alltid ett stavfel i vaktblocket. (3) **En sträng som med avsikt bara finns på en av ytorna kan aldrig bli en `aktiv`-rad** — omslagsleden, datumstämpelns omslagsplacering och avslutningens signatur står bara i print, och webbytan har ingen motsvarighet. Sådant bevakas av leveransvakten, som läser PDF:en. `borttaget`-rader har inte det problemet: frånvaro på en yta som aldrig hade strängen är trivialt sann.
 
 - [ ] **Steg 2: Kör vakten och läs varje problem**
 
