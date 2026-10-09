@@ -1,5 +1,8 @@
 """Ingen sida får scrolla i sidled på en telefon.
 
+Täcker Evidence-sidorna och bloggen. Listan växer när fler sidor rättas —
+en sweep 2026-10-09 hittade 19 sidor med överflöd vid 320 px.
+
 Varför ett renderingstest bland 743 statiska: regressionen som gav upphov
 till den här filen passerade hela sviten. `white-space: nowrap` lades på
 `.band-none` för att hindra "no EEF strand" att brytas till två rader, och
@@ -27,9 +30,13 @@ import pytest
 ROOT = Path(__file__).resolve().parents[2]
 WIDTHS = (320, 390, 768, 1024)
 
-PAGES = ["evidence/"] + sorted(
-    f"evidence/{d.name}/" for d in (ROOT / "evidence").iterdir()
-    if d.is_dir() and d.name != "data"
+PAGES = (
+    ["evidence/"]
+    + sorted(f"evidence/{d.name}/" for d in (ROOT / "evidence").iterdir()
+             if d.is_dir() and d.name != "data")
+    + ["blog/", "sv/blog/"]
+    + sorted(f"{d}/posts/{f.name}" for d in ("blog", "sv/blog")
+             for f in (ROOT / d / "posts").glob("*.html"))
 )
 
 MEASURE = "() => document.documentElement.scrollWidth - document.documentElement.clientWidth"
@@ -63,7 +70,7 @@ def browser():
     pw.stop()
 
 
-def test_no_evidence_page_scrolls_sideways(site, browser):
+def test_no_page_scrolls_sideways(site, browser):
     page = browser.new_page(viewport={"width": WIDTHS[0], "height": 800})
     try:
         bad = []
