@@ -1,6 +1,6 @@
 # Blueprint — överlämning
 
-**Senast uppdaterad:** 2026-10-09
+**Senast uppdaterad:** 2026-10-09 (förbudsvakten byggd)
 **LÄS FÖRST** vid fortsättning. Specen är den bindande auktoriteten, planerna argumenterar från den.
 
 ---
@@ -24,9 +24,9 @@
 
 ## Nästa steg, i ordning
 
-1. **FÖRBUDSVAKTEN.** Johans beslut 2026-10-09: nästa runda bygger den. Egen sektion nedan med allt som behövs för att börja. Den ska finnas **före** nästa guide, för varje ny guide återanvänder mönstret och ärver annars samma blinda fläck.
+1. **~~FÖRBUDSVAKTEN~~ — BYGGD 2026-10-09.** Klar och grön före nästa guide, precis som avsett. Se egen sektion nedan för vad den gör och hur en ny guide använder den. **PR #31 öppen**, gren `feat/blueprint-forbidden-guard`, 3 commits, svit 489. Arbetskopian står på grenen.
 2. **Johan mergar PR #29** när han sett den. Faviconen landar på 198 sidor i samma stund den mergas. (#30 — våg 2a — är redan mergad, se tabellen ovan.)
-3. **De fyra återstående guiderna (Copilot, Gemini/NotebookLM, Apple Intelligence, elevguiden), bara på engelska.** Samma mönster som Claude-guiden: en inventering i `docs/guide-facts-claude.md`:s form, fakta kontrollerade mot namngiven källa, fyra ytor stämda av mot varandra. Våg 2b lämnar både mallen och ett vaktlager (nedan) som nästa runda bör återanvända — och en känd brist i det vaktlagret som är värd att stänga innan dess, se nedan.
+3. **De fyra återstående guiderna (Copilot, Gemini/NotebookLM, Apple Intelligence, elevguiden), bara på engelska.** Samma mönster som Claude-guiden: en inventering i `docs/guide-facts-claude.md`:s form, fakta kontrollerade mot namngiven källa, fyra ytor stämda av mot varandra. Våg 2b lämnar både mallen och ett vaktlager (nedan) som nästa runda bör återanvända, och vaktlagrets kända brist är stängd sedan 2026-10-09 — mönstret kan nu kopieras rakt av utan att ärva en blind fläck.
 4. **Diagram- och social-exporterna.** Åtta mallar plus SVG, PNG och PDF för WISE och RÄTT. Johans beslut 2026-10-06: egen runda, gärna ihop med märket. Sju av åtta bär hans ocommittade ändringar — han bör commita svepet först.
 5. **Visual Codes Vol. 1–3** i `~/Projekt/Choosewise/visual-codes-pdf/`, utanför repot. Specen §8 räknar dem till våg 2; varken 2a:s eller 2b:s plan nämner dem. Tredje kopian av paletten.
 6. **NotebookLM-dokumentet** — se "Känt trasigt" nedan.
@@ -71,33 +71,31 @@ Fem lager. De fyra första byggdes i våg 2a; det femte i våg 2b. Ändra inget 
 | Dokumentnivåinvariant | `scripts/tests/test_guide_pdf_body_text.py` | att inget innehåll försvinner — kromet strippas, så ompaginering kan inte röra det |
 | Renderingsvakt | `scripts/tests/test_guide_pdf_font_weights.py` | att ingen PDF bäddar in ett typsnitt över viktskalan, även när vikten kommer ur HTML och inte CSS |
 | Statiska mallvakter | `test_guide_print_css.py`, `test_guide_asset_paths.py`, `test_build_scripts.py` | källan: palett, typsnitt i `font-family`-kontext, vikter, sökvägar, och att varje väljare i den delade stilmallen ligger i en SCOPE-GUARD-region med sin `.page--`-scope |
-| **Ytkonsistens (nytt i våg 2b)** | `scripts/tests/test_guide_surface_consistency.py` + `scripts/tests/factinventory.py` + vaktblocket i `docs/guide-facts-claude.md` | att webb och print, på båda språken, säger samma sak om varje volatilt sakpåstående — inte bara att ingen text flyttat sig, utan att **innehållet** stämmer mellan de fyra ytorna |
+| **Ytkonsistens (nytt i våg 2b)** | `scripts/tests/test_guide_surface_consistency.py` + `scripts/tests/factinventory.py` + vaktblocket i `docs/guide-facts-claude.md` | att webb och print, på båda språken, säger samma sak om varje volatilt sakpåstående — inte bara att ingen text flyttat sig, utan att **innehållet** stämmer mellan de fyra ytorna. **Sedan 2026-10-09 åt båda hållen:** `aktiv` kräver att strängen finns på båda ytorna, `borttaget` att den inte finns på någon av dem |
 
 **Facit ligger i `scripts/tests/fixtures/`.** Fånga aldrig om det för att få grönt. Fånga om det bara när innehållet ändrats med avsikt, och verifiera då att bara de avsedda posterna rör sig. **`scripts/tests/fixtures/capture_guide_baseline.py` tar nu en `--only RELATIV/SÖKVÄG`-flagga** (en eller flera gånger) som riktar omfångningen mot namngivna PDF:er och lämnar alla andra nycklar i de två facit-filerna exakt som de står. Den finns för att en runda som bara redigerat fyra av tjugotvå PDF:er annars tvingas välja mellan att fånga om allt (och tyst slå av vakten för de arton orörda) eller att handredigera JSON-facit för hand. `--only` gör det möjliga: fånga precis det som faktiskt ändrats.
 
-**Ytkonsistenslagrets kända begränsning — läs innan den återanvänds på nästa guide.** Vaktblocket kan bara påstå att en exakt sträng **finns** på en yta, aldrig att den **saknas**. Ett strukit eller felaktigt påstående som skrivs tillbaka in i texten av misstag fångas alltså inte — ingen rad blir röd, eftersom raden bara letar efter det korrekta påståendet och är tyst om huruvida det felaktiga också står där. Det är en egenskap hos `surfacecheck.py` som byggd, bekräftad oberoende av en granskare under våg 2b, inte ett missat formuleringsfel. Att stänga hålet kräver en **ny radtyp** i vaktblocket — något i stil med `förbjudet`, en sträng som INTE får finnas — vilket är nytt omfång och inte gjort i den här rundan. Värt att bygga **innan** de fyra återstående guiderna tas, eftersom varje ny guide kommer att återanvända det här mönstret och ärva samma blinda fläck.
+**~~Ytkonsistenslagrets kända begränsning~~ — STÄNGD 2026-10-09 av förbudsvakten.** Vaktblocket kunde bara påstå att en exakt sträng **finns** på en yta, aldrig att den **saknas** — ett struket påstående som skrevs tillbaka mötte inget motstånd. Hålet är stängt: `borttaget` betyder nu **får inte finnas**, och samma lager äger båda riktningarna. Egen sektion nedan.
 
 **Påståendeinventeringen är rundans auktoritet, och mallen för nästa fyra.** `docs/guide-facts-claude.md` är inte ett arbetsdokument som kan kastas efter leverans — det är källloggen specens §8 kräver, och det är **facit** som guidetexten svarar mot, inte tvärtom (se våg 2b-specens Ruling 12-liknande princip: hittas en förekomst som inte behöver ändras ska den stå kvar i tabellen med en motivering, inte strykas tyst). Samma struktur — en post per volatilt påstående, fyra ytors förekomster, typ, omfång, källa+datum, utfallstoken, plus ett separat vaktblock — är tänkt att återanvändas rakt av för Copilot-, Gemini/NotebookLM-, Apple Intelligence- och elevguiden.
 
 ---
 
-## Förbudsvakten — nästa runda, och allt som behövs för att börja
+## Förbudsvakten — BYGGD 2026-10-09
 
-**Problemet.** `surfacecheck.check()` kan bara påstå att en exakt sträng **finns** på en yta. Varje aktiv rad letar efter det korrekta påståendet och är tyst om huruvida det felaktiga också står där. Ett struket felaktigt påstående som skrivs tillbaka av misstag fångas alltså inte av någonting — sviten förblir grön. Bekräftat oberoende av en granskare: det är en egenskap hos modulen som byggd, inte en missad formulering.
+**Hålet som är stängt.** `surfacecheck.check()` kunde bara påstå att en exakt sträng **finns** på en yta. Varje rad letade efter det korrekta påståendet och var tyst om huruvida det felaktiga också stod där. Ett struket felaktigt påstående som skrevs tillbaka av misstag fångades alltså inte av någonting — sviten förblev grön.
 
-**Varför det hastar.** Mönstret ska återanvändas på fyra guider till. Byggs vakten efteråt ärver alla fyra den blinda fläcken först.
+**Johans beslut 2026-10-09:** ingen ny statustoken. **`borttaget` betyder nu "får inte finnas"** i stället för "hoppa över". Skälet är att datan redan var rätt — de 36 `borttaget`-raderna i vaktblocket *är* förbudslistan, och alla 36 verifierades frånvarande från alla fyra ytorna innan semantiken byttes. Noll textändringar krävdes för att aktivera dem. Alternativet, en egen `förbjudet`-token, hade krävt att samma 36 rader skrevs om för att vakten skulle vakta något alls, och lämnat två tokens som i praktiken betydde samma sak i all befintlig data. **Dyker ett behov av en rad som är ren historik upp, läggs den token till då** — den finns inte i dag, med flit.
 
-**Datan finns redan.** Vaktblocket i `docs/guide-facts-claude.md` har **36 rader med status `borttaget`** — varenda sträng som medvetet togs ur texten under våg 2b. Det ÄR förbudslistan. Idag hoppas de raderna bara över.
+**Vad vakten gör.** För varje `borttaget`-rad påstår `check()` att strängen **inte** står på någon av språkets två ytor. Träffas den blir problemtypen **`återinfört`** — egen typ, så felmeddelandet säger vad som faktiskt hänt i stället för att låna en av de tre befintliga, och det namnger vilken yta eller vilka ytor strängen står på. `aktiv`-radernas beteende är oförändrat, och `saknar_motpart` gäller fortfarande bara `aktiv` (en struken sträng bär ingen språkkoppling).
 
-**Vad som ska byggas.**
+**Verifierat så här, inte bara med gröna tester.** Två strukna påståenden — P06:s Cowork-mening och P24:s `5–20× usage` — skrevs tillbaka i den **verkliga** `guides/claude/index.html` och vakten blev röd på båda, med rätt id och rätt yta. Filen återställdes med `cp` från en kopia, aldrig med `git checkout` (fälla 4). Ett av testerna gör samma sak i minnet mot verklig inventering och verkliga ytor, så fälla 2 är stängd i sviten själv: `test_the_real_forbidden_list_would_catch_a_reintroduction`.
 
-1. En ny statustoken, förslagsvis `förbjudet`, eller att `borttaget` börjar betyda "får inte finnas" i stället för "hoppa över". Det senare är gratis i datan men ändrar innebörden av 36 befintliga rader — väg det mot att en `borttaget`-rad idag också används som ren historik.
-2. `surfacecheck.check()` får en gren som för varje sådan rad påstår att strängen **inte** finns på någon av språkets två ytor, med en egen problemtyp — i stil med `återinfört` — så felmeddelandet säger vad som faktiskt hänt i stället för att låna en av de tre befintliga.
-3. Tester som pinnar beteendet, inklusive ett som **bryter vakten med flit** och ser den bli röd. Det är fälla 2 i den här listan och våg 2b fick två fixrundor just på tester som inte kunde fallera.
+**Svit 484 → 489.** Sex nya tester, ett omdöpt: `test_rows_marked_borttaget_are_skipped` hette fel efter semantikbytet och heter nu `test_a_removed_claim_that_stays_removed_is_green` — och dess ytor är inte längre tomma strängar, för en tom yta kan inte skilja "frånvarande" från "vakten tittar inte".
 
-**Filer:** `scripts/tests/surfacecheck.py` (~6 rader), `scripts/tests/factinventory.py` (statusuppsättningen `_STATUSES`), `scripts/tests/test_guide_surface_consistency.py`, och vaktblockets preambel i `docs/guide-facts-claude.md`.
+**Rörda filer:** `scripts/tests/surfacecheck.py` (13 rader), `scripts/tests/test_guide_surface_consistency.py`, `docs/guide-facts-claude.md` (statusens innebörd på tre ställen, plus daterade uppdateringar i P22 och P25 vars celler uttryckligen skrev ut begränsningen som nu är borta — de står kvar med motivering, aldrig strukna tyst). **`factinventory.py` rördes inte** — `_STATUSES` är oförändrad, vilket är hela poängen med beslutet.
 
-**En konkret återinföringsrisk att testa mot:** ordet "Cowork" står kvar överallt i guiden som legitim övergångstext. En redaktör som under utrullningen skriver tillbaka ett Cowork-stycke möter idag inget motstånd alls.
+**Så gör nästa guide.** Kopiera vaktblockets mönster rakt av. En `aktiv` rad per volatilt påstående som ska stå på båda ytorna, och **en `borttaget`-rad för varje påstående rundan stryker eller rättar** — den sistnämnda är inte längre bara historik, den är det enda som hindrar att rättningen tas tillbaka. Kontrollera särskilt att en `borttaget`-sträng inte är en delsträng av legitim text: ordet "Cowork" står kvar överallt i Claude-guiden som laglig övergångstext, medan hela meningen "Cowork sits as a tab inside Claude Desktop" är förbjuden. Det är skillnaden mellan en vakt som fungerar och en som är röd från dag ett.
 
 ---
 

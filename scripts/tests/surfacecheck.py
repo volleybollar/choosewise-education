@@ -3,6 +3,11 @@
 PDF:en renderas ur print-filen, inte ur webbsidan, och de två har redan
 40 % egen formulering. Ingen av våg 2a:s vakter ser skillnaden. Den här
 modulen jämför bara de värden inventeringen pekar ut.
+
+Två motsatta lägen, styrda av radens status: `aktiv` kräver att strängen
+står på båda ytorna, `borttaget` att den inte står på någon av dem. Det
+senare är förbudsvakten — utan den kan ett struket påstående skrivas
+tillbaka utan att något blir rött.
 """
 from __future__ import annotations
 
@@ -23,6 +28,7 @@ SURFACES = {
 _TAG = re.compile(r"<[^>]+>")
 _SCRIPT = re.compile(r"<(script|style)\b.*?</\1>", re.S | re.I)
 _DASHES = dict.fromkeys(map(ord, "‐‑‒–—−"), "-")
+_SURFACE_NAMES = {"web": "webbytan", "print": "printytan"}
 
 
 class Problem(NamedTuple):
@@ -54,13 +60,21 @@ def check(rows, surfaces: dict) -> list:
         langs_by_id.setdefault(row.id, set()).add(row.lang)
 
     for row in rows:
-        if row.status != "aktiv":
-            continue
         needle = normalise(row.value)
         hits = {
             where: needle in normalise(surfaces.get((row.lang, where), ""))
             for where in ("web", "print")
         }
+
+        if row.status == "borttaget":
+            standing = [where for where, ok in hits.items() if ok]
+            if standing:
+                problems.append(Problem(
+                    row.id, row.lang, "återinfört",
+                    f"{row.value!r} är struket ur guiden men står på "
+                    + " och ".join(_SURFACE_NAMES[where] for where in standing)))
+            continue
+
         if not any(hits.values()):
             problems.append(Problem(
                 row.id, row.lang, "finns_ingenstans",
