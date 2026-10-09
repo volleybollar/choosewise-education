@@ -265,8 +265,7 @@ def test_asset_exists_with_exact_size(rel, size):
     assert Image.open(path).size == size
 
 
-@pytest.mark.parametrize("rel", ["skool/cover.svg", "linkedin/page-banner.svg",
-                                 "linkedin/personal-banner.svg"])
+@pytest.mark.parametrize("rel", ["skool/cover.svg", "linkedin/personal-banner.svg"])
 def test_generated_card_carries_the_marks_own_paths(rel):
     text = (ROOT / "assets/images/brand" / rel).read_text(encoding="utf-8")
     for d in (NEEDLE_NORTH, NEEDLE_SOUTH):
@@ -370,3 +369,31 @@ def test_the_generator_owns_the_subtitle():
     source = (ROOT / "scripts/build-brand-assets.py").read_text(encoding="utf-8")
     assert SUBTITLE in source
     assert OLD_SUBTITLE not in source
+
+
+LINKEDIN_BANNER = "linkedin/page-banner.svg"
+BANNER_W = 1512
+
+
+def test_the_linkedin_page_banner_carries_no_mark():
+    """Johans beslut 2026-10-09, alternativ B.
+
+    Företagssidans logga lägger sig över omslagets nedre vänstra hörn —
+    specen påstod motsatsen och hade fel. Märket på omslaget hamnade
+    alltså dels i skymundan, dels dubbelt, eftersom avataren är samma
+    märke. Omslaget bär nu ordmärket ensamt.
+    """
+    text = (ROOT / "assets/images/brand" / LINKEDIN_BANNER).read_text(encoding="utf-8")
+    for d in (NEEDLE_NORTH, NEEDLE_SOUTH):
+        assert f'd="{d}"' not in text, "märket är tillbaka på LinkedIn-omslaget"
+
+
+def test_the_linkedin_page_banner_text_is_centred():
+    """Mobilen beskär omslaget mot mitten, så lockupen måste ligga där.
+
+    Centreringen görs med text-anchor och inte med ett handräknat x —
+    annars hamnar den fel så fort ordmärket eller underrubriken ändras.
+    """
+    text = (ROOT / "assets/images/brand" / LINKEDIN_BANNER).read_text(encoding="utf-8")
+    assert text.count('text-anchor="middle"') == 2, "båda raderna ska vara centrerade"
+    assert f'x="{BANNER_W // 2}"' in text, "texten ska sitta i omslagets mitt"
