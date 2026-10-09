@@ -630,7 +630,7 @@
     </li>
     <li>
       <span class="toc__title">Part 3 · Compliance &amp; licensing
-        <span class="toc__sub">CDP, EU Data Boundary, student data, five policy decisions</span>
+        <span class="toc__sub">CDP, where data is processed, student data, five policy decisions</span>
       </span>
       <span class="toc__page">18</span>
     </li>
@@ -668,7 +668,7 @@
 
   <p>The genuine differentiator for schools is <strong>Commercial Data Protection (CDP)</strong>. When a user signs in with a work or school account, prompts and responses are bounded to the tenant, are not used to train Microsoft's foundation models, and inherit the school's existing data-processing agreement. That is a meaningful privacy posture — and it only applies when the user is signed in to the correct account. Sign-in is compliance. Everything else in Part 3 is a footnote to that sentence.</p>
 
-  <p>The voice in this guide is the same as the rest of choosewise.education: calm, adult, practical. It tells you where the product earns its keep in the teaching week, and it is honest where the story breaks. A reader-responsibility note before we begin: AI in education is evolving quickly, and national rules differ significantly. Readers outside Sweden should verify their own country's regulations. Sweden in particular lacks national AI-in-school guidance as of April 2026; Skolverket and IMY are working on joint guidance, date unknown.</p>
+  <p>The voice in this guide is the same as the rest of choosewise.education: calm, adult, practical. It tells you where the product earns its keep in the teaching week, and it is honest where the story breaks. One note before we begin: AI in education is evolving quickly, and the rules that apply to a school differ from place to place. Part 3 carries a short box on the three things you have to check where you work.</p>
 </div>
 
 <!-- ══════════════════════════════════════════════════
@@ -768,7 +768,7 @@
 
   <div class="explainer-box">
     <p class="explainer-box__title">Three claims, three honest qualifications</p>
-    <p>"Commercial Data Protection" is Microsoft's name for the privacy posture that applies when a user is signed in with a work or school account. It is the real differentiator for Copilot in an education setting, and it carries three specific, verifiable claims. It also comes with three honest qualifications that a school DPIA needs to state plainly.</p>
+    <p>"Commercial Data Protection" is Microsoft's name for the privacy posture that applies when a user is signed in with a work or school account. It is the real differentiator for Copilot in an education setting, and it carries three specific, verifiable claims. It also comes with three honest qualifications that a school's own data-protection documentation needs to state plainly.</p>
 
     <p><strong>1. Prompts and responses are not used to train Microsoft's foundation models.</strong> Under CDP, the content you type into Copilot and the content Copilot returns are not added to the training data that shapes future models. This is a contractual commitment under the Microsoft Products and Services Data Processing Addendum (DPA), not a marketing line. <em>Qualification:</em> this covers Microsoft's own training. It does not cover third-party connectors you or the admin explicitly approve — those operate under their own terms.</p>
 
@@ -786,17 +786,15 @@
   <h3 style="margin-top: 0;">What CDP is not</h3>
 
   <div class="explainer-box">
-    <p>CDP is a genuine privacy posture. It is also worth being clear about what it does not do — the school's DPIA will benefit from the precision, and a staff briefing will go better if the language stays honest.</p>
+    <p>CDP is a genuine privacy posture. It is also worth being clear about what it does not do — the school's own data-protection documentation will benefit from the precision, and a staff briefing will go better if the language stays honest.</p>
 
     <p><strong>CDP does not eliminate cloud processing.</strong> Copilot's responses are generated in Microsoft's cloud, not on your laptop. Nothing about CDP changes the fact that prompts leave the device, are transmitted over the internet, and are processed on Microsoft infrastructure. "On-device" is not part of the Copilot story the way it is for Apple Intelligence.</p>
 
-    <p><strong>CDP does not change the legal basis for processing student data.</strong> The school remains controller. You still need a lawful basis under GDPR Article 6, and for any special-category processing, a basis under Article 9. CDP is a technical and contractual mitigation that makes your existing basis cleaner to defend — it does not manufacture one for you.</p>
+    <p><strong>CDP does not change who is accountable for student data.</strong> The school remains the data controller, and Microsoft acts as a processor under the Microsoft Products and Services Data Processing Addendum. What lawful basis you need before processing student data, and what you have to document, is set where you work — the box later in Part 3 says what to check. CDP is a technical and contractual mitigation that makes an existing basis cleaner to defend — it does not manufacture one for you.</p>
 
-    <p><strong>CDP does not cover third-party connectors.</strong> If the admin approves a plugin or a custom Copilot Studio agent that reaches into an external system, that integration operates under its own terms. The third party's privacy posture is theirs, not Microsoft's. Catalogue every connector; each one is its own line in the DPIA.</p>
+    <p><strong>CDP does not cover third-party connectors.</strong> If the admin approves a plugin or a custom Copilot Studio agent that reaches into an external system, that integration operates under its own terms. Microsoft's own guidance is to read each agent's privacy statement and terms of use separately. Catalogue every connector; each one is its own line in the school's data-protection documentation.</p>
 
-    <p><strong>The EU Data Boundary story.</strong> Microsoft's EU Data Boundary covers most Copilot data storage and processing in EU regions. Some sub-processors are still US-based and limited telemetry may cross the boundary. Verify current regional coverage with your procurement contact; the coverage matrix has expanded steadily since launch and will keep moving.</p>
-
-    <p><strong>Schrems II stays in the picture.</strong> Microsoft is a US-headquartered processor. Standard Contractual Clauses plus supplementary measures cover EU→US transfers; Microsoft is also certified under the EU-US Data Privacy Framework. The EU Data Boundary reduces, but does not eliminate, transfer exposure. This belongs in your DPIA as a residual-risk line.</p>
+    <p><strong>Where the data is processed.</strong> The EU Data Boundary is Microsoft's commitment to store and process customer data for its enterprise online services inside a geographically defined boundary, and for EU customers Copilot is an EU Data Boundary service. Microsoft publishes no percentage for how much that covers; it publishes the exceptions instead — web search queries are not covered by the boundary, models provided by Anthropic as a subprocessor are currently excluded, and a tenant that has purchased Multi-Geo Capabilities is out of scope. Verify which of those touch your tenant with your procurement contact; the list is published and it moves.</p>
   </div>
 
   <div class="processing-callout">
@@ -974,7 +972,7 @@
 
   <div class="processing-callout">
     <p class="processing-callout__title">Where it runs · Copilot in Teams</p>
-    <p>Microsoft cloud. CDP is in effect. Requires a Microsoft 365 Copilot license for in-meeting features. Recording and transcription must be explicitly enabled in the meeting — and under school policy, participants must be informed. In Sweden, recording human voice without consent is a GDPR concern that sits independently of CDP.</p>
+    <p>Microsoft cloud. CDP is in effect. Requires a Microsoft 365 Copilot license for in-meeting features. Recording and transcription must be explicitly enabled in the meeting — and under school policy, participants must be informed.</p>
   </div>
 
   <h4>How to start</h4>
@@ -1091,7 +1089,7 @@
 
   <p>Up to this point the guide has addressed the teacher at the classroom level: individual use, individual habit, individual email rewrite or slide-deck generation. That frame is where most staff will meet Copilot first and where the tool earns its daily value. Part 3 steps back and speaks to the skolchef, the rektor, the digital-lead, and the DPO — the people who have to answer "is this allowed?" before Copilot lands on a hundred staff laptops.</p>
 
-  <p>Part 3 addresses six things specifically. First, what Commercial Data Protection actually gives you — the three contractual claims, the three honest qualifications, and the translation from legalese into something a staff meeting can understand. Second, why sign-in equals compliance: the single biggest point of failure is a teacher drifting onto consumer Copilot by accident. Third, the EU Data Boundary and the residual Schrems II question, which still belong in the DPIA. Fourth, the licensing landscape in practical terms: which seat does what, what a phased rollout looks like, and the cost conversation for a 200-seat school. Fifth, student data and age limits — Microsoft's own 13+ floor for Copilot with work/school accounts, plus the practical case for starting with teacher-only access even when licenses permit student use. Sixth, five concrete policy decisions the digital-lead can carry into a senior-leadership meeting on a single sheet.</p>
+  <p>Part 3 addresses six things specifically. First, what Commercial Data Protection actually gives you — the three contractual claims, the three honest qualifications, and the translation from legalese into something a staff meeting can understand. Second, why sign-in equals compliance: the single biggest point of failure is a teacher drifting onto consumer Copilot by accident. Third, where your data is stored and processed, and which of that an administrator can see and control. Fourth, the licensing landscape in practical terms: which seat does what, what a phased rollout looks like, and the cost conversation for a 200-seat school. Fifth, student data and age limits — Microsoft's own floor of 13 and older for Copilot with work/school accounts, plus the practical case for starting with teacher-only access even when licenses permit student use. Sixth, five concrete policy decisions the digital-lead can carry into a senior-leadership meeting on a single sheet.</p>
 
   <p>If you are a teacher reading this for your own classroom practice, Part 3 is still worth skimming. The sections on sign-in and student data in particular will make your daily defaults clearer. Part 3 is five pages. The five policy decisions at the end are the takeaway; the rest is the reasoning that supports them.</p>
 </div>
@@ -1105,18 +1103,18 @@
     <div>
       <p class="part-opener__eyebrow">Part 3</p>
       <h2 class="part-opener__title">Compliance &amp; licensing in practice</h2>
-      <p class="part-opener__lede">What CDP gives you under Swedish and EU data protection law, how licensing actually lands in a school budget, and the five decisions worth taking before a staff rollout.</p>
+      <p class="part-opener__lede">What Commercial Data Protection commits Microsoft to inside a school tenant, how licensing actually lands in a school budget, and the five decisions worth taking before a staff rollout.</p>
     </div>
   </header>
 
   <img src="../guides/copilot/assets/part-3-opener.webp" class="part-opener-image" alt="">
 
   <h3>What CDP actually gives you</h3>
-  <p>Part 1 set out the three contractual claims of Commercial Data Protection: prompts and responses are not used to train Microsoft's foundation models; data stays within your tenant's trust boundary; standard M365 audit and retention rules apply. The honest translation into GDPR language is that Microsoft acts as your processor under the Microsoft Products and Services Data Processing Addendum; the school remains controller, with all the obligations that role implies.</p>
+  <p>Part 1 set out the three contractual claims of Commercial Data Protection: prompts and responses are not used to train Microsoft's foundation models; data stays within your tenant's trust boundary; standard M365 audit and retention rules apply. What that means contractually is that Microsoft acts as your processor under the Microsoft Products and Services Data Processing Addendum; the school remains the data controller, with all the obligations that role implies.</p>
 
-  <p>What that changes in practice: the hard part of a DPIA for a cloud AI product is usually the sub-processor chain and the transfer analysis. CDP does not remove either — Microsoft has sub-processors, and those sub-processors need documenting — but it narrows the picture. Copilot operations fall inside a governance fabric you already run under your existing Microsoft Volume Licensing terms. That is genuinely easier to defend than adopting a new cloud AI vendor with a fresh DPA, a fresh sub-processor chain, and a fresh transfer story to evaluate.</p>
+  <p>What that changes in practice: Copilot operations fall inside a governance fabric you already run under your existing Microsoft Volume Licensing terms — the same addendum, the same audit and retention framework, the same processor relationship. That is genuinely easier to account for than adopting a new cloud AI vendor with an agreement of its own. Two things sit outside that fabric and need naming separately: web search, where the search service handles data under its own practices and Microsoft acts as an independent data controller rather than as your processor, and agents, which carry their own privacy statement and terms of use for the school to read one by one.</p>
 
-  <p>What CDP does not change: your school is still controller, and the lawful basis for any processing of student data is still yours to establish under GDPR Articles 6 and 9. CDP is a technical and contractual mitigation that makes your existing basis cleaner to evidence. It does not manufacture a basis. Any DPIA write-up should frame it that way — as a mitigation layer inside an existing governance structure, not as a replacement for the analysis the school is obliged to perform.</p>
+  <p>What CDP does not change: your school is still the data controller, and the basis for any processing of student data is still yours to establish. CDP is a technical and contractual mitigation that makes an existing basis cleaner to evidence. It does not manufacture a basis. Your own data-protection documentation should frame it that way — as a mitigation layer inside an existing governance structure, not as a replacement for the analysis the school is obliged to perform. Which rules set that obligation depends on where you work; the box later in this part says what to check.</p>
 </div>
 
 <!-- ══════════════════════════════════════════════════
@@ -1138,20 +1136,20 @@
 </div>
 
 <!-- ══════════════════════════════════════════════════
-     PAGE 20 — EU DATA BOUNDARY & SCHREMS II
+     PAGE 20 — WHERE YOUR DATA IS PROCESSED
      ══════════════════════════════════════════════════ -->
 <div class="page">
-  <span class="eyebrow">Part 3 · EU Data Boundary &amp; Schrems II</span>
-  <h3 style="margin-top: 0;">The geographic and transfer picture</h3>
-  <p>Microsoft's <strong>EU Data Boundary</strong> is the commitment to store and process European customer data inside the European Union and EFTA. For Copilot, that covers most — not all — of the relevant operations. The coverage matrix has expanded steadily since the EU Data Boundary first rolled out, and it keeps moving. Some sub-processors remain US-based; limited telemetry may cross the boundary. The working rule for a DPIA is to cite the EU Data Boundary as a mitigation, verify the current coverage state with your procurement contact, and document the residual crossings rather than claim they are zero.</p>
+  <span class="eyebrow">Part 3 · Where your data is processed</span>
+  <h3 style="margin-top: 0;">Where the processing happens</h3>
+  <p>Microsoft's <strong>EU Data Boundary</strong> is a geographically defined boundary inside which Microsoft has committed to store and process customer data and personal data for its enterprise online services. For EU customers, Copilot is an EU Data Boundary service: EU traffic stays inside the boundary, while worldwide traffic can be sent to the EU and to other regions for the language-model processing itself. Microsoft publishes no percentage for how much of a school's traffic that covers. It publishes the exceptions: transfers out of the boundary happen in limited, documented circumstances, web search queries are not covered by it at all, models provided by Anthropic as a subprocessor are currently excluded, and a tenant that has purchased Multi-Geo Capabilities is out of scope even when the tenant itself is listed in an EU or EFTA country.</p>
 
-  <p>The <strong>Schrems II</strong> analysis sits on top of the EU Data Boundary rather than being replaced by it. Microsoft is a US-headquartered processor. Standard Contractual Clauses plus supplementary technical and organisational measures are the baseline; Microsoft is also certified under the EU-US Data Privacy Framework, which provides an adequacy route recognised by the European Commission (subject to ongoing legal review). The EU Data Boundary reduces the volume and sensitivity of what flows westward; it does not make the westward flow zero.</p>
+  <p>Two of those exceptions are things an administrator can act on rather than only record. Web-search grounding is a tenant policy — <em>Allow web search in Copilot</em>, in the Microsoft 365 admin centre — so a school that would rather prompts did not reach the search service can switch it off. Multi-Geo is a purchase, so procurement can tell you whether your tenant has it. The same Copilot controls decide which Copilot experiences staff and students see at all, including image generation and whether Copilot Chat access is removed; they sit in the Microsoft 365 admin centre and in Cloud Policy, and they can be held with the AI Administrator role rather than a Global Administrator account. Microsoft documents each of them on Microsoft Learn, which is where to verify the current state for your own tenant.</p>
 
-  <p>The honest sentence for a school policy document is this: <em>this is among the best positions of any major cloud AI product — and it is still processing by a US-headquartered provider that should sit in the DPIA as residual risk.</em> That sentence reads well to a school board, to parents, and to an external auditor, because it is accurate. It is not the sentence Microsoft's own marketing would write, which is why it belongs in your document and not in theirs.</p>
+  <p>What none of that settles is which rules you have to satisfy. Where data is stored and processed is a product fact, and your agreement and the admin centre will tell you what it is for your tenant. Which data-protection regime governs that processing, and what it asks you to write down, is set by where your school operates — not by the product. This part states the first and deliberately does not state the second; the box later in this part says what to check locally.</p>
 
   <div class="sidenote">
     <p class="sidenote__title">In a staff briefing</p>
-    <p>You will rarely be asked the Schrems II question by a teacher. You will often be asked "is my data going to America?" The honest answer is: "most of it stays in Europe, some of it crosses for specific technical reasons, and Microsoft has legal mechanisms in place for those crossings. It is documented in the DPIA, and I can show you the page."</p>
+    <p>You will rarely be asked about processing locations by a teacher. You will often be asked "where does my data actually go?" The honest answer is short: "For EU customers Copilot is an EU Data Boundary service, so EU traffic stays inside that boundary. Web search is the exception staff should know about, because a prompt that searches the web leaves for the search service — and the administrator can switch that off. It is documented, and I can show you the page."</p>
   </div>
 </div>
 
@@ -1206,15 +1204,16 @@
 <div class="page">
   <span class="eyebrow">Part 3 · Student data &amp; age limits</span>
   <h3 style="margin-top: 0;">What this means for student access</h3>
-  <p>Microsoft's own age floor for Copilot with a work/school account is <strong>13+</strong>, aligned with the Microsoft 365 Education terms that most schools already sign. Students under 13 cannot be given direct Copilot access under these terms, even if the admin were willing to enable it. The practical implication: in primary classrooms, teachers use Copilot on their own accounts to prepare materials. Students do not interact with it directly.</p>
+  <p>Microsoft's own floor for Copilot with a work/school account is students aged <strong>13 and older</strong>, aligned with the Microsoft 365 Education terms that most schools already sign. Students under 13 cannot be given direct Copilot access under these terms, even if the admin were willing to enable it. The practical implication: in primary classrooms, teachers use Copilot on their own accounts to prepare materials. Students do not interact with it directly.</p>
 
   <p>For students 13 and over, access is admin-gated. The tenant admin controls which Copilot surfaces students see, under which licensing terms, and with which guardrails. That is a school-policy question, not a technical inevitability. One concrete recommendation that has aged well across schools that rolled out early: <strong>most schools should start with teacher-only access for at least a full term</strong> before enabling student access — even when licenses permit students from day one. The teacher habit has to settle first. The staff guideline has to exist, have been iterated, and be pinned to a wiki everyone uses. Student access on top of an unfinished teacher rollout is how guidance gets lost.</p>
 
-  <p>On the content side, the rule is the same as for every cloud AI product: <strong>de-identify student data before any Copilot prompt.</strong> CDP reduces the risk of that data being used in Microsoft's training, but it does not change the school's obligations as controller. A teacher sending a SEN plan, a safeguarding note, or a grade list through Copilot has still processed special-category data. That needs a lawful basis and a DPIA entry, irrespective of CDP.</p>
+  <p>On the content side, the rule is the same as for every cloud AI product: <strong>de-identify student data before any Copilot prompt.</strong> CDP reduces the risk of that data being used in Microsoft's training, but it does not change the school's obligations as data controller. A teacher sending a SEN plan, a safeguarding note, or a grade list through Copilot has still processed sensitive student data. What that requires of the school — a basis, and a record of it — is set by your own data-protection regime, not by CDP.</p>
 
   <div class="processing-callout">
-    <p class="processing-callout__title">Reader-responsibility note</p>
-    <p>Age limits and lawful-basis rules interact with national regulations. Readers outside Sweden should verify their own country's AI-in-school guidance — the UK, France, Germany, and the Netherlands have each published national guides with specific local rules. Sweden's Skolverket and IMY are working on joint guidance (April 2026; date unknown). In the meantime, read the 13+ floor as Microsoft's minimum, not as a national permission slip.</p>
+    <p class="processing-callout__title">What depends on where you are</p>
+    <p>Three things in this part are set where you work, not by the product. <strong>Your data-protection regime</strong> decides what lawful basis you need before processing student data, and what you must document. <strong>Your rules on student age and consent</strong> decide who may use Copilot at all, and who signs for it — Microsoft's own age floor is a minimum, not a permission slip. <strong>Your school's procurement and approval route</strong> decides who signs the agreement and who must be consulted first.</p>
+    <p>What does not depend on where you are: your school remains the data controller for its students' data, and using Copilot does not transfer that responsibility to Microsoft. Check the three above locally before you rely on any specific rule in this part.</p>
   </div>
 </div>
 
@@ -1226,15 +1225,15 @@
   <h3 style="margin-top: 0;">Five policy decisions for your school</h3>
 
   <ol class="policy-list">
-    <li><strong>Require signed-in work/school account for all Copilot use.</strong> Block consumer Copilot via tenant conditional access where your licensing allows. The single behaviour that prevents almost every Copilot compliance problem is signing in with the right account. Make that the first line of the one-page staff guideline and rehearse it in onboarding.</li>
+    <li><strong>Require signed-in work/school account for all Copilot use.</strong> Govern it at the tenant, not at the address: Microsoft's own guidance is to use tenant restrictions to control personal-account sign-in rather than to block Copilot host names, and the Copilot controls in the Microsoft 365 admin centre decide which Copilot experiences staff reach once they are signed in. The single behaviour that prevents almost every Copilot compliance problem is signing in with the right account. Make that the first line of the one-page staff guideline and rehearse it in onboarding.</li>
 
-    <li><strong>Document Copilot paths in the school's DPIA.</strong> Three paths need lines: Microsoft 365 Copilot (paid, in-app), Copilot Chat with the work account (free with M365), and — if any staff use consumer Copilot on personal devices for adult-only tasks — the consumer path as a separately documented, narrower scope. Cite the Microsoft Products and Services DPA and the EU Data Boundary as mitigations; cite Schrems II and the EU-US Data Privacy Framework as the transfer story.</li>
+    <li><strong>Document the Copilot paths in your own data-protection documentation.</strong> Three paths need lines: Microsoft 365 Copilot (paid, in-app), Copilot Chat with the work account (free with M365), and — if any staff use consumer Copilot on personal devices for adult-only tasks — the consumer path as a separately documented, narrower scope. For each one, record which account signs in, what the Microsoft Products and Services DPA covers, and where the processing happens.</li>
 
     <li><strong>Produce a one-page staff guideline on what to paste and what to avoid.</strong> Three accept examples (generalised parent-email rewrites, Skolverket module summaries, meeting action-item extraction). Three avoid examples (SEN plans without de-identification, safeguarding notes, any grade data tied to named students). Tailor the examples to your school. Pin to the shared staff wiki and reference in onboarding.</li>
 
     <li><strong>Phase the rollout.</strong> Leadership plus subject leads in term one on Copilot Chat (free with M365). Broader staff onto Copilot Chat in term two. Microsoft 365 Copilot seats (paid, ~kr 350/user/mo) for the staff who measurably need the in-app features — don't default to full-staff licensing. Student access only after the policy is stable and the teacher habit is settled. The tenant admin flip is instant; organisational readiness is not.</li>
 
-    <li><strong>Build in a termly review.</strong> Microsoft ships Copilot updates monthly. Feature availability, tenant controls, and the EU Data Boundary coverage matrix all move. A thirty-minute standing entry each term for the digital-lead to skim Microsoft's release notes and update the staff guideline is enough to stop the policy drifting out of date. More than that is unlikely to stick; less than that is how outdated guidance accumulates.</li>
+    <li><strong>Build in a termly review.</strong> Microsoft ships Copilot updates monthly. Feature availability, tenant controls, and Microsoft's own documentation on where data is processed all move. A thirty-minute standing entry each term for the digital-lead to skim Microsoft's release notes and update the staff guideline is enough to stop the policy drifting out of date. More than that is unlikely to stick; less than that is how outdated guidance accumulates.</li>
   </ol>
 </div>
 
