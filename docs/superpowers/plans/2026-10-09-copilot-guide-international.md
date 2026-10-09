@@ -511,7 +511,7 @@ Ingen källa läses här och ingen yta redigeras. Uppgiften är att hitta och lo
 - [ ] **Steg 1: Mät inramningen**
 
 ```bash
-cd /Users/johan/Projekt/Choosewise/choosewise-education
+# kör från repots rot — i den här rundan är det worktreen, inte huvudkopian
 for f in _unpublished/guides/copilot/index.html \
          _unpublished/exports/copilot-print-a4-en.html \
          _unpublished/exports/copilot-quick-start-en.html; do
@@ -1074,7 +1074,7 @@ git commit -m "test(copilot): vaktblocket — varje rättning och strykning får
 - [ ] **Steg 1: Kopiera undan de svenska PDF:erna**
 
 ```bash
-cd /Users/johan/Projekt/Choosewise/choosewise-education
+# kör från repots rot — i den här rundan är det worktreen, inte huvudkopian
 cp _unpublished/assets/pdfs/guides/copilot-guide-sv.pdf /tmp/copilot-guide-sv.pdf
 cp _unpublished/assets/pdfs/guides/copilot-quick-start-sv.pdf /tmp/copilot-quick-start-sv.pdf
 ```
@@ -1137,7 +1137,7 @@ Spec §2 svarade fel på den här frågan (se Rättelse ovan): printytan har sex
 - [ ] **Steg 1: Mät var avsnitten faktiskt börjar**
 
 ```bash
-cd /Users/johan/Projekt/Choosewise/choosewise-education
+# kör från repots rot — i den här rundan är det worktreen, inte huvudkopian
 pdfinfo _unpublished/assets/pdfs/guides/copilot-guide-en.pdf | grep Pages
 for p in $(seq 1 30); do
   head=$(pdftotext -f $p -l $p _unpublished/assets/pdfs/guides/copilot-guide-en.pdf - 2>/dev/null | tr '\n' ' ' | cut -c1-70)
@@ -1333,7 +1333,7 @@ Förväntat: **773 passed, 0 skipped, 0 xfailed, 0 xpassed.** Står en skip kvar
 - [ ] **Steg 2: Gå igenom specens §9 rad för rad**
 
 ```bash
-cd /Users/johan/Projekt/Choosewise/choosewise-education
+# kör från repots rot — i den här rundan är det worktreen, inte huvudkopian
 # Inget "Sweden", "Swedish", "Skolverket" kvar i de engelska ytorna
 grep -rncE "Swedish|Sweden|Skolverket|IMY" \
   _unpublished/guides/copilot/index.html \
