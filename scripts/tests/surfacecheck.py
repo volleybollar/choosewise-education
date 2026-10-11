@@ -11,6 +11,7 @@ tillbaka utan att något blir rött.
 """
 from __future__ import annotations
 
+import html
 import re
 import unicodedata
 from pathlib import Path
@@ -18,12 +19,37 @@ from typing import NamedTuple
 
 ROOT = Path(__file__).resolve().parents[2]
 
-SURFACES = {
-    ("en", "web"):   "guides/claude/index.html",
-    ("en", "print"): "exports/claude-print-a4-en.html",
-    ("sv", "web"):   "sv/guider/claude/index.html",
-    ("sv", "print"): "exports/claude-print-a4-sv.html",
+GUIDE_SURFACES = {
+    "claude": {
+        ("en", "web"):   "guides/claude/index.html",
+        ("en", "print"): "exports/claude-print-a4-en.html",
+        ("sv", "web"):   "sv/guider/claude/index.html",
+        ("sv", "print"): "exports/claude-print-a4-sv.html",
+    },
+    # Copilot ligger under _unpublished/ — GitHub Pages serverar inte
+    # kataloger som börjar med understreck, verifierat 2026-10-09 (404 på
+    # alla fyra utkastkataloger). De svenska ytorna står med i kartan fast
+    # rundan inte rör dem: de FINNS, och en svensk vaktrad ska jämföras mot
+    # dem och inte mot ingenting. Att de divergerar i sak från de engelska
+    # är ett känt läge (spec §5), inte något vakten ska dölja.
+    "copilot": {
+        ("en", "web"):   "_unpublished/guides/copilot/index.html",
+        ("en", "print"): "_unpublished/exports/copilot-print-a4-en.html",
+        ("sv", "web"):   "_unpublished/sv/guider/copilot/index.html",
+        ("sv", "print"): "_unpublished/exports/copilot-print-a4-sv.html",
+    },
 }
+GUIDES = tuple(GUIDE_SURFACES)
+
+
+def surfaces_for(guide: str) -> dict:
+    try:
+        return GUIDE_SURFACES[guide]
+    except KeyError:
+        raise KeyError(
+            f"okänd guide {guide!r}, kända: {sorted(GUIDE_SURFACES)}"
+        ) from None
+
 
 _TAG = re.compile(r"<[^>]+>")
 _SCRIPT = re.compile(r"<(script|style)\b.*?</\1>", re.S | re.I)
@@ -39,13 +65,14 @@ class Problem(NamedTuple):
 
 
 def normalise(text: str) -> str:
+    text = html.unescape(text)
     text = unicodedata.normalize("NFKC", text).translate(_DASHES)
     return re.sub(r"\s+", " ", text).strip()
 
 
-def read_surfaces(root: Path = ROOT) -> dict:
+def read_surfaces(guide: str, root: Path = ROOT) -> dict:
     out = {}
-    for key, rel in SURFACES.items():
+    for key, rel in surfaces_for(guide).items():
         raw = (root / rel).read_text(encoding="utf-8")
         out[key] = normalise(_TAG.sub(" ", _SCRIPT.sub(" ", raw)))
     return out

@@ -19,12 +19,27 @@ _SPEC = importlib.util.spec_from_file_location(
     Path(__file__).parent / "fixtures" / "capture_guide_baseline.py",
 )
 
-CLAUDE = [
-    "assets/pdfs/guides/claude-guide-en.pdf",
-    "assets/pdfs/guides/claude-guide-sv.pdf",
-    "assets/pdfs/guides/claude-quick-start-en.pdf",
-    "assets/pdfs/guides/claude-quick-start-sv.pdf",
+# De PDF:er den PÅGÅENDE rundan legitimt renderat om och därför fick
+# omfångas. Töms och fylls om i varje ny runda — aldrig radvis tillägg,
+# för en lista som bara växer slutar vakta något.
+RECAPTURED_THIS_ROUND = [
+    "_unpublished/assets/pdfs/guides/copilot-guide-en.pdf",
+    "_unpublished/assets/pdfs/guides/copilot-quick-start-en.pdf",
 ]
+
+
+def _merge_base() -> str:
+    """Grenens avstamp från `main`, som facitjämförelsen mäter mot.
+
+    Jämförelsepunkten måste ligga före rundan. På `HEAD` blir vakten en
+    snubbeltråd i arbetsträdet i stället för en grenvakt: är en
+    `--force`-omfångning en gång committad är `HEAD` identisk med
+    disken, och då passerar varje nyckel för alltid.
+    """
+    import subprocess
+    return subprocess.run(
+        ["git", "merge-base", "main", "HEAD"],
+        capture_output=True, text=True, check=True, cwd=fp.ROOT).stdout.strip()
 
 
 def _module():
@@ -53,17 +68,20 @@ def test_force_cannot_silently_reset_unrelated_entries():
     """Granskningsfokus 1: de arton PDF:er rundan inte öppnat ska stå still.
 
     Facit på disk måste fortfarande täcka exakt 22 nycklar, och de
-    arton som inte är Claudes ska vara oförändrade mot det committade
-    läget. Testet jämför mot git, inte mot sig självt.
+    tjugo som inte är rundans egna ska vara oförändrade mot läget vid
+    grenens avstamp från `main` (`git merge-base main HEAD`). Testet
+    jämför mot bascommiten — inte mot `HEAD` och inte mot sig självt.
+    Mot `HEAD` skulle en smygomfångning som hunnit committas göra
+    jämförelsen sann för varje nyckel och vakten grön för evigt.
     """
     import json, subprocess
     committed = json.loads(subprocess.run(
-        ["git", "show", f"HEAD:{fp.BASELINE.relative_to(fp.ROOT)}"],
+        ["git", "show", f"{_merge_base()}:{fp.BASELINE.relative_to(fp.ROOT)}"],
         capture_output=True, text=True, check=True, cwd=fp.ROOT).stdout)
     current = json.loads(fp.BASELINE.read_text(encoding="utf-8"))
     assert sorted(current) == sorted(fp.GUIDE_PDFS), "nyckeluppsättningen ändrades"
     for rel in fp.GUIDE_PDFS:
-        if rel in CLAUDE:
+        if rel in RECAPTURED_THIS_ROUND:
             continue
         assert current[rel] == committed[rel], f"{rel} omfångades utan att röras"
 
@@ -76,16 +94,19 @@ def test_force_cannot_silently_reset_unrelated_body_entries():
     skrivvägarna — och då fångar sidfingeravtryckets test ovan ingenting
     på kroppstextsidan. Den här kopian finns så att en sådan gren inte
     kan tysta regressionen: `bt.BASELINE` måste täcka exakt 22 nycklar,
-    och de arton som inte är Claudes ska vara oförändrade mot det
-    committade läget. Testet jämför mot git, inte mot sig självt.
+    och de tjugo som inte är rundans egna ska vara oförändrade mot läget
+    vid grenens avstamp från `main` (`git merge-base main HEAD`). Testet
+    jämför mot bascommiten — inte mot `HEAD`, som en committad
+    smygomfångning hade gjort identisk med disken — och inte mot sig
+    självt.
     """
     import json, subprocess
     committed = json.loads(subprocess.run(
-        ["git", "show", f"HEAD:{bt.BASELINE.relative_to(fp.ROOT)}"],
+        ["git", "show", f"{_merge_base()}:{bt.BASELINE.relative_to(fp.ROOT)}"],
         capture_output=True, text=True, check=True, cwd=fp.ROOT).stdout)
     current = json.loads(bt.BASELINE.read_text(encoding="utf-8"))
     assert sorted(current) == sorted(fp.GUIDE_PDFS), "nyckeluppsättningen ändrades"
     for rel in fp.GUIDE_PDFS:
-        if rel in CLAUDE:
+        if rel in RECAPTURED_THIS_ROUND:
             continue
         assert current[rel] == committed[rel], f"{rel} omfångades utan att röras"

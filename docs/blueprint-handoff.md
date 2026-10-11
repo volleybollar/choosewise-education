@@ -1,6 +1,6 @@
 # Blueprint — överlämning
 
-**Senast uppdaterad:** 2026-10-09 (sju PR:ar mergade; Copilot-guidens spec godkänd)
+**Senast uppdaterad:** 2026-10-10 (sju PR:ar mergade; Copilot-guiden byggd och levererad, PR #38 öppen)
 **LÄS FÖRST** vid fortsättning. Specen är den bindande auktoriteten, planerna argumenterar från den.
 
 ---
@@ -13,7 +13,7 @@
 | **Spår A** — märket, favicon, Skool | **PR #29 öppen**, gren `feat/blueprint-track-a-mark`. Omarbetad 2026-10-09 efter Johans beslut: `main` inmergad (noll konflikter), underrubriken ändrad, og-korten utan märket. Svit 743. |
 | **Våg 2a** — guidernas tryckmallar | **MERGAD** 2026-10-08, PR #30, merge-commit `a67a47a` (72 filer, +5977/-4577). Gate för våg 2b. |
 | **Våg 2b** — guidernas innehåll | **MERGAD OCH LIVE** 2026-10-08. 44 commits på `main` (HEAD `d33a014`), pushade till origin, Pages-bygget grönt och live-sajten verifierad: åtta nya markörer på den engelska guidesidan, fyra på den svenska, **noll gamla**. Alla fyra PDF:er svarar 200 och innehåller det nya. Svit 484 passed, 0 skipped. Grenen och worktreen är borttagna. Historiken blev **linjär (fast-forward)** — till skillnad från våg 1 och 2a finns ingen merge-commit som namnger vågen; den är commits `86076ce..d33a014`. |
-| **Copilot-guiden** — första av de fyra | **SPEC GODKÄND 2026-10-09, inget byggt.** `docs/superpowers/specs/2026-10-09-copilot-guide-international-design.md`. Nästa steg: Johan läser specen, sedan skrivs implementationsplanen. |
+| **Copilot-guiden** — första av de fyra | **BYGGD OCH LEVERERAD 2026-10-10.** Gren `feat/copilot-guide-international`, 28 commits, **PR #38** öppen (väntar på Johans slutgranskning och push — den här uppgiften committar lokalt och stannar där). Leverans: `_unpublished/assets/pdfs/guides/copilot-guide-en.pdf` och `copilot-quick-start-en.pdf` till Skool-communityt — **ingenting publicerat på sajten.** Svit: **757 passed, 0 failed, 0 skipped, 0 xfailed** med `test_prompt_pdf_parity.py` undantagen; den filens 11 fel är verifierat miljöberoende, inte rundans (se Känt trasigt). Egen sektion nedan: "Copilot-guiden — vad rundan lämnar". |
 | Diagram- och social-exporterna | Inte påbörjad, Johans beslut: egen runda |
 | Visual Codes Vol. 1–3 | Inte påbörjad, **ingen plan äger den** |
 
@@ -27,7 +27,7 @@
 
 1. **~~FÖRBUDSVAKTEN~~ — BYGGD 2026-10-09.** Klar och grön före nästa guide, precis som avsett. Se egen sektion nedan för vad den gör och hur en ny guide använder den. **PR #31 öppen**, gren `feat/blueprint-forbidden-guard`, 3 commits, svit 489. Arbetskopian står på grenen.
 2. **Johan mergar PR #29** när han sett den. Faviconen landar på 198 sidor i samma stund den mergas — sajten har noll favicon-taggar i dag, så det är jordgloben som byts ut, inte ett märke som byts mot ett annat. **Symbolens omfång är beskuret 2026-10-09:** Skool, LinkedIn-sidan och faviconen, men **inte** og-delningskorten och inte sajtens header. (#30 — våg 2a — är redan mergad, se tabellen ovan.)
-3. **COPILOT-GUIDEN — specen är godkänd, planen är nästa steg.** Läs `docs/superpowers/specs/2026-10-09-copilot-guide-international-design.md` först; den innehåller allt som avgjordes 2026-10-09 och allt som mättes upp. Kort: **leveransen är två engelska PDF:er till Skool-communityt, ingenting publiceras på sajten**, målgruppen är den engelskspråkiga skolvärlden och inte Sverige, layouten rörs inte utom två fel på omslaget, och tryckmallen är redan Blueprint. Tre fynd som ändrar bilden mot vad den här överlämningen tidigare antog: **utkasten finns och är färdiga** (i `_unpublished/`, 404 publikt), **våg 2a konverterade även de opublicerade mallarna**, och **Copilots fyra PDF:er ligger redan i båda facit-filerna**. Copilot är pilot; de tre andra tas i egna rundor med den som mall.
+3. ~~**COPILOT-GUIDEN — specen är godkänd, planen är nästa steg.**~~ **LEVERERAD 2026-10-10.** Fjorton uppgifter körda på `feat/copilot-guide-international` (28 commits), **PR #38** öppen och väntar på Johans slutgranskning + push. Läs `docs/superpowers/specs/2026-10-09-copilot-guide-international-design.md` för vad som avgjordes 2026-10-09; läs sektionen **"Copilot-guiden — vad rundan lämnar"** nedan för vad rundan faktiskt levererade, vad vaktlagret nu äger, det svenska divergensläget och vad som medvetet inte åtgärdades. Copilot var pilot; de tre andra guiderna (Gemini/NotebookLM, Apple Intelligence, elevguiden) tas i egna rundor med den här som mall.
 
 4. ~~**De fyra återstående guiderna**, bara på engelska.~~ Ersatt av punkt 3 — en guide i taget, Johans beslut 2026-10-09. Den ursprungliga formuleringen: Samma mönster som Claude-guiden: en inventering i `docs/guide-facts-claude.md`:s form, fakta kontrollerade mot namngiven källa, fyra ytor stämda av mot varandra. Våg 2b lämnar både mallen och ett vaktlager (nedan) som nästa runda bör återanvända, och vaktlagrets kända brist är stängd sedan 2026-10-09 — mönstret kan nu kopieras rakt av utan att ärva en blind fläck.
 4. **Diagram- och social-exporterna.** Åtta mallar plus SVG, PNG och PDF för WISE och RÄTT. Johans beslut 2026-10-06: egen runda, gärna ihop med märket. Sju av åtta bär hans ocommittade ändringar — han bör commita svepet först.
@@ -43,6 +43,8 @@
 - **Evidence Toolkits band** "kring" vs "över": 1,54:1. Palettak sedan våg 1, inte ett förbiseende.
 - **Sajtens header** bär inget märke. Spår A:s spec säger nej idag; frågan kan tas när tecknet setts i bruk.
 - ~~**Choosewise på LinkedIn:** egen sida eller Johans profil?~~ **AVGJORT 2026-10-09: egen sida.** Den personliga bannern används inte — Johans profil behåller sin egen avsändare. Sidan skapas nu för att säkra namnet, men posterna fortsätter från profilen tills Skool öppnar. Båda måtten ligger kvar committade.
+- **De tre återstående guiderna** (Gemini/NotebookLM, Apple Intelligence, elevguiden) tas i egna rundor, en guide i taget, med Copilot-rundan som mall. Vaktlagret är redan guide-agnostiskt (se "Copilot-guiden — vad rundan lämnar" nedan) — nästa runda fyller två dict:ar och skriver en inventering, den behöver inte ändra vakten själv.
+- **De svenska Copilot-ytorna** (`_unpublished/exports/copilot-print-a4-sv.html`, `copilot-quick-start-sv.html`, `_unpublished/sv/guider/copilot/`) står kvar med junifakta och svensk inramning. Om och när de ska hämta in de engelska är Johans beslut, inte avgjort än.
 
 ---
 
@@ -62,11 +64,17 @@
 
 **En föräldralös bild.** `guides/claude/assets/screenshot-cowork-tab.png` och sin svenska kopia `sv/guider/claude/assets/screenshot-cowork-tab.png` refereras inte längre av något — Cowork-avsnittets omskrivning (Task 7, väg 2) tog bort platshållaren som pekade på den. Filerna ligger kvar på disk. Ofarligt — ingen sida länkar en trasig bild — men värt att städa bort nästa gång någon är inne i de katalogerna.
 
+**`test_prompt_pdf_parity.py`:s elva fel är miljöberoende, inte Copilot-rundans.** Facit för fem prompt-PDF:er (`teachers-en`, `principals-en`, `matematik-sv`, `larare-sv`, `skolchefer-sv`) ligger i `/tmp/pdf-parity-before/`, ett maskinlokalt scratch-facit som testets egen docstring dokumenterar och som macOS tömde vid midnatt 2026-10-10. Verifierat, inte antaget, i Task 14: samma elva fel reproducerar på `main` i huvudkopian, och Copilot-rundan ändrar noll prompt-PDF:er. **Eget, litet jobb:** lägg facit där git ser det, eller låt testet skippa högljutt när katalogen är tom i stället för att falla rött utan motivering varje gång klockan slår midnatt.
+
+**Ungefär trettio platskolumner i `docs/guide-facts-copilot.md`:s EW-kolumn ligger nu fel med ett.** Radnumren för webbytan (`_unpublished/guides/copilot/index.html`) fixerades i Task 4/8, men commit `16bd50f` senare i rundan lade till en nettorad i samma fil (74 insättningar mot 73 raderingar) utan att platskolumnen räknades om. EP-kolumnen (print) är opåverkad — samma commit var nettonoll där (104 mot 104). **Ofarligt för vakten:** `surfacecheck`/`factinventory` matchar strängar, aldrig radnummer — felet syns bara för en människa som läser cellen. Rättas när någon redan är inne i tabellen av ett annat skäl.
+
+**Webbytans ankar-id:n `p1-edp`/`p3-edp` skiljer sig nu från den svenska spegelns `p1-cdp`/`p3-cdp`.** Namnbytet Commercial Data Protection → Enterprise data protection (se faktafynden nedan) följde med in i den engelska sidans id-strängar; den svenska filen rördes inte (spec §5) och behöll `cdp`. **Noll inkommande länkar** till något av de fyra id:na, verifierat. Värt att veta innan någon länkar till ett specifikt avsnitt i någon av guiderna.
+
 ---
 
 ## Vad som vaktar vad
 
-Fem lager. De fyra första byggdes i våg 2a; det femte i våg 2b. Ändra inget utan att veta vilket lager som äger frågan.
+Fem lager. De fyra första byggdes i våg 2a; det femte i våg 2b. Två till — leveransvakten och innehållsförteckningsvakten — tillkom i Copilot-rundan 2026-10-10. Ändra inget utan att veta vilket lager som äger frågan.
 
 | Lager | Fil | Äger |
 |---|---|---|
@@ -75,13 +83,15 @@ Fem lager. De fyra första byggdes i våg 2a; det femte i våg 2b. Ändra inget 
 | Dokumentnivåinvariant | `scripts/tests/test_guide_pdf_body_text.py` | att inget innehåll försvinner — kromet strippas, så ompaginering kan inte röra det |
 | Renderingsvakt | `scripts/tests/test_guide_pdf_font_weights.py` | att ingen PDF bäddar in ett typsnitt över viktskalan, även när vikten kommer ur HTML och inte CSS |
 | Statiska mallvakter | `test_guide_print_css.py`, `test_guide_asset_paths.py`, `test_build_scripts.py` | källan: palett, typsnitt i `font-family`-kontext, vikter, sökvägar, och att varje väljare i den delade stilmallen ligger i en SCOPE-GUARD-region med sin `.page--`-scope |
-| **Ytkonsistens (nytt i våg 2b)** | `scripts/tests/test_guide_surface_consistency.py` + `scripts/tests/factinventory.py` + vaktblocket i `docs/guide-facts-claude.md` | att webb och print, på båda språken, säger samma sak om varje volatilt sakpåstående — inte bara att ingen text flyttat sig, utan att **innehållet** stämmer mellan de fyra ytorna. **Sedan 2026-10-09 åt båda hållen:** `aktiv` kräver att strängen finns på båda ytorna, `borttaget` att den inte finns på någon av dem |
+| **Ytkonsistens (nytt i våg 2b, guide-agnostiskt sedan Copilot-rundan)** | `scripts/tests/test_guide_surface_consistency.py` + `scripts/tests/factinventory.py` + vaktblocket i `docs/guide-facts-claude.md`/`docs/guide-facts-copilot.md` | att webb och print, på båda språken, säger samma sak om varje volatilt sakpåstående — inte bara att ingen text flyttat sig, utan att **innehållet** stämmer mellan de fyra ytorna. **Sedan 2026-10-09 åt båda hållen:** `aktiv` kräver att strängen finns på båda ytorna, `borttaget` att den inte finns på någon av dem. **Sedan 2026-10-10 guide-agnostiskt:** `surfacecheck.GUIDE_SURFACES`/`GUIDES`/`surfaces_for()` och `factinventory.INVENTORIES`/`inventory_path()` tar en guide som argument i stället för att vara hårdkodade till Claude |
+| **Leveransvakt (nytt i Copilot-rundan)** | `scripts/tests/test_copilot_delivery.py` | att de **levererade PDF:erna** — inklusive quick-starten, som med avsikt står utanför ytkonsistensvakten — saknar en lista förbjudna strängar. Läser PDF:en, inte HTML:en den renderas ur |
+| **Innehållsförteckningsvakt (nytt i Copilot-rundan)** | `scripts/tests/test_copilot_toc.py` | att förteckningens sex hårdkodade sidnummer (klass `toc__page`) stämmer mot var avsnitten faktiskt börjar i den renderade PDF:en |
 
-**Facit ligger i `scripts/tests/fixtures/`.** Fånga aldrig om det för att få grönt. Fånga om det bara när innehållet ändrats med avsikt, och verifiera då att bara de avsedda posterna rör sig. **`scripts/tests/fixtures/capture_guide_baseline.py` tar nu en `--only RELATIV/SÖKVÄG`-flagga** (en eller flera gånger) som riktar omfångningen mot namngivna PDF:er och lämnar alla andra nycklar i de två facit-filerna exakt som de står. Den finns för att en runda som bara redigerat fyra av tjugotvå PDF:er annars tvingas välja mellan att fånga om allt (och tyst slå av vakten för de arton orörda) eller att handredigera JSON-facit för hand. `--only` gör det möjliga: fånga precis det som faktiskt ändrats.
+**Facit ligger i `scripts/tests/fixtures/`.** Fånga aldrig om det för att få grönt. Fånga om det bara när innehållet ändrats med avsikt, och verifiera då att bara de avsedda posterna rör sig. **`scripts/tests/fixtures/capture_guide_baseline.py` tar nu en `--only RELATIV/SÖKVÄG`-flagga** (en eller flera gånger) som riktar omfångningen mot namngivna PDF:er och lämnar alla andra nycklar i de två facit-filerna exakt som de står. Den finns för att en runda som bara redigerat fyra av tjugotvå PDF:er annars tvingas välja mellan att fånga om allt (och tyst slå av vakten för de arton orörda) eller att handredigera JSON-facit för hand. `--only` gör det möjliga: fånga precis det som faktiskt ändrats. **`RECAPTURED_THIS_ROUND` i `scripts/tests/test_capture_guide_baseline.py` (döpt om från `CLAUDE`) måste tömmas och fyllas om i varje ny runda — aldrig tilläggas.** Se "Copilot-guiden — vad rundan lämnar" nedan för varför det är en hård regel och inte en rekommendation.
 
 **~~Ytkonsistenslagrets kända begränsning~~ — STÄNGD 2026-10-09 av förbudsvakten.** Vaktblocket kunde bara påstå att en exakt sträng **finns** på en yta, aldrig att den **saknas** — ett struket påstående som skrevs tillbaka mötte inget motstånd. Hålet är stängt: `borttaget` betyder nu **får inte finnas**, och samma lager äger båda riktningarna. Egen sektion nedan.
 
-**Påståendeinventeringen är rundans auktoritet, och mallen för nästa fyra.** `docs/guide-facts-claude.md` är inte ett arbetsdokument som kan kastas efter leverans — det är källloggen specens §8 kräver, och det är **facit** som guidetexten svarar mot, inte tvärtom (se våg 2b-specens Ruling 12-liknande princip: hittas en förekomst som inte behöver ändras ska den stå kvar i tabellen med en motivering, inte strykas tyst). Samma struktur — en post per volatilt påstående, fyra ytors förekomster, typ, omfång, källa+datum, utfallstoken, plus ett separat vaktblock — är tänkt att återanvändas rakt av för Copilot-, Gemini/NotebookLM-, Apple Intelligence- och elevguiden.
+**Påståendeinventeringen är rundans auktoritet, och mallen för nästa fyra.** `docs/guide-facts-claude.md` är inte ett arbetsdokument som kan kastas efter leverans — det är källloggen specens §8 kräver, och det är **facit** som guidetexten svarar mot, inte tvärtom (se våg 2b-specens Ruling 12-liknande princip: hittas en förekomst som inte behöver ändras ska den stå kvar i tabellen med en motivering, inte strykas tyst). Samma struktur — en post per volatilt påstående, fyra ytors förekomster, typ, omfång, källa+datum, utfallstoken, plus ett separat vaktblock — återanvändes rakt av för Copilot (`docs/guide-facts-copilot.md`) och är mallen för Gemini/NotebookLM-, Apple Intelligence- och elevguiden.
 
 ---
 
@@ -100,6 +110,30 @@ Fem lager. De fyra första byggdes i våg 2a; det femte i våg 2b. Ändra inget 
 **Rörda filer:** `scripts/tests/surfacecheck.py` (13 rader), `scripts/tests/test_guide_surface_consistency.py`, `docs/guide-facts-claude.md` (statusens innebörd på tre ställen, plus daterade uppdateringar i P22 och P25 vars celler uttryckligen skrev ut begränsningen som nu är borta — de står kvar med motivering, aldrig strukna tyst). **`factinventory.py` rördes inte** — `_STATUSES` är oförändrad, vilket är hela poängen med beslutet.
 
 **Så gör nästa guide.** Kopiera vaktblockets mönster rakt av. En `aktiv` rad per volatilt påstående som ska stå på båda ytorna, och **en `borttaget`-rad för varje påstående rundan stryker eller rättar** — den sistnämnda är inte längre bara historik, den är det enda som hindrar att rättningen tas tillbaka. Kontrollera särskilt att en `borttaget`-sträng inte är en delsträng av legitim text: ordet "Cowork" står kvar överallt i Claude-guiden som laglig övergångstext, medan hela meningen "Cowork sits as a tab inside Claude Desktop" är förbjuden. Det är skillnaden mellan en vakt som fungerar och en som är röd från dag ett.
+
+---
+
+## Copilot-guiden — vad rundan lämnar (2026-10-10)
+
+**Status.** Gren `feat/copilot-guide-international`, 28 commits, **PR #38**. Leverans: `_unpublished/assets/pdfs/guides/copilot-guide-en.pdf` och `copilot-quick-start-en.pdf`, byggda ur rättat innehåll med Blueprint-layout, till Skool-communityt. **Ingenting publicerat på sajten.** Svit: **757 passed, 0 failed, 0 skipped, 0 xfailed** med `scripts/tests/test_prompt_pdf_parity.py` undantagen — den filens 11 fel är miljöberoende (se "Känt trasigt eller begränsat").
+
+**Det svenska divergensläget är ett känt läge, inte en upptäckt som väntar på nästa person.** `_unpublished/exports/copilot-print-a4-sv.html`, `copilot-quick-start-sv.html` och `_unpublished/sv/guider/copilot/` står kvar med junifakta och svensk inramning — spec §5, Johans beslut 2026-10-08: rundan rör bara de engelska ytorna. Deras PDF:er är byte-identiska mot innan rundan. De engelska och svenska Copilot-ytorna **divergerar därför i sak, avsiktligt** — inte bara i formulering, som Claude-guidens båda språk gör, utan i vilka fakta som står där (Microsofts namnbyten, se nedan, finns bara på de engelska ytorna). `surfacecheck.GUIDE_SURFACES["copilot"]` fortsätter kartlägga de svenska ytorna — de FINNS, 404 publikt som allt i `_unpublished/` — så en framtida svensk vaktrad jämförs mot dem och inte mot ingenting. Men ingen `aktiv`/`borttaget`-rad i vaktblocket pekar på dem i dag.
+
+**Vaktlagret är nu guide-agnostiskt.** `surfacecheck.py` bar tidigare ett enda `SURFACES`-dict, hårdkodat till Claude; det är nu `GUIDE_SURFACES` (en guide → dess fyra ytor) plus `GUIDES = tuple(GUIDE_SURFACES)` och `surfaces_for(guide)`, som slår upp en guide eller kastar `KeyError` med de kända namnen i meddelandet. `factinventory.py` bar tidigare en enda hårdkodad sökväg; det är nu `INVENTORIES` (en guide → dess `docs/guide-facts-*.md`) plus `inventory_path(guide)`, och `load()` kräver numera en sökväg som argument i stället för att gissa en. **Nästa guide läggs till genom att fylla två dict:ar och skriva en inventering** — ingen ändring i vakten själv.
+
+**Två nya vakter, byggda för Copilot men generella** (se tabellrader ovan under "Vad som vaktar vad"): `test_copilot_delivery.py` läser de levererade PDF:erna själva, inte HTML:en de renderas ur, och täcker quick-starten som med avsikt står utanför ytkonsistensvakten (spec §7). `test_copilot_toc.py` jämför innehållsförteckningens hårdkodade sidnummer mot var avsnitten faktiskt börjar i den renderade PDF:en.
+
+**En konvention nästa runda MÅSTE följa.** `RECAPTURED_THIS_ROUND` i `scripts/tests/test_capture_guide_baseline.py` (döpt om från `CLAUDE`) listar de PDF:er **den pågående rundan** legitimt renderat om och därför fått omfånga. Den ska **tömmas och fyllas om i varje ny runda — aldrig tilläggas.** Föregående rundas poster stod kvar i listan när Copilot-rundan började, vilket är exakt varför en tyst Claude-omrendering inte skulle ha märkts: en lista som bara växer slutar vakta något.
+
+**Rättelse av specens §2.** Specen påstod att guiden hade **noll** hårdkodade sidnummer i innehållsförteckningen ("Claude-guiden hade 18, varav 13 blev fel i våg 2b. Den fällan gäller inte här"). Mätningen letade efter klassen `toc-page-num` — Claude-guidens klassnamn. Copilot-guiden bär **sex** sidnummer, i klassen `toc__page`, och ett av dem (FAQ-raden) **var redan fel innan rundan började.** Nästa guide mäter på sin egen mallklass, inte på Claude-guidens.
+
+**Tre fynd, medvetet inte åtgärdade** — se "Känt trasigt eller begränsat" för detaljerna: de elva miljöberoende testfelen och `/tmp`-facitet bakom dem, ungefär trettio platskolumner i `docs/guide-facts-copilot.md`:s EW-kolumn som nu ligger fel med ett (en senare commit lade till en rad), och ankar-id:na `p1-edp`/`p3-edp` som nu skiljer sig från den svenska spegelns `p1-cdp`/`p3-cdp`.
+
+**Tre faktafynd som gäller de tre återstående guiderna också**, inte bara Copilot — alla tre dokumenterade med källa och hämtdatum i `docs/guide-facts-copilot.md`:
+
+1. Microsoft har döpt om **Commercial Data Protection till Enterprise data protection (EDP)** (C03/C05/C19).
+2. **Microsoft 365 Copilot heter nu Microsoft Copilot** (liksom Chat-varianten) — men licenser visar fortfarande de gamla namnen under en övergångsperiod (C01/C08/C27).
+3. Guidens sätt att skilja den skyddade ytan från konsumentytan **på adressen är fel.** Det är kontot som avgör, inte värdnamnet — ett privat Microsoft-konto når samma `copilot.cloud.microsoft`, och Microsoft avråder uttryckligen från att blockera det värdnamnet (C05/C19/C21).
 
 ---
 
@@ -206,6 +240,10 @@ Ett filter som sållar bort breda element för att slippa fullbreddsbehållare d
 - Plan våg 2b: `docs/superpowers/plans/2026-10-08-wave-2b-claude-guide-content.md` — sexton uppgifter med grinden efter uppgift 6
 - **Våg 2b:s ledger finns inte kvar.** Den låg i worktreen `.worktrees/wave-2b/.superpowers/` och försvann när arbetsytan togs bort vid leverans, enligt processen. De arton rulings som togs under körningen redovisades för Johan i chatten; de som överlever rundan är inarbetade i det här dokumentet som principer — framför allt att inventeringen är auktoriteten texten svarar mot (ett fynd som inte behöver ändras står kvar i tabellen med en motivering, aldrig struket tyst), och att en faktamening utan post i inventeringen inte får skrivas.
 - Påståendeinventeringen, Claude-guidens facit och mall för nästa fyra: `docs/guide-facts-claude.md`
+- Spec Copilot-guiden: `docs/superpowers/specs/2026-10-09-copilot-guide-international-design.md`
+- Plan Copilot-guiden: `docs/superpowers/plans/2026-10-09-copilot-guide-international.md` (fjorton uppgifter) — uppgiftsbrev och -rapporter i `.superpowers/sdd/2026-10-09-copilot-guide-international/`
+- Påståendeinventeringen, Copilot-guidens facit: `docs/guide-facts-copilot.md`
+- PR Copilot-guiden: #38, gren `feat/copilot-guide-international`
 - Märkets bruksregler: `docs/brand-mark-usage.md`
 - Beslutsloggar och PR-texter: `~/Desktop/choosewise-spar-a-forslag/`
 - PDF:erna att titta på: `~/Desktop/choosewise-guider-vag2a/` (kopior — kan vara inaktuella)
