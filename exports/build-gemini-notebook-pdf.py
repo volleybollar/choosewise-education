@@ -58,7 +58,7 @@ jobs = [
     (
         root / "_unpublished/exports/gemini-notebook-print-a4-en.html",
         root / "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf",
-        footer("Gemini &amp; NotebookLM for teachers and school leaders", "Page"),
+        footer("Gemini &amp; Gemini Notebook for teachers and school leaders", "Page"),
     ),
     (
         root / "_unpublished/exports/gemini-notebooklm-print-a4-sv.html",

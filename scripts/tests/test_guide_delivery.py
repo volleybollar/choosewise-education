@@ -82,14 +82,11 @@ GUIDE_DELIVERY = {
 
 GUIDES = tuple(GUIDE_DELIVERY)
 
-# Röd till Task 13 har renderat om PDF:erna. Mängden är PER PDF, inte per
-# guide: quick-starten bär INGEN av de arton förbudssträngarna redan i dag
-# (mätt 2026-10-12 — den har varken svensk inramning eller juridisk text),
-# så en xfail på den vore en strikt XPASS, alltså röd av fel skäl. Samma
-# form som XFAIL_UNTIL_RECOUNTED i test_guide_toc.py: (guide, identitet).
-XFAIL_UNTIL_RERENDERED = {
-    ("gemini", "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf"),
-}
+# Task 13 har renderat om PDF:erna — båda paren (huvudguidens och
+# quick-startens) går nu grönt rakt av. Tom till nästa guide fyller den
+# igen. Mängden är PER PDF, inte per guide, samma form som
+# XFAIL_UNTIL_RECOUNTED i test_guide_toc.py: (guide, identitet).
+XFAIL_UNTIL_RERENDERED = set()
 
 
 def delivery_for(guide: str) -> dict:
@@ -170,7 +167,6 @@ def test_geminis_forbidden_list_does_not_ban_what_the_spec_keeps():
             "den träffar innehåll rundan har beslutat att behålla")
 
 
-@pytest.mark.xfail(strict=True, reason="röd till Task 13 har renderat om PDF:erna")
 def test_geminis_cover_and_closing_carry_the_rounds_date():
     """Datumstämplarna, var och en på sin plats.
 
