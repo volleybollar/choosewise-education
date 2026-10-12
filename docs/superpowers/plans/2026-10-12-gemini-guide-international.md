@@ -1747,7 +1747,21 @@ G24 | en | Article 30 | borttaget
 G25 | en | phases in through 2026 and beyond | borttaget
 G25 | en | became applicable on 2 August 2026 | aktiv
 G26 | en | Limited risk | borttaget
+G26 | en | minimal-risk tier | borttaget
+# G26: "Prohibited" passerar BARA under skiftlägeskänslig matchning.
+# "the prohibited practices" (bonuskapitlet) och "required, allowed,
+# prohibited" (en promptmall) är legitima gemena förekomster.
+# surfacecheck.normalise gör ingen gemenkonvertering, så raden är säker
+# i dag — men den är inte säker mot en framtida skiftlägesokänslig svep.
 G26 | en | Prohibited | borttaget
+
+# G48 — rundans mest skadliga fel, och det enda av AI Act-felen som utan
+# de här två raderna kunde skrivas tillbaka av ett senare städsvep.
+# Meningen sa att högriskskyldigheterna gäller sedan 2 augusti 2026;
+# bilaga III-högrisk, som uttryckligen omfattar utbildning, gäller från
+# 2 december 2027.
+G48 | en | most high-risk obligations take effect | borttaget
+G48 | en | 2 December 2027 | aktiv
 G26 | en | Transparency risk | aktiv
 G26 | en | Minimal or no risk | aktiv
 G26 | en | Unacceptable risk | aktiv
