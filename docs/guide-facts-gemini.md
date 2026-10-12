@@ -1,8 +1,14 @@
-# Påståendeinventering — Gemini- och NotebookLM-guiden
+# Påståendeinventering — Gemini Notebook-guiden
 
-**Rundan:** Gemini/NotebookLM-guiden, internationell omriktning. Spec: `docs/superpowers/specs/2026-10-12-gemini-guide-international-design.md`
+**Rundan:** Gemini Notebook-guiden, internationell omriktning. Spec: `docs/superpowers/specs/2026-10-12-gemini-guide-international-design.md`
 **Upprättad:** 2026-10-12
-**Faktakontrollerad:** (Task 4)
+**Faktakontrollerad:** 2026-10-12 (Task 4)
+
+> **Guidens namn i det här dokumentets huvud hette "Gemini- och NotebookLM-guiden" fram till
+> 2026-10-13.** Google döpte om NotebookLM till **Gemini Notebook** 2026-07-16 (post **G49**),
+> och rundans hela ämne var att pensionera det gamla namnet — men inventeringens egen rubrik
+> bar det kvar. **Filnamnet `guide-facts-gemini.md` är oförändrat**, eftersom
+> `factinventory.INVENTORIES` slår upp det och guidenyckeln är `gemini`.
 
 Varje volatilt faktapåstående i de **engelska** ytorna, med alla sina
 förekomster. De svenska ytorna ingår inte i rundan (spec §1) och har därför

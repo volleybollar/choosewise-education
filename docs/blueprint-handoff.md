@@ -1,6 +1,6 @@
 # Blueprint — överlämning
 
-**Senast uppdaterad:** 2026-10-12 (Copilot-guiden MERGAD som `26c661a`; **Gemini-guiden LEVERERAD på gren, PR ej öppnad**)
+**Senast uppdaterad:** 2026-10-13 (Copilot-guiden MERGAD som `26c661a`; **Gemini-guiden LEVERERAD på gren med `origin/main` inmergad, svit helt grön, PR ej öppnad**)
 **LÄS FÖRST** vid fortsättning. Specen är den bindande auktoriteten, planerna argumenterar från den.
 
 ---
@@ -31,7 +31,7 @@
 3. ~~**COPILOT-GUIDEN — specen är godkänd, planen är nästa steg.**~~ **LEVERERAD 2026-10-10.** Fjorton uppgifter körda på `feat/copilot-guide-international` (28 commits), **PR #38** öppen och väntar på Johans slutgranskning + push. Läs `docs/superpowers/specs/2026-10-09-copilot-guide-international-design.md` för vad som avgjordes 2026-10-09; läs sektionen **"Copilot-guiden — vad rundan lämnar"** nedan för vad rundan faktiskt levererade, vad vaktlagret nu äger, det svenska divergensläget och vad som medvetet inte åtgärdades. Copilot var pilot; de tre andra guiderna (Gemini/NotebookLM, Apple Intelligence, elevguiden) tas i egna rundor med den här som mall.
 
 4. ~~**De fyra återstående guiderna**, bara på engelska.~~ Ersatt av punkt 3 — en guide i taget, Johans beslut 2026-10-09. Den ursprungliga formuleringen: Samma mönster som Claude-guiden: en inventering i `docs/guide-facts-claude.md`:s form, fakta kontrollerade mot namngiven källa, fyra ytor stämda av mot varandra. Våg 2b lämnar både mallen och ett vaktlager (nedan) som nästa runda bör återanvända, och vaktlagrets kända brist är stängd sedan 2026-10-09 — mönstret kan nu kopieras rakt av utan att ärva en blind fläck.
-3b. ~~**GEMINI-GUIDEN — specen är godkänd, planen är nästa steg.**~~ **LEVERERAD PÅ GREN 2026-10-13.** Tjugo uppgifter (planens nitton plus Task 16B) körda på `feat/gemini-guide-international` i nitton dispatcher, alla granskade. **Vad rundan levererade:** två engelska PDF:er byggda ur rättat innehåll (`gemini-notebook-guide-en.pdf`, 44 sidor, och `gemini-notebook-quick-start-en.pdf`), den svenska inramningen generaliserad, GDPR på artikelnivå ersatt av en jurisdiktionsneutral ruta i huvudflödet, AI Act kvar och **rättad på fyra punkter** mot Claude-inventeringens post P13, bonuskapitlets skylt skärpt, en inventering på **50 poster** med **87 vaktrader** i `docs/guide-facts-gemini.md`, och **två vaktlager generaliserade** (TOC-vakten och leveransvakten) i stället för kopierade. **Plus det ingen plan förutsåg:** Google hade döpt om NotebookLM till **Gemini Notebook** 2026-07-16, tre månader efter guidens datumstämpel — 205 förekomster, titeln, den tryckta URL:en och filnamnen, Johans beslut vid grinden. **Nästa steg:** Johan läser, sedan pushas grenen och PR:en öppnas; specens PR #39 mergas före eller med den. Läs **"Gemini-guiden — vad rundan lämnar"** nedan före nästa guide.
+3b. ~~**GEMINI-GUIDEN — specen är godkänd, planen är nästa steg.**~~ **LEVERERAD PÅ GREN 2026-10-13.** Tjugo uppgifter (planens nitton plus Task 16B) körda på `feat/gemini-guide-international` i nitton dispatcher, alla granskade. **Vad rundan levererade:** två engelska PDF:er byggda ur rättat innehåll (`gemini-notebook-guide-en.pdf`, 44 sidor, och `gemini-notebook-quick-start-en.pdf`), den svenska inramningen generaliserad, GDPR på artikelnivå ersatt av en jurisdiktionsneutral ruta i huvudflödet, AI Act kvar och **rättad på fem punkter** mot Claude-inventeringens post P13, bonuskapitlets skylt skärpt, en inventering på **50 poster** med **87 vaktrader** i `docs/guide-facts-gemini.md`, och **två vaktlager generaliserade** (TOC-vakten och leveransvakten) i stället för kopierade. **Plus det ingen plan förutsåg:** Google hade döpt om NotebookLM till **Gemini Notebook** 2026-07-16, tre månader efter guidens datumstämpel — 205 förekomster, titeln, den tryckta URL:en och filnamnen, Johans beslut vid grinden. **Nästa steg:** Johan läser, sedan pushas grenen och PR:en öppnas; specens PR #39 mergas före eller med den. Läs **"Gemini-guiden — vad rundan lämnar"** nedan före nästa guide.
 
 4. **Diagram- och social-exporterna.** Åtta mallar plus SVG, PNG och PDF för WISE och RÄTT. Johans beslut 2026-10-06: egen runda, gärna ihop med märket. Sju av åtta bär hans ocommittade ändringar — han bör commita svepet först.
 5. **Visual Codes Vol. 1–3** i `~/Projekt/Choosewise/visual-codes-pdf/`, utanför repot. Specen §8 räknar dem till våg 2; varken 2a:s eller 2b:s plan nämner dem. Tredje kopian av paletten.
@@ -392,10 +392,20 @@ Alla sex är **preexisterande**. Att de står här och inte i en uppgift är ett
 förbiseende — ett fynd som inte åtgärdas skrivs ut, aldrig stryks tyst.
 
 1. **Figurens axeletikett `RISK →` renderas ingenstans.** En rotate-transform placerar den på
-   x = −60, utanför `viewBox`. Felet finns på **alla fyra ytor**, inklusive de svenska — och
-   just därför lagades det inte: en korrekt lagning rör de frusna svenska ytorna och ändrar
-   deras PDF-byte, vilket spec §1 förbjuder. **Nästa runda kan laga alla fyra i en commit.**
+   x = −60, utanför `viewBox`. Felet finns på **alla fyra ytor**, inklusive de svenska.
    Figurens fyra nivåer är etiketterade ändå, så förlusten är axelns riktningspil.
+
+   **Skälet att skjuta upp den, omskrivet 2026-10-13 — det gamla skälet höll inte.** Fram till
+   slutgranskningen stod här att *"en korrekt lagning rör de frusna svenska ytorna och ändrar
+   deras PDF-byte, vilket spec §1 förbjuder"*. **Det är fel.** En fix på bara de **två engelska**
+   ytorna lämnar de svenska bytena orörda, och de engelska PDF:erna renderas om ändå i varje
+   runda som rör innehåll. **Den är alltså billig: två ytor, en commit, ingen spec-konflikt.**
+
+   **Beslutet att skjuta upp står ändå**, men på sitt riktiga skäl: det är en **kosmetisk
+   figuretikett i ett dokument vars fyra nivåer redan är etiketterade**, och den låg utanför
+   varje uppgifts fillista. Vill nästa runda laga alla fyra ytor samtidigt — vilket är det
+   prydligaste — hör den i det svep som ändå tar de svenska ytorna. Vill den bara laga de
+   engelska är det en commit. **Tro inte att en billig fix är förbjuden.**
 2. **Tre passager står dubblerat.** Matt Miller-citatet två gånger (sidorna 6 och 10), "the two
    sides stay complementary" två gånger (6 och 18), och Eric Curts/`edugems.ai`-stycket **tre**
    gånger (från sidan 14). Rundans enda bidrag är att två nästan identiska slutmeningar blev
@@ -407,17 +417,48 @@ förbiseende — ett fynd som inte åtgärdas skrivs ut, aldrig stryks tyst.
 4. **Författaren omtalas både som "Johan" och som "I"** i samma dokument. **Johans beslut.**
 5. **Den svenska quick-starten säger "39-sidiga" om en 42-sidig svensk guide.** Preexisterande,
    på en frusen yta. Samma jobb som de svenska filnamnen.
+
+   **5b. Ett av AI Act:s fyra datum är inte fetat medan de tre andra är.** Meningen *"Four dates
+   matter, and only two of them bind you yet"* bär `<strong>2 February 2025</strong>`,
+   `<strong>2 August 2026</strong>` och `<strong>2 December 2027</strong>` — men
+   **`2 August 2028` står bart**, så en skummande rektor räknar tre datum i en mening som säger
+   fyra. **Exakt åtgärd, en tagg per yta:**
+
+   | yta | rad | ändring |
+   |---|---|---|
+   | `_unpublished/exports/gemini-notebook-print-a4-en.html` | 1024 | `from 2 August 2028` → `from <strong>2 August 2028</strong>` |
+   | `_unpublished/guides/gemini-notebook/index.html` | 535 | samma |
+
+   **Lämnad med avsikt:** enda åtgärden rör den **levererade PDF:en** och kostar en omrendering
+   plus en selektiv facitomfångning — oproportionerligt för ett `<strong>`.
+   **Publiceringsrundan renderar om ändå och kan ta den gratis då.** (Det här fyndet kom ur
+   slutgranskningen av grenen, inte ur genomläsningen, och räknas därför inte till de sex
+   ovan.)
 6. **`capture_guide_baseline.py` rapporterar 45 sidor för en 44-sidig PDF.** **Inget defekt:**
    `pdf_fingerprint.pages()` delar på sidbrytningstecken och ger en avslutande tom post
    (verifierat: 43 poster för den 42-sidiga versionen, 45 för den 44-sidiga). Skriptets
    utskriftssträng är en kosmetisk felmärkning, inte en felräkning.
 
-**Och en sjunde, som är Johans beslut men inte ett läsfynd:** bonuskapitlet säger att högrisk
-medför "formal pre-market obligations: risk assessment, dataset quality management, logging,
-documentation". **Förhandsbedömningsplikterna faller huvudsakligen på LEVERANTÖREN**; en skola
-som driftsätter bär i stället deployer-plikter. Preexisterande, orört av rundan, och att rätta
-det kräver en källa ingen verifierat — att skriva det utan post hade brutit rundans enda
-oeftergivliga regel.
+### ⚠️ NÄSTA RUNDAS FÖRSTA INNEHÅLLSUPPGIFT: `pre-market obligations`
+
+**Det enda öppna fyndet som är läsarskadligt, och det ska inte vara svårt att hitta.** Därför
+står det i sin egen rubrik och inte som en fotnot bland de uppskjutna.
+
+Bonuskapitlet (print 1056) säger att högrisk medför *"formal pre-market obligations: risk
+assessment, dataset quality management, logging, documentation"*.
+**Förhandsbedömningsplikterna faller huvudsakligen på LEVERANTÖREN**; en skola som bara
+**driftsätter** ett system bär i stället deployer-plikter — ett annat och mindre krävande
+åtagande.
+
+**Varför det är värre än de andra uppskjutna fynden:** det lägger leverantörens plikter på
+läsaren, i en PDF som säljs till skolledare, i det kapitel som finns till för att säga vad som
+binder dem. Samma felriktning som rundans allvarligaste fynd (G48, som sa att
+högriskskyldigheterna redan gällde) — och det här är den enda av den klassen som står kvar.
+
+**Varför rundan inte rättade det:** preexisterande, orört av rundan, och en korrekt rättning
+kräver en källa ingen verifierat. Att skriva en rättslig distinktion utan post i inventeringen
+hade brutit rundans enda oeftergivliga regel. **Det är alltså en hämtning som behövs, inte ett
+omdöme** — och med den hämtningen gjord är rättelsen en mening på två ytor.
 
 ### Tre kända luckor
 
@@ -438,13 +479,32 @@ oeftergivliga regel.
    ytor hade noll sådana attribut — fällan var ny. Vaktas nu av
    `test_the_guide_web_surfaces_have_no_crestiora_fonts`.
 2. **"AI Act stannar" betyder inte "AI Act är orörd".** Specen sa att AI Act-fakta *redan är
-   belagda* i Claude-inventeringens post P13. Det stämde — och **fyra av dem var belagda som
+   belagda* i Claude-inventeringens post P13. Det stämde — och **FEM av dem var belagda som
    felaktiga**, med rättningen redan levererad i den publicerade Claude-guiden:
-   ikraftträdandeformuleringen ("phases in through 2026 and beyond" → **became applicable on 2
-   August 2026**), högriskfristen (augusti 2026 → **2 december 2027**), och två av de fyra
-   risknivånamnen ("Limited risk" → **Transparency risk**, "Minimal risk" → **Minimal or no
-   risk**; den fjärde, "Prohibited" → **Unacceptable risk**, av samma skäl). En korsreferens
-   till P13, ingen ny källdomän.
+
+   | # | post | stod i Gemini-guiden | P13:s belagda värde |
+   |---|---|---|---|
+   | 1 | G25 | "phases in through 2026 and beyond" | **became applicable on 2 August 2026** |
+   | 2 | G48 | högriskskyldigheterna gäller sedan 2 augusti 2026 | bilaga III-högrisk, som uttryckligen omfattar utbildning, gäller från **2 december 2027** |
+   | 3 | G26 | "Prohibited" | **Unacceptable risk** |
+   | 4 | G26 | "Limited risk" | **Transparency risk** |
+   | 5 | G26 | "Minimal risk" | **Minimal or no risk** |
+
+   **Rad 3–5 är tre av de fyra risknivånamnen** — bara `High risk` var redan rätt. En
+   korsreferens till P13, ingen ny källdomän.
+
+   **Talet är fem, inte fyra.** "Fyra" är specens inramning och stod i två av det här
+   dokumentets rader fram till slutgranskningen, intill en uppräkning som räknade fem.
+   Inventeringen avgör: G25 bär en rättelse, G48 en, G26 **tre**. Det är **fjärde instansen av
+   felklassen "ett tal i prosa intill tabellen det räknar"** — och den mest konsekvensbärande,
+   eftersom det är den rättelseklass som säger skolledare vad som binder dem.
+
+   **Om du räknar om nivånamnen i ytan: skriv ut vilken bas du mäter på.** Rå HTML-grep ger
+   `Unacceptable risk` 3, `Transparency risk` 4, `Minimal or no risk` 5, `High risk` 4;
+   **taggstrippad text ger 2 / 3 / 4 / 3.** Skillnaden är exakt ett per namn och kommer från
+   pyramidens HTML-kommentar, som bär den gamla taxonomin i sin förklaring. **Båda talen är
+   rätta på sin bas** — de pensionerade namnen står på **0** i båda. Ett tal utan sin bas blir
+   nästa läsares "fel".
 3. **Den svenska inramningen innehöll ett källbelagt svenskt praktikexempel**, inte bara
    inramning: Fristadsskolan i Eskilstuna, publicerat på Pedagog Eskilstuna. Det stannar — och
    **därför kan Gemini-guidens förbudslista inte innehålla ett bart `Sweden` eller `Swedish`**,
@@ -467,6 +527,52 @@ oeftergivliga regel.
   200–300 dpi, som landade inom en halv enhet av varandra. Ingen etikett går utanför sin rect.
 - **Guiden växte 42 → 44 sidor denna runda, inte 38 → 44.** Talet 38 står fel i två
   uppgiftsrapporter.
+
+### Den tredje vaktluckan: TOC-underraderna är strukturellt ovaktbara
+
+Rundan betalade för två vaktluckor och hittade en tredje i slutgranskningen. **Alla tre har
+samma form: text som bor där inget av vaktlagren tittar.**
+
+| # | luckan | vad den kostade |
+|---|---|---|
+| 1 | **prosa i Python** — byggarens `footer_template` | det pensionerade produktnamnet på 43 av 44 sidor, osynligt för varje HTML-läsande vakt |
+| 2 | **en summa i prosa intill tabellen den räknar** — inventeringens utfallsräkning | fyra tal som tystnade när G50 tillkom; fjärde instansen hittad i slutkontrollen |
+| 3 | **innehållsförteckningens underrader** (ny, oåtgärdad) | ingenting ännu — men se nedan |
+
+**Luckan.** `scripts/tests/test_guide_toc.py:100`:s radregex kastar uttryckligen bort
+`<span class="toc__sub">`, så de tio underradernas **text** jämförs aldrig mot någonting.
+TOC-vakten läser rubrik och sidnummer; underraden är inte med.
+
+**Och ytkonsistensvakten kan inte ta över.** Underraderna finns **bara på printytan** — tio
+`toc__sub`-element i EP och **noll** i EW (`grep -c` ger EP 11, varav en är CSS-väljaren) — och
+`surfacecheck`:s `aktiv`-semantik kräver att
+strängen står på **båda** ytorna. En `aktiv`-rad på en underrad vore alltså
+**permanent `saknas_på_en_yta`** — röd från första sekunden, för innehåll som är korrekt.
+
+**Varför den är seg: det är inte en glömd rad, det är att de två vaktlagren utesluter varandra
+på just de raderna.** TOC-vakten ser raden men inte dess text; ytvakten kan se text men bara
+text som står på två ytor. Att stänga luckan kräver antingen att TOC-vakten börjar jämföra
+underradstext mot ett facit, eller att ytvakten får en enytessemantik — båda är vaktarbete, och
+rundans beslut är att nästa guide inte ska behöva ändra någon vakt.
+
+**Vad som står oskyddat i dag.** Två underrader bär **självräkningar** om dokumentet:
+
+| underrad | påstår | mätt i EP | |
+|---|---|---|---|
+| Prompts | *"**25** starter prompts for Gemini and Gemini Notebook"* | **25** `prompt-card`-element | ✅ sant |
+| The Styles Library | *"**Eight** curated entry points from **140** Gemini Notebook styles"* | **8** `style-card`-element | ✅ sant |
+
+**Båda är sanna i dag** — men ingen av dem har en post i inventeringen, medan **samma klass av
+påstående har det**: G40 vaktar FAQ:ns elva frågor, G41 Del 2:s fem arbetsflöden. Och rundan
+rättade bonuskapitlets underrad **för hand** (Task 7, när kapitlets skylt skärptes), vilket är
+precis vad man gör när ingen vakt finns. **Det är alltså en inkonsekvens i inventeringen, inte
+bara i vaktlagret:** två självräkningar om dokumentet står utan post därför att vakten inte
+kunde bära dem, inte därför att någon bedömde dem ovolatila.
+
+**Billigaste halvmesyren, om nästa runda vill en:** ge de två underraderna poster i
+inventeringen med `aktiv`-rader på **printytan via leveransvakten** (`test_guide_delivery.py`
+läser PDF:en och har ingen tvåytesregel) i stället för via ytkonsistensvakten. Det är samma
+grepp som quick-startens sidantalspåstående fick i Task 16B.
 
 ### Fjärde instansen av samma felklass — och den här gången i auktoritetsdokumentet självt
 

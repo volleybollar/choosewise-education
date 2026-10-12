@@ -156,8 +156,27 @@ def test_unpublished_guides_surfaces_are_under_unpublished(guide):
 
 def test_every_unpublished_guide_is_in_the_surface_map():
     """Listan ovan får inte glida ifrån ytkartan. En guide som läggs i
-    kartan men inte här tappar sin sökvägsvakt tyst."""
-    assert set(UNPUBLISHED_GUIDES) <= set(surfacecheck.GUIDES)
+    kartan men inte här tappar sin sökvägsvakt tyst.
+
+    HÄRLEDD, inte jämförd. Fram till slutgranskningen av Gemini-rundan
+    stod här `set(UNPUBLISHED_GUIDES) <= set(surfacecheck.GUIDES)` — en
+    delmängd vänd åt det håll som bara fångar ett stavfel i listan, och
+    inte det docstringen namnger. Granskaren bevisade det genom att
+    lägga en fjärde guide med fyra `_unpublished/`-sökvägar i kartan
+    utan att röra listan: 7 passed, båda sökvägsvakterna gröna, och
+    guidens sökvägsvakt tyst borta.
+
+    Därför räknas mängden nu fram ur kartan i stället. Båda riktningarna
+    fångas: en opublicerad guide som saknas i listan, OCH en publicerad
+    som står där.
+    """
+    derived = {g for g in surfacecheck.GUIDES
+               if all(rel.startswith("_unpublished/")
+                      for rel in surfacecheck.surfaces_for(g).values())}
+    assert derived == set(UNPUBLISHED_GUIDES), (
+        f"UNPUBLISHED_GUIDES={sorted(UNPUBLISHED_GUIDES)} men kartan ger "
+        f"{sorted(derived)}; saknas: {sorted(derived - set(UNPUBLISHED_GUIDES))}, "
+        f"borde inte stå där: {sorted(set(UNPUBLISHED_GUIDES) - derived)}")
     assert "claude" not in UNPUBLISHED_GUIDES
 
 
