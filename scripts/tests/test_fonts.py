@@ -50,3 +50,52 @@ def test_published_files_excludes_untracked_files():
     research-presentation.html är gitignorerad och får inte scannas."""
     names = {p.name for p in published_files()}
     assert "research-presentation.html" not in names
+
+
+# Guidernas webbytor ligger under guides/ respektive _unpublished/guides/.
+# published_files() utesluter HELA _unpublished/ (se brandguard.py), och
+# guide_templates() täcker bara _unpublished/exports/*.html — alltså
+# tryckmallarna, inte webbsidorna. Guidernas webbytor har därför aldrig
+# haft någon typsnittsvakt, och det är precis därför både Copilots och
+# Geminis sidor kunde ligga med Google Fonts.
+#
+# Listan är de guider vars webbyta ÄR städad och ska förbli det. De två
+# som saknas — _unpublished/guides/apple-intelligence/ och
+# _unpublished/guides/ai-for-students/ — bär fortfarande Crestioras
+# typsnitt och tas i sina egna rundor; var runda lägger till sin guide
+# här när den städat den. En glob över alla guider vore röd för dem från
+# dag ett och därmed en vakt någon slår av.
+GUIDE_WEB_SURFACES = (
+    "guides/claude/index.html",
+    "guides/claude/styles.css",
+    "_unpublished/guides/copilot/index.html",
+    "_unpublished/guides/copilot/styles.css",
+    "_unpublished/guides/gemini-notebook/index.html",
+    "_unpublished/guides/gemini-notebook/styles.css",
+)
+
+# Crestioras två typsnitt. 'Inter' söks med citattecken och som
+# attributvärde: ordet "inter" förekommer i vanlig engelska ("interact",
+# "interface") och en bar delsträngsökning vore brus.
+_CRESTIORA_FONTS = (
+    "Playfair",
+    "'Inter'",
+    '"Inter"',
+    'font-family="Inter',
+    "fonts.googleapis.com",
+    "fonts.gstatic.com",
+)
+
+
+@pytest.mark.parametrize("rel", GUIDE_WEB_SURFACES)
+def test_the_guide_web_surfaces_have_no_crestiora_fonts(rel):
+    """Granskningsfokus 4: ett inline-`font-family`-attribut i en SVG
+    vinner över varje token i `tokens.css` och syns inte i någon
+    CSS-vakt. Gemini-guidens sida bar sjutton sådana (sex Playfair, elva
+    Inter) utöver de tre `<link>`-raderna och de tre `--font-*`-
+    överskrivningarna — tas bara raderna bort står diagrammens text kvar
+    i Crestiora-typsnitt och ingenting blir rött.
+    """
+    text = (ROOT / rel).read_text(encoding="utf-8")
+    found = [needle for needle in _CRESTIORA_FONTS if needle in text]
+    assert found == [], f"{rel} bär kvar: {found}"
