@@ -2090,6 +2090,20 @@ PY
 ```
 Förväntat: OK på alla åtta.
 
+- [ ] **Steg 4B: Fyra prosafynd från granskningarna, routade hit**
+
+Varje uppgifts granskning har lämnat formuleringsfynd som inte hörde i den uppgiftens diff. Här läses de i sitt sammanhang, vilket är det enda ställe de går att bedöma:
+
+| var | fyndet | granskningens förslag |
+|---|---|---|
+| G28:s generaliserade mening | klumpigare än originalet | "A country without detailed national guidance of its own finds the EU AI Act the dominant framework for its schools until that changes." |
+| licensstycket | "which of the two figures" läser tvetydigt mot **tre** tryckta belopp ($15, $20, $24) | namnge de två: "$15.00 or $20.00" |
+| licensbandet 50–999 | implikationen för en skola som köper 30 eller 2 000 licenser lämnas till nästa stycke | väg om den hör i samma stycke |
+| Kasey Bell-meningen | "listens to on the commute — a podcast for your commute, in effect" upprepar *commute* i en sats | ett pass till |
+| åldersrutan | fyra separata verifieringsuppmaningar där den gamla hade två; `check ` gick 5 → 11 på ytan | varje uppmaning har ett eget objekt, så den är inte urvattnad — men rutan är vid gränsen |
+
+**Inget av dem är ett faktafel.** Bedöm dem som prosa, ändra det som blir bättre, och lämna det som inte blir det — en lista från en granskare är förslag, inte en beställning.
+
 - [ ] **Steg 5: Läs PDF:en från pärm till pärm**
 
 ```bash
