@@ -95,7 +95,7 @@ G49 är Googles omdöpning av NotebookLM till Gemini Notebook den 16 juli 2026.*
 | G34 | Del 3: "You are personally carrying GDPR risk that belongs with your organisation" | regelverk | 440 (var 443) | 934 | — | ingen källa hämtad — påståendet bär ingen siffra, inget datum och inget produktnamn | **stämmer (ej volatil).** "You are personally carrying GDPR risk that belongs with your organisation" är ett argument om ansvarsfördelning, inte en faktauppgift som kan bli gammal. Det följer direkt av controller/processor-uppdelningen i G24, som **stämmer**. — **ÄNDRAD i Task 6 (2026-10-12), trots `stämmer`:** regelverksnamnet går, varningen stannar — "carrying GDPR risk" → "carrying a data-protection risk". Skälet är inte att påståendet var fel, utan att strängen "carrying GDPR risk" står i leveransvaktens förbjudna-strängar-lista; "a data-protection risk that belongs with your organisation" bär samma skärpa utan att namnge förordningen. Hela stycket är ett av guidens viktigaste råd (konsumentkonton i skolarbete) och har inte tappat kraft |
 | G35 | "confirmed at BETT 2026" — beläggskälla för "Core Gemini AI in Classroom … free for all Workspace for Education accounts" | datumstämpel | 134, 155 | 644, 662 | — | blog.google `/products-and-platforms/products/education/bett-2026-gemini-classroom-updates/` → **200**, `published_time **2026-01-21**`, läst ordagrant 2026-10-12; blog.google `/products-and-platforms/products/education/classroom-ai-features/` → **200**, `published_time **2025-06-30**` | **stämmer** på sakuppgiften — Core Gemini AI i Classroom är gratis för alla Workspace for Education-konton (se G18, belagt på tre sidor). — **fel: attributionen.** BETT 2026 bekräftade det inte. BETT-posten *refererar bakåt* till "Building on the **30+ no-cost AI tools launched last year**" och annonserar i övrigt helt andra saker (standardtaggning, ljud- och videoinspelning i Classroom, ny startsida). Den sida som faktiskt annonserar gratisstatusen är Googles post från **30 juni 2025**: "Google is providing Gemini in Classroom to all educators with Google Workspace for Education accounts at no cost." Rätt värde: attribuera till juni 2025-annonseringen, eller stryk evenemangsnamnet — det senare är att föredra i en guide som ska hålla, eftersom ett mässnamn daterar texten varje gång mässan går av stapeln igen — **ÅTGÄRDAT i Task 9 (2026-10-12):** "(confirmed at BETT 2026)" är struket på båda förekomsterna per yta (EP 644, 662; EW 131, 152). Cellens två alternativ var att attribuera till juni 2025-annonseringen eller att stryka evenemangsnamnet, med det senare som det föredragna — och det är det som gjorts. Sakuppgiften (gratis för alla Workspace for Education-konton) står kvar, belagd via G18. |
 | G36 | "As of BETT 2026, the 'learning standards tagging' feature in Classroom supports the UK, Australia, Canada, Japan, Brazil, Mexico, and Italy" — landlista | funktion | 501 | 989 | — | blog.google `/products-and-platforms/products/education/bett-2026-gemini-classroom-updates/` → **200**, 2026-01-21; och **den nyare och avgörande källan** workspaceupdates.googleblog.com `/2026/05/keep-track-of-student-progress-with-learning-standards-and-skills-in-Google-Classroom.html` → **200**, utrullning "started on **May 27, 2026**" — båda lästa ordagrant 2026-10-12 | **fel: United States, Canada, United Kingdom, Brazil, Japan, Mexico, Italy, Australia.** Workspace Updates skriver ordagrant: "Learning standards are available in the **United States**, Canada, United Kingdom, Brazil, Japan, Mexico, Italy, and Australia." Guidens lista **saknar USA**, och inramningen "As of BETT 2026" är överspelad på två sätt: Italien är inte längre "soon" utan tillgängligt, och funktionen har lämnat pilotstadiet och rullats ut sedan 27 maj 2026. — **Källkonflikt, och den är intern:** BETT-posten motsäger **sig själv**. En passage säger "Pilot participants will have access to learning standards from the UK, Australia, Canada, Japan, Brazil, Mexico, and soon Italy" (ingen USA); en annan passage på samma sida säger "learning standards from the **US**, UK, Australia, Canada, Japan, Brazil, Mexico, and soon Italy". Att två Google-passager på samma sida är oense är i sig ett resultat, och det är skälet att lita på majkällan. — **Guidens slutsats blir också fel i sin riktning:** "Teachers in unsupported countries will need to map … manually" stämmer fortfarande som princip, men listan är åtta länder lång och växande ("Classroom has a growing list of standards already available and periodically brings in new ones from the Satchel Rosetta Exchange"), vilket är en mer användbar sak att säga till en internationell läsare än en fryst lista — **ÅTGÄRDAT i Task 9 (2026-10-12):** listan är nu Googles åtta, med USA: United States, Canada, United Kingdom, Brazil, Japan, Mexico, Italy, Australia. "As of BETT 2026" är borta, utrullningen från **maj 2026** står i stället för pilotstadiet, och listans växande karakter står med — det är den mer användbara uppgiften för en internationell läsare. Slutsatsen om manuell mappning stannar, med en uppmaning att läsa Googles aktuella lista i stället för guidens. |
-| G37 | `Gemini 3 Pro` som flaggskeppsmodell, "launched 18 November 2025", en-miljon-tokens kontextfönster, samt de kopplade omnämnandena `Gemini 3 Flash` och `Gemini 3 Pro with Deep Think` | produktnamn | 122, 307, 1137, 1173 | 632, 807, 1539, 1575 | — | fyra Google-poster, alla lästa ordagrant 2026-10-12: blog.google `/products-and-platforms/products/gemini/gemini-3/` → **200**, `datePublished 2025-11-18T16:00:00+00:00`; blog.google `/products-and-platforms/products/gemini/gemini-3-flash-gemini-app/` → **200**, `published_time **2025-12-17**`; blog.google `/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/` → **200**, `published_time **2026-05-19**`; blog.google `/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-flash-developers/` → **200**, `published_time **2026-09-28**`. deepmind.google/models/gemini/pro/ svarade 200 men renderar sitt innehåll med JS — **0 byte text efter extraktion**, alltså inte läsbar och inte använd | **fel: Gemini 3 Pro är inte längre flaggskeppet** — men posten bär fyra halveringstider i en mening, så läs delarna var för sig. (a) **"launched 18 November 2025" → stämmer**, exakt: Googles post är daterad 2025-11-18. (b) **En-miljon-tokens kontextfönster → stämmer**, ordagrant: "…and **1 million-token context window**". (c) **"The current flagship model is Gemini 3 Pro" → fel.** Gemini 3 Pro släpptes "in preview" och är inte längre flaggskeppet: **Gemini 3.5** annonserades 19 maj 2026 ("we're introducing Gemini 3.5, our latest family of models"), dess 3.5 Flash slog redan **Gemini 3.1 Pro** på kodnings- och agentbänkar, 3.5 Pro rullade ut månaden efter, och **Gemini 3.8 Flash** är daterad 28 september 2026. (d) **"Gemini 3 Flash-level access" på fria nivån → fel.** Gemini 3 Flash blev gratis standardmodell 17 december 2025, men appens fria modell har följt familjen vidare. (e) **"Gemini 3 Pro with Deep Think" → fel: `Gemini 3 Deep Think`.** Google namnger det som ett eget läge, inte en Pro-variant: "We're also introducing **Gemini 3 Deep Think** — our enhanced reasoning mode". — **Rätt skrivning namnger ingen versionssiffra.** Det här är guidens mest färskvarubetonade påstående: fem delpåståenden, tre fel, och de blir fel igen inom månader om de ersätts med dagens siffror i stället för med en formulering som inte daterar sig — **ÅTGÄRDAT i Task 9 (2026-10-12):** **ingen versionssiffra står kvar i brödtexten.** (a)/(b) Släppdatumet 18 november 2025 och en-miljon-tokens-fönstret stämmer, men bara som egenskaper hos en modell som inte längre är flaggskeppet, så de följde namnet ut; "a long context window and strong multimodal reasoning" står kvar utan siffra (EP:632/EW:119). (c) "The current flagship model is Gemini 3 Pro" är ersatt av en formulering som pekar läsaren på modellväljaren i appen. (d) "Gemini 3 Flash-level access" på fria nivån → "Google's standard model for free accounts" (EP:1531/EW:1126). (e) "Gemini 3 Pro with Deep Think" → `Deep Think` som eget läge, utan versionssiffran (EP:1567/EW:1162). `grep "Gemini 3 "` ger nu noll träffar på båda ytorna. |
+| G37 | `Gemini 3 Pro` som flaggskeppsmodell, "launched 18 November 2025", en-miljon-tokens kontextfönster, samt de kopplade omnämnandena `Gemini 3 Flash` och `Gemini 3 Pro with Deep Think` | produktnamn | 122, 307, 1137, 1173 | 632, 807, 1539, 1575 | — | fyra Google-poster, alla lästa ordagrant 2026-10-12: blog.google `/products-and-platforms/products/gemini/gemini-3/` → **200**, `datePublished 2025-11-18T16:00:00+00:00`; blog.google `/products-and-platforms/products/gemini/gemini-3-flash-gemini-app/` → **200**, `published_time **2025-12-17**`; blog.google `/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/` → **200**, `published_time **2026-05-19**`; blog.google `/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-flash-developers/` → **200**, `published_time **2026-09-28**`. deepmind.google/models/gemini/pro/ svarade 200 men renderar sitt innehåll med JS — **0 byte text efter extraktion**, alltså inte läsbar och inte använd | **fel: Gemini 3 Pro är inte längre flaggskeppet** — men posten bär fyra halveringstider i en mening, så läs delarna var för sig. (a) **"launched 18 November 2025" → stämmer**, exakt: Googles post är daterad 2025-11-18. (b) **En-miljon-tokens kontextfönster → stämmer**, ordagrant: "…and **1 million-token context window**". (c) **"The current flagship model is Gemini 3 Pro" → fel.** Gemini 3 Pro släpptes "in preview" och är inte längre flaggskeppet: **Gemini 3.5** annonserades 19 maj 2026 ("we're introducing Gemini 3.5, our latest family of models"), dess 3.5 Flash slog redan **Gemini 3.1 Pro** på kodnings- och agentbänkar, 3.5 Pro rullade ut månaden efter, och **Gemini 3.8 Flash** är daterad 28 september 2026. (d) **"Gemini 3 Flash-level access" på fria nivån → fel.** Gemini 3 Flash blev gratis standardmodell 17 december 2025, men appens fria modell har följt familjen vidare. (e) **"Gemini 3 Pro with Deep Think" → fel: `Gemini 3 Deep Think`.** Google namnger det som ett eget läge, inte en Pro-variant: "We're also introducing **Gemini 3 Deep Think** — our enhanced reasoning mode". — **Rätt skrivning namnger ingen versionssiffra.** Det här är guidens mest färskvarubetonade påstående: fem delpåståenden, tre fel, och de blir fel igen inom månader om de ersätts med dagens siffror i stället för med en formulering som inte daterar sig — **ÅTGÄRDAT i Task 9 (2026-10-12):** **ingen versionssiffra står kvar i brödtexten.** (a)/(b) Släppdatumet 18 november 2025 och en-miljon-tokens-fönstret stämmer, men bara som egenskaper hos en modell som inte längre är flaggskeppet, så de följde namnet ut; "a long context window and strong multimodal reasoning" står kvar utan siffra (EP:632/EW:119). (c) "The current flagship model is Gemini 3 Pro" är ersatt av en formulering som pekar läsaren på modellväljaren i appen. (d) "Gemini 3 Flash-level access" på fria nivån → "Google's standard model for free accounts" (EP:1531/EW:1126). (e) "Gemini 3 Pro with Deep Think" → **`Gemini 3 Deep Think`**, Googles eget namn på läget, inte en Pro-variant (EP:1569/EW:1164). — **RÄTTAT i fixrunda 2 (2026-10-12): den här cellen sa först att läget skrevs "utan versionssiffran" och att `grep "Gemini 3 "` ger noll träffar på båda ytorna. Båda leden är överspelade av koordinatorns ruling 4 i fixrunda 1**, som slog fast att den generella regeln ("rätt skrivning namnger ingen versionssiffra") gäller **siffror källan inte bär** — och det här namnet bär den, eftersom cellens eget rätta värde är `Gemini 3 Deep Think`. Ytan bär därför namnet i sin helhet, och **`grep -c "Gemini 3 "` ger 1 per huvudyta, inte 0**; det är den enda versionssiffran som står kvar i brödtexten, och den står där med källa. Delarna (a)–(d) är oförändrade. **Samma defekt som redan rättades en gång i G48:** en cell som beskriver ytan fel är värre än en cell som inte beskriver den, eftersom nästa runda läser cellen och inte filen. |
 | G38 | `Nano Banana 2` — Googles bildmodell, "Released 26 February 2026", alias `Gemini 3.1 Flash Image`, ersätter `Nano Banana Pro`, kapacitet (upp till fem subjekt/fjorton objekt, 512px–4K) | produktnamn | 123, 320–321, 325, 1137 | 633, 818–819, 823, 1539 | — | blog.google `/innovation-and-ai/technology/ai/nano-banana-2/` → **200**, `published_time **2026-02-26**`; blog.google `/innovation-and-ai/technology/developers-tools/build-with-nano-banana-2/` → **200**, samma datum; båda lästa ordagrant 2026-10-12. Samt deepmind.google/models/gemini-image/flash/ → **200**, vars **sidtitel är "Nano Banana 2.1"** | **stämmer** på fyra av fem delar och **fel** på den femte — tabellens tätaste post, och cellen bär båda tokenen, inte ett samlat omdöme. (a) **"Released 26 February 2026" → stämmer**: båda Google-posterna är daterade 2026-02-26. (b) **Aliaset `Gemini 3.1 Flash Image` → stämmer**, ordagrant: "Introducing **Nano Banana 2 (Gemini 3.1 Flash Image)**, our latest state-of-the-art image model". (c) **Föregångaren `Nano Banana Pro` → stämmer**, ordagrant: "Nano Banana 2 will **replace Nano Banana Pro** across the Fast, Thinking and Pro models". Nyans guiden missar: "Google AI Pro and Ultra subscribers will **keep access to Nano Banana Pro** for specialized tasks by regenerating images via the three-dot menu" — den ersätts som standard, den dras inte in. (d) **Kapaciteten → stämmer**, ordagrant: "Maintain character resemblance of up to **five characters** and the fidelity of up to **14 objects** in a single workflow" och "resolutions **from 512px to 4K**". Guiden skriver "subjects" där Google skriver "characters" — oskadligt. Även de två kvalitativa leden håller: "web-grounded rendering of specific subjects" mot "powered by real-time information and images from web search to more accurately render specific subjects", och "genuinely precise text rendering" mot "**Precision text rendering** and translation". (e) **Den del som gått sönder → fel: "the default image generator in the Gemini app".** Google DeepMinds aktuella bildmodellsida heter **Nano Banana 2.1**, och en "Nano Banana 2 Lite" finns därutöver. Nano Banana 2 är inte längre den nyaste, och "default" är därmed osäkert. Samma lärdom som G37: skriv funktionen, inte versionsnumret — **ÅTGÄRDAT i Task 9 (2026-10-12):** de fyra `stämmer`-delarna är **orörda** (släppdatum 26 februari 2026, aliaset `Gemini 3.1 Flash Image`, föregångaren `Nano Banana Pro`, kapacitetssiffrorna). Den femte, "the default image generator in the Gemini app", är ersatt av Googles egen ordalydelse om vad som ersattes — "across the Fast, Thinking and Pro models" — plus den nyans cellen pekar ut: Pro- och Ultra-abonnenter behåller tillgången till Nano Banana Pro. Meningen säger nu uttryckligen att versionsnumret är ett rörligt mål, vilket är cellens egen lärdom. |
 | G39 | "The newer Learning Guide format (added September 2025) runs in tutoring mode" | funktion | 342 | 840 | — | blog.google `/innovation-and-ai/models-and-research/google-labs/notebooklm-student-features/` → **200**, `published_time **2025-09-08**`, läst ordagrant 2026-10-12 | **stämmer** — båda leden ordagrant: "The new '**Learning Guide**' offers **personalized tutoring** within NotebookLM", i en post daterad 8 september 2025. Samma post belägger G09:s tre nya ljudformat, vilket gör "added September 2025" konsekvent på båda ställen i guiden. — **fel: produktnamnet** i den omgivande meningen, se G49. Och notera att samma post bär fler format som guiden inte nämner (flashcards, quizzes, upgraded reports, public notebooks) — inget att rätta, bara att veta att källan är rikare än påståendet |
 | G40 | TOC-underrubriken "Eleven common questions answered" (FAQ-antal) | datumstämpel | — | 561–562 | — | ytan själv: `_unpublished/exports/gemini-notebooklm-print-a4-en.html`, räknat 2026-10-12 — exakt **11** block med `class="faq-item"` (och 11 vardera av `faq-item__q` / `faq-item__a`) | **stämmer** — elva frågor, elva svar, och rubriken säger elva. Räkneposterna G40 och G41 är de två i tabellen som en framtida redigering kan göra falska utan att någon märker det: om Task 5–9 lägger till eller tar bort en fråga måste TOC-underrubriken följa med — **KONTROLLERAD EFTER Task 9:s redigeringar (2026-10-12):** fortfarande exakt **11** `faq-item`-block på EP, och TOC-underrubriken säger elva. Task 9 lade inte till och tog inte bort någon fråga — bara innehåll inuti tre befintliga svar (fria nivån, uppgraderingsfrågan, Gem-frågan). |
@@ -176,8 +176,11 @@ flera delpåståenden, och en post som kollapsas till ett omdöme ljuger om mins
 
 ### Konflikter mellan källor
 
-Fyra, och tre av dem är Google mot Google. Att två Google-sidor säger olika saker är i sig
-ett resultat, och det står i respektive cell.
+**Fem, och tre av dem är Google mot Google** (1, 2 och 5). Att två Google-sidor säger
+olika saker är i sig ett resultat, och det står i respektive cell. *Räkningen stod på
+"fyra, och tre av dem" fram till fixrunda 2 (2026-10-12) — konflikt 5 lades till i
+Task 9 utan att rubriken följde med. En felaktig räkning i auktoritetsdokumentet är
+ett felaktigt faktum om rundan, inte en formuleringsfråga.*
 
 1. **BETT-posten mot sig själv (G36).** Samma sida,
    `blog.google/.../bett-2026-gemini-classroom-updates/`, säger på ett ställe "learning
@@ -216,10 +219,11 @@ ett resultat, och det står i respektive cell.
    att de inte är överens, och ger läsaren ett handgrepp (pröva ytan du är på,
    fall tillbaka på den andra). Det är mindre prydligt och det är sant. **Den
    oförenade motsägelsen är därmed inventeringens, inte guidens**, och den är
-   fortfarande värd en andra hämtning: det är den fjärde Google-mot-Google-
-   konflikten i rundan.
+   fortfarande värd en andra hämtning: det är den **tredje**
+   Google-mot-Google-konflikten i rundan (1, 2 och 5), av fem konflikter totalt.
+   *Stod "den fjärde" fram till fixrunda 2 (2026-10-12).*
 
-**En femte skillnad som inte är en konflikt men liknar en:** tredjepartskällorna
+**En skillnad som inte är en konflikt men liknar en:** tredjepartskällorna
 (Pedagog Eskilstuna, Ditch That Textbook, Kasey Bells avsnitt #252, choosewise.educations
 egen styles-sida) skriver alla fortfarande "NotebookLM". De har inte fel — de citerar och
 daterar sig själva. Det är guidens **egen prosa** som ska byta namn (G49), inte citerat
@@ -231,7 +235,15 @@ material.
 förbjuder** (mätt 2026-10-12, Steg 2: `Swedish\|Sweden\|Skolverket\|IMY\|GDPR\|
 Schrems\|DPIA\|Article [0-9]\|data protection authority\|supervisory\|member
 state\|April 2026` gav noll träffar i
-`_unpublished/exports/gemini-notebooklm-quick-start-en.html`). Till skillnad
+`_unpublished/exports/gemini-notebook-quick-start-en.html`). **Sökvägen rättad i
+fixrunda 2 (2026-10-12), och det är en rättelse av en *färskvara*, inte av en
+mätning: sökvägen var korrekt när mätningen gjordes.** Task 4 kördes före
+namnbytesuppgiften, och filen döptes om till `gemini-notebook-…` i Task 4B efteråt,
+varför den citerade sökvägen pekade på en fil som inte längre finns — ett `grep`
+mot den hade gett "noll träffar" av fel skäl. Granskaren har mätt om samtliga
+arton strängar mot den verkliga filen och **alla är noll**, så slutsatsen står.
+Lärdomen: en mätning som citerar en sökväg måste läsas om efter varje uppgift som
+flyttar filer. Till skillnad
 från Copilot-guidens quick-start, som pekade läsare mot en 404, har den här
 quick-starten varken svensk inramning eller juridisk text att rätta. Det är
 inget att åtgärda — bara att inte missa som "förbisett".
@@ -349,17 +361,37 @@ juni 2025 och hänger på att `Gems` överlever G06.
 om 2026-10-12, före redigeringen.** Task 3:s förklaring håller, och den egna
 mätningen visar *var* skillnaden sitter:
 
-| namn | EP / EW före | var skillnaden sitter | utfall |
-|---|---|---|---|
-| `Gems` | 25 / 24 | EP har två TOC-rader som namnger Gems ("Gems, Canvas, Deep Research, Studio, workflows" och "Shared Notebooks, shared Gems, PD pathways"); EW har en skärmdump med `alt="Gemini Gems panel"` som EP saknar. Netto +1 för EP | **formuleringsskillnad** — ingen åtgärd |
-| `Audio Overview` | 10 / 11 | EW har en skärmdump med `alt="Gemini Notebook Audio Overview"`; printytan har ingen motsvarighet | **formuleringsskillnad** — ingen åtgärd |
-| `AI Ultra` | 5 / 6 | EW:s `onerror`-platshållare (EW:351) bär texten "Google is releasing it first to AI Ultra, Pro, and Plus subscribers" | **formuleringsskillnad** — men platshållaren bär ett G15-påstående och följde därför prosans tempusrättelse, se G15 |
+| namn | EP / EW före | enhet | var skillnaden sitter | utfall |
+|---|---|---|---|---|
+| `Gems` | 25 / 24 | förekomster | EP har två TOC-rader som namnger Gems ("Gems, Canvas, Deep Research, Studio, workflows" och "Shared Notebooks, shared Gems, PD pathways"); EW har en skärmdump med `alt="Gemini Gems panel"` som EP saknar. Netto +1 för EP | **formuleringsskillnad** — ingen åtgärd |
+| `Audio Overview` | 10 / 11 | förekomster | EW har en skärmdump med `alt="Gemini Notebook Audio Overview"`; printytan har ingen motsvarighet | **formuleringsskillnad** — ingen åtgärd |
+| `AI Ultra` | 5 / 6 | förekomster (= rader) | EW:s `onerror`-platshållare (EW:351) bär texten "Google is releasing it first to AI Ultra, Pro, and Plus subscribers" | **formuleringsskillnad** — men platshållaren bär ett G15-påstående och följde därför prosans tempusrättelse, se G15 |
 
 Ingen av de tre säger något om produkten som den andra ytan motsäger — skillnaden är
 att EP har en innehållsförteckning och EW har skärmbilder. Differenserna är
-dessutom **intakta efter Task 9** (`Gems` 24/23, `Audio Overview` 12/13, `AI Ultra`
-5/6), vilket i sig bekräftar diagnosen: Task 9 ändrade brödtext på båda ytorna
-symmetriskt, och differensen rörde sig inte.
+dessutom **intakta efter Task 9 och efter fixrunda 1**, vilket i sig bekräftar
+diagnosen: Task 9 ändrade brödtext på båda ytorna symmetriskt, och differensen
+rörde sig inte.
+
+**Enheten måste stå, annars går siffrorna inte att reproducera.** Alla tal i
+tabellen ovan är **förekomster**, mätta med
+`grep -o "<sträng>" <fil> | wc -l`. Radtal, mätta med `grep -c`, är andra tal för
+samma text. Facit efter fixrunda 1, båda enheterna, mätt 2026-10-12:
+
+| sträng | förekomster EP / EW | rader EP / EW | delta |
+|---|---|---|---|
+| `Gems` | 24 / 23 | 19 / 18 | +1 EP i båda enheterna |
+| `Audio Overview` | 14 / 15 | 12 / 13 | +1 EW i båda enheterna |
+| `AI Ultra` | 5 / 6 | 5 / 6 | +1 EW i båda enheterna |
+
+**Och en varning som är hela skälet till att tabellen står här:** fram till
+fixrunda 2 sa det här stycket "`Audio Overview` 12/13" om läget efter Task 9. Det
+var ett *förekomsttal*, korrekt när det skrevs, men överspelat av ruling 5, som
+lade till ett omnämnande av Audio Overviews per yta — förekomsterna är nu 14/15.
+Att 12/13 **också** är dagens radtal är ett sammanträffande, och precis det
+sammanträffande som gör en enhetslös siffra oläsbar: en läsare som reproducerar
+"12/13" med `grep -c` får rätt svar på fel fråga. Deltat är ±1 i **båda**
+enheterna, så diagnosen *formuleringsskillnad* håller oavsett vilken man mäter.
 
 **Tre påståenden var först rapporterade som postlösa. Koordinatorns ruling
 2026-10-12 avgjorde alla tre, och ingen av dem var postlös på det sätt rapporten
@@ -383,6 +415,29 @@ står i någon förekomstkolumn.
    Skillnaden mot de siffror rundan strök (G37:s kontextfönster, G45:s ≈200 Gems,
    G12:s priser) är att de påstod något om *Googles produkt*; den här påstår
    något om *författarens erfarenhet av att använda den*.
+
+**Ett produkt-UI-påstående, sett och bedömt som mindre (koordinatorns ruling 5 i
+fixrunda 2).** G37:s omskrivning på EP:632/EW:119 slutar "…so any version number
+printed in a guide dates the guide rather than informing you — **check the model
+picker in the app instead**". Den sista satsen är ett påstående om Gemini-appens
+gränssnitt, och **ingen post citerar en källa för att det finns en modellväljare
+där**. Den står kvar, på ruling: risken är låg och en läsare verifierar den i tio
+sekunder, till skillnad från ett pris eller ett datum. Men i en runda vars enda
+absoluta regel är *en post per faktamening* förtjänar den en rad här, av samma
+skäl som quick-startens tidsuppskattning: **ett omdöme på posten är inte samma
+sak som något ingen tittade på.** Om den någon gång ska bära vikt — eller om
+Google döper om väljaren — behöver den en egen post.
+
+**Task 9:s egen räkning av tillämpade poster, med auktoriteten i tabellen.**
+Inventeringen bär **21** celler märkta `ÅTGÄRDAT i Task 9`: G03, G05, G08, G09,
+G10, G11, G12, G14, G15, G16, G17, G20, G35, G36, G37, G38, G43, G44, G45, G49,
+G50. Task 9:s rapport sa först **19**, och tre av de tjugoen är av ett annat slag
+än de övriga arton, vilket är varför räkningarna gick isär: **G05** bär en
+korsreferens till G12 snarare än en egen redigering, **G49** bär bokföring
+(överlevandelistan till noll) snarare än ett rättat värde, och **G50** skapades
+och åtgärdades i fixrunda 1 och fanns inte när rapporten skrevs. **Siffran som
+gäller är tabellens: 21.** En rapport som räknar annat än auktoritetsdokumentet
+är en andra sanning, och rundan har bara en.
 
 **Två posters förekomstkolumn under-räknade, och bara en strängsökning visade det.**
 G12 listade EP:970/EW:482, men det omvända licenspåståendet stod på **sju** rader
