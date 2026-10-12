@@ -8,9 +8,9 @@ Varje volatilt faktapåstående i de **engelska** ytorna, med alla sina
 förekomster. De svenska ytorna ingår inte i rundan (spec §1) och har därför
 inga poster.
 
-Ytorna: **EW** `_unpublished/guides/gemini-notebooklm/index.html` · **EP**
-`_unpublished/exports/gemini-notebooklm-print-a4-en.html` · **QS**
-`_unpublished/exports/gemini-notebooklm-quick-start-en.html`
+Ytorna: **EW** `_unpublished/guides/gemini-notebook/index.html` · **EP**
+`_unpublished/exports/gemini-notebook-print-a4-en.html` · **QS**
+`_unpublished/exports/gemini-notebook-quick-start-en.html`
 
 **QS står utanför ytkonsistensvakten** — avsiktligt, spec §5: quick-starten är
 en tredje yta med egen, kortare formulering, och kravet "ordagrant på alla

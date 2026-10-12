@@ -6,7 +6,7 @@ resolve correctly from exports/ silently broke from its new, one-level-
 deeper home. Chromium renders a missing <img> as a tiny broken-image
 placeholder and prints its alt text as fallback body text — which the
 character-level text fingerprint in test_guide_pdf_parity.py cannot tell
-apart from real content (that is exactly how the gemini-notebooklm images
+apart from real content (that is exactly how the gemini-notebook images
 went missing for an entire task without the parity test noticing).
 
 This guard is static — no render needed — and would have caught that break
@@ -39,7 +39,7 @@ SCRIPTS = [
         "build-claude-quickstart-pdf.py",
         "build-presentationsteknik-pdf.py",
         "build-presentationsteknik-quickstart-pdf.py",
-        "build-gemini-notebooklm-pdf.py",
+        "build-gemini-notebook-pdf.py",
         "build-gemini-quickstart-pdf.py",
         "build-copilot-pdf.py",
         "build-copilot-quickstart-pdf.py",

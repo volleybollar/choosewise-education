@@ -74,7 +74,7 @@ def _expected_shrinkage(rel: str) -> int:
     first, page numbers on what's left) so a page-number that's already
     inside a matched chrome block — the quick starts' "Page NN / TT" is
     part of their one per-page footer block, not separate from it — isn't
-    counted twice. Also mirrors NO_FOOTER_ON_COVER: gemini-notebooklm's
+    counted twice. Also mirrors NO_FOOTER_ON_COVER: gemini-notebook's
     cover renders no footer at all, so its title must not be expected to
     shrink on page 0 either.
     """
@@ -113,7 +113,7 @@ def test_chrome_stripping_removes_exactly_the_expected_length():
         "assets/pdfs/guides/claude-guide-en.pdf",                          # CSS content
         "assets/pdfs/guides/claude-quick-start-en.pdf",                    # .page-footer
         "_unpublished/assets/pdfs/guides/apple-intelligence-guide-en.pdf",  # cover h1≡footer title, WITH a real cover footer too
-        "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf",   # cover h1≡footer title, NO real cover footer
+        "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf",   # cover h1≡footer title, NO real cover footer
     ]
     for rel in samples:
         path = fp.ROOT / rel
@@ -148,14 +148,14 @@ def test_chrome_stripping_keeps_a_body_occurrence_that_coincides_with_chrome():
 
 def test_chrome_stripping_keeps_cover_title_with_no_competing_footer():
     """Ytterligare ett fall av samma felklass, hittat under verifieringen
-    av review-fyndet (inte av review självt): gemini-notebooklm's omslag
+    av review-fyndet (inte av review självt): gemini-notebook's omslag
     saknar helt sidfot (with_footer=False i build-skriptet), så omslagets
     egen <h1>+undertext — som råkar matcha hela sidfotstiteln hopslagen —
     har ingen konkurrerande sidfotsförekomst att skiljas från. Utan
     NO_FOOTER_ON_COVER skulle "senaste förekomsten" bli just den enda,
     kropps-egna förekomsten."""
     for rel in (
-        "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf",
+        "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf",
         "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-sv.pdf",
     ):
         path = fp.ROOT / rel

@@ -60,7 +60,7 @@ def test_every_pdf_output_matches_where_the_pdf_lives(script: Path):
 # gammal palett, externa typsnittsanrop och förbjudna typsnitt i
 # font-family-kontext. Den vakten globbar bara *.html — fyra byggskript
 # (build-copilot-pdf.py, build-apple-intelligence-pdf.py,
-# build-ai-for-elever-pdf.py, build-gemini-notebooklm-pdf.py) målar sin
+# build-ai-for-elever-pdf.py, build-gemini-notebook-pdf.py) målar sin
 # löpande sidfot som en inline HTML-sträng rakt i Playwrights eget
 # footer_template, i KÄLLKOD (.py), inte i en .html-mall. Ingen vakt såg
 # det — exakt därför bar alla fyra kvar 'Inter' och gammal grå/grädde
@@ -87,7 +87,7 @@ OLD_FOOTER_VALUES = ["#faf7f2", "#8a8a85", "#a5a59f"]
 GUIDE_BUILD_SCRIPT_NAMES = {
     "build-claude-pdf.py", "build-claude-quickstart-pdf.py",
     "build-presentationsteknik-pdf.py", "build-presentationsteknik-quickstart-pdf.py",
-    "build-gemini-notebooklm-pdf.py", "build-gemini-quickstart-pdf.py",
+    "build-gemini-notebook-pdf.py", "build-gemini-quickstart-pdf.py",
     "build-copilot-pdf.py", "build-copilot-quickstart-pdf.py",
     "build-apple-intelligence-pdf.py", "build-apple-intelligence-quickstart-pdf.py",
     "build-ai-for-elever-pdf.py",

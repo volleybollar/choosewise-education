@@ -54,8 +54,8 @@ GUIDE_TOC = {
     # etikett; openarna står som "PA R T 1", "O R I E N TAT I O N",
     # "BONUS CHAPTER" och "PROMPTS" i utskriften.
     "gemini": {
-        "template": "_unpublished/exports/gemini-notebooklm-print-a4-en.html",
-        "pdf": "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf",
+        "template": "_unpublished/exports/gemini-notebook-print-a4-en.html",
+        "pdf": "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf",
         "toc_page": 2,
         "anchors": {
             "Introduction":

@@ -41,8 +41,8 @@ GUIDE_DELIVERY = {
     },
     "gemini": {
         "pdfs": (
-            "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf",
-            "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf",
+            "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf",
+            "_unpublished/assets/pdfs/guides/gemini-notebook-quick-start-en.pdf",
         ),
         # Inramningen och den artikelnivå-GDPR spec §3 väljer bort, sträng
         # för sträng. Inget bart "Sweden"/"Swedish" och inget bart "GDPR":
@@ -88,7 +88,7 @@ GUIDES = tuple(GUIDE_DELIVERY)
 # så en xfail på den vore en strikt XPASS, alltså röd av fel skäl. Samma
 # form som XFAIL_UNTIL_RECOUNTED i test_guide_toc.py: (guide, identitet).
 XFAIL_UNTIL_RERENDERED = {
-    ("gemini", "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf"),
+    ("gemini", "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf"),
 }
 
 
@@ -180,7 +180,7 @@ def test_geminis_cover_and_closing_carry_the_rounds_date():
     datumet är en stämpel på dokumentet och inte ett påstående om en
     produkt.
     """
-    main = "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf"
+    main = "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf"
     cover = re.sub(r"\s+", " ", fp.pages(fp.extract(fp.ROOT / main))[0])
     assert "October 2026" in cover, "omslaget bär inte rundans datum"
     assert "April 2026" not in cover, "omslaget bär kvar den gamla stämpeln"

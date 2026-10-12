@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright
 
 root = Path(__file__).parent.parent
 jobs = [
-    (root / "_unpublished/exports/gemini-notebooklm-quick-start-en.html", root / "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf"),
+    (root / "_unpublished/exports/gemini-notebook-quick-start-en.html", root / "_unpublished/assets/pdfs/guides/gemini-notebook-quick-start-en.pdf"),
     (root / "_unpublished/exports/gemini-notebooklm-quick-start-sv.html", root / "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-sv.pdf"),
 ]
 

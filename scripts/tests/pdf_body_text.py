@@ -34,7 +34,7 @@ chrome is reliably last in reading order across all three mechanisms.
 Chrome is read from its own source, not inferred from rendered PDF text:
 - Guides whose footer is painted by Playwright's own `footer_template`
   mechanism (build-apple-intelligence-pdf.py, build-copilot-pdf.py,
-  build-ai-for-elever-pdf.py, build-gemini-notebooklm-pdf.py): the title/
+  build-ai-for-elever-pdf.py, build-gemini-notebook-pdf.py): the title/
   page-label strings below are copied verbatim from each script's own
   `jobs` list — see the cited file for each entry in PLAYWRIGHT_FOOTERS.
 - Guides whose footer comes from the CSS `@page { @bottom-center {
@@ -80,8 +80,8 @@ PLAYWRIGHT_FOOTERS: dict[str, tuple[str, str]] = {
         ("Ska eleverna använda AI på lektionstid?", "Sida"),
     "_unpublished/assets/pdfs/guides/ai-for-students-en.pdf":
         ("Should students use AI in class?", "Page"),
-    # exports/build-gemini-notebooklm-pdf.py jobs[] (footer() calls)
-    "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf":
+    # exports/build-gemini-notebook-pdf.py jobs[] (footer() calls)
+    "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf":
         ("Gemini & NotebookLM for teachers and school leaders", "Page"),
     "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-sv.pdf":
         ("Gemini & NotebookLM för lärare och skolledare", "Sida"),
@@ -107,12 +107,12 @@ PAGE_FOOTER_TEMPLATES: dict[str, str] = {
     "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-sv.pdf": "_unpublished/exports/apple-intelligence-quick-start-sv.html",
     "_unpublished/assets/pdfs/guides/copilot-quick-start-en.pdf": "_unpublished/exports/copilot-quick-start-en.html",
     "_unpublished/assets/pdfs/guides/copilot-quick-start-sv.pdf": "_unpublished/exports/copilot-quick-start-sv.html",
-    "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf": "_unpublished/exports/gemini-notebooklm-quick-start-en.html",
+    "_unpublished/assets/pdfs/guides/gemini-notebook-quick-start-en.pdf": "_unpublished/exports/gemini-notebook-quick-start-en.html",
     "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-sv.pdf": "_unpublished/exports/gemini-notebooklm-quick-start-sv.html",
 }
 
-# gemini-notebooklm's build script renders its cover with `with_footer=False`
-# (see build-gemini-notebooklm-pdf.py) — no footer of any kind on page 1,
+# gemini-notebook's build script renders its cover with `with_footer=False`
+# (see build-gemini-notebook-pdf.py) — no footer of any kind on page 1,
 # unlike every other Playwright-footer guide, whose cover gets a footer too
 # (apple-intelligence/copilot/ai-for-elever/students's `cover_footer()`).
 # On that one page, the title string is 100% body text (the cover's own
@@ -124,7 +124,7 @@ PAGE_FOOTER_TEMPLATES: dict[str, str] = {
 # string: six show 2 (body + real footer — safe), these two show 1 (body
 # only — unsafe until excluded here).
 NO_FOOTER_ON_COVER: set[str] = {
-    "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf",
+    "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf",
     "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-sv.pdf",
 }
 
