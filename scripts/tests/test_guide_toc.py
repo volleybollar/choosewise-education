@@ -60,16 +60,16 @@ GUIDE_TOC = {
         "anchors": {
             "Introduction":
                 "Before the how, a word on the why",
-            # Nyckeln är mallens TOC-rad, och den bytte namn i Task 4C.
-            # VÄRDENA är ankare i den ännu inte omrenderade PDF:en: de
-            # två nedan står med avsikt kvar med "NotebookLM" och ska
-            # bytas först när filen renderats om (Task 14).
             "Understanding Gemini and Gemini Notebook":
                 "two complementary views onto a single Google account",
+            # Bytt i Task 14: rundan döpte om "NotebookLM" till "Gemini
+            # Notebook" i löptexten (branding), så det gamla ankaret gav
+            # SAKNAS mot den omrenderade PDF:en. Nytt ankare hämtat ur
+            # samma pdftotext-utskrift, samma mening, bara ordet bytt.
             "Part 1 · Getting Started":
-                "If you have never opened Gemini or NotebookLM, start here",
+                "If you have never opened Gemini or Gemini Notebook, start here",
             "Part 2 · Working Smarter":
-                "returning to Gemini or NotebookLM for the same kind of task",
+                "returning to Gemini or Gemini Notebook for the same kind of task",
             "Part 3 · Scale & Lead":
                 "for educators who want to do more than save personal time",
             "Part 4 · Google Workspace for Education":
@@ -89,34 +89,10 @@ GUIDE_TOC = {
     },
 }
 
-# De åtta av Geminis tio nummer som är FEL i utgångsläget, mätta mot den
-# renderade PDF:en 2026-10-12. Driften växer från −1 till −4, alltså en
-# förteckning som aldrig räknats om sedan kapitel växte:
-#
-#   Part 1 · Getting Started            säger  8, börjar på  7   (−1)
-#   Part 2 · Working Smarter            säger 13, börjar på 12   (−1)
-#   Part 3 · Scale & Lead               säger 20, börjar på 19   (−1)
-#   Part 4 · Google Workspace…          säger 24, börjar på 22   (−2)
-#   Bonus Chapter · The EU AI Act…  säger 28, börjar på 25   (−3)
-#   The Styles Library                  säger 32, börjar på 28   (−4)
-#   Prompts                             säger 34, börjar på 30   (−4)
-#   FAQ                                 säger 40, börjar på 39   (−1)
-#
-# Introduction (3) och Understanding (5) stämmer redan och står därför
-# INTE här — en xfail på dem skulle bli xpassed, och `strict=True` gör
-# xpassed rött. Markeringarna tas bort i Task 14, efter att numren
-# räknats om mot den OMRENDERADE filen; sidorna flyttar sig när Task 6–7
-# kortar juridiken, så dagens åttasiffriga drift är inte slutvärdet.
-XFAIL_UNTIL_RECOUNTED = {
-    ("gemini", "Part 1 · Getting Started"),
-    ("gemini", "Part 2 · Working Smarter"),
-    ("gemini", "Part 3 · Scale & Lead"),
-    ("gemini", "Part 4 · Google Workspace for Education"),
-    ("gemini", "Bonus Chapter · The EU AI Act for schools"),
-    ("gemini", "The Styles Library"),
-    ("gemini", "Prompts"),
-    ("gemini", "FAQ"),
-}
+# Töms i slutet av varje runda som rättat sin förtecknings nummer.
+# En mängd som bara växer slutar vakta något — samma konvention som
+# RECAPTURED_THIS_ROUND i test_capture_guide_baseline.py.
+XFAIL_UNTIL_RECOUNTED: set = set()
 
 GUIDES = tuple(GUIDE_TOC)
 
