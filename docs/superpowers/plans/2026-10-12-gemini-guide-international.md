@@ -2101,6 +2101,7 @@ Varje uppgifts granskning har lämnat formuleringsfynd som inte hörde i den upp
 | licensbandet 50–999 | implikationen för en skola som köper 30 eller 2 000 licenser lämnas till nästa stycke | väg om den hör i samma stycke |
 | Kasey Bell-meningen | "listens to on the commute — a podcast for your commute, in effect" upprepar *commute* i en sats | ett pass till |
 | åldersrutan | fyra separata verifieringsuppmaningar där den gamla hade två; `check ` gick 5 → 11 på ytan | varje uppmaning har ett eget objekt, så den är inte urvattnad — men rutan är vid gränsen |
+| avslutningens CTA (G32) | "reach out through my website (**link in the footer**)" — i en **tryckt** PDF går en fotnotslänk inte att klicka på | namnge adressen i stället, `choosewise.education`, på **båda** ytorna så att pariteten håller. Instruktionen står i G32:s cell sedan Task 9 men fick ingen ägare — Task 10:s brief skrevs före den |
 
 **Inget av dem är ett faktafel.** Bedöm dem som prosa, ändra det som blir bättre, och lämna det som inte blir det — en lista från en granskare är förslag, inte en beställning.
 
