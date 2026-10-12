@@ -1,6 +1,27 @@
 # Gemini-rundan: var den står när chatten tog slut
 
-**Skriven 2026-10-12** när kontextfönstret tog slut mitt i rundan. **LÄS DEN HÄR FÖRST** vid fortsättning, sedan planen.
+> ## ⛔ ÖVERSPELAD — HISTORIK, INTE ETT AKTUELLT LÄGE
+>
+> **Rundan är färdig.** Den här filen skrevs mitt i den, när kontextfönstret tog slut, och
+> beskriver ett läge som inte längre finns. Den står kvar för att visa **hur** rundan
+> återupptogs, inte **var** den står.
+>
+> **➡️ Läs `docs/blueprint-handoff.md` i stället.** Allt levande ur den här filen bor där nu:
+> Johans öppna beslut, publiceringsskulden, "gör detta först i nästa runda", de fem
+> lärdomarna, och de två siffror som inte ska ärvas.
+>
+> **Vad som hände efter att den här filen skrevs:**
+> 1. Task 16:s granskning hade **redan rapporterat** innan chatten tog slut — ingen omdispatch
+>    behövdes. Den godkände uppgiften.
+> 2. **Task 16B** åtgärdade R7 och R8 (commit `af69689`) och lade till vaktraden för
+>    quick-startens sidantalspåstående.
+> 3. **Task 17** gjorde slutkontrollen och skrev överlämningen. Svit **795 passed / 1 failed**
+>    (det preexisterande sidantalet), 0 skipped / 0 xfailed / 0 xpassed.
+>
+> Varje mening nedan som blev falsk av det är rättad **på plats**, med sin rättelse i fetstil,
+> i stället för att bara motsägas här uppe. Filen ska inte säga något som inte är sant.
+
+**Skriven 2026-10-12** när kontextfönstret tog slut mitt i rundan. **LÄS DEN HÄR FÖRST** vid fortsättning, sedan planen. — *Överspelat: läs `docs/blueprint-handoff.md` först.*
 
 ## Var arbetet ligger
 
@@ -18,13 +39,15 @@
 
 ## Läget
 
-**Klara och granskade: Task 1, 2, 3, 4, 4B, 4C, 5, 6, 7, 8, 9, 10+11, 12, 13, 14, 15.**
+**Klara och granskade: Task 1, 2, 3, 4, 4B, 4C, 5, 6, 7, 8, 9, 10+11, 12, 13, 14, 15.** — **RÄTTAT: plus Task 16, 16B och 17. Alla sjutton är klara och granskade.**
 
-**Task 16 (bildgranskning + genomläsning): implementerad som `1c4e30d`, granskningen DISPATCHAD MEN DESS UTFALL ÄR OKÄNT** — chatten tog slut innan den rapporterade. **Dispatcha om granskningen** mot `review-73eac3d..1c4e30d.diff`; dess brief står i ledgern.
+~~**Task 16 (bildgranskning + genomläsning): implementerad som `1c4e30d`, granskningen DISPATCHAD MEN DESS UTFALL ÄR OKÄNT** — chatten tog slut innan den rapporterade. **Dispatcha om granskningen** mot `review-73eac3d..1c4e30d.diff`; dess brief står i ledgern.~~
+**RÄTTAT: granskningen HADE rapporterat.** Den godkände uppgiften (`Task 16: complete` i ledgern). **Ingen omdispatch behövdes, och instruktionen ovan ska inte följas.**
 
-**Task 17 (slutkontroll, överlämning, PR): INTE PÅBÖRJAD.** Medvetet — hellre ogjord än halvgjord.
+~~**Task 17 (slutkontroll, överlämning, PR): INTE PÅBÖRJAD.** Medvetet — hellre ogjord än halvgjord.~~
+**RÄTTAT: Task 16B och Task 17 är UTFÖRDA.** Task 16B åtgärdade R7/R8 och vaktade quick-startens sidtal (`af69689`); Task 17 gjorde slutkontrollen, skrev `docs/blueprint-handoff.md` och ett PR-utkast. **Grenen är inte pushad och ingen PR är öppnad** — det görs efter Johans besked.
 
-**Svit:** `794 passed, 1 failed` med `--ignore=scripts/tests/test_prompt_pdf_parity.py`. Det enda felet är `test_brand_mark.py::test_the_page_count_is_what_we_think` (199 sidor mot hårdkodat 198) — **preexisterande, kom med blogg-mergen PR #40, faller likadant på `main`, inte rundans och inte rundans att laga.** Med paritetsfilen inne tillkommer dess elva miljöberoende fel (`/tmp/pdf-parity-before/` töms av macOS).
+~~**Svit:** `794 passed, 1 failed`~~ **RÄTTAT: `795 passed, 1 failed`** (Task 16B:s nya vaktrad) med `--ignore=scripts/tests/test_prompt_pdf_parity.py`. Det enda felet är `test_brand_mark.py::test_the_page_count_is_what_we_think` (199 sidor mot hårdkodat 198) — **preexisterande, kom med blogg-mergen PR #40, faller likadant på `main`, inte rundans och inte rundans att laga.** Med paritetsfilen inne tillkommer dess elva miljöberoende fel (`/tmp/pdf-parity-before/` töms av macOS).
 
 **Leveransen:** `_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf` (**44 sidor**) och `gemini-notebook-quick-start-en.pdf` (2 sidor). Ingenting publicerat.
 
@@ -44,19 +67,29 @@ Granskningen av Task 16 fann att fyra fynd bara låg i `task-16-report.md`, och 
 är gitignorerad: de hade dött med worktreen. **Två är verifierade av granskaren som verkliga,
 läsarvända och enordsstora:**
 
-1. **R7 — fel ord i friskrivningen.** `gemini-notebook-print-a4-en.html:929` säger *"I am not a
+> **RÄTTAT: R7 och R8 är ÅTGÄRDADE i Task 16B, commit `af69689`.** Båda på båda engelska
+> ytorna, guiden omrenderad och facit omfångat selektivt med `--only`. De står kvar nedan som
+> beskrivning av vad felen var, inte som öppna fynd. **R5 och R6 är fortfarande oåtgärdade** —
+> de är Johans beslut och står i `docs/blueprint-handoff.md`.
+
+1. **R7 — fel ord i friskrivningen. ÅTGÄRDAD (`af69689`): `This chapter` → `This part`.** Den andra förekomsten, inne i bonuskapitlet, står kvar orörd eftersom "chapter" är riktigt där. `gemini-notebook-print-a4-en.html:929` säger *"I am not a
    lawyer. **This chapter** gives a starting point"* — men stycket står under `<h2>Scale &
    Lead</h2>` (rad 890), som är en **del**, inte ett kapitel. Samma friskrivning på rad 1075
    ligger inne i bonuskapitlet, där "this chapter" är riktigt. **Ett ord.**
-2. **R8 — rubrik mot förteckning.** Rubriken på rad 1166 är *"A starter library of Gemini
+2. **R8 — rubrik mot förteckning. ÅTGÄRDAD (`af69689`).** Rubriken på rad 1166 var *"A starter library of Gemini
    prompts"*; förteckningens underrad på rad 555 säger *"25 starter prompts for Gemini and
-   Gemini Notebook"*. Promptbiblioteket täcker båda produkterna.
+   Gemini Notebook"*. Promptbiblioteket täcker båda produkterna. **Rubriken säger nu "A starter
+   library of Gemini and Gemini Notebook prompts", på båda ytorna.**
 3. **R5** — Säfström/Folkebrant-exemplet förekommer **tre** gånger (utöver de tre duplikat som
    redan står nedan).
 4. **R6** — författaren omtalas både som "Johan" och som "I" i samma dokument.
 
-**Dessutom, ur granskningen:** inget vaktar quick-startens "44-page"-påstående. Numret som just
-hittades fel genom läsning kan bli fel igen på exakt samma sätt, tyst. En rad räcker.
+~~**Dessutom, ur granskningen:** inget vaktar quick-startens "44-page"-påstående. Numret som just
+hittades fel genom läsning kan bli fel igen på exakt samma sätt, tyst. En rad räcker.~~
+**RÄTTAT: vaktat sedan Task 16B.**
+`test_guide_delivery.py::test_every_quick_starts_page_count_claim_matches_its_rendered_main_guide`
+jämför det tryckta talet mot huvudguidens **härledda** sidantal, i stället för att hårdkoda
+det. Vakten täcker Copilot också.
 
 **Och två siffror att inte ärva:** pyramidens trängsta luft är **120 enheter**, inte ~17 —
 granskaren mätte om den oberoende ur den levererade PDF:en vid 200 dpi och landade inom en halv
@@ -64,6 +97,10 @@ enhet. Och guiden växte **42 → 44** sidor denna runda, inte 38 → 44; talet 
 rapporter.
 
 ## Johans öppna beslut
+
+> **Fortfarande öppna, och de står nu i `docs/blueprint-handoff.md` tillsammans med R5 och R6
+> (Fristadsskolan tre gånger, och "Johan" mot "I"), som inte stod här när den här filen
+> skrevs.** Besluta dem där, inte här.
 
 1. **Tre passager står dubblerat** — Miller-citatet (s 6, 10), "the two sides stay complementary" (s 6, 18), Eric Curts/`edugems.ai` (tre gånger från s 14). Alla preexisterande. Avduplicering är ett redaktionellt pass på hans text.
 2. **"pre-market obligations"** (bonuskapitlet): förhandsbedömningsplikterna faller på *leverantören*; en skola som driftsätter bär deployer-plikter. Preexisterande, och att rätta kräver en källa ingen verifierat.
