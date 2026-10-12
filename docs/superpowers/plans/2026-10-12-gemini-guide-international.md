@@ -36,6 +36,8 @@
 - **Radnumren i uppgifterna är mätta 2026-10-12, före rundans första ändring.** Task 5 tar bort tre `<link>`-rader ur `_unpublished/guides/gemini-notebooklm/index.html`, så **varje webb-radnummer i Task 6–11 ligger tre rader lägre efter Task 5**, och printytans numrering flyttar sig när Task 6–7 kortar juridiken. Behandla numren som en karta till rätt stycke, aldrig som adress: lokalisera med `grep -n "<sträng>"` före varje ändring. Står strängen inte där numret säger är numret gammalt, inte texten fel.
 - **Sifferutfallen i stegen är räknade, inte mätta.** De utgår från baslinjens 757 och de tester planen lägger till; lägger du till ett test till räknar du om. Det som är bindande är **0 skipped och 0 xfailed i Task 17**, och att inget test-id från `main` har försvunnit **utom** de sex i `test_copilot_toc.py` och de tre i `test_copilot_delivery.py`, som byter nodeid när filerna döps om i Task 1 och 2 (se respektive uppgift).
 - **Prosa som beror på en källa skrivs inte i planen.** Där formuleringen är avgjord — omslaget, avslutningen, jurisdiktionsrutan, bonuskapitlets skylt — står den ordagrant här. Där meningen bär ett faktavärde står i stället vad den ska säga och vilken post som belägger den, eftersom en förskriven faktamening vore ett värde utan källa.
+- **Grindens tre beslut, Johan 2026-10-12, är inte längre antaganden.** (1) **Namnbytet omfattar allt, även filnamnen** — Task 4B och 4C äger det, och varje uppgift från Task 5 och framåt är skriven med de nya sökvägarna. (2) **Fristadsskolan-exemplet stannar** (Task 8), vilket är skälet att varken vaktblocket eller leveransvakten kan bära ett bart `Sweden`. (3) **Emotion recognition och examinationshögrisken tas in i bonuskapitlet; förbud 9 om nudification-appar tas inte in** — kapitlet stannar vid vad som gäller guidens egna verktyg och läsarens skola.
+- **Fyra ord kan aldrig bli bara förbudsrader i den här guiden**, eftersom legitimt innehåll bär dem: `Sweden`/`Swedish` (G21:s källbelagda exempel), `GDPR` (G30:s promptplatshållare), `April 2026` (G03:s daterade produktpåståenden) och `NotebookLM` (citaten och källtitlarna). Varje vakt som vill fånga dem måste fånga en **fras ur guidens egen röst**, inte ordet.
 - **Tio av 22 PDF:er är inte byte-identiska vid omrendering.** Skillnaden är Chromiums `CreationDate`/`ModDate`. En omrendering visar alltid ändrade filer även när innehållet är oförändrat — det är inte ett fynd.
 - **En vakt som inte setts bli röd vaktar ingenting.** Bryt varje ny vakt med flit och se den fallera på det den vaktar. **En HTML-kommentar duger inte som brytning** — `surfacecheck._TAG` slukar den.
 
@@ -943,12 +945,176 @@ git commit -m "docs(gemini): faktakontrollera inventeringen mot namngivna källo
 
 **Regeln för hela avsnittet:** varje saklig ändring görs på **båda** engelska ytorna i samma commit, aldrig en i taget. Ytkonsistensvakten läses in först i Task 12, så fram till dess finns ingen vakt som fångar en halvgjord ändring — bara disciplinen.
 
+## Task 4B: Filnamnen, sökvägarna och vaktlagret
+
+**Johans beslut vid grinden 2026-10-12: namnbytet omfattar ALLT, även filnamnen.** Google döpte om NotebookLM till **Gemini Notebook** den 16 juli 2026 (post G49, verifierad av controllern: Workspace Updates-posten svarar 200 med rubriken "NotebookLM is now Gemini Notebook", och `notebooklm.google.com`, `support.google.com/notebooklm/` och `notebooklm.google` 301-redirectar alla till de nya namnen).
+
+**Filer:**
+- Byt namn: `_unpublished/exports/gemini-notebooklm-print-a4-en.html`, `gemini-notebooklm-quick-start-en.html`, `_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf`, `gemini-notebooklm-quick-start-en.pdf`, katalogen `_unpublished/guides/gemini-notebooklm/`, dess `assets/screenshot-notebooklm-audio.png`, och `exports/build-gemini-notebooklm-pdf.py`
+- Modifiera: `scripts/tests/pdf_fingerprint.py`, `pdf_body_text.py`, `test_guide_toc.py`, `test_guide_delivery.py`, `test_guide_pdf_body_text.py`, `test_guide_pdf_font_weights.py`, `test_build_scripts.py`, `test_guide_asset_paths.py`, `exports/build-guide-pdfs.py`, `exports/build-gemini-quickstart-pdf.py`, `_unpublished/guides/gemini-notebook/index.html` (bildreferensen), `_unpublished/exports/gemini-notebook-quick-start-en.html` (sökvägsreferensen), `docs/guide-facts-gemini.md` (ythuvudet), och de två facit-JSON-filerna
+
+**Tre rulings som avgränsar uppgiften, och som du inte ska vidga:**
+
+1. **Bara EN-filerna byter namn.** De svenska ytorna behåller `gemini-notebooklm-*` och `sv/guider/gemini-notebooklm/`, eftersom deras innehåll fortfarande säger NotebookLM — de står utanför rundan med aprilfakta (spec §1), och ett namnbyte där hade gjort filnamnet osant om innehållet. Följden är att `test_the_swedish_gemini_pdfs_are_untouched_since_the_merge_base` fungerar oförändrat: dess merge-base-uppslagning sker på sökvägar som inte rört sig.
+2. **`scripts/build-seo-meta.py` rörs INTE.** Dess rader 51, 57 och 75 bär `/guides/gemini-notebooklm/` och `/sv/guider/gemini-notebooklm/`, och rad 75 är PAIR_MAP — som spec §1 uttryckligen förbjuder rundan att röra. Inkonsekvensen är avsiktligt kvarlämnad och skrivs in i överlämningen med radnummer (Task 17).
+3. **Facitvakten kräver ingen ändring.** De två EN-PDF:erna är exakt de två som står i `RECAPTURED_THIS_ROUND`, och `test_capture_guide_baseline` hoppar över dem **före** sin `committed[rel]`-uppslagning. Byter du både `GUIDE_PDFS` och JSON-nycklarna håller `sorted(current) == sorted(GUIDE_PDFS)`, och de tjugo andra nycklarna jämförs oförändrat mot bascommiten. **Rör inte vakten.** Behöver du ändra den har du bytt namn på något mer än de två EN-PDF:erna.
+
+**Namnformen:** prefixet blir `gemini-notebook`. Alltså `gemini-notebook-print-a4-en.html`, `gemini-notebook-quick-start-en.html`, `gemini-notebook-guide-en.pdf`, `gemini-notebook-quick-start-en.pdf`, katalogen `_unpublished/guides/gemini-notebook/`, bilden `screenshot-notebook-audio.png`, byggaren `exports/build-gemini-notebook-pdf.py`. **Guidenyckeln i vaktkartorna är och förblir `"gemini"`** — den bar aldrig produktnamnet och ska inte byta.
+
+- [ ] **Steg 1: Byt namn med `git mv`**
+
+```bash
+git mv _unpublished/exports/gemini-notebooklm-print-a4-en.html \
+       _unpublished/exports/gemini-notebook-print-a4-en.html
+git mv _unpublished/exports/gemini-notebooklm-quick-start-en.html \
+       _unpublished/exports/gemini-notebook-quick-start-en.html
+git mv _unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf \
+       _unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf
+git mv _unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf \
+       _unpublished/assets/pdfs/guides/gemini-notebook-quick-start-en.pdf
+git mv _unpublished/guides/gemini-notebooklm _unpublished/guides/gemini-notebook
+git mv _unpublished/guides/gemini-notebook/assets/screenshot-notebooklm-audio.png \
+       _unpublished/guides/gemini-notebook/assets/screenshot-notebook-audio.png
+git mv exports/build-gemini-notebooklm-pdf.py exports/build-gemini-notebook-pdf.py
+git status --short | head -40
+```
+Förväntat: enbart `R`-rader. **Står en `sv`-sökväg bland dem har du flyttat för mycket** — ångra och gör om.
+
+- [ ] **Steg 2: Lokalisera varje referens som måste följa med**
+
+```bash
+git grep -n "gemini-notebooklm" -- scripts exports _unpublished docs | grep -v "^docs/superpowers/plans/" | grep -v "sv/guider\|-sv\.\|_sv\b"
+```
+Varje träff som pekar på en **EN**-sökväg eller på byggarens filnamn uppdateras. Varje träff som pekar på en **SV**-sökväg lämnas. Byggaren `exports/build-gemini-notebook-pdf.py` får en kommentar i sin `jobs`-lista som säger varför EN och SV nu har olika prefix — asymmetrin är avsiktlig och ska inte "städas" av nästa läsare.
+
+- [ ] **Steg 3: Byt de två nycklarna i varje facit, med värdet oförändrat**
+
+Det här är ett **nyckelbyte, inte en omfångning**. Värdet får inte röras — hade det gjorts vore det en tyst omfångning av en fil rundan ännu inte renderat om.
+
+```bash
+/usr/bin/python3 - <<'PY'
+import json, collections
+RENAME = {
+    "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf":
+        "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf",
+    "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf":
+        "_unpublished/assets/pdfs/guides/gemini-notebook-quick-start-en.pdf",
+}
+for f in ("guide-pdf-baseline.json", "guide-pdf-body-baseline.json"):
+    rel = f"scripts/tests/fixtures/{f}"
+    with open(rel, encoding="utf-8") as fh:
+        data = json.load(fh, object_pairs_hook=collections.OrderedDict)
+    out = collections.OrderedDict(
+        (RENAME.get(k, k), v) for k, v in data.items())
+    assert len(out) == len(data) == 22, (len(out), len(data))
+    with open(rel, "w", encoding="utf-8") as fh:
+        json.dump(out, fh, ensure_ascii=False, indent=2)
+        fh.write("\n")
+    print(f"{f}: {len(out)} nycklar, två bytta")
+PY
+git diff --stat -- scripts/tests/fixtures/
+```
+**Kontrollera formen mot `main` innan du går vidare:** `git diff -- scripts/tests/fixtures/ | grep -c "^[+-]" ` ska vara litet. Är diffen tusentals rader har `json.dump` skrivit om formateringen av hela filen — läs hur filen var formaterad (indrag, nyckelordning, radslut) och matcha den i stället. **En omformaterad facitfil går inte att granska**, och den döljer i praktiken vad som ändrats.
+
+- [ ] **Steg 4: Kör hela sviten**
+
+Kör: `/usr/bin/python3 -m pytest scripts/tests/ -q --ignore=scripts/tests/test_prompt_pdf_parity.py`
+Förväntat: **exakt samma siffror som före uppgiften** — 770 passed, 1 failed (det preexisterande `test_brand_mark`-felet), 10 xfailed, 0 skipped. Ett namnbyte får inte ändra ett enda testutfall. Gör det det har en referens inte följt med, och felmeddelandet namnger filen.
+
+- [ ] **Steg 5: Kontrollera att ingenting förbjudet rörts**
+
+```bash
+git status --short | grep -E "sv/guider|-sv\.|build-seo-meta" && echo "FEL: förbjuden fil rörd" || echo "OK"
+git diff --name-only | sort
+```
+Förväntat: `OK`, och i filistan ingen `build-seo-meta.py`, ingen svensk yta, ingen `guides-en.json`, ingen `sitemap.xml`.
+
+- [ ] **Steg 6: Commit**
+
+```bash
+git add scripts/tests/pdf_fingerprint.py scripts/tests/pdf_body_text.py \
+        scripts/tests/test_guide_toc.py scripts/tests/test_guide_delivery.py \
+        scripts/tests/test_guide_pdf_body_text.py scripts/tests/test_guide_pdf_font_weights.py \
+        scripts/tests/test_build_scripts.py scripts/tests/test_guide_asset_paths.py \
+        scripts/tests/fixtures/guide-pdf-baseline.json \
+        scripts/tests/fixtures/guide-pdf-body-baseline.json \
+        exports/build-guide-pdfs.py exports/build-gemini-quickstart-pdf.py
+git add -A -- _unpublished/exports _unpublished/assets/pdfs/guides _unpublished/guides exports
+git add -f docs/guide-facts-gemini.md
+git commit -m "refactor(gemini): EN-ytorna byter namn till gemini-notebook"
+```
+**OBS:** `git add -A` är annars förbjudet i den här rundan, men `git add -A -- <sökväg>` på de fyra namngivna katalogerna är det sättet git registrerar en katalogflytt med alla sina filer. Johans ocommittade filer ligger i **huvudkopian**, inte i worktreen, och ingen av de fyra sökvägarna rör dem. Kontrollera ändå `git status --short` före commit.
+
+---
+
+## Task 4C: Produktnamnet i prosan
+
+**205 förekomster av `NotebookLM`** över de tre engelska ytorna: 97 i print, 94 på webbytan, 14 i quick-starten — plus guidens titel och den tryckta hjälpsides-URL:en.
+
+**Filer:**
+- Modifiera: `_unpublished/exports/gemini-notebook-print-a4-en.html`, `_unpublished/guides/gemini-notebook/index.html`, `_unpublished/exports/gemini-notebook-quick-start-en.html`
+- Modifiera: `docs/guide-facts-gemini.md` (G49:s förekomstkolumner och den överlevandelista steg 4 kräver)
+
+**Den gräns som gör uppgiften svår:** guidens **egen prosa** byter namn. **Citerat och attribuerat material gör det inte** — Pedagog Eskilstunas rubrik, Ditch That Textbooks sidtitel, Kasey Bells avsnittsnamn och choosewise.educations egen styles-sida skriver fortfarande "NotebookLM", och de har inte fel: de citerar och daterar sig själva. Ett citat som "rättas" är inte längre ett citat.
+
+- [ ] **Steg 1: Byt namnet i guidens egen prosa**
+
+Formen är **`Gemini Notebook`** vid första omnämnandet i varje del och i varje rubrik. **Där en mening annars skulle läsa "Gemini and Gemini Notebook" får andra ledet kortas till `Notebook`** — Googles egen domän är `notebook.google.com` och hjälpcentret heter "Gemini Notebook Help", så kortformen är leverantörens egen. Välj en form per mening och håll den genom stycket; en guide som växlar mellan "Gemini Notebook" och "Notebook" i samma stycke läser som två produkter.
+
+- [ ] **Steg 2: Titeln och den tryckta URL:en**
+
+Titeln blir — Johans angivna standard vid grinden, som han kan byta:
+```html
+  <h1>Gemini &amp; Gemini Notebook for teachers and school leaders</h1>
+```
+Den tryckta hjälpsides-URL:en på EP ~1610 / EW ~1208 säger `support.google.com/notebooklm`. Den **301:ar** till `support.google.com/gemininotebook` (verifierat 2026-10-12) — skriv dit den pekar, inte dit den pekade.
+
+- [ ] **Steg 3: Lämna citaten i fred**
+
+```bash
+grep -n "NotebookLM" _unpublished/exports/gemini-notebook-print-a4-en.html \
+  _unpublished/guides/gemini-notebook/index.html \
+  _unpublished/exports/gemini-notebook-quick-start-en.html | cut -c1-150
+```
+Varje kvarvarande förekomst ska vara **inuti ett citat, en källtitel eller ett avsnittsnamn**. Är den i guidens egen röst har steg 1 missat den.
+
+- [ ] **Steg 4: Skriv den överlevandelista som ersätter en förbudsrad**
+
+**Varför det här steget finns:** `NotebookLM` kan **inte** bli en `borttaget`-rad i vaktblocket, och inte heller en förbjuden sträng i leveransvakten — citaten bär ordet legitimt, exakt samma fälla som ordet `Sweden` (G21) och ordet `GDPR` (G30). Vakten måste därför vakta något annat: **de överlevande förekomsterna, uppräknade.**
+
+Skriv i inventeringen under G49: varje kvarvarande förekomst med yta, radnummer och vilket citat den tillhör. Task 12 gör en `aktiv`-rad på `Gemini Notebook` och `borttaget`-rader på guidens **egna** gamla formuleringar (de fraser där guidens röst sa NotebookLM), aldrig på det bara ordet.
+
+- [ ] **Steg 5: Räkna**
+
+```bash
+for f in _unpublished/exports/gemini-notebook-print-a4-en.html \
+         _unpublished/guides/gemini-notebook/index.html \
+         _unpublished/exports/gemini-notebook-quick-start-en.html; do
+  printf "%-62s NotebookLM:%-4s Gemini Notebook:%s\n" "$f" \
+    "$(grep -o "NotebookLM" $f | wc -l | tr -d ' ')" \
+    "$(grep -o "Gemini Notebook" $f | wc -l | tr -d ' ')"
+done
+```
+Utgångsläget är 97 / 94 / 14. Slutläget ska vara **litet och förklarat** — varje kvarvarande förekomst har sin rad i steg 4:s lista. Ett nollvärde är sannolikt fel: det betyder att ett citat också skrevs om.
+
+- [ ] **Steg 6: Commit**
+
+```bash
+git add _unpublished/exports/gemini-notebook-print-a4-en.html \
+        _unpublished/guides/gemini-notebook/index.html \
+        _unpublished/exports/gemini-notebook-quick-start-en.html
+git add -f docs/guide-facts-gemini.md
+git commit -m "content(gemini): produktnamnet blir Gemini Notebook i guidens egen röst"
+```
+
+---
+
 ## Task 5: Datumstämplarna och typsnitten
 
 **Filer:**
-- Modifiera: `_unpublished/exports/gemini-notebooklm-print-a4-en.html` (rad 486, 1623)
-- Modifiera: `_unpublished/guides/gemini-notebooklm/index.html` (rad 10–12, 1229, plus sjutton inline-attribut)
-- Modifiera: `_unpublished/guides/gemini-notebooklm/styles.css` (rad 21–23, 776)
+- Modifiera: `_unpublished/exports/gemini-notebook-print-a4-en.html` (rad 486, 1623)
+- Modifiera: `_unpublished/guides/gemini-notebook/index.html` (rad 10–12, 1229, plus sjutton inline-attribut)
+- Modifiera: `_unpublished/guides/gemini-notebook/styles.css` (rad 21–23, 776)
 - Modifiera: `scripts/tests/test_fonts.py`
 
 **Gränssnitt:**
@@ -977,8 +1143,8 @@ GUIDE_WEB_SURFACES = (
     "guides/claude/styles.css",
     "_unpublished/guides/copilot/index.html",
     "_unpublished/guides/copilot/styles.css",
-    "_unpublished/guides/gemini-notebooklm/index.html",
-    "_unpublished/guides/gemini-notebooklm/styles.css",
+    "_unpublished/guides/gemini-notebook/index.html",
+    "_unpublished/guides/gemini-notebook/styles.css",
 )
 
 # Crestioras två typsnitt. 'Inter' söks med citattecken och som
@@ -1011,15 +1177,15 @@ def test_the_guide_web_surfaces_have_no_crestiora_fonts(rel):
 - [ ] **Steg 2: Kör och se det bli rött på rätt fil**
 
 Kör: `/usr/bin/python3 -m pytest scripts/tests/test_fonts.py -v`
-Förväntat: FAIL på **två** parametriseringar — `_unpublished/guides/gemini-notebooklm/index.html` (`Playfair`, `'Inter'`, `font-family="Inter`, `fonts.googleapis.com`, `fonts.gstatic.com`) och `.../styles.css` (`Playfair`, `'Inter'`). Claudes och Copilots fyra ska vara **gröna redan nu** — är de röda har någon av de tidigare rundorna regredierat, och det är ett eget fynd som ska rapporteras, inte lagas här.
+Förväntat: FAIL på **två** parametriseringar — `_unpublished/guides/gemini-notebook/index.html` (`Playfair`, `'Inter'`, `font-family="Inter`, `fonts.googleapis.com`, `fonts.gstatic.com`) och `.../styles.css` (`Playfair`, `'Inter'`). Claudes och Copilots fyra ska vara **gröna redan nu** — är de röda har någon av de tidigare rundorna regredierat, och det är ett eget fynd som ska rapporteras, inte lagas här.
 
 - [ ] **Steg 3: Rensa webbytans typsnitt**
 
 ```bash
-EW=_unpublished/guides/gemini-notebooklm/index.html
+EW=_unpublished/guides/gemini-notebook/index.html
 grep -nE "fonts\.(googleapis|gstatic)" $EW          # ska vara rad 10, 11, 12
 grep -nE 'font-family="(Playfair|Inter)' $EW        # ska vara sjutton rader
-grep -nE "Playfair|'Inter'" _unpublished/guides/gemini-notebooklm/styles.css  # 21, 22, 776
+grep -nE "Playfair|'Inter'" _unpublished/guides/gemini-notebook/styles.css  # 21, 22, 776
 ```
 
 1. **Rad 10–12 i `index.html`:** de tre `<link>`-raderna (`preconnect` ×2 + stylesheet) tas bort i sin helhet. `tokens.css` är redan länkad i samma `<head>`.
@@ -1044,9 +1210,9 @@ Förväntat: PASS på alla sex parametriseringar av det nya testet, och inga nya
 
 ```bash
 git add scripts/tests/test_fonts.py \
-        _unpublished/guides/gemini-notebooklm/index.html \
-        _unpublished/guides/gemini-notebooklm/styles.css \
-        _unpublished/exports/gemini-notebooklm-print-a4-en.html
+        _unpublished/guides/gemini-notebook/index.html \
+        _unpublished/guides/gemini-notebook/styles.css \
+        _unpublished/exports/gemini-notebook-print-a4-en.html
 git commit -m "fix(gemini): datumstämplarna till oktober, webbytan ärver Blueprints typsnitt"
 ```
 
@@ -1055,8 +1221,8 @@ git commit -m "fix(gemini): datumstämplarna till oktober, webbytan ärver Bluep
 ## Task 6: Jurisdiktionsrutan in i huvudflödet
 
 **Filer:**
-- Modifiera: `_unpublished/exports/gemini-notebooklm-print-a4-en.html` (rad 921, 934, 972–979)
-- Modifiera: `_unpublished/guides/gemini-notebooklm/index.html` (rad 430, 443, 484–491, minus tre efter Task 5)
+- Modifiera: `_unpublished/exports/gemini-notebook-print-a4-en.html` (rad 921, 934, 972–979)
+- Modifiera: `_unpublished/guides/gemini-notebook/index.html` (rad 430, 443, 484–491, minus tre efter Task 5)
 - Modifiera: `docs/guide-facts-gemini.md` (två nya poster, G33–G34)
 
 Spec §3 pekar ut den här passagen som **det ställe rutan ska stå**: den är huvudflödets egen juridikpassage, den bär redan en svagare föregångare till rutan på rad 977 ("Readers outside the EU should verify…"), och den läses av dem som hoppar över bonuskapitlet.
@@ -1095,15 +1261,15 @@ Tre stycken blir ett inledande stycke plus guidens **befintliga** `callout callo
 - [ ] **Steg 3: Samma ändring på webbytan**
 
 ```bash
-grep -n "Data residency, GDPR, and national context" _unpublished/guides/gemini-notebooklm/index.html
+grep -n "Data residency, GDPR, and national context" _unpublished/guides/gemini-notebook/index.html
 ```
 Webbytans fyra stycken har **samma ordalydelse** som printytans (verifierat 2026-10-12: rad 484–491 mot 972–979), **utom** att rad 491 saknar Sverige-parentesen som printytans 979 bär — det är G29. Rutan skrivs in med samma markup; webbytan använder samma `callout callout--watch`-komponent (`grep -c "callout--watch"` ger 26 träffar på hela sidan).
 
 - [ ] **Steg 4: Kontrollera att inget artikelnivå-GDPR står kvar i passagen**
 
 ```bash
-for f in _unpublished/exports/gemini-notebooklm-print-a4-en.html \
-         _unpublished/guides/gemini-notebooklm/index.html; do
+for f in _unpublished/exports/gemini-notebook-print-a4-en.html \
+         _unpublished/guides/gemini-notebook/index.html; do
   echo "=== $f"
   grep -nE "Article 6\(1\)|Article 9 |Article 30|supervisory|data protection authority" "$f" | cut -c1-120
 done
@@ -1124,8 +1290,8 @@ Båda får **egna poster** i inventeringen (`G33`, `G34`) med typ `regelverk` oc
 - [ ] **Steg 6: Commit**
 
 ```bash
-git add _unpublished/exports/gemini-notebooklm-print-a4-en.html \
-        _unpublished/guides/gemini-notebooklm/index.html
+git add _unpublished/exports/gemini-notebook-print-a4-en.html \
+        _unpublished/guides/gemini-notebook/index.html
 git commit -m "content(gemini): jurisdiktionsrutan ersätter huvudflödets GDPR-passage, Del 3:s två artikelled bort"
 ```
 
@@ -1134,8 +1300,8 @@ git commit -m "content(gemini): jurisdiktionsrutan ersätter huvudflödets GDPR-
 ## Task 7: Bonuskapitlet — AI Act kvar och rättad, GDPR på artikelnivå ut, skylten skärpt
 
 **Filer:**
-- Modifiera: `_unpublished/exports/gemini-notebooklm-print-a4-en.html` (rad 540–541, 1015–1016, 1018–1025, 1028–1029, 1037–1052, 1061–1064, 1081)
-- Modifiera: `_unpublished/guides/gemini-notebooklm/index.html` (rad 529–539, 542, 551–566, brödtexten, 596)
+- Modifiera: `_unpublished/exports/gemini-notebook-print-a4-en.html` (rad 540–541, 1015–1016, 1018–1025, 1028–1029, 1037–1052, 1061–1064, 1081)
+- Modifiera: `_unpublished/guides/gemini-notebook/index.html` (rad 529–539, 542, 551–566, brödtexten, 596)
 - Modifiera: `scripts/tests/test_guide_toc.py` (en nyckel i `GUIDE_TOC["gemini"]["anchors"]` och en i `XFAIL_UNTIL_RECOUNTED`)
 
 Rundans tyngsta uppgift. Kapitlet behåller sin plats och sin överhoppbarhet; det är dess **innehåll** som ändras på tre sätt.
@@ -1210,10 +1376,19 @@ EP 1081 / EW 596 (friskrivningen): *"Make sure the checklist harmonises with you
 
 Checklistan (EP 1066 och framåt) och dess punkter läses igenom: varje punkt som namnger en GDPR-artikel går, varje punkt som rör Article 4 eller risknivåer stannar.
 
+- [ ] **Steg 6B: Ta in de två skolnära AI Act-punkterna som saknas**
+
+**Johans beslut vid grinden:** kapitlet listar i dag AI Act-datum men nämner inget av de nio förbuden utom social scoring. Två saker som rör skolan direkt saknas, och de tas in — båda belagda i P13, ingen ny källdomän:
+
+1. **`emotion recognition in education institutions` är ett av de nio förbuden.** Det hör i stycket om den översta nivån (EP ~1064, det som efter steg 5 heter `Unacceptable risk`), intill social scoring.
+2. **Kommissionen räknar uttryckligen AI som avgör tillträde till utbildning som högrisk** — "AI solutions used in education institutions, that may determine the access to education … (e.g. scoring of exams)". Det hör i högriskstycket (EP ~1063), som i dag ger exempel men inte säger att kommissionen namnger utbildning explicit.
+
+**Förbud 9 om nudification-appar tas INTE in** — Johans beslut. Det träder i kraft i december 2026 och är relevant för en skolledare som skriver AI-policy, men det rör inte Gemini eller Gemini Notebook, och kapitlet ska stanna vid vad som gäller guidens egna verktyg. **Skriv inte in det "för fullständighetens skull".**
+
 - [ ] **Steg 7: Kontrollera kapitlet**
 
 ```bash
-EP=_unpublished/exports/gemini-notebooklm-print-a4-en.html
+EP=_unpublished/exports/gemini-notebook-print-a4-en.html
 sed -n '1010,1100p' $EP | grep -nE "GDPR|Article [0-9]|supervisory|Limited risk|Minimal risk|Prohibited|phases in"
 ```
 Förväntat: **inga träffar**. Den enda GDPR-förekomsten som får stå kvar i hela printytan efter den här uppgiften är promptmallens platshållare på rad ~1357 (post G30, spec §3) — kontrollera med `grep -c GDPR $EP`, som ska ge **1**.
@@ -1224,8 +1399,8 @@ Kör: `/usr/bin/python3 -m pytest scripts/tests/test_guide_toc.py -v`
 Förväntat: oförändrat utfall — 13 passed, 8 xfailed. **Ett FAIL på `test_the_toc_has_the_rows_we_think_it_has[gemini]` betyder att nyckeln i steg 1 inte byttes i samma commit.**
 
 ```bash
-git add _unpublished/exports/gemini-notebooklm-print-a4-en.html \
-        _unpublished/guides/gemini-notebooklm/index.html \
+git add _unpublished/exports/gemini-notebook-print-a4-en.html \
+        _unpublished/guides/gemini-notebook/index.html \
         scripts/tests/test_guide_toc.py
 git commit -m "content(gemini): bonuskapitlet behåller AI Act, rättad mot P13, och tappar artikelnivå-GDPR"
 ```
@@ -1235,10 +1410,12 @@ git commit -m "content(gemini): bonuskapitlet behåller AI Act, rättad mot P13,
 ## Task 8: Den svenska inramningen — två jurisdiktionsexempel går, ett praktikexempel stannar
 
 **Filer:**
-- Modifiera: `_unpublished/exports/gemini-notebooklm-print-a4-en.html` (rad 831, 1031)
-- Modifiera: `_unpublished/guides/gemini-notebooklm/index.html` (rad 333, 545)
+- Modifiera: `_unpublished/exports/gemini-notebook-print-a4-en.html` (rad 831, 1031)
+- Modifiera: `_unpublished/guides/gemini-notebook/index.html` (rad 333, 545)
 
-Efter Task 6 och 7 står tre svenska förekomster kvar, och de har tre olika utfall. **Detta är uppgiften Johans beslut vid grinden kan ha ändrat** — säger han att praktikexemplet går, så går G21 samma väg som G28 och leveransvaktens lista får `Sweden`/`Swedish` som bara strängar.
+Efter Task 6 och 7 står tre svenska förekomster kvar, och de har tre olika utfall. **Johans beslut vid grinden 2026-10-12: praktikexemplet STANNAR.** Det är alltså avgjort, inte ett antagande — och det är skälet att `Sweden` och `Swedish` aldrig kan bli bara strängar i leveransvaktens lista eller i vaktblocket.
+
+**Källan är kontrollerad och håller** (Task 4, G21): `pedagog.eskilstuna.se` svarade 200, är daterad 4 februari 2026, och bär varje led ordagrant — "Viktor Säfström", "David Folkebrant", "Fristadsskolan", "1–2 minuter", "amhariska", "Google Classroom". **En enda detalj står inte i källan:** halvsatsen "for **newly-arrived** students". Artikeln säger att elever *vill ha* amhariska eller arabiska varianter; ordet nyanländ förekommer inte. **Den halvsatsen skrivs om, och det är inte valfritt.**
 
 | post | förekomst | utfall |
 |---|---|---|
@@ -1261,9 +1438,9 @@ Ingen ändring i texten. I posten skrivs ut: att exemplet är **källbelagt** (P
 - [ ] **Steg 4: Räkna om**
 
 ```bash
-for f in _unpublished/exports/gemini-notebooklm-print-a4-en.html \
-         _unpublished/guides/gemini-notebooklm/index.html \
-         _unpublished/exports/gemini-notebooklm-quick-start-en.html; do
+for f in _unpublished/exports/gemini-notebook-print-a4-en.html \
+         _unpublished/guides/gemini-notebook/index.html \
+         _unpublished/exports/gemini-notebook-quick-start-en.html; do
   printf "%-62s Sweden:%s Swedish:%s\n" "$f" \
     "$(grep -o "Sweden" "$f" | wc -l | tr -d ' ')" \
     "$(grep -o "Swedish" "$f" | wc -l | tr -d ' ')"
@@ -1274,8 +1451,8 @@ Förväntat: EP `Sweden:2 Swedish:0`, EW `Sweden:2 Swedish:0`, QS `0 0`. De två
 - [ ] **Steg 5: Commit**
 
 ```bash
-git add _unpublished/exports/gemini-notebooklm-print-a4-en.html \
-        _unpublished/guides/gemini-notebooklm/index.html
+git add _unpublished/exports/gemini-notebook-print-a4-en.html \
+        _unpublished/guides/gemini-notebook/index.html
 git commit -m "content(gemini): jurisdiktionsexemplen generaliserade, praktikexemplet står kvar med sin post"
 git add -f docs/guide-facts-gemini.md
 git commit -m "docs(gemini): G21:s motivering — varför ordet Sweden inte kan vara en förbudsrad här"
@@ -1286,8 +1463,8 @@ git commit -m "docs(gemini): G21:s motivering — varför ordet Sweden inte kan 
 ## Task 9: Produktnamn, dateringar och de tre asymmetrierna
 
 **Filer:**
-- Modifiera: `_unpublished/exports/gemini-notebooklm-print-a4-en.html`
-- Modifiera: `_unpublished/guides/gemini-notebooklm/index.html`
+- Modifiera: `_unpublished/exports/gemini-notebook-print-a4-en.html`
+- Modifiera: `_unpublished/guides/gemini-notebook/index.html`
 
 Varje post vars utfall i Task 4 blev `fel` eller `obelagt` rättas här, på båda ytorna i samma commit. Inga nya faktavärden skrivs som inte står i inventeringen.
 
@@ -1301,8 +1478,8 @@ Varje post vars utfall i Task 4 blev `fel` eller `obelagt` rättas här, på bå
 - [ ] **Steg 2: De tre asymmetrierna (G06, G09, G15)**
 
 ```bash
-EP=_unpublished/exports/gemini-notebooklm-print-a4-en.html
-EW=_unpublished/guides/gemini-notebooklm/index.html
+EP=_unpublished/exports/gemini-notebook-print-a4-en.html
+EW=_unpublished/guides/gemini-notebook/index.html
 for n in "Gems" "Audio Overview" "AI Ultra"; do
   echo "=== $n"
   diff <(grep -o ".\{90\}$n.\{90\}" $EP) <(grep -o ".\{90\}$n.\{90\}" $EW) | head -20
@@ -1333,8 +1510,8 @@ Kör: `/usr/bin/python3 -m pytest scripts/tests/ -q --ignore=scripts/tests/test_
 Förväntat: oförändrat mot Task 5 — inget test läser ännu guidens sakinnehåll utom typsnittsvakten.
 
 ```bash
-git add _unpublished/exports/gemini-notebooklm-print-a4-en.html \
-        _unpublished/guides/gemini-notebooklm/index.html
+git add _unpublished/exports/gemini-notebook-print-a4-en.html \
+        _unpublished/guides/gemini-notebook/index.html
 git commit -m "content(gemini): produktnamn, licensnivåer och dateringar enligt inventeringen"
 ```
 
@@ -1343,8 +1520,8 @@ git commit -m "content(gemini): produktnamn, licensnivåer och dateringar enligt
 ## Task 10: Avslutningen, CTA:n och Johans egen rad
 
 **Filer:**
-- Modifiera: `_unpublished/exports/gemini-notebooklm-print-a4-en.html` (rad 1611)
-- Modifiera: `_unpublished/guides/gemini-notebooklm/index.html` (rad 1209)
+- Modifiera: `_unpublished/exports/gemini-notebook-print-a4-en.html` (rad 1611)
+- Modifiera: `_unpublished/guides/gemini-notebook/index.html` (rad 1209)
 
 Post G31 och G32, rättelse 4 i planens inledning. Meningen *"I have a full-time job and run this work alongside it, which means I can't always handle urgent or tight-turnaround queries"* är **inte längre sann**: Johan lämnade Advania i augusti 2026 och är sedan dess egen konsult (CLAUDE.md §1). Meningen står inte i Claude- eller Copilot-guidens engelska ytor — den är den här guidens egen.
 
@@ -1363,14 +1540,14 @@ Guidens engelskspråkiga hatt är **choosewise.education** (CLAUDE.md §2). `gre
 - [ ] **Steg 3: Kontrollera och commit**
 
 ```bash
-grep -c "full-time job" _unpublished/exports/gemini-notebooklm-print-a4-en.html \
-                        _unpublished/guides/gemini-notebooklm/index.html
+grep -c "full-time job" _unpublished/exports/gemini-notebook-print-a4-en.html \
+                        _unpublished/guides/gemini-notebook/index.html
 ```
 Förväntat: 0 på båda.
 
 ```bash
-git add _unpublished/exports/gemini-notebooklm-print-a4-en.html \
-        _unpublished/guides/gemini-notebooklm/index.html
+git add _unpublished/exports/gemini-notebook-print-a4-en.html \
+        _unpublished/guides/gemini-notebook/index.html
 git commit -m "content(gemini): förväntansraden utan påståendet om en heltidstjänst"
 ```
 
@@ -1379,14 +1556,14 @@ git commit -m "content(gemini): förväntansraden utan påståendet om en heltid
 ## Task 11: Quick-starten
 
 **Filer:**
-- Modifiera: `_unpublished/exports/gemini-notebooklm-quick-start-en.html` (bara om inventeringen pekar dit)
+- Modifiera: `_unpublished/exports/gemini-notebook-quick-start-en.html` (bara om inventeringen pekar dit)
 
 **Den här quick-starten är ren där Copilots var trasig.** Mätt 2026-10-12: noll förekomster av "Swedish", "Sweden", "GDPR", "April 2026", och dess enda utgående pekare är `choosewise.education / guides / gemini-notebooklm` (rad 319) plus `choosewise.education` i sidfoten — inte en 404 som Copilots. Uppgiften är därför liten, men den får inte hoppas över: QS bär **sex produktpåståenden** (Workspace for Education ×1, Deep Research ×1, Audio Overview ×4, Video Overview ×1) som delar post med huvudguidens.
 
 - [ ] **Steg 1: Stäm av QS mot inventeringens utfall**
 
 ```bash
-QS=_unpublished/exports/gemini-notebooklm-quick-start-en.html
+QS=_unpublished/exports/gemini-notebook-quick-start-en.html
 grep -nE "Workspace for Education|Deep Research|Audio Overview|Video Overview|Gems|Canvas" $QS | cut -c1-140
 ```
 Varje träff vars post fick `fel` eller `obelagt` i Task 4 rättas här, med **samma** värde som huvudguiden fick i Task 9. Ett värde som rättas i huvudguiden men inte i quick-starten är exakt det fel leveransvakten finns för att fånga.
@@ -1401,7 +1578,7 @@ curl -s -o /dev/null -w '%{http_code}\n' https://choosewise.education/guides/gem
 - [ ] **Steg 3: Commit (hoppas över om ingenting ändrades)**
 
 ```bash
-git add _unpublished/exports/gemini-notebooklm-quick-start-en.html
+git add _unpublished/exports/gemini-notebook-quick-start-en.html
 git commit -m "content(gemini): quick-starten får huvudguidens rättade värden"
 ```
 Ändrades ingenting: skriv i inventeringens "Observationer utanför posterna" att QS kontrollerades mot varje post och inte behövde någon ändring. **Ett fynd som inte behöver ändras stryks aldrig tyst.**
@@ -1429,8 +1606,8 @@ git commit -m "content(gemini): quick-starten får huvudguidens rättade värden
     # inte mot ingenting. Att de divergerar i sak från de engelska är ett
     # känt läge (spec §1), inte något vakten ska dölja.
     "gemini": {
-        ("en", "web"):   "_unpublished/guides/gemini-notebooklm/index.html",
-        ("en", "print"): "_unpublished/exports/gemini-notebooklm-print-a4-en.html",
+        ("en", "web"):   "_unpublished/guides/gemini-notebook/index.html",
+        ("en", "print"): "_unpublished/exports/gemini-notebook-print-a4-en.html",
         ("sv", "web"):   "_unpublished/sv/guider/gemini-notebooklm/index.html",
         ("sv", "print"): "_unpublished/exports/gemini-notebooklm-print-a4-sv.html",
     },
@@ -1475,8 +1652,8 @@ Det kostar ett borttaget test-id (`test_copilot_surfaces_are_the_unpublished_one
 `aktiv` kräver att strängen står ordagrant på **båda** engelska guideytorna (EW + EP). `borttaget` kräver att den inte står på någon av dem. Formatet är `id | språk | värde | status`, fyra kolumner, `#` inleder kommentar.
 
 ```guard
-# Engelska ytorna: EW `_unpublished/guides/gemini-notebooklm/index.html` (web)
-# + EP `_unpublished/exports/gemini-notebooklm-print-a4-en.html` (print).
+# Engelska ytorna: EW `_unpublished/guides/gemini-notebook/index.html` (web)
+# + EP `_unpublished/exports/gemini-notebook-print-a4-en.html` (print).
 # QS står utanför vakten med avsikt (spec §5) och bevakas av
 # scripts/tests/test_guide_delivery.py.
 #
@@ -1551,12 +1728,12 @@ Förväntat: PASS, **och ingen SKIPPED** — Geminis fyra parametriseringar ska 
 - [ ] **Steg 5: Bryt vakten med flit och se den bli röd**
 
 ```bash
-cp _unpublished/exports/gemini-notebooklm-print-a4-en.html /tmp/gemini-print-backup.html
+cp _unpublished/exports/gemini-notebook-print-a4-en.html /tmp/gemini-print-backup.html
 printf '<p>Standard GDPR discipline applies for EU schools.</p>\n' \
-  >> _unpublished/exports/gemini-notebooklm-print-a4-en.html
+  >> _unpublished/exports/gemini-notebook-print-a4-en.html
 /usr/bin/python3 -m pytest scripts/tests/test_guide_surface_consistency.py -q 2>&1 | tail -20
-cp /tmp/gemini-print-backup.html _unpublished/exports/gemini-notebooklm-print-a4-en.html
-git diff --stat -- _unpublished/exports/gemini-notebooklm-print-a4-en.html
+cp /tmp/gemini-print-backup.html _unpublished/exports/gemini-notebook-print-a4-en.html
+git diff --stat -- _unpublished/exports/gemini-notebook-print-a4-en.html
 ```
 Förväntat: `G23 [en] återinfört` i utfallet, och efter återställningen en **tom** `git diff --stat`. **Blir vakten inte röd vaktar den ingenting** — då står strängen inte i vaktblocket, eller normaliseringen äter den. Återställningen sker med `cp` från kopian, aldrig med `git checkout --` på en katalog. Och brytningen är ett `<p>`-element med avsikt: en HTML-kommentar hade slukats av `_TAG` och gett ett falskt grönt.
 
@@ -1577,10 +1754,10 @@ git commit -m "test(gemini): ytkartan får sin guide, vaktblocket sina rader"
 ## Task 13: Rendera om de två engelska PDF:erna
 
 **Filer:**
-- Modifiera: `_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf`, `_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf`
+- Modifiera: `_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf`, `_unpublished/assets/pdfs/guides/gemini-notebook-quick-start-en.pdf`
 - Modifiera: `scripts/tests/test_guide_delivery.py` (de tre xfail-markeringarna tas bort)
 
-**Båda byggarna renderar EN *och* SV.** Varken `exports/build-gemini-notebooklm-pdf.py` eller `exports/build-gemini-quickstart-pdf.py` tar ett språkargument, och de svenska källorna finns — så fyra filer skrivs och de två svenska måste återställas. De får inte ändras ens i `CreationDate`: spec §1 lämnar dem som de står, och en ändrad byte skulle kräva en facitomfångning rundan inte ska göra. Det är exakt det `test_the_swedish_gemini_pdfs_are_untouched_since_the_merge_base` finns för.
+**Båda byggarna renderar EN *och* SV.** Varken `exports/build-gemini-notebook-pdf.py` eller `exports/build-gemini-quickstart-pdf.py` tar ett språkargument, och de svenska källorna finns — så fyra filer skrivs och de två svenska måste återställas. De får inte ändras ens i `CreationDate`: spec §1 lämnar dem som de står, och en ändrad byte skulle kräva en facitomfångning rundan inte ska göra. Det är exakt det `test_the_swedish_gemini_pdfs_are_untouched_since_the_merge_base` finns för.
 
 - [ ] **Steg 1: Kopiera undan de svenska PDF:erna**
 
@@ -1593,7 +1770,7 @@ cp _unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-sv.pdf /tmp/gem
 - [ ] **Steg 2: Rendera**
 
 ```bash
-/usr/bin/python3 exports/build-gemini-notebooklm-pdf.py
+/usr/bin/python3 exports/build-gemini-notebook-pdf.py
 /usr/bin/python3 exports/build-gemini-quickstart-pdf.py
 ```
 Byggaren skriver ut sidantal och storlek per fil. **Utgångsläget är 42 sidor och 9,6 MB** för huvudguiden; Task 6–10 tar bort mer text än de lägger till, så 41 eller 42 sidor är väntat. **40 eller färre är ett fynd** — då har ett helt uppslag fallit bort, och det ska förstås innan uppgiften bockas.
@@ -1624,8 +1801,8 @@ Förväntat: **fyra fel** i `test_guide_pdf_parity.py` och `test_guide_pdf_body_
 - [ ] **Steg 6: Commit**
 
 ```bash
-git add _unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf \
-        _unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf \
+git add _unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf \
+        _unpublished/assets/pdfs/guides/gemini-notebook-quick-start-en.pdf \
         scripts/tests/test_guide_delivery.py
 git commit -m "build(gemini): rendera om de två engelska PDF:erna ur det rättade innehållet"
 ```
@@ -1635,9 +1812,9 @@ git commit -m "build(gemini): rendera om de två engelska PDF:erna ur det rätta
 ## Task 14: Innehållsförteckningens tio sidnummer
 
 **Filer:**
-- Modifiera: `_unpublished/exports/gemini-notebooklm-print-a4-en.html` (rad 502, 509, 516, 523, 530, 537, 544, 551, 558, 565)
+- Modifiera: `_unpublished/exports/gemini-notebook-print-a4-en.html` (rad 502, 509, 516, 523, 530, 537, 544, 551, 558, 565)
 - Modifiera: `scripts/tests/test_guide_toc.py` (`XFAIL_UNTIL_RECOUNTED` töms)
-- Modifiera: `_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf` (renderas om)
+- Modifiera: `_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf` (renderas om)
 
 Rundans mest läsarnära rättning. Åtta av tio nummer var fel före rundan, med en drift som växte från −1 till −4, och efter Task 6–10 har sidorna dessutom flyttat sig igen. **Numren räknas mot den PDF Task 13 renderade, aldrig mot markupen.**
 
@@ -1682,10 +1859,10 @@ Förväntat: 21 passed, **0 xfailed, 0 xpassed**.
 Fälla i spec §8: en vakt som inte setts bli röd vaktar ingenting. Åtta nummer var fel; bryt ett av dem och se exakt den parametriseringen falla.
 
 ```bash
-cp _unpublished/exports/gemini-notebooklm-print-a4-en.html /tmp/gemini-toc-backup.html
+cp _unpublished/exports/gemini-notebook-print-a4-en.html /tmp/gemini-toc-backup.html
 /usr/bin/python3 - <<'PY'
 from pathlib import Path
-p = Path("_unpublished/exports/gemini-notebooklm-print-a4-en.html")
+p = Path("_unpublished/exports/gemini-notebook-print-a4-en.html")
 lines = p.read_text(encoding="utf-8").splitlines(keepends=True)
 i = 543  # rad 544, bonuskapitlets toc__page — kontrollera numret först
 assert "toc__page" in lines[i], lines[i]
@@ -1693,8 +1870,8 @@ lines[i] = lines[i].replace(">2", ">9")
 p.write_text("".join(lines), encoding="utf-8")
 PY
 /usr/bin/python3 -m pytest scripts/tests/test_guide_toc.py -q 2>&1 | tail -12
-cp /tmp/gemini-toc-backup.html _unpublished/exports/gemini-notebooklm-print-a4-en.html
-git diff --stat -- _unpublished/exports/gemini-notebooklm-print-a4-en.html
+cp /tmp/gemini-toc-backup.html _unpublished/exports/gemini-notebook-print-a4-en.html
+git diff --stat -- _unpublished/exports/gemini-notebook-print-a4-en.html
 ```
 Förväntat: ett FAIL av formen `gemini 'Bonus Chapter · The EU AI Act for schools': förteckningen säger 9…, avsnittet börjar på N`, och efter återställningen tom `git diff --stat`.
 
@@ -1704,7 +1881,7 @@ Samma cp-undan-och-tillbaka som Task 13 — numren står i PDF:en, så den måst
 
 ```bash
 cp _unpublished/assets/pdfs/guides/gemini-notebooklm-guide-sv.pdf /tmp/gemini-guide-sv.pdf
-/usr/bin/python3 exports/build-gemini-notebooklm-pdf.py
+/usr/bin/python3 exports/build-gemini-notebook-pdf.py
 cp /tmp/gemini-guide-sv.pdf _unpublished/assets/pdfs/guides/gemini-notebooklm-guide-sv.pdf
 git status --short -- _unpublished/assets/pdfs/
 ```
@@ -1716,9 +1893,9 @@ Förväntat: PASS på båda, 0 xfailed.
 - [ ] **Steg 6: Commit**
 
 ```bash
-git add _unpublished/exports/gemini-notebooklm-print-a4-en.html \
+git add _unpublished/exports/gemini-notebook-print-a4-en.html \
         scripts/tests/test_guide_toc.py \
-        _unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf
+        _unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf
 git commit -m "fix(gemini): innehållsförteckningens tio sidnummer, nu vaktade mot PDF:en"
 ```
 
@@ -1736,8 +1913,8 @@ Copilots nycklar kommer ut och Geminis två in. Listan ska aldrig växa radvis; 
 
 ```python
 RECAPTURED_THIS_ROUND = [
-    "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf",
-    "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf",
+    "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf",
+    "_unpublished/assets/pdfs/guides/gemini-notebook-quick-start-en.pdf",
 ]
 ```
 
@@ -1745,8 +1922,8 @@ RECAPTURED_THIS_ROUND = [
 
 ```bash
 /usr/bin/python3 scripts/tests/fixtures/capture_guide_baseline.py \
-  --only _unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf \
-  --only _unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf
+  --only _unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf \
+  --only _unpublished/assets/pdfs/guides/gemini-notebook-quick-start-en.pdf
 ```
 
 **`--force` får inte användas.** Det är liktydigt med att slå av paritetsvakten för alla 22 PDF:er (spec §8).
@@ -1799,7 +1976,7 @@ Spec §8.6 och §8.7. Copilot-rundans slutgranskning hittade elva fynd i ett pas
 ```bash
 mkdir -p /tmp/gemini-pages
 pdftoppm -png -r 110 \
-  _unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf \
+  _unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf \
   /tmp/gemini-pages/p
 ls /tmp/gemini-pages/ | wc -l
 ```
@@ -1820,7 +1997,7 @@ De åtta `<img>`-raderna (EP 1099–1155) ligger alla i stilbiblioteket och rund
 /usr/bin/python3 - <<'PY'
 from pathlib import Path
 import re
-ep = Path("_unpublished/exports/gemini-notebooklm-print-a4-en.html").read_text(encoding="utf-8")
+ep = Path("_unpublished/exports/gemini-notebook-print-a4-en.html").read_text(encoding="utf-8")
 for src in re.findall(r'<img src="([^"]+)"', ep):
     p = (Path("_unpublished/exports") / src).resolve()
     print(("OK  " if p.is_file() else "SAKNAS"), src)
@@ -1831,13 +2008,13 @@ Förväntat: OK på alla åtta.
 - [ ] **Steg 5: Läs PDF:en från pärm till pärm**
 
 ```bash
-pdftotext -layout _unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf - | less
+pdftotext -layout _unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf - | less
 ```
 Det som letas efter är sådant ingen vakt kan se: en mening som tappat sitt subjekt när mitten ströks, en korsreferens till ett avsnitt som bytt namn ("the Bonus Chapter on GDPR"), en uppräkning som säger "three things" och räknar två, och ett stycke som nu säger samma sak två gånger eftersom dubbletten i bonuskapitlet togs bort.
 
 ```bash
 grep -nE "Bonus Chapter|see (Part|the chapter)|as described (in|above)|below" \
-  _unpublished/exports/gemini-notebooklm-print-a4-en.html | cut -c1-140
+  _unpublished/exports/gemini-notebook-print-a4-en.html | cut -c1-140
 ```
 Varje korsreferens läses mot det den pekar på.
 
@@ -1872,9 +2049,9 @@ Tillåtna förluster, och inga andra: de sju ur `test_copilot_toc.py` (Task 1), 
 
 ```bash
 # kör från repots rot — i den här rundan är det worktreen, inte huvudkopian
-EP=_unpublished/exports/gemini-notebooklm-print-a4-en.html
-EW=_unpublished/guides/gemini-notebooklm/index.html
-QS=_unpublished/exports/gemini-notebooklm-quick-start-en.html
+EP=_unpublished/exports/gemini-notebook-print-a4-en.html
+EW=_unpublished/guides/gemini-notebook/index.html
+QS=_unpublished/exports/gemini-notebook-quick-start-en.html
 
 # Ingen namngiven myndighet, ingen artikelnivå-GDPR
 grep -rncE "Skolverket|IMY|Schrems|Article 6\(1\)|Article 30|supervisory authorit|national data protection authority" $EP $EW $QS   # 0 på alla tre
@@ -1892,7 +2069,7 @@ grep -cE "Limited risk|phases in through 2026" $EP           # 0
 grep -nE "cover__attr|closing__signature" $EP | grep -c "October 2026"  # 2
 # Webbsidan fri från Google Fonts och Crestiora-typsnitten
 grep -rncE "fonts\.googleapis|fonts\.gstatic|Playfair|'Inter'|font-family=\"Inter" \
-  $EW _unpublished/guides/gemini-notebooklm/styles.css       # 0 på båda
+  $EW _unpublished/guides/gemini-notebook/styles.css       # 0 på båda
 # Två PDF:er ändrade, inga fler
 git diff --name-only origin/main...HEAD -- '*.pdf' | wc -l   # 2
 # Johans filer orörda
@@ -1901,6 +2078,12 @@ git diff --name-only origin/main...HEAD | grep -cE '^(exports/wise|exports/ratt|
 git diff --name-only origin/main...HEAD | grep -cE 'gemini.*-sv|sv/guider/gemini'                    # 0
 # Inget publiceringssteg smugit in
 git diff --name-only origin/main...HEAD | grep -cE 'guides-en\.json|sitemap\.xml|PAIR_MAP|build-seo-meta'  # 0
+# Namnbytet: inga EN-filer med det gamla prefixet kvar
+git ls-files | grep -c 'gemini-notebooklm.*-en\|guides/gemini-notebooklm/'   # 0
+# De svenska filnamnen ÄR kvar, med avsikt (deras innehåll säger ännu NotebookLM)
+git ls-files | grep -c 'gemini-notebooklm'                                    # 14
+# NotebookLM står bara i citerat material — jämför mot Task 4C:s överlevandelista
+grep -c "NotebookLM" $EP $EW $QS
 ```
 
 - [ ] **Steg 4: Kontrollera att varje post bär källa och datum**
@@ -1919,6 +2102,8 @@ Förväntat: samma tal två gånger — varje post bär antingen ett hämtdatum 
 - **Vaktlagret** är nu guide-agnostiskt i fyra lager, inte två: ytvakten och inventeringen sedan Copilot-rundan, **TOC-vakten (`test_guide_toc.py`) och leveransvakten (`test_guide_delivery.py`) sedan den här**. Nästa guide fyller fyra kartor och skriver en inventering; den behöver inte ändra någon vakt. Skriv ut de fyra namnen och vad var och en kräver.
 - **Två nya konventioner** som nästa runda ska följa: `XFAIL_UNTIL_RECOUNTED` och `XFAIL_UNTIL_RERENDERED` töms i slutet av varje runda, precis som `RECAPTURED_THIS_ROUND`, och `test_fonts.GUIDE_WEB_SURFACES` fylls med en guide när dess webbyta städats.
 - **Det svenska divergensläget** som ett känt läge, inte något att upptäcka senare: `_unpublished/exports/gemini-notebooklm-print-a4-sv.html`, `gemini-notebooklm-quick-start-sv.html` och `_unpublished/sv/guider/gemini-notebooklm/` står kvar med aprilfakta och svensk inramning, deras PDF:er är byte-identiska, och de två språken divergerar nu i sak. Lägg Gemini till den befintliga punkten om Copilots svenska ytor — frågan är densamma för båda.
+- **Namnbytet och dess kvarvarande skuld.** Google döpte om NotebookLM till **Gemini Notebook** 2026-07-16 (post G49). Rundan bytte namn i de engelska ytornas prosa, i titeln, i den tryckta URL:en och i **filnamnen** — Johans beslut 2026-10-12. Skriv ut: (a) att de **svenska** filnamnen med avsikt behåller `gemini-notebooklm-*`, eftersom deras innehåll fortfarande säger NotebookLM och ett namnbyte där hade gjort filnamnet osant; (b) att **`scripts/build-seo-meta.py` rad 51, 57 och 75** fortfarande bär `/guides/gemini-notebooklm/` och `/sv/guider/gemini-notebooklm/`, och att rad 75 är PAIR_MAP, som spec §1 förbjuder rundan att röra — **det är tre strängar publiceringsrundan måste rätta**, och det är den enda kända inkonsekvensen namnbytet lämnar; (c) att `NotebookLM` aldrig kan bli en förbudsrad i den här guiden, eftersom citaten bär ordet legitimt, och att vakten därför vaktar Task 4C:s uppräknade överlevande förekomster i stället.
+- **Grindens tre beslut**, så att nästa guide vet att de togs och av vem: namnbytets omfång, att det svenska praktikexemplet stannar, och att bonuskapitlet tar in emotion recognition och examinationshögrisken men inte förbud 9.
 - **Tre kända luckor** som rundan inte stänger och som ska stå utskrivna: (1) Claude-guidens femton TOC-nummer står ovaktade — `test_guide_toc.py` tar inte in dem, och varför står i filens docstring. (2) `_unpublished/guides/apple-intelligence/` och `_unpublished/guides/ai-for-students/` bär fortfarande Crestioras typsnitt, inklusive inline-attribut i SVG. (3) Quick-startens pekare till `choosewise.education/guides/gemini-notebooklm/` svarar 404 så länge guiden är opublicerad — medvetet, inte missat.
 - **Rättelserna till specen** (planens fem) så att nästa guide mäter på rätt saker: inline-`font-family` i SVG, P13-korsreferensens verkliga omfång, praktikexemplet som skäl att inte dela förbudslistor, ett påstående om Johans anställning, och asymmetrier mellan de två engelska ytorna.
 
@@ -1954,4 +2139,7 @@ Specens §9, med planens tillägg:
 - [ ] Webbytan fri från Google Fonts, från Crestiora-typsnitten och från de sjutton inline-attributen — med en vakt som ser dem.
 - [ ] PDF-facit omfångat med `--only`, de tjugo andra nycklarna orörda.
 - [ ] Dokumentet granskat som dokument: åtta bilder, pyramidens nya etiketter, jurisdiktionsrutans sidbrytning, och en genomläsning pärm till pärm.
-- [ ] Det svenska divergensläget och de tre kända luckorna skrivna i överlämningen.
+- [ ] Produktnamnet är `Gemini Notebook` i guidens egen röst på alla tre engelska ytorna, i titeln, i den tryckta URL:en och i filnamnen — och `NotebookLM` står kvar enbart i citerat material, uppräknat post för post.
+- [ ] Bonuskapitlet nämner emotion recognition i utbildningsinstitutioner och kommissionens egen högriskformulering om tillträde till utbildning. Förbud 9 står inte där.
+- [ ] Fristadsskolan-exemplet står kvar, med källa, och utan påståendet om nyanlända elever.
+- [ ] Det svenska divergensläget, namnbytets kvarvarande skuld i `build-seo-meta.py` och de tre kända luckorna skrivna i överlämningen.
