@@ -468,6 +468,45 @@ adressfixen. Fixen är alltså fortfarande inte gjord; den står kvar som en
 öppen punkt för nästa uppgift som redigerar avslutningsstycket, snarare än att
 jag utför en redigering ingen av mina två uppdragsbeskrivningar bad om.
 
+### Task 11:s observationer
+
+**Quick-starten (QS) kontrollerades påstående för påstående mot inventeringens
+Task 9-rättade värden, 2026-10-12, och behövde ingen ytterligare ändring.**
+Samtliga sex produktpåståenden (`Workspace for Education` ×1, `Deep Research`
+×1, `Audio Overview` ×4, `Video Overview` — två förekomster, inte en: QS:280
+och QS:314, brevets "×1" var en undertäckning) kontrollerades mot sin post:
+
+| QS-rad | påstående | post | utfall |
+|---|---|---|---|
+| 187 | "If your school runs Google Workspace for Education, use that domain account instead" | G05 | Rör bara kontotypen, inte vad licensen *ger* (G05:s `fel`-del, rättad i G12). Ingen ändring |
+| 280 | "podcast-style Audio Overviews, and Video Overviews (the Cinematic format is 18+)" | G09, G11 | Redan i Task 9:s rättade form — QS:280 är uttryckligen namngiven i G11:s ÅTGÄRDAT-anteckning som rättad punkt ("Cinematic Video Overviews" → "Video Overviews (the Cinematic format is 18+)"). Ingen ändring |
+| 281 | "Audio Overview of a unit plan + two readings" | G09 | Gör inget NotebookLM-exklusivitets- eller produktnamnspåstående — G09:s båda `fel`-delar gäller inte den här raden. Ingen ändring |
+| 295 | "Click Audio Overview. 15–25 minutes of classroom-ready audio" | G09 (Audio Overview) + egen observation (15–25 min) | Audio Overview-namnet orört och rätt; tidsuppskattningen är redan G09-oberoende och redan beslutad att stå (se Task 9:s observationer, punkt 3). Ingen ändring |
+| 299 | "Run Deep Research on a topic … Background reading … in fifteen minutes instead of an afternoon — with inline citations" | G08 | Namnet och beskrivningen stämmer; G08:s `fel`-del gäller bara backbone-modellpåståendet ("Gemini 3 Pro"), som QS aldrig gjorde. Ingen ändring |
+| 314 | "13 or over … for Gemini on a personal or school account, 18 or over on a work account, and Gemini Notebook in a browser from your country's age of consent" | G16 | Redan i Task 9:s rättade form — QS:314 är uttryckligen namngiven i G16:s ÅTGÄRDAT-anteckning. Ingen ändring |
+
+`Gems` och `Canvas` förekommer noll gånger i QS (kontrollerat med `grep -n`) —
+ingenting att stämma av där. **Ingen rad i tabellen ovan krävde en redigering**,
+och ingen commit gjordes för Task 11.
+
+**Två punkter kontrollerade och lämnade som de var, med skäl:**
+
+1. **QS:319, "choosewise.education / guides / gemini-notebook".** Briefens
+   egen mätning citerar den äldre sökvägen (`…/gemini-notebooklm`); filen
+   bär redan den aktuella (`…/gemini-notebook`) — ett tecken på att briefen
+   skrevs före ett namnbytessteg som redan passerat filen. Sökvägen är
+   ägarens avsiktliga val (ruling 2026-10-12): den **stannar**, även om den
+   svarar 404 i dag (`curl` bekräftar **404** på båda formerna 2026-10-12) —
+   guiden är opublicerad, spec §1 tillåter ingen publicering den här rundan,
+   och adressen blir giltig när den publiceras. `scripts/build-seo-meta.py`
+   och `_unpublished/README.md` fortsätter ange den gamla sökvägen; den
+   motsättningen är en registrerad skuld för publiceringsrundan, inte något
+   Task 11 rättar.
+2. **QS:295, "15–25 minutes of classroom-ready audio".** Redan beslutad och
+   noterad i Task 9:s observationer (punkt 3): en praktikers egen
+   tidsuppskattning, inte ett leverantörspåstående om Google-produkten. Ingen
+   källa söks, siffran rörs inte.
+
 ## Vaktblock
 
 ```guard
