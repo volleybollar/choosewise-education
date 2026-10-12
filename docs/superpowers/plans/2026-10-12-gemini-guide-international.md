@@ -951,13 +951,38 @@ git commit -m "docs(gemini): faktakontrollera inventeringen mot namngivna källo
 
 **Filer:**
 - Byt namn: `_unpublished/exports/gemini-notebooklm-print-a4-en.html`, `gemini-notebooklm-quick-start-en.html`, `_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf`, `gemini-notebooklm-quick-start-en.pdf`, katalogen `_unpublished/guides/gemini-notebooklm/`, dess `assets/screenshot-notebooklm-audio.png`, och `exports/build-gemini-notebooklm-pdf.py`
-- Modifiera: `scripts/tests/pdf_fingerprint.py`, `pdf_body_text.py`, `test_guide_toc.py`, `test_guide_delivery.py`, `test_guide_pdf_body_text.py`, `test_guide_pdf_font_weights.py`, `test_build_scripts.py`, `test_guide_asset_paths.py`, `exports/build-guide-pdfs.py`, `exports/build-gemini-quickstart-pdf.py`, `_unpublished/guides/gemini-notebook/index.html` (bildreferensen), `_unpublished/exports/gemini-notebook-quick-start-en.html` (sökvägsreferensen), `docs/guide-facts-gemini.md` (ythuvudet), och de två facit-JSON-filerna
+- Modifiera: `scripts/tests/pdf_fingerprint.py`, `pdf_body_text.py`, `test_guide_toc.py`, `test_guide_delivery.py`, `test_guide_pdf_body_text.py`, `test_guide_pdf_font_weights.py`, `test_build_scripts.py`, `test_guide_asset_paths.py`, **`test_capture_guide_baseline.py` (`RECAPTURED_THIS_ROUND` — se ruling 3)**, `exports/build-guide-pdfs.py`, `exports/build-gemini-quickstart-pdf.py`, `_unpublished/guides/gemini-notebook/index.html` (**bildreferensen OCH nedladdningslänkarna — `data-gate`, `data-gate-pdf` och `href` kring rad 1222 och 1225 pekar också på de gamla PDF-namnen**), `_unpublished/exports/gemini-notebook-quick-start-en.html` (sökvägsreferensen), `docs/guide-facts-gemini.md` (ythuvudet), och de två facit-JSON-filerna
+
+**Sök brett innan du bockar uppgiften:** `grep -rn "gemini-notebooklm" ` över de tre engelska ytorna och den omdöpta webbkatalogen. Listan ovan är mätt, men den mätningen letade efter sökvägar i kod — en referens inne i ett HTML-attribut syns inte i den sökningen.
 
 **Tre rulings som avgränsar uppgiften, och som du inte ska vidga:**
 
 1. **Bara EN-filerna byter namn.** De svenska ytorna behåller `gemini-notebooklm-*` och `sv/guider/gemini-notebooklm/`, eftersom deras innehåll fortfarande säger NotebookLM — de står utanför rundan med aprilfakta (spec §1), och ett namnbyte där hade gjort filnamnet osant om innehållet. Följden är att `test_the_swedish_gemini_pdfs_are_untouched_since_the_merge_base` fungerar oförändrat: dess merge-base-uppslagning sker på sökvägar som inte rört sig.
 2. **`scripts/build-seo-meta.py` rörs INTE.** Dess rader 51, 57 och 75 bär `/guides/gemini-notebooklm/` och `/sv/guider/gemini-notebooklm/`, och rad 75 är PAIR_MAP — som spec §1 uttryckligen förbjuder rundan att röra. Inkonsekvensen är avsiktligt kvarlämnad och skrivs in i överlämningen med radnummer (Task 17).
-3. **Facitvakten kräver ingen ändring.** De två EN-PDF:erna är exakt de två som står i `RECAPTURED_THIS_ROUND`, och `test_capture_guide_baseline` hoppar över dem **före** sin `committed[rel]`-uppslagning. Byter du både `GUIDE_PDFS` och JSON-nycklarna håller `sorted(current) == sorted(GUIDE_PDFS)`, och de tjugo andra nycklarna jämförs oförändrat mot bascommiten. **Rör inte vakten.** Behöver du ändra den har du bytt namn på något mer än de två EN-PDF:erna.
+3. **Facitvakten kräver EN ändring — rättat 2026-10-12 efter att uppgiften kördes.** Planen hävdade först att vakten kunde lämnas orörd, eftersom de två EN-PDF:erna "redan står i `RECAPTURED_THIS_ROUND`". **Det var fel.** Listan bar fortfarande Copilot-rundans två nycklar, för planen lägger omfyllningen i Task 15 — så efter namnbytet slog `committed[rel]` fel på de nya nycklarna och tre tester föll. Rätt åtgärd, verifierad: fyll `RECAPTURED_THIS_ROUND` med de **två nya gemini-nycklarna** redan här, enligt filens egen konvention ("töms och fylls om i varje ny runda"). Task 15 bekräftar sedan samma två namn.
+
+   **Kontrollera samtidigt att nyckelbytet inte smugglade in en innehållsändring** — det är vad vakten annars hade gjort åt dig:
+   ```bash
+   /usr/bin/python3 - <<'PY'
+   import json, subprocess
+   MB = subprocess.run(["git","merge-base","main","HEAD"],capture_output=True,text=True,check=True).stdout.strip()
+   PAIRS = [("_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf",
+             "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf"),
+            ("_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf",
+             "_unpublished/assets/pdfs/guides/gemini-notebook-quick-start-en.pdf")]
+   for f in ("guide-pdf-baseline.json","guide-pdf-body-baseline.json"):
+       rel = f"scripts/tests/fixtures/{f}"
+       before = json.loads(subprocess.run(["git","show",f"{MB}:{rel}"],capture_output=True,text=True,check=True).stdout)
+       after = json.loads(open(rel,encoding="utf-8").read())
+       assert len(after) == 22, len(after)
+       for old_k, new_k in PAIRS:
+           assert before[old_k] == after[new_k], f"{f}: {new_k} fick ett ändrat värde"
+       others = [k for k in after if k not in dict(PAIRS).values()]
+       assert not [k for k in others if before.get(k) != after[k]], f"{f}: drift på en orörd nyckel"
+       print(f"{f}: 22 nycklar, båda värdena oförändrade, noll drift")
+   PY
+   ```
+   **En starkare variant som nästa runda kan välja i stället:** ge vakten en namnbyteskarta (`committed[gammal_nyckel]` mot `current[ny_nyckel]`) så att värdena fortsätter bevakas ända till den runda som faktiskt renderar om filerna. `RECAPTURED`-vägen når samma slutläge men lämnar de två filerna obevakade däremellan.
 
 **Namnformen:** prefixet blir `gemini-notebook`. Alltså `gemini-notebook-print-a4-en.html`, `gemini-notebook-quick-start-en.html`, `gemini-notebook-guide-en.pdf`, `gemini-notebook-quick-start-en.pdf`, katalogen `_unpublished/guides/gemini-notebook/`, bilden `screenshot-notebook-audio.png`, byggaren `exports/build-gemini-notebook-pdf.py`. **Guidenyckeln i vaktkartorna är och förblir `"gemini"`** — den bar aldrig produktnamnet och ska inte byta.
 
