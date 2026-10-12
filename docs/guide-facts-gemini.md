@@ -199,6 +199,20 @@ ett resultat, och det står i respektive cell.
    (explainer video or brief video)". Google i dag: **Cinematic / Explainer / Short**, med
    Cinematic låst till 18+. Samma mönster: en i övrigt bra tredjepartskälla har inte följt med.
 
+5. **Googles Studio-panel mot Googles Gemini Apps-sida (ny, funnen i Task 9).**
+   `support.google.com/gemininotebook/answer/17003757` säger ordagrant att Gemini
+   **inte** kan generera Studio-artefakter — "Audio Overviews, Video Overviews,
+   Infographics, Slide Deck … These features are only available in Gemini Notebook"
+   (G03, G11). `support.google.com/gemini/answer/16047373` säger samtidigt att man
+   skapar "podcast-style conversations … with Audio Overviews in Gemini Apps" (G09).
+   Båda är hämtade, båda är Googles egna, och **båda utfallen skrevs in i guiden av
+   Task 9** — vilket gjorde motsägelsen till guidens egen innan den upptäcktes i
+   självgranskningen. Förenad i prosan på den enda rimliga läsningen, och utan att
+   något av källutfallen tappas: Gemini kan inte generera en **synkad notebooks**
+   Studio-artefakter från Gemini-sidan, men Gemini Apps har en **egen** Audio
+   Overview-funktion. Den läsningen är inventeringens tolkning, inte en hämtad
+   mening, och är flaggad som sådan.
+
 **En femte skillnad som inte är en konflikt men liknar en:** tredjepartskällorna
 (Pedagog Eskilstuna, Ditch That Textbook, Kasey Bells avsnitt #252, choosewise.educations
 egen styles-sida) skriver alla fortfarande "NotebookLM". De har inte fel — de citerar och
