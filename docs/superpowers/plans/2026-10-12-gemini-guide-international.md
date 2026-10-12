@@ -1080,6 +1080,8 @@ git commit -m "refactor(gemini): EN-ytorna byter namn till gemini-notebook"
 - Modifiera: `_unpublished/exports/gemini-notebook-print-a4-en.html`, `_unpublished/guides/gemini-notebook/index.html`, `_unpublished/exports/gemini-notebook-quick-start-en.html`
 - Modifiera: `docs/guide-facts-gemini.md` (G49:s förekomstkolumner och den överlevandelista steg 4 kräver)
 
+**Prosa bor inte bara i HTML, och det kostade en blockering i Task 13.** Byggarens löpande sidfot — `exports/build-gemini-notebook-pdf.py` rad 61 — bar `Gemini &amp; NotebookLM for teachers and school leaders` på **43 av 44 sidor** ända till omrenderingen, eftersom en sidfotstitel är prosa som bor i **Python**: Task 4B:s lista ägde sökvägar, den här uppgiftens ägde HTML-ytor, och varje vakt fram till omrenderingen läste HTML. **Ta byggarens sidfotsrad i den här uppgiften.** Radens svenska motsvarighet (rad 66) rörs INTE — de svenska ytorna behåller det gamla namnet med avsikt, och en ändrad sträng där ändrar deras byte och fäller byte-vakten med rätta.
+
 **Den gräns som gör uppgiften svår:** guidens **egen prosa** byter namn. **Citerat och attribuerat material gör det inte** — Pedagog Eskilstunas rubrik, Ditch That Textbooks sidtitel, Kasey Bells avsnittsnamn och choosewise.educations egen styles-sida skriver fortfarande "NotebookLM", och de har inte fel: de citerar och daterar sig själva. Ett citat som "rättas" är inte längre ett citat.
 
 - [ ] **Steg 1: Byt namnet i guidens egen prosa**
