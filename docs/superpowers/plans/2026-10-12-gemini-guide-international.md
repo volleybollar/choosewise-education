@@ -1084,7 +1084,9 @@ git commit -m "refactor(gemini): EN-ytorna byter namn till gemini-notebook"
 
 - [ ] **Steg 1: Byt namnet i guidens egen prosa**
 
-Formen är **`Gemini Notebook`** vid första omnämnandet i varje del och i varje rubrik. **Där en mening annars skulle läsa "Gemini and Gemini Notebook" får andra ledet kortas till `Notebook`** — Googles egen domän är `notebook.google.com` och hjälpcentret heter "Gemini Notebook Help", så kortformen är leverantörens egen. Välj en form per mening och håll den genom stycket; en guide som växlar mellan "Gemini Notebook" och "Notebook" i samma stycke läser som två produkter.
+Formen är **`Gemini Notebook`** genomgående. **Kortformen `Notebook` får INTE användas** — planens första utkast föreslog den för meningar som annars läser "Gemini and Gemini Notebook", men uppgiften visade varför det inte går: guiden använder redan versalt `Notebook`/`Notebooks` om **artefakten** (38 förekomster i printytan allena), så "Gemini and Notebook" läser som objektet, inte produkten. Hellre en klumpig parkonstruktion än en tvetydig.
+
+**En rename hittar aldrig på ett namn för ett påstående som inventeringen märkt `fel` eller `obelagt`.** Den lämnar den gamla strängen, och den uppgift som äger påståendet byter ut hela meningen. Konkret i den här rundan: `NotebookLM Enterprise` (EP 973, 1023; EW 485, 537) står kvar orört — G13 fann fem 404:or på namnet och att EU-residensen *inte* är dokumenterad, så både ett nytt namn och ett nytt bärarnamn hade varit påhitt. Task 6 tar bort hela utfästelsen och behåller den belagda halvan.
 
 - [ ] **Steg 2: Titeln och den tryckta URL:en**
 
@@ -1106,6 +1108,8 @@ Varje kvarvarande förekomst ska vara **inuti ett citat, en källtitel eller ett
 - [ ] **Steg 4: Skriv den överlevandelista som ersätter en förbudsrad**
 
 **Varför det här steget finns:** `NotebookLM` kan **inte** bli en `borttaget`-rad i vaktblocket, och inte heller en förbjuden sträng i leveransvakten — citaten bär ordet legitimt, exakt samma fälla som ordet `Sweden` (G21) och ordet `GDPR` (G30). Vakten måste därför vakta något annat: **de överlevande förekomsterna, uppräknade.**
+
+**Mätt utfall 2026-10-12: åtta överlevande, alla provisoriska.** Fyra är ramen kring Matt Miller-citatet (EP 719, EW 212, och samma konstruktion längre in på EP 636 och EW 126) — ramen är guidens egen röst, men hela konstruktionen byts när G20:s obelagda citat ersätts, så den tar det nya namnet då. Fyra är `NotebookLM Enterprise` (EP 973, 1023; EW 485, 537), som Task 6 tar bort med hela utfästelsen. **Varje rad i listan ska namnge vilken senare uppgift som eliminerar den** — en överlevande utan ägare är en som blir permanent.
 
 Skriv i inventeringen under G49: varje kvarvarande förekomst med yta, radnummer och vilket citat den tillhör. Task 12 gör en `aktiv`-rad på `Gemini Notebook` och `borttaget`-rader på guidens **egna** gamla formuleringar (de fraser där guidens röst sa NotebookLM), aldrig på det bara ordet.
 
@@ -1517,6 +1521,23 @@ Läs varje skillnad och avgör: **formuleringsskillnad** (ingen åtgärd, en rad
 G05, G08, G10–G18 enligt sina utfall. Två regler:
 - Ett `obelagt` värde skrivs om **utan siffra**, inte med en gissning. "Four formats" blir "several formats" om källan inte räknar dem; "added September 2025" går om ingen sida bär datumet.
 - Ett namn Google har bytt skrivs om på **varje** förekomst. Antalen i Task 3:s tabell är hur många det är — en rättning som lämnar 23 av 24 är inte en rättning.
+
+- [ ] **Steg 3B: Citatet som inte finns hos sin upphovsperson (G20)**
+
+**Lucka i planens första utkast, hittad av Task 4C 2026-10-12:** G20 stod bara under uppgiftens inledande regel ("varje post vars utfall blev `fel` eller `obelagt` rättas här") och i inget av stegen. Hälften av namnbytets överlevandelista hängde därmed på en regel i stället för på ett steg. Här är steget.
+
+Guiden skriver på **EP 636, 719** och **EW 126, 212**:
+
+> Matt Miller (Ditch That Textbook, January 2026) puts it neatly: NotebookLM is *"a personal tutor that only knows what you teach"*.
+
+**Citatet finns inte på Millers sida.** Task 4 hämtade `ditchthattextbook.com/notebooklm/` → **200**, och sidan innehåller varken "personal tutor" eller "only knows what you teach". Utfall: `obelagt`. **Ett citat inom citationstecken som inte går att hitta hos sin upphovsperson får inte stå** — det är ett löfte om ordalydelse.
+
+Tre saker i samma redigering, på båda ytorna:
+1. **Ersätt citatet** med den rad granskaren verifierade ordagrant på just den sidan: *"It becomes an instant expert on the documents you give it."*
+2. **Behåll attributionen** — Matt Miller, Ditch That Textbook. Det är hans formulering, hämtad och belagd.
+3. **Ramen tar det nya produktnamnet.** Meningen "NotebookLM is …" är guidens egen röst, inte Millers, och den är den sista platsen där det gamla namnet står i guidens röst. Efter det här steget är fyra av namnbytets åtta överlevande borta.
+
+**Dateringen "January 2026" följer källan.** Står inget datum på den hämtade sidan går datumet, inte citatet.
 
 - [ ] **Steg 4: URL-posten (G19)**
 
