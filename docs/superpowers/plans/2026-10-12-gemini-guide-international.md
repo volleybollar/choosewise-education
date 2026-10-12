@@ -466,8 +466,14 @@ GUIDE_DELIVERY = {
 
 GUIDES = tuple(GUIDE_DELIVERY)
 
-# Geminis förbudslista är röd till Task 13 har renderat om PDF:erna.
-XFAIL_UNTIL_RERENDERED = {"gemini"}
+# Röd till Task 13 har renderat om PDF:erna. Mängden är PER PDF, inte per
+# guide: quick-starten bär INGEN av de arton förbudssträngarna redan i dag
+# (mätt 2026-10-12 — den har varken svensk inramning eller juridisk text),
+# så en xfail på den vore en strikt XPASS, alltså röd av fel skäl. Samma
+# form som XFAIL_UNTIL_RECOUNTED i test_guide_toc.py: (guide, identitet).
+XFAIL_UNTIL_RERENDERED = {
+    ("gemini", "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf"),
+}
 
 
 def delivery_for(guide: str) -> dict:
@@ -501,7 +507,7 @@ def _delivery_cases():
             marks = ([pytest.mark.xfail(
                         strict=True,
                         reason="röd till Task 13 har renderat om PDF:erna")]
-                     if guide in XFAIL_UNTIL_RERENDERED else [])
+                     if (guide, rel) in XFAIL_UNTIL_RERENDERED else [])
             yield pytest.param(guide, rel, marks=marks, id=f"{guide}:{rel.rsplit('/', 1)[-1]}")
 
 
@@ -588,7 +594,7 @@ def test_the_swedish_gemini_pdfs_are_untouched_since_the_merge_base(rel):
 - [ ] **Steg 2: Kör den och läs utfallet**
 
 Kör: `/usr/bin/python3 -m pytest scripts/tests/test_guide_delivery.py -v`
-Förväntat: Copilots två PASS, Geminis två XFAIL, de övriga sju PASS. **Noll XPASS** — ett xpassed här betyder att Geminis PDF:er redan är fria från varje förbjuden sträng, vilket de inte är: `grep` i steg 3 visar vilka som står kvar.
+Förväntat: Copilots två PASS, Geminis **huvudguide XFAIL**, Geminis **quick-start PASS**, de övriga sju PASS. **Noll XPASS.** Att quick-starten är grön från början är mätt, inte antaget: den bär noll av de arton strängarna. Ett xpassed på huvudguiden skulle däremot betyda att den redan är ren, vilket den inte är — `grep` i steg 3 visar vilka femton strängar som står kvar.
 
 - [ ] **Steg 3: Se att xfail:en faller på innehåll och inte på en felskriven sträng**
 
@@ -1604,11 +1610,11 @@ Förväntat: **exakt två ändrade filer**, `gemini-notebooklm-guide-en.pdf` och
 - [ ] **Steg 4: Ta bort de tre xfail-markeringarna**
 
 I `scripts/tests/test_guide_delivery.py`:
-1. Töm `XFAIL_UNTIL_RERENDERED` till `set()` — behåll konstanten med en kommentar om att nästa guide fyller den igen, samma konvention som `RECAPTURED_THIS_ROUND`.
+1. Töm `XFAIL_UNTIL_RERENDERED` till `set()` — behåll konstanten med en kommentar om att nästa guide fyller den igen, samma konvention som `RECAPTURED_THIS_ROUND`. Mängden innehåller efter Task 2 **ett** par, huvudguidens; quick-starten var grön från början.
 2. Ta bort `@pytest.mark.xfail(...)`-raden över `test_geminis_cover_and_closing_carry_the_rounds_date`.
 
 Kör: `/usr/bin/python3 -m pytest scripts/tests/test_guide_delivery.py -v`
-Förväntat: PASS, 12 tester, 0 xfailed. Är någon röd står en förbjuden sträng kvar i den renderade filen — felmeddelandet namnger vilken, och den ska lagas i HTML:en och renderas om, inte tas ur listan.
+Förväntat: PASS, 12 tester, 0 xfailed (två markeringar tas bort: huvudguidens par och datumstämpeltestets dekorator). Är någon röd står en förbjuden sträng kvar i den renderade filen — felmeddelandet namnger vilken, och den ska lagas i HTML:en och renderas om, inte tas ur listan.
 
 - [ ] **Steg 5: Räkna med fyra fel till, fram till Task 15**
 
