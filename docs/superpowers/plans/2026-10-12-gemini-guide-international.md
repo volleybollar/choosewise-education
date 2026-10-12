@@ -10,7 +10,11 @@
 
 **Spec:** `docs/superpowers/specs/2026-10-12-gemini-guide-international-design.md`
 
-**Gren:** `feat/gemini-guide-international`, från `main` (HEAD `26c661a`). Baslinjen är **757 passed** med `scripts/tests/test_prompt_pdf_parity.py` exkluderad; med den filen inne **763 passed, 11 failed** — samma elva miljöberoende fel som faller på `main` (spec §8). Verifierat 2026-10-12 innan planen skrevs.
+**Gren:** `feat/gemini-guide-international`, från `main` (HEAD **`e2282b7`** — `main` flyttade sig under planeringen, PR #40 mergade ett blogginlägg; planens första utkast sa `26c661a`). Grenen bär också en merge av `origin/docs/gemini-guide-spec` (PR #39), eftersom `docs/` är gitignorerad och specen annars inte vore läsbar i worktreen.
+
+**Baslinjen, mätt i worktreen på `e2282b7`:** **757 passed, 1 failed** med `scripts/tests/test_prompt_pdf_parity.py` exkluderad; med den filen inne tillkommer dess **elva miljöberoende fel** (spec §8, `/tmp/pdf-parity-before/` töms av macOS vid dygnsskifte).
+
+**Det enda felet är PREEXISTERANDE och tillhör inte den här rundan:** `test_brand_mark.py::test_the_page_count_is_what_we_think` hävdar 198 sidor, och blogg-mergen gjorde dem 199 (`scripts/tests/test_brand_mark.py:176`). **Rundan rör det inte** — det är blogg-rundans regression och en rättning här skulle blanda två rundor. Varje uppgifts förväntade utfall ska alltså läsas som "757 + mina gröna, och det här ena röda kvar". **Är felen fler än ett, eller ett annat, är det rundans eget och ska lagas.**
 
 ---
 
@@ -341,11 +345,13 @@ git rm scripts/tests/test_copilot_toc.py
 - [ ] **Steg 5: Jämför de insamlade test-id:na mot `main`**
 
 ```bash
-/usr/bin/python3 -m pytest scripts/tests/ -q --collect-only 2>/dev/null | grep "::" | sort > /tmp/ids-branch.txt
-git stash && /usr/bin/python3 -m pytest scripts/tests/ -q --collect-only 2>/dev/null | grep "::" | sort > /tmp/ids-main.txt && git stash pop
-diff /tmp/ids-main.txt /tmp/ids-branch.txt
+WS=.superpowers/sdd/2026-10-12-gemini-guide-international
+/usr/bin/python3 -m pytest scripts/tests/ -q --collect-only 2>/dev/null | grep "::" | sort > "$WS/ids-task1.txt"
+diff "$WS/ids-main.txt" "$WS/ids-task1.txt"
 ```
-Förväntat: exakt sju borttagna id:n, alla ur `test_copilot_toc.py`, och deras motsvarigheter tillagda under `test_guide_toc.py` plus Geminis sexton. Försvinner något annat id är en parametrisering trasig. **`git stash` rör bara spårade ändringar** — Johans 26 ocommittade filer ligger också i stashen, så `git stash pop` måste köras i samma kommandorad, och `git status --short` kontrolleras efteråt.
+Förväntat: exakt sju borttagna id:n, alla ur `test_copilot_toc.py`, och deras motsvarigheter tillagda under `test_guide_toc.py` plus Geminis sexton. Försvinner något annat id är en parametrisering trasig.
+
+**`$WS/ids-main.txt` är insamlad i förväg** (775 id:n på `e2282b7`, innan grenens första ändring) och ligger i rundans arbetskatalog. **Använd ALDRIG `git stash` för att jämföra mot `main`:** stashstacken delas mellan worktreen och Johans huvudkopia, där 31 ocommittade filer ligger — en `git stash pop` i fel ordning kan ta hans ändringar. Behöver du mäta om `main` skapar du en engångs-worktree (`git worktree add --detach ../ids-main main`) och tar bort den efteråt.
 
 - [ ] **Steg 6: Hela sviten och commit**
 
@@ -783,6 +789,10 @@ Dessa är kända från mätningen och **ska** finnas med (fler tillkommer ur ste
 | G30 | Promptmallens platshållare "[e.g. GDPR + EU AI Act + your national school-governance law]" — **stannar**, spec §3 | regelverk | EP 1357, EW 915 |
 | G31 | "I have a full-time job and run this work alongside it" | författarfakta | EP 1611, EW 1209 |
 | G32 | Avslutningens CTA: "you can also reach out through my website (link in the footer)" | inramning | EP 1611, EW 1209 |
+| G33 | Del 3: "Update the school's records of processing (GDPR, a European regulation — Article 30)" | regelverk | EP 921, EW 430 |
+| G34 | Del 3: "You are personally carrying GDPR risk that belongs with your organisation" | regelverk | EP 934, EW 443 |
+
+**G33 och G34 är förflygsskanningens fynd 2026-10-12:** spec §3 räknar GDPR till tre ställen utanför bonuskapitlet, men printytan har **fem**. Mät själv i steg 2 — `grep -c "Article 30"` ska ge 4 och `grep -c "national data protection authority"` 3, alltså fler än Del 4:s passage rymmer. Task 6 äger rättningen.
 
 **G29 är i sig ett fynd:** webbytan saknar redan Sverige-parentesen som printytan bär, alltså divergerar de två engelska ytorna **i dag** på exakt en av rundans känsligaste meningar. Det hör i "Observationer utanför posterna" också, eftersom det säger något om hur de två ytorna har underhållits.
 
@@ -1039,8 +1049,9 @@ git commit -m "fix(gemini): datumstämplarna till oktober, webbytan ärver Bluep
 ## Task 6: Jurisdiktionsrutan in i huvudflödet
 
 **Filer:**
-- Modifiera: `_unpublished/exports/gemini-notebooklm-print-a4-en.html` (rad 972–979)
-- Modifiera: `_unpublished/guides/gemini-notebooklm/index.html` (rad 484–491, minus tre efter Task 5)
+- Modifiera: `_unpublished/exports/gemini-notebooklm-print-a4-en.html` (rad 921, 934, 972–979)
+- Modifiera: `_unpublished/guides/gemini-notebooklm/index.html` (rad 430, 443, 484–491, minus tre efter Task 5)
+- Modifiera: `docs/guide-facts-gemini.md` (två nya poster, G33–G34)
 
 Spec §3 pekar ut den här passagen som **det ställe rutan ska stå**: den är huvudflödets egen juridikpassage, den bär redan en svagare föregångare till rutan på rad 977 ("Readers outside the EU should verify…"), och den läses av dem som hoppar över bonuskapitlet.
 
@@ -1093,12 +1104,23 @@ done
 ```
 Förväntat: inga träffar i Del 4:s passage. Träffar i **bonuskapitlet** är kvar här och tas i Task 7 — läs radnumret innan du drar slutsatsen.
 
-- [ ] **Steg 5: Commit**
+- [ ] **Steg 5: Del 3:s två GDPR-förekomster — luckan förflygsskanningen hittade**
+
+**Spec §3 räknar tre GDPR-ställen utanför bonuskapitlet (print 972–979, 541, 1357). Det är fem.** Mätt i worktreen 2026-10-12: `grep -c "Article 30"` ger **4** och `grep -c "national data protection authority"` ger **3** i printytan, alltså fler än passagen ovan rymmer. De två specen missade står i **Del 3**, och ingen annan uppgift äger dem:
+
+| rad | står i dag | utfall |
+|---|---|---|
+| EP 921 / EW 430 | "Update the school's records of processing (GDPR, a European regulation — Article 30) to reflect the new tools." | **artikelnivån går, rådet stannar.** Meningen gör något för läsaren — den säger att dokumentationen ska uppdateras när verktygen ändras — och det är jurisdiktionsneutralt. Skriv om så att den säger *vad* som ska uppdateras (skolans egen förteckning över vilka personuppgifter verktygen behandlar) utan att namnge förordning eller artikel. |
+| EP 934 / EW 443 | "You are personally carrying GDPR risk that belongs with your organisation." | **regelverksnamnet går, varningen stannar.** "a data-protection risk that belongs with your organisation" bär samma skärpa utan rättslig analys. Hela stycket är ett av guidens viktigaste råd (konsumentkonton i skolarbete) och får inte tappa kraft. |
+
+Båda får **egna poster** i inventeringen (`G33`, `G34`) med typ `regelverk` och motiveringen utskriven — de finns inte i Task 3:s kända lista, eftersom den byggdes på specens treställsräkning.
+
+- [ ] **Steg 6: Commit**
 
 ```bash
 git add _unpublished/exports/gemini-notebooklm-print-a4-en.html \
         _unpublished/guides/gemini-notebooklm/index.html
-git commit -m "content(gemini): jurisdiktionsrutan ersätter huvudflödets GDPR-passage"
+git commit -m "content(gemini): jurisdiktionsrutan ersätter huvudflödets GDPR-passage, Del 3:s två artikelled bort"
 ```
 
 ---
@@ -1146,6 +1168,10 @@ EP rad 1018 (`<h3>GDPR fundamentals for schools using AI</h3>`) och de sju styck
 **Två av dem är inte bara juridik, och de får inte försvinna med badvattnet:**
 - **Dataresidensen** (EP 1023) är produktfakta och står redan i huvudflödet på EP 973 (post G13, Task 6 lät den stanna). Samma påstående, två formuleringar — det försvinner alltså inte ur guiden, det slutar stå två gånger.
 - **Den praktiska regeln** (EP 1025: "use only the school-domain Workspace account for anything touching student data… never put student-identifiable content into a consumer account") är ett **handlingsråd utan rättslig analys** och har ingen motsvarighet någon annanstans i guiden. Den **flyttas** till slutet av steg 2:s ingress eller till checklistan i EP 1066 — den stryks inte. Ett råd som inte namnger en lag faller inte under spec §3.
+
+  **MEN: stycket flyttas utan sin sista mening.** EP 1025 slutar *"If your school routinely uses Gemini or NotebookLM, your records of processing should reflect that."* Den meningen bär G33:s term, som Task 6 tar bort ur Del 3 och Task 12 gör till en förbudsrad — flyttas den med skrivs termen tillbaka och vaktblocket blir rött. Dokumentationsrådet finns dessutom redan kvar i Del 3 efter Task 6:s omskrivning, så ingenting går förlorat. **Två meningar flyttas, tre finns i stycket.**
+
+**Checklistan bär samma term en tredje gång.** EP 1072 / motsvarande rad på webbytan: *"Our records of processing (Article 30) reflect routine AI use across our school"*. Den punkten namnger en GDPR-artikel och går enligt steg 6 — men den räknas här, så att den inte blir en överraskning när vaktblocket läses in i Task 12.
 
 - [ ] **Steg 4: Rätta AI Act-datumen mot P13**
 
@@ -1462,7 +1488,11 @@ G02 | en | Johan Lindström, April 2026 | borttaget
 # aktiv-rad vore `saknas_på_en_yta` från första sekunden. Den bevakas av
 # leveransvakten, som läser PDF:en.
 
-# Task 6 — huvudflödets juridikpassage
+# Task 6 — huvudflödets juridikpassage OCH Del 3:s två artikelled
+G33 | en | a European regulation | borttaget
+G33 | en | records of processing | borttaget
+G34 | en | carrying GDPR risk | borttaget
+G29 | en | Sweden is a notable example | borttaget
 G23 | en | Data residency, GDPR, and national context | borttaget
 G23 | en | Standard GDPR discipline | borttaget
 G23 | en | Every EU member state has one | borttaget
@@ -1485,7 +1515,8 @@ G26 | en | Unacceptable risk | aktiv
 G22 | en | Swedish and other EU languages | borttaget
 G28 | en | Swedish schools | borttaget
 G28 | en | Sweden, as of April 2026 | borttaget
-G29 | en | Sweden is a notable example | borttaget
+# G29 står under Task 6 ovan: dess mening ligger i den passage Task 6
+# ersätter, inte i Task 8:s två jurisdiktionsexempel.
 # G21: praktikexemplet STANNAR, och de två aktiv-raderna är det som
 # hindrar ett senare städarsvep från att ta bort det utan att något
 # blir rött. Motiveringen står i posten.
@@ -1825,8 +1856,9 @@ Kör sedan utan `--ignore` och kontrollera att de **elva** felen i `test_prompt_
 - [ ] **Steg 2: Jämför de insamlade test-id:na mot `main`**
 
 ```bash
-/usr/bin/python3 -m pytest scripts/tests/ -q --collect-only 2>/dev/null | grep "::" | sort > /tmp/ids-final.txt
-diff /tmp/ids-main.txt /tmp/ids-final.txt
+WS=.superpowers/sdd/2026-10-12-gemini-guide-international
+/usr/bin/python3 -m pytest scripts/tests/ -q --collect-only 2>/dev/null | grep "::" | sort > "$WS/ids-final.txt"
+diff "$WS/ids-main.txt" "$WS/ids-final.txt"
 ```
 Tillåtna förluster, och inga andra: de sju ur `test_copilot_toc.py` (Task 1), de tre ur `test_copilot_delivery.py` (Task 2) och `test_copilot_surfaces_are_the_unpublished_ones` (Task 12). Varje borttaget id ska ha en namngiven efterträdare.
 
