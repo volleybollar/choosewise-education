@@ -60,7 +60,11 @@ GUIDE_TOC = {
         "anchors": {
             "Introduction":
                 "Before the how, a word on the why",
-            "Understanding Gemini and NotebookLM":
+            # Nyckeln är mallens TOC-rad, och den bytte namn i Task 4C.
+            # VÄRDENA är ankare i den ännu inte omrenderade PDF:en: de
+            # två nedan står med avsikt kvar med "NotebookLM" och ska
+            # bytas först när filen renderats om (Task 14).
+            "Understanding Gemini and Gemini Notebook":
                 "two complementary views onto a single Google account",
             "Part 1 · Getting Started":
                 "If you have never opened Gemini or NotebookLM, start here",
