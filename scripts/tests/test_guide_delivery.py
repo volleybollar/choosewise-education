@@ -105,6 +105,35 @@ def _flat(rel: str) -> str:
     return re.sub(r"\s+", " ", fp.extract(fp.ROOT / rel))
 
 
+_PAGE_CLAIM = re.compile(r"(\d+)-page")
+
+
+def _rendered_page_count(rel: str) -> int:
+    """Antal sidor i den FAKTISKT renderade pdf:en.
+
+    fp.pages() delar pdftotext-utskriften på formfeed-tecknet (\\f), som
+    pdftotext lägger efter VARJE sida — även den sista. En 44-sidig pdf
+    ger alltså 45 poster, där den sista är tom. Den tomma avslutande
+    posten är inte en sida och får inte räknas med, annars blir talet
+    alltid ett för högt."""
+    pages = fp.pages(fp.extract(fp.ROOT / rel))
+    if pages and pages[-1] == "":
+        pages = pages[:-1]
+    return len(pages)
+
+
+def _main_and_quick_start(guide: str) -> tuple[str, str]:
+    """Plockar isär en guides pdf-par ur GUIDE_DELIVERY, (huvudguide, quick-start),
+    utan att anta ordning — "quick-start" i filnamnet är det som skiljer dem."""
+    pdfs = delivery_for(guide)["pdfs"]
+    quick = [rel for rel in pdfs if "quick-start" in rel]
+    main = [rel for rel in pdfs if "quick-start" not in rel]
+    assert len(main) == 1 and len(quick) == 1, (
+        f"{guide}: väntade exakt en huvudguide och en quick-start i kartan, "
+        f"fick {pdfs}")
+    return main[0], quick[0]
+
+
 def _merge_base() -> str:
     """Grenens avstamp från `main`. Jämförelsepunkten måste ligga före
     rundan: på `HEAD` vore vakten en snubbeltråd i arbetsträdet, och en
@@ -201,3 +230,31 @@ def test_the_swedish_gemini_pdfs_are_untouched_since_the_merge_base(rel):
     assert hashlib.sha256(committed).hexdigest() == \
            hashlib.sha256((fp.ROOT / rel).read_bytes()).hexdigest(), \
            f"{rel} är inte byte-identisk med bascommiten — spec §1"
+
+
+def test_every_quick_starts_page_count_claim_matches_its_rendered_main_guide():
+    """Task 16 hittade genom att LÄSA att Geminis quick-start påstod
+    '40-page' om en guide som faktiskt är 44 sidor — ingen vakt såg det.
+    Talet kan bli fel igen på exakt samma tysta sätt, så den här vakten
+    härleder huvudguidens sidantal ur den LEVERERADE pdf:en och jämför
+    med det '(\\d+)-page'-tal quick-startens pdf trycker, i stället för
+    att hårdkoda 44.
+
+    Mönstret är guide-agnostiskt som GUIDE_DELIVERY ovan: en guide vars
+    quick-start inte gör ett sådant påstående hoppas bara över (inget
+    `continue`-varv ger inget fel) — en avsaknad är inte samma sak som
+    en felaktig siffra, och nästa guide kan tas in utan att den här
+    testen skrivs om."""
+    mismatches = []
+    for guide in GUIDES:
+        main_rel, quick_rel = _main_and_quick_start(guide)
+        match = _PAGE_CLAIM.search(_flat(quick_rel))
+        if match is None:
+            continue
+        claimed = int(match.group(1))
+        actual = _rendered_page_count(main_rel)
+        if claimed != actual:
+            mismatches.append(
+                f"{guide}: quick-starten säger {claimed}-page, "
+                f"huvudguiden är faktiskt {actual} sidor")
+    assert mismatches == [], mismatches
