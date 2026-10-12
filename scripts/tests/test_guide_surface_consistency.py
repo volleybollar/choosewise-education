@@ -111,13 +111,19 @@ def test_comparison_unescapes_html_entities():
 def test_an_unknown_guide_is_a_loud_error():
     """Granskningsfokus 4: en guide som inte finns får inte ge en tom
     ytkarta — då vaktar vakten ingenting och är grön för det."""
+    # Namnet måste vara ett som aldrig kan bli en guide. Här stod
+    # `gemini` fram till Task 12 — ett sentinelvärde som slutade vakta
+    # någonting i samma sekund som Gemini lades in i kartan, och i
+    # stället gjorde testet rött. Felet ska dessutom räkna upp de kända
+    # guiderna, så att det berättar vad som fanns att välja på.
+    absent = "ingen-sådan-guide"
     with pytest.raises(KeyError) as exc:
-        surfacecheck.surfaces_for("gemini")
-    assert "claude" in str(exc.value) and "copilot" in str(exc.value)
+        surfacecheck.surfaces_for(absent)
+    assert all(g in str(exc.value) for g in surfacecheck.GUIDES)
 
     with pytest.raises(KeyError) as inv_exc:
-        factinventory.inventory_path("gemini")
-    assert "claude" in str(inv_exc.value) and "copilot" in str(inv_exc.value)
+        factinventory.inventory_path(absent)
+    assert all(g in str(inv_exc.value) for g in surfacecheck.GUIDES)
 
 
 @pytest.mark.parametrize("guide", surfacecheck.GUIDES)
@@ -133,13 +139,26 @@ def test_every_guide_surface_file_exists(guide):
         assert (surfacecheck.ROOT / rel).is_file(), f"{guide} {lang}/{where}: {rel} saknas"
 
 
-def test_copilot_surfaces_are_the_unpublished_ones():
-    """Granskningsfokus 5: Copilot ligger i `_unpublished/`, som Pages
-    inte serverar. Pekar kartan på `guides/copilot/` läser vakten en fil
-    som inte finns — eller en dag den fel."""
-    rels = list(surfacecheck.surfaces_for("copilot").values())
+# Guider vars fyra ytor ligger under _unpublished/, som Pages inte
+# serverar. Claude är publicerad; de andra tre tas i sina egna rundor.
+UNPUBLISHED_GUIDES = ("copilot", "gemini")
+
+
+@pytest.mark.parametrize("guide", UNPUBLISHED_GUIDES)
+def test_unpublished_guides_surfaces_are_under_unpublished(guide):
+    """Granskningsfokus 5 i Copilot-rundan, nu för två guider: pekar
+    kartan på `guides/<guide>/` läser vakten en fil som inte finns —
+    eller en dag den fel."""
+    rels = list(surfacecheck.surfaces_for(guide).values())
     assert len(rels) == 4
     assert all(rel.startswith("_unpublished/") for rel in rels), rels
+
+
+def test_every_unpublished_guide_is_in_the_surface_map():
+    """Listan ovan får inte glida ifrån ytkartan. En guide som läggs i
+    kartan men inte här tappar sin sökvägsvakt tyst."""
+    assert set(UNPUBLISHED_GUIDES) <= set(surfacecheck.GUIDES)
+    assert "claude" not in UNPUBLISHED_GUIDES
 
 
 @pytest.mark.parametrize("guide", surfacecheck.GUIDES)
