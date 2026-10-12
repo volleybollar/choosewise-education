@@ -417,27 +417,39 @@ förbiseende — ett fynd som inte åtgärdas skrivs ut, aldrig stryks tyst.
 4. **Författaren omtalas både som "Johan" och som "I"** i samma dokument. **Johans beslut.**
 5. **Den svenska quick-starten säger "39-sidiga" om en 42-sidig svensk guide.** Preexisterande,
    på en frusen yta. Samma jobb som de svenska filnamnen.
-
-   **5b. Ett av AI Act:s fyra datum är inte fetat medan de tre andra är.** Meningen *"Four dates
-   matter, and only two of them bind you yet"* bär `<strong>2 February 2025</strong>`,
-   `<strong>2 August 2026</strong>` och `<strong>2 December 2027</strong>` — men
-   **`2 August 2028` står bart**, så en skummande rektor räknar tre datum i en mening som säger
-   fyra. **Exakt åtgärd, en tagg per yta:**
-
-   | yta | rad | ändring |
-   |---|---|---|
-   | `_unpublished/exports/gemini-notebook-print-a4-en.html` | 1024 | `from 2 August 2028` → `from <strong>2 August 2028</strong>` |
-   | `_unpublished/guides/gemini-notebook/index.html` | 535 | samma |
-
-   **Lämnad med avsikt:** enda åtgärden rör den **levererade PDF:en** och kostar en omrendering
-   plus en selektiv facitomfångning — oproportionerligt för ett `<strong>`.
-   **Publiceringsrundan renderar om ändå och kan ta den gratis då.** (Det här fyndet kom ur
-   slutgranskningen av grenen, inte ur genomläsningen, och räknas därför inte till de sex
-   ovan.)
 6. **`capture_guide_baseline.py` rapporterar 45 sidor för en 44-sidig PDF.** **Inget defekt:**
    `pdf_fingerprint.pages()` delar på sidbrytningstecken och ger en avslutande tom post
    (verifierat: 43 poster för den 42-sidiga versionen, 45 för den 44-sidiga). Skriptets
    utskriftssträng är en kosmetisk felmärkning, inte en felräkning.
+
+### Två fynd av samma slag, ur slutkontrollen och helgranskningen
+
+Inte ur genomläsningen, alltså inte med i de sex ovan — men samma kategori: preexisterande,
+läsarsynliga i liten skala, och medvetet lämnade med utskriven åtgärd.
+
+**1. Ett av AI Act:s fyra datum är inte fetat medan de tre andra är.** Meningen *"Four dates
+matter, and only two of them bind you yet"* bär `<strong>` på `2 February 2025`,
+`2 August 2026` och `2 December 2027` — men **`2 August 2028` står bart**, så en skummande
+rektor räknar tre datum i en mening som säger fyra. **Exakt åtgärd, en tagg per yta:**
+
+| yta | rad | ändring |
+|---|---|---|
+| `_unpublished/exports/gemini-notebook-print-a4-en.html` | 1024 | `from 2 August 2028` → `from <strong>2 August 2028</strong>` |
+| `_unpublished/guides/gemini-notebook/index.html` | 535 | samma |
+
+**Lämnad med avsikt:** enda åtgärden rör den **levererade PDF:en** och kostar en omrendering
+plus en selektiv facitomfångning — oproportionerligt för ett `<strong>`.
+**Publiceringsrundan renderar om ändå och kan ta den gratis då.**
+
+**2. `docs/guide-facts-gemini.md`:s postrad för `G49` har tio pipes där de 49 andra har nio.**
+En **oescapad `|` i källkolumnen** delar den i två fält, så kolumnerna glider ett steg från
+källan och framåt. Preexisterande — bekräftat genom att köra samma pipe-räkning mot
+`git show HEAD:`, identisk form där. **Ofarligt för vakten, men inte av det skäl man först
+gissar:** `factinventory.load()` läser **bara vaktblocket**, aldrig posttabellen (se modulens
+docstring), så ingen vakt har någonsin tittat på den raden — samma strukturella sak som den
+tredje vaktluckan ovan. En **människa** som läser tabellen ser däremot en kolumn glida.
+**Hör i samma svep som G27-aritmetiken:** nästa gång någon ändå är inne i tabellen, escapa
+pipen.
 
 ### ⚠️ NÄSTA RUNDAS FÖRSTA INNEHÅLLSUPPGIFT: `pre-market obligations`
 
