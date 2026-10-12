@@ -1,6 +1,6 @@
 # Blueprint — överlämning
 
-**Senast uppdaterad:** 2026-10-10 (sju PR:ar mergade; Copilot-guiden byggd och levererad, PR #38 öppen)
+**Senast uppdaterad:** 2026-10-12 (Copilot-guiden MERGAD som `26c661a`; Gemini-guidens spec godkänd, PR #39 öppen)
 **LÄS FÖRST** vid fortsättning. Specen är den bindande auktoriteten, planerna argumenterar från den.
 
 ---
@@ -13,7 +13,8 @@
 | **Spår A** — märket, favicon, Skool | **PR #29 öppen**, gren `feat/blueprint-track-a-mark`. Omarbetad 2026-10-09 efter Johans beslut: `main` inmergad (noll konflikter), underrubriken ändrad, og-korten utan märket. Svit 743. |
 | **Våg 2a** — guidernas tryckmallar | **MERGAD** 2026-10-08, PR #30, merge-commit `a67a47a` (72 filer, +5977/-4577). Gate för våg 2b. |
 | **Våg 2b** — guidernas innehåll | **MERGAD OCH LIVE** 2026-10-08. 44 commits på `main` (HEAD `d33a014`), pushade till origin, Pages-bygget grönt och live-sajten verifierad: åtta nya markörer på den engelska guidesidan, fyra på den svenska, **noll gamla**. Alla fyra PDF:er svarar 200 och innehåller det nya. Svit 484 passed, 0 skipped. Grenen och worktreen är borttagna. Historiken blev **linjär (fast-forward)** — till skillnad från våg 1 och 2a finns ingen merge-commit som namnger vågen; den är commits `86076ce..d33a014`. |
-| **Copilot-guiden** — första av de fyra | **BYGGD OCH LEVERERAD 2026-10-10.** Gren `feat/copilot-guide-international`, 28 commits, **PR #38** öppen (väntar på Johans slutgranskning och push — den här uppgiften committar lokalt och stannar där). Leverans: `_unpublished/assets/pdfs/guides/copilot-guide-en.pdf` och `copilot-quick-start-en.pdf` till Skool-communityt — **ingenting publicerat på sajten.** Svit: **757 passed, 0 failed, 0 skipped, 0 xfailed** med `test_prompt_pdf_parity.py` undantagen; den filens 11 fel är verifierat miljöberoende, inte rundans (se Känt trasigt). Egen sektion nedan: "Copilot-guiden — vad rundan lämnar". |
+| **Copilot-guiden** — första av de fyra | **MERGAD 2026-10-11** som merge-commit `26c661a` (PR #38, 28 commits). Grenen och worktreen borttagna. Leveransen: två engelska PDF:er i `_unpublished/assets/pdfs/guides/`, ingenting publicerat. Svit 757 passed (plus elva miljöberoende fel, se nedan). |
+| **Gemini/NotebookLM** — andra av de fyra | **SPEC GODKÄND 2026-10-12, inget byggt.** `docs/superpowers/specs/2026-10-12-gemini-guide-international-design.md`, **PR #39 öppen**, gren `docs/gemini-guide-spec`. Nästa steg: Johan läser specen, sedan skrivs implementationsplanen. |
 | Diagram- och social-exporterna | Inte påbörjad, Johans beslut: egen runda |
 | Visual Codes Vol. 1–3 | Inte påbörjad, **ingen plan äger den** |
 
@@ -30,6 +31,8 @@
 3. ~~**COPILOT-GUIDEN — specen är godkänd, planen är nästa steg.**~~ **LEVERERAD 2026-10-10.** Fjorton uppgifter körda på `feat/copilot-guide-international` (28 commits), **PR #38** öppen och väntar på Johans slutgranskning + push. Läs `docs/superpowers/specs/2026-10-09-copilot-guide-international-design.md` för vad som avgjordes 2026-10-09; läs sektionen **"Copilot-guiden — vad rundan lämnar"** nedan för vad rundan faktiskt levererade, vad vaktlagret nu äger, det svenska divergensläget och vad som medvetet inte åtgärdades. Copilot var pilot; de tre andra guiderna (Gemini/NotebookLM, Apple Intelligence, elevguiden) tas i egna rundor med den här som mall.
 
 4. ~~**De fyra återstående guiderna**, bara på engelska.~~ Ersatt av punkt 3 — en guide i taget, Johans beslut 2026-10-09. Den ursprungliga formuleringen: Samma mönster som Claude-guiden: en inventering i `docs/guide-facts-claude.md`:s form, fakta kontrollerade mot namngiven källa, fyra ytor stämda av mot varandra. Våg 2b lämnar både mallen och ett vaktlager (nedan) som nästa runda bör återanvända, och vaktlagrets kända brist är stängd sedan 2026-10-09 — mönstret kan nu kopieras rakt av utan att ärva en blind fläck.
+3b. **GEMINI-GUIDEN — specen är godkänd, planen är nästa steg.** Läs `docs/superpowers/specs/2026-10-12-gemini-guide-international-design.md` först. Kort: samma leverans som Copilot (två engelska PDF:er till Skool, ingenting publicerat, svenska ytorna orörda), men guiden är **inte** Copilot i liten skala — 42 sidor mot 25, åtta bilder mot tre, nästan ingen svensk inramning men ett eget skyltat EU-kapitel. **Johans beslut 2026-10-12:** AI Act stannar (redan belagd i Claude-guidens inventering, post P13 — korsreferens, inte ny källdomän), GDPR på artikelnivå går, och bonuskapitlets skylt skärps så den säger vad kapitlet täcker. **Rundans enda kodarbete:** gör TOC-vakten guide-agnostisk i stället för att kopiera den — en kopia vore samma fel som `CLAUDE`-listan var. **Det mest läsarnära fyndet:** åtta av tio sidnummer i förteckningen är fel, med en drift som växer från −1 till −4 (mätt mot den renderade PDF:en 2026-10-12, tabellen står i specens §2).
+
 4. **Diagram- och social-exporterna.** Åtta mallar plus SVG, PNG och PDF för WISE och RÄTT. Johans beslut 2026-10-06: egen runda, gärna ihop med märket. Sju av åtta bär hans ocommittade ändringar — han bör commita svepet först.
 5. **Visual Codes Vol. 1–3** i `~/Projekt/Choosewise/visual-codes-pdf/`, utanför repot. Specen §8 räknar dem till våg 2; varken 2a:s eller 2b:s plan nämner dem. Tredje kopian av paletten.
 6. **NotebookLM-dokumentet** — se "Känt trasigt" nedan.
