@@ -1,5 +1,14 @@
 [
   {
+    "slug": "when-the-copy-is-free",
+    "title": "What are the consequences when the copy is free?",
+    "date": "2026-10-12",
+    "reading_time": "8 min read",
+    "cover_image": "/blog/posts/assets/ai-clones.webp",
+    "og_image": "/blog/posts/assets/ai-clones-og.jpg",
+    "excerpt": "Seven Adobe applications were cloned in a week by eight AI agents. Adobe's share price barely moved, because the market had already repriced the threat. What cheap imitation actually changes, for the software industry and for the people in it."
+  },
+  {
     "slug": "evidence-toolkit-launch",
     "title": "Evidence you can interrogate — introducing the Evidence Toolkit",
     "date": "2026-05-17",
