@@ -15,8 +15,10 @@
 >    behövdes. Den godkände uppgiften.
 > 2. **Task 16B** åtgärdade R7 och R8 (commit `af69689`) och lade till vaktraden för
 >    quick-startens sidantalspåstående.
-> 3. **Task 17** gjorde slutkontrollen och skrev överlämningen. Svit **795 passed / 1 failed**
->    (det preexisterande sidantalet), 0 skipped / 0 xfailed / 0 xpassed.
+> 3. **Task 17** gjorde slutkontrollen och skrev överlämningen.
+> 4. **`origin/main` (`aee4117`) mergades in 2026-10-13**, vilket hämtade in `main`:s egen fix av
+>    sidräkningsvakten — det "preexisterande" fel grenen rapporterade hela vägen. Svit därefter
+>    **796 passed / 0 failed**, 0 skipped / 0 xfailed / 0 xpassed. **Helt grön.**
 >
 > Varje mening nedan som blev falsk av det är rättad **på plats**, med sin rättelse i fetstil,
 > i stället för att bara motsägas här uppe. Filen ska inte säga något som inte är sant.
@@ -39,7 +41,7 @@
 
 ## Läget
 
-**Klara och granskade: Task 1, 2, 3, 4, 4B, 4C, 5, 6, 7, 8, 9, 10+11, 12, 13, 14, 15.** — **RÄTTAT: plus Task 16, 16B och 17. Alla sjutton är klara och granskade.**
+**Klara och granskade: Task 1, 2, 3, 4, 4B, 4C, 5, 6, 7, 8, 9, 10+11, 12, 13, 14, 15.** — **RÄTTAT: plus Task 16, 16B och 17. Rundan körde TJUGO uppgifter** (planens nitton `## Task`-rubriker plus Task 16B) **i NITTON dispatcher** — Task 10 och 11 batchades i en. De sexton enheterna i uppräkningen ovan är dispatcher, inte uppgifter.
 
 ~~**Task 16 (bildgranskning + genomläsning): implementerad som `1c4e30d`, granskningen DISPATCHAD MEN DESS UTFALL ÄR OKÄNT** — chatten tog slut innan den rapporterade. **Dispatcha om granskningen** mot `review-73eac3d..1c4e30d.diff`; dess brief står i ledgern.~~
 **RÄTTAT: granskningen HADE rapporterat.** Den godkände uppgiften (`Task 16: complete` i ledgern). **Ingen omdispatch behövdes, och instruktionen ovan ska inte följas.**
@@ -47,7 +49,7 @@
 ~~**Task 17 (slutkontroll, överlämning, PR): INTE PÅBÖRJAD.** Medvetet — hellre ogjord än halvgjord.~~
 **RÄTTAT: Task 16B och Task 17 är UTFÖRDA.** Task 16B åtgärdade R7/R8 och vaktade quick-startens sidtal (`af69689`); Task 17 gjorde slutkontrollen, skrev `docs/blueprint-handoff.md` och ett PR-utkast. **Grenen är inte pushad och ingen PR är öppnad** — det görs efter Johans besked.
 
-~~**Svit:** `794 passed, 1 failed`~~ **RÄTTAT: `795 passed, 1 failed`** (Task 16B:s nya vaktrad) med `--ignore=scripts/tests/test_prompt_pdf_parity.py`. Det enda felet är `test_brand_mark.py::test_the_page_count_is_what_we_think` (199 sidor mot hårdkodat 198) — **preexisterande, kom med blogg-mergen PR #40, faller likadant på `main`, inte rundans och inte rundans att laga.** Med paritetsfilen inne tillkommer dess elva miljöberoende fel (`/tmp/pdf-parity-before/` töms av macOS).
+~~**Svit:** `794 passed, 1 failed`~~ **RÄTTAT TVÅ GÅNGER: `796 passed, 0 failed` — helt grön.** Först blev talet 795 (Task 16B:s nya vaktrad), och det enda felet var `test_brand_mark.py::test_the_page_count_is_what_we_think` (199 sidor mot hårdkodat 198), som rundan klassade som preexisterande och inte sitt — riktigt vid den mätningen. ~~faller likadant på `main`~~ **Men `main` hade redan lagat det i `aee4117`**, och `origin/main` är nu inmergad i grenen, vilket tog in fixen och gav 796/0. Med paritetsfilen inne tillkommer dess elva miljöberoende fel (`/tmp/pdf-parity-before/` töms av macOS).
 
 **Leveransen:** `_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf` (**44 sidor**) och `gemini-notebook-quick-start-en.pdf` (2 sidor). Ingenting publicerat.
 

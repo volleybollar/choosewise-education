@@ -14,7 +14,7 @@
 | **Våg 2a** — guidernas tryckmallar | **MERGAD** 2026-10-08, PR #30, merge-commit `a67a47a` (72 filer, +5977/-4577). Gate för våg 2b. |
 | **Våg 2b** — guidernas innehåll | **MERGAD OCH LIVE** 2026-10-08. 44 commits på `main` (HEAD `d33a014`), pushade till origin, Pages-bygget grönt och live-sajten verifierad: åtta nya markörer på den engelska guidesidan, fyra på den svenska, **noll gamla**. Alla fyra PDF:er svarar 200 och innehåller det nya. Svit 484 passed, 0 skipped. Grenen och worktreen är borttagna. Historiken blev **linjär (fast-forward)** — till skillnad från våg 1 och 2a finns ingen merge-commit som namnger vågen; den är commits `86076ce..d33a014`. |
 | **Copilot-guiden** — första av de fyra | **MERGAD 2026-10-11** som merge-commit `26c661a` (PR #38, 28 commits). Grenen och worktreen borttagna. Leveransen: två engelska PDF:er i `_unpublished/assets/pdfs/guides/`, ingenting publicerat. Svit 757 passed (plus elva miljöberoende fel, se nedan). |
-| **Gemini Notebook** — andra av de fyra | **LEVERERAD PÅ GREN 2026-10-12.** Gren `feat/gemini-guide-international`, worktree `.worktrees/gemini-guide-international`, avstamp `main` = `e2282b7`. Sjutton uppgifter (1–16B plus 17), alla granskade. Leverans: `_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf` (**44 sidor**) och `gemini-notebook-quick-start-en.pdf` (2 sidor), till Skool-communityt. **Ingenting publicerat på sajten.** Svit **795 passed, 1 failed, 0 skipped, 0 xfailed, 0 xpassed** med `test_prompt_pdf_parity.py` undantagen — det enda felet är det preexisterande `test_brand_mark.py::test_the_page_count_is_what_we_think` (199 mot 198), som kom med blogg-mergen PR #40 och faller likadant på `main`. **Grenen är inte pushad och ingen PR är öppnad** — det görs efter Johans besked. **Specens PR #39 mergas före eller tillsammans med rundans PR**: planen argumenterar från specen, och en mergad plan utan mergad spec lämnar en hängande korsreferens. Se **"Gemini-guiden — vad rundan lämnar"** nedan. |
+| **Gemini Notebook** — andra av de fyra | **LEVERERAD PÅ GREN 2026-10-13.** Gren `feat/gemini-guide-international`, worktree `.worktrees/gemini-guide-international`, avstamp `main` = `e2282b7`, med `origin/main` (`aee4117`) inmergad 2026-10-13. **Tjugo uppgifter** — planens nitton `## Task`-rubriker plus Task 16B — körda i **nitton dispatcher** (Task 10 och 11 batchades i en), alla granskade. Leverans: `_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf` (**44 sidor**) och `gemini-notebook-quick-start-en.pdf` (2 sidor), till Skool-communityt. **Ingenting publicerat på sajten.** Svit **796 passed, 0 failed, 0 skipped, 0 xfailed, 0 xpassed** med `test_prompt_pdf_parity.py` undantagen — **helt grön.** Grenen rapporterade länge ett rött `test_brand_mark.py::test_the_page_count_is_what_we_think` (199 mot 198) som preexisterande; `main` hade då redan lagat det i `aee4117`, och mergen hämtade in fixen. **Grenen är inte pushad och ingen PR är öppnad** — det görs efter Johans besked. **Specens PR #39 mergas före eller tillsammans med rundans PR**: planen argumenterar från specen, och en mergad plan utan mergad spec lämnar en hängande korsreferens. Se **"Gemini-guiden — vad rundan lämnar"** nedan. |
 | Diagram- och social-exporterna | Inte påbörjad, Johans beslut: egen runda |
 | Visual Codes Vol. 1–3 | Inte påbörjad, **ingen plan äger den** |
 
@@ -31,7 +31,7 @@
 3. ~~**COPILOT-GUIDEN — specen är godkänd, planen är nästa steg.**~~ **LEVERERAD 2026-10-10.** Fjorton uppgifter körda på `feat/copilot-guide-international` (28 commits), **PR #38** öppen och väntar på Johans slutgranskning + push. Läs `docs/superpowers/specs/2026-10-09-copilot-guide-international-design.md` för vad som avgjordes 2026-10-09; läs sektionen **"Copilot-guiden — vad rundan lämnar"** nedan för vad rundan faktiskt levererade, vad vaktlagret nu äger, det svenska divergensläget och vad som medvetet inte åtgärdades. Copilot var pilot; de tre andra guiderna (Gemini/NotebookLM, Apple Intelligence, elevguiden) tas i egna rundor med den här som mall.
 
 4. ~~**De fyra återstående guiderna**, bara på engelska.~~ Ersatt av punkt 3 — en guide i taget, Johans beslut 2026-10-09. Den ursprungliga formuleringen: Samma mönster som Claude-guiden: en inventering i `docs/guide-facts-claude.md`:s form, fakta kontrollerade mot namngiven källa, fyra ytor stämda av mot varandra. Våg 2b lämnar både mallen och ett vaktlager (nedan) som nästa runda bör återanvända, och vaktlagrets kända brist är stängd sedan 2026-10-09 — mönstret kan nu kopieras rakt av utan att ärva en blind fläck.
-3b. ~~**GEMINI-GUIDEN — specen är godkänd, planen är nästa steg.**~~ **LEVERERAD PÅ GREN 2026-10-12.** Sjutton uppgifter körda på `feat/gemini-guide-international`, alla granskade. **Vad rundan levererade:** två engelska PDF:er byggda ur rättat innehåll (`gemini-notebook-guide-en.pdf`, 44 sidor, och `gemini-notebook-quick-start-en.pdf`), den svenska inramningen generaliserad, GDPR på artikelnivå ersatt av en jurisdiktionsneutral ruta i huvudflödet, AI Act kvar och **rättad på fyra punkter** mot Claude-inventeringens post P13, bonuskapitlets skylt skärpt, en inventering på **50 poster** med **87 vaktrader** i `docs/guide-facts-gemini.md`, och **två vaktlager generaliserade** (TOC-vakten och leveransvakten) i stället för kopierade. **Plus det ingen plan förutsåg:** Google hade döpt om NotebookLM till **Gemini Notebook** 2026-07-16, tre månader efter guidens datumstämpel — 205 förekomster, titeln, den tryckta URL:en och filnamnen, Johans beslut vid grinden. **Nästa steg:** Johan läser, sedan pushas grenen och PR:en öppnas; specens PR #39 mergas före eller med den. Läs **"Gemini-guiden — vad rundan lämnar"** nedan före nästa guide.
+3b. ~~**GEMINI-GUIDEN — specen är godkänd, planen är nästa steg.**~~ **LEVERERAD PÅ GREN 2026-10-13.** Tjugo uppgifter (planens nitton plus Task 16B) körda på `feat/gemini-guide-international` i nitton dispatcher, alla granskade. **Vad rundan levererade:** två engelska PDF:er byggda ur rättat innehåll (`gemini-notebook-guide-en.pdf`, 44 sidor, och `gemini-notebook-quick-start-en.pdf`), den svenska inramningen generaliserad, GDPR på artikelnivå ersatt av en jurisdiktionsneutral ruta i huvudflödet, AI Act kvar och **rättad på fyra punkter** mot Claude-inventeringens post P13, bonuskapitlets skylt skärpt, en inventering på **50 poster** med **87 vaktrader** i `docs/guide-facts-gemini.md`, och **två vaktlager generaliserade** (TOC-vakten och leveransvakten) i stället för kopierade. **Plus det ingen plan förutsåg:** Google hade döpt om NotebookLM till **Gemini Notebook** 2026-07-16, tre månader efter guidens datumstämpel — 205 förekomster, titeln, den tryckta URL:en och filnamnen, Johans beslut vid grinden. **Nästa steg:** Johan läser, sedan pushas grenen och PR:en öppnas; specens PR #39 mergas före eller med den. Läs **"Gemini-guiden — vad rundan lämnar"** nedan före nästa guide.
 
 4. **Diagram- och social-exporterna.** Åtta mallar plus SVG, PNG och PDF för WISE och RÄTT. Johans beslut 2026-10-06: egen runda, gärna ihop med märket. Sju av åtta bär hans ocommittade ändringar — han bör commita svepet först.
 5. **Visual Codes Vol. 1–3** i `~/Projekt/Choosewise/visual-codes-pdf/`, utanför repot. Specen §8 räknar dem till våg 2; varken 2a:s eller 2b:s plan nämner dem. Tredje kopian av paletten.
@@ -151,15 +151,27 @@ Fem lager. De fyra första byggdes i våg 2a; det femte i våg 2b. Två till —
 Skriven för en läsare som inte var med. Vad som står var, vad som är känt trasigt, vilket
 vaktlager som äger vilken fråga, och vad Johan ska besluta.
 
-**Status.** Gren `feat/gemini-guide-international`, avstamp `main` = `e2282b7`, sjutton
-uppgifter (1–16B plus slutkontrollen), alla granskade. Leverans:
+**Status.** Gren `feat/gemini-guide-international`, avstamp `main` = `e2282b7`, med
+`origin/main` (`aee4117`) inmergad 2026-10-13. **Tjugo uppgifter** — planens nitton
+`## Task`-rubriker plus Task 16B — körda i **nitton dispatcher** (Task 10 och 11 batchades i
+en), alla granskade. Leverans:
 `_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf` (**44 sidor**) och
 `gemini-notebook-quick-start-en.pdf` (2 sidor), till Skool-communityt. **Ingenting publicerat
-på sajten.** Svit **795 passed / 1 failed / 0 skipped / 0 xfailed / 0 xpassed** med
-`test_prompt_pdf_parity.py` undantagen; det enda felet är det preexisterande
-`test_brand_mark.py::test_the_page_count_is_what_we_think` (199 mot 198, kom med blogg-mergen
-PR #40, faller likadant på `main`). **Grenen är inte pushad.** Specens **PR #39 mergas före
-eller tillsammans med** rundans PR — planen argumenterar från specen.
+på sajten.** Svit **796 passed / 0 failed / 0 skipped / 0 xfailed / 0 xpassed** med
+`test_prompt_pdf_parity.py` undantagen — **helt grön. Grenen är inte pushad.** Specens
+**PR #39 mergas före eller tillsammans med** rundans PR — planen argumenterar från specen.
+
+**Om det röda testet grenen länge rapporterade — en lärdom värd mer än felet.** Rundan sprang på
+`test_brand_mark.py::test_the_page_count_is_what_we_think` (199 sidor mot hårdkodat 198) i Task
+1 och klassade det riktigt som preexisterande: det kom med blogg-mergen, grenens diff rör
+varken testet eller en publicerad sida, och det föll likadant på `main` **vid den mätningen**.
+Varje efterföljande uppgift ärvde klassningen och läste sitt utfall som "mina gröna plus det här
+ena röda" — i sexton uppgifter. **Men `main` lagade felet i `aee4117` samma eftermiddag**, och
+ingen uppgift mätte om det, eftersom ingen hade skäl att: en ruling från Task 1 är en avgjord
+fråga. Slutkontrollen upprepade formuleringen "faller likadant på `main`" i fyra dokument utan
+att hämta `origin` först. **Lärdomen: ett preexisterande fel är ett påstående om `main`, och
+`main` rör sig. Hämta `origin` och mät om det i slutkontrollen, inte bara i den uppgift som
+hittade det.** Mergen gör nu att grenen levererar en helt grön svit.
 
 ### Dokumenten, i läsordning
 
@@ -196,6 +208,19 @@ leveransen — `.superpowers/` är gitignorerad, precis som våg 2b:s ledger fö
    de felaktiga numren rätta av sig själv.)
 7. **Quick-starten sa "40-page premium PDF" om en 44-sidig guide.** Hittat genom läsning, och
    det var fel även före rundan (guiden var 42 sidor då). Nu rättat **och vaktat**.
+8. **Friskrivningen sa "This chapter" under en DEL-rubrik.** *"I am not a lawyer. This chapter
+   gives a starting point"* stod under `<h2>Scale & Lead</h2>`, som är en del, inte ett kapitel
+   → **"This part"**. Den andra förekomsten, inne i bonuskapitlet, står kvar orörd eftersom
+   "chapter" är riktigt där. Ett ord, på båda engelska ytorna (`af69689`).
+9. **Promptbibliotekets rubrik täckte bara halva sitt innehåll.** *"A starter library of Gemini
+   prompts"* mot en förteckning som säger "Gemini **and Gemini Notebook**" och en ingress som
+   uttryckligen pekar ut Gemini Notebook-specifika prompter → rubriken säger nu båda
+   produkterna (`af69689`).
+
+**Punkt 8 och 9 är värda en metanotering:** båda hittades i genomläsningen *efter* att allt
+innehåll var klart, båda är enordsstora, och båda låg bara i en gitignorerad uppgiftsrapport
+tills en granskning räddade dem. **Ett fynd som bara står i `.superpowers/` är ett fynd som dör
+med worktreen.** Det är skälet varje oåtgärdat fynd i rundan skrevs in i en spårad fil.
 
 ### Vaktlagret: fyra guide-agnostiska lager plus en femte vaktrad
 
@@ -272,8 +297,7 @@ osammanhängande ("flytta `gemini-notebook` till `guides/gemini-notebooklm`"), o
 hela blocket betyder att **välja guidens publicerade sökväg och id** — vilket är precis vad
 `PAIR_MAP` äger och spec §1 reserverar. En halv rättning hade gjort de två filerna oense.
 Publiceringsrundan byter destinationssökvägen på båda ställena plus i `guides-en.json`
-samtidigt. **De svenska raderna (`build-seo-meta.py` 32, 96, 100) är fortfarande riktiga och
-ska inte röras.**
+samtidigt. **De svenska raderna i `_unpublished/README.md` — 32 (`git mv … sv/guider/gemini-notebooklm`), 96 (`"id": "gemini-notebooklm"`) och 100 (`"url": "/sv/guider/gemini-notebooklm/"`) — är fortfarande riktiga och ska inte röras**, eftersom den svenska ytan behåller sitt namn. Samma gäller `build-seo-meta.py:57`, som är `HIDDEN_PATHS`-postens svenska halva. Av de tre `build-seo-meta.py`-raderna är det alltså **51** (`HIDDEN_PATHS`, engelska) och **75:s nyckel** (`PAIR_MAP`, vars värde är den svenska sökvägen och stannar) som ska byta.
 
 **(b2) Skulden är inte längre valfri, och leveransen avgör frågan.** Quick-starten **trycker
 guidens publicerade adress för läsaren**: `choosewise.education / guides / gemini-notebook`. De
@@ -290,17 +314,29 @@ legitimt — en citattitel som "rättas" är inte längre ett citat. Vakten vakt
 ord: `Sweden`/`Swedish` (praktikexemplet), `GDPR` (promptmallens platshållare) och
 `April 2026` (åtta daterade produktpåståenden). Står utskrivet i vaktblockets huvud.
 
-**(d) Nio `notebooklm`-strängar lever kvar i webbytans TILLGÅNGSSÖKVÄGAR.** I
-`_unpublished/guides/gemini-notebook/index.html`:
+**(d) NITTON `notebooklm`-strängar lever kvar i de engelska ytornas TILLGÅNGSSÖKVÄGAR OCH
+KLASSNAMN — på alla tre ytor, inte bara webbytan.** Räknade per yta 2026-10-13:
 
-- rad 351: `assets/screenshot-notebooklm-in-gemini.png` (filen finns dessutom inte i
-  katalogen — trasig före rundan, ingen post äger den)
-- rad 607, 615, 623, 631, 639, 647, 655, 663: `/assets/notebooklm-images/style-*.webp`
+| yta | antal | rader | vad de är |
+|---|---|---|---|
+| `_unpublished/guides/gemini-notebook/index.html` (EW) | **9** | 351 | `assets/screenshot-notebooklm-in-gemini.png` — **filen finns dessutom inte i katalogen**; trasig före rundan, ingen post äger den |
+| | | 607, 615, 623, 631, 639, 647, 655, 663 | `/assets/notebooklm-images/style-*.webp` |
+| `_unpublished/exports/gemini-notebook-print-a4-en.html` (EP) | **8** | 1093, 1101, 1109, 1117, 1125, 1133, 1141, 1149 | `../../assets/notebooklm-images/style-*.webp` — samma publicerade katalog, relativ i stället för rotad |
+| `_unpublished/exports/gemini-notebook-quick-start-en.html` (QS) | **2** | 57, 193 | CSS-klassen `.tool-card.notebooklm` plus dess enda användning — triviala, men de räknas |
+| **summa** | **19** | | |
 
-De sitter **inuti attribut**. `surfacecheck._TAG` strippar attribut, så ytkonsistensvakten kan
-aldrig se dem, och ingen runda har rört dem. De hör i samma jobb som (b). **Skrivet ut med
-sökväg här så att nästa läsare inte tror att namnbytet var fullständigt i filsystemet bara för
-att det var fullständigt i prosan.**
+**Sexton** av de nitton är bildsökvägar mot samma publicerade katalog, `assets/notebooklm-images/`
+(åtta per yta, rotade på webbytan och relativa i printytan). Katalogen bär **420 filer** och
+finns på riktigt. **Det är alltså katalognamnet som är den egentliga posten, inte de sexton
+referenserna** — döps katalogen om följer alla sexton i en sed. De tre övriga är en egen sak var:
+EW:351:s trasiga skärmdumpssökväg och quick-startens två CSS-rader.
+
+De sitter **inuti attribut** (eller i ett CSS-klassnamn). `surfacecheck._TAG` strippar attribut,
+så ytkonsistensvakten kan aldrig se dem, och ingen runda har rört dem. De hör i samma jobb som
+(b). **Skrivet ut per yta med sökväg här så att nästa läsare inte tror att namnbytet var
+fullständigt i filsystemet bara för att det var fullständigt i prosan** — och **inte** bara för
+webbytan, vilket var den första versionen av den här punkten och lämnade läsaren med knappt
+hälften.
 
 ### Gör detta FÖRST i nästa guides runda — innan den kopierar vaktfilen
 
@@ -317,6 +353,28 @@ obrutna i dag: Del 4:s `"Many schools run Google Workspace for Education"` och F
 
 **Skälet att göra det först:** Apple Intelligence-rundan kommer att **kopiera** den här filen
 som mall, och ett sprött mönster som kopieras sprider sig.
+
+**Och i samma fil, av exakt samma skäl: TOC-vaktens sentinel är `apple-intelligence` — alltså
+nästa guides namn.** `scripts/tests/test_guide_toc.py:133-138`:
+
+```python
+def test_an_unknown_guide_is_a_loud_error():
+    with pytest.raises(KeyError) as exc:
+        config_for("apple-intelligence")
+    assert "copilot" in str(exc.value) and "gemini" in str(exc.value)
+```
+
+Det är **samma anti-mönster som Task 12 rev ut** ur `test_guide_surface_consistency.py`, där
+sentinel var `"gemini"` och alltså var programmerad att gå sönder i samma sekund Gemini lades i
+kartan. Den vakten använder nu `"ingen-sådan-guide"`, med skälet utskrivet i en kommentar — men
+TOC-vakten, som byggdes i **samma runda**, återinförde mönstret med nästa guides namn.
+
+Kostnaden är lägre än ankarsprödhetens: felet blir **högljutt** (testet faller på
+`pytest.raises`, inte tyst grönt) och assertionen på `"copilot"`/`"gemini"` faller också, så det
+är omöjligt att missa. Men det hör ändå här, intill ankarna, eftersom **det är Apple
+Intelligence-rundan själv som bryter det, i den fil den just kopierat.** Byt till ett namn som
+aldrig kan bli en guide, och assertera mot `config_for`:s kända nycklar i stället för mot två
+hårdkodade strängar.
 
 ### En förbättring nästa runda bör göra — inte en lucka
 
@@ -547,7 +605,7 @@ Ett filter som sållar bort breda element för att slippa fullbreddsbehållare d
 - Påståendeinventeringen, Copilot-guidens facit: `docs/guide-facts-copilot.md`
 - PR Copilot-guiden: #38, gren `feat/copilot-guide-international`
 - Spec Gemini-guiden: `docs/superpowers/specs/2026-10-12-gemini-guide-international-design.md` (**PR #39**, gren `docs/gemini-guide-spec` — mergas före eller med rundans PR)
-- Plan Gemini-guiden: `docs/superpowers/plans/2026-10-12-gemini-guide-international.md` (sjutton uppgifter, grinden efter uppgift 4) — **rättad 14 gånger under körningen; dess tal är hypoteser och ska mätas, aldrig citeras**
+- Plan Gemini-guiden: `docs/superpowers/plans/2026-10-12-gemini-guide-international.md` (nitton `## Task`-rubriker, grinden efter uppgift 4; Task 16B tillkom under körningen och har ingen rubrik i planen) — **rättad 14 gånger under körningen; dess tal är hypoteser och ska mätas, aldrig citeras**
 - Påståendeinventeringen, Gemini-guidens facit: `docs/guide-facts-gemini.md` (50 poster, 87 vaktrader)
 - Gemini-rundans avbrottsfil: `docs/superpowers/handoff/2026-10-12-gemini-runda-avbrott.md` — **ÖVERSPELAD, historik.** Allt levande ur den står i "Gemini-guiden — vad rundan lämnar" ovan
 - **Gemini-rundans ledger och uppgiftsrapporter finns inte kvar efter leverans.** Samma skäl som våg 2b:s: de låg i worktreens `.superpowers/`, som är gitignorerad. De 60+ rulings som togs under körningen är inarbetade i det här dokumentet där de överlever rundan
