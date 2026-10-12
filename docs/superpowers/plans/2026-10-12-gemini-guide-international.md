@@ -1281,7 +1281,7 @@ Tre stycken blir ett inledande stycke plus guidens **befintliga** `callout callo
 
   <div class="callout callout--watch">
     <span class="callout__label">What depends on where you are</span>
-    <p>Three things here are set where you work, not by the product. <strong>Your data-protection regime</strong> decides what lawful basis you need before processing student data, and what you must document. <strong>Your rules on student age and consent</strong> decide who may use Gemini and NotebookLM at all, and who signs for it — Google's own age floors are a minimum, not a permission slip. <strong>Your school's procurement and approval route</strong> decides who signs the agreement and who must be consulted first. <strong>What does not depend on where you are:</strong> your school remains the data controller for its students' data, and using Gemini or NotebookLM does not transfer that responsibility to Google. Check the three above locally before you rely on any specific rule in this part.</p>
+    <p>Three things here are set where you work, not by the product. <strong>Your data-protection regime</strong> decides what lawful basis you need before processing student data, and what you must document. <strong>Your rules on student age and consent</strong> decide who may use Gemini and Gemini Notebook at all, and who signs for it — Google's own age floors are a minimum, not a permission slip. <strong>Your school's procurement and approval route</strong> decides who signs the agreement and who must be consulted first. <strong>What does not depend on where you are:</strong> your school remains the data controller for its students' data, and using Gemini or Gemini Notebook does not transfer that responsibility to Google. Check the three above locally before you rely on any specific rule in this part.</p>
   </div>
 ```
 
@@ -1359,7 +1359,7 @@ EP rad 1015 och EW rad 529 (kapitelrubriken; `<span class="eyebrow">Bonus Chapte
 
 EP 1016 / EW 530:
 ```html
-  <p class="lede">If you teach or lead a school in an EU member state, one regulation shapes how you use Gemini and NotebookLM more than any other: the EU AI Act. This chapter is a practical primer — not legal advice.</p>
+  <p class="lede">If you teach or lead a school in an EU member state, one regulation shapes how you use Gemini and Gemini Notebook more than any other: the EU AI Act. This chapter is a practical primer — not legal advice.</p>
 ```
 
 - [ ] **Steg 3: Ta bort GDPR-avsnittet**
@@ -1370,7 +1370,7 @@ EP rad 1018 (`<h3>GDPR fundamentals for schools using AI</h3>`) och de sju styck
 - **Dataresidensen** (EP 1023) är produktfakta och står redan i huvudflödet på EP 973 (post G13, Task 6 lät den stanna). Samma påstående, två formuleringar — det försvinner alltså inte ur guiden, det slutar stå två gånger.
 - **Den praktiska regeln** (EP 1025: "use only the school-domain Workspace account for anything touching student data… never put student-identifiable content into a consumer account") är ett **handlingsråd utan rättslig analys** och har ingen motsvarighet någon annanstans i guiden. Den **flyttas** till slutet av steg 2:s ingress eller till checklistan i EP 1066 — den stryks inte. Ett råd som inte namnger en lag faller inte under spec §3.
 
-  **MEN: stycket flyttas utan sin sista mening.** EP 1025 slutar *"If your school routinely uses Gemini or NotebookLM, your records of processing should reflect that."* Den meningen bär G33:s term, som Task 6 tar bort ur Del 3 och Task 12 gör till en förbudsrad — flyttas den med skrivs termen tillbaka och vaktblocket blir rött. Dokumentationsrådet finns dessutom redan kvar i Del 3 efter Task 6:s omskrivning, så ingenting går förlorat. **Två meningar flyttas, tre finns i stycket.**
+  **MEN: stycket flyttas utan sin sista mening.** EP 1025 slutar *"If your school routinely uses Gemini or Gemini Notebook, your records of processing should reflect that."* (Task 4C bytte produktnamnet i den meningen — grepa på den nya formen, inte på den gamla.) Den meningen bär G33:s term, som Task 6 tar bort ur Del 3 och Task 12 gör till en förbudsrad — flyttas den med skrivs termen tillbaka och vaktblocket blir rött. Dokumentationsrådet finns dessutom redan kvar i Del 3 efter Task 6:s omskrivning, så ingenting går förlorat. **Två meningar flyttas, tre finns i stycket.**
 
 **Checklistan bär samma term en tredje gång.** EP 1072 / motsvarande rad på webbytan: *"Our records of processing (Article 30) reflect routine AI use across our school"*. Den punkten namnger en GDPR-artikel och går enligt steg 6 — men den räknas här, så att den inte blir en överraskning när vaktblocket läses in i Task 12.
 
@@ -1645,7 +1645,7 @@ git commit -m "content(gemini): quick-starten får huvudguidens rättade värden
 
 ```python
 # scripts/tests/surfacecheck.py — en ny nyckel i GUIDE_SURFACES
-    # Gemini/NotebookLM ligger under _unpublished/ av samma skäl som
+    # Gemini-guiden ligger under _unpublished/ av samma skäl som
     # Copilot: GitHub Pages serverar inte kataloger som börjar med
     # understreck. De svenska ytorna står med i kartan fast rundan inte
     # rör dem — de FINNS, och en svensk vaktrad ska jämföras mot dem och
