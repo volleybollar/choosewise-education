@@ -1880,7 +1880,9 @@ for i, p in enumerate(pages, 1):
         print(f"  s{i}: {len(p)} tecken — {p[:70]}")
 PY
 ```
-Förväntat 2026-10-12: 44 sidor, och exakt två korta — omslaget (453 tecken) och stilgalleriets andra sida (558). Den gamla 42-sidiga renderingen hade **samma två**, på sidorna 1 och 29. En tredje kort sida är fyndet.
+Förväntat 2026-10-12, mätt två oberoende vägar (vaktens egen `pdf_fingerprint.extract` och `pdftotext -layout` per sida, identiska svar): **44 sidor, och exakt två under 700 tecken** — omslaget (453) och stilgalleriets andra sida (563). Den gamla 42-sidiga renderingen hade **samma två**, på sidorna 1 och 29. En tredje kort sida är fyndet.
+
+**Varning om just siffran 700:** kolofonen (sidan 44) ligger på **708 tecken**, åtta över gränsen, och innehållsförteckningen på 825. En trivial redigering av kolofonen släpper den under 700 och ger ett fynd som inte är ett. Därför är **det bindande villkoret 400, inte 700** — 708 och 563 klarar det med marginal, och 400 är den nivå där en sida verkligen är trasig. Task 13 rapporterade först fyra korta sidor; det var en felmätning, och båda metoderna ovan motsäger den.
 
 **Var tillväxten ligger**, mätt mot den gamla renderingen: en sida mellan Understanding och Del 1, en till inne i Del 4, och ingenting mellan Del 1 och Del 4 — där raderingarna och tilläggen tog ut varandra. **Förteckningens drifttabell i §2 är därmed överspelad**; Task 14 räknar mot den här filen, inte mot den.
 
