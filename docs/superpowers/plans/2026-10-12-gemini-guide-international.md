@@ -2055,7 +2055,11 @@ for f in ("guide-pdf-baseline.json", "guide-pdf-body-baseline.json"):
         print("   ", k)
     assert sorted(before) == sorted(after), "nyckeluppsättningen ändrades"
     assert len(changed) == 2, "exakt två nycklar ska ha ändrats"
-    assert all("gemini-notebooklm-" in k and k.endswith("-en.pdf") for k in changed)
+    # OBS: prefixet är "gemini-notebook-", inte "gemini-notebooklm-".
+    # Planens första utkast hade det gamla namnet här — skrivet före
+    # Task 4B döpte om filerna, och upptäckt av Task 15 när kontrollen
+    # föll på sin egen literal.
+    assert all("gemini-notebook-" in k and k.endswith("-en.pdf") for k in changed)
 PY
 ```
 Förväntat: två ändrade nycklar per fil. **Har en svensk Gemini-nyckel ändrats återställdes inte SV-filerna i Task 13 eller 14** — stanna och gå tillbaka dit.
