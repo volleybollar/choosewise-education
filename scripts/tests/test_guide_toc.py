@@ -74,10 +74,10 @@ GUIDE_TOC = {
                 "for educators who want to do more than save personal time",
             "Part 4 · Google Workspace for Education":
                 "Many schools run Google Workspace for Education",
-            # Ankaret står i den ingress Task 7 skriver om. Ledet
+            # Ankaret står i den ingress Task 7 skrev om. Ledet
             # "If you teach or lead a school in an EU member state"
-            # bevaras ordagrant där; resten av meningen byts.
-            "Bonus Chapter · For EU readers":
+            # bevarades ordagrant där; resten av meningen byttes.
+            "Bonus Chapter · The EU AI Act for schools":
                 "If you teach or lead a school in an EU member state",
             "The Styles Library":
                 "The same notebook and the same prompt will produce very different outputs",
@@ -97,7 +97,7 @@ GUIDE_TOC = {
 #   Part 2 · Working Smarter            säger 13, börjar på 12   (−1)
 #   Part 3 · Scale & Lead               säger 20, börjar på 19   (−1)
 #   Part 4 · Google Workspace…          säger 24, börjar på 22   (−2)
-#   Bonus Chapter · For EU readers      säger 28, börjar på 25   (−3)
+#   Bonus Chapter · The EU AI Act…  säger 28, börjar på 25   (−3)
 #   The Styles Library                  säger 32, börjar på 28   (−4)
 #   Prompts                             säger 34, börjar på 30   (−4)
 #   FAQ                                 säger 40, börjar på 39   (−1)
@@ -112,7 +112,7 @@ XFAIL_UNTIL_RECOUNTED = {
     ("gemini", "Part 2 · Working Smarter"),
     ("gemini", "Part 3 · Scale & Lead"),
     ("gemini", "Part 4 · Google Workspace for Education"),
-    ("gemini", "Bonus Chapter · For EU readers"),
+    ("gemini", "Bonus Chapter · The EU AI Act for schools"),
     ("gemini", "The Styles Library"),
     ("gemini", "Prompts"),
     ("gemini", "FAQ"),
