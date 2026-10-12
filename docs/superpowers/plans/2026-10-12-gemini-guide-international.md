@@ -1705,6 +1705,19 @@ def test_every_unpublished_guide_is_in_the_surface_map():
 
 Det kostar ett borttaget test-id (`test_copilot_surfaces_are_the_unpublished_ones`) och ger tre nya. Räkna det i Task 17:s id-jämförelse.
 
+- [ ] **Steg 2B: Uppdatera inventeringens förekomstkolumner mot de slutliga ytorna**
+
+**Varför här och inte tidigare:** radnumren i inventeringen har glidit vid varje innehållsuppgift, och tre separata granskningar har rapporterat samma sorts fynd (G29 pekade på en raderad mening, G28 hade flyttat tre gånger, G13 pekar nu på rader där G28:s text står). Att jaga dem uppgift för uppgift kostar en rundtur per post och är ändå inaktuellt nästa uppgift. **Task 12 är den första uppgiften efter att allt innehåll är redigerat**, den öppnar ändå dokumentet, och vaktraderna du skriver i nästa steg förutsätter att ytorna är slutliga. Alltså en svep här.
+
+```bash
+# Varje post med en EP- eller EW-förekomst: lokalisera strängen på nytt.
+# Numren är historik efter rundan, men en inventering som pekar fel är
+# en inventering nästa runda inte kan lita på.
+grep -nE "^\| G[0-9]" docs/guide-facts-gemini.md | wc -l
+```
+
+Gå igenom varje post, lokalisera dess påstående med `grep -n` på en sträng ur själva påståendet, och skriv in de nummer ytorna faktiskt har nu. **En post vars påstående är helt borta ur ytan** (för att rundan tog bort meningen) får `—` plus en notis om vilken uppgift som tog den — inte ett gammalt nummer som pekar på någon annans text. G13, G28 och G29 är de tre kända; det kan finnas fler.
+
 - [ ] **Steg 3: Skriv vaktraderna**
 
 `aktiv` kräver att strängen står ordagrant på **båda** engelska guideytorna (EW + EP). `borttaget` kräver att den inte står på någon av dem. Formatet är `id | språk | värde | status`, fyra kolumner, `#` inleder kommentar.
