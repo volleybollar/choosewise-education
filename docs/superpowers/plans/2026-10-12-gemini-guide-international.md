@@ -1418,9 +1418,9 @@ Checklistan (EP 1066 och framåt) och dess punkter läses igenom: varje punkt so
 
 ```bash
 EP=_unpublished/exports/gemini-notebook-print-a4-en.html
-sed -n '1010,1100p' $EP | grep -nE "GDPR|Article [0-9]|supervisory|Limited risk|Minimal risk|Prohibited|phases in"
+sed -n '1010,1100p' $EP | grep -nE "GDPR|Article (6|9|30)|supervisory|Limited risk|Minimal risk|Prohibited|phases in"
 ```
-Förväntat: **inga träffar**. Den enda GDPR-förekomsten som får stå kvar i hela printytan efter den här uppgiften är promptmallens platshållare på rad ~1357 (post G30, spec §3) — kontrollera med `grep -c GDPR $EP`, som ska ge **1**.
+Förväntat: **inga träffar**. **`Article [0-9]` fungerar INTE som mönster** — det matchar `Article 4`, som specen uttryckligen behåller och som står femton gånger i printytan. Fel i planens första utkast, rättat 2026-10-12 efter att Task 7 kört. Den enda GDPR-förekomsten som får stå kvar i hela printytan efter den här uppgiften är promptmallens platshållare på rad ~1357 (post G30, spec §3) — kontrollera med `grep -c GDPR $EP`, som ska ge **1**.
 
 - [ ] **Steg 8: Kör TOC-vakten och commit**
 
@@ -1474,7 +1474,7 @@ Skriv om inledningen så att den säger vad stycket handlar om — **var data la
 
 - [ ] **Steg 3C: G29:s bokföring**
 
-G29:s förekomstcell pekar på EP 979, en mening Task 6 tog bort i sin helhet. Posten ska säga att den är åtgärdad där, inte stå kvar som om förekomsten fanns. **Ett fynd som åtgärdats ska kunna spåras till uppgiften som åtgärdade det** — samma skäl som att ett fynd utan åtgärd aldrig stryks tyst. Uppdatera cellen; posten stryks inte.
+**Både G28:s och G29:s radnummer är inaktuella** — Task 6 och 7 har flyttat styckena två gånger (G28 stod på EP 1031, därefter 1032, nu 1024). **Lokalisera med `grep -n` på en sträng, aldrig på numret.** Och G29:s förekomstcell pekar på EP 979, en mening Task 6 tog bort i sin helhet. Posten ska säga att den är åtgärdad där, inte stå kvar som om förekomsten fanns. **Ett fynd som åtgärdats ska kunna spåras till uppgiften som åtgärdade det** — samma skäl som att ett fynd utan åtgärd aldrig stryks tyst. Uppdatera cellen; posten stryks inte.
 
 - [ ] **Steg 4: Räkna om**
 
