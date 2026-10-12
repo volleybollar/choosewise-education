@@ -410,14 +410,26 @@ oeftergivliga regel.
 - **Guiden växte 42 → 44 sidor denna runda, inte 38 → 44.** Talet 38 står fel i två
   uppgiftsrapporter.
 
-### En sak att laga när någon ändå är inne i inventeringen
+### Fjärde instansen av samma felklass — och den här gången i auktoritetsdokumentet självt
 
-`docs/guide-facts-gemini.md:113` säger korrekt **50 poster**, och tokenräkningens tre tal
-(30 + 14 + 6 = 50) är rätta — men **uppräkningarna** inne i raderna listar tillsammans bara 49
-id:n: **G27 står i ingen av dem** (den hör i `stämmer`, vars uppräkning har 29 poster mot sitt
-eget tal 30). Underrubriken på rad 145 säger därför *"Tjugofyra av 49 celler"* och ärver samma
-ofullständighet. Två tecken att rätta. **Levererat värde är rätt; det är recordet som är fel,
-och det är recordet nästa runda läser.**
+**Rättad i slutkontrollen.** `docs/guide-facts-gemini.md`:s utfallsräkning påstod korrekt
+**50 poster** med tre rätta delsummor (30 + 14 + 6), men **uppräkningarna** inne i raderna
+listade tillsammans bara 49 id:n — **G27 stod i ingen av dem** — och underrubriken till
+andra-token-tabellen ärvde nämnaren som *"Tjugofyra av 49 celler"*. G27 är `stämmer` och står nu
+i den raden; nämnaren säger 50. Verifierat med `comm` mot postlistan (tom symmetrisk skillnad)
+och med en delsummekontroll (varje rad påstått = uppräknat, uppräkningen disjunkt och komplett).
+
+**Lärdomen är klassen, inte talet.** Det här var rundans **fjärde** fall av samma sak: G48:s
+revisionsnotis, G37:s notis och G13:s cell sa alla något om en yta som inte längre stämde, och
+alla tre rättades i sina egna uppgifter. Det fjärde satt i **inventeringen självt** och hittades
+först i slutkontrollen, när ingen uppgift längre ägde filen.
+
+**Vad som gör klassen seg: ett tal som står i prosa intill tabellen det räknar har ingen vakt
+som kan se när tabellen växer.** `factinventory.py` läser postradernas *struktur* och blir röd om
+en rad går sönder — men en summa, en nämnare eller en uppräkning i löpande text är för vakten
+bara text. G50 tillkom i Task 9 och tre tal runtom den blev tysta i samma sekund. **Varje gång
+en post läggs till i en inventering ska uppräkningarna räknas om, och helst mätas i stället för
+läsas** (`comm` mellan postlistan och uppräkningen tar tre sekunder och kan inte ha fel).
 
 ---
 

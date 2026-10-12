@@ -117,7 +117,7 @@ Räknat på varje cells **inledande** token, som är den tabellen ska gå att sk
 
 | token | antal | poster |
 |---|---|---|
-| `stämmer` | **30** | G03, G05, G06, G07, G08, G09, G11, G14, G15, G18, G19, G21, G22, G23, G24, G30, G32, G33, G34, G35, G38, G39, G40, G41, G42, G43, G45, G46, G47 (+ G13:s och G17:s andra token) |
+| `stämmer` | **30** | G03, G05, G06, G07, G08, G09, G11, G14, G15, G18, G19, G21, G22, G23, G24, G27, G30, G32, G33, G34, G35, G38, G39, G40, G41, G42, G43, G45, G46, G47 (+ G13:s och G17:s andra token) |
 | `fel` | **14** | G01, G02, G12, G16, G25, G26, G28, G29, G31, G36, G37, G48, G49, G50 — varav **G28, G29 och G50 är `fel (omfång)`**, alltså inte sakligt osanna |
 | `obelagt` | **6** | G04 (`ytartefakt`), G10, G13, G17, G20, G44 — plus G24:s (`hämtningsfel`) och G47:s (`ej kontrollerad`) andra token |
 
@@ -144,7 +144,7 @@ inte bara i resonemanget: en senare uppgift skannar cellen, inte rapporten.
 
 ### Poster som bär en andra token längre in i cellen
 
-Tjugofyra av 49 celler bär mer än ett utfall. Det är inte slarv — flera poster bundlar
+Tjugofyra av 50 celler bär mer än ett utfall. Det är inte slarv — flera poster bundlar
 flera delpåståenden, och en post som kollapsas till ett omdöme ljuger om minst ett av dem.
 
 | post | inledande | ytterligare | vad den andra tokenen gäller |
