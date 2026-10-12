@@ -1858,7 +1858,29 @@ cp _unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-sv.pdf /tmp/gem
 /usr/bin/python3 exports/build-gemini-notebook-pdf.py
 /usr/bin/python3 exports/build-gemini-quickstart-pdf.py
 ```
-Byggaren skriver ut sidantal och storlek per fil. **Utgångsläget är 42 sidor och 9,6 MB** för huvudguiden; Task 6–10 tar bort mer text än de lägger till, så 41 eller 42 sidor är väntat. **40 eller färre är ett fynd** — då har ett helt uppslag fallit bort, och det ska förstås innan uppgiften bockas.
+Byggaren skriver ut sidantal och storlek per fil. **Utfallet är 44 sidor**, mätt 2026-10-12, och det är rätt.
+
+**Planens första utkast sa 41–42 och det var ett tänkefel.** Det resonerade från de sju raderade styckena och räknade inte med att rättelserna är betydligt längre än det de ersatte: licensstycket gick från ett enradigt påstående till en budgetförklaring med tre priser och rabattförhållandet, jurisdiktionsrutan är ny, AI Act-stycket förklarar fyra datum, åldersrutan fick tre belagda åldersgolv, och namnbytet lägger fem tecken per förekomst över ~200 förekomster — vilket är nästan en sida i sig.
+
+**Rätt stoppvillkor, och det som gäller:** 41–44 sidor, och **ingen sida under 400 tecken utom omslaget**. Det andra ledet är det som faktiskt fångar ett trasigt uppslag; sidantalet ensamt gör det inte. Kontroll:
+
+```bash
+/usr/bin/python3 - <<'PY'
+import sys, re
+sys.path.insert(0, "scripts")
+from tests import pdf_fingerprint as fp
+pdf = fp.ROOT / "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf"
+pages = [re.sub(r"\s+", " ", p).strip() for p in fp.pages(fp.extract(pdf))]
+pages = [p for p in pages if p]
+print(f"sidor: {len(pages)}")
+for i, p in enumerate(pages, 1):
+    if len(p) < 700:
+        print(f"  s{i}: {len(p)} tecken — {p[:70]}")
+PY
+```
+Förväntat 2026-10-12: 44 sidor, och exakt två korta — omslaget (453 tecken) och stilgalleriets andra sida (558). Den gamla 42-sidiga renderingen hade **samma två**, på sidorna 1 och 29. En tredje kort sida är fyndet.
+
+**Var tillväxten ligger**, mätt mot den gamla renderingen: en sida mellan Understanding och Del 1, en till inne i Del 4, och ingenting mellan Del 1 och Del 4 — där raderingarna och tilläggen tog ut varandra. **Förteckningens drifttabell i §2 är därmed överspelad**; Task 14 räknar mot den här filen, inte mot den.
 
 - [ ] **Steg 3: Återställ de svenska, med `cp` från kopian**
 
