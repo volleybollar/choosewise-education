@@ -38,6 +38,31 @@
 6. **Åtta av tio sidnummer i innehållsförteckningen var fel.** Nu `3 5 8 13 20 23 27 30 32 41`, vaktade.
 7. **Quick-starten sa "40-page premium PDF" om en 44-sidig guide.**
 
+## Genomläsningens fynd som INTE stod i överlämningen — räddade hit 2026-10-12
+
+Granskningen av Task 16 fann att fyra fynd bara låg i `task-16-report.md`, och `.superpowers/`
+är gitignorerad: de hade dött med worktreen. **Två är verifierade av granskaren som verkliga,
+läsarvända och enordsstora:**
+
+1. **R7 — fel ord i friskrivningen.** `gemini-notebook-print-a4-en.html:929` säger *"I am not a
+   lawyer. **This chapter** gives a starting point"* — men stycket står under `<h2>Scale &
+   Lead</h2>` (rad 890), som är en **del**, inte ett kapitel. Samma friskrivning på rad 1075
+   ligger inne i bonuskapitlet, där "this chapter" är riktigt. **Ett ord.**
+2. **R8 — rubrik mot förteckning.** Rubriken på rad 1166 är *"A starter library of Gemini
+   prompts"*; förteckningens underrad på rad 555 säger *"25 starter prompts for Gemini and
+   Gemini Notebook"*. Promptbiblioteket täcker båda produkterna.
+3. **R5** — Säfström/Folkebrant-exemplet förekommer **tre** gånger (utöver de tre duplikat som
+   redan står nedan).
+4. **R6** — författaren omtalas både som "Johan" och som "I" i samma dokument.
+
+**Dessutom, ur granskningen:** inget vaktar quick-startens "44-page"-påstående. Numret som just
+hittades fel genom läsning kan bli fel igen på exakt samma sätt, tyst. En rad räcker.
+
+**Och två siffror att inte ärva:** pyramidens trängsta luft är **120 enheter**, inte ~17 —
+granskaren mätte om den oberoende ur den levererade PDF:en vid 200 dpi och landade inom en halv
+enhet. Och guiden växte **42 → 44** sidor denna runda, inte 38 → 44; talet 38 står fel i två
+rapporter.
+
 ## Johans öppna beslut
 
 1. **Tre passager står dubblerat** — Miller-citatet (s 6, 10), "the two sides stay complementary" (s 6, 18), Eric Curts/`edugems.ai` (tre gånger från s 14). Alla preexisterande. Avduplicering är ett redaktionellt pass på hans text.
