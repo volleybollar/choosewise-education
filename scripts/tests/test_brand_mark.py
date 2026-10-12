@@ -170,10 +170,14 @@ PAGES = [p for p in brandguard.published_files((".html",))
 
 
 def test_the_page_count_is_what_we_think():
-    """198 av 203. scripts/ är verktygsfixturer, inte sidor — en ny fil
+    """199 av 204. scripts/ är verktygsfixturer, inte sidor — en ny fil
     där ska inte kunna ändra talet tyst. Faller globbet ihop vaktar
-    resten ingenting."""
-    assert len(PAGES) == 198, len(PAGES)
+    resten ingenting.
+
+    Talet gick från 198 till 199 när bloggposten when-the-copy-is-free.html
+    lades till (PR #40). Räkna upp det med flit när en sida tillkommer —
+    det är vaktens hela poäng att det ska kräva ett medvetet handgrepp."""
+    assert len(PAGES) == 199, len(PAGES)
 
 
 @pytest.mark.parametrize("path", PAGES, ids=lambda p: str(p.relative_to(ROOT)))

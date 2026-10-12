@@ -159,6 +159,16 @@
 .grid-two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); }
 @media (max-width: 768px) { .grid-two { grid-template-columns: 1fr; } }
 
+/* ───── AI eller människa — lockblocket på startsidan ─────
+   Ligger i .grid-two ovan, som redan staplar spalterna vid 768 px.
+   Maxbredden är inte kosmetisk: utan den bestämmer illustrationens höjd
+   ensam hela radens höjd, och sektionen dras isär med ett par hundra
+   pixlar tomrum. Med den möts spalterna ungefär i höjd. */
+.ai-test { align-items: center; }
+.ai-test__visual { max-width: 480px; }
+.ai-test__art { width: 100%; height: auto; display: block; }
+@media (max-width: 768px) { .ai-test__visual { max-width: 340px; margin-inline: auto; } }
+
 /* ───── Download section ───── */
 .download-section { display: flex; justify-content: space-between; align-items: center; gap: var(--space-6); flex-wrap: wrap; }
 
