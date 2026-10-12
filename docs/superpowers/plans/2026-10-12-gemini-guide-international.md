@@ -1464,6 +1464,18 @@ Språkstödet stannar som påstående, exemplet blir språkneutralt: "languages 
 
 Ingen ändring i texten. I posten skrivs ut: att exemplet är **källbelagt** (Pedagog Eskilstuna, februari 2026), att det är guidens enda namngivna klassrumsexempel på 42 sidor, att spec §9 uttryckligen tillåter "ett medvetet, motiverat exempel med en post i inventeringen", och att **det är därför leveransvaktens lista för den här guiden inte kan innehålla ett bart `Sweden`** (granskningsfokus 1). En läsare som undrar varför Copilot-guiden förbjuder ordet och Gemini-guiden inte gör det ska hitta svaret i posten, inte i en commit-text.
 
+- [ ] **Steg 3B: Den EU-skopade inledningen till jurisdiktionsrutan**
+
+**Granskningen av Task 6 hittade den här, och den är inte kosmetisk.** Stycket som bär dataresidensen inleds `For schools inside the EU, where data is processed matters.` — och direkt under står nu jurisdiktionsrutan, som är skriven för vilket land som helst. För en läsare i Ontario säger första meningen att stycket inte gäller henne, och rutan säger att det gör det. Task 6 fick inte röra satsen (dess tabell gav bara den obelagda utfästelsen), men inramningen är exakt det den här uppgiften äger.
+
+Skriv om inledningen så att den säger vad stycket handlar om — **var data lagras och behandlas, och varför det är värt att veta** — utan att först avgränsa läsekretsen till EU. Resten av stycket, inklusive den belagda halvan om att residensläget inte är tydligt dokumenterat, står kvar orört.
+
+`grep -n "For schools inside the EU" ` på båda ytorna; det finns en förekomst per yta.
+
+- [ ] **Steg 3C: G29:s bokföring**
+
+G29:s förekomstcell pekar på EP 979, en mening Task 6 tog bort i sin helhet. Posten ska säga att den är åtgärdad där, inte stå kvar som om förekomsten fanns. **Ett fynd som åtgärdats ska kunna spåras till uppgiften som åtgärdade det** — samma skäl som att ett fynd utan åtgärd aldrig stryks tyst. Uppdatera cellen; posten stryks inte.
+
 - [ ] **Steg 4: Räkna om**
 
 ```bash
