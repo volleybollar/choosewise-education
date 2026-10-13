@@ -148,6 +148,8 @@ SECTION_LANDINGS = {
     "/sv/promptar/":        "CollectionPage",
     "/notebooklm-styles/":  "CollectionPage",
     "/sv/notebooklm-stilar/": "CollectionPage",
+    "/infographic-styles/": "CollectionPage",
+    "/sv/infografik-stilar/": "CollectionPage",
     "/about/":              "AboutPage",
     "/sv/om/":              "AboutPage",
 }

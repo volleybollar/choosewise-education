@@ -833,6 +833,114 @@ läsas** (`comm` mellan postlistan och uppräkningen tar tre sekunder och kan in
 
 ---
 
+## Hygienrundan 2026-10-13 — datumets självreferens, och fyra ytor utan synlig funktion
+
+Gren `fix/seo-date-selfreference`, tre commits, avstamp `main` = `4547f4d`. Svit **805 passed,
+0 failed, 0 skipped, 0 xfailed, 0 xpassed** med `test_prompt_pdf_parity.py` undantagen (dess 11
+fel är de miljöberoende). Båda jobben var samma sak: **en invariant som bara levde i ett
+dokument, flyttad in i en vakt.**
+
+### (1) `build-seo-meta.py` läste sitt eget utdata — STÄNGT
+
+`git_lastmod()` tog datumet för senaste commit som rörde filen. Men skriptet **skriver** det
+datumet in i filen — i `page-last-updated`-blockets `<time>`, i JSON-LD:s `"dateModified"` och i
+sitemapens `<lastmod>`. Att skriva stämpeln är alltså en ändring av filen, och nästa körning
+läste sitt **eget förra utdata** som om innehållet ändrats. Verifierat ordagrant: commit
+`9c6390c` ändrade `about/index.html` på fyra rader, och alla fyra bar ett datumfält.
+
+**Det är fälla 6 nedan, och den är nu stängd i koden i stället för i en varning.**
+
+**Sprängvidden var 13 filer, inte 6.** Mätt genom att köra skriptets egen per-fil-logik över
+alla 195 filer i scope med gammal och ny `git_lastmod` och jämföra utfallet: utan fixen hade en
+körning 2026-10-13 skrivit `2026-10-13` på `about/`, `prompts/`, `wise/`, `notebooklm-styles/`,
+deras fyra svenska motparter, och **fem blogginlägg** — de sista har ingen synlig stämpel men
+bär `dateModified` i sitt `Article`-schema, vilket är varför en inventering som bara tittar på
+section landings med synligt block räknar fel. Med fixen: **0 filer.**
+
+`git_lastmod()` går nu bakåt genom filens commits och stannar vid den första som säger något om
+innehållet. En commit hoppas över när varje ändrad rad bär en `DATE_MARKERS`-sträng
+(`page-last-updated`, `"dateModified"`, `<lastmod>`), **eller** när diffen är tom — en merge
+eller ett lägesbyte säger ingenting om innehållet. Fallbacken på mtime och sedan dagens datum är
+orörd. Vakten är `scripts/tests/test_seo_lastmod.py`, som bygger ett riktigt git-repo i en
+temporär katalog; den sågs röd mot den gamla implementationen (`assert '2026-10-13' ==
+'2026-10-07'`) innan den litades på.
+
+**Kostnad: en full körning går från ~5,0 s till ~12,2 s** (`git log` plus ett `git show` per
+fil). **Ingen cache byggd** — en cache måste invalideras på HEAD och vore mer kod än fixen.
+
+**Sitemapens sexton evidence-rader gick `2026-10-09 → 2026-10-08`** i samma körning: `ae6dd1e`
+är en **merge-commit** och ger tom diff, så det sanna datumet är `63b33ba`, 2026-10-08.
+
+### (2) De fyra guide-webbytorna är interna kontrollkopior — nu synligt i filerna
+
+`_unpublished/guides/{ai-for-students,apple-intelligence,copilot,gemini-notebook}/index.html`
+behålls **bara** för att vara andra halvan i ytkonsistensvakten. Guiderna distribueras via
+Skool, inte via sajten, så de publiceras aldrig. Fram till nu stod det skyddet bara i punkt (c)
+ovan, och en städrunda som läste filträdet såg fyra opublicerade HTML-sidor utan funktion.
+
+**Två vakter i `scripts/tests/test_guide_surface_consistency.py`.**
+`test_every_unpublished_guide_web_surface_is_accounted_for` läser **filträdet** och kräver att
+varje `_unpublished/guides/*/index.html` står antingen i `surfacecheck.GUIDE_SURFACES` eller på
+`UNMAPPED_GUIDE_SURFACES`. `test_the_debt_list_cannot_rot` fäller tre ruttnings-riktningar: en
+post vars fil försvunnit, en post som samtidigt står i ytkartan (skulden betald men posten
+kvar), och en post utan skäl. Båda sågs röda med flit — en femte katalog fällde den första,
+och alla tre riktningarna den andra.
+
+**`UNMAPPED_GUIDE_SURFACES` är en SKULD SOM SKA TÖMMAS, inte en parkering.**
+`apple-intelligence` och `ai-for-students` står där för att de ännu saknar påståendeinventering;
+utan den kan ingen vaktrad peka på ytan, och en post i ytkartan utan inventering är en tyst vakt
+som `test_every_guide_has_an_inventory_file` redan förbjuder. **Varje guides egen runda
+kartlägger sin yta, flyttar den härifrån in i ytkartan, och listan krymper. Är listan tom ska
+både den och dess två vakter strykas** — de vaktar ingenting då.
+
+**Och en banner i toppen av alla fyra filerna**, så att den som städar läser filen och inte
+överlämningen. Den ligger mellan doctype och `<html`, utanför `<body>`-flödet, och bär **inget
+större-än-tecken** — annars klipper `surfacecheck._TAG` (`<[^>]+>`) kommentaren vid det första
+och resten blir läsbar text i den normaliserade ytan. Mätt, inte antaget: de normaliserade
+ytorna är oförändrade **på tecknet** (copilot en 46 978 / sv 42 871, gemini en 93 029 /
+sv 91 307, delta 0) och vaktraderna lika många och lika gröna (copilot 10 aktiv / 22 borttaget,
+gemini 39 / 52, noll problem). Ingen PDF och ingen printyta rördes.
+
+### (3) `/infographic-styles/` och `/sv/infografik-stilar/` är nu section landings
+
+De två bar ett **föräldralöst** `page-last-updated`-block, fruset på `2026-04-24`: de togs ur
+`SECTION_LANDINGS` i `252a374`, och skriptet skriver blocket bara för section landings — så det
+varken uppdaterades eller togs bort. Johans beslut 2026-10-13: lägg in dem igen, med
+`CollectionPage` som systrarna. Blocket **adopterades på plats** via sina markörer (ett block
+per fil efteråt, inte två) och visar nu `2026-10-07`. Renderat och granskat vid 1280 px och
+320 px: stämpeln sitter där `/prompts/` och `/sv/promptar/` har sin, med samma hårfina linje
+över, samma centrering och samma 17 px — och **noll överflöd**, mätt med
+`documentElement.scrollWidth - clientWidth`, samma metod som `test_responsive_overflow.py`.
+
+### ⚑ KVARVARANDE SKULD: `notebooklm-styles` bär det pensionerade produktnamnet
+
+**Namngiven här för att den annars dör med rundans rapport.** Sökvägarna:
+
+| sökväg | vad den är |
+|---|---|
+| `notebooklm-styles/index.html` | **omdirigeringsstubb**, `noindex`, `meta refresh` till `/infographic-styles/` |
+| `sv/notebooklm-stilar/index.html` | samma, till `/sv/infografik-stilar/` |
+
+Innehållet har alltså **redan** flyttat till `infographic-styles`; det som står kvar är de två
+stubbarna och namnet i publika sökvägar. **Togs inte i hygienrundan — Johans beslut 2026-10-13:
+eget ärende.** Skälet: ett namnbyte rör publicerade sökvägar, `PAIR_MAP`, og-kort, sitemap och
+inkommande länkar, och kräver omdirigeringar. Båda stubbarna står i `SECTION_LANDINGS` och i
+sitemapen (8 rader var för `notebooklm` respektive `infographic`), och båda får
+`CollectionPage`-schema med `dateModified` trots att de är `noindex`-stubbar utan `</main>` —
+de får därför inget synligt block, vilket är varför ingen dubblett uppstod.
+
+### Fynd rapporterade men inte åtgärdade
+
+**`docs/guide-facts-copilot.md`:s EW-radnummer glider 22 rader till.** Fynd 3 i Copilot-rundan
+säger att ungefär trettio platskolumner redan ligger fel med ett efter `16bd50f`. Bannern lägger
+**22 rader** i toppen av webbytan, så de ligger nu fel med **23** — och motsvarande kolumner för
+`gemini-notebook` likaså. **Ofarligt för vakten:** `surfacecheck` och `factinventory` matchar
+**strängar, aldrig radnummer**; felet syns bara för en människa som läser cellen. **Behandla
+EW-kolumnens radnummer i båda inventeringarna som ungefärliga**, inte exakta, tills någon är
+inne i tabellen av annat skäl och räknar om dem.
+
+---
+
 ## Evidence-sidornas mobilöverflöd — LÖST 2026-10-09
 
 **Det var en regression från Evidence-fixen samma dag, inte ett gammalt fel.** Överlämningen och minnet sa att överflödet fanns före fixen; mätning mot `8af79cd` visade **noll överflöd** på alla kontrollerade sidor. Efter fixen stack 15 av 15 domänsidor ut, upp till 161 px vid 320 px och 117 px vid 1024 px.
@@ -915,7 +1023,7 @@ Ett filter som sållar bort breda element för att slippa fullbreddsbehållare d
 3. **Fingeravtryck på text är blinda för bilder.** En omrendering tappade åtta fotografier medan varje textkontroll passerade. Titta på en renderad sida.
 4. **`git checkout --` på en KATALOG raderar andras ocommittade arbete.** Hände i våg 2a och kostade två av Johans filer, som gick att återskapa av tur. Namnge alltid filer du själv ändrat; kopiera undan och återställ med `cp`.
 5. **`git add -A` används aldrig.** Repot har alltid ett trettiotal ocommittade filer som tillhör Johan.
-6. **`build-seo-meta.py` bumpar "Last updated"** ur git-commitdatum. En körning som bara skulle lägga till länkar sätter nytt datum på sidor vars innehåll inte rörts. **Konkret i våg 2b:s slutkontroll:** en medveten körning (innehållet hade faktiskt ändrats) stämplade om 12 helt orelaterade sidor — `about/index.html`, tre blogginlägg, `guides/index.html`, `prompts/index.html` och sex till — med gamla backlog-datum (2026-05-17 till 2026-10-05) som inte har med rundan att göra, samtidigt som den **inte** rörde de två sidor rundan faktiskt ändrat (de bär ingen `last-updated`-markör alls). Alla 12 reverterades med namngiven `git checkout --` per fil innan commit. Kör skriptet, men läs varje diff — "innehållet har ändrats den här rundan" gör inte automatiskt körningen träffsäker.
+6. **STÄNGT 2026-10-13 — `build-seo-meta.py` bumpade "Last updated"** ur git-commitdatum. **Självreferensen är lagad och vaktad** (`scripts/tests/test_seo_lastmod.py`): skriptet hoppar nu över commits vars enda ändring av filen är dess egna datumfält, och en körning 2026-10-13 ändrade **noll HTML-filer**. Historiken nedan står kvar som förklaring till varför sidor bär datum som inte stämmer med sitt innehåll, och **läs fortfarande varje diff** — fixen tar bort självreferensen, inte behovet av att titta. En körning som bara skulle lägga till länkar sätter nytt datum på sidor vars innehåll inte rörts. **Konkret i våg 2b:s slutkontroll:** en medveten körning (innehållet hade faktiskt ändrats) stämplade om 12 helt orelaterade sidor — `about/index.html`, tre blogginlägg, `guides/index.html`, `prompts/index.html` och sex till — med gamla backlog-datum (2026-05-17 till 2026-10-05) som inte har med rundan att göra, samtidigt som den **inte** rörde de två sidor rundan faktiskt ändrat (de bär ingen `last-updated`-markör alls). Alla 12 reverterades med namngiven `git checkout --` per fil innan commit. Kör skriptet, men läs varje diff — "innehållet har ändrats den här rundan" gör inte automatiskt körningen träffsäker.
 7. **Generatorer äger sina filer.** `build-og-images.py` skriver om de tolv delningskorten ur en mall; en handredigering där raderas tyst vid nästa körning. Lägg ändringen i generatorn.
 8. **Sajten undervisar om design** och nämner typsnittsnamn i brödtext. Vakter måste matcha i `font-family`-kontext.
 9. **`/usr/bin/python3` (3.9.6) är enda interpretern** med pytest, playwright och Pillow.
