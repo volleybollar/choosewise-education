@@ -397,8 +397,9 @@ refaktorering; hörde inte i den här rundans fillista.
 ### Johans redaktionella pass (Task 18, 2026-10-13) — titeln, rösten, dubbleringarna
 
 **Tre** av de fynd som stod uppskjutna nedan är **stängda på Johans beslut 2026-10-13** — de
-tre dubblerade passagerna (c), Fristadsskolan-exemplet (d) och `Johan` mot `I` (b). Listan gick
-därmed från sex poster till tre, vilket är talet i rubriken `### Tre fynd …` nedan.
+tre dubblerade passagerna (c), Fristadsskolan-exemplet (d) och `Johan` mot `I` (b). Räkna talet
+mot den uppräkningen, de tre bokstäverna i föregående mening: listan över uppskjutna fynd gick
+från sex poster till tre genom att precis de tre lyftes ut.
 **Titelbytet (a) var aldrig ett uppskjutet fynd** och räknas alltså inte in här. De tre står
 inte längre öppna, och nästa runda ska inte "rätta" tillbaka något av det här.
 
