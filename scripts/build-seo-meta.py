@@ -148,6 +148,8 @@ SECTION_LANDINGS = {
     "/sv/promptar/":        "CollectionPage",
     "/notebooklm-styles/":  "CollectionPage",
     "/sv/notebooklm-stilar/": "CollectionPage",
+    "/infographic-styles/": "CollectionPage",
+    "/sv/infografik-stilar/": "CollectionPage",
     "/about/":              "AboutPage",
     "/sv/om/":              "AboutPage",
 }
@@ -501,13 +503,94 @@ def inject_last_updated(html: str, block: str) -> str:
 
 # ---- Sitemap ----
 
+# De tre rader som bär skriptets DATUMUTDATA, och som genereras i sin
+# helhet: JSON-LD-blocket (där `dateModified` bor), last-updated-blockets
+# aside, och sitemapens <lastmod>. Ingen av dem kan bära människoskriven
+# text. Se _says_nothing_about_content().
+#
+# Medvetet INTE med: markörparen, favicon-, canonical- och hreflang-raderna.
+# De är också genererade, men de bär inget datum, och att sortera bort dem
+# vore en annan och mycket större ändring — commit 0890841 lade favicon på
+# 190 filer, och den commiten är det sanna "senast ändrat" för åtta sidor
+# (2026-10-07). Mätt: tas de med faller 171 av 195 sidor tillbaka till
+# julidatum. Spärren ska stänga datumets självreferens, inte omdefiniera
+# vad en innehållsändring är.
+_GENERATED_LINES = (
+    re.compile(r'<script type="application/ld\+json">'
+               r'\{"@context":"https://schema\.org".*</script>$'),
+    re.compile(r'<aside class="page-last-updated"[^>]*>.*</aside>$'),
+    re.compile(r'<lastmod>[^<]*</lastmod>$'),
+)
+
+
+def _changed_lines(sha: str, rel_path: str) -> list:
+    """Commitens +/- rader för en fil, utan diffens filhuvuden."""
+    out = subprocess.run(
+        ["git", "show", sha, "--format=", "--unified=0", "--", rel_path],
+        cwd=ROOT, capture_output=True, text=True).stdout.splitlines()
+    return [line for line in out
+            if (line.startswith("+") or line.startswith("-"))
+            and not line.startswith(("+++", "---"))]
+
+
+def _without_our_own_output(lines: list, sign: str) -> list:
+    """Diffens rader åt ett håll, med skriptets egna rader bortsorterade.
+
+    Resultatet är SORTERAT, så en ren omkastning av innehållsrader — samma
+    rader, ny ordning — ser likadan ut på båda sidor och skulle klassas som
+    "säger inget om innehållet". Teoretisk lucka: mätt över hela historiken
+    (1829 commit/fil-par) finns noll sådana commits. Osorterat vore talet
+    känsligt för att git parar om hunkar, vilket ger falska innehållsflaggor
+    — ett vanligare fel än omkastningen. Avvägningen är medveten.
+    """
+    return sorted(line[1:] for line in lines
+                  if line.startswith(sign)
+                  and not any(p.match(line[1:].strip()) for p in _GENERATED_LINES))
+
+
+def _says_nothing_about_content(sha: str, rel_path: str) -> bool:
+    """Sant när commiten inte bär någon innehållsändring av filen.
+
+    Skriptets egna rader sorteras bort på båda sidor av diffen, och det som
+    blir kvar jämförs. Är resterna lika har commiten bara flyttat runt det
+    skriptet självt skrivit. Tom diff (filen bytte läge, eller commiten är
+    en merge) ger två tomma listor och svarar därmed sant, som sig bör.
+
+    Varför jämföra rester och inte kräva en datummarkör på varje rad: den
+    första versionen gjorde det senare, och det håller bara när utdatat
+    ändrar ett datum*värde* — då bär båda raderna markören. Ändrar utdatat
+    *form* bär den borttagna raden ingen markör alls (fältet fanns inte
+    innan), och kravet föll. Det hände på riktigt när två sidor lades i
+    SECTION_LANDINGS och deras JSON-LD fick en ny entitet: commiten
+    räknades som innehåll, och nästa körning hade stämplat om dem. Att
+    sortera bort raderna i stället för att inspektera dem hanterar båda
+    fallen, för frågan är inte vad som står på raden utan vem som skrev den.
+    """
+    lines = _changed_lines(sha, rel_path)
+    return _without_our_own_output(lines, "-") == _without_our_own_output(lines, "+")
+
+
 def git_lastmod(rel_path: str) -> str:
+    """Datumet för senaste commit som ändrade filens INNEHÅLL.
+
+    Att skriva stämpeln är i sig en ändring av filen. Utan spärren nedan
+    läser nästa körning alltså sitt eget förra utdata som om det vore en
+    innehållsändring, och stämplar dagens datum på en sida som inte
+    ändrats sedan i våras — en gång per körning, för alltid.
+
+    Går bakåt genom filens commits och stannar vid den första som säger
+    något om innehållet. Hittas ingen faller den tillbaka på filens mtime
+    och sedan dagens datum, precis som förut.
+    """
     try:
         out = subprocess.check_output(
-            ["git", "log", "-1", "--format=%cI", "--", rel_path],
+            ["git", "log", "--format=%H %cI", "--", rel_path],
             cwd=ROOT, stderr=subprocess.DEVNULL, text=True).strip()
-        if out:
-            return out.split("T")[0]
+        for line in out.splitlines():
+            sha, _, iso = line.partition(" ")
+            if _says_nothing_about_content(sha, rel_path):
+                continue
+            return iso.split("T")[0]
     except Exception:
         pass
     p = ROOT / rel_path
