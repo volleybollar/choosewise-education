@@ -501,13 +501,58 @@ def inject_last_updated(html: str, block: str) -> str:
 
 # ---- Sitemap ----
 
+# Strängar som bara står på rader skriptet självt skriver: last-updated-
+# blockets <time>, JSON-LD:s dateModified och sitemapens <lastmod>. En
+# commit vars varje ändrade rad bär en av dem är skriptets förra utdata,
+# inte en innehållsändring. Se _says_nothing_about_content().
+DATE_MARKERS = ("page-last-updated", '"dateModified"', "<lastmod>")
+
+
+def _changed_lines(sha: str, rel_path: str) -> list:
+    """Commitens +/- rader för en fil, utan diffens filhuvuden."""
+    out = subprocess.run(
+        ["git", "show", sha, "--format=", "--unified=0", "--", rel_path],
+        cwd=ROOT, capture_output=True, text=True).stdout.splitlines()
+    return [line for line in out
+            if (line.startswith("+") or line.startswith("-"))
+            and not line.startswith(("+++", "---"))]
+
+
+def _says_nothing_about_content(sha: str, rel_path: str) -> bool:
+    """Sant när commiten inte bär någon innehållsändring av filen.
+
+    Två fall. Antingen bär varje ändrad rad ett av skriptets egna
+    datumfält — då är commiten förra körningens stämpel. Eller så är
+    diffen tom (filen bytte bara läge, eller commiten är en merge), och då
+    säger den heller ingenting om innehållet.
+    """
+    lines = _changed_lines(sha, rel_path)
+    if not lines:
+        return True
+    return all(any(m in line for m in DATE_MARKERS) for line in lines)
+
+
 def git_lastmod(rel_path: str) -> str:
+    """Datumet för senaste commit som ändrade filens INNEHÅLL.
+
+    Att skriva stämpeln är i sig en ändring av filen. Utan spärren nedan
+    läser nästa körning alltså sitt eget förra utdata som om det vore en
+    innehållsändring, och stämplar dagens datum på en sida som inte
+    ändrats sedan i våras — en gång per körning, för alltid.
+
+    Går bakåt genom filens commits och stannar vid den första som säger
+    något om innehållet. Hittas ingen faller den tillbaka på filens mtime
+    och sedan dagens datum, precis som förut.
+    """
     try:
         out = subprocess.check_output(
-            ["git", "log", "-1", "--format=%cI", "--", rel_path],
+            ["git", "log", "--format=%H %cI", "--", rel_path],
             cwd=ROOT, stderr=subprocess.DEVNULL, text=True).strip()
-        if out:
-            return out.split("T")[0]
+        for line in out.splitlines():
+            sha, _, iso = line.partition(" ")
+            if _says_nothing_about_content(sha, rel_path):
+                continue
+            return iso.split("T")[0]
     except Exception:
         pass
     p = ROOT / rel_path
