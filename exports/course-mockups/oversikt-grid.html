@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mockup: Översiktsvy — Grid</title>
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+
+  <style>
+    /* ───── Mockup-specifik styling: kursöversikt som grid ───── */
+
+    /* Toppen av sidan: kompakt progress-band med modulnummer.
+       Visar var du befinner dig OCH att kursen är linjär. */
+    .course-progress {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-4) 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .course-progress__step {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .course-progress__dot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: grid; place-items: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+      font-family: var(--font-display);
+      border: 1.5px solid var(--color-border);
+      color: var(--color-text-soft);
+      background: var(--color-bg);
+    }
+    .course-progress__dot--done {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-dark-text);
+    }
+    .course-progress__dot--current {
+      background: var(--color-highlight);
+      border-color: var(--color-highlight);
+      color: var(--color-dark-text);
+      box-shadow: 0 0 0 4px rgba(198, 107, 61, 0.15);
+    }
+    .course-progress__line {
+      width: 28px; height: 1.5px;
+      background: var(--color-border);
+    }
+    .course-progress__line--done {
+      background: var(--color-accent);
+    }
+
+    /* Grid med modulkort. Layouten är två kolumner på desktop,
+       en kolumn mobilt. */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--space-5);
+      margin-top: var(--space-6);
+    }
+
+    .module-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      padding: var(--space-5);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md, 8px);
+      background: var(--color-bg);
+      text-decoration: none;
+      color: inherit;
+      transition: transform var(--dur-fast) var(--ease-out),
+                  box-shadow var(--dur-fast) var(--ease-out),
+                  border-color var(--dur-fast) var(--ease-out);
+    }
+    .module-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-md);
+    }
+    .module-card--current {
+      border-color: var(--color-highlight);
+      box-shadow: 0 0 0 1px var(--color-highlight);
+    }
+    .module-card--done {
+      background: var(--color-bg-alt);
+    }
+
+    .module-card__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+    }
+    .module-card__num {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 400;
+      color: var(--color-text-soft);
+      line-height: 1;
+    }
+    .module-card--done .module-card__num,
+    .module-card--current .module-card__num {
+      color: var(--color-accent);
+    }
+    .module-card__status {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-text-soft);
+    }
+    .module-card__status--done { color: var(--color-accent); }
+    .module-card__status--current { color: var(--color-highlight); }
+
+    .module-card__title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 500;
+      line-height: 1.25;
+      margin: 0;
+    }
+    .module-card__desc {
+      font-size: 0.95rem;
+      color: var(--color-text-soft);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .module-card__meta {
+      display: flex;
+      gap: var(--space-4);
+      align-items: center;
+      margin-top: auto;
+      padding-top: var(--space-3);
+      font-size: 0.85rem;
+      color: var(--color-text-soft);
+      border-top: 1px solid var(--color-border);
+    }
+    .module-card__meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .module-card__deepdive-tag {
+      color: var(--color-highlight);
+      font-weight: 500;
+    }
+
+    .mockup-banner {
+      background: #fff8e1;
+      border-bottom: 1px solid #f0d97f;
+      padding: var(--space-3) var(--space-5);
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6b5800;
+    }
+  </style>
+</head>
+<body>
+  <div class="mockup-banner">
+    <strong>Mockup A — Grid:</strong>
+    Översiktsvy med moduler som kort i ett rutnät. Toppen visar kompakt progressionsstege.
+  </div>
+
+  <div data-include="/assets/partials/header-sv.html"></div>
+
+  <main>
+    <!-- Page-hero med eyebrow + h1 + lede, samma mönster som befintliga
+         sidor på sajten (RÄTT, Guider, etc) -->
+    <section class="page-hero container">
+      <span class="eyebrow">Presentationsteknik</span>
+      <h1>Kursöversikt</h1>
+      <p class="lede">Sju moduler som flyttar din presentationsteknik framåt — från varför, via diabilder och framförande, till röst och kropp. Gå hela kursen i ordning, eller hoppa direkt in i den del du behöver.</p>
+    </section>
+
+    <!-- Kompakt progressbar: dot per modul, koppling med linje. -->
+    <section class="container" style="padding-top: var(--space-4); padding-bottom: var(--space-4);">
+      <nav class="course-progress" aria-label="Kursprogression">
+        <div class="course-progress__step">
+          <span class="course-progress__dot course-progress__dot--done" title="Modul 1: Klar">1</span>
+        </div>
+        <div class="course-progress__line course-progress__line--done"></div>
+        <div class="course-progress__step">
+          <span class="course-progress__dot course-progress__dot--done" title="Modul 2: Klar">2</span>
+        </div>
+        <div class="course-progress__line course-progress__line--done"></div>
+        <div class="course-progress__step">
+          <span class="course-progress__dot course-progress__dot--current" title="Modul 3: Du är här">3</span>
+        </div>
+        <div class="course-progress__line"></div>
+        <div class="course-progress__step">
+          <span class="course-progress__dot" title="Modul 4">4</span>
+        </div>
+        <div class="course-progress__line"></div>
+        <div class="course-progress__step">
+          <span class="course-progress__dot" title="Modul 5">5</span>
+        </div>
+        <div class="course-progress__line"></div>
+        <div class="course-progress__step">
+          <span class="course-progress__dot" title="Modul 6">6</span>
+        </div>
+        <div class="course-progress__line"></div>
+        <div class="course-progress__step">
+          <span class="course-progress__dot" title="Modul 7">7</span>
+        </div>
+      </nav>
+    </section>
+
+    <!-- Modulkort i grid. Varje kort: nummer, status, titel, kort beskrivning,
+         tid + fördjupningstagg. -->
+    <section class="container section">
+      <div class="module-grid">
+
+        <a class="module-card module-card--done" href="#">
+          <div class="module-card__head">
+            <span class="module-card__num">01</span>
+            <span class="module-card__status module-card__status--done">✓ Klar</span>
+          </div>
+          <h2 class="module-card__title">Varför presentationsteknik?</h2>
+          <p class="module-card__desc">Sineks Golden Circle, ditt varför, logik vs känslor — fundamentet som allt annat vilar på.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 5 min</span>
+          </div>
+        </a>
+
+        <a class="module-card module-card--done" href="#">
+          <div class="module-card__head">
+            <span class="module-card__num">02</span>
+            <span class="module-card__status module-card__status--done">✓ Klar</span>
+          </div>
+          <h2 class="module-card__title">Designa diabilder — grunderna</h2>
+          <p class="module-card__desc">Ett budskap per slide, max 6 objekt, färg, typografi, blickstyrning. Reglerna som gör all skillnad.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 10 min</span>
+            <span class="module-card__meta-item module-card__deepdive-tag">+ Fördjupning</span>
+          </div>
+        </a>
+
+        <a class="module-card module-card--current" href="#">
+          <div class="module-card__head">
+            <span class="module-card__num">03</span>
+            <span class="module-card__status module-card__status--current">● Pågår</span>
+          </div>
+          <h2 class="module-card__title">När diabilden krockar med dig</h2>
+          <p class="module-card__desc">Texttunga slides, punktlistor, tabeller, mallar, animeringar — och vad du gör istället.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 8 min</span>
+            <span class="module-card__meta-item module-card__deepdive-tag">+ Fördjupning</span>
+          </div>
+        </a>
+
+        <a class="module-card" href="#">
+          <div class="module-card__head">
+            <span class="module-card__num">04</span>
+            <span class="module-card__status">Ej startad</span>
+          </div>
+          <h2 class="module-card__title">Framförandet — närvaro i rummet</h2>
+          <p class="module-card__desc">Blicken, pausen, utfyllnadsljud, props, berättelser. Hur du blir personen i rummet.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 10 min</span>
+            <span class="module-card__meta-item module-card__deepdive-tag">+ Fördjupning</span>
+          </div>
+        </a>
+
+        <a class="module-card" href="#">
+          <div class="module-card__head">
+            <span class="module-card__num">05</span>
+            <span class="module-card__status">Ej startad</span>
+          </div>
+          <h2 class="module-card__title">Digitala presentationer</h2>
+          <p class="module-card__desc">Vad är annorlunda när du presenterar via skärm? Kamera, ljud, ögonkontakt, pausstrategi.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 8 min</span>
+            <span class="module-card__meta-item module-card__deepdive-tag">+ Fördjupning</span>
+          </div>
+        </a>
+
+        <a class="module-card" href="#">
+          <div class="module-card__head">
+            <span class="module-card__num">06</span>
+            <span class="module-card__status">Ej startad</span>
+          </div>
+          <h2 class="module-card__title">Röst, kropp och språk</h2>
+          <p class="module-card__desc">Träningsmetaforen, essensen av kropp, röst och retorik. För dig som vill längre.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 12 min</span>
+            <span class="module-card__meta-item module-card__deepdive-tag">+ Fördjupning</span>
+          </div>
+        </a>
+
+        <a class="module-card" href="#">
+          <div class="module-card__head">
+            <span class="module-card__num">07</span>
+            <span class="module-card__status">Ej startad</span>
+          </div>
+          <h2 class="module-card__title">Din checklista</h2>
+          <p class="module-card__desc">Sammanfattning, reflektion och nedladdningsbar PDF-sammanfattning av kursen.</p>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">⏱ 5 min</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-sv.html"></div>
+
+  <script defer src="/assets/js/include.js"></script>
+</body>
+</html>
