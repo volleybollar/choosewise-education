@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 1200px; overflow: hidden; }
+  body {
+    background: #f7f4ec;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 90px;
+    font-family: 'Work Sans', -apple-system, sans-serif;
+    color: #1e1e1c;
+  }
+  .legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 70px;
+  }
+  .legend-section h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 28px;
+    font-weight: 450;
+    margin-bottom: 6px;
+    color: #1e1e1c;
+  }
+  .legend-intro {
+    font-size: 15px;
+    color: #7a7a75;
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .legend-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 22px;
+    align-items: flex-start;
+  }
+  .legend-letter {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1;
+    min-width: 30px;
+  }
+  .legend-text {
+    font-size: 16px;
+    line-height: 1.55;
+    color: #3a3a38;
+  }
+  .legend-text strong {
+    display: block;
+    color: #1e1e1c;
+    font-weight: 600;
+    font-size: 17px;
+    margin-bottom: 3px;
+  }
+  .color-green { color: #2f4a3a; }
+  .color-gold { color: #a07d2e; }
+  .color-teal { color: #2e6d7a; }
+  .color-terra { color: #b35a3a; }
+  .footer {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(30,30,28,0.1);
+    text-align: center;
+  }
+  .footer .quote {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 400;
+    color: #2f4a3a;
+  }
+  .footer .attr {
+    font-size: 14px;
+    color: #a5a59f;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+  <div class="legend">
+    <div class="legend-section">
+      <h3>RÄTT för Lärare</h3>
+      <p class="legend-intro">Hur du som lärare väljer rätt verktyg i klassrummet.</p>
+      <div class="legend-item">
+        <span class="legend-letter color-green">R</span>
+        <div class="legend-text">
+          <strong>Reflektera över lärandet som ska ske</strong>
+          Vad ska eleverna lära sig? Vilka förkunskaper har eleverna? Starta alltid med pedagogiken — aldrig med verktyget.
+        </div>
+      </div>
+      <div class="legend-item">
+        <span class="legend-letter color-gold">Ä</span>
+        <div class="legend-text">
+          <strong>Ämnet avgör</strong>
+          Vad kräver just det här ämnet och innehållet? En uppsats i svenska har andra verktygsbehov än en problemlösningsuppgift i matematik.
+        </div>
+      </div>
+      <div class="legend-item">
+        <span class="legend-letter color-teal">T</span>
+        <div class="legend-text">
+          <strong>Tillämpa rätt verktyg</strong>
+          Välj det verktyg som är bäst för lärandet för de elever du har: papper och penna, en fysisk bok, en digital bok, andra digitala verktyg, ett AI-verktyg, inget verktyg alls eller något helt annat?
+        </div>
+      </div>
+      <div class="legend-item">
+        <span class="legend-letter color-terra">T</span>
+        <div class="legend-text">
+          <strong>Testa och utvärdera</strong>
+          Fungerade det bra? Lärde sig eleverna bättre med det här verktyget än de hade gjort med ett annat verktyg? Justera och kör cykeln igen.
+        </div>
+      </div>
+    </div>
+    <div class="legend-section">
+      <h3>RÄTT för Skolledare</h3>
+      <p class="legend-intro">Hur du som rektor eller skolchef styr skolans verktygsstrategi.</p>
+      <div class="legend-item">
+        <span class="legend-letter color-green">R</span>
+        <div class="legend-text">
+          <strong>Reflektera över målet</strong>
+          Vilket problem ska den här satsningen lösa? Starta med skolans vision, elevernas och lärarnas behov — inte med teknikbudgeten eller det senaste verktyget.
+        </div>
+      </div>
+      <div class="legend-item">
+        <span class="legend-letter color-gold">Ä</span>
+        <div class="legend-text">
+          <strong>Ämnes- och verksamhetsanalys</strong>
+          Vilka ämnen och verksamheter gynnas av satsningen — och vilka gör det inte? En investering som fungerar i matematik kanske inte fungerar i svenska. Gör gedigna behovsanalyser som leder till välgrundade beslut!
+        </div>
+      </div>
+      <div class="legend-item">
+        <span class="legend-letter color-teal">T</span>
+        <div class="legend-text">
+          <strong>Tillämpa med strategiskt urval</strong>
+          Vilka verktyg ska skolan satsa på — och vilka ska skolan aktivt välja bort? Vilka av de verktyg som vi har tillgång till idag ger önskat resultat och vilka gör inte det?
+        </div>
+      </div>
+      <div class="legend-item">
+        <span class="legend-letter color-terra">T</span>
+        <div class="legend-text">
+          <strong>Testa med data</strong>
+          Sätt utvärderingskriterier innan satsningen genomförs — inte efteråt. Förbättrades elevresultaten? Ökade lärarnas kompetens? Använd data för att utvärdera och avsluta det som inte fungerar.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <p class="quote">"Är det fler verktyg eller bättre omdöme som behövs?"</p>
+    <p class="attr">© Johan Lindström · choosewise.education</p>
+  </div>
+</body>
+</html>

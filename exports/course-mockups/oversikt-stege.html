@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mockup: Översiktsvy — Stege</title>
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+
+  <style>
+    /* ───── Mockup-specifik styling: kursöversikt som vertikal stege ───── */
+
+    /* Stegen ligger i en CSS-grid där kolumn 1 är timeline/dot,
+       kolumn 2 är textinnehåll. Linjen ritas med pseudo-element. */
+    .course-ladder {
+      max-width: 720px;
+      margin-inline: auto;
+      padding-block: var(--space-5);
+    }
+
+    .ladder-step {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: var(--space-5);
+      position: relative;
+      padding-bottom: var(--space-6);
+    }
+    /* Vertikal linje mellan steg, dragen från dot ner till nästa */
+    .ladder-step:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 29px;
+      top: 56px;
+      bottom: 0;
+      width: 2px;
+      background: var(--color-border);
+    }
+    .ladder-step--done:not(:last-child)::before {
+      background: var(--color-accent);
+    }
+
+    /* Den runda noden (steg-indikator) */
+    .ladder-step__dot {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      display: grid; place-items: center;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 500;
+      border: 2px solid var(--color-border);
+      background: var(--color-bg);
+      color: var(--color-text-soft);
+      flex-shrink: 0;
+    }
+    .ladder-step--done .ladder-step__dot {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-dark-text);
+    }
+    .ladder-step--current .ladder-step__dot {
+      background: var(--color-highlight);
+      border-color: var(--color-highlight);
+      color: var(--color-dark-text);
+      box-shadow: 0 0 0 6px rgba(198, 107, 61, 0.15);
+      animation: pulse-current 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse-current {
+      0%, 100% { box-shadow: 0 0 0 6px rgba(198, 107, 61, 0.15); }
+      50%      { box-shadow: 0 0 0 10px rgba(198, 107, 61, 0.20); }
+    }
+
+    /* Innehållskortet bredvid noden */
+    .ladder-step__body {
+      padding-top: var(--space-2);
+    }
+    .ladder-step__status {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-text-soft);
+      margin-bottom: var(--space-2);
+    }
+    .ladder-step--done .ladder-step__status { color: var(--color-accent); }
+    .ladder-step--current .ladder-step__status { color: var(--color-highlight); }
+
+    .ladder-step__title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1.25;
+      margin: 0 0 var(--space-2) 0;
+    }
+    .ladder-step__title a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1.5px solid transparent;
+      transition: border-color var(--dur-fast) var(--ease-out);
+    }
+    .ladder-step__title a:hover {
+      border-bottom-color: var(--color-accent);
+    }
+    .ladder-step__desc {
+      color: var(--color-text-soft);
+      line-height: 1.55;
+      margin: 0;
+    }
+    .ladder-step__meta {
+      display: flex;
+      gap: var(--space-4);
+      align-items: center;
+      margin-top: var(--space-3);
+      font-size: 0.85rem;
+      color: var(--color-text-soft);
+    }
+    .ladder-step__deepdive {
+      color: var(--color-highlight);
+      font-weight: 500;
+    }
+
+    .ladder-step__cta {
+      margin-top: var(--space-4);
+    }
+
+    .mockup-banner {
+      background: #fff8e1;
+      border-bottom: 1px solid #f0d97f;
+      padding: var(--space-3) var(--space-5);
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6b5800;
+    }
+  </style>
+</head>
+<body>
+  <div class="mockup-banner">
+    <strong>Mockup B — Stege:</strong>
+    Vertikal kurspath där varje modul är ett steg på vägen. Tydlig "du är här"-markör pulserar.
+  </div>
+
+  <div data-include="/assets/partials/header-sv.html"></div>
+
+  <main>
+    <section class="page-hero container">
+      <span class="eyebrow">Presentationsteknik</span>
+      <h1>Kursöversikt</h1>
+      <p class="lede">Sju moduler som flyttar din presentationsteknik framåt — från varför, via diabilder och framförande, till röst och kropp. Gå hela kursen i ordning, eller hoppa direkt in i den del du behöver.</p>
+    </section>
+
+    <section class="container">
+      <div class="course-ladder">
+
+        <div class="ladder-step ladder-step--done">
+          <div class="ladder-step__dot">1</div>
+          <div class="ladder-step__body">
+            <div class="ladder-step__status">✓ Klar</div>
+            <h2 class="ladder-step__title"><a href="#">Varför presentationsteknik?</a></h2>
+            <p class="ladder-step__desc">Sineks Golden Circle, ditt varför, logik vs känslor — fundamentet som allt annat vilar på.</p>
+            <div class="ladder-step__meta">
+              <span>⏱ 5 min</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ladder-step ladder-step--done">
+          <div class="ladder-step__dot">2</div>
+          <div class="ladder-step__body">
+            <div class="ladder-step__status">✓ Klar</div>
+            <h2 class="ladder-step__title"><a href="#">Designa diabilder — grunderna</a></h2>
+            <p class="ladder-step__desc">Ett budskap per slide, max 6 objekt, färg, typografi, blickstyrning. Reglerna som gör all skillnad.</p>
+            <div class="ladder-step__meta">
+              <span>⏱ 10 min</span>
+              <span class="ladder-step__deepdive">+ Fördjupning</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ladder-step ladder-step--current">
+          <div class="ladder-step__dot">3</div>
+          <div class="ladder-step__body">
+            <div class="ladder-step__status">● Du är här</div>
+            <h2 class="ladder-step__title"><a href="#">När diabilden krockar med dig</a></h2>
+            <p class="ladder-step__desc">Texttunga slides, punktlistor, tabeller, mallar, animeringar — och vad du gör istället för att låta diabilden tävla med dig.</p>
+            <div class="ladder-step__meta">
+              <span>⏱ 8 min</span>
+              <span class="ladder-step__deepdive">+ Fördjupning</span>
+            </div>
+            <div class="ladder-step__cta">
+              <a class="btn btn--primary" href="#">Fortsätt där du var →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ladder-step">
+          <div class="ladder-step__dot">4</div>
+          <div class="ladder-step__body">
+            <div class="ladder-step__status">Ej startad</div>
+            <h2 class="ladder-step__title"><a href="#">Framförandet — närvaro i rummet</a></h2>
+            <p class="ladder-step__desc">Blicken, pausen, utfyllnadsljud, props, berättelser. Hur du blir personen i rummet.</p>
+            <div class="ladder-step__meta">
+              <span>⏱ 10 min</span>
+              <span class="ladder-step__deepdive">+ Fördjupning</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ladder-step">
+          <div class="ladder-step__dot">5</div>
+          <div class="ladder-step__body">
+            <div class="ladder-step__status">Ej startad</div>
+            <h2 class="ladder-step__title"><a href="#">Digitala presentationer</a></h2>
+            <p class="ladder-step__desc">Vad är annorlunda när du presenterar via skärm? Kamera, ljud, ögonkontakt, pausstrategi.</p>
+            <div class="ladder-step__meta">
+              <span>⏱ 8 min</span>
+              <span class="ladder-step__deepdive">+ Fördjupning</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ladder-step">
+          <div class="ladder-step__dot">6</div>
+          <div class="ladder-step__body">
+            <div class="ladder-step__status">Ej startad</div>
+            <h2 class="ladder-step__title"><a href="#">Röst, kropp och språk</a></h2>
+            <p class="ladder-step__desc">Träningsmetaforen, essensen av kropp, röst och retorik. För dig som vill längre.</p>
+            <div class="ladder-step__meta">
+              <span>⏱ 12 min</span>
+              <span class="ladder-step__deepdive">+ Stor fördjupning</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ladder-step">
+          <div class="ladder-step__dot">7</div>
+          <div class="ladder-step__body">
+            <div class="ladder-step__status">Ej startad</div>
+            <h2 class="ladder-step__title"><a href="#">Din checklista</a></h2>
+            <p class="ladder-step__desc">Sammanfattning, reflektion och nedladdningsbar PDF-sammanfattning av kursen.</p>
+            <div class="ladder-step__meta">
+              <span>⏱ 5 min</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-sv.html"></div>
+
+  <script defer src="/assets/js/include.js"></script>
+</body>
+</html>

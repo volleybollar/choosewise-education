@@ -158,8 +158,8 @@ LAST_UPDATED_LABEL = {
 }
 
 # Pages to skip (templates, admin, brainstorm dumps, etc.)
-EXCLUDE_DIR_PARTS = {".git", ".superpowers", ".playwright-mcp", "exports",
-                     "node_modules", "scripts", "assets/partials",
+EXCLUDE_DIR_PARTS = {".git", ".worktrees", ".superpowers", ".playwright-mcp",
+                     "exports", "node_modules", "scripts", "assets/partials",
                      "_unpublished"}
 EXCLUDE_FILES = {
     "blog/post.html",

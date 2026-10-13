@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mockup: Modul-sida — När diabilden krockar med dig</title>
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+
+  <style>
+    /* ───── Mockup-specifik styling: typisk modulsida ───── */
+
+    .module-page {
+      max-width: 760px;
+      margin-inline: auto;
+      padding-inline: var(--space-5);
+    }
+
+    /* Sticky topbar med modulkontext + mini-progress */
+    .module-topbar {
+      position: sticky;
+      top: var(--nav-height, 60px);
+      z-index: 10;
+      background: var(--color-bg-blur);
+      backdrop-filter: saturate(150%) blur(16px);
+      -webkit-backdrop-filter: saturate(150%) blur(16px);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-3) 0;
+    }
+    .module-topbar__inner {
+      max-width: 1100px;
+      margin-inline: auto;
+      padding-inline: var(--space-5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      font-size: 0.875rem;
+    }
+    .module-topbar__crumb {
+      color: var(--color-text-soft);
+    }
+    .module-topbar__crumb a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    .module-topbar__crumb a:hover { text-decoration: underline; }
+
+    /* Numrerad progressionsbar i topbaren — varje cirkel klickbar
+       till motsvarande modul. Mindre än översiktsvyns version men
+       bevarar siffror och linjer. */
+    .module-topbar__progress {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .module-topbar__progress-dot {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: grid; place-items: center;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1.5px solid var(--color-border);
+      color: var(--color-text-soft);
+      background: var(--color-bg);
+      text-decoration: none;
+      transition: transform var(--dur-fast) var(--ease-out);
+      flex-shrink: 0;
+    }
+    .module-topbar__progress-dot:hover {
+      transform: scale(1.1);
+      border-color: var(--color-accent);
+    }
+    .module-topbar__progress-dot--done {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-dark-text);
+    }
+    .module-topbar__progress-dot--current {
+      background: var(--color-highlight);
+      border-color: var(--color-highlight);
+      color: var(--color-dark-text);
+      box-shadow: 0 0 0 3px rgba(198, 107, 61, 0.15);
+    }
+    .module-topbar__progress-line {
+      width: 18px; height: 1.5px;
+      background: var(--color-border);
+      flex-shrink: 0;
+    }
+    .module-topbar__progress-line--done {
+      background: var(--color-accent);
+    }
+
+    /* Mobilt: dölj linjerna och packa dotsen tätare */
+    @media (max-width: 720px) {
+      .module-topbar__progress-line { display: none; }
+      .module-topbar__progress { gap: 4px; }
+      .module-topbar__progress-dot { width: 22px; height: 22px; font-size: 0.7rem; }
+    }
+
+    /* Modulhero */
+    .module-hero {
+      padding-block: var(--space-7) var(--space-5);
+    }
+    .module-hero__eyebrow {
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+      color: var(--color-text-soft);
+      text-transform: uppercase;
+      margin-bottom: var(--space-3);
+    }
+    .module-hero__eyebrow strong {
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+    .module-hero h1 {
+      margin-bottom: var(--space-4);
+    }
+    .module-hero__lede {
+      font-size: 1.2rem;
+      color: var(--color-text-soft);
+      line-height: 1.55;
+      max-width: 60ch;
+    }
+
+    /* Innehållsblock — varje sektion av modulen */
+    .module-section {
+      padding-block: var(--space-6);
+      border-top: 1px solid var(--color-border);
+    }
+    .module-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-4);
+    }
+    .module-section p {
+      max-width: 60ch;
+      line-height: 1.65;
+    }
+    .module-section p + p {
+      margin-top: var(--space-4);
+    }
+
+    /* Slide-bild i innehållet — använder demonstrativa exempel direkt */
+    .module-figure {
+      margin-block: var(--space-5);
+      border-radius: var(--radius-md, 8px);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .module-figure__placeholder {
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, #1a1a18 0%, #2d2d2a 100%);
+      color: var(--color-dark-text);
+      display: grid;
+      place-items: center;
+      font-style: italic;
+      font-size: 0.95rem;
+      padding: var(--space-5);
+      text-align: center;
+    }
+    .module-figure figcaption {
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-bg-alt);
+      font-size: 0.875rem;
+      color: var(--color-text-soft);
+    }
+
+    /* Interaktiv övning (placeholder) */
+    .exercise {
+      background: var(--color-bg-alt);
+      border-left: 3px solid var(--color-accent);
+      padding: var(--space-5);
+      border-radius: 0 var(--radius-md, 8px) var(--radius-md, 8px) 0;
+      margin-block: var(--space-5);
+    }
+    .exercise__label {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+    .exercise__prompt {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: var(--space-4);
+    }
+    .exercise__btn {
+      margin-top: var(--space-3);
+    }
+
+    /* Fördjupnings-CTA: tydligt block i slutet av modulen */
+    .deepdive-cta {
+      margin-block: var(--space-7);
+      padding: var(--space-6);
+      border: 1px solid var(--color-highlight);
+      border-radius: var(--radius-md, 8px);
+      background: linear-gradient(135deg, rgba(198, 107, 61, 0.05) 0%, rgba(198, 107, 61, 0.10) 100%);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: var(--space-5);
+      align-items: center;
+    }
+    .deepdive-cta__icon {
+      font-size: 2rem;
+      color: var(--color-highlight);
+    }
+    .deepdive-cta__body { }
+    .deepdive-cta__title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: var(--space-2);
+      color: var(--color-text);
+    }
+    .deepdive-cta__desc {
+      color: var(--color-text-soft);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Föregående/nästa-navigation längst ner */
+    .module-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      padding-block: var(--space-7);
+      margin-top: var(--space-6);
+      border-top: 1px solid var(--color-border);
+    }
+    .module-nav__link {
+      padding: var(--space-4);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md, 8px);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color var(--dur-fast) var(--ease-out);
+    }
+    .module-nav__link:hover {
+      border-color: var(--color-accent);
+    }
+    .module-nav__direction {
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-text-soft);
+      margin-bottom: var(--space-2);
+    }
+    .module-nav__title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+    .module-nav__link--next {
+      text-align: right;
+    }
+
+    .mockup-banner {
+      background: #fff8e1;
+      border-bottom: 1px solid #f0d97f;
+      padding: var(--space-3) var(--space-5);
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6b5800;
+    }
+
+    @media (max-width: 720px) {
+      .module-nav { grid-template-columns: 1fr; }
+      .deepdive-cta {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .deepdive-cta__icon { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="mockup-banner">
+    <strong>Mockup C — Modul-sida (typisk):</strong>
+    Hur en modul ser ut när du läser den. Visar slide-bild, text, interaktiv övning, fördjupnings-CTA.
+  </div>
+
+  <div data-include="/assets/partials/header-sv.html"></div>
+
+  <main>
+    <!-- Sticky topbar med breadcrumb och mini-progress.
+         Användaren kan alltid hoppa tillbaka till översikten. -->
+    <div class="module-topbar">
+      <div class="module-topbar__inner">
+        <div class="module-topbar__crumb">
+          <a href="#">Kursöversikt</a> · Modul 3 av 7
+        </div>
+        <nav class="module-topbar__progress" aria-label="Kursprogression">
+          <a class="module-topbar__progress-dot module-topbar__progress-dot--done" href="#" title="Modul 1 — Klar">1</a>
+          <span class="module-topbar__progress-line module-topbar__progress-line--done"></span>
+          <a class="module-topbar__progress-dot module-topbar__progress-dot--done" href="#" title="Modul 2 — Klar">2</a>
+          <span class="module-topbar__progress-line module-topbar__progress-line--done"></span>
+          <a class="module-topbar__progress-dot module-topbar__progress-dot--current" href="#" title="Modul 3 — Du är här" aria-current="page">3</a>
+          <span class="module-topbar__progress-line"></span>
+          <a class="module-topbar__progress-dot" href="#" title="Modul 4">4</a>
+          <span class="module-topbar__progress-line"></span>
+          <a class="module-topbar__progress-dot" href="#" title="Modul 5">5</a>
+          <span class="module-topbar__progress-line"></span>
+          <a class="module-topbar__progress-dot" href="#" title="Modul 6">6</a>
+          <span class="module-topbar__progress-line"></span>
+          <a class="module-topbar__progress-dot" href="#" title="Modul 7">7</a>
+        </nav>
+      </div>
+    </div>
+
+    <article class="module-page">
+
+      <!-- Modulens hero: eyebrow med modulnummer, titel, lede. -->
+      <header class="module-hero">
+        <div class="module-hero__eyebrow"><strong>Modul 3</strong> · 8 min läsning</div>
+        <h1>När diabilden krockar med dig</h1>
+        <p class="module-hero__lede">Texttunga slides, klustrade punktlistor och tabeller med åtta kolumner — det är inte bara fult. De krockar med dig som presentatör. Publiken kan inte läsa och lyssna samtidigt.</p>
+      </header>
+
+      <!-- Sektion 1: textmuren -->
+      <section class="module-section">
+        <h2>Textmuren</h2>
+        <p>När all text på en slide ska få plats blir slidet en vägg. Publiken börjar läsa — och slutar lyssna. Du blir överflödig. Det här är ett exempel från läroplanen om en likvärdig utbildning. Texten är viktig. Men det är fel plats för den.</p>
+
+        <!-- Demonstrativ slide-bild från Keynote — hör hemma i kursen som-den-är -->
+        <figure class="module-figure">
+          <div class="module-figure__placeholder">
+            [Slide-bild: läroplanstexten på svart bakgrund — exempel på textmur]
+          </div>
+          <figcaption>Slide 60 från Keynote-presentationen — använd direkt som demonstration.</figcaption>
+        </figure>
+
+        <p>Lösningen är inte att dela upp texten på sex slides. Lösningen är att inte ha texten på sliden alls. Citera nyckelmeningen, hänvisa till källan, och prata om implikationerna. Texten är ditt manus, inte din slide.</p>
+      </section>
+
+      <!-- Sektion 2: punktlistor -->
+      <section class="module-section">
+        <h2>Punktlistans dilemma</h2>
+        <p>Punktlistor är trygga. De ser strukturerade ut. Men de förmedlar ofta ingenting alls — bara att presentatören har gjort en lista. Ett ord per punkt är inte information.</p>
+
+        <figure class="module-figure">
+          <div class="module-figure__placeholder">
+            [Slide-bild: "Kort text om apelsiner / citroner / äpplen / ananas"]
+          </div>
+          <figcaption>Slide 80 — exempel på en bullet-lista som inte säger något.</figcaption>
+        </figure>
+
+        <p>Antingen behövs all text — då hör den hemma i ett dokument. Eller så behövs bara nyckelordet — då räcker det att säga det. Det däremellan är värst.</p>
+      </section>
+
+      <!-- Sektion 3: interaktiv övning -->
+      <section class="module-section">
+        <h2>Övning: gör om en av dina egna slides</h2>
+
+        <div class="exercise">
+          <div class="exercise__label">Reflektion · 5 min</div>
+          <p class="exercise__prompt">Tänk på en presentation du höll senast. Vilken slide var den texttätaste?</p>
+          <textarea
+            placeholder="Beskriv kort: vad innehöll den, och vad var ditt budskap när du visade den?"
+            style="width: 100%; min-height: 100px; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font: inherit; resize: vertical; background: var(--color-bg);"></textarea>
+          <p style="font-size: 0.85rem; color: var(--color-text-soft); margin-top: var(--space-2);">
+            Ditt svar sparas lokalt i din webbläsare. Bara du ser det.
+          </p>
+          <button class="btn btn--primary exercise__btn">Spara och fortsätt</button>
+        </div>
+      </section>
+
+      <!-- Fördjupnings-CTA — tydlig "om du vill veta mer"-yta i slutet av modulen.
+           Klick → separat fördjupningssida. -->
+      <a class="deepdive-cta" href="#" style="text-decoration: none;">
+        <div class="deepdive-cta__icon">↓</div>
+        <div class="deepdive-cta__body">
+          <h3 class="deepdive-cta__title">Fördjupning: 12 makeover-exempel</h3>
+          <p class="deepdive-cta__desc">Riktiga slides från utbildning och företagsvärlden — före och efter. Se exakt vad som skiljer en text-tung slide från en som understryker.</p>
+        </div>
+        <div style="color: var(--color-highlight); font-weight: 500;">Öppna →</div>
+      </a>
+
+      <!-- Föregående / nästa modul -->
+      <nav class="module-nav" aria-label="Modulnavigation">
+        <a class="module-nav__link" href="#">
+          <div class="module-nav__direction">← Föregående</div>
+          <div class="module-nav__title">Designa diabilder — grunderna</div>
+        </a>
+        <a class="module-nav__link module-nav__link--next" href="#">
+          <div class="module-nav__direction">Nästa →</div>
+          <div class="module-nav__title">Framförandet — närvaro i rummet</div>
+        </a>
+      </nav>
+
+    </article>
+  </main>
+
+  <div data-include="/assets/partials/footer-sv.html"></div>
+
+  <script defer src="/assets/js/include.js"></script>
+</body>
+</html>
