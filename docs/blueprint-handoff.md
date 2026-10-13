@@ -409,6 +409,16 @@ HTML-escapad `&amp;`) och `scripts/tests/pdf_body_text.py` rad 85 (speglad liter
 `&`). Byggarens rad 66 — det svenska jobbets sidfot — står orörd, och de svenska PDF:erna är
 byte-identiska med bascommiten.
 
+**Quick-starten följde efter på Johans beslut 2026-10-13** (Task 19), så att de två engelska
+ytorna inte annonserar olika publik: `_unpublished/exports/gemini-notebook-quick-start-en.html`
+rad **5** (`<title>… Quick Start — for educators`, tankstrecket behållet) och rad **176**
+(`<span class="eyebrow">… Quick Start · for educators`, mittpunkten behållen). Det var filens
+**enda** två förekomster av `for teachers`. **Ingen speglad literal att uppdatera:**
+quick-start-byggaren har ingen `footer_template` utan en `.page-footer`-div i HTML:en, så
+sidfoten parsas live ur mallen via `PAGE_FOOTER_TEMPLATES` — `PLAYWRIGHT_FOOTERS` rör inte
+quick-starten och ska inte göra det. Quick-startens tryckta `44-page` rör **huvudguiden**, inte
+sig själv, och står oförändrat.
+
 **AVVIKELSEN ÄR AVSIKTLIG.** Systerguiderna heter `… for teachers and school leaders`
 (apple-intelligence, copilot). Gemini avviker nu från familjen, på Johans beslut, och i linje
 med sajtens egen underrubrik `AI & Digitalization for Educators`. **Den som tar in nästa guide
@@ -480,11 +490,17 @@ vaktrad, och en halv rättning av en cell vars utfallstext bär hela rundans res
 **Den som nästa gång ändå är inne i posttabellen** tar de två cellerna, radnummerskiftet, G49:s
 oescapade pipe och G27-aritmetiken i ett svep — det är samma jobb.
 
-**Ett fynd vidare, rapporterat men INTE åtgärdat** — omfånget var Johans sex beslut, och en
-fjärde avduplicering är hans att besluta: **Classrooms fyra mall-Gems räknas upp två gånger**,
-med samma fyra namn (Study partner, Quiz me, Brainstorm partner, Real-world connector), på
-sidan 14 (EP 788 / EW 283) och sidan 21 (EP 908 / EW 414). Båda meningarna står kvar oförändrade
-i den delen. Samma klass som de tre ovan, samma typ av beslut.
+**(e) En fjärde dubblering — AVGJORD, inte uppskjuten. Johans beslut 2026-10-13: båda står.**
+**Classrooms fyra mall-Gems räknas upp två gånger**, med samma fyra namn (Study partner,
+Quiz me, Brainstorm partner, Real-world connector), på sidan 14 (EP 788 / EW 283) och sidan 21
+(EP 908 / EW 414). Dubbleringen hittades i Task 18 och lades fram för Johan. **Hans skäl att
+behålla båda:** sidan 21 sitter i ett avsnitt om **delade Gems för arbetslag**, så vinkeln är en
+annan; fyra namn är kort; och en läsare som hoppar in på sidan 21 får dem direkt utan att
+bläddra tillbaka.
+
+**Det här är alltså inte ett olöst fynd, och nästa runda ska inte "rätta" det.** Skillnaden mot
+de tre stängda ovan är bara utfallet: där blev beslutet *ta bort*, här blev det *behåll*. Båda
+meningarna står oförändrade och ska stå.
 
 ### Tre fynd ur genomläsningen som rundan medvetet INTE åtgärdade
 
