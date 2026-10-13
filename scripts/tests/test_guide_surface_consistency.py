@@ -180,6 +180,91 @@ def test_every_unpublished_guide_is_in_the_surface_map():
     assert "claude" not in UNPUBLISHED_GUIDES
 
 
+# ---- Varje guide-webbyta under _unpublished/ ska ha en synlig funktion ----
+#
+# Webbytorna behålls BARA för att vara andra halvan i den här vakten:
+# guiderna distribueras via Skool, inte via sajten (omfångsbeslutet
+# 2026-10-13), så de publiceras aldrig. Fram till nu stod det skyddet bara
+# i docs/blueprint-handoff.md, och en städrunda som läser filträdet såg
+# fyra opublicerade HTML-sidor utan uppenbar funktion.
+#
+# Nedan är SKULDLISTAN: guide-webbytor som finns på disk men ännu INTE
+# står i surfacecheck.GUIDE_SURFACES. Den ska tömmas, inte fyllas. Varje
+# post bär sitt skäl, och värdet är skälet — en tom sträng duger inte.
+#
+# Flyttordningen är enkelriktad: när en guide fått sin påståendeinventering
+# flyttas den HÄRIFRÅN och in i GUIDE_SURFACES. Då krymper listan. Är den
+# tom ska både listan och dess två vakter strykas — de vaktar ingenting då.
+UNMAPPED_GUIDE_SURFACES = {
+    "_unpublished/guides/apple-intelligence/index.html":
+        "ingen påståendeinventering ännu (docs/guide-facts-apple-intelligence.md "
+        "finns inte) — utan den kan ingen vaktrad peka på ytan, och en post i "
+        "ytkartan utan inventering är en tyst vakt som "
+        "test_every_guide_has_an_inventory_file redan förbjuder. "
+        "Apple-rundan kartlägger den.",
+    "_unpublished/guides/ai-for-students/index.html":
+        "ingen påståendeinventering ännu (docs/guide-facts-ai-for-students.md "
+        "finns inte), samma skäl som apple-intelligence. Kartläggs i sin egen "
+        "runda. Ytan bär dessutom kvar Crestioras typsnitt och står därför "
+        "utanför test_fonts.GUIDE_WEB_SURFACES också.",
+}
+
+
+def _guide_web_surfaces_on_disk() -> set:
+    """Varje guide-webbyta som faktiskt ligger i _unpublished/guides/.
+
+    Läst ur filträdet, inte ur en lista — det är hela poängen: en ny
+    katalog ska synas utan att någon kommer ihåg att skriva upp den.
+    """
+    return {p.relative_to(surfacecheck.ROOT).as_posix()
+            for p in (surfacecheck.ROOT / "_unpublished/guides").glob("*/index.html")}
+
+
+def test_every_unpublished_guide_web_surface_is_accounted_for():
+    """En guide-webbyta utan synlig funktion ska göra sviten röd.
+
+    Antingen står ytan i ytkartan — då jämförs den mot sin printyta och
+    har en funktion — eller på skuldlistan ovan med ett utskrivet skäl.
+    Ingen tredje möjlighet: en okartlagd sida under _unpublished/guides/
+    ser för en städrunda ut som skräp, och den som slänger den tar bort
+    halva ytkonsistensvakten utan att något blir rött.
+    """
+    mapped = {rel for guide in surfacecheck.GUIDES
+              for rel in surfacecheck.surfaces_for(guide).values()}
+    unaccounted = _guide_web_surfaces_on_disk() - mapped - set(UNMAPPED_GUIDE_SURFACES)
+    assert not unaccounted, (
+        f"guide-webbytor utan synlig funktion: {sorted(unaccounted)}. "
+        "Lägg ytan i surfacecheck.GUIDE_SURFACES (med en inventering), "
+        "eller på UNMAPPED_GUIDE_SURFACES med ett utskrivet skäl.")
+
+
+def test_the_debt_list_cannot_rot():
+    """Skuldlistan ska beskriva verkligheten, annars tömmer den sig i prosa.
+
+    Tre sätt den kan ruttna, alla röda här: en post vars fil inte finns
+    (ytan är borta, posten kvar), en post som samtidigt står i ytkartan
+    (kartlagd men aldrig struken härifrån — då ser nästa läsare en skuld
+    som är betald), och en post utan skäl. Den andra riktningen är
+    lärdomen från test_every_unpublished_guide_is_in_the_surface_map: en
+    delmängdsassert vänd ett håll fångar inte att listan slutat gälla.
+    """
+    on_disk = _guide_web_surfaces_on_disk()
+    mapped = {rel for guide in surfacecheck.GUIDES
+              for rel in surfacecheck.surfaces_for(guide).values()}
+
+    gone = set(UNMAPPED_GUIDE_SURFACES) - on_disk
+    assert not gone, f"står på skuldlistan men finns inte på disk: {sorted(gone)}"
+
+    paid = set(UNMAPPED_GUIDE_SURFACES) & mapped
+    assert not paid, (
+        f"står på skuldlistan OCH i ytkartan: {sorted(paid)} — skulden är "
+        "betald, stryk posten härifrån")
+
+    unexplained = [rel for rel, why in UNMAPPED_GUIDE_SURFACES.items()
+                   if not why or not why.strip()]
+    assert not unexplained, f"post utan skäl: {sorted(unexplained)}"
+
+
 @pytest.mark.parametrize("guide", surfacecheck.GUIDES)
 def test_every_guides_guard_block_is_not_empty(guide):
     """Ett tömt vaktblock gör de tre vakterna nedan grönt av fel skäl.
