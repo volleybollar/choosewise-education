@@ -23,8 +23,11 @@ _SPEC = importlib.util.spec_from_file_location(
 # omfångas. Töms och fylls om i varje ny runda — aldrig radvis tillägg,
 # för en lista som bara växer slutar vakta något.
 RECAPTURED_THIS_ROUND = [
+    # premarket-rundan 2026-10-13: bara huvudguiden renderades om.
+    # Quick-starten rördes INTE — pagineringen stod still på 44 sidor,
+    # så dess tryckta `44-page`-påstående behövde ingen ändring, och
+    # dess facitnyckel ska därför stå under vakten, inte i undantaget.
     "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf",
-    "_unpublished/assets/pdfs/guides/gemini-notebook-quick-start-en.pdf",
 ]
 
 
