@@ -321,22 +321,43 @@ mot en 404:
 
 | fil | vad den trycker | status |
 |---|---|---|
-| `_unpublished/exports/gemini-notebook-quick-start-en.html` | `choosewise.education / guides / gemini-notebook` | **BORTTAGEN 2026-10-13** (Task 21). Avslutningsraden säger nu att guiden följer med i communityt, utan adress — det åldras inte och fungerar oavsett vad Skool-URL:en blir |
+| `_unpublished/exports/gemini-notebook-quick-start-en.html` | `choosewise.education / guides / gemini-notebook` (rad 319) **och** underrubrikens `the full guide is at choosewise.education` (rad 181) | **BÅDA BORTTAGNA 2026-10-13** (Task 21). Avslutningsraden säger nu att guiden följer med i communityt och underrubriken att den fulla guiden tar vid — båda utan adress, så de åldras inte och binder ingen Skool-URL |
 | `_unpublished/exports/apple-intelligence-quick-start-en.html` | `choosewise.education / guides / apple-intelligence` | **Apple-rundans FÖRSTA uppgift.** Samma fel, samma fix |
 | `_unpublished/exports/gemini-notebooklm-quick-start-sv.html` | `choosewise.education / sv / guider / gemini-notebooklm` | **Rörs inte.** Den svenska ytan är fryst och distribueras inte, så adressen når ingen läsare — men den ska stå skriven, inte glömmas |
 
 Copilots quick-start trycker **ingen** sökväg (bara varumärkessträngen `choosewise.education`);
 den lagades i sin egen runda och är redan rätt.
 
-**En fjärde, som Task 21 inte fick röra och därför rapporterar:**
-`_unpublished/exports/gemini-notebook-quick-start-en.html` **rad 181** — underrubriken på
-sidan 1 — säger *"the full guide is at choosewise.education"*. Det är **samma påstående som den
-borttagna sökvägen gjorde**, bara utan sökväg, och det är lika osant efter omfångsbeslutet: den
-fulla guiden kommer inte att ligga på choosewise. Uppgiften var avgränsad till den döda
-guidesökvägen, så raden står orörd. **Den hör i nästa pass på den filen**, och den är
-läsarsynligare än den som lagades, eftersom den står i underrubriken på första sidan.
-Varumärkessträngarna i de två sidfötterna (rad 244 och 328) är en annan sak och **ska stå**: de
-är avsändarmärket, inte en pekare — sajten finns och är Johans oavsett hur guiden distribueras.
+**Och underrubriken bar samma osanning utan sökväg — LAGAD 2026-10-13 i samma runda.**
+`_unpublished/exports/gemini-notebook-quick-start-en.html` **rad 181** sa *"the full guide is at
+choosewise.education"*: samma påstående som den borttagna sökvägen, bara utan sökväg, och
+**läsarsynligare** eftersom den står i underrubriken på sidan 1. Den säger nu
+*"the full guide takes it from there"* — vad guiden **är** i förhållande till quick-starten,
+inte **var** den finns. **Mätt i den levererade PDF:en: `choosewise.education` står exakt två
+gånger, en per sida, och båda är sidfotsmärket.** Noll pekare kvar.
+
+**Varumärkessträngarna i de två sidfötterna (rad 244 och 328) ska stå** och är orörda: de är
+avsändarmärket, inte en pekare — sajten finns och är Johans oavsett hur guiden distribueras.
+
+**Mätt åt Apple-rundan och åt den svenska ytan, utan att röra någon av dem (2026-10-13):**
+
+| fil | underrubriken | tryckt sökväg |
+|---|---|---|
+| `apple-intelligence-quick-start-en.html` | **ren** — rad 94 säger `iPad-first, privacy-aware, takes 10 minutes to learn.` och nämner ingen adress | **rad 195**, `choosewise.education / guides / apple-intelligence` |
+| `gemini-notebooklm-quick-start-sv.html` (fryst) | **bär samma påstående** — rad 181: `En komprimerad första timme med Gemini och NotebookLM — hela guiden finns på choosewise.education.` | **rad 319**, `choosewise.education / sv / guider / gemini-notebooklm` |
+| `copilot-quick-start-en.html` | **ren** | **ingen** — rad 195 är bara varumärkessträngen `choosewise.education`; lagad i sin egen runda |
+
+**Apple har alltså halva problemet, inte hela: en sökväg, ingen underrubrikspekare.** Den
+svenska Gemini-ytan har **båda**, precis som den engelska hade — men den är fryst och
+distribueras inte, så den rörs inte. Copilot är ren på båda punkter och är mallen.
+
+**(d2) `_unpublished/README.md` är märkt som avblåst, i filen själv.** Runbooken beskriver
+publiceringsjobbet steg för steg, och den som öppnar den direkt läste tidigare en instruktion
+som inte gäller — överlämningen skyddade bara den som läste överlämningen först. **En
+varningsruta ligger nu högst upp i filen**, före brödtexten: beslutet, datumet, att guiderna
+distribueras via Skool, och en pekare hit. **Runbookens instruktionsrader är orörda med avsikt**
+— de är historiken, och de är fortfarande riktiga om beslutet någon gång vänder. En avblåst
+instruktion som skrivs om till något annat går inte att återställa.
 
 **(e) En sajtändring som INTE hör på den här grenen, men som är nästa steg.**
 `guides/index.html` och `sv/guider/index.html` är **publicerade** och lovar i löptext guider om
