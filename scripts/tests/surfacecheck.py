@@ -38,6 +38,18 @@ GUIDE_SURFACES = {
         ("sv", "web"):   "_unpublished/sv/guider/copilot/index.html",
         ("sv", "print"): "_unpublished/exports/copilot-print-a4-sv.html",
     },
+    # Gemini-guiden ligger under _unpublished/ av samma skäl som Copilot:
+    # GitHub Pages serverar inte kataloger som börjar med understreck. De
+    # svenska ytorna står med i kartan fast rundan inte rör dem — de FINNS,
+    # och en svensk vaktrad ska jämföras mot dem och inte mot ingenting. Att
+    # de divergerar i sak från de engelska är ett känt läge (spec §1), inte
+    # något vakten ska dölja.
+    "gemini": {
+        ("en", "web"):   "_unpublished/guides/gemini-notebook/index.html",
+        ("en", "print"): "_unpublished/exports/gemini-notebook-print-a4-en.html",
+        ("sv", "web"):   "_unpublished/sv/guider/gemini-notebooklm/index.html",
+        ("sv", "print"): "_unpublished/exports/gemini-notebooklm-print-a4-sv.html",
+    },
 }
 GUIDES = tuple(GUIDE_SURFACES)
 

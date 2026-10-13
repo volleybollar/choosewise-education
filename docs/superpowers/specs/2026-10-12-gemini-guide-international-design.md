@@ -9,10 +9,23 @@ i egna rundor efter den här.
 
 ## 1. Vad som ska levereras, och vad som inte ska det
 
+> **AMENDEMANG 2026-10-13, efter körningen.** Två värden i det här avsnittet är överspelade av
+> ägarbeslut under rundan. Specen står i övrigt oförändrad som bindande auktoritet.
+>
+> | § 1 säger | levererat | beslut |
+> |---|---|---|
+> | `gemini-notebooklm-guide-en.pdf` / `gemini-notebooklm-quick-start-en.pdf` | **`gemini-notebook-guide-en.pdf`** / **`gemini-notebook-quick-start-en.pdf`** | **Johan, 2026-10-12** vid grinden efter Task 4: Google döpte om NotebookLM till Gemini Notebook 2026-07-16 (post G49), och namnbytet omfattar **allt, även filnamnen**. De **svenska** filnamnen behåller `gemini-notebooklm-*` med avsikt — deras innehåll säger fortfarande NotebookLM. |
+> | huvudguiden **42 sidor** | **44 sidor** | **Controllern, Task 13:** rundans rättelser är längre än det de ersatte (licensstycket, den nya jurisdiktionsrutan, AI Act:s fyra datum, namnbytets fem tecken per förekomst över ~200). Strukturen verifierad frisk. Stoppvillkoret omformulerat till 41–44 sidor **och** ingen sida under 400 tecken utom omslaget. |
+>
+> Rulingarna i sin helhet stod i rundans ledger, som låg i den gitignorerade worktreen och inte
+> överlevde leveransen. **Där de nu står: `docs/blueprint-handoff.md`**, avsnittet
+> *"Gemini-guiden — vad rundan lämnar"*. Samma avsnitt bär de **fem** rättelser till den här
+> specen som mätningen tvingade fram.
+
 **Leveransen är två PDF:er på engelska**, avsedda för Skool-communityt:
 
-- `_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf` (42 sidor)
-- `_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf` (2 sidor)
+- `_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf` (42 sidor) — *se amendemanget: `gemini-notebook-guide-en.pdf`, 44 sidor*
+- `_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf` (2 sidor) — *se amendemanget: `gemini-notebook-quick-start-en.pdf`*
 
 **Ingenting publiceras på choosewise.education i den här rundan.** Samma frame
 som Copilot: guiden stannar i `_unpublished/`, som Pages inte serverar. Inga

@@ -23,8 +23,8 @@ _SPEC = importlib.util.spec_from_file_location(
 # omfångas. Töms och fylls om i varje ny runda — aldrig radvis tillägg,
 # för en lista som bara växer slutar vakta något.
 RECAPTURED_THIS_ROUND = [
-    "_unpublished/assets/pdfs/guides/copilot-guide-en.pdf",
-    "_unpublished/assets/pdfs/guides/copilot-quick-start-en.pdf",
+    "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf",
+    "_unpublished/assets/pdfs/guides/gemini-notebook-quick-start-en.pdf",
 ]
 
 

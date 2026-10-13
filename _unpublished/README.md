@@ -1,5 +1,19 @@
 # Unpublished pages
 
+> ## ⚑ AVBLÅST 2026-10-13 — läs detta först
+>
+> **Den här runbookens guideblock ska inte köras.** Johans beslut 2026-10-13: guidesidorna
+> ska **inte** finnas på choosewise — bortsett från **Claude-guiden och presentationsteknik**,
+> som stannar — och de färdiga PDF:erna distribueras i **Skool** i stället för via sajten.
+> Det gäller även de svenska guiderna: **inga svenska guider utöver Claude och
+> presentationsteknik.**
+>
+> **Instruktionerna nedan står kvar som historik, orörda och fortfarande riktiga** om beslutet
+> någon gång vänder — men följ dem inte i dag. De beskriver en publicering som inte blir av.
+>
+> Hela bilden, med vad beslutet stänger och vad som ändå återstår:
+> `docs/blueprint-handoff.md`, avsnittet **"⚑ OMFÅNGSBESLUTET 2026-10-13"**.
+
 Pages parked here are **not served** by GitHub Pages: the live site is built with
 Jekyll (no `.nojekyll` file), and Jekyll ignores any folder whose name starts with
 `_`. So everything under `_unpublished/` returns 404 on the live site, while the

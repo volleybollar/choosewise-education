@@ -47,11 +47,18 @@ def footer(title: str, page_label: str) -> str:
 
 EMPTY_HEADER = "<div></div>"
 
+# EN and SV deliberately carry different filename prefixes below:
+# gemini-notebook-* (EN) vs gemini-notebooklm-* (SV). Google renamed
+# NotebookLM to Gemini Notebook on 2026-07-16; the EN surfaces were
+# renamed to match (this round), but the SV surfaces still say
+# NotebookLM in their own content and keep the old prefix on purpose
+# (spec §1) — renaming the SV filename would make it lie about what's
+# inside. Don't "clean up" this asymmetry.
 jobs = [
     (
-        root / "_unpublished/exports/gemini-notebooklm-print-a4-en.html",
-        root / "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf",
-        footer("Gemini &amp; NotebookLM for teachers and school leaders", "Page"),
+        root / "_unpublished/exports/gemini-notebook-print-a4-en.html",
+        root / "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf",
+        footer("Gemini &amp; Gemini Notebook for educators", "Page"),
     ),
     (
         root / "_unpublished/exports/gemini-notebooklm-print-a4-sv.html",

@@ -25,7 +25,7 @@ BUILDERS = [
     # and were never committed, so the script can't run at all from this
     # repo. Recovering the chunks is its own job — don't re-add it here
     # until that's solved.
-    "build-gemini-notebooklm-pdf.py",
+    "build-gemini-notebook-pdf.py",
     "build-gemini-quickstart-pdf.py",
     "build-copilot-pdf.py",
     "build-copilot-quickstart-pdf.py",

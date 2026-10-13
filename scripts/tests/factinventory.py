@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[2]
 INVENTORIES = {
     "claude":  ROOT / "docs" / "guide-facts-claude.md",
     "copilot": ROOT / "docs" / "guide-facts-copilot.md",
+    "gemini":  ROOT / "docs" / "guide-facts-gemini.md",
 }
 
 

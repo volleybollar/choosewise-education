@@ -49,9 +49,9 @@ UNPUBLISHED_GUIDE_PDFS = [
     "_unpublished/assets/pdfs/guides/copilot-guide-sv.pdf",
     "_unpublished/assets/pdfs/guides/copilot-quick-start-en.pdf",
     "_unpublished/assets/pdfs/guides/copilot-quick-start-sv.pdf",
-    "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf",
+    "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf",
     "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-sv.pdf",
-    "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf",
+    "_unpublished/assets/pdfs/guides/gemini-notebook-quick-start-en.pdf",
     "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-sv.pdf",
 ]
 

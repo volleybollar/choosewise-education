@@ -49,7 +49,7 @@ CONVERTED_PDFS: list[str] = [
     "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-sv.pdf",
     "_unpublished/assets/pdfs/guides/copilot-quick-start-en.pdf",
     "_unpublished/assets/pdfs/guides/copilot-quick-start-sv.pdf",
-    "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-en.pdf",
+    "_unpublished/assets/pdfs/guides/gemini-notebook-quick-start-en.pdf",
     "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-sv.pdf",
     # Task 6 — the twelve A4 guides (ten PDFs; claude and ai-for-elever/
     # students pair two language templates into one builder each, the
@@ -62,7 +62,7 @@ CONVERTED_PDFS: list[str] = [
     "_unpublished/assets/pdfs/guides/apple-intelligence-guide-sv.pdf",
     "_unpublished/assets/pdfs/guides/copilot-guide-en.pdf",
     "_unpublished/assets/pdfs/guides/copilot-guide-sv.pdf",
-    "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-en.pdf",
+    "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf",
     "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-sv.pdf",
     "_unpublished/assets/pdfs/guides/ai-for-elever-sv.pdf",
     "_unpublished/assets/pdfs/guides/ai-for-students-en.pdf",
