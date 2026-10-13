@@ -503,11 +503,24 @@ def inject_last_updated(html: str, block: str) -> str:
 
 # ---- Sitemap ----
 
-# Strängar som bara står på rader skriptet självt skriver: last-updated-
-# blockets <time>, JSON-LD:s dateModified och sitemapens <lastmod>. En
-# commit vars varje ändrade rad bär en av dem är skriptets förra utdata,
-# inte en innehållsändring. Se _says_nothing_about_content().
-DATE_MARKERS = ("page-last-updated", '"dateModified"', "<lastmod>")
+# De tre rader som bär skriptets DATUMUTDATA, och som genereras i sin
+# helhet: JSON-LD-blocket (där `dateModified` bor), last-updated-blockets
+# aside, och sitemapens <lastmod>. Ingen av dem kan bära människoskriven
+# text. Se _says_nothing_about_content().
+#
+# Medvetet INTE med: markörparen, favicon-, canonical- och hreflang-raderna.
+# De är också genererade, men de bär inget datum, och att sortera bort dem
+# vore en annan och mycket större ändring — commit 0890841 lade favicon på
+# 190 filer, och den commiten är det sanna "senast ändrat" för åtta sidor
+# (2026-10-07). Mätt: tas de med faller 171 av 195 sidor tillbaka till
+# julidatum. Spärren ska stänga datumets självreferens, inte omdefiniera
+# vad en innehållsändring är.
+_GENERATED_LINES = (
+    re.compile(r'<script type="application/ld\+json">'
+               r'\{"@context":"https://schema\.org".*</script>$'),
+    re.compile(r'<aside class="page-last-updated"[^>]*>.*</aside>$'),
+    re.compile(r'<lastmod>[^<]*</lastmod>$'),
+)
 
 
 def _changed_lines(sha: str, rel_path: str) -> list:
@@ -520,18 +533,33 @@ def _changed_lines(sha: str, rel_path: str) -> list:
             and not line.startswith(("+++", "---"))]
 
 
+def _without_our_own_output(lines: list, sign: str) -> list:
+    """Diffens rader åt ett håll, med skriptets egna rader bortsorterade."""
+    return sorted(line[1:] for line in lines
+                  if line.startswith(sign)
+                  and not any(p.match(line[1:].strip()) for p in _GENERATED_LINES))
+
+
 def _says_nothing_about_content(sha: str, rel_path: str) -> bool:
     """Sant när commiten inte bär någon innehållsändring av filen.
 
-    Två fall. Antingen bär varje ändrad rad ett av skriptets egna
-    datumfält — då är commiten förra körningens stämpel. Eller så är
-    diffen tom (filen bytte bara läge, eller commiten är en merge), och då
-    säger den heller ingenting om innehållet.
+    Skriptets egna rader sorteras bort på båda sidor av diffen, och det som
+    blir kvar jämförs. Är resterna lika har commiten bara flyttat runt det
+    skriptet självt skrivit. Tom diff (filen bytte läge, eller commiten är
+    en merge) ger två tomma listor och svarar därmed sant, som sig bör.
+
+    Varför jämföra rester och inte kräva en datummarkör på varje rad: den
+    första versionen gjorde det senare, och det håller bara när utdatat
+    ändrar ett datum*värde* — då bär båda raderna markören. Ändrar utdatat
+    *form* bär den borttagna raden ingen markör alls (fältet fanns inte
+    innan), och kravet föll. Det hände på riktigt när två sidor lades i
+    SECTION_LANDINGS och deras JSON-LD fick en ny entitet: commiten
+    räknades som innehåll, och nästa körning hade stämplat om dem. Att
+    sortera bort raderna i stället för att inspektera dem hanterar båda
+    fallen, för frågan är inte vad som står på raden utan vem som skrev den.
     """
     lines = _changed_lines(sha, rel_path)
-    if not lines:
-        return True
-    return all(any(m in line for m in DATE_MARKERS) for line in lines)
+    return _without_our_own_output(lines, "-") == _without_our_own_output(lines, "+")
 
 
 def git_lastmod(rel_path: str) -> str:
