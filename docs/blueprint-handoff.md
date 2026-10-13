@@ -33,6 +33,8 @@
 4. ~~**De fyra återstående guiderna**, bara på engelska.~~ Ersatt av punkt 3 — en guide i taget, Johans beslut 2026-10-09. Den ursprungliga formuleringen: Samma mönster som Claude-guiden: en inventering i `docs/guide-facts-claude.md`:s form, fakta kontrollerade mot namngiven källa, fyra ytor stämda av mot varandra. Våg 2b lämnar både mallen och ett vaktlager (nedan) som nästa runda bör återanvända, och vaktlagrets kända brist är stängd sedan 2026-10-09 — mönstret kan nu kopieras rakt av utan att ärva en blind fläck.
 3b. ~~**GEMINI-GUIDEN — specen är godkänd, planen är nästa steg.**~~ **LEVERERAD PÅ GREN 2026-10-13.** Tjugo uppgifter (planens nitton plus Task 16B) körda på `feat/gemini-guide-international` i nitton dispatcher, alla granskade. **Vad rundan levererade:** två engelska PDF:er byggda ur rättat innehåll (`gemini-notebook-guide-en.pdf`, 44 sidor, och `gemini-notebook-quick-start-en.pdf`), den svenska inramningen generaliserad, GDPR på artikelnivå ersatt av en jurisdiktionsneutral ruta i huvudflödet, AI Act kvar och **rättad på fem punkter** mot Claude-inventeringens post P13, bonuskapitlets skylt skärpt, en inventering på **50 poster** med **87 vaktrader** i `docs/guide-facts-gemini.md`, och **två vaktlager generaliserade** (TOC-vakten och leveransvakten) i stället för kopierade. **Plus det ingen plan förutsåg:** Google hade döpt om NotebookLM till **Gemini Notebook** 2026-07-16, tre månader efter guidens datumstämpel — 205 förekomster, titeln, den tryckta URL:en och filnamnen, Johans beslut vid grinden. **Nästa steg:** Johan läser, sedan pushas grenen och PR:en öppnas; specens PR #39 mergas före eller med den. Läs **"Gemini-guiden — vad rundan lämnar"** nedan före nästa guide.
 
+3c. **GUIDESIDORNAS LÖFTEN PÅ SAJTEN — egen gren, egen PR.** Johans omfångsbeslut 2026-10-13: guiderna distribueras via **Skool**, inte via sajten, och inga svenska guider utöver Claude och presentationsteknik. `guides/index.html` och `sv/guider/index.html` är **publicerade** och lovar i löptext guider om Copilot, Gemini & NotebookLM, Apple Intelligence och elevguiden som "in preparation" / "under arbete" — **det löftet ska bort.** Båda nämner dessutom inte presentationsteknik, som stannar, och båda är daterade 27 april 2026. **Hör inte på Gemini-grenen:** dess PR-text säger att ingenting publiceras, och det ska den fortsätta göra. Detaljerna i **"⚑ OMFÅNGSBESLUTET 2026-10-13"** nedan.
+
 4. **Diagram- och social-exporterna.** Åtta mallar plus SVG, PNG och PDF för WISE och RÄTT. Johans beslut 2026-10-06: egen runda, gärna ihop med märket. Sju av åtta bär hans ocommittade ändringar — han bör commita svepet först.
 5. **Visual Codes Vol. 1–3** i `~/Projekt/Choosewise/visual-codes-pdf/`, utanför repot. Specen §8 räknar dem till våg 2; varken 2a:s eller 2b:s plan nämner dem. Tredje kopian av paletten.
 6. **NotebookLM-dokumentet** — se "Känt trasigt" nedan.
@@ -47,7 +49,7 @@
 - **Sajtens header** bär inget märke. Spår A:s spec säger nej idag; frågan kan tas när tecknet setts i bruk.
 - ~~**Choosewise på LinkedIn:** egen sida eller Johans profil?~~ **AVGJORT 2026-10-09: egen sida.** Den personliga bannern används inte — Johans profil behåller sin egen avsändare. Sidan skapas nu för att säkra namnet, men posterna fortsätter från profilen tills Skool öppnar. Båda måtten ligger kvar committade.
 - **De tre återstående guiderna** (Gemini/NotebookLM, Apple Intelligence, elevguiden) tas i egna rundor, en guide i taget, med Copilot-rundan som mall. Vaktlagret är redan guide-agnostiskt (se "Copilot-guiden — vad rundan lämnar" nedan) — nästa runda fyller två dict:ar och skriver en inventering, den behöver inte ändra vakten själv.
-- **De svenska Copilot- OCH Gemini-ytorna** står kvar med gamla fakta och svensk inramning, och **frågan är densamma för båda.** Copilot: `_unpublished/exports/copilot-print-a4-sv.html`, `copilot-quick-start-sv.html`, `_unpublished/sv/guider/copilot/` — junifakta. Gemini: `_unpublished/exports/gemini-notebooklm-print-a4-sv.html`, `gemini-notebooklm-quick-start-sv.html`, `_unpublished/sv/guider/gemini-notebooklm/` — **aprilfakta, och de säger fortfarande NotebookLM.** Båda guidernas svenska PDF:er är byte-identiska mot före sin runda (mätt med md5 mot bascommiten, och vaktat av `test_guide_delivery.py`). **De två språken divergerar nu i sak, inte bara i formulering** — det är ett känt, avsiktligt läge, inte en upptäckt som väntar. Om och när de svenska ytorna ska hämta in de engelska är Johans beslut, inte avgjort än. **Gemini-fallet bär dessutom tre följdfrågor** som avgörs i samma svep: de svenska filnamnen (`gemini-notebooklm-*`, se namnbytet nedan), den svenska quick-startens "39-sidiga" om en 42-sidig svensk guide, och den osynliga axeletiketten som bara kan lagas på alla fyra ytor samtidigt.
+- ~~**De svenska Copilot- OCH Gemini-ytorna** — ska de hämta in de engelska?~~ **AVGJORT 2026-10-13: nej.** Johans omfångsbeslut: **inga svenska guider utöver Claude och presentationsteknik**, och guiderna distribueras via **Skool** i stället för via sajten. De svenska Copilot- och Gemini-ytorna (`copilot-print-a4-sv.html`, `copilot-quick-start-sv.html`, `_unpublished/sv/guider/copilot/`; `gemini-notebooklm-print-a4-sv.html`, `gemini-notebooklm-quick-start-sv.html`, `_unpublished/sv/guider/gemini-notebooklm/`) står kvar **frysta, permanent**, med juni- respektive aprilfakta. **De två språken divergerar i sak med avsikt.** Deras PDF:er är byte-identiska mot före sin runda och vaktas av `test_guide_delivery.py`. **Beslutet stänger samtidigt Gemini-fallets tre följdfrågor:** de svenska filnamnen stannar, den svenska quick-startens "39-sidiga" når ingen läsare, och axeletiketten behöver nu bara lagas på **två engelska ytor** i stället för fyra. Detaljerna i **"⚑ OMFÅNGSBESLUTET 2026-10-13"** nedan.
 - **Fyra frågor i Gemini-guiden väntar på Johan, inte på en källa** — alla preexisterande, alla med detaljer och sidnummer i "Gemini-guiden — vad rundan lämnar" nedan: **(1)** tre passager står dubblerat och en fjärde (Fristadsskolan) står tre gånger — avduplicering är ett redaktionellt pass på hans egen text, inte en faktarättelse; **(2)** författaren omtalas både som "Johan" och som "I" i samma dokument; **(3)** bonuskapitlets "pre-market obligations" lägger plikter på skolan som i huvudsak faller på *leverantören* — att rätta det kräver en källa ingen hämtat; **(4)** titeln `Gemini & Gemini Notebook for teachers and school leaders` och omslagets eyebrow `Gemini · Gemini Notebook for education`, som stammar.
 - **Tre beslut ur Gemini-rundan som Johan bör veta att han tog**, så att nästa guide inte tar dem om: **(1)** namnbytet NotebookLM → Gemini Notebook omfattar **allt, även filnamnen** (inte bara prosa och titel); **(2)** det källbelagda svenska praktikexemplet (Fristadsskolan i Eskilstuna) **stannar** i den internationella guiden, med en post och en utskriven motivering; **(3)** bonuskapitlet tar in **emotion recognition** i utbildningsinstitutioner och kommissionens egen högriskformulering om tillträde till utbildning, men **inte förbud 9** (nudification-appar) — kapitlet stannar vid "vad gäller dina verktyg och din skola".
 
@@ -126,7 +128,7 @@ Fem lager. De fyra första byggdes i våg 2a; det femte i våg 2b. Två till —
 
 **Status.** Gren `feat/copilot-guide-international`, 28 commits, **PR #38**. Leverans: `_unpublished/assets/pdfs/guides/copilot-guide-en.pdf` och `copilot-quick-start-en.pdf`, byggda ur rättat innehåll med Blueprint-layout, till Skool-communityt. **Ingenting publicerat på sajten.** Svit: **757 passed, 0 failed, 0 skipped, 0 xfailed** med `scripts/tests/test_prompt_pdf_parity.py` undantagen — den filens 11 fel är miljöberoende (se "Känt trasigt eller begränsat").
 
-**Det svenska divergensläget är ett känt läge, inte en upptäckt som väntar på nästa person.** `_unpublished/exports/copilot-print-a4-sv.html`, `copilot-quick-start-sv.html` och `_unpublished/sv/guider/copilot/` står kvar med junifakta och svensk inramning — spec §5, Johans beslut 2026-10-08: rundan rör bara de engelska ytorna. Deras PDF:er är byte-identiska mot innan rundan. De engelska och svenska Copilot-ytorna **divergerar därför i sak, avsiktligt** — inte bara i formulering, som Claude-guidens båda språk gör, utan i vilka fakta som står där (Microsofts namnbyten, se nedan, finns bara på de engelska ytorna). `surfacecheck.GUIDE_SURFACES["copilot"]` fortsätter kartlägga de svenska ytorna — de FINNS, 404 publikt som allt i `_unpublished/` — så en framtida svensk vaktrad jämförs mot dem och inte mot ingenting. Men ingen `aktiv`/`borttaget`-rad i vaktblocket pekar på dem i dag.
+**Det svenska divergensläget är ett känt läge, inte en upptäckt som väntar på nästa person.** `_unpublished/exports/copilot-print-a4-sv.html`, `copilot-quick-start-sv.html` och `_unpublished/sv/guider/copilot/` står kvar med junifakta och svensk inramning — spec §5, Johans beslut 2026-10-08: rundan rör bara de engelska ytorna. Deras PDF:er är byte-identiska mot innan rundan. De engelska och svenska Copilot-ytorna **divergerar därför i sak, avsiktligt** — inte bara i formulering, som Claude-guidens båda språk gör, utan i vilka fakta som står där (Microsofts namnbyten, se nedan, finns bara på de engelska ytorna). `surfacecheck.GUIDE_SURFACES["copilot"]` fortsätter kartlägga de svenska ytorna — de FINNS, 404 publikt som allt i `_unpublished/` — så en framtida svensk vaktrad jämförs mot dem och inte mot ingenting. Men ingen `aktiv`/`borttaget`-rad i vaktblocket pekar på dem i dag. **Och sedan Johans omfångsbeslut 2026-10-13 är läget permanent:** inga svenska guider utöver Claude och presentationsteknik, så de svenska Copilot-ytorna hämtar aldrig in de engelska. Se **"⚑ OMFÅNGSBESLUTET 2026-10-13"** i Gemini-avsnittet nedan.
 
 **Vaktlagret är nu guide-agnostiskt.** `surfacecheck.py` bar tidigare ett enda `SURFACES`-dict, hårdkodat till Claude; det är nu `GUIDE_SURFACES` (en guide → dess fyra ytor) plus `GUIDES = tuple(GUIDE_SURFACES)` och `surfaces_for(guide)`, som slår upp en guide eller kastar `KeyError` med de kända namnen i meddelandet. `factinventory.py` bar tidigare en enda hårdkodad sökväg; det är nu `INVENTORIES` (en guide → dess `docs/guide-facts-*.md`) plus `inventory_path(guide)`, och `load()` kräver numera en sökväg som argument i stället för att gissa en. **Nästa guide läggs till genom att fylla två dict:ar och skriva en inventering** — ingen ändring i vakten själv.
 
@@ -270,6 +272,79 @@ guides webbyta när den städats. Gemini lades till i Task 5; Copilot och Claude
 `_unpublished/guides/apple-intelligence/` och `_unpublished/guides/ai-for-students/` står
 **inte** där, eftersom de ännu bär Crestioras typsnitt — se de kända luckorna nedan.
 
+### ⚑ OMFÅNGSBESLUTET 2026-10-13: guiderna distribueras via Skool, inte via sajten
+
+**Johans beslut 2026-10-13.** Guidesidorna ska **inte finnas kvar på choosewise** — bortsett
+från **Claude-guiden och presentationsteknik**, som stannar. De färdiga PDF:erna flyttas in i
+**Skool** när communityt skapas. Alltså: **inga svenska guider utöver Claude och
+presentationsteknik**, och **ingenting ska hänvisa till AI-guidesidor på sajten**.
+
+**Konsekvensen är nästan noll i filsystemet, och det är mätt**, inte antaget: med
+`brandguard.published_files()` har de fyra icke-Claude-guiderna **aldrig varit publicerade**
+(allt ligger under `_unpublished/`), och **ingen publicerad sida länkar till någon av dem**. Det
+finns alltså inget att ta ner. Men beslutet gör flera saker i den här överlämningen osanna, och
+de står rättade nedan.
+
+**(a) Publiceringsskulden är AVBLÅST.** Hela jobbet under "Namnbytet, och den skuld det lämnar"
+nedan — `build-seo-meta.py` 51/57/75, `_unpublished/README.md` 26/59/60/63/148, `PAIR_MAP` och
+`guides-en.json` — beskrev en **publicering som inte blir av**. Radnumren står kvar där **som
+historik**, så att nästa läsare ser vad som en gång var planerat och varför det ströks, men
+**jobbet ska inte göras.** Formuleringen att skulden "inte är valfri" är struken: den var tvingad
+av en publicering, och tvånget föll med den. Detsamma gäller de **nitton `notebooklm`-strängarna
+i tillgångssökvägarna** — de spelar bara roll om ytorna publiceras, vilket de inte ska, så de
+står kvar med avsikt.
+
+**(b) Det svenska divergensläget är AVGJORT.** Inga svenska guider utöver Claude och
+presentationsteknik. De svenska Copilot- och Gemini-ytorna står kvar **frysta, permanent**, och
+de två språken divergerar i sak **med avsikt**. Det är inte längre en öppen fråga som väntar på
+Johan. **Och det stänger tre följdfrågor** som den här överlämningen listar som öppna:
+
+1. **De svenska filnamnen** (`gemini-notebooklm-*`) — stannar. Det fanns aldrig något att byta
+   dem till, och nu finns det ingen publicering som kunde kräva det.
+2. **Den svenska quick-startens "39-sidiga" om en 42-sidig svensk guide** — står kvar. Ytan
+   distribueras inte, så felet når ingen läsare.
+3. **Den osynliga axeletiketten `RISK →`** — behöver nu bara lagas på **de två engelska
+   ytorna**, inte på alla fyra samtidigt. **Den är alltså billigare än den här överlämningen
+   påstår på två ställen.** Se fyndlistan nedan, som är rättad.
+
+**(c) Webbytorna BEHÅLLS — och här är varför, så att ingen undrar eller publicerar dem av
+misstag.** `_unpublished/guides/<namn>/index.html` står kvar, men **deras enda kvarvarande
+funktion är att vara andra halvan i ytkonsistensvakten**: vakten jämför print mot webb per
+språk, och utan webbytan har den ingenting att jämföra mot. **De är interna kontrollkopior, inte
+sidor som ska publiceras.** Skälet att betala för dem: vakten har fångat **verklig divergens
+flera gånger** under den här och Copilot-rundan, och den är dyr att återskapa om ytan slängs.
+**Den som städar i `_unpublished/guides/` ska läsa den här raden först.**
+
+**(d) Tre döda adresser i tryck — en lagad, en till Apple-rundan, en som står kvar med avsikt.**
+En quick-start som trycker en sökväg till en sida som aldrig kommer att finnas skickar läsaren
+mot en 404:
+
+| fil | vad den trycker | status |
+|---|---|---|
+| `_unpublished/exports/gemini-notebook-quick-start-en.html` | `choosewise.education / guides / gemini-notebook` | **BORTTAGEN 2026-10-13** (Task 21). Avslutningsraden säger nu att guiden följer med i communityt, utan adress — det åldras inte och fungerar oavsett vad Skool-URL:en blir |
+| `_unpublished/exports/apple-intelligence-quick-start-en.html` | `choosewise.education / guides / apple-intelligence` | **Apple-rundans FÖRSTA uppgift.** Samma fel, samma fix |
+| `_unpublished/exports/gemini-notebooklm-quick-start-sv.html` | `choosewise.education / sv / guider / gemini-notebooklm` | **Rörs inte.** Den svenska ytan är fryst och distribueras inte, så adressen når ingen läsare — men den ska stå skriven, inte glömmas |
+
+Copilots quick-start trycker **ingen** sökväg (bara varumärkessträngen `choosewise.education`);
+den lagades i sin egen runda och är redan rätt.
+
+**En fjärde, som Task 21 inte fick röra och därför rapporterar:**
+`_unpublished/exports/gemini-notebook-quick-start-en.html` **rad 181** — underrubriken på
+sidan 1 — säger *"the full guide is at choosewise.education"*. Det är **samma påstående som den
+borttagna sökvägen gjorde**, bara utan sökväg, och det är lika osant efter omfångsbeslutet: den
+fulla guiden kommer inte att ligga på choosewise. Uppgiften var avgränsad till den döda
+guidesökvägen, så raden står orörd. **Den hör i nästa pass på den filen**, och den är
+läsarsynligare än den som lagades, eftersom den står i underrubriken på första sidan.
+Varumärkessträngarna i de två sidfötterna (rad 244 och 328) är en annan sak och **ska stå**: de
+är avsändarmärket, inte en pekare — sajten finns och är Johans oavsett hur guiden distribueras.
+
+**(e) En sajtändring som INTE hör på den här grenen, men som är nästa steg.**
+`guides/index.html` och `sv/guider/index.html` är **publicerade** och lovar i löptext guider om
+Copilot, Gemini & NotebookLM, Apple Intelligence och elevguiden som "in preparation" /
+"under arbete". **Det löftet ska bort.** Båda nämner dessutom **inte** presentationsteknik, som
+stannar, och båda är daterade **27 april 2026**. Det kräver **egen gren och egen PR**: den här
+grenens PR-text säger att ingenting publiceras, och det ska den fortsätta göra.
+
 ### Namnbytet, och den skuld det lämnar
 
 **Vad som bytte namn.** Prosan i de engelska ytorna (205 förekomster), titeln, den tryckta
@@ -283,8 +358,12 @@ hade gjort **filnamnet osant om innehållet**. Femton spårade filer bär prefix
 svenska. Följden är att `test_the_swedish_gemini_pdfs_are_untouched_since_the_merge_base`
 fungerar oförändrat, eftersom dess merge-base-uppslagning sker på oförändrade sökvägar.
 
-**(b) Skulden är ETT jobb, inte flera, och den hör i publiceringsrundan.** Tre ställen. **De var
-överens med varandra till och med Task 17; efter Task 18 är de inte det** — se rad 60 nedan:
+**(b) Skulden är AVBLÅST — Johans omfångsbeslut 2026-10-13 (se avsnittet ovan).** Den här
+listan beskrev **ett jobb i publiceringsrundan**, och den publiceringen blir inte av: guiderna
+distribueras via Skool. **Radnumren står kvar som historik**, så att nästa läsare ser vad som en
+gång var planerat och varför det ströks — men **jobbet ska inte göras.** Allt nedan är alltså
+dokumentation av ett avblåst jobb, inte en uppgift. Tre ställen, som var överens med varandra
+till och med Task 17 men inte efter Task 18 — se rad 60:
 
 - `scripts/build-seo-meta.py` rad **51, 57 och 75** — rad 75 är `PAIR_MAP`, som spec §1
   uttryckligen förbjöd rundan att röra.
@@ -304,17 +383,18 @@ fungerar oförändrat, eftersom dess merge-base-uppslagning sker på oförändra
 osammanhängande ("flytta `gemini-notebook` till `guides/gemini-notebooklm`"), och att rätta
 hela blocket betyder att **välja guidens publicerade sökväg och id** — vilket är precis vad
 `PAIR_MAP` äger och spec §1 reserverar. En halv rättning hade gjort de två filerna oense.
-Publiceringsrundan byter destinationssökvägen på båda ställena plus i `guides-en.json`
-samtidigt. **De svenska raderna i `_unpublished/README.md` — 32 (`git mv … sv/guider/gemini-notebooklm`), 96 (`"id": "gemini-notebooklm"`) och 100 (`"url": "/sv/guider/gemini-notebooklm/"`) — är fortfarande riktiga och ska inte röras**, eftersom den svenska ytan behåller sitt namn. Samma gäller `build-seo-meta.py:57`, som är `HIDDEN_PATHS`-postens svenska halva. Av de tre `build-seo-meta.py`-raderna är det alltså **51** (`HIDDEN_PATHS`, engelska) och **75:s nyckel** (`PAIR_MAP`, vars värde är den svenska sökvägen och stannar) som ska byta.
+Publiceringsrundan hade bytt destinationssökvägen på båda ställena plus i `guides-en.json`
+samtidigt — **den rundan blir inte av, så bytet sker inte.** **De svenska raderna i `_unpublished/README.md` — 32 (`git mv … sv/guider/gemini-notebooklm`), 96 (`"id": "gemini-notebooklm"`) och 100 (`"url": "/sv/guider/gemini-notebooklm/"`) — är fortfarande riktiga och ska inte röras**, eftersom den svenska ytan behåller sitt namn. Samma gäller `build-seo-meta.py:57`, som är `HIDDEN_PATHS`-postens svenska halva. Av de tre `build-seo-meta.py`-raderna är det alltså **51** (`HIDDEN_PATHS`, engelska) och **75:s nyckel** (`PAIR_MAP`, vars värde är den svenska sökvägen och stannar) som ska byta.
 
-**(b2) Skulden är inte längre valfri, och leveransen avgör frågan.** Quick-starten **trycker
-guidens publicerade adress för läsaren**: `choosewise.education / guides / gemini-notebook`. De
-levererade PDF:erna är alltså i omlopp med den adressen **i tryck**, vilket betyder att
-publiceringsrundan **måste** använda `/guides/gemini-notebook/`. Den har inget val kvar.
-Alternativet hade varit att låta quick-starten trycka den gamla sökvägen för att hålla den
-överens med konfigurationen — men då trycker guiden en adress som bär det **pensionerade
-produktnamnet**, vilket motsäger hela namnbytet. Det här är alltså inte "en inkonsekvens att
-rätta någon gång": **frågan är avgjord av leveransen, och konfigurationen är den som ska flytta.**
+**(b2) ~~Skulden är inte längre valfri, och leveransen avgör frågan.~~ FÖRFALLEN 2026-10-13.**
+Argumentet löd: quick-starten **trycker** guidens publicerade adress
+`choosewise.education / guides / gemini-notebook` för läsaren, de levererade PDF:erna är därför
+i omlopp med adressen **i tryck**, och publiceringsrundan **måste** alltså använda
+`/guides/gemini-notebook/`. **Båda leden föll samma dag:** omfångsbeslutet tog bort
+publiceringen, och Task 21 tog bort den tryckta adressen ur quick-starten. Kvar står bara
+lärdomen, som är värd att behålla: **en guide som trycker en adress binder konfigurationen** —
+så den som sätter en adress i tryck ska veta att hen just har fattat ett infrastrukturbeslut.
+Nästa gång: tryck ingen adress som inte redan finns.
 
 **(c) `NotebookLM` kan aldrig bli en förbudsrad i den här guiden.** Citaten bär ordet
 legitimt — en citattitel som "rättas" är inte längre ett citat. Vakten vaktar därför Task 4C:s
@@ -340,8 +420,10 @@ referenserna** — döps katalogen om följer alla sexton i en sed. De tre övri
 EW:350:s trasiga skärmdumpssökväg (rad 351 fram till Task 18) och quick-startens två CSS-rader.
 
 De sitter **inuti attribut** (eller i ett CSS-klassnamn). `surfacecheck._TAG` strippar attribut,
-så ytkonsistensvakten kan aldrig se dem, och ingen runda har rört dem. De hör i samma jobb som
-(b). **Skrivet ut per yta med sökväg här så att nästa läsare inte tror att namnbytet var
+så ytkonsistensvakten kan aldrig se dem, och ingen runda har rört dem. De hörde i samma jobb som
+(b) — **och faller därmed med det: de står kvar med avsikt.** En tillgångssökväg spelar bara roll
+om ytan publiceras, och ytorna ska inte publiceras (omfångsbeslutet ovan). Uppräkningen nedan
+står kvar som karta, för den dag någon ändå döper om katalogen. **Skrivet ut per yta med sökväg här så att nästa läsare inte tror att namnbytet var
 fullständigt i filsystemet bara för att det var fullständigt i prosan** — och **inte** bara för
 webbytan, vilket var den första versionen av den här punkten och lämnade läsaren med knappt
 hälften.
@@ -520,11 +602,18 @@ förbiseende — ett fynd som inte åtgärdas skrivs ut, aldrig stryks tyst.
 
    **Beslutet att skjuta upp står ändå**, men på sitt riktiga skäl: det är en **kosmetisk
    figuretikett i ett dokument vars fyra nivåer redan är etiketterade**, och den låg utanför
-   varje uppgifts fillista. Vill nästa runda laga alla fyra ytor samtidigt — vilket är det
-   prydligaste — hör den i det svep som ändå tar de svenska ytorna. Vill den bara laga de
-   engelska är det en commit. **Tro inte att en billig fix är förbjuden.**
+   varje uppgifts fillista.
+
+   **Och efter omfångsbeslutet 2026-10-13 är den ännu billigare än raden ovan säger:** det
+   finns inget kommande svep som tar de svenska ytorna, för de är frysta permanent och
+   distribueras inte. **Jobbet är därför bara de två engelska ytorna — en commit — och det är
+   hela jobbet, inte halva.** Att "laga alla fyra samtidigt" är inte längre det prydligaste
+   alternativet; det är ett alternativ som inte finns. **Tro inte att en billig fix är
+   förbjuden.**
 2. **Den svenska quick-starten säger "39-sidiga" om en 42-sidig svensk guide.** Preexisterande,
-   på en frusen yta. Samma jobb som de svenska filnamnen.
+   på en frusen yta. **Efter omfångsbeslutet 2026-10-13 står den kvar permanent:** ytan
+   distribueras inte och når ingen läsare, så det finns inget jobb kvar att vänta på — "samma
+   jobb som de svenska filnamnen" var det, och det jobbet är avblåst.
 3. **`capture_guide_baseline.py` rapporterar 45 sidor för en 44-sidig PDF.** **Inget defekt:**
    `pdf_fingerprint.pages()` delar på sidbrytningstecken och ger en avslutande tom post
    (verifierat: 43 poster för den 42-sidiga versionen, 45 för den 44-sidiga). Skriptets
@@ -589,8 +678,12 @@ omdöme** — och med den hämtningen gjord är rättelsen en mening på två yt
 2. **`_unpublished/guides/apple-intelligence/` och `_unpublished/guides/ai-for-students/` bär
    fortfarande Crestioras typsnitt**, inklusive inline-`font-family`-attribut i SVG. De står
    därför inte i `test_fonts.GUIDE_WEB_SURFACES`. Städas i sina egna rundor.
-3. **Quick-startens pekare till guidens egen adress svarar 404 så länge guiden är
-   opublicerad.** Medvetet, inte missat — ingenting i den här rundan publiceras.
+3. ~~**Quick-startens pekare till guidens egen adress svarar 404 så länge guiden är
+   opublicerad.**~~ **STÄNGD 2026-10-13 (Task 21): pekaren är borttagen.** Omfångsbeslutet gjorde
+   404:an permanent i stället för tillfällig — sidan kommer aldrig att finnas — så adressen är
+   struken ur quick-starten i stället för att vänta på en publicering. Avslutningsraden säger nu
+   att guiden följer med i communityt, utan adress. Apple Intelligences quick-start bär **samma
+   fel olagat**; se omfångsbeslutets punkt (d).
 
 ### Fem rättelser till specen, så att nästa guide mäter på rätt saker
 
