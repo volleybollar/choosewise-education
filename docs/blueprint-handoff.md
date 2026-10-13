@@ -73,7 +73,7 @@
 
 **Ungefär trettio platskolumner i `docs/guide-facts-copilot.md`:s EW-kolumn ligger nu fel med ett.** Radnumren för webbytan (`_unpublished/guides/copilot/index.html`) fixerades i Task 4/8, men commit `16bd50f` senare i rundan lade till en nettorad i samma fil (74 insättningar mot 73 raderingar) utan att platskolumnen räknades om. EP-kolumnen (print) är opåverkad — samma commit var nettonoll där (104 mot 104). **Ofarligt för vakten:** `surfacecheck`/`factinventory` matchar strängar, aldrig radnummer — felet syns bara för en människa som läser cellen. Rättas när någon redan är inne i tabellen av ett annat skäl.
 
-**Gemini-guidens kända trasiga står samlat i sitt eget avsnitt.** Sex fynd rundan medvetet inte åtgärdade (bl a en osynlig axeletikett på alla fyra ytor och fyra dubblerade passager), tre kända luckor, och namnbytets kvarvarande skuld med radnummer — allt i **"Gemini-guiden — vad rundan lämnar"** nedan. Ingen av dem är ny med rundan; alla är preexisterande och alla har sin motivering utskriven.
+**Gemini-guidens kända trasiga står samlat i sitt eget avsnitt.** Tre fynd rundan medvetet inte åtgärdade (bl a en osynlig axeletikett på alla fyra ytor), Johans redaktionella pass 2026-10-13 som stängde fyra av de tidigare sex, tre kända luckor, och namnbytets kvarvarande skuld med radnummer — allt i **"Gemini-guiden — vad rundan lämnar"** nedan. Ingen av dem är ny med rundan; alla är preexisterande och alla har sin motivering utskriven.
 
 **Webbytans ankar-id:n `p1-edp`/`p3-edp` skiljer sig nu från den svenska spegelns `p1-cdp`/`p3-cdp`.** Namnbytet Commercial Data Protection → Enterprise data protection (se faktafynden nedan) följde med in i den engelska sidans id-strängar; den svenska filen rördes inte (spec §5) och behöll `cdp`. **Noll inkommande länkar** till något av de fyra id:na, verifierat. Värt att veta innan någon länkar till ett specifikt avsnitt i någon av guiderna.
 
@@ -329,7 +329,7 @@ KLASSNAMN — på alla tre ytor, inte bara webbytan.** Räknade per yta 2026-10-
 (åtta per yta, rotade på webbytan och relativa i printytan). Katalogen bär **420 filer** och
 finns på riktigt. **Det är alltså katalognamnet som är den egentliga posten, inte de sexton
 referenserna** — döps katalogen om följer alla sexton i en sed. De tre övriga är en egen sak var:
-EW:351:s trasiga skärmdumpssökväg och quick-startens två CSS-rader.
+EW:350:s trasiga skärmdumpssökväg (rad 351 fram till Task 18) och quick-startens två CSS-rader.
 
 De sitter **inuti attribut** (eller i ett CSS-klassnamn). `surfacecheck._TAG` strippar attribut,
 så ytkonsistensvakten kan aldrig se dem, och ingen runda har rört dem. De hör i samma jobb som
@@ -386,9 +386,80 @@ egen docstring dokumenterar handkopieringen som **avsiktligt mönster för alla
 härleda den live stänger luckan för **varje** guide, inte bara den här. Tvärgående
 refaktorering; hörde inte i den här rundans fillista.
 
-### Sex fynd ur genomläsningen som rundan medvetet INTE åtgärdade
+### Johans redaktionella pass (Task 18, 2026-10-13) — titeln, rösten, dubbleringarna
 
-Alla sex är **preexisterande**. Att de står här och inte i en uppgift är ett beslut, inte ett
+Fyra av de fynd som stod uppskjutna nedan är **stängda på Johans beslut 2026-10-13**. De står
+inte längre öppna, och nästa runda ska inte "rätta" tillbaka något av det här.
+
+**(a) Titeln heter nu `Gemini & Gemini Notebook for educators`.** Sju ställen: EP rad 5
+(`<title>`) och 462 (`<h1>`), EW rad 6 (`<title>`, suffixet `— Johan Lindström` kvar), 8
+(`og:title`) och 49 (`<h1>`), `exports/build-gemini-notebook-pdf.py` rad 61 (löpande sidfot,
+HTML-escapad `&amp;`) och `scripts/tests/pdf_body_text.py` rad 85 (speglad literal, oescapat
+`&`). Byggarens rad 66 — det svenska jobbets sidfot — står orörd, och de svenska PDF:erna är
+byte-identiska med bascommiten.
+
+**AVVIKELSEN ÄR AVSIKTLIG.** Systerguiderna heter `… for teachers and school leaders`
+(apple-intelligence, copilot). Gemini avviker nu från familjen, på Johans beslut, och i linje
+med sajtens egen underrubrik `AI & Digitalization for Educators`. **Den som tar in nästa guide
+ska inte läsa avvikelsen som ett slarvfel och harmonisera bort den.**
+
+**(b) Författaren omtalas konsekvent som `I`.** De två tredjepersonsmeningarna i prosan är
+omskrivna: EP 823 → **822** / EW 322 → **321** (`Johan's 140 Gemini Notebook styles` → `My 140
+Gemini Notebook styles`) och EP 843 → **842** / EW 342 → **341** (`Johan has built a library of
+140 styles` → `I have built a library of 140 styles`). **De åtta kvarvarande `Johan`-förekomsterna på EP är inte prosa och
+ska stå:** omslagets byline, signaturen, kolofonen, licensraden, etiketterna `Johan's Note`
+(två) och `A note from Johan`, samt en CSS-kommentar. **En etikett är en skylt, inte prosa.**
+
+**(c) De tre dubblerade passagerna är avdublicerade, och ägarskapet står här.**
+
+| passage | ÄGER den | avdublicerad |
+|---|---|---|
+| Matt Miller-citatet ("becomes an instant expert on the documents you give it") | **sidan 6** (EP 636 / EW 123, orörda) | sidan 10 (EP 719 / EW 209, oförskjutna) — citatmeningen borttagen, styckets egen poäng (att det mesta lärare behöver ligger mellan de två verktygen) står kvar ordagrant |
+| "the two sides stay complementary" + webbsök/Video Overviews + April 2026-lanseringen till Ultra/Pro/Plus | **sidan 6** (EP 641 / EW 128, orörda) | sidan 18:s integrationsruta (EP 847 → **846** / EW 348 → **347**) — de två upprepande slutmeningarna borttagna; rutan slutar nu på sin egen poäng ("You get a grounded answer **and** a creative classroom resource in one interaction") |
+| Eric Curts / `edugems.ai`-beskrivningen med sitt förbehåll | **sidan 14** (EP 789 → **788** / EW 284 → **283**) | sidan 21 (EP 909 → **908** / EW 415 → **414**) — raden är nu en korsreferens: "The edugems.ai library covered in Part 2 is as good a starting point for a department as it is for one teacher." Sidan 42:s korta resursrad (EP 1576 → **1575** / EW 1171 → **1170**) står kvar, den hör i en resurssammanställning |
+
+**Inget nytt påstående infördes**, och inget citat tillskrevs någon. Sidan 6 äger
+Miller-citatet i exakt den ordalydelse granskaren verifierade mot `ditchthattextbook.com`
+(se G20); sidan 10 har inget citat alls i stället för ett nytt.
+
+**(d) Säfströms/Folkebrants Fristadsskolan-exempel gick från tre till två förekomster per yta.**
+Borttagen är **sidan 11**:s `Extra example:` under "2 · Generate a podcast from your unit plan"
+(EP 730 / EW 220). **Kvar står:** sidan 16:s `The anchor example worth knowing` i
+Audio Overviews-avsnittet (EP 831 → **830** / EW 330 → **329**) och sidan 20:s
+avdelningsvinkel (EP 896 → **895** / EW 402 → **401**).
+ Skälet: "Five quick wins"-avsnittet har
+andra konkreta exempel (Year 7-geografiläraren under punkt 1, policyjämförelsen under punkt 4),
+medan Audio Overviews-avsnittet skulle ha tappat sitt **enda namngivna klassrumsexempel** —
+och sidan 11:s förekomst var dessutom inramad som en bisats, inte som avsnittets ankare.
+G21:s två vaktrader (`Fristadsskolan`, `Pedagog Eskilstuna`) är mätta efteråt: **två
+förekomster var per yta, båda strängarna på båda ytorna.** Ordet `Sweden` står **oförändrat två
+gånger per yta** — sidan 11:s förekomst bar det inte — så vaktblockets kommentar i
+`docs/guide-facts-gemini.md` stämmer fortfarande och är inte rörd.
+
+**Alla radnummer ovan är skrivna `före → efter`.** Borttagningen av EP 730 / EW 220 flyttade
+varje rad efter den ett steg upp på respektive yta; titelraderna (EP 5, 462; EW 6, 8, 49) ligger
+före brytpunkten och står kvar.
+
+**Pagineringen rörde sig inte.** Guiden är fortfarande **44 sidor**, och förteckningens tio
+sidnummer är oförändrade (`3 5 8 13 20 23 27 30 32 41`) — mätta mot den omrenderade PDF:en,
+varje ankare på sin kartlagda sida. Quick-startens tryckta `44-page` stämmer därför också
+fortfarande. `XFAIL_UNTIL_RECOUNTED` och `XFAIL_UNTIL_RERENDERED` är tomma och lämnas tomma.
+
+**Posttabellens radnummer i `docs/guide-facts-gemini.md` är nu ett steg efter på EP från rad 730
+och på EW från rad 220** (G20:s och G21:s kolumner, plus G19:s). Posttabellen läses aldrig
+maskinellt (`factinventory.load()` läser bara vaktblocket), så ingen vakt är röd för det — men
+den som läser tabellen som karta ska veta att den pekar en rad fel efter borttagningen. Hör i
+samma svep som G49:s oescapade pipe och G27-aritmetiken.
+
+**Ett fynd vidare, rapporterat men INTE åtgärdat** — omfånget var Johans sex beslut, och en
+fjärde avduplicering är hans att besluta: **Classrooms fyra mall-Gems räknas upp två gånger**,
+med samma fyra namn (Study partner, Quiz me, Brainstorm partner, Real-world connector), på
+sidan 14 (EP 788 / EW 283) och sidan 21 (EP 908 / EW 414). Båda meningarna står kvar oförändrade
+i den delen. Samma klass som de tre ovan, samma typ av beslut.
+
+### Tre fynd ur genomläsningen som rundan medvetet INTE åtgärdade
+
+Alla tre är **preexisterande**. Att de står här och inte i en uppgift är ett beslut, inte ett
 förbiseende — ett fynd som inte åtgärdas skrivs ut, aldrig stryks tyst.
 
 1. **Figurens axeletikett `RISK →` renderas ingenstans.** En rotate-transform placerar den på
@@ -406,25 +477,16 @@ förbiseende — ett fynd som inte åtgärdas skrivs ut, aldrig stryks tyst.
    varje uppgifts fillista. Vill nästa runda laga alla fyra ytor samtidigt — vilket är det
    prydligaste — hör den i det svep som ändå tar de svenska ytorna. Vill den bara laga de
    engelska är det en commit. **Tro inte att en billig fix är förbjuden.**
-2. **Tre passager står dubblerat.** Matt Miller-citatet två gånger (sidorna 6 och 10), "the two
-   sides stay complementary" två gånger (6 och 18), och Eric Curts/`edugems.ai`-stycket **tre**
-   gånger (från sidan 14). Rundans enda bidrag är att två nästan identiska slutmeningar blev
-   *exakt* identiska, när en faktauppgift förenade "AI Ultra" och "Google AI Ultra" mot samma
-   verifierade källa — alltså en **förbättring i noggrannhet som ökade ekot**. Att avduplicera
-   är ett redaktionellt pass på Johans egen text, inte en faktarättelse. **Johans beslut.**
-3. **Säfström/Folkebrant-exemplet (Fristadsskolan) förekommer tre gånger**, utöver de tre
-   passagerna ovan. Samma redaktionella pass. **Johans beslut.**
-4. **Författaren omtalas både som "Johan" och som "I"** i samma dokument. **Johans beslut.**
-5. **Den svenska quick-starten säger "39-sidiga" om en 42-sidig svensk guide.** Preexisterande,
+2. **Den svenska quick-starten säger "39-sidiga" om en 42-sidig svensk guide.** Preexisterande,
    på en frusen yta. Samma jobb som de svenska filnamnen.
-6. **`capture_guide_baseline.py` rapporterar 45 sidor för en 44-sidig PDF.** **Inget defekt:**
+3. **`capture_guide_baseline.py` rapporterar 45 sidor för en 44-sidig PDF.** **Inget defekt:**
    `pdf_fingerprint.pages()` delar på sidbrytningstecken och ger en avslutande tom post
    (verifierat: 43 poster för den 42-sidiga versionen, 45 för den 44-sidiga). Skriptets
    utskriftssträng är en kosmetisk felmärkning, inte en felräkning.
 
 ### Två fynd av samma slag, ur slutkontrollen och helgranskningen
 
-Inte ur genomläsningen, alltså inte med i de sex ovan — men samma kategori: preexisterande,
+Inte ur genomläsningen, alltså inte med i de tre ovan — men samma kategori: preexisterande,
 läsarsynliga i liten skala, och medvetet lämnade med utskriven åtgärd.
 
 **1. Ett av AI Act:s fyra datum är inte fetat medan de tre andra är.** Meningen *"Four dates
@@ -434,8 +496,10 @@ rektor räknar tre datum i en mening som säger fyra. **Exakt åtgärd, en tagg 
 
 | yta | rad | ändring |
 |---|---|---|
-| `_unpublished/exports/gemini-notebook-print-a4-en.html` | 1024 | `from 2 August 2028` → `from <strong>2 August 2028</strong>` |
-| `_unpublished/guides/gemini-notebook/index.html` | 535 | samma |
+| `_unpublished/exports/gemini-notebook-print-a4-en.html` | 1023 | `from 2 August 2028` → `from <strong>2 August 2028</strong>` |
+| `_unpublished/guides/gemini-notebook/index.html` | 534 | samma |
+
+(Radnumren var 1024 och 535 fram till Task 18; borttagningen av EP 730 / EW 220 flyttade dem ett steg upp.)
 
 **Lämnad med avsikt:** enda åtgärden rör den **levererade PDF:en** och kostar en omrendering
 plus en selektiv facitomfångning — oproportionerligt för ett `<strong>`.

@@ -82,7 +82,7 @@ PLAYWRIGHT_FOOTERS: dict[str, tuple[str, str]] = {
         ("Should students use AI in class?", "Page"),
     # exports/build-gemini-notebook-pdf.py jobs[] (footer() calls)
     "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf":
-        ("Gemini & Gemini Notebook for teachers and school leaders", "Page"),
+        ("Gemini & Gemini Notebook for educators", "Page"),
     "_unpublished/assets/pdfs/guides/gemini-notebooklm-guide-sv.pdf":
         ("Gemini & NotebookLM för lärare och skolledare", "Sida"),
 }
