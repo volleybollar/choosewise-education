@@ -1,5 +1,14 @@
 [
   {
+    "slug": "gpts-and-gems-retires",
+    "title": "Your custom GPT or Gem is changing shape",
+    "date": "2026-10-13",
+    "reading_time": "3 min read",
+    "cover_image": "/blog/posts/assets/gpts-and-gems-retires.webp",
+    "og_image": "/blog/posts/assets/gpts-and-gems-retires-og.jpg",
+    "excerpt": "OpenAI is retiring custom GPTs and Google is replacing Gems with skills. Your instructions and your files carry across. The sharing links, the permissions and the chat history do not — and that is the part schools should act on."
+  },
+  {
     "slug": "when-the-copy-is-free",
     "title": "What are the consequences when the copy is free?",
     "date": "2026-10-12",
