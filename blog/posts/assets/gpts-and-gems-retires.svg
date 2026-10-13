@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <style>
+    @font-face {
+      font-family: 'Hanken Grotesk';
+      src: url('/assets/fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2') format('woff2');
+      font-weight: 300 600; font-style: normal;
+    }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0%" stop-color="#FBFAF8"/><stop offset="100%" stop-color="#EFF2F6"/>
+    </linearGradient>
+    <marker id="arrow-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#C2793A" opacity="0.7"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- Kolumnetiketter -->
+  <g>
+    <text x="385" y="126" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="15" font-weight="500" fill="#656F7B" letter-spacing="2.2">BEING RETIRED</text>
+    <text x="1240" y="126" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="15" font-weight="500" fill="#656F7B" letter-spacing="2.2">STAYS YOURS</text>
+    <line x1="210" y1="146" x2="560" y2="146" stroke="#DDE3EA" stroke-width="1.5"/>
+    <line x1="1040" y1="146" x2="1440" y2="146" stroke="#DDE3EA" stroke-width="1.5"/>
+  </g>
+
+  <!-- Vänster: de tva behallarna, streckade for att de forsvinner -->
+  <g>
+    <rect x="210" y="190" width="350" height="140" rx="18" fill="#FBFAF8" stroke="#0B3A6F" stroke-width="2.5" stroke-dasharray="7 7" opacity="0.5"/>
+    <rect x="278" y="234" width="36" height="48" rx="3" fill="#FBFAF8" stroke="#C2793A" stroke-width="2.5"/>
+    <line x1="286" y1="248" x2="306" y2="248" stroke="#C2793A" stroke-width="1.5" opacity="0.5"/>
+    <line x1="286" y1="256" x2="306" y2="256" stroke="#C2793A" stroke-width="1.5" opacity="0.5"/>
+    <line x1="286" y1="264" x2="300" y2="264" stroke="#C2793A" stroke-width="1.5" opacity="0.5"/>
+    <text x="338" y="252" text-anchor="start" font-family="Hanken Grotesk, sans-serif" font-size="25" font-weight="400" fill="#0B3A6F">CUSTOM GPT</text>
+    <text x="338" y="280" text-anchor="start" font-family="Hanken Grotesk, sans-serif" font-size="16" font-weight="400" fill="#656F7B">ChatGPT</text>
+
+    <rect x="210" y="380" width="350" height="140" rx="18" fill="#FBFAF8" stroke="#0B3A6F" stroke-width="2.5" stroke-dasharray="7 7" opacity="0.5"/>
+    <rect x="278" y="424" width="36" height="48" rx="3" fill="#FBFAF8" stroke="#C2793A" stroke-width="2.5"/>
+    <line x1="286" y1="438" x2="306" y2="438" stroke="#C2793A" stroke-width="1.5" opacity="0.5"/>
+    <line x1="286" y1="446" x2="306" y2="446" stroke="#C2793A" stroke-width="1.5" opacity="0.5"/>
+    <line x1="286" y1="454" x2="300" y2="454" stroke="#C2793A" stroke-width="1.5" opacity="0.5"/>
+    <text x="338" y="442" text-anchor="start" font-family="Hanken Grotesk, sans-serif" font-size="25" font-weight="400" fill="#0B3A6F">GEM</text>
+    <text x="338" y="470" text-anchor="start" font-family="Hanken Grotesk, sans-serif" font-size="16" font-weight="400" fill="#656F7B">Gemini</text>
+  </g>
+
+  <!-- Mitten: kopparbussen som lyfter ut texten -->
+  <g>
+    <line x1="560" y1="260" x2="580" y2="260" stroke="#C2793A" stroke-width="2.5" opacity="0.55"/>
+    <line x1="560" y1="450" x2="580" y2="450" stroke="#C2793A" stroke-width="2.5" opacity="0.55"/>
+    <line x1="580" y1="260" x2="580" y2="450" stroke="#C2793A" stroke-width="2.5" opacity="0.55"/>
+    <line x1="580" y1="355" x2="1020" y2="355" stroke="#C2793A" stroke-width="3" opacity="0.6" marker-end="url(#arrow-c)"/>
+    <text x="800" y="322" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="16" font-weight="500" fill="#9C5A24" letter-spacing="2.2">COPY THE TEXT OUT</text>
+  </g>
+
+  <!-- Hoger: din egen mapp, hel kontur -->
+  <g>
+    <rect x="1040" y="240" width="400" height="230" rx="18" fill="#FBFAF8" stroke="#0B3A6F" stroke-width="2.5"/>
+    <rect x="1078" y="321" width="52" height="68" rx="4" fill="#FBFAF8" stroke="#C2793A" stroke-width="3"/>
+    <line x1="1090" y1="340" x2="1118" y2="340" stroke="#C2793A" stroke-width="1.8" opacity="0.55"/>
+    <line x1="1090" y1="351" x2="1118" y2="351" stroke="#C2793A" stroke-width="1.8" opacity="0.55"/>
+    <line x1="1090" y1="362" x2="1118" y2="362" stroke="#C2793A" stroke-width="1.8" opacity="0.55"/>
+    <line x1="1090" y1="373" x2="1110" y2="373" stroke="#C2793A" stroke-width="1.8" opacity="0.55"/>
+    <text x="1158" y="345" text-anchor="start" font-family="Hanken Grotesk, sans-serif" font-size="25" font-weight="400" fill="#0B3A6F">YOUR OWN FOLDER</text>
+    <text x="1158" y="373" text-anchor="start" font-family="Hanken Grotesk, sans-serif" font-size="16" font-weight="400" fill="#656F7B">Drive &#183; staff folder</text>
+  </g>
+
+  <!-- Nedre remsa: det som inte foljer med -->
+  <g>
+    <text x="800" y="600" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="15" font-weight="500" fill="#656F7B" letter-spacing="2.2">DOES NOT SURVIVE THE MOVE</text>
+    <text x="560" y="648" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="22" font-weight="400" fill="#8A939E">sharing links</text>
+    <line x1="491" y1="641" x2="629" y2="641" stroke="#8A939E" stroke-width="1.5" opacity="0.8"/>
+    <text x="800" y="648" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="22" font-weight="400" fill="#8A939E">permissions</text>
+    <line x1="741" y1="641" x2="859" y2="641" stroke="#8A939E" stroke-width="1.5" opacity="0.8"/>
+    <text x="1040" y="648" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="22" font-weight="400" fill="#8A939E">chat history</text>
+    <line x1="976" y1="641" x2="1104" y2="641" stroke="#8A939E" stroke-width="1.5" opacity="0.8"/>
+  </g>
+
+  <text x="800" y="762" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="54"
+        font-weight="300" fill="#0C1A2E" letter-spacing="-1.6">The container goes. What you wrote does not.</text>
+  <text x="800" y="866" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="16"
+        font-weight="500" fill="#656F7B" letter-spacing="2.2">CHOOSEWISE.EDUCATION</text>
+</svg>
