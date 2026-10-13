@@ -850,7 +850,10 @@ läste sitt **eget förra utdata** som om innehållet ändrats. Verifierat ordag
 
 **Det är fälla 6 nedan, och den är nu stängd i koden i stället för i en varning.**
 
-**Sprängvidden var 13 filer, inte 6.** Mätt genom att köra skriptets egen per-fil-logik över
+**Sprängvidden var 13 filer, inte 6 — mätt FÖRE (3).** Efter (3), som la två sidor till i
+`SECTION_LANDINGS`, är talet **15**: med `4547f4d`:s `git_lastmod` i dagens träd svarar **18**
+filer `2026-10-13`, varav **15** felaktigt (de tre övriga ändrades verkligen den dagen). Båda
+talen gäller, var och en för sitt träd. Mätt genom att köra skriptets egen per-fil-logik över
 alla 195 filer i scope med gammal och ny `git_lastmod` och jämföra utfallet: utan fixen hade en
 körning 2026-10-13 skrivit `2026-10-13` på `about/`, `prompts/`, `wise/`, `notebooklm-styles/`,
 deras fyra svenska motparter, och **fem blogginlägg** — de sista har ingen synlig stämpel men
@@ -861,9 +864,27 @@ section landings med synligt block räknar fel. Med fixen: **0 filer.**
 innehållet. En commit hoppas över när skriptets egna rader sorterats bort ur diffen och resten
 är lika på båda sidor — se "Regressionen i (3)" nedan för varför det blev en restjämförelse och
 inte ett krav på datummarkörer. Fallbacken på mtime och sedan dagens datum är orörd. Vakten är
-`scripts/tests/test_seo_lastmod.py`, som bygger riktiga git-repon i temporära kataloger: fem
-tester, varav två är över-hoppningsprov som fäller en spärr som hoppar över för mycket. Varje
-vakt sågs röd mot den implementation den skulle fånga innan den litades på.
+`scripts/tests/test_seo_lastmod.py`, som bygger riktiga git-repon i temporära kataloger: **sex
+tester**, varav två är över-hoppningsprov och ett kör hela kedjan.
+
+**Två saker i testfilen är bärande konstruktion, inte stil, och båda kom ur granskningen.**
+*Fixturen byggs av skriptets egna generatorer* (`build_seo_block()`,
+`build_last_updated_block()`) i stället för handskrivna radformer: `_GENERATED_LINES` är ankrade
+helradsmönster, och en handskriven fixtur kan matcha masken samtidigt som den verkliga raden
+slutat göra det. Granskaren bevisade det genom att smalna aside-mönstret så att det matchade
+fixturen men inte skriptets aside, som bär `aria-label` — **fem gröna tester och buggen helt
+tillbaka**. Och *inget förväntat datum är dagens*, medan fixturens mtime sätts till
+`1999-01-01`: faller `git_lastmod` igenom till mtime-ledet ska svaret vara omöjligt att
+förväxla med ett commitdatum. Utan det var två av testerna gröna under sabotage, därför att
+mtime råkade vara exakt det datum de assertade.
+
+**`test_running_the_script_twice_changes_nothing_the_second_time`** spelar upp jobb 3:s
+regression i sin helhet — en sida som blir section landing, körs, commitas, körs igen — och rör
+varken mask eller radform. Den är därmed immun mot att masken och fixturen glider i takt.
+
+Varje vakt är sedd röd mot den implementation den ska fånga: mot "hoppa över allt" faller 5 av
+6, mot "hoppa så fort en genererad rad rörs" faller 5 av 6, och mot den smalnade masken faller
+3 av 6 — inklusive kedjetestet.
 
 **Kostnad: en full körning går från ~5,0 s till ~12,2 s** (`git log` plus ett `git show` per
 fil). **Ingen cache byggd** — en cache måste invalideras på HEAD och vore mer kod än fixen.
@@ -905,12 +926,13 @@ gemini 39 / 52, noll problem). Ingen PDF och ingen printyta rördes.
 ### (3) `/infographic-styles/` och `/sv/infografik-stilar/` är nu section landings
 
 De två bar ett **föräldralöst** `page-last-updated`-block, fruset på `2026-04-24`: de togs ur
-`SECTION_LANDINGS` vid omdöpningen `4ceaf43` (*refactor(nav): rename NotebookLM Styles →
-Infographic Styles*, 2026-04-26): katalogen bytte namn och tog blocket med sig, medan
-`SECTION_LANDINGS` behöll den gamla nyckeln `/notebooklm-styles/`. **`/infographic-styles/` har
-alltså aldrig stått i listan** — `git show 252a374:scripts/build-seo-meta.py` visar den gamla
-nyckeln men inte den nya, och stämpeln `2026-04-24` är äldre än omdöpningen, vilket stämmer med
-den bilden. Skriptet skriver blocket bara för section landings — så det
+`SECTION_LANDINGS`. **`/infographic-styles/` har aldrig stått i listan.** Orsaken är
+omdöpningen `4ceaf43` (*refactor(nav): rename NotebookLM Styles → Infographic Styles*,
+2026-04-26): katalogen bytte namn och tog last-updated-blocket med sig in i den nya filen, medan
+`SECTION_LANDINGS` behöll den gamla nyckeln `/notebooklm-styles/`. **`4ceaf43` rörde inte
+`build-seo-meta.py` alls** — nyckeln blev bara kvar och pekade från den dagen på en
+omdirigeringsstubb. `git show 252a374:scripts/build-seo-meta.py` visar den gamla nyckeln men
+inte den nya, och stämpeln `2026-04-24` är äldre än omdöpningen, vilket stämmer med den bilden. Skriptet skriver blocket bara för section landings — så det
 varken uppdaterades eller togs bort. Johans beslut 2026-10-13: lägg in dem igen, med
 `CollectionPage` som systrarna. Blocket **adopterades på plats** via sina markörer (ett block
 per fil efteråt, inte två) och visar nu `2026-10-07`. Renderat och granskat vid 1280 px och
@@ -938,11 +960,14 @@ skrev den.**
 raderna (JSON-LD-blocket, last-updated-blockets aside, sitemapens `<lastmod>`). Markörparen samt
 favicon-, canonical- och hreflang-raderna är också genererade, men de bär inget datum — och
 `0890841`, som lade favicon på 190 filer, **är** det sanna "senast ändrat" för åtta sidor
-(2026-10-07). Mätt: sorteras även de bort faller **171 av 195 sidor** tillbaka till julidatum.
+(2026-10-07). Mätt: sorteras även de bort får **171 av 195 sidor** ett annat datum — varav
+**157** ett julidatum, resten maj (4), oktober (7), april (2) och augusti (1).
 Spärren ska stänga datumets självreferens, inte omdefiniera vad en innehållsändring är.
 
 **Mätt över hela historiken efter fixen:** 1829 commit/fil-par, 221 överhoppade, och **noll** av
-dem hade en icke-genererad rad ändrad. Över-hoppningsprovet åt andra hållet håller också —
+dem hade en icke-genererad rad ändrad. (`_without_our_own_output` sorterar, så en ren omkastning
+av innehållsrader vore en lucka — noll sådana commits finns, och avvägningen står skriven intill
+masken.) Över-hoppningsprovet åt andra hållet håller också —
 `0890841`, `63b33ba`, `e1d3a4a` på `index.html` och `252a374` räknas alla som innehåll, trots att
 de rör datum- eller JSON-LD-rader.
 
@@ -963,8 +988,9 @@ sitemapen (8 rader var för `notebooklm` respektive `infographic`), och båda f�
 `CollectionPage`-schema med `dateModified` trots att de är `noindex`-stubbar utan `</main>` —
 de får därför inget synligt block, vilket är varför ingen dubblett uppstod. **Två påståenden om
 sidan som inte är sanna, och de hör med när ärendet tas:** en omdirigeringsstubb är ingen
-`CollectionPage`, och den ska rimligen inte stå i sitemapen alls — ändå har `notebooklm` åtta
-rader där, lika många som `infographic`. Preexisterande, inte infört av hygienrundan.
+`CollectionPage`, och den ska rimligen inte stå i sitemapen alls — ändå står båda stubbarna
+där. **Åtta matchande XML-rader, men bara två `<loc>`-poster** (en per stubb); de övriga sex är
+hreflang-alternativ. Talet "åtta rader" läses lätt som åtta URL:er och är det inte. Preexisterande, inte infört av hygienrundan.
 
 ### Fynd rapporterade men inte åtgärdade
 

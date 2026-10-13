@@ -534,7 +534,15 @@ def _changed_lines(sha: str, rel_path: str) -> list:
 
 
 def _without_our_own_output(lines: list, sign: str) -> list:
-    """Diffens rader åt ett håll, med skriptets egna rader bortsorterade."""
+    """Diffens rader åt ett håll, med skriptets egna rader bortsorterade.
+
+    Resultatet är SORTERAT, så en ren omkastning av innehållsrader — samma
+    rader, ny ordning — ser likadan ut på båda sidor och skulle klassas som
+    "säger inget om innehållet". Teoretisk lucka: mätt över hela historiken
+    (1829 commit/fil-par) finns noll sådana commits. Osorterat vore talet
+    känsligt för att git parar om hunkar, vilket ger falska innehållsflaggor
+    — ett vanligare fel än omkastningen. Avvägningen är medveten.
+    """
     return sorted(line[1:] for line in lines
                   if line.startswith(sign)
                   and not any(p.match(line[1:].strip()) for p in _GENERATED_LINES))
