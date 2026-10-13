@@ -73,7 +73,7 @@
 
 **Ungefär trettio platskolumner i `docs/guide-facts-copilot.md`:s EW-kolumn ligger nu fel med ett.** Radnumren för webbytan (`_unpublished/guides/copilot/index.html`) fixerades i Task 4/8, men commit `16bd50f` senare i rundan lade till en nettorad i samma fil (74 insättningar mot 73 raderingar) utan att platskolumnen räknades om. EP-kolumnen (print) är opåverkad — samma commit var nettonoll där (104 mot 104). **Ofarligt för vakten:** `surfacecheck`/`factinventory` matchar strängar, aldrig radnummer — felet syns bara för en människa som läser cellen. Rättas när någon redan är inne i tabellen av ett annat skäl.
 
-**Gemini-guidens kända trasiga står samlat i sitt eget avsnitt.** Tre fynd rundan medvetet inte åtgärdade (bl a en osynlig axeletikett på alla fyra ytor), Johans redaktionella pass 2026-10-13 som stängde fyra av de tidigare sex, tre kända luckor, och namnbytets kvarvarande skuld med radnummer — allt i **"Gemini-guiden — vad rundan lämnar"** nedan. Ingen av dem är ny med rundan; alla är preexisterande och alla har sin motivering utskriven.
+**Gemini-guidens kända trasiga står samlat i sitt eget avsnitt.** Tre fynd rundan medvetet inte åtgärdade (bl a en osynlig axeletikett på alla fyra ytor), Johans redaktionella pass 2026-10-13 som stängde tre av de tidigare sex, tre kända luckor, och namnbytets kvarvarande skuld med radnummer — allt i **"Gemini-guiden — vad rundan lämnar"** nedan. Ingen av dem är ny med rundan; alla är preexisterande och alla har sin motivering utskriven.
 
 **Webbytans ankar-id:n `p1-edp`/`p3-edp` skiljer sig nu från den svenska spegelns `p1-cdp`/`p3-cdp`.** Namnbytet Commercial Data Protection → Enterprise data protection (se faktafynden nedan) följde med in i den engelska sidans id-strängar; den svenska filen rördes inte (spec §5) och behöll `cdp`. **Noll inkommande länkar** till något av de fyra id:na, verifierat. Värt att veta innan någon länkar till ett specifikt avsnitt i någon av guiderna.
 
@@ -283,13 +283,21 @@ hade gjort **filnamnet osant om innehållet**. Femton spårade filer bär prefix
 svenska. Följden är att `test_the_swedish_gemini_pdfs_are_untouched_since_the_merge_base`
 fungerar oförändrat, eftersom dess merge-base-uppslagning sker på oförändrade sökvägar.
 
-**(b) Skulden är ETT jobb, inte flera, och den hör i publiceringsrundan.** Tre ställen, som i
-dag är **överens med varandra**:
+**(b) Skulden är ETT jobb, inte flera, och den hör i publiceringsrundan.** Tre ställen. **De var
+överens med varandra till och med Task 17; efter Task 18 är de inte det** — se rad 60 nedan:
 
 - `scripts/build-seo-meta.py` rad **51, 57 och 75** — rad 75 är `PAIR_MAP`, som spec §1
   uttryckligen förbjöd rundan att röra.
-- `_unpublished/README.md` rad **26, 59, 63 och 148** — publiceringsrunbookens engelska block.
-  **Rad 26:s källsökväg är i dag bruten**, eftersom filerna flyttat.
+- `_unpublished/README.md` rad **26, 59, 60, 63 och 148** — publiceringsrunbookens engelska
+  block. **Rad 26:s källsökväg är i dag bruten**, eftersom filerna flyttat. **Och rad 60 är
+  sedan Task 18 (2026-10-13) osann i sak, inte bara i sökväg:** den bär
+  `"title": "Gemini & NotebookLM for teachers and school leaders"` och annonserar alltså en
+  titel guiden **inte längre bär** — den heter nu `Gemini & Gemini Notebook for educators`
+  (se Johans redaktionella pass nedan). Publiceringsrundan som inte tar rad 60 publicerar
+  indexkortet med fel titel. Den lagades inte i Task 18 med avsikt: raden bär **också** det
+  pensionerade produktnamnet och den gamla sökvägen `/guides/gemini-notebooklm/`, alltså precis
+  det id- och sökvägsval spec §1 reserverade bort från rundan, och en halv rättning hade gjort
+  runbooken osammanhängande på samma sätt som rad 26.
 - Nio `notebooklm`-strängar i webbytans **tillgångssökvägar** (nedan).
 
 **Varför den inte lagades här:** rad 26 går inte att rätta ensam utan att runbooken blir
@@ -388,7 +396,10 @@ refaktorering; hörde inte i den här rundans fillista.
 
 ### Johans redaktionella pass (Task 18, 2026-10-13) — titeln, rösten, dubbleringarna
 
-Fyra av de fynd som stod uppskjutna nedan är **stängda på Johans beslut 2026-10-13**. De står
+**Tre** av de fynd som stod uppskjutna nedan är **stängda på Johans beslut 2026-10-13** — de
+tre dubblerade passagerna (c), Fristadsskolan-exemplet (d) och `Johan` mot `I` (b). Listan gick
+därmed från sex poster till tre, vilket är talet i rubriken `### Tre fynd …` nedan.
+**Titelbytet (a) var aldrig ett uppskjutet fynd** och räknas alltså inte in här. De tre står
 inte längre öppna, och nästa runda ska inte "rätta" tillbaka något av det här.
 
 **(a) Titeln heter nu `Gemini & Gemini Notebook for educators`.** Sju ställen: EP rad 5
@@ -450,6 +461,24 @@ och på EW från rad 220** (G20:s och G21:s kolumner, plus G19:s). Posttabellen 
 maskinellt (`factinventory.load()` läser bara vaktblocket), så ingen vakt är röd för det — men
 den som läser tabellen som karta ska veta att den pekar en rad fel efter borttagningen. Hör i
 samma svep som G49:s oescapade pipe och G27-aritmetiken.
+
+**Och två postceller är nu inaktuella i SAK, inte bara i radnummer.** Båda beskriver ett läge
+som inte längre gäller, och båda står kvar orörda — Task 18 fick inte röra någon postrad eller
+vaktrad, och en halv rättning av en cell vars utfallstext bär hela rundans resonemang är värre
+än en cell man vet är daterad:
+
+- **`docs/guide-facts-gemini.md:88` (G21)** säger `utökad med en tredje förekomst per yta
+  ("Extra example…") som briefen inte listade` och listar tre platser per yta
+  (`220, 330, 402` / `730, 831, 896`). **Efter Task 18 finns två**: `329, 401` på EW och
+  `830, 895` på EP. Beslutet att behålla exemplet står kvar och gäller — det är **antalet** som
+  är inaktuellt, inte beslutet. Vaktraderna `G21 | en | Fristadsskolan | aktiv` och
+  `G21 | en | Pedagog Eskilstuna | aktiv` är mätta mot de två kvarvarande och håller.
+- **`docs/guide-facts-gemini.md:116` (G49)** trycker fortfarande den **gamla titeln** som
+  gällande i sin beskrivning av namnbytet. Titeln är sedan 2026-10-13
+  `Gemini & Gemini Notebook for educators`.
+
+**Den som nästa gång ändå är inne i posttabellen** tar de två cellerna, radnummerskiftet, G49:s
+oescapade pipe och G27-aritmetiken i ett svep — det är samma jobb.
 
 **Ett fynd vidare, rapporterat men INTE åtgärdat** — omfånget var Johans sex beslut, och en
 fjärde avduplicering är hans att besluta: **Classrooms fyra mall-Gems räknas upp två gånger**,
