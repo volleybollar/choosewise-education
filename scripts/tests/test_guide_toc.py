@@ -88,6 +88,28 @@ GUIDE_TOC = {
                 "Common questions",
         },
     },
+    # Apple Intelligence: fem rader, fem ankare, alla verifierade mot den
+    # renderade PDF:en 2026-10-14. Ankarna är valda ur pdftotext-utskriften
+    # och är fria från produktnamn, pris och datum — runda 2 skriver om
+    # prosan och ska byta ankare EN gång, mot den omrenderade PDF:en, inte
+    # jaga sprödhet den här rundan införde.
+    "apple-intelligence": {
+        "template": "_unpublished/exports/apple-intelligence-print-a4-en.html",
+        "pdf": "_unpublished/assets/pdfs/guides/apple-intelligence-guide-en.pdf",
+        "toc_page": 2,
+        "anchors": {
+            "Part 1 · Get started":
+                "If that menu item appears at all, your device is compatible",
+            "Part 2 · Work smarter":
+                "it is a menu option that appears when you select text",
+            "Part 3 · The GDPR angle":
+                "What stays on your device",
+            "FAQ":
+                "Ten of the questions that come up most often",
+            "About this guide":
+                "You may copy, share, and adapt this material for non-commercial purposes",
+        },
+    },
 }
 
 # Töms i slutet av varje runda som rättat sin förtecknings nummer.
