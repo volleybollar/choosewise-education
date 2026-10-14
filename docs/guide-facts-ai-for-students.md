@@ -164,36 +164,52 @@ tre produkter var för sig och ett har en egen primärkälla redan i en syskonin
 
 ### Regleringen (spec §6 klass 3) — GDPR och AI Act
 
-**Inga rader i den här rundan av Task 1.** Brevets steg-1-skript mätte inte mot den här
-klassen — den mäts enligt specen "mot de färdiga posterna", dvs. mot Apple-inventeringens
-redan verifierade A33–A39 (AI Act:s datum, artikel 4:s AI-kunnighetsplikt, artikel 16 mot
-artikel 26, artikel 27, Annex III-tidpunkten 2 december 2027), inte mot en ny hämtning.
-Den posten och dess korsref-rader skrivs av en senare uppgift (spec pekar mot Task 6,
-som läser GDPR/AI Act-avsnittet). **Det en senare uppgift ska mäta först**, enligt
-specen: meningen *"Both apply, both are the teacher's and the school authority's
-responsibility, and neither can be postponed"* — samma felklass som har fällts i tre
-andra dokument (Gemini G48, Geminis `pre-market obligations`, Apples A36/A37): att lägga
-leverantörens förhandsplikter på skolan, eller framställa högriskskyldigheter som
-bindande i dag.
+**Task 1 lämnade den här klassen tom med avsikt** (brevets steg-1-skript mätte inte mot
+den, se föregående version av det här avsnittet). **Task 5 (denna uppgift) mäter den**,
+enligt specen "mot de färdiga posterna" — dvs. mot Apple-inventeringens redan
+verifierade A33–A39 (AI Act:s tillämplighetsdatum, de fyra risknivåerna, artikel 4:s
+AI-kunnighetsplikt, artikel 16 mot artikel 26, artikel 27, Annex III-tidpunkten 2
+december 2027), inte mot en ny hämtning av samma sak. Där guiden säger något
+Apple-inventeringen inte täcker (FERPA, amerikanska delstatsregler, UK GDPR, GDPR
+artikel 35) är källan en egen hämtning, med egen källcell, gjord 2026-10-15.
 
-Denna tomhet är **inte** regel 2:s "stryks aldrig tyst" i andra bemärkelsen — det finns
-inget fynd att redovisa än, bara en känd plats där ett fynd kommer att höra hemma.
+De tre regleringspassagerna sitter på sidorna 11 ("GDPR and the EU AI Act"), 12 ("GDPR
+in practice") och 21 (FAQ:ns AI Act- och DPIA-svar). Sju kandidater identifierade, S27–S33.
+
+**Den kända felklassen (G48, Geminis `pre-market obligations`, Apples A36/A37) är
+funnen igen, i S27 och S28** — se motiveringen i respektive rad. Den är inte en
+attributionsfråga här (guiden lägger ingen namngiven leverantörsplikt på skolan, till
+skillnad från G51:s ursprungliga fel) utan en tidsfråga: högriskskyldigheter beskrivs i
+presens, utan datum, direkt efter en mening som säger att "neither can be postponed."
+
+| id | påstående i guiden | EW | EP | primärkälla + hämtdatum | verdikt |
+|---|---|---|---|---|---|
+| S27 | `neither can be postponed` — "Both apply, both are the teacher's and the school authority's responsibility, and neither can be postponed," om EU AI Act och GDPR tillsammans | 1 | 1 | `korsref A39` (`docs/guide-facts-apple-intelligence.md`, verdikt `lagt till`) — ordagrant: "The prohibited practices and the AI literacy obligations in Article 4 have applied since 2 February 2025" (samma datum i P13: "AI literacy obligations entered into application from 2 February 2025"). Plus `korsref A34` (samma fil, verdikt `lagt till`) — ordagrant: "the rules for high-risk use cases in certain sensitive areas (Annex III) have been extended to 2 December 2027 as a result of … the AI Omnibus" — Annex III omfattar uttryckligen utbildning (A34:s egen notering, byggd på P13/G51). Ingen ny hämtning; båda A-posterna bär verdikt `lagt till`, vilket uppdragets instruktion uttryckligen tillåter som korsref-mål här | **falskt.** Meningen binder ihop två olika sanningshalter under ett enda ord, "neither": artikel 4:s AI-kunnighetsplikt (A39) gäller verkligen redan, sedan 2 februari 2025 — den delen stämmer och kan inte skjutas upp. Men meningen står omedelbart före ett stycke som beskriver högriskskyldigheter (dokumentation, transparens mot eleven, mänsklig granskning före beslut — se S28) i presens, utan datum eller förbehåll. Annex III-högrisken för utbildning gäller först från 2 december 2027 (A34) — drygt 20 månader efter guidens eget "April 2026"-datum, och fortfarande över ett år fram räknat från i dag (2026-10-15). En läsare som tar "neither can be postponed" på orden får intrycket att även de nyss beskrivna högriskskyldigheterna redan binder skolan i dag. Det är exakt den felklass som redan fällts i tre andra dokument i det här programmet (G48, Geminis pre-market-stycke, Apples A36/A37): att framställa en framtida högriskskyldighet som bindande i dag. Se S28 för stycket meningen leder in i |
+| S28 | `documentation requirements` — stycket om högrisk: "Then the Act speaks of high risk... Here there are documentation requirements, transparency requirements towards the student, and requirements for human review before a decision takes effect," skrivet i presens, utan datum eller förbehåll | 1 | 1 | `korsref A34` (Annex III 2 december 2027, se S27:s källcell för citatet) plus `korsref A37` (`docs/guide-facts-apple-intelligence.md`, verdikt `lagt till`) — artikel 26, driftsättarens (skolans) fem plikter: följ bruksanvisningen, ge mänsklig tillsyn till personal med "the necessary competence, training and authority", spara "the logs it controls" i minst sex månader, informera personal och deras representanter före driftsättning, underrätta de som berörs — hämtad av G51 från artificialintelligenceact.eu 2026-10-13, ordagrant citerad i A37 | **falskt**, av två skäl. **(1) Tidlöshet:** stycket beskriver högriskskyldigheterna som gällande nu ("Here there are..."), utan att nämna att Annex III-högrisken för utbildning först träder i kraft 2 december 2027 (A34) — samma brist som S27, i samma stycke. **(2) Ofullständig lista utan att säga det:** "requirements for human review before a decision takes effect" täcker bara EN av driftsättarens (skolans) fem plikter enligt artikel 26 (A37) — bruksanvisning, tillsyn, loggar, information till personal, underrättelse till berörda. Stycket nämner ingen av de fyra andra och ger ingen signal om att listan är ofullständig (jämför G51:s rättelse "which includes:", som uttryckligen öppnar listan). "Documentation requirements" nämns utan att säga vem som bär dem — enligt A36 är den tekniska dokumentationen (artikel 9–15 via artikel 16(a)) i grunden **leverantörens** plikt, inte skolans, men stycket står i ett avsnitt riktat till läraren och skolledningen, vilket riskerar att läsas som att dokumentationen är deras jobb. Ingen enskild mening pekar en namngiven leverantörsplikt direkt på skolan (skillnad mot G51:s ursprungliga fel), men otydligheten pekar åt samma håll |
+| S29 | `minimal risk` — "AI use falls in the minimal risk category and the requirements are relatively light" | 1 | 1 | `korsref A35` (`docs/guide-facts-apple-intelligence.md`, verdikt `lagt till`) — kommissionens ordalydelse, ordagrant: "The AI Act defines 4 levels of risk for AI systems: Unacceptable risk / High risk / Transparency risk / Minimal or no risk" | **falskt, men lindrigt.** Aktens egen fjärde nivå heter "Minimal or no risk," inte "minimal risk" — och "minimal risk" är exakt den förkortade/föråldrade variant som A35 noterar stod fel i Gemini-guiden innan G26 rättade den (tillsammans med "Limited risk" → Transparency risk och "Prohibited" → Unacceptable risk). Skillnaden är lindrigare här än i Gemini-fallet: guiden räknar inte upp alla fyra nivåer i en formell lista eller ett diagram (bara "minimal risk" och "high risk" nämns, i löpande text), så felet är ett enda ord ("or no" saknas) snarare än en felaktig fyrnivålista. "High risk" i samma mening är korrekt |
+| S30 | `Data Protection Impact Assessment` / `GDPR Article 35` — FAQ-svaret: "Do we need a Data Protection Impact Assessment (DPIA)? ... a DPIA is often required (under GDPR Article 35 in the EU; consult equivalent rules elsewhere)" | 1 | 1 | gdpr-info.eu/art-35-gdpr/ → **200**, hämtad 2026-10-15, ordagrant artikel 35(1): "Where a type of processing in particular using new technologies, ... is likely to result in a high risk to the rights and freedoms of natural persons, the controller shall, prior to the processing, carry out an assessment of the impact of the envisaged processing operations on the protection of personal data." Plus `korsref A38` (`docs/guide-facts-apple-intelligence.md`, verdikt `lagt till`) — artikel 27, konsekvensbedömningen för grundläggande rättigheter, som gäller "whether the school is publicly run or an independent provider of a public service," före första driftsättning av ett Annex III-högrisksystem (utbildning är punkt 3) | **står, men ofullständigt — se rapporten.** GDPR artikel 35 beskrivs korrekt: en DPIA krävs när behandlingen sannolikt innebär hög risk för registrerades rättigheter, precis vad guiden skriver. Men FAQ-svaret nämner bara GDPR:s DPIA och säger ingenting om AI Act:s EGEN, separata konsekvensbedömning för grundläggande rättigheter (artikel 27, A38) — en skyldighet som gäller samma högrisksystem (Annex III, utbildning inkluderat) oavsett om skolan är kommunal eller fristående, och som inte ersätts av en GDPR-DPIA. En läsare som gör sin GDPR-DPIA och tror sig vara klar har missat en andra, AI Act-specifik plikt som FAQ:n aldrig nämner. Det är inte en felaktig mening, utan en tyst lucka — den skrivna meningen själv ändras därför inte, men avsnittet saknar ett helt svar |
+| S31 | `FERPA governs student data` — "FERPA governs student data" | 1 | 1 | studentprivacy.ed.gov/faq/what-ferpa → **200**, hämtad 2026-10-15, ordagrant: "FERPA is a federal law that affords parents the right to have access to their children's education records, the right to seek to have the records amended, and the right to have some control over the disclosure of personally identifiable information from the education records" | **står.** FERPA är den federala lag som reglerar amerikanska elevers utbildningsjournaler, inklusive personligt identifierbar information — precis det påståendet hävdar, om än i en enda kort sats utan detaljer |
+| S32 | `no single federal AI regulation` — "in the US there is no single federal AI regulation but state-level rules (California, Colorado and others) exist" | 1 | 1 | multistate.us/insider/2026/4/9/how-states-are-regulating-ai-in-education-this-legislative-session → **200**, hämtad 2026-10-15, ordagrant om Kalifornien: "California (CA AB 1159) – Expands and strengthens student data privacy protections, prohibits using student data to train AI," samt "134 bills related to AI in education legislation have been introduced across 31 states" (mars 2026). Delstatsbilden bredare än utbildning, bekräftad separat: Colorado antog en AI Act 2024, repealerade och ersatte den i maj 2026 med en smalare Automated Decision-Making Technology Act (gäller 2027-01-01, föreskrifter under utarbetande oktober 2026) — en.wikipedia.org/wiki/Colorado_AI_Act, läst via sökresultat 2026-10-15. Ingen enskild federal AI-lag finns i USA i dag, bekräftat i flera oberoende källor 2026-10-15 ("The United States does not have a single comprehensive federal AI law... a complex and evolving patchwork of state laws") | **står.** Påståendet är brett och unamngivet nog att hålla trots att Colorados ursprungliga lag redan bytts ut: delstatsnivå-regler finns alltjämt i både Kalifornien (flera 2026-lagar, inklusive AB 1159 om elevdata) och Colorado (en reviderad lag på väg mot ikraftträdande 2027-01-01), och ingen samlad federal AI-lag finns. Medveten anmärkning: en federal preemption-diskussion pågår i USA 2026, men ingen preemption har trätt i kraft — påståendet är sant per hämtdatumet, inte garanterat förbli så |
+| S33 | `In the UK there is UK GDPR` — "In the UK there is UK GDPR" | 1 | 1 | ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/individual-rights/ → **200**, hämtad 2026-10-15, ordagrant: "The UK GDPR includes a right for individuals to have inaccurate personal data rectified, or completed if it is incomplete" — ICO (Storbritanniens tillsynsmyndighet) namnger och tillämpar "UK GDPR" som egen, gällande reglering | **står.** UK GDPR är en verklig, av ICO tillämpad reglering — Storbritanniens egen version av GDPR efter Brexit, vid sidan av Data Protection Act 2018 |
+
+Denna fyllnad är **inte** regel 2:s "stryks aldrig tyst" i andra bemärkelsen — tomheten
+i Task 1 var en känd plats där ett fynd skulle höra hemma, och nu gör det det.
 
 ## Utfallsräkningen
 
-**26 poster, verdikt tomt på samtliga.** Ingen klassificering är gjord i den här
-uppgiften. Tabellen räknar poster per block, inte per verdikt-token, eftersom ingen
-token är satt än — nästa uppgifts utfallsräkning ersätter den här med en som räknar
-riktiga tokens.
+**33 poster.** Task 2–4 klassificerade S01–S26 (omslag/läsartilltal, forskningscitat,
+produktlandskap). Task 5 (denna uppgift) lade till och klassificerade S27–S33
+(regleringen). Tabellen räknar poster per block, inte per verdikt-token — grindens
+egen maskinella räkning (brevets steg 1-skript) räknar verdikt-token ur hela filen.
 
 | block | poster | id-spann |
 |---|---|---|
 | Omslaget och läsartilltalet | 2 | S01–S02 |
 | Forskningscitaten (klass 1) | 16 | S03–S18 |
 | Produktlandskapet (klass 2) | 8 | S19–S26 |
-| Regleringen (klass 3) | 0 (ännu) | — |
+| Regleringen (klass 3) | 7 | S27–S33 |
 
-Summan 2 + 16 + 8 + 0 = **26**, lika med postantalet ovan.
+Summan 2 + 16 + 8 + 7 = **33**, lika med postantalet ovan.
 
 ## Vaktblocket
 
