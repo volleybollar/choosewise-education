@@ -262,6 +262,21 @@ rörs inte. EN-quick-starten renderas om; de svenska PDF:erna ska komma ut byte-
 
 ## 5. Runda 2 — skriv om
 
+> **AMENDEMANG 2026-10-14, efter runda 1.** §5 vilar på en premiss rundans egen mätning river.
+> "Vald extern leverantör via Extensions" höll inte som Del 1:s huvudpoäng, §5 nämner inte
+> rundans tyngsta fynd (Siri AI finns inte i EU på iOS/iPadOS 27), och en öppen ägarfråga
+> helgranskningen hittade (den svenska quick-startens döda adress) stod inte ställd någonstans.
+> Specen står i övrigt oförändrad som bindande auktoritet.
+>
+> | § 5 säger | mätningen visar | följd |
+> |---|---|---|
+> | "vald extern leverantör via Extensions" | ChatGPT är den **enda** leverantör Apple dokumenterar som valbar extension (**A11**) — ingen tredje eller fjärde knapp i Inställningar. Gemini sitter **inne i** Siri AI, inte vid sidan av den som ett val: Apple bygger assistenten "in collaboration with Google and its Gemini models" (**A17**). Claude och Gemini hör till Apples utvecklarramverk, inte till Extensions-ytan | Del 1:s omskrivning kan inte bygga på "användaren väljer leverantör" som huvudpoäng — det är inte vad Apple har byggt |
+> | (§5 nämner inte EU-tillgängligheten alls) | Siri AI är **inte tillgänglig i EU** på iOS och iPadOS sedan 2026-09-14, med DMA som angivet skäl och **ingen tidplan** för när det ändras — Apples egen uppräkning av vad EU-användare inte får (**A15**) | Del 2:s kandidatfunktioner (Siri-appen, det utvidgade Visual Intelligence-lagret, de integrerade skrivverktygen) är otillgängliga för guidens målgrupp. Kräver ett ägarbeslut innan Del 2 skrivs |
+> | (§7 lägger svensk prosa utanför båda rundorna — frågan nedan ställdes aldrig) | Den **svenska** quick-starten bär kvar båda pekarna som ströks ur den engelska: adressen `choosewise.education / sv / guider / apple-intelligence` och prosans "ladda ner den 25-sidiga premium-PDF:en från samma sida". Runda 1:s `untouched`-rad fryser dem nu på plats, och sidantalspåståendet vaktas av ingenting — sidantalsvakten läser bara engelska quick-starter | **Johans beslut:** antingen städas den svenska avslutningen med samma kirurgi som den engelska (en mening, omrendering, uppdaterat facit, SV-PDF:erna lämnar då `untouched`), eller så skrivs det uttryckligen i specen att den svenska leveransen medvetet bär en död adress |
+>
+> Fynden kommer från helgranskningen av `fae8983..5cf4c90` och från inventeringens poster
+> **A11**, **A15** och **A17** i `docs/guide-facts-apple-intelligence.md`.
+
 Planen skrivs när runda 1 är mergad och inventeringen säger vad som faktiskt är fel. Designen
 nedan är bindande; ordningen inuti är planens sak.
 
