@@ -766,31 +766,24 @@ A39 | en | every school that deploys an AI system | aktiv
 # täckning, och ingen ny frekvens eller "kommer snart"-formulering är
 # tillagd.
 #
-# BESLUT — `Swedish` som exempel, inte struket: båda ytornas nya svar
-# behåller ordet `Swedish` EN gång som en uttrycklig exempelmarkering
-# ("Swedish, for example, rolled out during 2025, and ..."), i stället
-# för att stryka det helt. Skälet: det är den enda konkreta, daterade,
-# källbelagda uppgiften svaret har (2025-utrullningen); att generalisera
-# bort den helt hade lämnat svaret utan något verifierbart ankare alls,
-# bara en uppmaning att "kontrollera själv". Att hålla den kvar SOM
-# EXEMPEL — samma mönster Task 4 redan etablerade i klassrumsexemplen
-# ("the language you teach in") — svarar på frågans egen generalisering
-# utan att låtsas som att uppgiften om Swedish aldrig fanns. Mätt efter
-# ändringen: `Swedish` står 2 (EP) / 3 (EW), ordagrant i samma stycke
-# som den nya, generella frågan och ramen "for the language you teach
-# in" / "Language support varies by language" — ingen förekomst utanför
-# den här frågan på någon yta.
+# BESLUT (första svepet, ERSATT av Fixrunda 1 nedan) — `Swedish` som
+# exempel, inte struket: båda ytornas nya svar behöll ordet `Swedish` EN
+# gång som en uttrycklig exempelmarkering ("Swedish, for example, rolled
+# out during 2025, and ..."). Granskningen fällde detta som Important:
+# frågan såg internationaliserad ut i rubriken men inte i svaret — en
+# läsare vars språk inte är svenska fick ingen egen datapunkt, bara en
+# hänvisning till att "kolla matrisen", medan Sverige var den enda nation
+# som namngavs. Koordinatorns ruling: släpp landnamnet, generalisera även
+# sakinnehållet. Se Fixrunda 1 nedan för den slutgiltiga texten och
+# mätningen.
 #
-# `Sweden` (skiljt från `Swedish`, annan sträng): 0 (EP) / 1 (EW). Den
-# enda EW-förekomsten är Fixrunda 1 på Task 4:s återställda
-# "I offer consulting for schools, primarily in Sweden." i FAQ-svaret
-# "Where do I get help if something goes wrong?" — ett ägarbeslut om
-# guideförfattarens egen verksamhet, inte läsarens jurisdiktion (se
-# Task 4:s Fixrunda 1-kommentar ovan för hela resonemanget). Task 10 har
-# INTE rört den meningen. Mätt med briefens eget skript (steg 4):
-# `{'Sweden': 0, 'Swedish': 2, 'IMY': 0, 'Siri 2.0': 0}` (EP) och
-# `{'Sweden': 1, 'Swedish': 3, 'IMY': 0, 'Siri 2.0': 0}` (EW) — noll på
-# alla fyra utom de två avsiktliga, nu dokumenterade undantagen.
+# `Sweden` (skiljt från `Swedish`, annan sträng), orört av både första
+# svepet och Fixrunda 1: den enda EW-förekomsten är Fixrunda 1 på Task
+# 4:s återställda "I offer consulting for schools, primarily in
+# Sweden." i FAQ-svaret "Where do I get help if something goes wrong?"
+# — ett ägarbeslut om guideförfattarens egen verksamhet, inte läsarens
+# jurisdiktion (se Task 4:s Fixrunda 1-kommentar ovan för hela
+# resonemanget). Task 10 har INTE rört den meningen, i något svep.
 #
 # 2) A03:s hårdvaruår i FAQ:n. FAQ-svaret "Does my iPad support Apple
 # Intelligence?" bar på EP en ANNAN formulering än A03:s vaktsträng
@@ -825,4 +818,51 @@ A32 | en | will come at a fee in the future | aktiv
 # samma avgörande som Task 9 gjorde (ingen källa i inventeringen avgör
 # den allmänna kompatibilitetsmenyns namn). Ingen av de två tilläggen
 # ovan (punkt 2 och 3) rör den frasen.
+#
+# FIXRUNDA 1 (Important, granskningen; koordinatorns ruling: genomför
+# rekommendationen). Fyndet: frågan var generaliserad i rubriken men
+# inte i svaret — Sverige var kvar som det enda konkreta innehållet,
+# och en läsare på ett annat språk fick ingen egen datapunkt, bara en
+# hänvisning till matrisen. Landnamnet är nu helt släppt och
+# sakinnehållet generaliserat, enligt rulingen: svaret säger att
+# språkstödet varierar per språk och fortsätter utökas, och pekar på
+# Apples levande språkmatris för LÄSARENS eget språk — ingen enskild
+# nation namnges längre någonstans i meningen. Siri AI-meningen om
+# EU-spärren (A15) är OFÖRÄNDRAD — den är sakinnehåll, inte inramning.
+# Inget sägs om NÄR något rullade ut; ingen kadens infördes.
+#
+# Ny text, ordagrant:
+# EP: "Language support varies by language and keeps expanding — check
+# Apple's live language matrix for the language you teach in before
+# planning a staff rollout. Siri AI itself is a separate case: it is
+# blocked in the EU on iPhone and iPad. Apple cites the EU's Digital
+# Markets Act as the reason, with no published timeline — see Part 2
+# for details."
+# EW: "Language support varies by language and keeps expanding — check
+# Apple's live language-support matrix for the language you teach in
+# before planning a staff rollout. Siri AI is a separate matter: it is
+# blocked in the EU on iPhone and iPad, Apple's stated reason is the
+# EU's Digital Markets Act, and Apple has not published a timeline — so
+# treat the Siri AI features described in Part 2 as unavailable on an
+# EU iPad regardless of language."
+#
+# Inga guard-rader bar `Swedish`-formuleringen (kontrollerat: `grep -n
+# "^A[0-9]* | en | .*Swedish" docs/guide-facts-apple-intelligence.md`
+# gav noll träffar både före och efter) — A15:s enda ankare är "the
+# EU's Digital Markets Act", som står oförändrat i den kvarvarande
+# Siri AI-meningen. Ingen rad att flytta till `borttaget`, ingen ny rad
+# att lägga till.
+#
+# Mätning efter fixen, med briefens eget skript:
+# `{'Sweden': 0, 'Swedish': 0, 'IMY': 0, 'Siri 2.0': 0}` (EP) och
+# `{'Sweden': 1, 'Swedish': 0, 'IMY': 0, 'Siri 2.0': 0}` (EW).
+# `Swedish` är nu NOLL på båda ytorna — ordet finns inte längre
+# någonstans i guiden. `Sweden` står kvar en gång, EW rad 500,
+# "I offer consulting for schools, primarily in Sweden." — oförändrad,
+# ägarbeslut (se ovan). **Underlag för Task 14:s förbudslista:** `Swedish`
+# kan nu förbjudas som bart ord (ingen legitim förekomst kvar); `Sweden`
+# kräver fortfarande frashantering, inte ett bart ordförbud, eftersom
+# den enda kvarvarande förekomsten är en sann biografisk uppgift om
+# guideförfattaren, inte en nationell generalisering av läsarens
+# kontext.
 ```
