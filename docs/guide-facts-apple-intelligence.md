@@ -341,14 +341,34 @@ A17 | en | the one external provider Apple documents as something a user actuall
 # "Apple ships features monthly" är en egen, kortare sträng än A27:s
 # vaktrad och fångas inte av den — frekvensen är ändå borttagen i
 # omskrivningen, utan ersättning, enligt samma princip som A27.
-# Två ytterligare förekomster låg utanför briefens tabell men inom
-# samma nycklar (`1:1`, `Sweden`) och är rättade här för att nå noll:
-# EP:s FAQ-svar på "Does my iPad qualify" bar `1:1 fleet iPads` (ingen
-# egen post ovan att flytta till `borttaget`) och är nu `school-fleet
-# iPads`, samma ordval EW redan använde. EW:s FAQ-svar på "Where do I
-# get help" bar `I offer consulting for schools, primarily in Sweden.`
-# — en egen outtalad sakuppgift utan motsvarighet på EP, struken utan
-# ersättning. Ingen av de fyra är en post i tabellen ovan; de är rena
-# inramningsrättelser, inte sakrättelser, och kräver därför ingen ny
-# `aktiv`/`borttaget`-rad.
+# En ytterligare förekomst låg utanför briefens tabell men inom samma
+# nycklar (`1:1`) och är rättad här för att nå noll: EP:s FAQ-svar på
+# "Does my iPad qualify" bar `1:1 fleet iPads` (ingen egen post ovan
+# att flytta till `borttaget`) och är nu `school-fleet iPads`, samma
+# ordval EW redan använde. Ingen av de tre (quarterly-meningen,
+# IMY-rutans kortfras, 1:1 fleet iPads) är en post i tabellen ovan; de
+# är rena inramningsrättelser, inte sakrättelser, och kräver därför
+# ingen ny `aktiv`/`borttaget`-rad.
+#
+# Fixrunda 1 — EW:s FAQ-svar på "Where do I get help" bar också
+# `I offer consulting for schools, primarily in Sweden.` Jag strök
+# `primarily in Sweden` i den första versionen av den här rättningen;
+# granskningen fällde det som ett Important, och koordinatorns ruling
+# återställde meningen ORDAGRANT. Skälet går längre än formalia: frasen
+# är ett sakpåstående om GUIDEFÖRFATTARENS egen verksamhet, inte om
+# läsarens jurisdiktion — internationaliseringens poäng är att läsaren
+# inte ska behöva vara svensk, inte att författaren ska framställas som
+# verksam överallt. Att stryka kvalifikatorn hade LAGT TILL ett
+# obelagt påstående ("jag erbjuder konsultation för skolor",
+# okvalificerat) i stället för att ta bort ett. Meningen står alltså
+# kvar, ordagrant, på EW rad ~480 (`_unpublished/guides/apple-
+# intelligence/index.html`, FAQ-svaret "Where do I get help if
+# something goes wrong?"). **Den här raden är skälet till att Task 14
+# inte kan förbjuda bart `Sweden` eller `Swedish` i sin förbudslista**
+# — en sådan regel skulle slå mot en korrekt, källbelagd uppgift om en
+# verklig person. Förbudslistan måste i stället förbjuda FRASER (t.ex.
+# `Swedish school context`, `Swedish Data Protection Authority`,
+# `1:1 programmes` i elevnärmande inramning) på samma sätt som
+# gemini-notebook-guidens förbudslista redan gör, eftersom dess egen
+# källbelagda praktikexempel också bär ordet `Sweden`/`Swedish`.
 ```
