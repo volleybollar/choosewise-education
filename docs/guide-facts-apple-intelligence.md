@@ -239,7 +239,7 @@ A06 | en | Visual Intelligence | aktiv
 A07 | en | Mail categorisation | aktiv
 A08 | en | Image Playground | aktiv
 A09 | en | Genmoji | aktiv
-A10 | en | Siri 2.0 | aktiv
+A10 | en | Siri 2.0 | borttaget
 A11 | en | ChatGPT | aktiv
 A12 | en | OpenAI | aktiv
 A13 | en | April 2026 | aktiv
@@ -257,7 +257,7 @@ A14 | en | Data Protection Impact Assessment | aktiv
 # står på bara en yta (`Updated April 2026` EW:2/EP:0 och
 # `Johan Lindström, April 2026` EP:1/EW:0). Därför är ankaret den nakna
 # strängen `April 2026` (3/3) och inte någon av de två långa.
-A15 | en | Siri 2.0's fully localised voice responses | aktiv
+A15 | en | Siri 2.0's fully localised voice responses | borttaget
 A16 | en | requires the user to be 18 or over | aktiv
 A17 | en | three distinct places your request can be processed | aktiv
 A18 | en | always shows a confirmation screen before sending | aktiv
@@ -371,4 +371,33 @@ A17 | en | the one external provider Apple documents as something a user actuall
 # `1:1 programmes` i elevnärmande inramning) på samma sätt som
 # gemini-notebook-guidens förbudslista redan gör, eftersom dess egen
 # källbelagda praktikexempel också bär ordet `Sweden`/`Swedish`.
+
+# Runda 2 Task 5 — Siri AI: namnet och EU-spärren
+# A10: `Siri 2.0` ströks på alla elva förekomster på de engelska ytorna
+# (EP 7 + EW 4, varav en vardera var en HTML-kommentar — `<!-- 2.2 Siri
+# 2.0 -->` i EW och två versal-kommentarer i EP, `SIRI 2.0 OPENER` /
+# `SIRI 2.0 CONT.` — briefens mätning (7/3) var en förekomst för låg på
+# EW eftersom den bara räknade synlig text; grep -c räknar matchande
+# RADER och fångar kommentaren). Alla elva är bytta till `Siri AI`,
+# kommentarer inkluderat, så `finns_ingenstans` gäller ordagrant.
+A10 | en | Siri AI | aktiv
+#
+# A15: den gamla meningen (`Siri 2.0's fully localised voice responses
+# … keep improving through 2026`) fanns bara på ett ställe per yta —
+# FAQ-svaret "Is Apple Intelligence available in Swedish?" — inte i
+# Siri-avsnittet självt (vars "Where it runs"-ruta bara beskriver
+# bearbetningsväg, inte språkstatus). Dokfilens egen not under Task 4
+# ovan pekar hit: "det är Task 5:s fynd". Båda ytornas FAQ-svar är
+# omskrivna så löftet är borta, inte bara namnbytt — ett sök-och-ersätt
+# som bara döpt om `Siri 2.0` till `Siri AI` hade lämnat lögnen kvar
+# med nytt namn. EU-förbehållet står själv i Siri-avsnittets egen
+# löptext (ny `processing-callout`-ruta på båda ytorna, direkt efter
+# inledningsstycket, före klassrumsexemplen) OCH som en kort hänvisning
+# i FAQ-svaret. Ankaret nedan är den enda fras som står ordagrant
+# likadan på alla tre ställena (Siri-avsnittet EP, Siri-avsnittet EW,
+# FAQ-svaret båda ytorna): `the EU's Digital Markets Act`. De tre
+# sakuppgifterna (spärrad i EU, DMA angivet skäl, ingen tidplan) står i
+# samtliga fyra passager; ingen av dem skriver att funktionen "kommer
+# senare" eller antyder en tidplan.
+A15 | en | the EU's Digital Markets Act | aktiv
 ```
