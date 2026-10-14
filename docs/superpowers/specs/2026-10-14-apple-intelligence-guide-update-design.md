@@ -277,6 +277,19 @@ rörs inte. EN-quick-starten renderas om; de svenska PDF:erna ska komma ut byte-
 > Fynden kommer från helgranskningen av `fae8983..5cf4c90` och från inventeringens poster
 > **A11**, **A15** och **A17** i `docs/guide-facts-apple-intelligence.md`.
 
+> **AMENDEMANG II — JOHANS BESLUT 2026-10-14, före runda 2:s plan.** De två frågor amendemanget
+> ovan lämnade öppna är avgjorda. Besluten är bindande för runda 2 och ändrar §5:s design på två
+> punkter samt §1 och §7 på en.
+>
+> | öppen fråga | Johans beslut | vad det ändrar |
+> |---|---|---|
+> | Del 2:s funktionsurval, givet att Siri AI är spärrad i EU (**A15**) | **Behåll funktionerna med ett tydligt EU-förbehåll.** Guiden stryker alltså inte Siri-avsnittet, det utvidgade Visual Intelligence-lagret eller skrivverktygen — den säger vad som gäller för en EU-läsare | §5:s rad "Del 2 prövar sina sex funktioner … vilka sex som blir kvar avgörs av inventeringen" är avgjord: **samma sex funktioner stannar.** Arbetet är EU-förbehållet, inte urvalet. Förbehållet ska stå där läsaren möter funktionen, inte bara samlat på ett ställe — en lärare som läser Siri-avsnittet ska inte behöva Del 3 för att veta att funktionen inte finns på hens iPad |
+> | Den svenska quick-startens döda adress | **Samma kirurgi som den engelska fick.** En mening, omrendering, uppdaterat facit | **Undantag från §1 och §7:** den svenska quick-startens **prosa rörs**, i exakt den omfattning den engelska rördes — avslutningens pekare, ingenting annat. `apple-intelligence-quick-start-sv.pdf` **lämnar `untouched`** i leveranskartan och får sitt facit omfångat med `--only`. De svenska **guideytorna** (print och webb) står kvar frysta: beslutet gäller quick-starten, inte guiden |
+>
+> **Vad besluten INTE ändrar:** ingenting publiceras, titeln står, de svenska guideytornas prosa
+> är orörd, och `apple-intelligence-guide-sv.pdf` ska fortfarande komma ut byte-identisk. Specen
+> står i övrigt oförändrad som bindande auktoritet.
+
 Planen skrivs när runda 1 är mergad och inventeringen säger vad som faktiskt är fel. Designen
 nedan är bindande; ordningen inuti är planens sak.
 

@@ -88,12 +88,39 @@ GUIDE_DELIVERY = {
             "_unpublished/assets/pdfs/guides/apple-intelligence-guide-en.pdf",
             "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-en.pdf",
         ),
-        # Runda 1:s lista förbjuder BARA strängar de levererade PDF:erna
-        # redan är fria från. Guiden bär `Swedish`, `IMY`, `Schrems` och
-        # `Siri 2.0` legitimt — de är sanna påståenden om en guide som ännu
-        # inte är omskriven, och att förbjuda dem nu vore att göra billigaste
-        # vägen till grönt att stryka innehåll. De läggs till i runda 2, vid
-        # omrenderingen.
+        # Runda 1:s lista förbjöd BARA strängar de levererade PDF:erna
+        # redan var fria från. Runda 2 har gjort och renderat om tretton
+        # uppgifters rättelser, och listan kan nu bära dem — mätt rakt i
+        # de levererade engelska PDF:erna (inte i källan), och samtliga
+        # på noll i båda: `Siri 2.0`, `Sweden`, `Swedish`, `IMY`,
+        # `April 2026`, `18 or over`, `always shows a confirmation
+        # screen`, `Summarise Previews`, `PCC regions in Europe`,
+        # `features monthly`, `three visual styles`,
+        # `support.apple.com/apple-intelligence`, `iPad Air from 2021`.
+        #
+        # `Sweden`/`Swedish`: en ägargodkänd mening om guideförfattarens
+        # konsultverksamhet bär ordet "Sweden" — men den meningen står
+        # BARA i webbytan. Förbudslistan läser PDF:erna, byggda ur
+        # printytan och quick-starten, och ingen av dem bär meningen.
+        # Orden kan alltså förbjudas rakt av här utan att webbytan
+        # därmed är fri från "Sweden" — det är den inte.
+        #
+        # `[PAGE_COUNT]`: Task 11 skrev en literal markör i quick-
+        # startens avslutning eftersom sidantalet inte var känt då;
+        # Task 13 ersatte den med det äkta talet. En förbudsrad gör det
+        # permanent och automatiskt omöjligt för en framtida runda att
+        # glömma att ersätta markören OCH glömma deklarationslistorna
+        # samtidigt och ändå leverera markören i en PDF utan att något
+        # test ser det — det är hela skälet raden finns.
+        #
+        # Medvetet INTE på listan: `GDPR` (10 förekomster i guiden, 1 i
+        # quick-starten — guiden ÄR en integritetsguide), `ChatGPT` (39
+        # förekomster) och `OpenAI` (12) — A11 och A12 har verdikt
+        # `står`: ChatGPT är fortfarande den enda leverantör Apple
+        # dokumenterar som valbar extension, och Del 3:s bärande analys
+        # vilar på det. `Schrems` (1 förekomst i guiden) är ett sakligt
+        # belagt omnämnande, inte en övergiven rättelse, och förbjuds av
+        # samma skäl inte heller.
         #
         # Bara den FÖRSTA raden står i versalspärrad form: pdftotext spärrar
         # versaler, så URL:en `/guides/apple-intelligence` står som
@@ -109,13 +136,63 @@ GUIDE_DELIVERY = {
             "Skolverket",
             "NotebookLM",
             "Copilot",
+            "Siri 2.0",
+            "Sweden",
+            "Swedish",
+            "IMY",
+            "April 2026",
+            "18 or over",
+            "always shows a confirmation screen",
+            "Summarise Previews",
+            "PCC regions in Europe",
+            "features monthly",
+            "three visual styles",
+            "support.apple.com/apple-intelligence",
+            "iPad Air from 2021",
+            "[PAGE_COUNT]",
         ),
+        # DE SVENSKA FILERNA LÄSES INTE AV FÖRBUDSLISTAN. `pdfs` ovan är de
+        # TVÅ ENGELSKA PDF:erna, och förbudsvakten läser bara dem. Varje
+        # sträng i listan — `Siri 2.0`, `18 or over`, `April 2026` och de
+        # övriga — mäts alltså aldrig mot
+        # `apple-intelligence-guide-sv.pdf` eller
+        # `apple-intelligence-quick-start-sv.pdf`. Det är ett medvetet
+        # omfång (runda 2 rättade bara de engelska ytorna), men hålet är
+        # verkligt och ska vara synligt:
+        #
+        #   * Den SVENSKA QUICK-STARTEN rättades MANUELLT i helgranskningens
+        #     fixvåg 2026-10-14 (granskningens Important 1): `Vissa
+        #     funktioner är 18+` → Apples egen gräns enligt A16 (13 år
+        #     eller landets minimiålder), och `Siri 2.0` → `Siri AI` med
+        #     EU-spärren enligt A15. Ingen vakt fångade de två värdena —
+        #     filen ligger inte i `pdfs` och dess PDF står i `untouched`
+        #     nedan fram till Task 1, så ingenting läste den. En framtida
+        #     runda som rättar ett engelskt värde måste alltså själv fråga
+        #     om den svenska quick-starten bär samma värde.
+        #   * GUIDE-SV:S PROSA ÄR FRYST MED AVSIKT (spec §1, oförändrat av
+        #     helgranskningen) och bär därför FORTFARANDE `Siri 2.0` —
+        #     `_unpublished/sv/guider/apple-intelligence/index.html` och
+        #     `_unpublished/exports/apple-intelligence-print-a4-sv.html`,
+        #     tillsammans med det föråldrade svenska språkstycket. Att
+        #     `Siri 2.0` står på förbudslistan betyder alltså INTE att
+        #     strängen är borta ur guiden; den är borta ur de två engelska
+        #     PDF:erna. Den dagen de svenska ytorna tas upp är det den
+        #     uppgiftens sak att avgöra om de svenska PDF:erna ska in i
+        #     `pdfs` — tas de in utan att prosan först rättas blir den här
+        #     listan röd på första körningen, vilket är rätt beteende och
+        #     inte en regression.
+        #
         # Båda byggarna renderar EN *och* SV i samma körning, så de svenska
         # filerna skrivs varje gång de engelska renderas om. Raden jämför
         # bytes mot merge-basen.
+        #
+        # Quick-starten lämnade listan i runda 2 Task 1: Johans beslut
+        # 2026-10-14 (spec §5 amendemang II) var att den svenska
+        # avslutningen städas med samma kirurgi som den engelska fick, så
+        # filen ÄR ändrad med avsikt. Guide-PDF:en står kvar — de svenska
+        # guideytornas prosa är fortsatt fryst.
         "untouched": (
             "_unpublished/assets/pdfs/guides/apple-intelligence-guide-sv.pdf",
-            "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-sv.pdf",
         ),
     },
 }
@@ -159,13 +236,36 @@ _PAGE_CLAIM = re.compile(r"(\d+)-page[^.]{0,60}?Guide")
 # uppstå TYST — en avslutning som redigeras kan annars tappa ett äkta
 # påstående utan att något blir rött. Töms av den runda som skriver in ett
 # påstående igen. Värdet är skälet.
-NO_PAGE_CLAIM = {
-    "apple-intelligence":
-        "runda 1 tog bort hela meningen 'download the 25-page premium PDF from "
-        "the same page' — den var en pekare till en sida som aldrig publiceras "
-        "(Johans beslut 2026-10-13) och sidantalspåståendet satt inuti den. "
-        "Runda 2 skriver avslutningen och avgör om ett nytt påstående ska in.",
+NO_PAGE_CLAIM: dict = {
+    # apple-intelligence ströks 2026-10-14 (Task 13): quick-startens
+    # avslutning gör nu ett påstående igen ("The full 26-page Apple
+    # Intelligence Guide comes with this quick start"), vaktat av
+    # test_every_quick_starts_page_count_claim_matches_its_rendered_main_guide
+    # ovan. Se historiken för skälet till att posten fanns.
 }
+
+# Ett tomt läge här är ett GILTIGT, ÅTERKOMMANDE tillstånd, inte
+# migreringsskuld att städa bort. Posten pendlar med det redaktionella
+# beslutet den beskriver: runda 1 tog bort apple-intelligences påstående
+# (posten fylldes i), runda 2 Task 13 la tillbaka det (posten ströks).
+# Nästa guide som skriver om sin quick-start och tillfälligt tappar
+# påståendet fyller på en ny post; när påståendet kommer tillbaka töms
+# den igen.
+#
+# Ett tomt NO_PAGE_CLAIM gör `test_the_no_page_claim_list_cannot_rot`
+# parametriserad över noll fall, och pytest syntetiserar då EN `skipped`-
+# rad i stället för noll tester (synligt i `-rs`-utskriften som "got
+# empty parameter set for (guide)"). Det är FÖRVÄNTAT och OFARLIGT — inte
+# ett tecken på att mekanismen är trasig eller överflödig.
+#
+# Mekanismen får alltså INTE strykas bara för att den står tom, och ska
+# INTE fyllas med en konstlad post bara för att slippa `skipped`-raden.
+# Den riktiga vakten mot ett tyst försvunnet sidantalspåstående är
+# `test_every_quick_starts_page_count_claim_matches_its_rendered_main_guide`
+# ovan — den är parametriserad över ALLA `GUIDES`, oavsett vad som står
+# i den här dicten, och fäller varje guide vars påstående försvinner
+# eller blir fel. NO_PAGE_CLAIM är bara deklarationen av UNDANTAGET från
+# den vakten för de guider som just nu saknar ett påstående helt.
 
 # Oskyldiga `\d+-page`-strängar: tal i quick-startens egen prosa som inte
 # är ett påstående om guiden. Varje post är en ordagrann sträng ur den
@@ -353,8 +453,10 @@ def test_the_no_page_claim_list_cannot_rot(guide):
     Tre sätt den kan ruttna, alla röda här: en post som inte är en känd
     guide, en post utan skäl, och en post vars quick-start FAKTISKT gör ett
     påstående igen — då är skulden betald, och står posten kvar ligger
-    påståendet ovaktat. Samma form som UNMAPPED_GUIDE_SURFACES och
-    MEASURE_ONLY_INVENTORIES.
+    påståendet ovaktat. Samma form som UNMAPPED_GUIDE_SURFACES i
+    test_guide_surface_consistency.py (MEASURE_ONLY_INVENTORIES, som stod
+    här som andra exempel, ströks i runda 2 Task 2 — se den filens
+    historiknot).
     """
     assert guide in GUIDE_DELIVERY, (
         f"{guide} står i NO_PAGE_CLAIM men inte i leveranskartan")
