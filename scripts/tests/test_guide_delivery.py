@@ -164,12 +164,12 @@ _PAGE_CLAIM = re.compile(r"(\d+)-page[^.]{0,60}?Guide")
 # uppstå TYST — en avslutning som redigeras kan annars tappa ett äkta
 # påstående utan att något blir rött. Töms av den runda som skriver in ett
 # påstående igen. Värdet är skälet.
-NO_PAGE_CLAIM = {
-    "apple-intelligence":
-        "runda 1 tog bort hela meningen 'download the 25-page premium PDF from "
-        "the same page' — den var en pekare till en sida som aldrig publiceras "
-        "(Johans beslut 2026-10-13) och sidantalspåståendet satt inuti den. "
-        "Runda 2 skriver avslutningen och avgör om ett nytt påstående ska in.",
+NO_PAGE_CLAIM: dict = {
+    # apple-intelligence ströks 2026-10-14 (Task 13): quick-startens
+    # avslutning gör nu ett påstående igen ("The full 26-page Apple
+    # Intelligence Guide comes with this quick start"), vaktat av
+    # test_every_quick_starts_page_count_claim_matches_its_rendered_main_guide
+    # ovan. Se historiken för skälet till att posten fanns.
 }
 
 # Oskyldiga `\d+-page`-strängar: tal i quick-startens egen prosa som inte

@@ -28,6 +28,13 @@ RECAPTURED_THIS_ROUND = [
     # beslut, spec §5 amendemang II). Guide-PDF:erna och den engelska
     # quick-starten rördes INTE i den här uppgiften.
     "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-sv.pdf",
+    # Runda 2 Task 13, 2026-10-14: omrenderingen. Guiden fick en sida till
+    # (AI Act-avsnittet) och quick-startens avslutning fick sitt sidantal
+    # ifyllt — båda engelska PDF:er omfångade med --only. De svenska
+    # guide-/quick-start-PDF:erna återställdes till merge-basen och rördes
+    # alltså inte.
+    "_unpublished/assets/pdfs/guides/apple-intelligence-guide-en.pdf",
+    "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-en.pdf",
 ]
 
 
