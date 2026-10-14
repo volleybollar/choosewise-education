@@ -1,6 +1,7 @@
 # Påståendeinventering — Apple Intelligence-guiden
 
-**Rundan:** Apple Intelligence-guiden, runda 1 (mät och vakta). Spec:
+**Rundan:** Apple Intelligence-guiden. Runda 1 mätte och vaktade; runda 2 (Task 2–12)
+skrev om guiden och färdigställer den här inventeringen. Spec:
 `docs/superpowers/specs/2026-10-14-apple-intelligence-guide-update-design.md`
 **Upprättad:** 2026-10-14
 **Faktakontrollerad:** 2026-10-14
@@ -17,17 +18,21 @@ stället av förekomstkolumnen här och av leveransvakten
 Varje volatilt faktapåstående i de **engelska** ytorna, med alla sina förekomster. De
 svenska ytorna ingår inte i rundan och har därför inga poster.
 
-Inventeringen är skriven som en **mätning av guiden som den står 2026-10-14**, inte som
-en beskrivning av den omskrivna guiden. Varje post bär därför ett **verdikt**:
+Inventeringen mätte ursprungligen **guiden som den stod 2026-10-14** (runda 1, mät och
+vakta) och var inte en beskrivning av den omskrivna guiden. Efter runda 2:s Task 2–11
+beskriver den i stället **den omskrivna guiden**: varje post bär fortfarande ett
+**verdikt**, men verdiktkolumnen bär nu också vad runda 2 gjorde med posten.
 
-- `står` — verifierat sant mot primärkälla 2026-10-14
-- `föråldrat` — var sant i april 2026, är det inte längre
-- `falskt` — var fel redan då
-- `obelagt` — ingen hämtbar primärkälla säger något om påståendet
+- `står` — verifierat sant mot primärkälla 2026-10-14; ingen ändring behövdes
+- `föråldrat` — var sant i april 2026, är det inte längre; cellens text säger vad runda 2 gjorde åt det
+- `falskt` — var fel redan då; cellens text säger vad runda 2 gjorde åt det
+- `obelagt` — ingen hämtbar primärkälla säger något om påståendet; cellens text säger vad runda 2 gjorde åt det
+- `rättat` — ett tidigare `föråldrat`- eller `falskt`-värde är ersatt med ett nytt, källbelagt värde
+- `lagt till` — guiden saknade uppgiften helt; den är tillagd i runda 2
 
-Verdikten är runda 2:s arbetsorder. Källkolumnen bär **primärkälla** (apple.com,
-support.apple.com, security.apple.com, Apples eget pressmaterial) med hämtdatum; en
-sekundärkälla räcker aldrig till `står`.
+Verdikten var runda 2:s arbetsorder och är nu dess facit. Källkolumnen bär
+**primärkälla** (apple.com, support.apple.com, security.apple.com, Apples eget
+pressmaterial) med hämtdatum; en sekundärkälla räcker aldrig till `står`.
 
 ## Hur källorna läses
 
@@ -132,33 +137,39 @@ Förekomstkolumnerna är mätta 2026-10-14 mot vaktens egen normalisering
 
 ## Utfallsräkningen
 
-**39 poster** — briefens fjorton (A01–A14) plus **18** som den här rundans egen mätning
-lade till (A15–A32), och **7** som Task 8 lade till (A33–A39: Del 3:s nya AI Act-avsnitt
-samt artikel 4-posten dess Fixrunda 1 lade till). De första 32 är en mätning av guiden som
-den stod 2026-10-14, före Task 8; A33–A39 är i stället **tillägg** — guiden bar ingenting
-om AI Act innan Task 8 skrev avsnittet, så de sju posterna har ingen "guiden som den stod"
-att mäta mot. Räknat på varje cells **inledande** token, som är den tabellen ska gå
-att skanna på:
+**39 poster** — de ursprungliga 32 (briefens fjorton, A01–A14, plus **18** som runda 1:s
+egen mätning lade till, A15–A32) och **7** som Task 8 lade till (A33–A39: Del 3:s nya AI
+Act-avsnitt samt artikel 4-posten dess Fixrunda 1 lade till). Efter runda 2:s Task 2–11
+beskriver samtliga 39 **den omskrivna guiden**: verdiktkolumnen bär klassificeringen och,
+för varje post runda 2 har rört, vad som gjordes med den. Räknat på varje cells
+**inledande** token, som är den tabellen ska gå att skanna på:
 
 | token | antal | poster |
 |---|---|---|
-| `står` | **13** | A01, A02, A04, A05, A06, A07, A08, A09, A11, A12, A14, A26, A28 — varav **A05 `står (öppen EU-fråga)`**, **A06 `står (EU-förbehåll saknas)`** och **A07 `står (delvis obelagt)`** |
-| `föråldrat` | **9** | A13, A15, A17, A19, A21, A22, A24, A30, A32 — varav **A32 är `föråldrat (genom frånvaro)`**, alltså en uppgift som ska läggas **till**, inte en sträng att rätta |
-| `falskt` | **7** | A03, A10, A16, A18, A20, A23, A31 |
+| `står` | **13** | A01, A02, A04, A08, A09, A11, A12, A14, A26, A28 (10 okvalificerade) samt **A05 `står (öppen EU-fråga)`**, **A06 `står (EU-förbehåll saknas)`** och **A07 `står (delvis obelagt)`** (3 kvalificerade) |
+| `föråldrat` | **5** | A15, A17, A21, A22, A30 |
+| `falskt` | **5** | A10, A16, A18, A20, A31 |
 | `obelagt` | **3** | A25, A27, A29 |
-| `lagt till` | **7** | A33, A34, A35, A36, A37, A38, A39 — Task 8:s AI Act-avsnitt, inget av dem en rättelse av en tidigare fel sträng |
+| `rättat` | **5** | A03, A13, A19, A23, A24 — ett tidigare `föråldrat`- eller `falskt`-värde bytt mot ett nytt, källbelagt värde |
+| `lagt till` | **8** | A32 (Task 10, den dagliga användningsgränsen) samt A33–A39 (Task 8:s AI Act-avsnitt och Fixrunda 1:s artikel 4-post) — ingen av de åtta en rättelse av en tidigare fel sträng, utan en uppgift guiden saknade helt |
+
+Summan 13 + 5 + 5 + 3 + 5 + 8 = **39**, oförändrat mot postantalet.
 
 **Kvalifikatorerna i parentes är en del av tokenen och ska läsas med den** — samma grepp som
 systerinventeringens `fel (omfång)` och `obelagt (ytartefakt)`. De finns därför att en
-kvalifikatorlös `står` i de fyra kvalificerade cellerna hade ljugit för den som gör precis
+kvalifikatorlös `står` i de tre kvalificerade cellerna hade ljugit för den som gör precis
 vad briefen säger att man ska kunna göra: skanna kolumnen utan att läsa resonemanget.
+(**A32 bar tidigare `föråldrat (genom frånvaro)` som ledande token — det var runda 1:s
+siffror. Task 10 lade till uppgiften och bytte posten till `lagt till`, så den fjärde
+ledande kvalifikatorn finns inte längre. `föråldrat (genom frånvaro)` lever kvar, men bara
+som A22:s andra token — se tabellen nedan.**)
 
 | kvalifikator | betyder | åtgärd i runda 2 |
 |---|---|---|
 | `står (delvis obelagt)` | värdet står, men en **delfråga i samma cell saknar hämtbar källa** — och i A07:s fall är delfrågan DPIA-bärande | behandla delfrågan som `obelagt`: skriv om den utan tvärsäker formulering, hämta eller hedga |
 | `står (EU-förbehåll saknas)` | värdet står, men Apple spärrar funktionen eller ett lager av den i EU och guiden saknar förbehållet | lägg till förbehållet; namnet behöver ingen rättelse |
 | `står (öppen EU-fråga)` | värdet står; **om** EU-spärren träffar det går inte att avgöra ur hämtad text | avgör frågan först, förbehållet sedan — ingen gissning |
-| `föråldrat (genom frånvaro)` | guiden påstår inget fel, den **saknar** en uppgift Apple har publicerat | lägg till uppgiften; ingen vaktrad är möjlig (0/0) |
+| `föråldrat (genom frånvaro)` | guiden påstod inget fel, den **saknade** en uppgift Apple har publicerat — i dag bara A22:s andra token | lägg till uppgiften; ingen vaktrad är möjlig (0/0) |
 
 **Två av kvalifikatorerna är spärrar, inte dekoration.** `står (delvis obelagt)` på **A07**
 får inte läsas som att Mail-kategoriseringens on-device-påstående är belagt — det är det
@@ -168,8 +179,9 @@ bär det inte.
 
 ### Poster som bär en andra token längre in i cellen
 
-Åtta av 39 celler bär mer än ett utfall (oförändrat sedan runda 1 — ingen av de sju nya
-`lagt till`-cellerna bär mer än en token). Det är inte slarv: flera poster bundlar ett
+Åtta av 39 celler bär mer än ett utfall (oförändrat sedan runda 1 — ingen av de åtta
+`lagt till`-cellerna bär mer än en token, och detsamma gäller de fem `rättat`-cellerna).
+Det är inte slarv: flera poster bundlar ett
 produktnamn med ett påstående om funktionen, och en post som kollapsas till ett omdöme
 ljuger om minst ett av dem. **Tabellen finns för att den som skannar den inledande kolumnen
 ska kunna se vilka celler hen inte får lita på oläst.**
