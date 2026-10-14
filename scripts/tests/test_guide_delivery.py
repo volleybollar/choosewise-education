@@ -37,7 +37,12 @@ GUIDE_DELIVERY = {
             "Swedish", "Sweden", "Skolverket", "IMY", "Schrems", "GDPR",
             "April 2026", "kr 350",
         ),
-        "untouched": (),
+        # Båda byggarna renderar EN *och* SV i samma körning, så de svenska
+        # filerna skrivs varje gång de engelska renderas om.
+        "untouched": (
+            "_unpublished/assets/pdfs/guides/copilot-guide-sv.pdf",
+            "_unpublished/assets/pdfs/guides/copilot-quick-start-sv.pdf",
+        ),
     },
     "gemini": {
         "pdfs": (
@@ -361,21 +366,47 @@ def test_the_no_page_claim_list_cannot_rot(guide):
         f"{guide}: quick-starten gör ett påstående igen ({match.group(0)!r}) "
         "— stryk posten ur NO_PAGE_CLAIM")
 
-    # Andra sonden, och skälet står här: mönstret ovan kräver literalen
-    # `Guide`, så ett omformulerat påstående ("the full 25-page PDF", "a
-    # 25-page companion", gemena "the 25-page guide") hade passerat både
-    # sidantalsvakten och den här raden, och lämnat påståendet ovaktat
-    # bakom en deklaration som ser sann ut. Därför måste varje bart
-    # `\d+-page` i quick-starten vara redovisat som oskyldigt.
-    stripped = flat
+
+@pytest.mark.parametrize("guide", GUIDES)
+def test_every_bare_page_number_in_a_quick_start_is_accounted_for(guide):
+    """Varje `\\d+-page` i en quick-start är antingen ett påstående om
+    guiden — och då vaktat av sidantalsvakten ovan — eller redovisat som
+    oskyldigt i BARE_PAGE_NUMBERS. Ingen tredje möjlighet.
+
+    Varför den gäller ALLA guider och inte bara de i NO_PAGE_CLAIM: det
+    skärpta `_PAGE_CLAIM`-mönstret kräver literalen `Guide`, så ett
+    omformulerat påstående ("the full 25-page PDF", gemena "guide") är
+    osynligt för sidantalsvakten. Låg den här räkningen kvar inuti
+    NO_PAGE_CLAIM:s ruttnandevakt vore copilot och gemini SVAGARE vaktade
+    efter skärpningen än före den — före den jämfördes deras bara tal
+    åtminstone mot det renderade sidantalet.
+    """
+    _, quick_rel = _main_and_quick_start(guide)
+    stripped = _flat(quick_rel)
     for phrase in BARE_PAGE_NUMBERS.get(guide, ()):
         assert phrase in stripped, (
             f"{guide}: den redovisade strängen {phrase!r} står inte längre i "
             "quick-starten — stryk eller uppdatera posten i BARE_PAGE_NUMBERS")
         stripped = stripped.replace(phrase, " ")
+    claim = _PAGE_CLAIM.search(stripped)
+    if claim:
+        # Påståendet om guiden ägs av sidantalsvakten ovan, inte av den här.
+        stripped = stripped.replace(claim.group(0), " ")
     leftover = [m.group(0) for m in re.finditer(r"\d+-page", stripped)]
     assert not leftover, (
-        f"{guide}: quick-starten bär {leftover} utöver de redovisade "
-        "strängarna — är det ett påstående om guiden, stryk posten ur "
-        "NO_PAGE_CLAIM; är det ett nytt oskyldigt tal, redovisa det i "
-        "BARE_PAGE_NUMBERS")
+        f"{guide}: quick-starten bär {leftover} som varken är ett påstående om "
+        "guiden eller redovisat i BARE_PAGE_NUMBERS — är det ett påstående, "
+        "formulera det med ordet \"Guide\" så sidantalsvakten ser det; är det "
+        "ett oskyldigt tal, redovisa det")
+
+
+@pytest.mark.parametrize("guide", sorted(BARE_PAGE_NUMBERS))
+def test_the_bare_page_number_list_cannot_rot(guide):
+    """Listan ska beskriva verkligheten. Två sätt den kan ruttna, båda
+    röda här: en post som inte är en känd guide, och en post utan
+    strängar. Att varje redovisad sträng FORTFARANDE står i quick-starten
+    prövas av vakten ovan, som läser varje guide.
+    """
+    assert guide in GUIDE_DELIVERY, (
+        f"{guide} står i BARE_PAGE_NUMBERS men inte i leveranskartan")
+    assert BARE_PAGE_NUMBERS[guide], f"post utan strängar: {guide}"

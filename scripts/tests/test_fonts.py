@@ -59,12 +59,17 @@ def test_published_files_excludes_untracked_files():
 # haft någon typsnittsvakt, och det är precis därför både Copilots och
 # Geminis sidor kunde ligga med Google Fonts.
 #
-# Listan är de guider vars webbyta ÄR städad och ska förbli det. De två
-# som saknas — _unpublished/guides/apple-intelligence/ och
-# _unpublished/guides/ai-for-students/ — bär fortfarande Crestioras
-# typsnitt och tas i sina egna rundor; var runda lägger till sin guide
-# här när den städat den. En glob över alla guider vore röd för dem från
-# dag ett och därmed en vakt någon slår av.
+# Listan är de guider vars webbyta ÄR städad och ska förbli det. Apples
+# alla fyra sökvägar (EN och SV) står nu här efter den här rundan. Det
+# enda som saknas är _unpublished/guides/ai-for-students/ — elevguiden
+# är den enda guide-webbyta under _unpublished/guides/ som fortfarande
+# bär Crestioras typsnitt och tas i sin egen runda. Copilots och
+# Geminis SVENSKA webbytor (_unpublished/sv/guider/copilot/,
+# _unpublished/sv/guider/gemini-notebooklm/) bär också kvar typsnitten
+# och är fortsatt skuld — de står utanför den här listan för att de inte
+# är guide-webbytor under _unpublished/guides/, inte för att de är
+# städade. En glob över alla guider vore röd för dem från dag ett och
+# därmed en vakt någon slår av.
 GUIDE_WEB_SURFACES = (
     "guides/claude/index.html",
     "guides/claude/styles.css",
