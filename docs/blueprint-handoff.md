@@ -1,6 +1,6 @@
 # Blueprint — överlämning
 
-**Senast uppdaterad:** 2026-10-13 (Copilot-guiden MERGAD som `26c661a`; **Gemini-guiden LEVERERAD på gren med `origin/main` inmergad, svit helt grön, PR ej öppnad**)
+**Senast uppdaterad:** 2026-10-14 (**Apple Intelligence-guiden KLAR — båda rundorna mergade, `main` = `6071f6e`, svit 837 passed / 1 skipped / 0 failed, OPUSHAT**)
 **LÄS FÖRST** vid fortsättning. Specen är den bindande auktoriteten, planerna argumenterar från den.
 
 ---
@@ -15,6 +15,8 @@
 | **Våg 2b** — guidernas innehåll | **MERGAD OCH LIVE** 2026-10-08. 44 commits på `main` (HEAD `d33a014`), pushade till origin, Pages-bygget grönt och live-sajten verifierad: åtta nya markörer på den engelska guidesidan, fyra på den svenska, **noll gamla**. Alla fyra PDF:er svarar 200 och innehåller det nya. Svit 484 passed, 0 skipped. Grenen och worktreen är borttagna. Historiken blev **linjär (fast-forward)** — till skillnad från våg 1 och 2a finns ingen merge-commit som namnger vågen; den är commits `86076ce..d33a014`. |
 | **Copilot-guiden** — första av de fyra | **MERGAD 2026-10-11** som merge-commit `26c661a` (PR #38, 28 commits). Grenen och worktreen borttagna. Leveransen: två engelska PDF:er i `_unpublished/assets/pdfs/guides/`, ingenting publicerat. Svit 757 passed (plus elva miljöberoende fel, se nedan). |
 | **Gemini Notebook** — andra av de fyra | **LEVERERAD PÅ GREN 2026-10-13.** Gren `feat/gemini-guide-international`, worktree `.worktrees/gemini-guide-international`, avstamp `main` = `e2282b7`, med `origin/main` (`aee4117`) inmergad 2026-10-13. **Tjugo uppgifter** — planens nitton `## Task`-rubriker plus Task 16B — körda i **nitton dispatcher** (Task 10 och 11 batchades i en), alla granskade. Leverans: `_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf` (**44 sidor**) och `gemini-notebook-quick-start-en.pdf` (2 sidor), till Skool-communityt. **Ingenting publicerat på sajten.** Svit **796 passed, 0 failed, 0 skipped, 0 xfailed, 0 xpassed** med `test_prompt_pdf_parity.py` undantagen — **helt grön.** Grenen rapporterade länge ett rött `test_brand_mark.py::test_the_page_count_is_what_we_think` (199 mot 198) som preexisterande; `main` hade då redan lagat det i `aee4117`, och mergen hämtade in fixen. **Grenen är inte pushad och ingen PR är öppnad** — det görs efter Johans besked. **Specens PR #39 mergas före eller tillsammans med rundans PR**: planen argumenterar från specen, och en mergad plan utan mergad spec lämnar en hängande korsreferens. Se **"Gemini-guiden — vad rundan lämnar"** nedan. |
+| **Apple Intelligence** — tredje av de fyra | **KLAR, BÅDA RUNDORNA MERGADE 2026-10-14.** Runda 1 "mät och vakta" som `1fea250`, runda 2 "skriv om" som `6071f6e`. Guiden **26 sidor** (var 25), två engelska PDF:er, ingenting publicerat. Svit **837 passed / 1 skipped / 0 failed** — den enda `skipped` är dokumenterad, se Apple-sektionen. Alla grenar och worktrees borttagna. **Opushat:** `origin/main` står på `fae8983`, tre merges bakom. **Kvar: Johans redaktionella pass, elva punkter.** |
+| **Elevguiden** (`ai-for-students`) — fjärde av de fyra | Inte påbörjad. Står kvar på skuldlistan i `test_guide_surface_consistency.py` med sitt eget skäl, och bär fortfarande Crestioras typsnitt i sin webbyta. |
 | Diagram- och social-exporterna | Inte påbörjad, Johans beslut: egen runda |
 | Visual Codes Vol. 1–3 | Inte påbörjad, **ingen plan äger den** |
 
@@ -25,6 +27,16 @@
 ---
 
 ## Nästa steg, i ordning
+
+### Först, per 2026-10-14 (Apple-guiden klar)
+
+- **JOHANS REDAKTIONELLA PASS PÅ APPLE-GUIDEN — elva punkter.** Underlaget ligger i `~/Desktop/choosewise-apple-runda-2/task-15-report.md`. Se Apple-sektionen nedan. Guiden är klar i sak; det här är hans text och hans röst.
+- **PUSHEN ÄR JOHANS BESLUT.** `main` ligger tre merges före `origin/main` (hygienrundan, Apple runda 1, Apple runda 2). Ingenting av det är publicerat — guiderna distribueras via Skool — men historiken finns bara lokalt tills den pushas.
+- **Omklassificeringen av tolv inventeringsposters verdikt**, med färdig brytning i inventeringens huvud. **Gör den inte svepande** — tre av de tolv passar ingen nuvarande kategori, och en granskare varnade för att en generell omklassificering inför nya sakfel. Se Apple-sektionen.
+
+### Listan nedan är från tidigare rundor
+
+**Varning:** flera poster i den är överspelade, och minst två är direkt fel — PR #29 och förbudsvaktens PR är **mergade** sedan 2026-10-09 trots att punkterna säger att de är öppna. Läs tabellen "Var allt står just nu" och rundsektionerna som facit, inte den här listan.
 
 1. **~~FÖRBUDSVAKTEN~~ — BYGGD 2026-10-09.** Klar och grön före nästa guide, precis som avsett. Se egen sektion nedan för vad den gör och hur en ny guide använder den. **PR #31 öppen**, gren `feat/blueprint-forbidden-guard`, 3 commits, svit 489. Arbetskopian står på grenen.
 2. **Johan mergar PR #29** när han sett den. Faviconen landar på 198 sidor i samma stund den mergas — sajten har noll favicon-taggar i dag, så det är jordgloben som byts ut, inte ett märke som byts mot ett annat. **Symbolens omfång är beskuret 2026-10-09:** Skool, LinkedIn-sidan och faviconen, men **inte** og-delningskorten och inte sajtens header. (#30 — våg 2a — är redan mergad, se tabellen ovan.)
@@ -1077,6 +1089,58 @@ srv.shutdown()
 - *Vilket element är bredare än sin egen låda?* `el.scrollWidth > el.clientWidth`. Det är den som hittar långa ord och tabeller, och den första sonden ser dem inte.
 
 Ett filter som sållar bort breda element för att slippa fullbreddsbehållare dolde boven helt på inläggssidorna: sonden returnerade ingenting alls.
+
+---
+
+## Apple Intelligence-guiden — vad de två rundorna lämnar (2026-10-14)
+
+**Läs det här avsnittet före varje framtida arbete på Apple-guiden, och före nästa guides runda.**
+
+### Var det står
+
+`main` = **`6071f6e`**, svit **837 passed / 1 skipped / 0 failed** mätt på det mergade trädet. **Opushat** — `origin/main` står på `fae8983`, alltså tre merges bakom (hygienrundan, Apple runda 1, Apple runda 2). Alla rundgrenar och worktrees borttagna; `docs/apple-guide-spec` står kvar och är helt mergad.
+
+**Rundan delades i två på Johans beslut.** Runda 1 (`1fea250`) kartlade guiden i fyra vaktlager och skrev arbetsordern; runda 2 (`6071f6e`) skrev om innehållet. Spec: `docs/superpowers/specs/2026-10-14-apple-intelligence-guide-update-design.md` — **läs dess två amendemang först, de rättar specens egna premisser.** Planer: `docs/superpowers/plans/2026-10-14-apple-intelligence-round-{1,2}.md`. Ledgrar, uppgiftsrapporter och samtliga granskningsdiffar ligger **utanför repot** i `~/Desktop/choosewise-apple-runda-1/` och `~/Desktop/choosewise-apple-runda-2/`.
+
+### Den enda `skipped` är avsiktlig — rör den inte
+
+`test_the_no_page_claim_list_cannot_rot` är parametriserad över `NO_PAGE_CLAIM`, som är **tom** sedan quick-starten fick ett äkta sidantalspåstående. Pytest syntetiserar då en `skipped`-rad. Listan och dess vakt **ska stå kvar**: en granskare avvisade uttryckligen förslaget att stryka dem, eftersom listan är en **deklarationsmekanism för ett återkommande redaktionellt beslut** (en quick-start som medvetet inte gör ett sidantalspåstående), inte engångs-migreringsskuld som `MEASURE_ONLY_INVENTORIES` var. Den riktiga vakten är `test_every_quick_starts_page_count_claim_matches_its_rendered_main_guide`, parametriserad över `GUIDES` och oberoende av dicten. Kommentaren vid den tomma dicten säger allt detta — **varken stryk mekanismen eller fyll den med en konstlad post för att slippa raden.**
+
+### Vad som väntar på Johan
+
+**Elva punkter för det redaktionella passet**, med fullt underlag i `~/Desktop/choosewise-apple-runda-2/task-15-report.md`:
+- **sex röstfrågor** — passager där femton uppgifter kan ha skrivit kommittéprosa i hans första person,
+- **två EU-förbehåll** att läsa om med misstanken att de kan läsas som "kommer senare",
+- **tre dubbleringar** ingen vakt kan se: Mail-kategoriseringens brasklapp på sidorna 12/16/19, `Confirm Requests`-förklaringen på 11/21, artikel 4:s plikt på 23/24.
+
+Plus: **`skolchef` och `rektor` står oglosade** i den engelska printytan. Behålls de bör de glosas som CLAUDE.md:s egen vokabulär gör; stryks de hör de på förbudslistan.
+
+**En utestående omklassificering, med färdig brytning i inventeringens huvud.** Tolv posters verdikt säger fortfarande `föråldrat`/`falskt`/`obelagt` trots att texten är rättad:
+- **sju är entydigt rättade** — A15, A16, A18, A20, A21, A30, A31,
+- **två passar inte** — A17 (den gamla strängen är orörd och fortfarande sann; lagningen skedde genom **tillägg**) och A22 (bara halva problemet löst; en delvis rättad cell får inte bli `rättat`),
+- **tre passar ingen nuvarande kategori** — A25, A27, A29, strukna **utan ersättning**, så det finns inget nytt källbelagt värde att peka på. Taxonomin saknar ett ord för "obelagt påstående struket, inget ersatt".
+
+**En svepande "sätt alla tolv till `rättat`" skulle införa nya sakfel.** Inventeringens huvud pekar ut vaktblocket som auktoritativ källa för vad som faktiskt ändrades i guiden.
+
+### Vaktläget efter rundan
+
+- **Förbudslistan bär 20 strängar**, inklusive `[PAGE_COUNT]` — en literal markör som en uppgift skrev medan sidantalet var okänt, och som nu är **mekaniskt** omöjlig att leverera. `GDPR`, `ChatGPT`, `OpenAI` och `Schrems` är **medvetet uteslutna** med skälet skrivet i filen: guiden *är* en integritetsguide, och posterna A11/A12 har verdikt `står`.
+- **`Sweden` och `Swedish` kan förbjudas rakt av** — men av ett skäl nästa runda ska förstå: den ägargodkända meningen `primarily in Sweden` står bara i **webbytan**, och förbudslistan läser **PDF:erna**, som byggs ur printytan och quick-starten. Webbytan är alltså **inte** ren.
+- **`MEASURE_ONLY_INVENTORIES` är struken** tillsammans med sin ruttnandevakt och båda undantagsgrenarna. `borttaget`-kravet gäller nu varje kartlagd guide utan undantag. Historiken står i en kommentar i `test_guide_surface_consistency.py`.
+- **Inventeringen har 39 poster** (`13 står / 5 föråldrat / 5 falskt / 3 obelagt / 5 rättat / 8 lagt till`), räknad på varje cells **inledande** token.
+- **De svenska guideytorna är frysta** och bär fortfarande `Siri 2.0` och `April 2026` med avsikt. Den svenska **quick-starten** är rättad på ägarbeslut (spec §5 amendemang II) — och den ligger **utanför** både förbudslistan och `untouched`, så ingen vakt läser den. Kommentaren i leveranskartan säger det.
+
+### Fyra lärdomar som gäller nästa guides runda
+
+1. **En instruktion som säger VAD texten ska säga producerar sakfel.** Tre av runda 2:s fynd hade kontrollerns egen plantext som källa: ett tak som blev ett golv (lagringskravet), ett villkorat påstående som blev obetingat (bekräftelsesteget), och en generalisering falsk för två av fem exempel (EU-förbehållet). Skriv instruktioner som pekar på **källan**, inte på formuleringen.
+2. **Planens sidhänvisningar var fel fyra gånger.** Lita på inventeringens förekomstkolumn och grepa fram platsen; sidnummer flyttar dessutom så fort ett avsnitt läggs till.
+3. **Fyra plangap uppstod av samma skäl:** fillistor skrivna per avsnitt lämnade sidor oägda — 17–18, 19–20 och Del 1:s uppstartssteg. **Räkna sidorna och se att varje sida har en ägare** innan planen skrivs klart.
+4. **Granskarna rättade kontrollern två gånger**, inte bara implementerarna: en gång om att en vaktmekanism inte skulle strykas, en gång om en rulings premiss. Formulera granskningsdispatcherna så att de får göra det — det är flödets viktigaste egenskap.
+
+### Två saker rundan hittade som gäller bakåt
+
+- **En rundartefakt smög in i repot.** En implementerare force-addade sin rapport under `.superpowers/`, som är gitignorerad just därför att den är kladd. Borttagen i `601a3b8`. Kontrollera `git ls-files .superpowers/` före leverans.
+- **Byggarna är inte deterministiska för de svenska PDF:erna.** En omrendering ger en byte-ändrad SV-fil med identisk text. `git checkout --` räcker, men `untouched`-vakten fäller den som committar den ändrad. Gäller varje runda som renderar om en guide med två språk i samma byggare.
 
 ---
 
