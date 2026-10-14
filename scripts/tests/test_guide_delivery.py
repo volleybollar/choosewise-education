@@ -78,6 +78,38 @@ GUIDE_DELIVERY = {
             "_unpublished/assets/pdfs/guides/gemini-notebooklm-quick-start-sv.pdf",
         ),
     },
+    "apple-intelligence": {
+        "pdfs": (
+            "_unpublished/assets/pdfs/guides/apple-intelligence-guide-en.pdf",
+            "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-en.pdf",
+        ),
+        # Runda 1:s lista förbjuder BARA strängar de levererade PDF:erna
+        # redan är fria från. Guiden bär `Swedish`, `IMY`, `Schrems` och
+        # `Siri 2.0` legitimt — de är sanna påståenden om en guide som ännu
+        # inte är omskriven, och att förbjuda dem nu vore att göra billigaste
+        # vägen till grönt att stryka innehåll. De läggs till i runda 2, vid
+        # omrenderingen.
+        #
+        # De tre första raderna är den döda adressen, mätt i `_flat()`-form:
+        # pdftotext spärrar versaler, så URL:en står som
+        # `/ G U I D E S / A P P L E - I N T E L L I G E N C E` i utskriften
+        # och en needle skriven som vanlig URL hade aldrig matchat.
+        "forbidden": (
+            "/ G U I D E S / A P P L E",
+            "from the same page",
+            "download the 25-page premium PDF",
+            "Skolverket",
+            "NotebookLM",
+            "Copilot",
+        ),
+        # Båda byggarna renderar EN *och* SV i samma körning, så de svenska
+        # filerna skrivs varje gång de engelska renderas om. Raden jämför
+        # bytes mot merge-basen.
+        "untouched": (
+            "_unpublished/assets/pdfs/guides/apple-intelligence-guide-sv.pdf",
+            "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-sv.pdf",
+        ),
+    },
 }
 
 GUIDES = tuple(GUIDE_DELIVERY)
