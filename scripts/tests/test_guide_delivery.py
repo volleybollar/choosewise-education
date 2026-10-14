@@ -151,6 +151,37 @@ GUIDE_DELIVERY = {
             "iPad Air from 2021",
             "[PAGE_COUNT]",
         ),
+        # DE SVENSKA FILERNA LÄSES INTE AV FÖRBUDSLISTAN. `pdfs` ovan är de
+        # TVÅ ENGELSKA PDF:erna, och förbudsvakten läser bara dem. Varje
+        # sträng i listan — `Siri 2.0`, `18 or over`, `April 2026` och de
+        # övriga — mäts alltså aldrig mot
+        # `apple-intelligence-guide-sv.pdf` eller
+        # `apple-intelligence-quick-start-sv.pdf`. Det är ett medvetet
+        # omfång (runda 2 rättade bara de engelska ytorna), men hålet är
+        # verkligt och ska vara synligt:
+        #
+        #   * Den SVENSKA QUICK-STARTEN rättades MANUELLT i helgranskningens
+        #     fixvåg 2026-10-14 (granskningens Important 1): `Vissa
+        #     funktioner är 18+` → Apples egen gräns enligt A16 (13 år
+        #     eller landets minimiålder), och `Siri 2.0` → `Siri AI` med
+        #     EU-spärren enligt A15. Ingen vakt fångade de två värdena —
+        #     filen ligger inte i `pdfs` och dess PDF står i `untouched`
+        #     nedan fram till Task 1, så ingenting läste den. En framtida
+        #     runda som rättar ett engelskt värde måste alltså själv fråga
+        #     om den svenska quick-starten bär samma värde.
+        #   * GUIDE-SV:S PROSA ÄR FRYST MED AVSIKT (spec §1, oförändrat av
+        #     helgranskningen) och bär därför FORTFARANDE `Siri 2.0` —
+        #     `_unpublished/sv/guider/apple-intelligence/index.html` och
+        #     `_unpublished/exports/apple-intelligence-print-a4-sv.html`,
+        #     tillsammans med det föråldrade svenska språkstycket. Att
+        #     `Siri 2.0` står på förbudslistan betyder alltså INTE att
+        #     strängen är borta ur guiden; den är borta ur de två engelska
+        #     PDF:erna. Den dagen de svenska ytorna tas upp är det den
+        #     uppgiftens sak att avgöra om de svenska PDF:erna ska in i
+        #     `pdfs` — tas de in utan att prosan först rättas blir den här
+        #     listan röd på första körningen, vilket är rätt beteende och
+        #     inte en regression.
+        #
         # Båda byggarna renderar EN *och* SV i samma körning, så de svenska
         # filerna skrivs varje gång de engelska renderas om. Raden jämför
         # bytes mot merge-basen.
@@ -422,8 +453,10 @@ def test_the_no_page_claim_list_cannot_rot(guide):
     Tre sätt den kan ruttna, alla röda här: en post som inte är en känd
     guide, en post utan skäl, och en post vars quick-start FAKTISKT gör ett
     påstående igen — då är skulden betald, och står posten kvar ligger
-    påståendet ovaktat. Samma form som UNMAPPED_GUIDE_SURFACES och
-    MEASURE_ONLY_INVENTORIES.
+    påståendet ovaktat. Samma form som UNMAPPED_GUIDE_SURFACES i
+    test_guide_surface_consistency.py (MEASURE_ONLY_INVENTORIES, som stod
+    här som andra exempel, ströks i runda 2 Task 2 — se den filens
+    historiknot).
     """
     assert guide in GUIDE_DELIVERY, (
         f"{guide} står i NO_PAGE_CLAIM men inte i leveranskartan")

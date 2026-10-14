@@ -107,7 +107,7 @@ observationer runda 2 ärver:
 |---|---|---|---|
 | `IMY` | 0 | 1 | EP har ett helt stycke, "A word on the Swedish context", med Integritetsskyddsmyndigheten och dess skolvägledning. EW har inget motsvarande. Printytan bär alltså den enda nationella myndighetsreferensen i hela guiden, och webbläsaren ser den aldrig. Det är den största sakdivergensen mellan ytorna. |
 | `Swedish Data Protection Authority (IMY)` | 0 | 1 | samma stycke, hela frasen |
-| `Siri & Apple Intelligence → ChatGPT Extension` | 1 | 0 | EW:s FAQ ger en inställningsväg som EP inte ger. Vägen är dessutom föråldrad — se **A30** |
+| `Siri & Apple Intelligence → ChatGPT Extension` | 1 | 0 | EW:s FAQ ger en inställningsväg som EP inte ger. Vägen är dessutom föråldrad — se **A30**. **Löst:** Task 7 rättade EW, helgranskningens fixvåg rättade EP:s egen aprilväg, och dagens väg står nu ordagrant på båda ytorna med en `aktiv`-rad. Raden står kvar som historik |
 | `Every path to ChatGPT shows a confirmation screen before sending` | 0 | 1 | EP:s uppslag "Where each feature runs" bär en absolut formulering som EW inte har. Den är dessutom falsk — se **A31** |
 | `Updated April 2026` / `Johan Lindström, April 2026` | 2 / 0 | 0 / 1 | samma datumstämpel i två olika formuleringar. Den bara ytan de delar är den nakna strängen `April 2026` (3/3), och **den** är vaktens ankare — se **A13** |
 
@@ -145,7 +145,7 @@ Förekomstkolumnerna är mätta 2026-10-14 mot vaktens egen normalisering
 | A16 | `requires the user to be 18 or over` — åldersgränsen för ChatGPT-vägen | 1 | 1 | — | support.apple.com/guide/iphone/use-chatgpt-with-apple-intelligence-iph00fd3c8c2/ios → **200**, ordagrant 2026-10-14: "Note: You must be at least 13 years old or the minimum age required in your country to consent to use ChatGPT." — och **arkiverad primärkälla**: samma Apple-sida, Wayback-capture **2026-04-17**, ordagrant samma mening: "You must be at least 13 years old or the minimum age required in your country to consent to use ChatGPT." | **falskt — och falskt redan i april 2026.** Apple har satt gränsen vid **13 år** (eller landets minimiålder), inte 18, både i dag och i en arkiverad kopia från två dagar efter guidens stämpelmånads mitt. Det är det enda stället där inventeringen går till arkivet, just för att skilja `falskt` från `föråldrat`, och skillnaden spelar roll: `föråldrat` hade betytt "Apple har sänkt gränsen", vilket inte hänt. Felet går åt den farliga riktningen — guiden säger till en skolledare att ChatGPT-vägen är vuxenspärrad och att åldern därför sköter sig själv, när Apples egen spärr släpper in en trettonåring. Det underminerar guidens egen slutsats i Del 3, som är rätt av fel skäl: ChatGPT-integrationen ska stängas av på skol-iPads, men därför att den inte är åldersspärrad på ett sätt som skyddar en elev, inte därför att den är |
 | A17 | `three distinct places your request can be processed` — guidens tre-nivåmodell (on-device / PCC / ChatGPT) | 1 | 1 | — | apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here/ → **200**, ordagrant: Siri AI är "custom-built in collaboration with Google and its Gemini models for deeply integrated Apple Intelligence experiences"; apple.com/newsroom/2026/06/apple-intelligence-brings-powerful-ai-capabilities-into-everyday-experiences/ → **200** (2026-06-08), samma formulering: "custom-built in collaboration with Google and its Gemini models" — lästa 2026-10-14 | **föråldrat.** Modellen är guidens pedagogiska ryggrad och den kan inte längre uttrycka systemet. Google och dess Gemini-modeller är enligt Apples eget pressmaterial med i att bygga själva assistenten — alltså inne i nivå 1 och 2, inte som en fjärde opt-in-nivå vid sidan av ChatGPT. Guidens tre nivåer låter en läsare dra slutsatsen att den enda externa parten är den man själv knackar på, och det är inte längre sant. Notera att detta **inte** är leadets Extensions-påstående: det är en annan och allvarligare sak. En rättelse måste namnge Google som Apples samarbetspartner för Siri AI och hålla den skild från ChatGPT-extensionen, som fortfarande är opt-in och fortfarande är OpenAI:s (se **A11**, **A12**) |
 | A18 | `always shows a confirmation screen before sending` — bekräftelsesteget i ChatGPT-vägen | 1 | 1 | — | support.apple.com/guide/iphone/use-chatgpt-with-apple-intelligence-iph00fd3c8c2/ios → **200**, ordagrant, under rubriken "Send requests to ChatGPT without confirming": "You can choose to let Siri send requests to ChatGPT automatically without asking. Go to the Settings app on your iPhone. Tap Siri. Below Extensions, tap ChatGPT. Turn off Confirm Requests." — läst 2026-10-14. **Arkiverad primärkälla för aprilläget:** samma Apple-sida, Wayback-capture **2026-04-17**, bär samma avstängning ordagrant — rubriken "Send requests to ChatGPT without confirming" och inställningen "Turn off Confirm ChatGPT Requests" (Apple har sedan kortat namnet till `Confirm Requests`) | **falskt — och falskt redan i april 2026.** Avstängningen fanns i Apples egen dokumentation när guiden stämplades; bara inställningens namn har kortats sedan dess. Det är därför `falskt` och inte `föråldrat`: Apple har inte *tagit bort* ett garanterat bekräftelsesteg, det har aldrig varit garanterat. Apple dokumenterar en egen inställning, `Confirm Requests`, vars hela syfte är att ta bort bekräftelsesteget: med den av skickar Siri förfrågningar till ChatGPT **utan att fråga**. Guidens absoluta formuleringar — "always shows a confirmation screen", "nothing is forwarded without the user accepting it" (1/1), "Anything that touches ChatGPT … requires an explicit tap" — är därmed inte sanna som generell utsaga, utan bara som beskrivning av standardläget. Det är ett fel i guidens mest integritetskritiska stycke: en skolledare som läser att samtycket är arkitektoniskt garanterat ser ingen anledning att låsa inställningen via MDM. Apple tillägger att just den avstängningen **inte** är möjlig under Siri AI ("This option isn't available if you're using Siri AI"), vilket gör rätt värde tvådelat och beroende av vilken Siri enheten kör — och på iOS i EU är det inte Siri AI (se **A15**) |
-| A19 | `roughly 4 GB on-device model` — nedladdningens och diskutrymmets storlek | 1 | 1 | — | support.apple.com/en-us/121115 → **200** (publ. 2026-09-14), ordagrant: "Up to 14 GB of storage on device for iPhone 17 Pro, iPhone 17 Pro Max, iPhone Air, iPad models with M4 and later and at least 12GB of unified memory, Mac models with M3 and later and at least 12GB of unified memory, and Apple Vision Pro (M5)" och "Up to 8 GB of storage for other Apple Intelligence-enabled iPhone, iPad, Mac, and Apple Vision Pro models" — läst 2026-10-14 | **rättat i runda 2 Task 2, omrättat i Fixrunda 1.** Guiden skriver nu, ordagrant likadant på EW och EP: "up to 8 GB on most supported iPads, or up to 14 GB on iPad models with M4 or later and at least 12 GB of unified memory" (iPad-stycket), "up to 8 GB of free disk space on most supported Macs, or up to 14 GB on Mac models with M3 or later and at least 12 GB of unified memory" (Mac-stycket) och "up to 8 GB on most models, or up to 14 GB on iPhone 17 Pro, iPhone 17 Pro Max, and iPhone Air" (iPhone-stycket) — Apples egen tvådelade tak-formulering, inte ett intervall. Fixrunda 1: Task 2:s första lagning skrev "8 to 14 GB … depending on your hardware", vilket granskningen fångade som **Critical** — "Up to 8 GB" / "Up to 14 GB" är båda tak, och "8 to 14 GB" läses som ett golv (minst 8 GB), fel i samma riktning som det ursprungliga felet. Lagat genom att citera Apples två tak explicit, med de modeller som skiljer dem åt, i stället för att komprimera till ett intervall. Bakgrund: den allra första siffran 4 GB hade fördubblats till fyrdubblats mot Apples egna "Up to 8 GB … Up to 14 GB" (källa i kolumnen till vänster). Guiden gav den tre gånger per yta i tre formuleringar — `roughly 4 GB on-device model` (1/1), `about 4 GB of free disk space` (1/1), `the same 4 GB footprint` (1/1) — och byggde en praktisk instruktion på den ("thirty to sixty minutes" på skol-WiFi). En IT-ansvarig som planerade en utrullning efter 4 GB per enhet planerade fel med minst en faktor två |
+| A19 | `roughly 4 GB on-device model` — nedladdningens och diskutrymmets storlek | 1 | 1 | — | support.apple.com/en-us/121115 → **200** (publ. 2026-09-14), ordagrant: "Up to 14 GB of storage on device for iPhone 17 Pro, iPhone 17 Pro Max, iPhone Air, iPad models with M4 and later and at least 12GB of unified memory, Mac models with M3 and later and at least 12GB of unified memory, and Apple Vision Pro (M5)" och "Up to 8 GB of storage for other Apple Intelligence-enabled iPhone, iPad, Mac, and Apple Vision Pro models" — läst 2026-10-14 | **rättat i runda 2 Task 2, omrättat i Fixrunda 1.** Guiden skriver nu, ordagrant likadant på EW och EP: "up to 8 GB on most supported iPads, or up to 14 GB on iPad models with M4 or later and at least 12 GB of unified memory" (iPad-stycket), "up to 8 GB of free disk space on most supported Macs, or up to 14 GB on Mac models with M3 or later and at least 12 GB of unified memory" (Mac-stycket) och "up to 8 GB on most models, or up to 14 GB on iPhone 17 Pro, iPhone 17 Pro Max, and iPhone Air" (iPhone-stycket) — Apples egen tvådelade tak-formulering, inte ett intervall. Fixrunda 1: Task 2:s första lagning skrev "8 to 14 GB … depending on your hardware", vilket granskningen fångade som **Critical** — "Up to 8 GB" / "Up to 14 GB" är båda tak, och "8 to 14 GB" läses som ett golv (minst 8 GB), fel i samma riktning som det ursprungliga felet. Lagat genom att citera Apples två tak explicit, med de modeller som skiljer dem åt, i stället för att komprimera till ett intervall. Bakgrund: den allra första siffran 4 GB hade fördubblats till fyrdubblats mot Apples egna "Up to 8 GB … Up to 14 GB" (källa i kolumnen till vänster). Guiden gav den tre gånger per yta i tre formuleringar — `roughly 4 GB on-device model` (1/1), `about 4 GB of free disk space` (1/1), `the same 4 GB footprint` (1/1) — och byggde en praktisk instruktion på den ("thirty to sixty minutes" på skol-WiFi). En IT-ansvarig som planerade en utrullning efter 4 GB per enhet planerade fel med minst en faktor två. **Helgranskningens fixvåg 2026-10-14:** själva inramningen följde inte värdet — sidan 4 skrev fortfarande att iPaden "pulls down on-device storage" (som om hela utrymmet laddades ned) och lät tidsuppskattningen, kalibrerad för 4 GB, stå intill Apples 8–14 GB-tak. Båda leden är lagade på båda ytorna: diskutrymmet som KRÄVS är nu uttryckligen skilt från vad som laddas ned, och tidsuppskattningen är borttagen utan ersättning — ingen källa i inventeringen bär en nedladdningstid. De tre `aktiv`-raderna med Apples två tak är orörda |
 | A20 | `Settings → Notifications → Summarise Previews` — inställningsvägen för notissammanfattningar | 2 | 2 | — | support.apple.com/guide/iphone/summarize-notifications-reduce-interruptions-iph1fbe7d2b9/ios → **200**, ordagrant: "Go to the Settings app on your iPhone. Tap Notifications. Tap Summarize Notifications, turn on Summarize Notifications, then tap Choose Notifications to Summarize."; `grep -i "Summarise Previews\|Summarize Previews"` på den hämtade sidan ger **noll** träffar — läst 2026-10-14. **Arkiverad primärkälla för aprilläget:** samma Apple-sida, Wayback-capture **2026-04-17** — `Summarize Notifications` står där 4 gånger som inställningsnamn, och `Summarize Previews` / `Summarise Previews` ger **noll** träffar även i aprilkopian | **falskt — och falskt redan i april 2026.** Apples inställning heter `Summarize Notifications`, med undermenyn `Choose Notifications to Summarize`, och den hette så redan när guiden stämplades. Guiden ger alltså en väg som aldrig har funnits, två gånger per yta. En lärare som följer instruktionen hittar ingen sådan post. *(Ett tidigare utkast av den här cellen förklarade felet som en sammanblandning med inställningen `Show Previews`. Den förklaringen är struken: strängen ger **noll** träffar på både dagens och aprils version av Apples sida, och en obelagd förklaring av ett belagt fel hör inte i en inventering. Felets ursprung är okänt; att vägen inte finns är mätt.)* |
 | A21 | `Settings → Mail → Categorisation` — inställningsvägen för att stänga av Mail-kategorier | 2 | 2 | — | support.apple.com/guide/iphone/use-categories-iphfe4a36baf/ios → **200**, ordagrant under "Turn off categories": "Go to the Mail app on your iPhone. In an inbox, tap at the top of the screen, then choose List View." — läst 2026-10-14 | **föråldrat.** Avstängningen bor inte i Inställningar utan i Mail-appen själv, och läget heter `List View`, inte "the flat-list view". Guiden ger vägen två gånger per yta, en gång i Del 2 och en gång i FAQ:n, och FAQ-förekomsten bär dessutom guidens rekommenderade utrullningsprofil ("Mail categorisation off") — alltså en konfigurationsrekommendation med en väg som inte går att följa |
 | A22 | `three visual styles` — Image Playgrounds stilutbud (`Animation, Illustration, and Sketch`, 1/1) | 1 | 1 | — | support.apple.com/en-us/121115 → **200**, ordagrant: "generating images in virtually any style" och "Reimagined Image Playground"; support.apple.com/guide/iphone/create-original-images-iph0063238b5/ios (iOS 27) → **200**, ordagrant: "Choose a style: Tap the Style button, then choose an Apple Intelligence style (like **Any Style or Illustration**) or tap **ChatGPT** to describe the style you want" och "If you choose Any Style, you can describe the style you want as part of your image description" — lästa 2026-10-14 | **föråldrat: utbudet är inte längre tre, och det är inte längre en sluten lista.** Apples egen iOS 27-sida namnger `Any Style` och `Illustration` som exempel, lägger till ett fritextläge där användaren beskriver stilen själv, och ger **ChatGPT som eget stilval inne i Image Playground**. `Animation` och `Sketch` namnges inte på sidan. Två konsekvenser för runda 2. Ordet `three` är fel, och `virtually any style` med fotorealism har en annan riskprofil i ett klassrum än tre tydligt stiliserade lägen — guidens avfärdande av funktionen som "narrow" klassrumsrelevans vilar på det gamla utbudet. Och **ChatGPT-vägen in i Image Playground finns inte i guiden**: EP:s snabbreferens placerar Image Playground under "Private Cloud Compute by default" utan någon ChatGPT-väg, vilket är precis den sorts tyst tredjepartsöverföring guidens Del 3 är skriven för att fånga |
@@ -156,7 +156,7 @@ Förekomstkolumnerna är mätta 2026-10-14 mot vaktens egen normalisering
 | A27 | `Apple ships Apple Intelligence features monthly` — kadensen bakom rekommendationen om terminsvis genomgång | 1 | 1 | — | apple.com/newsroom/2026/09/major-updates-for-apples-software-platforms-are-now-available/ → **200**, läst ordagrant 2026-10-14: "UPDATE September 14, 2026" och "The new features start rolling out today across iOS 27, iPadOS 27, macOS 27, watchOS 27, visionOS 27, and tvOS 27" — **ingen kadensutfästelse någonstans på sidan**; support.apple.com/en-us/121115 → **200** och Apple Newsroom 2026-06-08 → **200**, inte heller de utfäster en månads- eller kvartalskadens | **obelagt.** Ingen hämtad Apple-sida lovar månatliga funktionssläpp. Vad sidorna faktiskt visar är ett samlat 27.0-släpp den 14 september 2026 med efterföljande vågor — och den enda daterade vågen Apple namnger är språkvågen i **A15**. Påståendet är inte motsagt av någon källa — ingen sida säger "inte månadsvis" — men det bär en rekommendation (terminsvis genomgång av konfigurationen) som är klok oavsett kadens. Rätt skrivning behåller rekommendationen och tar bort frekvensen. Samma gäller den närliggande meningen `Language support has expanded quarterly since launch` (EW 2 / EP 1 på `quarterly`), som ingen hämtad sida belägger |
 | A28 | `stateless computation` — Apples term för att förfrågningsdata kastas | 1 | 1 | — | security.apple.com/blog/private-cloud-compute/ → **200**, läst ordagrant 2026-10-14: Apple använder termen "stateless computation" och skriver "Personal data leaves no trace in the PCC system"; sidan bekräftar också att serverprogramvaran görs loggbar och inspekterbar för oberoende forskare | **står.** Både termen och de två egenskaper guiden hänger på den — kastad förfrågningsdata och publicerad, granskningsbar serverbild — är Apples egna formuleringar, och Newsroom 2026-09-14 upprepar löftet för 27.0-generationen. Det är guidens starkaste tekniska avsnitt och det behöver ingen rättelse. Raden finns i vaktblocket för att termen inte ska försvinna när PCC-kapitlet skrivs om |
 | A29 | `Summaries are on by default` — notissammanfattningarnas utgångsläge | 1 | 1 | — | support.apple.com/guide/iphone/summarize-notifications-reduce-interruptions-iph1fbe7d2b9/ios → **200**, läst ordagrant 2026-10-14: instruktionen lyder "Tap Summarize Notifications, **turn on** Summarize Notifications, then tap Choose Notifications to Summarize", och sidan har ett eget avsnitt "Turn notification summaries on or off" | **obelagt, och sannolikt fel riktning.** Apples egen instruktion börjar med att användaren slår **på** funktionen och sedan väljer vilka appar som ska omfattas — ingen hämtad sida säger att sammanfattningar är på som standard "for most app categories". Jag skriver `obelagt` och inte `falskt` därför att Apples sida beskriver hur man ställer in funktionen, inte vad utgångsläget är efter en uppdatering; ingen hämtbar sida uttalar sig om defaulten. För en skolutrullning pekar felet ändå åt ett praktiskt håll: guiden säger "To fine-tune …" där Apples flöde säger "turn on" |
-| A30 | `Siri & Apple Intelligence → ChatGPT Extension` — inställningsvägen för ChatGPT-spärren | 1 | **0** | — | support.apple.com ChatGPT-guiden → **200**, nuvarande väg ordagrant: "Go to the Settings app on your iPhone. Tap Siri. Tap ChatGPT, tap Set Up …" och, under Siri AI: "tap Set Up Extensions, tap ChatGPT, then turn on Use Extension"; **arkiverad primärkälla** (Wayback-capture 2026-04-17 av samma sida) gav aprilvägen ordagrant: "Tap Apple Intelligence & Siri. Below Extensions, tap ChatGPT, then tap Set Up." | **föråldrat — och EW-exklusivt, alltså ingen vaktrad.** Guidens väg var rätt i april 2026: den arkiverade kopian bekräftar att menyn då hette `Apple Intelligence & Siri` med `Extensions` under sig. I dag är ingången `Settings → Siri`. Två saker för runda 2: ordet **`Extensions` är Apples eget och har varit det hela tiden** — guidens "ChatGPT Extension" är alltså inte en felstavad gissning utan Apples terminologi, vilket gör leadets Extensions-nyhet mindre ny än den såg ut (se huvudet, lead 3) — och vägen står bara på webbytan, så en rättelse som bara träffar EW lämnar EP utan motsvarande instruktion över huvud taget |
+| A30 | `Siri & Apple Intelligence → ChatGPT Extension` — inställningsvägen för ChatGPT-spärren | 1 | **0** | — | support.apple.com ChatGPT-guiden → **200**, nuvarande väg ordagrant: "Go to the Settings app on your iPhone. Tap Siri. Tap ChatGPT, tap Set Up …" och, under Siri AI: "tap Set Up Extensions, tap ChatGPT, then turn on Use Extension"; **arkiverad primärkälla** (Wayback-capture 2026-04-17 av samma sida) gav aprilvägen ordagrant: "Tap Apple Intelligence & Siri. Below Extensions, tap ChatGPT, then tap Set Up." | **föråldrat — rättat, och sedan helgranskningens fixvåg inte längre EW-exklusivt.** Förekomsten `1 / 0` ovan är runda 1:s mätning av den gamla strängen. Task 7 rättade EW till dagens väg; fixvågen 2026-10-14 fann att EP:s FAQ-svar fortfarande bar aprilvägen ordvänd (`under Siri & Apple Intelligence`) och rättade den till samma väg, varpå `Settings → Siri → ChatGPT Extension` står 1/1 och posten har fått sin första `aktiv`-rad — se vaktblockets sista avsnitt. Guidens väg var rätt i april 2026: den arkiverade kopian bekräftar att menyn då hette `Apple Intelligence & Siri` med `Extensions` under sig. I dag är ingången `Settings → Siri`. Två saker för runda 2: ordet **`Extensions` är Apples eget och har varit det hela tiden** — guidens "ChatGPT Extension" är alltså inte en felstavad gissning utan Apples terminologi, vilket gör leadets Extensions-nyhet mindre ny än den såg ut (se huvudet, lead 3) — och vägen står bara på webbytan, så en rättelse som bara träffar EW lämnar EP utan motsvarande instruktion över huvud taget |
 | A31 | `Every path to ChatGPT shows a confirmation screen before sending` | **0** | 1 | — | samma källa som **A18**: support.apple.com ChatGPT-guiden → **200**, "Turn off Confirm Requests" — läst 2026-10-14; **samma arkiverade aprilbelägg som A18** (Wayback-capture 2026-04-17: "Send requests to ChatGPT without confirming … Turn off Confirm ChatGPT Requests") | **falskt — falskt redan i april 2026, och EP-exklusivt, alltså ingen vaktrad.** Samma fel som **A18**, men i sin absoluta form ("Every path") och bara på printytan, i uppslaget "Where each feature runs" som är tänkt som guidens snabbreferens. Printläsaren får alltså den starkaste och mest felaktiga formuleringen av guidens integritetslöfte, och webbläsaren får den inte. Att rätta **A18** utan att rätta den här raden lämnar felet kvar i PDF:en |
 | A32 | **saknas i guiden:** daglig användningsgräns och kommande betalnivå | 1 | 1 | 0 | support.apple.com/en-us/121115 → **200**, ordagrant 2026-10-14: "Certain Apple Intelligence features that rely on server-side models are subject to daily usage limits, including but not limited to Siri AI, Intelligent Photo Editing Tools, Image Playground, and AFM 3 Cloud models in Shortcuts. Daily limits may vary by feature, request complexity, system demand, system policies, and other factors. **Expanded access to such features will be available for a fee in the future.**" | **lagt till i runda 2 Task 10.** Guiden byggde hela sitt säljargument på att Apple Intelligence är gratis och ingår i enheten — "You do not need to sign into anything new" (den meningen själv är orörd, ligger utanför FAQ:n och alltså utanför Task 10:s sidspann) — och nämnde ingen gräns och ingen avgift. FAQ-svaret "Does my iPad support Apple Intelligence?" bär nu, ordagrant olika men sakligt identiskt per yta, att flera serverburna funktioner (Siri AI, Intelligent Photo Editing Tools, Image Playground, AFM 3 cloud-modeller i Shortcuts) har en daglig användningsgräns, och att Apple har sagt att utökad åtkomst till dem kommer kosta i framtiden, utan angivet datum. Ingen tidplan påstås — bara att en avgiftsnivå är annonserad. Bakgrund: för en skolchef som planerar en utrullning till hundra klassrums-iPads är det en upphandlingsfråga, inte en detalj, och den fanns inte i guiden alls före den här uppgiften |
 | A33 | **saknades i guiden:** AI Act-avsnittets tillämplighetsdatum, `2 August 2026` | 1 | 1 | — | `korsref P13` (`docs/guide-facts-claude.md`) — kommissionens ordalydelse "entered into force on 1 August 2024 and became applicable on 2 August 2026". Samma datum redan rättat i Gemini-guiden (G25/G48). Ingen ny hämtning | **lagt till.** I Task 8: avsnittet "A short word on the EU AI Act" fanns inte i guiden före den här uppgiften; det här är det första av avsnittets två AI Act-datum |
@@ -171,10 +171,12 @@ Förekomstkolumnerna är mätta 2026-10-14 mot vaktens egen normalisering
 
 **39 poster** — de ursprungliga 32 (briefens fjorton, A01–A14, plus **18** som runda 1:s
 egen mätning lade till, A15–A32) och **7** som Task 8 lade till (A33–A39: Del 3:s nya AI
-Act-avsnitt samt artikel 4-posten dess Fixrunda 1 lade till). Efter runda 2:s Task 2–11
-beskriver samtliga 39 **den omskrivna guiden**: verdiktkolumnen bär klassificeringen och,
-för varje post runda 2 har rört, vad som gjordes med den. Räknat på varje cells
-**inledande** token, som är den tabellen ska gå att skanna på:
+Act-avsnitt samt artikel 4-posten dess Fixrunda 1 lade till). Samtliga 39 beskriver
+**inte** den omskrivna guiden, och får inte läsas så — dokumentets huvud säger samma sak:
+i de flesta cellerna står verdiktet kvar som runda 1 klassificerade det, och bara en del av
+cellerna är uppdaterade med vad runda 2 gjorde. **Vaktblocket är den auktoritativa källan**
+för vad som faktiskt ändrades. Räknat på varje cells **inledande** token, som är den
+tabellen ska gå att skanna på:
 
 | token | antal | poster |
 |---|---|---|
@@ -203,11 +205,16 @@ som A22:s andra token — se tabellen nedan.**)
 | `står (öppen EU-fråga)` | värdet står; **om** EU-spärren träffar det går inte att avgöra ur hämtad text | avgör frågan först, förbehållet sedan — ingen gissning |
 | `föråldrat (genom frånvaro)` | guiden påstod inget fel, den **saknade** en uppgift Apple har publicerat — i dag bara A22:s andra token | lägg till uppgiften; ingen vaktrad är möjlig (0/0) |
 
-**Två av kvalifikatorerna är spärrar, inte dekoration.** `står (delvis obelagt)` på **A07**
-får inte läsas som att Mail-kategoriseringens on-device-påstående är belagt — det är det
-inte, och det står i DPIA-kapitlet. `står (EU-förbehåll saknas)` på **A06** får inte läsas
-som att Visual Intelligence-avsnittet är klart — Apple har skrivit ut EU-svaret och guiden
-bär det inte.
+**Två av kvalifikatorerna var spärrar, inte dekoration — och båda är åtgärdade i runda 2.**
+`står (delvis obelagt)` på **A07** gällde att Mail-kategoriseringens on-device-påstående
+inte var belagt, i DPIA-kapitlet. Påståendet **står inte längre någonstans i guiden**: Task 6
+strök rutans två superlativfraser och Task 7:s Fixrunda 1 de två bredare påståendena i Del 1
+och Del 3 — fyra `borttaget`-rader i vaktblocket. `står (EU-förbehåll saknas)` på **A06**
+gällde att Apple hade skrivit ut EU-svaret utan att guiden bar det. **Guiden bär det nu:**
+callouten `The expanded layer is blocked in the EU` (sidan 15), ankrad som
+`an expanded Visual Intelligence experience`. Kvalifikatorerna står kvar i cellerna därför
+att de redovisar runda 1:s mätning — läs dem som historik över vad som behövde göras, inte
+som öppna brister.
 
 ### Poster som bär en andra token längre in i cellen
 
@@ -267,10 +274,12 @@ utvecklarramverket. Men medan leadet letade efter Gemini i Inställningar satt G
 inne i assistenten (A17). Den som skriver runda 2 utifrån leadet i stället för utifrån
 källorna skulle ha skrivit in ett fel och missat det riktiga.
 
-**6. Tre poster saknar vaktrad med avsikt** — A30 (EW 1 / EP 0), A31 (EP 1 / EW 0) och
-IMY-divergensen (EP 1 / EW 0). Ingen av dem är glömd; var och en är mätt och står i
-Ytdivergenser eller i sin egen postrad. En framtida runda som "städar" dem in i
-vaktblocket gör den röd. (**A32 stod här före runda 2 Task 10** — den var 0/0 och alltså
+**6. Två poster saknar vaktrad med avsikt** — A31 (EP 1 / EW 0) och IMY-divergensen
+(EP 1 / EW 0). Ingen av dem är glömd; var och en är mätt och står i Ytdivergenser eller i
+sin egen postrad. En framtida runda som "städar" dem in i vaktblocket gör den röd.
+(**A30 hörde hit fram till helgranskningens fixvåg 2026-10-14.** Den var EW-ensam därför
+att EP:s FAQ-svar bar aprilvägen i stället för någon väg alls; fixvågen rättade EP, och
+dagens väg står nu 1/1 med en egen `aktiv`-rad. Se vaktblockets sista avsnitt.) (**A32 stod här före runda 2 Task 10** — den var 0/0 och alltså
 i samma läge som dessa tre. Task 10 lade till uppgiften i FAQ:n på båda ytorna och gav den
 två egna `aktiv`-rader i vaktblocket; den hör därför inte längre till den här gruppen. Se
 Task 10:s kommentarblock i Vaktblocket.)
@@ -287,10 +296,13 @@ Task 10:s kommentarblock i Vaktblocket.)
 # från planen utan att mätas om.
 #
 # INGEN RAD PÅ `IMY`: EP:1 / EW:0, alltså `saknas_på_en_yta` från start.
-# Divergensen står i prosan ovan och är runda 2:s sak. Samma skäl gäller
-# A30 (EW:1 / EP:0) och A31 (EP:1 / EW:0) — de har postrader men ingen
-# vaktrad, med avsikt. A32 stod här som (0/0) till och med Task 9; Task 10
-# lade till uppgiften och gav den två `aktiv`-rader längst ner i blocket.
+# Divergensen står i prosan ovan och är runda 2:s sak. Samma skäl gällde
+# A30 (EW:1 / EP:0) och A31 (EP:1 / EW:0) — de har postrader men fick
+# ingen vaktrad, med avsikt. **A30 är inte längre enytig:** helgranskningens
+# fixvåg rättade EP:s FAQ-svar, som bar aprilvägen, och strängen står nu
+# 1/1 — posten har en `aktiv`-rad längst ner i blocket. A31 står kvar som
+# EP-ensam. A32 stod här som (0/0) till och med Task 9; Task 10 lade till
+# uppgiften och gav den två `aktiv`-rader längst ner i blocket.
 A01 | en | M1 chip or later | aktiv
 A02 | en | iPhone 15 Pro | aktiv
 A03 | en | iPad Pro or iPad Air from 2021 | borttaget
@@ -976,4 +988,108 @@ A13 | en | October 2026 | aktiv
 # fråga om Writing Tools delas), A07 (notissammanfattningar är fortfarande
 # en legitim on-device-rad; Mail-kortet påstår inget om var det körs) eller
 # A20–A22 (ingen av dem nämner en inställningsväg i quick-starten).
+
+# Helgranskningens fixvåg, 2026-10-14 — sex Important och fem Minor
+#
+# A30 FÅR SIN FÖRSTA `aktiv`-RAD. Task 7 lämnade posten utan vaktrad därför
+# att vägen bara stod på EW (`saknas_på_en_yta` från första sekunden). Det
+# gäller inte längre: EP:s FAQ-svar "Can I turn off specific features while
+# keeping Writing Tools?" bar fortfarande APRILVÄGEN, ordvänd
+# (`ChatGPT Extension has its own setting under Siri & Apple Intelligence`)
+# — Task 10 skrev om de två andra inställningsvägarna i samma mening och
+# lät den tredje stå. Den är nu rättad till samma väg som EP:s egen sida 21
+# och EW redan bär (`The ChatGPT path has its own setting under Settings →
+# Siri → ChatGPT Extension.`), och strängen står därmed ordagrant på BÅDA
+# ytorna. MÄTT efter rättelsen med `surfacecheck.read_surfaces` +
+# `normalise`: `Settings → Siri → ChatGPT Extension` = EW 1 / EP 1, och
+# aprilvägen `Siri & Apple Intelligence → ChatGPT Extension` = 0/0. Raden
+# nedan är därför grön av rätt skäl, och den är det STARKA valet: ett
+# ankare på bara `Settings → Siri → ChatGPT` hade varit 2/2 redan före
+# rättelsen (A18:s två passager bär den), alltså grönt även med aprilvägen
+# kvar i FAQ:n — exakt det hål den här raden finns för att stänga.
+A30 | en | Settings → Siri → ChatGPT Extension | aktiv
+#
+# A19 — INGEN NY RAD, men inramningen är lagad. De tre `aktiv`-raderna med
+# Apples två tak står ordagrant kvar (mätt 1/1 var efter ändringen).
+# Fyndet gällde prosan runt dem: sidan 4 skrev att iPaden "pulls down
+# on-device storage", vilket läser som att hela utrymmet laddas NED, och
+# satte Apples tak intill en tidsuppskattning ("thirty to sixty minutes")
+# som var kalibrerad för den gamla 4 GB-siffran. Apples källa talar om
+# DISKUTRYMME SOM KRÄVS, inte om nedladdningens storlek, och ingen källa i
+# inventeringen bär en nedladdningstid. Båda ytorna säger nu uttryckligen
+# att "What Apple publishes is the storage the feature requires, not the
+# size of that download", och tidsuppskattningen är BORTTAGEN utan
+# ersättning ("Apple gives no figure for how long the download takes, so
+# plan around free space rather than a clock"). Inget nytt sakvärde att
+# ankra — ett struket obelagt tal, enligt samma princip som A25/A27.
+#
+# UPPSTARTSSTEG 5 — INGEN NY RAD. Steget lovade "Writing Tools, the new
+# Siri, and Mail categorisation are live", vilket är falskt för varje
+# iPhone och iPad i EU (Siri AI är spärrad, A15) och dessutom motsäger
+# guidens egen rättade Mail-hållning (Apples sida knyter aldrig
+# kategoriseringen till Apple Intelligence, A07). Båda ytorna säger nu:
+# "When "Preparing" disappears, Writing Tools is live. Siri AI is not, on
+# an EU iPad — Apple blocks it there. And Mail categorisation is a separate
+# matter: Apple's own documentation never ties it to Apple Intelligence at
+# all. Part 2 takes up both." Ingen ny sakuppgift införs — EU-spärren är
+# A15:s, redan ankrad i Siri-avsnittet, och Mail-ledet RAPPORTERAR vad
+# Apples dokumentation inte säger (A07) i stället för att påstå ett
+# mekaniskt oberoende mellan huvudreglaget och kategoriseringen, vilket
+# ingen källa belägger. Steget pekar till Del 2 i stället för att upprepa
+# förbehållen.
+#
+# A17 — ankaret orört. Sidan 5 sa `Siri itself` om ett uttalande Apple
+# gjort om SIRI AI; ordet valdes av Task 3 före namnbytet och generaliserar
+# nu till den klassiska Siri som är det enda en EU-läsare har. Bytt till
+# `Siri AI` på båda ytorna. A17:s vaktsträng `in collaboration with Google
+# and its Gemini models` står ordagrant kvar (mätt 1/1). Samma mening
+# påstod dessutom inventeringens egen slutledning som faktum ("that
+# partnership runs through the first two tiers below"); den är hedgad
+# ("Apple does not say where that partnership sits, and the most likely
+# reading is …") och är därför inte ett nytt sakpåstående att ankra.
+#
+# EP-ENSAMMA OCH EW-ENSAMMA MINORS — ingen av dem får en vaktrad, av samma
+# skäl som IMY/A31: de står på en yta och en rad som kräver ordagrann
+# träff på båda vore `saknas_på_en_yta` från början.
+#   * EP sidan 17: `remains blocked` → `is blocked`, för att möta sidan
+#     10:s register. Det var det sista hedge-ordet i hela PDF:en.
+#   * EW notissammanfattningarna: `switch it on — there's no default to
+#     rely on here` → `switch it on.` A29:s verdikt är uttryckligen att
+#     INGEN hämtad sida uttalar sig om utgångsläget, och planens
+#     instruktion är att inte påstå det. EP gjorde det redan rätt ("turn
+#     the feature on").
+#   * EW:s Siri-callout: EP:s inledande villkor ("If your school's iPads
+#     are in the EU, …") är tillagt, så rutan inte längre är obetingad.
+#
+# QUICK-STARTERNA (utanför ytkonsistensvakten, se modulens notis ovan) —
+# båda rättade i den här fixvågen, och ingen av ändringarna ger en vaktrad.
+#   * EN (`apple-intelligence-quick-start-en.html`): funktion 1 Writing
+#     Tools och funktion 6 Visual Intelligence saknade sina förbehåll,
+#     fast quick-starten är det FÖRSTA stället en lärare möter alla sex.
+#     Styrkan är satt per post, inte lika: A05 är `står (öppen EU-fråga)`
+#     och kortet säger därför `EU status unconfirmed: Apple's DMA notice
+#     blocks "integrated tools for writing" without saying whether that
+#     means Writing Tools.` — ingen av de två tolkningarna påstås. A06 är
+#     `står (EU-förbehåll saknas)` och kortet säger därför att det
+#     UTVIDGADE lagret är spärrat men inte basen: `Apple's DMA notice
+#     blocks the "expanded" layer in the EU and says nothing about the
+#     basic one — verify locally before building a lesson on it.` Båda är
+#     komprimeringar av guidens egna callouter (EP sidorna 9 och 15,
+#     `Possibly affected by the EU restriction` respektive `The expanded
+#     layer is blocked in the EU`); ingenting är uppfunnet.
+#   * SV (`apple-intelligence-quick-start-sv.html`, avfryst av Johans
+#     beslut, spec §5 amendemang II): `Vissa funktioner är 18+` bar A16:s
+#     falska värde — falskt redan i april 2026 — och är bytt mot Apples
+#     egen gräns: `ChatGPT-vägen kräver att användaren är minst 13 år,
+#     eller den minimiålder som gäller i landet`. Funktion 2 hette
+#     `Siri 2.0`, ett namn Apple aldrig använt (A10), och heter nu
+#     `Siri AI` med A15:s tre sakuppgifter intill: `Spärrad i EU på
+#     iPhone och iPad — Apple anger DMA som skäl, och ger ingen tidplan.`
+#     Ingen tidplan påstås, och inget "kommer senare". Inget annat i filen
+#     är rört. **Vakthålet är dokumenterat i
+#     `scripts/tests/test_guide_delivery.py`, i kommentaren under
+#     `GUIDE_DELIVERY["apple-intelligence"]["forbidden"]`:** förbudslistan
+#     läser bara de två ENGELSKA PDF:erna, så ingen vakt läste den här
+#     filen, och guide-sv:s prosa är fryst med avsikt och bär alltså
+#     fortfarande `Siri 2.0`.
 ```
