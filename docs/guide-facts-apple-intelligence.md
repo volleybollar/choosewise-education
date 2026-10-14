@@ -590,4 +590,56 @@ A07 | en | Mail categorisation and notification summaries are entirely on-device
 # `entirely on-device` finns inte i den här meningen, bara "Nothing
 # leaves the device":
 A07 | en | Mail categorisation, and Notification summaries. Nothing leaves the device. | borttaget
+
+# Runda 2 Task 8 — Del 3: ett nytt avsnitt om EU:s AI-förordning (guiden bar
+# noll om AI Act innan den här uppgiften; sex nya id:n, A33–A38, ett per
+# volatilt värde avsnittet bär). Ingen ny research — avsnittet ärver
+# källbelagd allokering från två systerinventeringar: docs/guide-facts-
+# claude.md P13 (Europeiska kommissionen, digital-strategy.ec.europa.eu/en/
+# policies/regulatory-framework-ai, läst ordagrant 2026-10-08) och
+# docs/guide-facts-gemini.md G25/G26/G27/G48/G51 (G51 i sin tur:
+# artificialintelligenceact.eu, artikelsidorna, hämtade ordagrant
+# 2026-10-13). Alla sex rader mätta ordagrant på BÅDA engelska ytorna
+# 2026-10-14, efter avsnittet skrevs in på EP sida 23 (ny) och EW p3-ai-act.
+A33 | en | 2 August 2026 | aktiv
+A34 | en | 2 December 2027 | aktiv
+A35 | en | Unacceptable risk | aktiv
+A35 | en | Transparency risk | aktiv
+A35 | en | Minimal or no risk | aktiv
+A36 | en | Article 16 | aktiv
+A37 | en | Article 26, which includes: follow the instructions for use, assign human oversight to staff with the competence, training, authority and support to exercise it, retain the logs it controls for at least six months, inform staff and their representatives before putting it to work, and tell the people subject to it that it is in use. | aktiv
+A38 | en | Article 27 adds a fundamental-rights impact assessment before first deployment, and it applies whether the school is publicly run or an independent provider of a public service. | aktiv
+#
+# A33/A34 — korsref P13: kommissionens egen ordalydelse "became applicable on
+# 2 August 2026" och "the rules for high-risk use cases in certain sensitive
+# areas (Annex III) have been extended to 2 December 2027 as a result of …
+# the AI Omnibus". Annex III omfattar uttryckligen utbildning. Samma två
+# datum, redan rättade i Gemini-guiden under G25/G48.
+#
+# A35 — korsref P13 (kommissionens ordalydelse: "Unacceptable risk / High
+# risk / Transparency risk / Minimal or no risk") och G26 (samma tre namn,
+# redan rättade i Gemini-guiden efter att ha stått som `Limited risk`,
+# `Minimal risk` och `Prohibited`). Avsnittet namnger INGEN av de tre
+# felaktiga varianterna. `High risk` står också i löptexten men får ingen
+# egen rad: det är inte ett namn som stått fel i någon syskonguide, och
+# det är inte i briefens lista över riskbenämningar att vakta.
+#
+# A36/A37/A38 — korsref G51 (artificialintelligenceact.eu, artikel 16, 26
+# och 27, hämtade ordagrant 2026-10-13; samma allokering G51:s tre
+# granskningsrundor låste fast för en syskonguide). A37 återanvänder G51:s
+# slutgiltiga formulering av artikel 26-listan ORDAGRANT, inklusive 26.6:s
+# förbehåll ("the logs it controls", inte "the system's logs") och
+# `which includes` i stället för ett kolon som lovar en sluten lista. A38
+# återanvänder G51:s rättade artikel 27-formulering och skriver uttryckligen
+# INTE `a body governed by public law` — det var sant för en kommunal skola
+# och falskt för en friskola, G51:s andra granskningsrundas fynd. Delad
+# ordalydelse mellan syskonguider för juridiskt precisa satser är avsiktlig
+# praxis, inte en miss — se G48:s egen not om samma mönster.
+#
+# Avsnittet påstår INGENSTANS att Apple Intelligence självt är ett
+# högrisksystem enligt bilaga III: det beror på hur systemet används, inte
+# på produkten, och ingen av de tre inventeringarna avgör frågan — se
+# avsnittets sista stycke på båda ytorna. Förhandsplikterna (art. 9–15, 17,
+# 43, 48, 49.1 via art. 16(a)) läggs inte på skolan i avsnittet; de är
+# leverantörens (A36).
 ```
