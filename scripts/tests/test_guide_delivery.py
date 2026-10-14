@@ -150,6 +150,14 @@ GUIDE_DELIVERY = {
             "support.apple.com/apple-intelligence",
             "iPad Air from 2021",
             "[PAGE_COUNT]",
+            # `skolchef`/`rektor`: Del 3:s inledning bar de två svenska
+            # titlarna oglosade mitt i en engelsk mening — enda förekomsten i
+            # dokumentet. Ägarens redaktionella pass 2026-10-14 strök dem för
+            # `school administrator`/`principal`, eftersom rundan
+            # internationaliserat guiden i övrigt. Raderna gör återinföringen
+            # mekaniskt omöjlig att leverera.
+            "skolchef",
+            "rektor",
         ),
         # DE SVENSKA FILERNA LÄSES INTE AV FÖRBUDSLISTAN. `pdfs` ovan är de
         # TVÅ ENGELSKA PDF:erna, och förbudsvakten läser bara dem. Varje

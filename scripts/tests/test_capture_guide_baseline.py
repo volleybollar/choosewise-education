@@ -23,18 +23,15 @@ _SPEC = importlib.util.spec_from_file_location(
 # omfångas. Töms och fylls om i varje ny runda — aldrig radvis tillägg,
 # för en lista som bara växer slutar vakta något.
 RECAPTURED_THIS_ROUND = [
-    # Runda 2 Task 1, 2026-10-14: den svenska quick-starten renderades om när
-    # dess två pekare till en sida som aldrig publiceras togs bort (Johans
-    # beslut, spec §5 amendemang II). Guide-PDF:erna och den engelska
-    # quick-starten rördes INTE i den här uppgiften.
-    "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-sv.pdf",
-    # Runda 2 Task 13, 2026-10-14: omrenderingen. Guiden fick en sida till
-    # (AI Act-avsnittet) och quick-startens avslutning fick sitt sidantal
-    # ifyllt — båda engelska PDF:er omfångade med --only. De svenska
-    # guide-/quick-start-PDF:erna återställdes till merge-basen och rördes
-    # alltså inte.
+    # Ägarens redaktionella pass 2026-10-14 (punkt A i underlaget): sju
+    # `worth`-omskrivningar, artikel 26-listan delad i fem meningar, de två
+    # oglosade svenska titlarna strukna, artikel 4-dubbleringen gjord till en
+    # korsreferens och FAQ:ns slutmening omskriven. Bara den ENGELSKA
+    # guide-PDF:en renderades om — sidantalet står kvar på 26, texten ändrad
+    # på nio sidor (3, 6, 16, 17, 18, 22, 23, 24, 25), alla nio spårbara till
+    # en godkänd punkt. Den engelska quick-starten och båda svenska PDF:erna
+    # rördes INTE och är byte-identiska med bascommiten.
     "_unpublished/assets/pdfs/guides/apple-intelligence-guide-en.pdf",
-    "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-en.pdf",
 ]
 
 
