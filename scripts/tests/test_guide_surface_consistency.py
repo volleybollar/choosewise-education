@@ -141,7 +141,7 @@ def test_every_guide_surface_file_exists(guide):
 
 # Guider vars fyra ytor ligger under _unpublished/, som Pages inte
 # serverar. Claude är publicerad; de andra tre tas i sina egna rundor.
-UNPUBLISHED_GUIDES = ("copilot", "gemini")
+UNPUBLISHED_GUIDES = ("copilot", "gemini", "apple-intelligence")
 
 
 @pytest.mark.parametrize("guide", UNPUBLISHED_GUIDES)
@@ -196,17 +196,13 @@ def test_every_unpublished_guide_is_in_the_surface_map():
 # flyttas den HÄRIFRÅN och in i GUIDE_SURFACES. Då krymper listan. Är den
 # tom ska både listan och dess två vakter strykas — de vaktar ingenting då.
 UNMAPPED_GUIDE_SURFACES = {
-    "_unpublished/guides/apple-intelligence/index.html":
-        "ingen påståendeinventering ännu (docs/guide-facts-apple-intelligence.md "
-        "finns inte) — utan den kan ingen vaktrad peka på ytan, och en post i "
-        "ytkartan utan inventering är en tyst vakt som "
-        "test_every_guide_has_an_inventory_file redan förbjuder. "
-        "Apple-rundan kartlägger den.",
     "_unpublished/guides/ai-for-students/index.html":
         "ingen påståendeinventering ännu (docs/guide-facts-ai-for-students.md "
-        "finns inte), samma skäl som apple-intelligence. Kartläggs i sin egen "
-        "runda. Ytan bär dessutom kvar Crestioras typsnitt och står därför "
-        "utanför test_fonts.GUIDE_WEB_SURFACES också.",
+        "finns inte) — utan den kan ingen vaktrad peka på ytan, och en post i "
+        "ytkartan utan inventering är en tyst vakt som "
+        "test_every_guide_has_an_inventory_file redan förbjuder. Kartläggs i "
+        "sin egen runda. Ytan bär dessutom kvar Crestioras typsnitt och står "
+        "därför utanför test_fonts.GUIDE_WEB_SURFACES också.",
 }
 
 
