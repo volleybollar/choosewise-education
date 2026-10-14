@@ -122,11 +122,22 @@ Förekomstkolumnerna är mätta 2026-10-14 mot vaktens egen normalisering
 | A30 | `Siri & Apple Intelligence → ChatGPT Extension` — inställningsvägen för ChatGPT-spärren | 1 | **0** | — | support.apple.com ChatGPT-guiden → **200**, nuvarande väg ordagrant: "Go to the Settings app on your iPhone. Tap Siri. Tap ChatGPT, tap Set Up …" och, under Siri AI: "tap Set Up Extensions, tap ChatGPT, then turn on Use Extension"; **arkiverad primärkälla** (Wayback-capture 2026-04-17 av samma sida) gav aprilvägen ordagrant: "Tap Apple Intelligence & Siri. Below Extensions, tap ChatGPT, then tap Set Up." | **föråldrat — och EW-exklusivt, alltså ingen vaktrad.** Guidens väg var rätt i april 2026: den arkiverade kopian bekräftar att menyn då hette `Apple Intelligence & Siri` med `Extensions` under sig. I dag är ingången `Settings → Siri`. Två saker för runda 2: ordet **`Extensions` är Apples eget och har varit det hela tiden** — guidens "ChatGPT Extension" är alltså inte en felstavad gissning utan Apples terminologi, vilket gör leadets Extensions-nyhet mindre ny än den såg ut (se huvudet, lead 3) — och vägen står bara på webbytan, så en rättelse som bara träffar EW lämnar EP utan motsvarande instruktion över huvud taget |
 | A31 | `Every path to ChatGPT shows a confirmation screen before sending` | **0** | 1 | — | samma källa som **A18**: support.apple.com ChatGPT-guiden → **200**, "Turn off Confirm Requests" — läst 2026-10-14; **samma arkiverade aprilbelägg som A18** (Wayback-capture 2026-04-17: "Send requests to ChatGPT without confirming … Turn off Confirm ChatGPT Requests") | **falskt — falskt redan i april 2026, och EP-exklusivt, alltså ingen vaktrad.** Samma fel som **A18**, men i sin absoluta form ("Every path") och bara på printytan, i uppslaget "Where each feature runs" som är tänkt som guidens snabbreferens. Printläsaren får alltså den starkaste och mest felaktiga formuleringen av guidens integritetslöfte, och webbläsaren får den inte. Att rätta **A18** utan att rätta den här raden lämnar felet kvar i PDF:en |
 | A32 | **saknas i guiden:** daglig användningsgräns och kommande betalnivå | 0 | 0 | 0 | support.apple.com/en-us/121115 → **200**, ordagrant 2026-10-14: "Certain Apple Intelligence features that rely on server-side models are subject to daily usage limits, including but not limited to Siri AI, Intelligent Photo Editing Tools, Image Playground, and AFM 3 Cloud models in Shortcuts. Daily limits may vary by feature, request complexity, system demand, system policies, and other factors. **Expanded access to such features will be available for a fee in the future.**" | **föråldrat (genom frånvaro).** Guiden bygger hela sitt säljargument på att Apple Intelligence är gratis och ingår i enheten — "You do not need to sign into anything new" — och nämner ingen gräns och ingen avgift. Apple anger i dag både dagliga gränser på de serverburna funktionerna och en kommande betald nivå. För en skolchef som planerar en utrullning till hundra klassrums-iPads är det en upphandlingsfråga, inte en detalj, och den finns inte i guiden alls. Posten har noll förekomster och därför ingen vaktrad — den är en uppgift runda 2 ska lägga **till**, inte en sträng att bevaka |
+| A33 | **saknades i guiden:** AI Act-avsnittets tillämplighetsdatum, `2 August 2026` | 1 | 1 | — | `korsref P13` (`docs/guide-facts-claude.md`) — kommissionens ordalydelse "entered into force on 1 August 2024 and became applicable on 2 August 2026". Samma datum redan rättat i Gemini-guiden (G25/G48). Ingen ny hämtning | **lagt till.** I Task 8: avsnittet "A short word on the EU AI Act" fanns inte i guiden före den här uppgiften; det här är det första av avsnittets två AI Act-datum |
+| A34 | **saknades i guiden:** Annex III-högriskens startdatum för utbildning, `2 December 2027` | 1 | 2 | — | `korsref P13` — "the rules for high-risk use cases in certain sensitive areas (Annex III) have been extended to 2 December 2027 as a result of … the AI Omnibus". Samma datum i G48 | **lagt till.** I Task 8: Annex III omfattar uttryckligen utbildning (P13, G51 bilaga III punkt 3). EP-förekomsten är 2 därför att avsnittets andra stycke, tillagt i Fixrunda 1, återupprepar datumet ("From 2 December 2027, what a school would carry …") |
+| A35 | **saknades i guiden:** de tre korrekta risknivånamnen `Unacceptable risk` / `Transparency risk` / `Minimal or no risk` | 1/1/1 | 1/1/1 | — | `korsref P13` — "The AI Act defines 4 levels of risk for AI systems: Unacceptable risk / High risk / Transparency risk / Minimal or no risk"; samma tre namn redan rättade i Gemini-guiden (G26) | **lagt till.** I Task 8: avsnittet namnger ingen av de tre föråldrade varianterna (`Limited risk`, `Minimal risk`, `Prohibited`) som stod i Gemini-guiden innan G26 rättade dem. `High risk` står också i löptexten men bär ingen egen rad — det är inte ett namn som stått fel i någon syskonguide |
+| A36 | **saknades i guiden:** `Article 16` — förhandsplikternas hemvist (leverantörens, inte skolans) | 1 | 1 | — | `korsref G51` (`docs/guide-facts-gemini.md`) — artificialintelligenceact.eu, artikel 16, hämtad ordagrant 2026-10-13 | **lagt till.** I Task 8: avsnittet lägger inga av art. 9–15/17/43/48/49.1 på skolan; de nämns bara som "the provider's" |
+| A37 | **saknades i guiden:** artikel 26-listan — driftsättarens plikter (instruktioner, tillsyn, loggar under skolans kontroll, information före driftsättning, underrättelse) | 1 | 1 | — | `korsref G51` — samma källa (artikel 26), hämtad ordagrant 2026-10-13 | **lagt till.** I Task 8, ordagrant G51:s egen tre gånger reviderade formulering: 26.6:s förbehåll ("the logs it controls", inte "the system's logs") och `which includes` i stället för ett kolon som lovar en sluten lista (artikel 26 har sju punkter, avsnittet nämner fem). Minor-fynd i Fixrunda 1 lade till "of the AI Act" vid första omnämnandet, för att skilja från GDPR:s artikel 4(2) i samma Del 3 |
+| A38 | **saknades i guiden:** artikel 27 — konsekvensbedömning före första driftsättning, oavsett kommunal eller fristående skola | 1 | 1 | — | `korsref G51` — samma källa (artikel 27, bilaga III punkt 3) | **lagt till.** I Task 8, och skriver uttryckligen INTE "a body governed by public law" (sant för en kommunal skola, falskt för en friskola) utan "whether the school is publicly run or an independent provider of a public service" — samma fix G51:s andra granskningsrunda låste fast |
+| A39 | **saknades i guiden:** artikel 4 — AI-kunnighetsplikten gäller sedan `2 February 2025`, oavsett risknivå | 1/1 | 1/1 | — | `korsref G27` (`docs/guide-facts-gemini.md`) — vaktrad "The prohibited practices and the AI literacy obligations in Article 4 have applied since 2 February 2025"; samma datum i P13 ("AI literacy obligations entered into application from 2 February 2025") | **lagt till.** I Fixrunda 1, efter granskningens Fynd 2. Avsnittets första utkast nämnde bara en plikt som ännu inte gäller (Annex III, 2 december 2027) och gav därmed en skolledare intrycket att ingenting binder än — artikel 4 är den enda AI Act-plikt som faktiskt gäller i dag, och P13:s egen cell pekade uttryckligen ut den som en uppgift "Task 8 bör väga in" |
 
 ## Utfallsräkningen
 
-**32 poster** — briefens fjorton (A01–A14) plus **18** som den här rundans egen mätning
-lade till (A15–A32). Räknat på varje cells **inledande** token, som är den tabellen ska gå
+**39 poster** — briefens fjorton (A01–A14) plus **18** som den här rundans egen mätning
+lade till (A15–A32), och **7** som Task 8 lade till (A33–A39: Del 3:s nya AI Act-avsnitt
+samt artikel 4-posten dess Fixrunda 1 lade till). De första 32 är en mätning av guiden som
+den stod 2026-10-14, före Task 8; A33–A39 är i stället **tillägg** — guiden bar ingenting
+om AI Act innan Task 8 skrev avsnittet, så de sju posterna har ingen "guiden som den stod"
+att mäta mot. Räknat på varje cells **inledande** token, som är den tabellen ska gå
 att skanna på:
 
 | token | antal | poster |
@@ -135,6 +146,7 @@ att skanna på:
 | `föråldrat` | **9** | A13, A15, A17, A19, A21, A22, A24, A30, A32 — varav **A32 är `föråldrat (genom frånvaro)`**, alltså en uppgift som ska läggas **till**, inte en sträng att rätta |
 | `falskt` | **7** | A03, A10, A16, A18, A20, A23, A31 |
 | `obelagt` | **3** | A25, A27, A29 |
+| `lagt till` | **7** | A33, A34, A35, A36, A37, A38, A39 — Task 8:s AI Act-avsnitt, inget av dem en rättelse av en tidigare fel sträng |
 
 **Kvalifikatorerna i parentes är en del av tokenen och ska läsas med den** — samma grepp som
 systerinventeringens `fel (omfång)` och `obelagt (ytartefakt)`. De finns därför att en
@@ -156,7 +168,8 @@ bär det inte.
 
 ### Poster som bär en andra token längre in i cellen
 
-Åtta av 32 celler bär mer än ett utfall. Det är inte slarv: flera poster bundlar ett
+Åtta av 39 celler bär mer än ett utfall (oförändrat sedan runda 1 — ingen av de sju nya
+`lagt till`-cellerna bär mer än en token). Det är inte slarv: flera poster bundlar ett
 produktnamn med ett påstående om funktionen, och en post som kollapsas till ett omdöme
 ljuger om minst ett av dem. **Tabellen finns för att den som skannar den inledande kolumnen
 ska kunna se vilka celler hen inte får lita på oläst.**
@@ -592,8 +605,8 @@ A07 | en | Mail categorisation and notification summaries are entirely on-device
 A07 | en | Mail categorisation, and Notification summaries. Nothing leaves the device. | borttaget
 
 # Runda 2 Task 8 — Del 3: ett nytt avsnitt om EU:s AI-förordning (guiden bar
-# noll om AI Act innan den här uppgiften; sex nya id:n, A33–A38, ett per
-# volatilt värde avsnittet bär). Ingen ny research — avsnittet ärver
+# noll om AI Act innan den här uppgiften; sex nya id:n, A33–A38 i det första
+# svepet, A39 tillagd i Fixrunda 1 — se den gruppen nedan). Ingen ny research — avsnittet ärver
 # källbelagd allokering från två systerinventeringar: docs/guide-facts-
 # claude.md P13 (Europeiska kommissionen, digital-strategy.ec.europa.eu/en/
 # policies/regulatory-framework-ai, läst ordagrant 2026-10-08) och
@@ -607,7 +620,7 @@ A35 | en | Unacceptable risk | aktiv
 A35 | en | Transparency risk | aktiv
 A35 | en | Minimal or no risk | aktiv
 A36 | en | Article 16 | aktiv
-A37 | en | Article 26, which includes: follow the instructions for use, assign human oversight to staff with the competence, training, authority and support to exercise it, retain the logs it controls for at least six months, inform staff and their representatives before putting it to work, and tell the people subject to it that it is in use. | aktiv
+A37 | en | Article 26 of the AI Act, which includes: follow the instructions for use, assign human oversight to staff with the competence, training, authority and support to exercise it, retain the logs it controls for at least six months, inform staff and their representatives before putting it to work, and tell the people subject to it that it is in use. | aktiv
 A38 | en | Article 27 adds a fundamental-rights impact assessment before first deployment, and it applies whether the school is publicly run or an independent provider of a public service. | aktiv
 #
 # A33/A34 — korsref P13: kommissionens egen ordalydelse "became applicable on
@@ -642,4 +655,66 @@ A38 | en | Article 27 adds a fundamental-rights impact assessment before first d
 # avsnittets sista stycke på båda ytorna. Förhandsplikterna (art. 9–15, 17,
 # 43, 48, 49.1 via art. 16(a)) läggs inte på skolan i avsnittet; de är
 # leverantörens (A36).
+
+# Fixrunda 1 på Task 8 — granskningens två Important och tre Minor.
+#
+# FYND 1 (Important): A33–A38 saknade postrader i ## Poster, och
+# Utfallsräkningen sa fortfarande "32 poster". Åtgärdat i tabellen ovan
+# (A33–A39 är nu egna rader, med `korsref P13`/`korsref G51`/`korsref G27` i
+# källkolumnen) och i Utfallsräkningens rubrik och tokentabell (ny `lagt
+# till`-rad, 7 poster). Ingen ändring i vaktblocket krävdes av det fyndet —
+# spårbarheten där var redan korrekt, bara fel ställe.
+#
+# FYND 2 (Important, koordinatorns ruling): artikel 4 saknades — den enda
+# AI Act-plikt som binder en skola redan i dag (AI-kunnighet, sedan
+# 2 februari 2025, oavsett risknivå). En ny mening på varje yta, i samma
+# stycke som "is not due yet"/"isn't due yet", före Annex III-meningen.
+# Ny post A39, korsref G27 (`docs/guide-facts-gemini.md`, vaktrad "The
+# prohibited practices and the AI literacy obligations in Article 4 have
+# applied since 2 February 2025") och P13 (samma datum, kommissionens egen
+# ordalydelse "AI literacy obligations entered into application from
+# 2 February 2025"). Tre guard-rader, mätta ordagrant på BÅDA ytorna:
+A39 | en | 2 February 2025 | aktiv
+A39 | en | Article 4 of the AI Act's AI-literacy | aktiv
+A39 | en | every school that deploys an AI system | aktiv
+#
+# Den sista raden ankrar den risknivåoberoende träffbilden ("regardless of
+# risk tier" / "oavsett risknivå") som koordinatorns ruling krävde — samma
+# fras står ordagrant i båda ytornas artikel 4-mening, trots att meningarna
+# i övrigt är ~40 % olika formulerade.
+#
+# MINOR 3: EP:1138 hade ett tankstreck som aldrig slöt ("… Commission's own
+# examples." i stället för "… examples — the obligations …"), vilket
+# avslutade meningen vid den inskjutna satsen i stället för att återvända
+# till huvudsatsen. EW gjorde det redan rätt. EP lagd i EW:s form — ingen
+# ny vaktrad, det är en interpunktionsfix, inget nytt sakvärde.
+#
+# MINOR 4: "What a school carries, as the deployer, is Article 26" stod i
+# presens, ett stycke efter "is not due yet"/"isn't due yet" — vilket läser
+# som att artikel 26-plikterna redan gäller, trots att Annex III-utlösaren
+# för utbildning inte gör det förrän 2 december 2027. Tillagt på båda
+# ytorna: "From 2 December 2027, what a school would carry, as the
+# deployer, is …" (EP) / "From 2 December 2027, what would fall to a
+# school as the deployer is …" (EW) — samma tre ord koordinatorn efterfrågade,
+# och samma datum som A34 redan ankrar (EP:s förekomst av `2 December 2027`
+# är därför nu 2, se A34:s postrad).
+#
+# MINOR 5: "Article 26" bytt till "Article 26 of the AI Act" vid första (och
+# enda) omnämnandet på båda ytorna, eftersom samma Del 3 använder
+# `Article 4(2)` om GDPR ("What stays on your device"-sidan) och ett naket
+# artikelnummer i guidens enda rättsliga avsnitt annars är tvetydigt. A37:s
+# guard-rad ovan är uppdaterad till den nya, längre strängen i samma
+# commit — ingen gammal rad lämnad kvar att bli `återinfört`-fälld.
+#
+# Samma tvetydighet gäller i princip "Article 4" (GDPR har också en
+# artikel 4), så A39:s nya mening skriver självmant "Article 4 of the AI
+# Act" också — inte beordrat av granskningen, men samma princip tillämpad
+# på en mening som skrevs i samma svep. Flaggat i fixrapporten för
+# kontrollören att ogilla om den anses gå utanför fyndets omfång.
+#
+# EJ åtgärdat, enligt uttrycklig instruktion: artikel 26-meningens
+# skannbarhet (granskarens Minor 6 — vaktraden kräver G51:s ordalydelse
+# ordagrant, en omskrivning skulle kräva en ny vaktrad och en ny
+# överenskommelse om vad som ankras) och "six pages"-talet (Minor 7 — ägs
+# av Task 13:s omrendering).
 ```
