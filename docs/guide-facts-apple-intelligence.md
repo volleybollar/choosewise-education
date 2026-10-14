@@ -521,16 +521,33 @@ A16 | en | requires the user to be at least 13 | aktiv
 # samma sätt: "always"/"nothing is forwarded without" läser bekräftelsen
 # som arkitektoniskt garanterad. Apples egen `Confirm Requests`-inställning
 # (Settings → Siri → ChatGPT) stänger av just den skärmen, och fanns redan
-# i april 2026 (se A18:s källcell). Två nya ankare, ett per stycke:
+# i april 2026 (se A18:s källcell).
 #
-# 1) "Where it runs · Siri AI"-rutan (EP sida 11, EW samma kort):
-A18 | en | shows a confirmation screen before sending by default | aktiv
+# FIXRUNDA 1 (Critical, granskningen): mitt första försök bytte den
+# obetingade formuleringen mot en annan obetingad formulering — "Apple
+# also documents a setting that turns that confirmation off" — utan
+# källcellens eget förbehåll: "This option isn't available if you're
+# using Siri AI." I just den rutan som uttryckligen handlar om Siri AI
+# (förekomst 1 nedan) var det alltså sakligt fel i precis motsatt
+# riktning av det ursprungliga felet. Felets rot var briefens instruktion
+# ("att inställningen finns, och att den kan stängas av") — en riktig
+# sammanfattning av HÄLFTEN av källan, skriven som om den vore hela. Båda
+# de obetingade raderna som denna fixrunda skrev in är därför flyttade
+# till `borttaget` nedan, och ersatta av EN delad, tvådelad formulering
+# som står ordagrant likadan på BÅDA förekomster och BÅDA ytorna:
+A18 | en | shows a confirmation screen before sending by default | borttaget
+A18 | en | turns this confirmation off | borttaget
+A18 | en | that option isn't available when using Siri AI itself, so for Siri AI specifically the confirmation can't be disabled | aktiv
 #
-# 2) Del 3:s "This is where the on-device promise breaks"-ruta (EP sida 21,
-# EW p3-chatgpt) — guidens mest integritetskritiska stycke. Meningen namnger
-# nu inställningen (`Confirm Requests`) och vägen dit, i stället för att bara
-# påstå att bekräftelsen alltid sker:
-A18 | en | turns this confirmation off | aktiv
+# Förekomst 1 — "Where it runs · Siri AI"-rutan (EP sida 11, EW samma
+# kort): bekräftelsen visas, kan stängas av för klassisk Siri, men INTE
+# under Siri AI — den exakta funktion rutan beskriver.
+#
+# Förekomst 2 — Del 3:s "This is where the on-device promise breaks"-ruta
+# (EP sida 21, EW p3-chatgpt), guidens mest integritetskritiska stycke:
+# samma tvådelade sanning, plus den praktiska slutsatsen att vilket läge
+# som gäller beror på vilken Siri enheten kör — en skola ska inte anta
+# det strängare av de två utan att kontrollera.
 #
 # A30 och A31 är rättade i samma commit, men får AVSIKTLIGT ingen ny
 # aktiv-rad — de är enytiga (A30 bara EW, A31 bara EP), och en vaktrad som
@@ -542,8 +559,16 @@ A18 | en | turns this confirmation off | aktiv
 # mening (`Every path to ChatGPT shows a confirmation screen before
 # sending`, EP:1012, "At a glance"-rutan) är omskriven till samma sakläge
 # som A18: tappet är alltid ett uttryckligt tryck, men skärmen som följer
-# är en standard, inte en garanti. Ingen av raderna flyttas till
-# `borttaget` heller — det fanns aldrig en vaktrad för dem att flytta.
+# är en standard, inte en garanti.
+#
+# FIXRUNDA 1 (Important, samma granskning): A31:s första omskrivning bar
+# samma brist som A18:s Critical-fynd — obetingad ("Apple documents a
+# setting that turns it off"), utan Siri AI-förbehållet. Eftersom A31
+# sitter i EP:s "At a glance"-ruta och alltså är en global sanning om hela
+# guiden (inte bara om Del 3:s uttalade EU-läsare), är den nu rättad till
+# samma tvådelade sanning som A18, i egen, kortare ordalydelse (ingen delad
+# vaktrad, eftersom A31 inte har en). Ingen av A30/A31-raderna flyttas till
+# `borttaget` — det fanns aldrig en vaktrad för dem att flytta.
 #
 # A07: de två bredare ankarna kontrollern efterfrågade, ett per
 # ordalydelse. Båda fångar BARA Mail-kategoriseringens på-enheten-påstående
