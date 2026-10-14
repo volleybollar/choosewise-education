@@ -379,7 +379,14 @@ A17 | en | the one external provider Apple documents as something a user actuall
 # `SIRI 2.0 CONT.` — briefens mätning (7/3) var en förekomst för låg på
 # EW eftersom den bara räknade synlig text; grep -c räknar matchande
 # RADER och fångar kommentaren). Alla elva är bytta till `Siri AI`,
-# kommentarer inkluderat, så `finns_ingenstans` gäller ordagrant.
+# kommentarer inkluderat, så `finns_ingenstans` gäller ordagrant —
+# **för de två vaktade ytorna.** `_unpublished/exports/apple-
+# intelligence-quick-start-en.html:112` bär fortfarande `Siri 2.0` och
+# ligger UTANFÖR `surfacecheck.GUIDE_SURFACES` (quick-starten vaktas
+# inte av ytkonsistensvakten, bara av `test_guide_delivery.py`).
+# A10:s postrad (`docs/guide-facts-apple-intelligence.md` rad 102)
+# räknar den förekomsten i sin faktakolumn; vaktraden gör det inte.
+# Quick-starten rörs inte av Task 5 — en senare uppgift äger den.
 A10 | en | Siri AI | aktiv
 #
 # A15: den gamla meningen (`Siri 2.0's fully localised voice responses
