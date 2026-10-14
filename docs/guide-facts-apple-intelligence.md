@@ -262,10 +262,10 @@ A22 | en | three visual styles | aktiv
 A22 | en | Animation, Illustration, and Sketch | aktiv
 A23 | en | support.apple.com/apple-intelligence | borttaget
 A24 | en | the full iPhone 16 and 17 lines are supported | borttaget
-A25 | en | Apple operates PCC regions in Europe | aktiv
+A25 | en | Apple operates PCC regions in Europe | borttaget
 A26 | en | The full technical whitepaper sits at security.apple.com | aktiv
 A26 | en | a technical whitepaper on the PCC architecture | aktiv
-A27 | en | Apple ships Apple Intelligence features monthly | aktiv
+A27 | en | Apple ships Apple Intelligence features monthly | borttaget
 A28 | en | stateless computation | aktiv
 A29 | en | Summaries are on by default | aktiv
 # A19 och A26 har tre respektive två rader därför att samma påstående
@@ -297,4 +297,23 @@ A24 | en | iPhone 16 models or later, iPhone 15 Pro, iPhone 15 Pro Max, and iPho
 A19 | en | up to 8 GB on most supported iPads, or up to 14 GB on iPad models with M4 or later and at least 12 GB of unified memory | aktiv
 A19 | en | up to 8 GB of free disk space on most supported Macs, or up to 14 GB on Mac models with M3 or later and at least 12 GB of unified memory | aktiv
 A19 | en | up to 8 GB on most models, or up to 14 GB on iPhone 17 Pro, iPhone 17 Pro Max, and iPhone Air | aktiv
+
+# Runda 2 Task 3 — de tre bearbetningsvägarna
+# A17: modellen står kvar som tre vägar (strängen nedan är orörd och
+# fortsatt `aktiv` — den beskriver var en förfrågan BEHANDLAS, och den
+# är fortfarande sann). Det som var `föråldrat` var den underförstådda
+# bilden att den tredje vägen är den enda externa parten. Två nya
+# meningar, mätta ordagrant på BÅDA engelska ytorna, fäller den bilden:
+# Google/Gemini sitter inne i steg 1–2 (Apples egen formulering), och
+# ChatGPT namnges uttryckligen som den enda leverantören man VÄLJER.
+# (Den ursprungliga raden för "three distinct places …" står redan
+# ovan i vaktblockets första del, oförändrad — den dupliceras inte här.)
+A17 | en | in collaboration with Google and its Gemini models | aktiv
+A17 | en | the one external provider Apple documents as something a user actually chooses to turn on | aktiv
+
+# A25 och A27: obelagda påståenden strukna, utan ersättning. Ingen ny
+# `aktiv`-rad för någon av dem — påståendena ska bara vara borta, inte
+# bytta mot något annat. Raderna själva (ursprungligen `aktiv`, bland
+# planens fjorton ovan) är flyttade till `borttaget` i samma rad de
+# redan stod på, enligt samma mönster som A03/A19/A23/A24 i Task 2.
 ```
