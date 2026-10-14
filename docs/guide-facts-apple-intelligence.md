@@ -435,6 +435,46 @@ A22 | en | Illustration | aktiv
 A07 | en | no email content is sent to Apple servers | borttaget
 A07 | en | cleanest privacy profile in the entire Apple Intelligence suite | borttaget
 #
+# FIXRUNDA 1 — GRANSKNINGSFYND 2 (Important), koordinatorns ruling: INTE ett
+# bredare ankare här (det skulle göra sviten röd över en uppgiftsgräns — Del
+# 3 ägs av nästa uppgift, och ett sådant ankare gör varje mellanliggande
+# "noll failed" meningslöst). I stället en synlig notis, mätt 2026-10-14:
+#
+# Frasen `Mail categorisation and notification summaries are entirely
+# on-device` står ORDAGRANT en gång per yta: EP sida 19 (Part 3, stycket
+# under "What stays on your device") och EW samma avsnitt (id `p3-stays`).
+# Det är **1/1**, inte koordinatorns preliminära "2 i EP, 1 i EW" — verifierat
+# med `grep -c` mot den exakta strängen på båda ytorna och rapporterat så i
+# Task 6:s fixrapport, Fixrunda 1.
+#
+# SAMMA SAKUPPGIFT står en gång till, i ANNAN ordalydelse, på BÅDA ytorna:
+# Part 1:s "1. On-device processing"-stycke (EP sida 5, EW samma avsnitt, id
+# `p1-pcc`) räknar "Mail categorisation" bland det som "run[s] entirely on
+# the iPad, Mac, or iPhone … Nothing leaves the device." Den meningen ligger
+# i Task 3:s sidspann (5–8) men var INTE bland Task 3:s nio poster (A04,
+# A17, A25, A26, A27, A28) — den är orörd sedan runda 2 startade och bär nu
+# samma motsägelse mot Del 2:s "unconfirmed"-hållning som sidan 19.
+#
+# Ingen av de två platserna fångas av A07:s `borttaget`-rader ovan — de
+# ankrar bara de två STRUKNA superlativfraserna ur Del 2:s egen ruta, inte
+# dessa två kvarstående påståenden. Vakten är alltså grön utan att vaka
+# motsägelsen, känt och avsiktligt enligt ruling ovan.
+#
+# NÄSTA UPPGIFT (Del 3) ÄGER BÅDA PLATSERNA: rätta sida 19 OCH Part 1:s
+# "On-device processing"-stycke (som ligger geografiskt i Task 3:s sidspann
+# men aldrig rättades av Task 3, eftersom A07 inte var dess post) i samma
+# svep, och sätt ett bredare `aktiv`→`borttaget`-ankare som täcker BÅDA
+# ordalydelserna. En enda sammansatt sträng räcker sannolikt inte: `Mail
+# categorisation … entirely on-device` (granskarens förslag) fångar sida
+# 19:s fras men INTE Part 1:s ("Mail categorisation, and Notification
+# summaries" i en uppräkning, följt långt senare av den separata meningen
+# "Nothing leaves the device.") — troligen krävs TVÅ ankare, ett per
+# ordalydelse, snarare än ett som läser över menings- och styckegränsen.
+# Oavsett lösning: ankaret/ankarna får INTE träffa den legitima
+# notis-rutan (`index.html:289`, "Entirely on-device — no notification
+# content leaves the iPad") — annan ordalydelse, utan `Mail categorisation`,
+# och ska stå kvar oförändrad.
+#
 # A05 och A06 är inga förbudsvakter i vanlig mening — de ankrar ny text
 # som INTE fanns i guiden förut (cellerna säger uttryckligen att
 # posterna i dag bär inget EU-förbehåll alls). Ankaret är i båda fallen
