@@ -149,7 +149,7 @@
     <aside class="sidenote">
       <p class="sidenote__title">Worth knowing (but outside this guide's scope)</p>
       <p>Three features get a lot of attention in Apple's marketing but sit outside the pedagogical core of this guide. Mentioning them briefly so you can answer the inevitable staffroom questions.</p>
-      <p><strong>Image Playground</strong> generates images from a text description in three visual styles — Animation, Illustration, and Sketch. It runs through Private Cloud Compute. Classroom relevance is narrow; students will often explore it on their own, and its usefulness for teacher-prepared materials is modest compared to dedicated image tools.</p>
+      <p><strong>Image Playground</strong> generates images from a text description. The original three named styles are gone from Apple's own description: the current style picker shows examples such as Any Style and Illustration, lets you describe a style in free text, and adds ChatGPT as a style choice of its own inside the app. Apple's native styles still go through Private Cloud Compute. Classroom relevance is narrow — students mostly explore it on their own, and it's a weaker fit for teacher-prepared materials than dedicated image tools.</p>
       <p><strong>Genmoji</strong> creates custom emoji from a short text description, also via PCC. Low day-to-day classroom utility, though some teachers use them as personalised stickers in feedback.</p>
       <p><strong>Clean Up</strong> in the Photos app removes unwanted objects from a photograph. This is genuinely practical for tidying classroom photos before sharing them with parents, and most Clean Up operations run on-device.</p>
       <p>The privacy profile of all three is the same as the analysis above: on-device where possible, PCC where the task demands more capacity, never ChatGPT unless the user explicitly invokes it.</p>
@@ -177,6 +177,11 @@
     <article class="feature-card" id="p2-writing-tools">
       <h3>1. Writing Tools</h3>
       <p class="feature-card__what">Writing Tools is the built-in rewrite, proofread, and summarise surface that appears wherever you can edit text on iPadOS — Mail, Notes, Pages, Safari text boxes, the Classroom app's messaging panel. It is not a separate app to open; it is a menu option that appears when you select text.</p>
+
+      <div class="processing-callout">
+        <p class="processing-callout__title">EU status unclear</p>
+        <p>Among the capabilities Apple's EU Digital Markets Act notice blocks for Siri AI is "integrated tools for writing" — and Apple hasn't published a timeline for any of it. What isn't clear from Apple's wording is whether that phrase refers to Writing Tools itself or to Siri AI's own writing integration, so don't assume Writing Tools is unaffected on an EU iPad until Apple says which.</p>
+      </div>
 
       <h4>Classroom examples</h4>
       <ul class="example-list">
@@ -254,14 +259,14 @@
 
       <div class="processing-callout">
         <p class="processing-callout__title">Where it runs</p>
-        <p>Entirely on-device. Categorisation uses the on-device model on your iPad; no email content is sent to Apple servers or to anyone else. This is one of the features with the cleanest privacy profile in the entire Apple Intelligence suite.</p>
+        <p>Apple doesn't document where this categorisation actually runs, and its support page never ties the feature to Apple Intelligence at all — the only caveat Apple states is that it "is not available in all countries or regions." Treat the processing location as unconfirmed rather than assuming it never leaves the device.</p>
       </div>
 
       <h4>How to start</h4>
       <ol class="steps">
         <li>Open the <strong>Mail</strong> app on your iPad.</li>
         <li>Tap the category name at the top of the inbox (it defaults to "Primary") to browse other categories.</li>
-        <li>To turn categorisation off entirely, go to <strong>Settings → Mail → Categorisation</strong> and switch to the flat-list view.</li>
+        <li>Categorisation isn't a Settings toggle — open an inbox in <strong>Mail</strong>, tap the icon at the top of the screen, and choose <strong>List View</strong> to turn it off entirely.</li>
       </ol>
     </article>
 
@@ -281,13 +286,13 @@
 
       <div class="processing-callout">
         <p class="processing-callout__title">Where it runs</p>
-        <p>Entirely on-device. No notification content is processed off the iPad. As with Mail categorisation, this is a feature where the privacy picture is straightforward.</p>
+        <p>Entirely on-device — no notification content leaves the iPad.</p>
       </div>
 
       <h4>How to start</h4>
       <ol class="steps">
-        <li>Summaries are on by default for most app categories once Apple Intelligence is enabled.</li>
-        <li>To fine-tune, open <strong>Settings → Notifications → Summarise Previews</strong>.</li>
+        <li>Open <strong>Settings → Notifications → Summarize Notifications</strong> and switch it on — there's no default to rely on here.</li>
+        <li>Tap <strong>Choose Notifications to Summarize</strong> to choose which apps are included.</li>
         <li>Toggle individual apps on or off depending on whether you want their notifications summarised or kept in their raw form.</li>
       </ol>
 
@@ -328,6 +333,11 @@
     <article class="feature-card" id="p2-visual">
       <h3>6. Visual Intelligence</h3>
       <p class="feature-card__what">Use the iPad camera — or, on newer iPhones, the Camera Control button — to point at real-world text, objects, or documents and get contextual actions. Translate, summarise, look up, identify. It is the feature that turns the camera into a research tool without you having to open a browser.</p>
+
+      <div class="processing-callout">
+        <p class="processing-callout__title">Partly affected by the EU restriction</p>
+        <p>The Digital Markets Act notice Apple published for the EU names "an expanded Visual Intelligence experience" as one of the Siri AI capabilities it blocks, and gives no timeline for restoring it. Whether the basic camera recognition and translation described below still work on an EU iPad once that expanded layer is gone isn't something Apple's text addresses — treat the examples here as unconfirmed for EU devices until you've checked.</p>
+      </div>
 
       <h4>Classroom examples</h4>
       <ul class="example-list">
@@ -475,7 +485,7 @@
     <details class="faq-item">
       <summary>Can I turn off specific features while keeping Writing Tools?</summary>
       <div class="faq-body">
-        <p>Yes. Each feature has its own toggle, which matters for a staff rollout where you want the master switch on but the noisier or less familiar features off. Mail categorisation lives under Settings → Mail → Categorisation. Notification summaries live under Settings → Notifications → Summarise Previews. Writing Tools itself is tied to the master Apple Intelligence toggle, but the specific ChatGPT-adjacent behaviour — "Compose with ChatGPT" and similar — has its own setting under Siri &amp; Apple Intelligence → ChatGPT Extension. A sensible default for a staff rollout: master switch on, Writing Tools on, Mail categorisation off, ChatGPT Extension off.</p>
+        <p>Yes. Each feature has its own toggle, which matters for a staff rollout where you want the master switch on but the noisier or less familiar features off. Mail categorisation isn't a Settings toggle at all — turn it off inside Mail, by tapping the icon at the top of an inbox and choosing List View. Notification summaries live under Settings → Notifications → Summarize Notifications, with per-app control under Choose Notifications to Summarize. Writing Tools itself is tied to the master Apple Intelligence toggle, but the specific ChatGPT-adjacent behaviour — "Compose with ChatGPT" and similar — has its own setting under Siri &amp; Apple Intelligence → ChatGPT Extension. A sensible default for a staff rollout: master switch on, Writing Tools on, Mail categorisation off, ChatGPT Extension off.</p>
       </div>
     </details>
 

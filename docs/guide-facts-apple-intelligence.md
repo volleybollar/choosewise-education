@@ -265,10 +265,10 @@ A18 | en | nothing is forwarded without the user accepting it | aktiv
 A19 | en | roughly 4 GB on-device model | borttaget
 A19 | en | about 4 GB of free disk space | borttaget
 A19 | en | the same 4 GB footprint | borttaget
-A20 | en | Settings → Notifications → Summarise Previews | aktiv
-A21 | en | Settings → Mail → Categorisation | aktiv
-A22 | en | three visual styles | aktiv
-A22 | en | Animation, Illustration, and Sketch | aktiv
+A20 | en | Settings → Notifications → Summarise Previews | borttaget
+A21 | en | Settings → Mail → Categorisation | borttaget
+A22 | en | three visual styles | borttaget
+A22 | en | Animation, Illustration, and Sketch | borttaget
 A23 | en | support.apple.com/apple-intelligence | borttaget
 A24 | en | the full iPhone 16 and 17 lines are supported | borttaget
 A25 | en | Apple operates PCC regions in Europe | borttaget
@@ -276,7 +276,7 @@ A26 | en | The full technical whitepaper sits at security.apple.com | aktiv
 A26 | en | a technical whitepaper on the PCC architecture | aktiv
 A27 | en | Apple ships Apple Intelligence features monthly | borttaget
 A28 | en | stateless computation | aktiv
-A29 | en | Summaries are on by default | aktiv
+A29 | en | Summaries are on by default | borttaget
 # A19 och A26 har tre respektive två rader därför att samma påstående
 # står i flera formuleringar per yta. En rättelse som bara träffar den
 # första lämnar de andra kvar, och ingenting blir rött — det är precis
@@ -407,4 +407,62 @@ A10 | en | Siri AI | aktiv
 # samtliga fyra passager; ingen av dem skriver att funktionen "kommer
 # senare" eller antyder en tidplan.
 A15 | en | the EU's Digital Markets Act | aktiv
+
+# Runda 2 Task 6 — de fem övriga funktionerna
+# A20, A21, A22 och A29: de fyra raderna ovan (bland planens "utöver
+# fjorton") är flyttade till `borttaget` i samma rad de redan stod på,
+# enligt samma mönster som A03/A19/A23/A24/A25/A27 tidigare. A29 får
+# ingen ersättande `aktiv`-rad alls — kapitlet pekar nu bara till var
+# inställningen bor, utan att påstå ett utgångsläge, så det finns inget
+# nytt sakpåstående att ankra. A20, A21 och A22 får ersättande
+# `aktiv`-rader nedan, mätta ordagrant på BÅDA engelska ytorna
+# 2026-10-14 efter rättelsen (Notification summaries-kapitlet och
+# FAQ-svaret för A20; Mail-kapitlet och FAQ-svaret för A21; "Worth
+# knowing"-stycket för A22).
+A20 | en | Settings → Notifications → Summarize Notifications | aktiv
+A20 | en | Choose Notifications to Summarize | aktiv
+A21 | en | List View | aktiv
+A22 | en | Any Style | aktiv
+A22 | en | Illustration | aktiv
+#
+# A07: `Mail categorisation` själv (radet ovan i planens fjorton) är
+# oförändrad och förblir `aktiv` — namnet och de fyra kategorierna
+# står kvar, obestritt. Det obelagda ledet var bara på-enheten-påståendet
+# och den superlativa slutsatsen som hängde på det; båda är strukna ur
+# "Where it runs · Mail categorisation"-rutan på båda ytorna, utan
+# ersättande sakpåstående om VAR kategoriseringen körs — rutan säger nu
+# att det är obekräftat, vilket inte är ett nytt påstående att ankra.
+A07 | en | no email content is sent to Apple servers | borttaget
+A07 | en | cleanest privacy profile in the entire Apple Intelligence suite | borttaget
+#
+# A05 och A06 är inga förbudsvakter i vanlig mening — de ankrar ny text
+# som INTE fanns i guiden förut (cellerna säger uttryckligen att
+# posterna i dag bär inget EU-förbehåll alls). Ankaret är i båda fallen
+# Apples egen citerade fras ur DMA-sidan, vald därför att den är den
+# enda delen av de två nya styckena (Writing Tools respektive Visual
+# Intelligence, ~40 % olika formulerade per yta enligt husstilen) som
+# står ordagrant lika på EP och EW.
+#
+# A05: frågan är och förblir OBESVARAD ur källan — raden ankrar bara
+# att den öppna frågan själv står i guiden, inte ett svar på den. Ingen
+# av tolkningarna (Writing Tools / Siris egen skrivintegration) påstås.
+A05 | en | integrated tools for writing | aktiv
+#
+# A06: Visual Intelligence-kapitlet skiljer nu uttryckligen det
+# grundläggande lagret (oberört) från det "expanded" lagret (spärrat i
+# EU, Apples egen formulering, ingen publicerad tidplan).
+A06 | en | an expanded Visual Intelligence experience | aktiv
+#
+# Kontrollerns tillägg — sidorna 17 och 18 (EP): EP:s "A week in the
+# classroom, composed"-stycke (sidan 17) sålde Siri AI:s
+# lektionsplans-hämtning utan förbehåll, två sidor efter att
+# förbehållet infördes i Siri-avsnittet (sidan 10). Meningen bär nu en
+# kort hänvisning ("not on an EU iPad, where Siri AI remains blocked —
+# see the Siri AI entry earlier in this Part") i stället för hela
+# förbehållet igen. Ingen ny vaktrad: hänvisningen återanvänder inga nya
+# sakuppgifter, bara en pekare till Siri-avsnittets redan ankrade
+# `the EU's Digital Markets Act` (A15). EW har ingen motsvarande
+# sammanfattande sida — dess Siri-exempel (inklusive samma
+# lektionsplans-hämtning) står redan under Siri-avsnittets egen
+# `Not available in the EU`-ruta, så ingen ändring behövdes där.
 ```
