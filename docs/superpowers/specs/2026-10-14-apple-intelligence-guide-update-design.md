@@ -184,9 +184,21 @@ eftersom sidfoten sitter i Python och varje vakt läste HTML. *Allt i en gren* �
 ### 4.2 Kartläggningen — fyra vaktlager, fem filändringar, inga vaktändringar
 
 > **AMENDEMANG 2026-10-14, efter körningen.** Rubrikens sista led, "inga vaktändringar", höll
-> inte. Rundan ändrade tre guide-breda vakter och lade tre nya deklarationer till, båda som
-> kontrollerns rulingar på plandefekter som kartläggningen av Apples guide avslöjade. Specen
-> står i övrigt oförändrad som bindande auktoritet.
+> inte. Rundan ändrade **fyra** redan existerande guide-breda vaktfunktioner och lade **tre**
+> nya deklarationer till, båda som kontrollerns rulingar på plandefekter som kartläggningen av
+> Apples guide avslöjade. Specen står i övrigt oförändrad som bindande auktoritet.
+>
+> De fyra ändrade vaktfunktionerna, uppräknade så att talet går att kontrollera utan att läsa
+> commit-diffar:
+>
+> 1. `test_every_guides_guard_block_is_not_empty` (c6f41f3)
+> 2. `test_the_real_forbidden_list_would_catch_a_reintroduction` (c6f41f3)
+> 3. `test_every_quick_starts_page_count_claim_matches_its_rendered_main_guide` (ae35fef, mönstret skärpt)
+> 4. `test_the_swedish_gemini_pdfs_are_untouched_since_the_merge_base` → omdöpt och generaliserad
+>    från Gemini-enbart till alla guider som `test_the_untouched_pdfs_are_byte_identical_to_the_merge_base`
+>    (fixrundan dec0377..a14286f)
+>
+> Talet fyra är omräknat i en granskning av de faktiska commit-diffarna, inte bara påstått.
 >
 > | § 4.2 säger | levererat | beslut |
 > |---|---|---|
