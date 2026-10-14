@@ -258,10 +258,10 @@ A14 | en | Data Protection Impact Assessment | aktiv
 # `Johan Lindström, April 2026` EP:1/EW:0). Därför är ankaret den nakna
 # strängen `April 2026` (3/3) och inte någon av de två långa.
 A15 | en | Siri 2.0's fully localised voice responses | borttaget
-A16 | en | requires the user to be 18 or over | aktiv
+A16 | en | requires the user to be 18 or over | borttaget
 A17 | en | three distinct places your request can be processed | aktiv
-A18 | en | always shows a confirmation screen before sending | aktiv
-A18 | en | nothing is forwarded without the user accepting it | aktiv
+A18 | en | always shows a confirmation screen before sending | borttaget
+A18 | en | nothing is forwarded without the user accepting it | borttaget
 A19 | en | roughly 4 GB on-device model | borttaget
 A19 | en | about 4 GB of free disk space | borttaget
 A19 | en | the same 4 GB footprint | borttaget
@@ -505,4 +505,64 @@ A06 | en | an expanded Visual Intelligence experience | aktiv
 # sammanfattande sida — dess Siri-exempel (inklusive samma
 # lektionsplans-hämtning) står redan under Siri-avsnittets egen
 # `Not available in the EU`-ruta, så ingen ändring behövdes där.
+
+# Runda 2 Task 7 — ChatGPT-vägen
+# A16 och A18: de tre raderna ovan (bland planens fjorton/utöver-fjorton)
+# är flyttade till `borttaget` i samma rad de redan stod på, enligt samma
+# mönster som tidigare uppgifter. Ersättande `aktiv`-rader nedan, mätta
+# ordagrant på BÅDA engelska ytorna 2026-10-14 efter rättelsen.
+#
+# A16: `18 or over` är bytt mot Apples egen ålder (`at least 13 years
+# old or the minimum age required in your country`). Samma mening,
+# ordagrant likadan, på EP (sida 4, Setup) och EW (avsnitt p1-setup).
+A16 | en | requires the user to be at least 13 | aktiv
+#
+# A18 hade två skilda förekomster, en per stycke, och båda var falska på
+# samma sätt: "always"/"nothing is forwarded without" läser bekräftelsen
+# som arkitektoniskt garanterad. Apples egen `Confirm Requests`-inställning
+# (Settings → Siri → ChatGPT) stänger av just den skärmen, och fanns redan
+# i april 2026 (se A18:s källcell). Två nya ankare, ett per stycke:
+#
+# 1) "Where it runs · Siri AI"-rutan (EP sida 11, EW samma kort):
+A18 | en | shows a confirmation screen before sending by default | aktiv
+#
+# 2) Del 3:s "This is where the on-device promise breaks"-ruta (EP sida 21,
+# EW p3-chatgpt) — guidens mest integritetskritiska stycke. Meningen namnger
+# nu inställningen (`Confirm Requests`) och vägen dit, i stället för att bara
+# påstå att bekräftelsen alltid sker:
+A18 | en | turns this confirmation off | aktiv
+#
+# A30 och A31 är rättade i samma commit, men får AVSIKTLIGT ingen ny
+# aktiv-rad — de är enytiga (A30 bara EW, A31 bara EP), och en vaktrad som
+# kräver ordagrann träff på BÅDA ytorna vore `saknas_på_en_yta` från första
+# sekunden, exakt det Ytdivergenser-avsnittet ovan redan varnar för (samma
+# skäl som IMY). A30:s gamla sträng (`Siri &amp; Apple Intelligence →
+# ChatGPT Extension`, EW:488) är bytt mot `Settings → Siri → ChatGPT
+# Extension` — dagens väg, inte den som gällde i april 2026. A31:s gamla
+# mening (`Every path to ChatGPT shows a confirmation screen before
+# sending`, EP:1012, "At a glance"-rutan) är omskriven till samma sakläge
+# som A18: tappet är alltid ett uttryckligt tryck, men skärmen som följer
+# är en standard, inte en garanti. Ingen av raderna flyttas till
+# `borttaget` heller — det fanns aldrig en vaktrad för dem att flytta.
+#
+# A07: de två bredare ankarna kontrollern efterfrågade, ett per
+# ordalydelse. Båda fångar BARA Mail-kategoriseringens på-enheten-påstående
+# (den DPIA-bärande motsägelsen mot Del 2:s "unconfirmed"-hållning), inte
+# den legitima notis-rutan om notissammanfattningar (`index.html:289`,
+# "Entirely on-device — no notification content leaves the iPad" — ingen
+# `Mail categorisation` i den strängen) och inte Del 2:s redan hedgade
+# Mail-mening (`apple-intelligence-print-a4-en.html:863`, "Don't assume
+# this one is entirely on-device; Apple hasn't confirmed it either way" —
+# ingen av de två nya ankarna står i den meningen). Provade mot båda före
+# commit, se rapporten.
+#
+# Ankare 1 — Del 3:s "What stays on your device" (EP sida 19, EW p3-stays),
+# ordagrant likadan på båda ytorna innan rättelsen:
+A07 | en | Mail categorisation and notification summaries are entirely on-device | borttaget
+#
+# Ankare 2 — Del 1:s "1. On-device processing"-stycke (EP sida 5, EW
+# p1-pcc), en annan ordalydelse än ankare 1 och därför en egen rad —
+# `entirely on-device` finns inte i den här meningen, bara "Nothing
+# leaves the device":
+A07 | en | Mail categorisation, and Notification summaries. Nothing leaves the device. | borttaget
 ```

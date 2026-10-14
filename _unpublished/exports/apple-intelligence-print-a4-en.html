@@ -642,7 +642,7 @@
 
   <p>On Mac, the path is the same under <strong>System Settings <span style="font-weight: 400;">→</span> Apple Intelligence &amp; Siri</strong>, and you need <strong>up to 8 GB</strong> of free disk space on most supported Macs, or <strong>up to 14 GB</strong> on Mac models with M3 or later and at least 12 GB of unified memory. On iPhone, the path is identical to iPad: <strong>up to 8 GB</strong> on most models, or <strong>up to 14 GB</strong> on iPhone 17 Pro, iPhone 17 Pro Max, and iPhone Air. You do not need to sign into anything new: Apple Intelligence runs under the Apple Account you are already using on the device.</p>
 
-  <p>One honest caveat before you proceed. The feature appears in Settings on any compatible device, but <strong>some sub-features are gated by region or by age</strong> — ChatGPT integration, for example, requires the user to be 18 or over and sits behind a separate opt-in. The guide returns to these limits in Part 3, where they matter for school policy.</p>
+  <p>One honest caveat before you proceed. The feature appears in Settings on any compatible device, but <strong>some sub-features are gated by region or by age</strong> — ChatGPT integration, for example, requires the user to be at least 13 (or the minimum age set by their own country) and sits behind a separate opt-in. The guide returns to these limits in Part 3, where they matter for school policy.</p>
 
   <div class="processing-callout">
     <p class="processing-callout__title">What depends on where you teach</p>
@@ -661,7 +661,7 @@
     <p class="explainer-box__title">The distinction that matters</p>
     <p>Apple talks about Apple Intelligence as an "on-device" product, and for most of what you will do in a classroom that description is accurate. But not for all of it. There are three distinct places your request can be processed, and knowing which one is in play for a given task is the difference between an informed user and one who is trusting a slogan. One clarification before the three: Apple has said Siri itself is built "in collaboration with Google and its Gemini models" — that partnership runs through the first two tiers below, not as a fourth path alongside them.</p>
 
-    <p><strong>1. On-device processing.</strong> The majority of everyday Apple Intelligence operations run entirely on the iPad, Mac, or iPhone in front of you. Most Writing Tools actions — rewrite, proofread, shorten — fall here, as do basic Siri requests, Mail categorisation, and Notification summaries. Nothing leaves the device. No request, no input, no output touches Apple's servers or anyone else's. For the kind of quick parent-email rewrite a teacher does ten times a week, this is almost always what happens.</p>
+    <p><strong>1. On-device processing.</strong> The majority of everyday Apple Intelligence operations run entirely on the iPad, Mac, or iPhone in front of you. Most Writing Tools actions — rewrite, proofread, shorten — fall here, as do basic Siri requests and Notification summaries. Nothing leaves the device for these. Mail categorisation is usually assumed to run the same way, but Apple's own documentation doesn't say where it's processed — see Part 3. No request, no input, no output touches Apple's servers or anyone else's for the operations confirmed above. For the kind of quick parent-email rewrite a teacher does ten times a week, this is almost always what happens.</p>
 
     <p><strong>2. Private Cloud Compute (PCC).</strong> When a request exceeds what the on-device model can handle — a long summary, a complex Writing Tools operation, Image Wand generation — the system reaches for a more capable model running on Apple-controlled servers. Apple's published architecture for PCC has several distinctive properties: the request is encrypted end-to-end from your device to a PCC node; the servers run a <strong>published, auditable software image</strong>; the server discards the request data after returning its response, a property Apple calls <em>stateless computation</em>; and Apple publishes the server binary so independent security researchers can verify that what runs in production matches what was described. The full technical whitepaper sits at <em>security.apple.com</em>.</p>
   </div>
@@ -825,7 +825,7 @@
 
   <div class="processing-callout">
     <p class="processing-callout__title">Where it runs · Siri AI</p>
-    <p>The overwhelming majority of Siri AI requests run on-device. Complex queries may invoke Private Cloud Compute. The ChatGPT handoff is only triggered on an explicit prompt ("Ask ChatGPT about…") and always shows a confirmation screen before sending.</p>
+    <p>The overwhelming majority of Siri AI requests run on-device. Complex queries may invoke Private Cloud Compute. The ChatGPT handoff is only triggered on an explicit prompt ("Ask ChatGPT about…") and shows a confirmation screen before sending by default — Apple also documents a setting that turns that confirmation off, so treat it as a default, not a guarantee.</p>
   </div>
 
   <h4>How to start</h4>
@@ -1009,7 +1009,7 @@
 
   <div class="processing-callout" style="background: var(--color-bg-alt); border-left-color: var(--color-highlight);">
     <p class="processing-callout__title" style="color: var(--color-highlight-ink);">ChatGPT — only on an explicit tap</p>
-    <p>Never invoked silently. Every path to ChatGPT shows a confirmation screen before sending. Can be disabled for school-managed devices at MDM level — Part 3 covers the policy case for doing so by default.</p>
+    <p>Never invoked silently — every path starts with an explicit tap. The confirmation screen that follows is the default, not a guarantee: Apple documents a setting that turns it off. Lock the default at MDM level for school-managed devices — Part 3 covers the policy case for doing so.</p>
   </div>
 
   <p>A habit worth building: when you press the button, name the path in your head. On-device, PCC, ChatGPT. Over a week, the three paths become automatic, and you never again use Apple Intelligence without knowing which one you invoked.</p>
@@ -1066,7 +1066,7 @@
   <img src="../guides/apple-intelligence/assets/part-3-opener.webp" class="part-opener-image" alt="">
 
   <h3>What stays on your device</h3>
-  <p>A meaningful share of Apple Intelligence runs without anything leaving the iPad or the Mac in front of you. <strong>Writing Tools</strong> operations on short text — proofreading, tone rewrites, a brief summary of a few hundred words — are handled by the on-device model. <strong>Mail categorisation</strong> and <strong>notification summaries</strong> are entirely on-device. Most everyday <strong>Siri</strong> requests stay local. <strong>Visual Intelligence</strong> performs basic recognition — text detection, common-object identification — without a round-trip to Apple's servers.</p>
+  <p>A meaningful share of Apple Intelligence runs without anything leaving the iPad or the Mac in front of you. <strong>Writing Tools</strong> operations on short text — proofreading, tone rewrites, a brief summary of a few hundred words — are handled by the on-device model. <strong>Notification summaries</strong> are entirely on-device. <strong>Mail categorisation</strong> is usually assumed to run the same way, but Apple's own documentation doesn't say where it's processed. Most everyday <strong>Siri</strong> requests stay local. <strong>Visual Intelligence</strong> performs basic recognition — text detection, common-object identification — without a round-trip to Apple's servers.</p>
   <p>This matters under GDPR because the regulation defines <strong>processing</strong> very broadly — Article 4(2) covers almost any operation performed on personal data. But if personal data never leaves the controller's own systems (in practice, the teacher's iPad), the question of whether a third-party processor is involved narrows considerably. That does not exempt the operation from GDPR scrutiny, but it reduces the surface area of a Data Protection Impact Assessment (DPIA) in a way cloud-based AI services cannot.</p>
   <p>That said, "on-device" is not magic. The iPad is a controller-owned device, but it still backs up to iCloud unless the backup is disabled, still syncs across other devices signed into the same Apple Account, and still participates in the broader Apple ecosystem. On-device processing reduces exposure. It does not eliminate it, and a school's policy should treat it as one mitigation among several rather than as a clean answer.</p>
 </div>
@@ -1093,7 +1093,7 @@
   <div class="warning-box">
     <p class="warning-box__title">This is where the on-device promise breaks</p>
 
-    <p>The ChatGPT handoff is triggered when a user explicitly taps <strong>Ask ChatGPT</strong> — surfaced by Writing Tools, Visual Intelligence, or Siri when the request exceeds what Apple's own models will handle. iPadOS shows a confirmation dialog first, and nothing is forwarded without the user accepting it. That consent step is real, and it is a deliberate design choice by Apple. It is also the point where the privacy architecture of the rest of Apple Intelligence stops applying.</p>
+    <p>The ChatGPT handoff is triggered when a user explicitly taps <strong>Ask ChatGPT</strong> — surfaced by Writing Tools, Visual Intelligence, or Siri when the request exceeds what Apple's own models will handle. By default, iPadOS holds the request behind a confirmation dialog, and nothing goes to OpenAI until the user accepts it there — but Apple also documents a setting, <strong>Confirm Requests</strong> under Settings → Siri → ChatGPT, that turns this confirmation off. That consent step is real by default and is a deliberate design choice by Apple, but it is not a guarantee a school can rely on unmanaged. It is also the point where the privacy architecture of the rest of Apple Intelligence stops applying.</p>
 
     <p>What actually happens once the user accepts: the specific text or image is sent to OpenAI. Apple anonymises the request at the network and account level — OpenAI does not see the Apple Account identity — but OpenAI receives the content itself. OpenAI's own logging, retention, and training policies then govern that content, not Apple's. The protections described in the PCC whitepaper do not carry over to this path.</p>
 
