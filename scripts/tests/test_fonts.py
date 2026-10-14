@@ -72,6 +72,15 @@ GUIDE_WEB_SURFACES = (
     "_unpublished/guides/copilot/styles.css",
     "_unpublished/guides/gemini-notebook/index.html",
     "_unpublished/guides/gemini-notebook/styles.css",
+    # Apple är den första guiden vars SVENSKA webbyta också står här.
+    # Frysningen av de svenska ytorna gäller prosan, inte CSS-hygienen:
+    # ett typsnittsbyte ändrar noll tecken normaliserad text och syns
+    # därför inte i ytkonsistensvakten. Copilots och Geminis svenska
+    # ytor bär kvar sina Crestiora-typsnitt och är fortsatt skuld.
+    "_unpublished/guides/apple-intelligence/index.html",
+    "_unpublished/guides/apple-intelligence/styles.css",
+    "_unpublished/sv/guider/apple-intelligence/index.html",
+    "_unpublished/sv/guider/apple-intelligence/styles.css",
 )
 
 # Crestioras två typsnitt. 'Inter' söks med citattecken och som
