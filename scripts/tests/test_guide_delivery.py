@@ -90,10 +90,13 @@ GUIDE_DELIVERY = {
         # vägen till grönt att stryka innehåll. De läggs till i runda 2, vid
         # omrenderingen.
         #
-        # De tre första raderna är den döda adressen, mätt i `_flat()`-form:
-        # pdftotext spärrar versaler, så URL:en står som
-        # `/ G U I D E S / A P P L E - I N T E L L I G E N C E` i utskriften
-        # och en needle skriven som vanlig URL hade aldrig matchat.
+        # Bara den FÖRSTA raden står i versalspärrad form: pdftotext spärrar
+        # versaler, så URL:en `/guides/apple-intelligence` står som
+        # `/ G U I D E S / A P P L E - I N T E L L I G E N C E` i utskriften,
+        # och en needle skriven som vanlig URL hade aldrig matchat. De två
+        # följande raderna är vanliga, ospärrade prosafragment ur samma
+        # struckna mening ("…download the 25-page premium PDF from the same
+        # page.") och behöver ingen sådan spärrning.
         "forbidden": (
             "/ G U I D E S / A P P L E",
             "from the same page",
@@ -157,6 +160,14 @@ NO_PAGE_CLAIM = {
         "the same page' — den var en pekare till en sida som aldrig publiceras "
         "(Johans beslut 2026-10-13) och sidantalspåståendet satt inuti den. "
         "Runda 2 skriver avslutningen och avgör om ett nytt påstående ska in.",
+}
+
+# Oskyldiga `\d+-page`-strängar: tal i quick-startens egen prosa som inte
+# är ett påstående om guiden. Varje post är en ordagrann sträng ur den
+# levererade PDF:en, mätt i `_flat()`-form. Listan finns för att
+# ruttnandevakten nedan ska kunna kräva att VARJE bart tal är redovisat.
+BARE_PAGE_NUMBERS = {
+    "apple-intelligence": ("Summarise a 5-page curriculum PDF",),
 }
 
 
@@ -266,22 +277,32 @@ def test_geminis_cover_and_closing_carry_the_rounds_date():
     assert "Johan Lindström, April 2026" not in flat
 
 
-@pytest.mark.parametrize(
-    "rel", GUIDE_DELIVERY["gemini"]["untouched"],
-    ids=lambda rel: rel.rsplit("/", 1)[-1])
-def test_the_swedish_gemini_pdfs_are_untouched_since_the_merge_base(rel):
+def _untouched_cases():
+    for guide, cfg in GUIDE_DELIVERY.items():
+        for rel in cfg["untouched"]:
+            yield pytest.param(guide, rel, id=f"{guide}:{rel.rsplit('/', 1)[-1]}")
+
+
+@pytest.mark.parametrize("guide,rel", list(_untouched_cases()))
+def test_the_untouched_pdfs_are_byte_identical_to_the_merge_base(guide, rel):
     """Granskningsfokus 5: båda byggarna renderar EN *och* SV utan
     språkargument, så de svenska filerna skrivs varje gång de engelska
     renderas om. Återställs de slarvigt är INNEHÅLLSfacit ändå
     oförändrat — fingeravtrycket är detsamma, bara `CreationDate` har
     rört sig — och hela sviten går grön medan två filer ligger ändrade.
-    Den här vakten jämför bytes mot bascommiten, inte innehåll."""
+    Den här vakten jämför bytes mot bascommiten, inte innehåll.
+
+    Generaliserad från en Gemini-bunden vakt: den var hårdkodad till
+    `GUIDE_DELIVERY["gemini"]["untouched"]`, så Apples två svenska PDF:er
+    stod i kartan utan att någon läste dem — vilket tvingade en
+    handmätning (SHA-256) under rundan i stället för att vakten gjorde
+    det. Nu parametriseras testet över VARJE guides `untouched`."""
     committed = subprocess.run(
         ["git", "show", f"{_merge_base()}:{rel}"],
         capture_output=True, check=True, cwd=fp.ROOT).stdout
     assert hashlib.sha256(committed).hexdigest() == \
            hashlib.sha256((fp.ROOT / rel).read_bytes()).hexdigest(), \
-           f"{rel} är inte byte-identisk med bascommiten — spec §1"
+           f"{guide} {rel} är inte byte-identisk med bascommiten — spec §1"
 
 
 def test_every_quick_starts_page_count_claim_matches_its_rendered_main_guide():
@@ -334,7 +355,27 @@ def test_the_no_page_claim_list_cannot_rot(guide):
         f"{guide} står i NO_PAGE_CLAIM men inte i leveranskartan")
     assert NO_PAGE_CLAIM[guide].strip(), f"post utan skäl: {guide}"
     _, quick_rel = _main_and_quick_start(guide)
-    match = _PAGE_CLAIM.search(_flat(quick_rel))
+    flat = _flat(quick_rel)
+    match = _PAGE_CLAIM.search(flat)
     assert match is None, (
         f"{guide}: quick-starten gör ett påstående igen ({match.group(0)!r}) "
         "— stryk posten ur NO_PAGE_CLAIM")
+
+    # Andra sonden, och skälet står här: mönstret ovan kräver literalen
+    # `Guide`, så ett omformulerat påstående ("the full 25-page PDF", "a
+    # 25-page companion", gemena "the 25-page guide") hade passerat både
+    # sidantalsvakten och den här raden, och lämnat påståendet ovaktat
+    # bakom en deklaration som ser sann ut. Därför måste varje bart
+    # `\d+-page` i quick-starten vara redovisat som oskyldigt.
+    stripped = flat
+    for phrase in BARE_PAGE_NUMBERS.get(guide, ()):
+        assert phrase in stripped, (
+            f"{guide}: den redovisade strängen {phrase!r} står inte längre i "
+            "quick-starten — stryk eller uppdatera posten i BARE_PAGE_NUMBERS")
+        stripped = stripped.replace(phrase, " ")
+    leftover = [m.group(0) for m in re.finditer(r"\d+-page", stripped)]
+    assert not leftover, (
+        f"{guide}: quick-starten bär {leftover} utöver de redovisade "
+        "strängarna — är det ett påstående om guiden, stryk posten ur "
+        "NO_PAGE_CLAIM; är det ett nytt oskyldigt tal, redovisa det i "
+        "BARE_PAGE_NUMBERS")
