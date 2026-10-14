@@ -128,7 +128,7 @@ Förekomstkolumnerna är mätta 2026-10-14 mot vaktens egen normalisering
 | A36 | **saknades i guiden:** `Article 16` — förhandsplikternas hemvist (leverantörens, inte skolans) | 1 | 1 | — | `korsref G51` (`docs/guide-facts-gemini.md`) — artificialintelligenceact.eu, artikel 16, hämtad ordagrant 2026-10-13 | **lagt till.** I Task 8: avsnittet lägger inga av art. 9–15/17/43/48/49.1 på skolan; de nämns bara som "the provider's" |
 | A37 | **saknades i guiden:** artikel 26-listan — driftsättarens plikter (instruktioner, tillsyn, loggar under skolans kontroll, information före driftsättning, underrättelse) | 1 | 1 | — | `korsref G51` — samma källa (artikel 26), hämtad ordagrant 2026-10-13 | **lagt till.** I Task 8, ordagrant G51:s egen tre gånger reviderade formulering: 26.6:s förbehåll ("the logs it controls", inte "the system's logs") och `which includes` i stället för ett kolon som lovar en sluten lista (artikel 26 har sju punkter, avsnittet nämner fem). Minor-fynd i Fixrunda 1 lade till "of the AI Act" vid första omnämnandet, för att skilja från GDPR:s artikel 4(2) i samma Del 3 |
 | A38 | **saknades i guiden:** artikel 27 — konsekvensbedömning före första driftsättning, oavsett kommunal eller fristående skola | 1 | 1 | — | `korsref G51` — samma källa (artikel 27, bilaga III punkt 3) | **lagt till.** I Task 8, och skriver uttryckligen INTE "a body governed by public law" (sant för en kommunal skola, falskt för en friskola) utan "whether the school is publicly run or an independent provider of a public service" — samma fix G51:s andra granskningsrunda låste fast |
-| A39 | **saknades i guiden:** artikel 4 — AI-kunnighetsplikten gäller sedan `2 February 2025`, oavsett risknivå | 1/1 | 1/1 | — | `korsref G27` (`docs/guide-facts-gemini.md`) — vaktrad "The prohibited practices and the AI literacy obligations in Article 4 have applied since 2 February 2025"; samma datum i P13 ("AI literacy obligations entered into application from 2 February 2025") | **lagt till.** I Fixrunda 1, efter granskningens Fynd 2. Avsnittets första utkast nämnde bara en plikt som ännu inte gäller (Annex III, 2 december 2027) och gav därmed en skolledare intrycket att ingenting binder än — artikel 4 är den enda AI Act-plikt som faktiskt gäller i dag, och P13:s egen cell pekade uttryckligen ut den som en uppgift "Task 8 bör väga in" |
+| A39 | **saknades i guiden:** artikel 4 — AI-kunnighetsplikten gäller sedan `2 February 2025`, oavsett risknivå | 2/2 | 2/2 | — | `korsref G27` (`docs/guide-facts-gemini.md`) — vaktrad "The prohibited practices and the AI literacy obligations in Article 4 have applied since 2 February 2025"; samma datum i P13 ("AI literacy obligations entered into application from 2 February 2025") | **lagt till.** I Fixrunda 1, efter granskningens Fynd 2. Avsnittets första utkast nämnde bara en plikt som ännu inte gäller (Annex III, 2 december 2027) och gav därmed en skolledare intrycket att ingenting binder än — artikel 4 är den enda AI Act-plikt som faktiskt gäller i dag, och P13:s egen cell pekade uttryckligen ut den som en uppgift "Task 8 bör väga in". **Task 9:** förekomsten på båda ytorna höjd 1/1 → 2/2 — samma tre ankare återanvänds i Fem policybeslut (beslut 3, staff guideline), som nu binder ihop den redan levande plikten med vad skolan ska göra nu. Ingen ny forskning, inga nya ankare |
 
 ## Utfallsräkningen
 
@@ -717,4 +717,31 @@ A39 | en | every school that deploys an AI system | aktiv
 # ordagrant, en omskrivning skulle kräva en ny vaktrad och en ny
 # överenskommelse om vad som ankras) och "six pages"-talet (Minor 7 — ägs
 # av Task 13:s omrendering).
+
+# Runda 2 Task 9 — Del 3: studentdata och de fem policybesluten
+#
+# Mätning mot de tre fakta Task 5/7/8 rättade (EU-spärren på Siri AI,
+# ChatGPT-vägens 13-årsgräns, det tvådelade bekräftelsesteget): ingen av
+# de fem policybesluten och inget i studentdata-sidan vilar på något av
+# de tre. Besluten 1, 2, 4 och 5 samt studentdata-sidan är oförändrade —
+# se rapporten för resonemanget per beslut. A14 (DPIA) rörd inte, som
+# briefen krävde.
+#
+# Beslut 3 (staff guideline) fick ETT nytt, kort tillägg på båda ytorna:
+# AI Act-avsnittets artikel 4-plikt (A39) gäller redan i dag, och
+# guidelinen är den naturliga platsen bland de fem besluten för den
+# kopplingen. Samma tre A39-ankare återanvänds ordagrant (`Article 4 of
+# the AI Act's AI-literacy`, `every school that deploys an AI system`,
+# `2 February 2025`) — ingen ny guard-rad, ingen ny forskning, och
+# avsnittets fulla resonemang (fyra risknivåer, Annex III, artikel
+# 26/27) upprepas inte. A39:s förekomst i huvudtabellen höjd 1/1 → 2/2.
+#
+# Menynamnsfrågan Task 7 lämnade (`Apple Intelligence & Siri`): mätt på
+# båda ytorna, inga träffar i studentdata- eller policybeslut-sidorna.
+# De fem träffarna på EP och fyra på EW ligger alla i avsnitt som rör
+# HÅRDVARUKONTROLLEN (är enheten kompatibel), inte ChatGPT-spärren A30
+# rättade. A30:s källa (support.apple.com ChatGPT-guiden) säger bara vad
+# ChatGPT-vägens egen inställning heter i dag (`Settings → Siri`); ingen
+# hämtad källa i inventeringen uttalar sig om det allmänna
+# kompatibilitetsmenyns namn. Lämnat orört — ingen gissning.
 ```
