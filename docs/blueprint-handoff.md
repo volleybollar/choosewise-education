@@ -32,7 +32,7 @@
 
 - **JOHANS REDAKTIONELLA PASS PÅ APPLE-GUIDEN — KLART 2026-10-14.** Punkt A (`9b2dda4`) och punkt C (`8825d93`), båda engelska ytorna; B1 var redan gjord i fixvågens Minor 2 och B2 står kvar med avsikt. **Alla elva punkter är avgjorda.** Se Apple-sektionen nedan. Kvar på Apple-guiden: bara omklassificeringen av tolv inventeringsverdikt.
 - **PUSHEN ÄR JOHANS BESLUT.** `main` ligger tre merges och 51 commits före `origin/main`: Apple runda 1, runda 2 och den här överlämningen. Hygienrundan är `origin/main` och är redan pushad. Ingenting av det är publicerat — guiderna distribueras via Skool — men historiken finns bara lokalt tills den pushas.
-- **Omklassificeringen av tolv inventeringsposters verdikt**, med färdig brytning i inventeringens huvud. **Gör den inte svepande** — tre av de tolv passar ingen nuvarande kategori, och en granskare varnade för att en generell omklassificering inför nya sakfel. Se Apple-sektionen.
+- **OMKLASSIFICERINGEN ÄR GJORD 2026-10-14.** Tretton poster, inte tolv — den förberedda brytningen missade A10. Åtta bär nu `rättat`, två behåller `föråldrat` med en spärr i cellen, och tre fick det nya verdiktet **`struket`** (obelagt påstående struket utan ersättning), ett ord taxonomin saknade och nästa guides inventering ärver. Utfallsräkningen räknas nu maskinellt ur postraderna. Se Apple-sektionen.
 
 ### Listan nedan är från tidigare rundor
 
@@ -1118,19 +1118,19 @@ Ett filter som sållar bort breda element för att slippa fullbreddsbehållare d
 
 **LÄRDOM UR PASSET, och den gäller varje framtida omskrivning av en faktamening:** min första version av artikel 26-stycket skrev `— five duties` i stället för `which includes`, och **införde därmed exakt det fel formuleringen fanns till för att undvika** — ett kolon eller en räkning lovar en sluten lista, och artikel 26 har sju punkter mot avsnittets fem. Det stod i inventeringens egen motiveringscell, inte i guiden. **Läs postradens motivering innan du skriver om meningen den beskriver** — den bär skälen till ordval som ser utbytbara ut. Samma pass bytte `the logs it controls` → `the logs the school controls`, vilket är tillåtet (26.6:s förbehåll intakt, pronomenet upplöst) och dokumenterat i A37:s cell.
 
-**En utestående omklassificering, med färdig brytning i inventeringens huvud.** Tolv posters verdikt säger fortfarande `föråldrat`/`falskt`/`obelagt` trots att texten är rättad:
-- **sju är entydigt rättade** — A15, A16, A18, A20, A21, A30, A31,
-- **två passar inte** — A17 (den gamla strängen är orörd och fortfarande sann; lagningen skedde genom **tillägg**) och A22 (bara halva problemet löst; en delvis rättad cell får inte bli `rättat`),
-- **tre passar ingen nuvarande kategori** — A25, A27, A29, strukna **utan ersättning**, så det finns inget nytt källbelagt värde att peka på. Taxonomin saknar ett ord för "obelagt påstående struket, inget ersatt".
+**Omklassificeringen är GJORD 2026-10-14, post för post mot vaktblocket.** Den förberedda brytningen sa tolv poster; det var **tretton** — A10 (`Siri 2.0`-namnet) stod inte i den, trots att den uppfyller kriteriet för `rättat` tydligare än någon annan post (gamla strängen `borttaget`, `Siri AI` `aktiv`, noll träffar på alla tre engelska ytor, strängen förbudslistad). Utfallet:
+- **åtta bär nu `rättat`** — A10, A15, A16, A18, A20, A21, A30, A31. Varje cell säger vad guiden skriver i dag och bär runda 1:s fynd kvar som `Bakgrund`, enligt konventionen A19/A23/A24 redan satt,
+- **två behåller `föråldrat` och har fått en uttrycklig spärr i cellen** — A17 (gamla strängen orörd och fortfarande sann; lagad genom **tillägg**, inte genom ett bytt värde) och A22 (halva problemet löst; ChatGPT som stilval i Image Playground står kvar som öppen brist),
+- **tre fick det nya verdiktet `struket`** — A25, A27, A29, obelagda påståenden strukna utan ersättning. Ordet är infört i taxonomin på ägarens beslut, med definitionen skriven i inventeringens huvud, och **nästa guides inventering ärver det**.
 
-**En svepande "sätt alla tolv till `rättat`" skulle införa nya sakfel.** Inventeringens huvud pekar ut vaktblocket som auktoritativ källa för vad som faktiskt ändrades i guiden.
+**Två saker nästa runda ska ta med sig.** (1) **En förberedd brytning är ett underlag, inte ett facit** — räkna om den mot tokentabellen innan du litar på dess antal; den här missade en post. (2) **Utfallsräkningen räknas nu maskinellt ur postradernas inledande token**, inte förd efter en lista, eftersom en tidigare räkning hann bli föråldrad utan att något test såg det. Skriptsnutten står i omklassificeringens commit.
 
 ### Vaktläget efter rundan
 
-- **Förbudslistan bär 20 strängar**, inklusive `[PAGE_COUNT]` — en literal markör som en uppgift skrev medan sidantalet var okänt, och som nu är **mekaniskt** omöjlig att leverera. `GDPR`, `ChatGPT`, `OpenAI` och `Schrems` är **medvetet uteslutna** med skälet skrivet i filen: guiden *är* en integritetsguide, och posterna A11/A12 har verdikt `står`.
+- **Förbudslistan bär 22 strängar** — 20 efter runda 2, plus `skolchef` och `rektor` ur ägarens pass punkt A. Inklusive `[PAGE_COUNT]` — en literal markör som en uppgift skrev medan sidantalet var okänt, och som nu är **mekaniskt** omöjlig att leverera. `GDPR`, `ChatGPT`, `OpenAI` och `Schrems` är **medvetet uteslutna** med skälet skrivet i filen: guiden *är* en integritetsguide, och posterna A11/A12 har verdikt `står`.
 - **`Sweden` och `Swedish` kan förbjudas rakt av** — men av ett skäl nästa runda ska förstå: den ägargodkända meningen `primarily in Sweden` står bara i **webbytan**, och förbudslistan läser **PDF:erna**, som byggs ur printytan och quick-starten. Webbytan är alltså **inte** ren.
 - **`MEASURE_ONLY_INVENTORIES` är struken** tillsammans med sin ruttnandevakt och båda undantagsgrenarna. `borttaget`-kravet gäller nu varje kartlagd guide utan undantag. Historiken står i en kommentar i `test_guide_surface_consistency.py`.
-- **Inventeringen har 39 poster** (`13 står / 5 föråldrat / 5 falskt / 3 obelagt / 5 rättat / 8 lagt till`), räknad på varje cells **inledande** token.
+- **Inventeringen har 39 poster.** Efter omklassificeringen 2026-10-14: `13 står / 2 föråldrat / 0 falskt / 0 obelagt / 3 struket / 13 rättat / 8 lagt till`, räknad på varje cells **inledande** token.
 - **De svenska guideytorna är frysta** och bär fortfarande `Siri 2.0` och `April 2026` med avsikt. Den svenska **quick-starten** är rättad på ägarbeslut (spec §5 amendemang II) — och den ligger **utanför** både förbudslistan och `untouched`, så ingen vakt läser den. Kommentaren i leveranskartan säger det.
 
 ### Fyra lärdomar som gäller nästa guides runda
