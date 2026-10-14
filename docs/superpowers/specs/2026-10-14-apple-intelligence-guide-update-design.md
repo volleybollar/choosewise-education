@@ -183,6 +183,20 @@ eftersom sidfoten sitter i Python och varje vakt läste HTML. *Allt i en gren* �
 
 ### 4.2 Kartläggningen — fyra vaktlager, fem filändringar, inga vaktändringar
 
+> **AMENDEMANG 2026-10-14, efter körningen.** Rubrikens sista led, "inga vaktändringar", höll
+> inte. Rundan ändrade tre guide-breda vakter och lade tre nya deklarationer till, båda som
+> kontrollerns rulingar på plandefekter som kartläggningen av Apples guide avslöjade. Specen
+> står i övrigt oförändrad som bindande auktoritet.
+>
+> | § 4.2 säger | levererat | beslut |
+> |---|---|---|
+> | inga vaktändringar | **Task 5A (`c6f41f3`):** `test_every_guides_guard_block_is_not_empty` och `test_the_real_forbidden_list_would_catch_a_reintroduction` ändrade; ny deklaration `MEASURE_ONLY_INVENTORIES` med ruttnandevakt | **Controllern:** Apples inventering är per design en mätning — alla kartlagda rader `aktiv`, noll `borttaget`. De två vakterna krävde minst en `borttaget`-rad per kartlagd guide, vilket hade tvingat fram en påhittad rad som påstår att en sträng strukits ur Apples prosa — något ingenting i runda 1 gör. Valt i stället: en deklarerad `MEASURE_ONLY_INVENTORIES` i husets form (skäl per post), plus en ruttnandevakt som asserterar att guiden står på listan, så en guide som tappar sina förbudsrader utan att vara deklarerad förblir röd. |
+> | inga vaktändringar | **Task 7A (`ae35fef`, fixrunda `dec0377..a14286f`):** sidantalsmönstret i `test_every_quick_starts_page_count_claim_matches_its_rendered_main_guide` skärpt; ny deklaration `NO_PAGE_CLAIM` med ruttnandevakt, senare kompletterad med `BARE_PAGE_NUMBERS` och en byte-identitetsvakt generaliserad från Gemini till alla guider | **Controllern:** vakten plockade quick-startens första `\d+-page` var den än stod, och tog `Summarise a 5-page curriculum PDF` för ett påstående om guiden sedan Task 3 tagit bort guidens enda äkta sidantalspåstående. Valt: ett skärpt mönster som bara räknar ett påstående OM GUIDEN, plus `NO_PAGE_CLAIM` med ruttnandevakt. Omgranskningen fann att ruttnandevakten delade mönster med vakten den vaktade; fixrundan lade `BARE_PAGE_NUMBERS` och generaliserade byte-identitetsvakten. |
+>
+> Rulingarna i sin helhet, inklusive de avvisade alternativen, står i rundans ledger:
+> `.superpowers/sdd/2026-10-14-apple-intelligence-round-1/progress.md`, under *"Task 5+6+7 —
+> de tre återstående kartorna, batchade"*.
+
 | lager | fil | vad som läggs till |
 |---|---|---|
 | ytkartan | `scripts/tests/surfacecheck.py` | `"apple-intelligence"` med fyra ytor, med kommentar om varför de svenska står med fast rundan inte rör dem |
