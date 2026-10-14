@@ -163,7 +163,7 @@ Förekomstkolumnerna är mätta 2026-10-14 mot vaktens egen normalisering
 | A34 | **saknades i guiden:** Annex III-högriskens startdatum för utbildning, `2 December 2027` | 1 | 2 | — | `korsref P13` — "the rules for high-risk use cases in certain sensitive areas (Annex III) have been extended to 2 December 2027 as a result of … the AI Omnibus". Samma datum i G48 | **lagt till.** I Task 8: Annex III omfattar uttryckligen utbildning (P13, G51 bilaga III punkt 3). EP-förekomsten är 2 därför att avsnittets andra stycke, tillagt i Fixrunda 1, återupprepar datumet ("From 2 December 2027, what a school would carry …") |
 | A35 | **saknades i guiden:** de tre korrekta risknivånamnen `Unacceptable risk` / `Transparency risk` / `Minimal or no risk` | 1/1/1 | 1/1/1 | — | `korsref P13` — "The AI Act defines 4 levels of risk for AI systems: Unacceptable risk / High risk / Transparency risk / Minimal or no risk"; samma tre namn redan rättade i Gemini-guiden (G26) | **lagt till.** I Task 8: avsnittet namnger ingen av de tre föråldrade varianterna (`Limited risk`, `Minimal risk`, `Prohibited`) som stod i Gemini-guiden innan G26 rättade dem. `High risk` står också i löptexten men bär ingen egen rad — det är inte ett namn som stått fel i någon syskonguide |
 | A36 | **saknades i guiden:** `Article 16` — förhandsplikternas hemvist (leverantörens, inte skolans) | 1 | 1 | — | `korsref G51` (`docs/guide-facts-gemini.md`) — artificialintelligenceact.eu, artikel 16, hämtad ordagrant 2026-10-13 | **lagt till.** I Task 8: avsnittet lägger inga av art. 9–15/17/43/48/49.1 på skolan; de nämns bara som "the provider's" |
-| A37 | **saknades i guiden:** artikel 26-listan — driftsättarens plikter (instruktioner, tillsyn, loggar under skolans kontroll, information före driftsättning, underrättelse) | 1 | 1 | — | `korsref G51` — samma källa (artikel 26), hämtad ordagrant 2026-10-13 | **lagt till.** I Task 8, ordagrant G51:s egen tre gånger reviderade formulering: 26.6:s förbehåll ("the logs it controls", inte "the system's logs") och `which includes` i stället för ett kolon som lovar en sluten lista (artikel 26 har sju punkter, avsnittet nämner fem). Minor-fynd i Fixrunda 1 lade till "of the AI Act" vid första omnämnandet, för att skilja från GDPR:s artikel 4(2) i samma Del 3 |
+| A37 | **saknades i guiden:** artikel 26-listan — driftsättarens plikter (instruktioner, tillsyn, loggar under skolans kontroll, information före driftsättning, underrättelse) | 1 | 1 | — | `korsref G51` — samma källa (artikel 26), hämtad ordagrant 2026-10-13 | **lagt till.** I Task 8, ordagrant G51:s egen tre gånger reviderade formulering: 26.6:s förbehåll ("the logs it controls", inte "the system's logs") och `which includes` i stället för ett kolon som lovar en sluten lista (artikel 26 har sju punkter, avsnittet nämner fem). Minor-fynd i Fixrunda 1 lade till "of the AI Act" vid första omnämnandet, för att skilja från GDPR:s artikel 4(2) i samma Del 3. Ägarens redaktionella pass 2026-10-14 delade bisatsen i fem meningar, en per plikt: `which includes` och 26.6:s förbehåll står kvar ordagrant, pronomenet `it` → `the school` |
 | A38 | **saknades i guiden:** artikel 27 — konsekvensbedömning före första driftsättning, oavsett kommunal eller fristående skola | 1 | 1 | — | `korsref G51` — samma källa (artikel 27, bilaga III punkt 3) | **lagt till.** I Task 8, och skriver uttryckligen INTE "a body governed by public law" (sant för en kommunal skola, falskt för en friskola) utan "whether the school is publicly run or an independent provider of a public service" — samma fix G51:s andra granskningsrunda låste fast |
 | A39 | **saknades i guiden:** artikel 4 — AI-kunnighetsplikten gäller sedan `2 February 2025`, oavsett risknivå | 2/2 | 2/2 | — | `korsref G27` (`docs/guide-facts-gemini.md`) — vaktrad "The prohibited practices and the AI literacy obligations in Article 4 have applied since 2 February 2025"; samma datum i P13 ("AI literacy obligations entered into application from 2 February 2025") | **lagt till.** I Fixrunda 1, efter granskningens Fynd 2. Avsnittets första utkast nämnde bara en plikt som ännu inte gäller (Annex III, 2 december 2027) och gav därmed en skolledare intrycket att ingenting binder än — artikel 4 är den enda AI Act-plikt som faktiskt gäller i dag, och P13:s egen cell pekade uttryckligen ut den som en uppgift "Task 8 bör väga in". **Task 9:** förekomsten på båda ytorna höjd 1/1 → 2/2 — samma tre ankare återanvänds i Fem policybeslut (beslut 3, staff guideline), som nu binder ihop den redan levande plikten med vad skolan ska göra nu. Ingen ny forskning, inga nya ankare |
 
@@ -680,7 +680,12 @@ A35 | en | Unacceptable risk | aktiv
 A35 | en | Transparency risk | aktiv
 A35 | en | Minimal or no risk | aktiv
 A36 | en | Article 16 | aktiv
-A37 | en | Article 26 of the AI Act, which includes: follow the instructions for use, assign human oversight to staff with the competence, training, authority and support to exercise it, retain the logs it controls for at least six months, inform staff and their representatives before putting it to work, and tell the people subject to it that it is in use. | aktiv
+A37 | en | Article 26 of the AI Act, which includes these five duties. | aktiv
+A37 | en | Follow the instructions for use. | aktiv
+A37 | en | Assign human oversight to staff with the competence, training, authority and support to exercise it. | aktiv
+A37 | en | Retain the logs the school controls for at least six months. | aktiv
+A37 | en | Inform staff and their representatives before putting the system to work. | aktiv
+A37 | en | Tell the people subject to it that it is in use. | aktiv
 A38 | en | Article 27 adds a fundamental-rights impact assessment before first deployment, and it applies whether the school is publicly run or an independent provider of a public service. | aktiv
 #
 # A33/A34 — korsref P13: kommissionens egen ordalydelse "became applicable on
@@ -772,11 +777,21 @@ A39 | en | every school that deploys an AI system | aktiv
 # på en mening som skrevs i samma svep. Flaggat i fixrapporten för
 # kontrollören att ogilla om den anses gå utanför fyndets omfång.
 #
-# EJ åtgärdat, enligt uttrycklig instruktion: artikel 26-meningens
-# skannbarhet (granskarens Minor 6 — vaktraden kräver G51:s ordalydelse
-# ordagrant, en omskrivning skulle kräva en ny vaktrad och en ny
-# överenskommelse om vad som ankras) och "six pages"-talet (Minor 7 — ägs
-# av Task 13:s omrendering).
+# ÅTGÄRDAT I ÄGARENS REDAKTIONELLA PASS 2026-10-14: artikel 26-meningens
+# skannbarhet (granskarens Minor 6). De fem plikterna står nu som fem egna
+# meningar i stället för i en bisats, och A37:s vaktrad är därför delad i
+# sex korta rader — en per plikt plus inramningen. Tre saker är medvetet
+# bevarade ur G51:s ordalydelse: `which includes` (ett kolon hade lovat en
+# sluten lista, och artikel 26 har sju punkter mot avsnittets fem),
+# 26.6:s förbehåll om loggarna, och varje plikts egen formulering. Det enda
+# bytet i sak är pronomenet: `the logs it controls` → `the logs the school
+# controls`, eftersom `it` i en fristående mening kan läsas som systemet i
+# stället för driftsättaren. Förbehållet självt står kvar — det är inte
+# `the system's logs`. Sex korta rader är dessutom strikt starkare än en
+# 300 tecken lång: en framtida runda som tappar EN plikt fäller nu den
+# plikten rad, inte ingenting.
+#
+# EJ åtgärdat: "six pages"-talet (Minor 7 — ägs av Task 13:s omrendering).
 
 # Runda 2 Task 9 — Del 3: studentdata och de fem policybesluten
 #

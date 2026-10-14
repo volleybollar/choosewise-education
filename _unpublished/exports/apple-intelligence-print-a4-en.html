@@ -620,7 +620,7 @@
 
   <h3>Which devices run Apple Intelligence</h3>
   <p>As of October 2026, Apple Intelligence runs on a narrow slice of the Apple hardware you are likely to meet in a school. On iPad, you need an <strong>M1 chip or later</strong> — so an iPad Pro from 2021 onwards, or an iPad Air from 2022 onwards, or any recent iPad mini with Apple-silicon. On Mac, any machine with Apple-silicon (M1 or later) will run it. On iPhone, only iPhone 16 models or later, iPhone 15 Pro, iPhone 15 Pro Max, and iPhone Air are supported. The standard iPhone 15 is not.</p>
-  <p>The practical point for most school iPad fleets: the iPads most commonly deployed in one-to-one device programmes — the 9th and 10th generation standard iPads, and the older iPad Air with A-series chips — <strong>do not run Apple Intelligence</strong>. That is worth being honest about at the front of this guide. If your fleet is in that group, this material is useful for policy and planning, but not something you can hand to staff to try this afternoon.</p>
+  <p>The practical point for most school iPad fleets: the iPads most commonly deployed in one-to-one device programmes — the 9th and 10th generation standard iPads, and the older iPad Air with A-series chips — <strong>do not run Apple Intelligence</strong>. I say that at the front of this guide rather than in a footnote. If your fleet is in that group, this material is useful for policy and planning, but not something you can hand to staff to try this afternoon.</p>
   <p>Language support has expanded since launch, with English available first and additional languages added over time. Because Apple adds new languages and regional features on a rolling basis, verify the current state on your own device — for the language you teach in — rather than trusting a document that is already a few months old. The simplest check: open <strong>Settings <span style="font-weight: 400;">→</span> Apple Intelligence &amp; Siri</strong>. If that menu item appears at all, your device is compatible and you can see which languages are currently available to you.</p>
 </div>
 
@@ -677,7 +677,7 @@
   <div class="explainer-box">
     <p><strong>3. ChatGPT integration.</strong> This is a separate, opt-in path, and — unlike the Google partnership behind Siri described above — it is the one external provider Apple documents as something a user actually chooses to turn on. When a user enables it, specific requests can be forwarded to OpenAI's servers. Apple anonymises the request in transit, but <strong>OpenAI receives the actual content of what was sent</strong>. This is a fundamentally different privacy model from the first two tiers and it deserves its own treatment; Part 3 returns to it in detail.</p>
 
-    <p>Two honest qualifications are worth stating here. First, PCC does have stronger architectural guarantees than a typical SaaS API call — the auditability story is real and it is unusual in the industry. Second, "Apple cannot inspect your request" is nevertheless a <strong>trust assertion</strong> that depends on Apple's implementation matching what they have published. The audit story is what makes that trust somewhat verifiable rather than purely reputational, but it is not the same as the data never leaving the device.</p>
+    <p>Two qualifications belong here. First, PCC does have stronger architectural guarantees than a typical SaaS API call — the auditability story is real and it is unusual in the industry. Second, "Apple cannot inspect your request" is nevertheless a <strong>trust assertion</strong> that depends on Apple's implementation matching what they have published. The audit story is what makes that trust somewhat verifiable rather than purely reputational, but it is not the same as the data never leaving the device.</p>
 
     <p>A useful rule of thumb: a quick rewrite of a two-sentence parent email almost certainly stays on the iPad. Asking Apple Intelligence to summarise a ten-page PDF almost certainly invokes Private Cloud Compute. Anything that touches ChatGPT is clearly signalled in the interface and requires an explicit tap.</p>
   </div>
@@ -1012,7 +1012,7 @@
     <p>Never invoked silently — every path starts with an explicit tap. The confirmation screen that follows can be disabled for classic Siri, via a setting Apple documents — but not under Siri AI itself, where that option doesn't exist. Lock the default at MDM level for school-managed devices — Part 3 covers the policy case for doing so.</p>
   </div>
 
-  <p>A habit worth building: when you press the button, name the path in your head. On-device, PCC, ChatGPT. Over a week, the three paths become automatic, and you never again use Apple Intelligence without knowing which one you invoked.</p>
+  <p>Build one habit: when you press the button, name the path in your head. On-device, PCC, ChatGPT. Over a week, the three paths become automatic, and you never again use Apple Intelligence without knowing which one you invoked.</p>
 </div>
 
 <!-- ══════════════════════════════════════════════════
@@ -1022,7 +1022,7 @@
   <span class="eyebrow">Part 2 · Putting it together</span>
   <h3 style="margin-top: 0;">A week in the classroom, composed</h3>
 
-  <p>Individually, each feature is modest. Composed across a working week, they change the shape of a teacher's day. The pattern worth noticing is that every feature sits in a moment where you would otherwise break flow — open a browser, dig through folders, reach for a stock-image site, triage notifications manually. Each one saves thirty seconds to five minutes; several of them save those minutes ten or twenty times a day.</p>
+  <p>Individually, each feature is modest. Composed across a working week, they change the shape of a teacher's day. The pattern is the same every time: each feature sits in a moment where you would otherwise break flow — open a browser, dig through folders, reach for a stock-image site, triage notifications manually. Each one saves thirty seconds to five minutes; several of them save those minutes ten or twenty times a day.</p>
 
   <p>The composition looks something like this. Open your iPad in the morning. Notification summaries tell you, in one line, what happened overnight. Mail's Priority surface puts the two parent emails that need a reply at the top. Writing Tools rewrites each reply into the register you want. Siri AI finds last term's lesson plan without you scrolling through Notes — not on an EU iPad, where Siri AI is blocked (see the Siri AI entry earlier in this Part). Image Wand generates a diagram for tomorrow's lesson while you're on the bus home. Visual Intelligence catches a textbook translation you needed for an EAL student in period three.</p>
 
@@ -1043,9 +1043,9 @@
 
   <p>Up to this point the guide has addressed the teacher at the classroom level: individual use, individual habit, individual rewrite of an individual parent email. That frame is where most staff will encounter Apple Intelligence first, and it is where the tool earns its daily value.</p>
 
-  <p>Part 3 steps back. It speaks to the skolchef, the rektor, the digital-lead, and the DPO — the people who have to answer the question "is this allowed?" before a feature lands on a hundred classroom iPads. It addresses three things specifically. First, what happens to personal data at each of the three processing paths, and what that means under GDPR. Second, the single place the privacy story breaks — the ChatGPT integration — and why that path deserves a separate policy decision. Third, five concrete decisions your school needs to have taken before a staff rollout, written so the digital-lead can carry them into a senior-leadership meeting on a single sheet.</p>
+  <p>Part 3 steps back. It speaks to the school administrator, the principal, the digital-lead, and the DPO — the people who have to answer the question "is this allowed?" before a feature lands on a hundred classroom iPads. It addresses three things specifically. First, what happens to personal data at each of the three processing paths, and what that means under GDPR. Second, the single place the privacy story breaks — the ChatGPT integration — and why that path deserves a separate policy decision. Third, five concrete decisions your school needs to have taken before a staff rollout, written so the digital-lead can carry them into a senior-leadership meeting on a single sheet.</p>
 
-  <p>If you are a teacher reading this for your own classroom use, Part 3 is still worth skimming. The ChatGPT section in particular will make clearer <em>why</em> "Ask ChatGPT" surfaces with a confirmation screen rather than as a silent assumption. That is a design choice Apple got right, and the pedagogical reasons for the design are best understood once you have seen the policy picture the design is solving for.</p>
+  <p>If you are a teacher reading this for your own classroom use, skim Part 3 anyway. The ChatGPT section in particular will make clearer <em>why</em> "Ask ChatGPT" surfaces with a confirmation screen rather than as a silent assumption. That is a design choice Apple got right, and the pedagogical reasons for the design are best understood once you have seen the policy picture the design is solving for.</p>
 
   <p>Part 3 is six pages. You can read it in under ten minutes. The five policy decisions at the end are the takeaway; the rest is the reasoning.</p>
 </div>
@@ -1109,7 +1109,7 @@
 <div class="page">
   <span class="eyebrow">Part 3 · Student data</span>
   <h3 style="margin-top: 0;">What this means for student data</h3>
-  <p>The working rule is simple: de-identify student data before any Apple Intelligence interaction, even when you believe the operation will run on-device. The distinction worth drawing is between <strong>teacher-work data</strong> — planning documents without student names, generalised parent emails, your own meeting notes — and <strong>student data</strong>, which includes names, grades, behavioural notes, SEN plans, safeguarding concerns, and anything that could identify a child or their family. Teacher-work data is generally fine to process on-device. Student data should be de-identified or kept out of Apple Intelligence entirely.</p>
+  <p>The working rule is simple: de-identify student data before any Apple Intelligence interaction, even when you believe the operation will run on-device. The distinction is between <strong>teacher-work data</strong> — planning documents without student names, generalised parent emails, your own meeting notes — and <strong>student data</strong>, which includes names, grades, behavioural notes, SEN plans, safeguarding concerns, and anything that could identify a child or their family. Teacher-work data is generally fine to process on-device. Student data should be de-identified or kept out of Apple Intelligence entirely.</p>
 
   <p>Four reasons on-device processing alone does not make student data safe:</p>
 
@@ -1135,8 +1135,8 @@
   <span class="eyebrow">Part 3 · The EU AI Act</span>
   <h3 style="margin-top: 0;">A short word on the EU AI Act</h3>
   <p>GDPR is not the only EU law in play. The AI Act became applicable on 2 August 2026, and it sorts AI systems into four tiers: Unacceptable risk, High risk, Transparency risk, and Minimal or no risk. One obligation already binds every school that deploys an AI system, whatever tier it sits in: Article 4 of the AI Act's AI-literacy duty has applied since 2 February 2025. The tier that would actually reach a school — Annex III's high-risk category, which names education explicitly — is not due yet: the AI Omnibus pushed that date to 2 December 2027.</p>
-  <p>Say a school did put an AI system to one of the Annex III uses — deciding who gets access to education, or scoring exams, are the Commission's own examples — the obligations that attach before such a system reaches the market are the provider's under Article 16, not the school's. From 2 December 2027, what a school would carry, as the deployer, is Article 26 of the AI Act, which includes: follow the instructions for use, assign human oversight to staff with the competence, training, authority and support to exercise it, retain the logs it controls for at least six months, inform staff and their representatives before putting it to work, and tell the people subject to it that it is in use. Article 27 adds a fundamental-rights impact assessment before first deployment, and it applies whether the school is publicly run or an independent provider of a public service.</p>
-  <p>None of this says Apple Intelligence is a high-risk system today. That depends on how a school uses it, not on the product, and nothing published settles it either way — worth knowing the shape of the obligations before the question comes up.</p>
+  <p>Say a school did put an AI system to one of the Annex III uses — deciding who gets access to education, or scoring exams, are the Commission's own examples — the obligations that attach before such a system reaches the market are the provider's under Article 16, not the school's. From 2 December 2027, what a school would carry, as the deployer, is Article 26 of the AI Act, which includes these five duties. Follow the instructions for use. Assign human oversight to staff with the competence, training, authority and support to exercise it. Retain the logs the school controls for at least six months. Inform staff and their representatives before putting the system to work. Tell the people subject to it that it is in use. Article 27 adds a fundamental-rights impact assessment before first deployment, and it applies whether the school is publicly run or an independent provider of a public service.</p>
+  <p>None of this says Apple Intelligence is a high-risk system today. That depends on how a school uses it, not on the product, and nothing published settles it either way. Know the shape of the obligations before someone asks the question.</p>
 </div>
 
 <!-- ══════════════════════════════════════════════════
@@ -1151,7 +1151,7 @@
 
     <li><strong>Document Apple Intelligence in your school's DPIA.</strong> Most processing is on-device, but Private Cloud Compute constitutes a data transfer to Apple and should be referenced alongside your existing Apple Data Processing Addendum. Cite Apple's published PCC architecture — the security.apple.com documentation and the PCC whitepaper — as a risk-mitigation factor, not as a replacement for your own analysis.</li>
 
-    <li><strong>Produce a one-page staff guideline on what to paste.</strong> Teacher-work content is fine; student data should be de-identified or avoided. Include three worked examples of acceptable prompts and three of prompts to avoid, with names and specifics drawn from your own school context. Pin it to your shared staff wiki and reference it in onboarding. Producing it also puts something concrete behind Article 4 of the AI Act's AI-literacy duty, which has bound every school that deploys an AI system since 2 February 2025, whatever tier the system sits in.</li>
+    <li><strong>Produce a one-page staff guideline on what to paste.</strong> Teacher-work content is fine; student data should be de-identified or avoided. Include three worked examples of acceptable prompts and three of prompts to avoid, with names and specifics drawn from your own school context. Pin it to your shared staff wiki and reference it in onboarding. Producing it also puts something concrete behind Article 4's AI-literacy duty, described earlier in this Part.</li>
 
     <li><strong>Make iCloud Backup settings an onboarding topic.</strong> Staff should understand that the iPad's iCloud Backup may include documents processed by Apple Intelligence. For personal devices that also handle school work, this is legitimately a matter of per-teacher judgement — but the default should be conscious, not accidental, and the school should offer a clear recommendation.</li>
 
@@ -1186,7 +1186,7 @@
     <div class="faq-item">
       <p class="faq-item__q">Should I turn on the ChatGPT integration?</p>
       <div class="faq-item__a">
-        <p>For personal adult-only use, judgement call. For school-issued iPads with any student-facing use, disable it by default through your MDM. The reason is straightforward: the ChatGPT integration sends specific requests to OpenAI, a US-based processor — not covered by Apple's Data Processing Addendum. Start off, enable consciously.</p>
+        <p>For personal adult-only use, judgement call. For school-issued iPads with any student-facing use, disable it by default through your MDM. The reason is straightforward: the ChatGPT integration sends specific requests to OpenAI, a US-based processor — not covered by Apple's Data Processing Addendum. Start with it off, and turn it on deliberately.</p>
       </div>
     </div>
 
