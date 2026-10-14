@@ -1147,7 +1147,19 @@ Ett filter som sållar bort breda element för att slippa fullbreddsbehållare d
 
 ---
 
-## Elevguiden — omfånget beslutat 2026-10-14, rundan inte påbörjad
+## Elevguiden — SPECEN SKRIVEN 2026-10-14, väntar godkännande
+
+**Specen:** `docs/superpowers/specs/2026-10-14-ai-for-students-educators-design.md`
+(361 rader, nio avsnitt). Den bär allt nedan plus inventeringens tre volatilitetsklasser,
+kodarbetet och stoppvillkoren. **Nästa steg efter Johans godkännande är en
+implementationsplan**, inte kod.
+
+**Två beslut tillkom 2026-10-14 och står i specen:** guiden ska **inte** ha en
+quick-start, och **titeln får avvika** från systerguidernas — specens förslag är att
+behålla frågan `Should students use AI in class?` som titel och låta underrubriken bära
+läsaren (`for educators`). Specen föreslår också **ingen innehållsförteckning**, vilket
+håller programmets svåraste fälla — innehållsförteckningens hårdkodade sidnummer —
+helt utanför rundan.
 
 **Johans beslut 2026-10-14, tre delar:**
 
