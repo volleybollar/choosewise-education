@@ -35,6 +35,10 @@ GUIDE_TOC = {
     # Två av dem byttes under Copilot-rundan efter kontroll mot
     # pdftotext-utskriften: Part 3:s ankare sa "CDP" (texten säger "EDP"),
     # och "About this guide" matchade även sidan 3.
+    #
+    # Ankare får inte bära produktnamn, pris eller datum — de bryts då av
+    # nästa runda som rör just det, och ett brutet ankare ser ut som ett
+    # fel sidnummer. "About this guide" bytt av det skälet 2026-10-14.
     "copilot": {
         "template": "_unpublished/exports/copilot-print-a4-en.html",
         "pdf": "_unpublished/assets/pdfs/guides/copilot-guide-en.pdf",
@@ -45,7 +49,7 @@ GUIDE_TOC = {
             "Part 2 · Work smarter": "Copilot Chat (with your work data)",
             "Part 3 · Compliance & licensing": "What EDP actually gives you",
             "FAQ": "Questions teachers ask",
-            "About this guide": "Johan Lindström, October 2026",
+            "About this guide": "share any adaptations under the same license",
         },
     },
     # Gemini: tio rader, tio ankare, alla verifierade mot den renderade
@@ -62,21 +66,18 @@ GUIDE_TOC = {
                 "Before the how, a word on the why",
             "Understanding Gemini and Gemini Notebook":
                 "two complementary views onto a single Google account",
-            # Bytt i Task 14: rundan döpte om "NotebookLM" till "Gemini
-            # Notebook" i löptexten (branding), så det gamla ankaret gav
-            # SAKNAS mot den omrenderade PDF:en. Nytt ankare hämtat ur
-            # samma pdftotext-utskrift, samma mening, bara ordet bytt.
+            # Ankare får inte bära produktnamn, pris eller datum — de
+            # bryts då av nästa runda som rör just det, och ett brutet
+            # ankare ser ut som ett fel sidnummer. De fyra nedan bytta
+            # 2026-10-14 av det skälet.
             "Part 1 · Getting Started":
-                "If you have never opened Gemini or Gemini Notebook, start here",
+                "you will have five concrete things to try this week",
             "Part 2 · Working Smarter":
-                "returning to Gemini or Gemini Notebook for the same kind of task",
+                "it is time to stop starting from scratch",
             "Part 3 · Scale & Lead":
                 "for educators who want to do more than save personal time",
             "Part 4 · Google Workspace for Education":
-                "Many schools run Google Workspace for Education",
-            # Ankaret står i den ingress Task 7 skrev om. Ledet
-            # "If you teach or lead a school in an EU member state"
-            # bevarades ordagrant där; resten av meningen byttes.
+                "what teachers need to know (briefly) and what school leaders need to decide (at length)",
             "Bonus Chapter · The EU AI Act for schools":
                 "If you teach or lead a school in an EU member state",
             "The Styles Library":
@@ -84,7 +85,7 @@ GUIDE_TOC = {
             "Prompts":
                 "Copy these prompts, adapt them to your context, run them",
             "FAQ":
-                "Is the free tier enough?",
+                "Common questions",
         },
     },
 }
@@ -132,10 +133,19 @@ def _cases():
 
 def test_an_unknown_guide_is_a_loud_error():
     """En guide som inte finns i kartan får inte ge en tom konfiguration
-    — då vaktar vakten ingenting och är grön för det."""
+    — då vaktar vakten ingenting och är grön för det.
+
+    Sentinelen får ALDRIG vara nästa guides namn. Den här raden sa
+    `apple-intelligence` ända fram till Apple-rundan, och var alltså
+    programmerad att gå sönder i samma stund guiden kartlades — samma
+    anti-mönster som Task 12 rev ut ur test_guide_surface_consistency.py,
+    där sentinelen var "gemini". En vakt som bryts av att systemet växer
+    som avsett blir avstängd, inte lagad.
+    """
     with pytest.raises(KeyError) as exc:
-        config_for("apple-intelligence")
-    assert "copilot" in str(exc.value) and "gemini" in str(exc.value)
+        config_for("ingen-sådan-guide")
+    for known in GUIDE_TOC:
+        assert known in str(exc.value)
 
 
 @pytest.mark.parametrize("guide", GUIDES)
