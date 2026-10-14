@@ -74,6 +74,15 @@ observationer runda 2 ärver:
 | `Every path to ChatGPT shows a confirmation screen before sending` | 0 | 1 | EP:s uppslag "Where each feature runs" bär en absolut formulering som EW inte har. Den är dessutom falsk — se **A31** |
 | `Updated April 2026` / `Johan Lindström, April 2026` | 2 / 0 | 0 / 1 | samma datumstämpel i två olika formuleringar. Den bara ytan de delar är den nakna strängen `April 2026` (3/3), och **den** är vaktens ankare — se **A13** |
 
+**IMY-divergensen (de två första raderna ovan) är löst av Runda 2 Task 4.** EP:s
+"A word on the Swedish context"-stycke med Integritetsskyddsmyndigheten är omskrivet till
+en nationsneutral ruta ("What depends on where you teach") i samma `processing-callout`-
+form som guidens övriga rutor; samma rubrik och poäng finns nu även på EW, som tidigare
+helt saknade stycket. Båda ytorna mäter `0` på `IMY` och på frasen
+`Swedish Data Protection Authority (IMY)` sedan omskrivningen — se Task 4:s rapport för
+exakt ordalydelse på båda ytorna. Raderna står kvar i tabellen som historik över
+divergensen som var; de beskriver inte längre guidens nuläge.
+
 ## Poster
 
 Förekomstkolumnerna är mätta 2026-10-14 mot vaktens egen normalisering
@@ -316,4 +325,30 @@ A17 | en | the one external provider Apple documents as something a user actuall
 # bytta mot något annat. Raderna själva (ursprungligen `aktiv`, bland
 # planens fjorton ovan) är flyttade till `borttaget` i samma rad de
 # redan stod på, enligt samma mönster som A03/A19/A23/A24 i Task 2.
+
+# Runda 2 Task 4 — internationaliseringen (ingen ny vaktrad av detta avsnitt)
+# Sidan 3:s språkstycke bar två problem i samma mening: en nationell
+# referens (`Swedish became available during 2025 alongside the other
+# main European languages`) och samma obelagda kadens som A27
+# (`Language support has expanded quarterly since launch`, EW 2 / EP 1
+# på `quarterly` — se A27:s notkolumn ovan). Båda är skrivna om till
+# generell, kadensfri inramning på BÅDA ytorna. Detta föregriper INTE
+# A15: Siris faktiska språkläge (`Siri 2.0's fully localised voice
+# responses … keep improving through 2026`, FAQ-stycket) rörs inte här
+# — det är Task 5:s fynd och tas i FAQ-svaret om `Is Apple Intelligence
+# available in Swedish?`, som står kvar oförändrat på båda ytorna.
+# IMY-stycket (se Ytdivergenser ovan, nu löst) bar samma mönster: dess
+# "Apple ships features monthly" är en egen, kortare sträng än A27:s
+# vaktrad och fångas inte av den — frekvensen är ändå borttagen i
+# omskrivningen, utan ersättning, enligt samma princip som A27.
+# Två ytterligare förekomster låg utanför briefens tabell men inom
+# samma nycklar (`1:1`, `Sweden`) och är rättade här för att nå noll:
+# EP:s FAQ-svar på "Does my iPad qualify" bar `1:1 fleet iPads` (ingen
+# egen post ovan att flytta till `borttaget`) och är nu `school-fleet
+# iPads`, samma ordval EW redan använde. EW:s FAQ-svar på "Where do I
+# get help" bar `I offer consulting for schools, primarily in Sweden.`
+# — en egen outtalad sakuppgift utan motsvarighet på EP, struken utan
+# ersättning. Ingen av de fyra är en post i tabellen ovan; de är rena
+# inramningsrättelser, inte sakrättelser, och kräver därför ingen ny
+# `aktiv`/`borttaget`-rad.
 ```
