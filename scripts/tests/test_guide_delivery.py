@@ -105,7 +105,27 @@ def _flat(rel: str) -> str:
     return re.sub(r"\s+", " ", fp.extract(fp.ROOT / rel))
 
 
-_PAGE_CLAIM = re.compile(r"(\d+)-page")
+# Ett äkta sidantalspåstående handlar om GUIDEN. Mönstret krävde tidigare
+# bara `(\d+)-page` var som helst i quick-startens text och plockade då upp
+# varje orelaterat räkneexempel: Apples quick-start trycker "Summarise a
+# 5-page curriculum PDF" i funktionslistan, och vakten jämförde den femman
+# med huvudguidens 25 sidor. Nu krävs att talet står intill ordet "Guide",
+# vilket är vad de äkta påståendena gör ("The 25-page Microsoft Copilot
+# Guide", "The full 44-page Gemini & Gemini Notebook Guide").
+_PAGE_CLAIM = re.compile(r"(\d+)-page[^.]{0,60}?Guide")
+
+# Guider vars quick-start inte gör något sidantalspåstående alls. Vakten
+# nedan kan inte jämföra ett tal som inte finns, men frånvaron får inte
+# uppstå TYST — en avslutning som redigeras kan annars tappa ett äkta
+# påstående utan att något blir rött. Töms av den runda som skriver in ett
+# påstående igen. Värdet är skälet.
+NO_PAGE_CLAIM = {
+    "apple-intelligence":
+        "runda 1 tog bort hela meningen 'download the 25-page premium PDF from "
+        "the same page' — den var en pekare till en sida som aldrig publiceras "
+        "(Johans beslut 2026-10-13) och sidantalspåståendet satt inuti den. "
+        "Runda 2 skriver avslutningen och avgör om ett nytt påstående ska in.",
+}
 
 
 def _rendered_page_count(rel: str) -> int:
@@ -244,12 +264,20 @@ def test_every_quick_starts_page_count_claim_matches_its_rendered_main_guide():
     quick-start inte gör ett sådant påstående hoppas bara över (inget
     `continue`-varv ger inget fel) — en avsaknad är inte samma sak som
     en felaktig siffra, och nästa guide kan tas in utan att den här
-    testen skrivs om."""
+    testen skrivs om.
+
+    En utebliven träff kräver en deklaration i NO_PAGE_CLAIM, inte tystnad
+    — annars kan en redigerad avslutning tappa ett äkta påstående utan att
+    något blir rött."""
     mismatches = []
     for guide in GUIDES:
         main_rel, quick_rel = _main_and_quick_start(guide)
         match = _PAGE_CLAIM.search(_flat(quick_rel))
         if match is None:
+            assert guide in NO_PAGE_CLAIM, (
+                f"{guide}: quick-starten gör inget sidantalspåstående om guiden "
+                "och står inte i NO_PAGE_CLAIM — ett äkta påstående försvinner "
+                "inte tyst")
             continue
         claimed = int(match.group(1))
         actual = _rendered_page_count(main_rel)
@@ -258,3 +286,23 @@ def test_every_quick_starts_page_count_claim_matches_its_rendered_main_guide():
                 f"{guide}: quick-starten säger {claimed}-page, "
                 f"huvudguiden är faktiskt {actual} sidor")
     assert mismatches == [], mismatches
+
+
+@pytest.mark.parametrize("guide", sorted(NO_PAGE_CLAIM))
+def test_the_no_page_claim_list_cannot_rot(guide):
+    """Listan ska beskriva verkligheten, annars tömmer den sig i prosa.
+
+    Tre sätt den kan ruttna, alla röda här: en post som inte är en känd
+    guide, en post utan skäl, och en post vars quick-start FAKTISKT gör ett
+    påstående igen — då är skulden betald, och står posten kvar ligger
+    påståendet ovaktat. Samma form som UNMAPPED_GUIDE_SURFACES och
+    MEASURE_ONLY_INVENTORIES.
+    """
+    assert guide in GUIDE_DELIVERY, (
+        f"{guide} står i NO_PAGE_CLAIM men inte i leveranskartan")
+    assert NO_PAGE_CLAIM[guide].strip(), f"post utan skäl: {guide}"
+    _, quick_rel = _main_and_quick_start(guide)
+    match = _PAGE_CLAIM.search(_flat(quick_rel))
+    assert match is None, (
+        f"{guide}: quick-starten gör ett påstående igen ({match.group(0)!r}) "
+        "— stryk posten ur NO_PAGE_CLAIM")
