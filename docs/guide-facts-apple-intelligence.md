@@ -102,7 +102,7 @@ Förekomstkolumnerna är mätta 2026-10-14 mot vaktens egen normalisering
 | A10 | `Siri 2.0` — namnet på assistenten | 3 | 7 | 1 | apple.com/apple-intelligence/ → **200**: "Introducing Siri AI. Truly helpful. Truly yours."; apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here/ → **200** (2026-09-14); support.apple.com/en-us/127893 → **200** (publ. 2026-09-22): "Siri AI (Beta) … an entirely new version of Siri powered by the next generation of Apple Intelligence"; support.apple.com/en-us/121115 → **200**: "Apple Intelligence also powers an entirely new version of Siri: Siri AI." — samtliga lästa 2026-10-14. `grep -i "Siri 2.0"` ger **noll** träffar i den hämtade HTML:en från alla fyra sidorna | **falskt: Apple har inte och har aldrig haft en produkt som heter `Siri 2.0`.** Apple versionsnumrerar inte Siri. Fyra hämtade Apple-sidor namnger assistenten, och ingen av dem använder strängen; namnet i dag är **Siri AI**, släppt 14 september 2026 med 27.0-generationen. `Siri 2.0` är en sekundärkällas kortform som guiden lyft in som om den vore ett produktnamn, och den står på tio ställen i de engelska ytorna plus en gång i quick-starten — den näst dyraste rättelsen i runda 2 efter **A15**. Rätt värde: `Siri AI`, med reservationen att den är i beta och att EU-läget gör namnet värdelöst för en svensk läsare utan den uppgiften intill |
 | A11 | `ChatGPT` — och inramningen att ChatGPT är den enda externa vägen | 27 | 39 | 1 | support.apple.com/guide/iphone/use-chatgpt-with-apple-intelligence-iph00fd3c8c2/ios → **200**, ordagrant: "You can allow Apple Intelligence to work with ChatGPT from OpenAI" och "If you're using Siri AI (Beta), tap Set Up Extensions, tap ChatGPT, then turn on Use Extension"; `grep -i "Gemini\|Claude\|Anthropic"` på samma hämtade sida ger **noll** träffar — läst 2026-10-14 | **står** på exklusiviteten, mot förväntan. ChatGPT finns kvar, är fortfarande opt-in, och är **den enda leverantör Apple dokumenterar som valbar extension** — Apples egen Extensions-sida nämner varken Claude, Gemini eller Anthropic. Kontrollerns lead om ett treval i Inställningar är alltså inte belagt; Claude och Gemini hör till Apples utvecklarramverk (se huvudet, lead 3). **Men inramningen håller ändå inte**, av ett annat skäl än det förväntade: se **A17**. Att 39 EP-förekomster hänger på rätt sida av den skillnaden är vad som gör posten dyr |
 | A12 | `OpenAI` — motparten i ChatGPT-vägen | 12 | 11 | 1 | support.apple.com ChatGPT-guiden → **200**, ordagrant: "ChatGPT from OpenAI" och "For more information, see OpenAI Terms of Use"; "The ChatGPT extension is available only in regions where the ChatGPT app and service are available. Refer to OpenAI for ChatGPT availability." — läst 2026-10-14 | **står.** OpenAI är fortfarande motparten, Apple hänvisar fortfarande till OpenAI:s egna villkor för just den vägen, och guidens GDPR-resonemang om en tredjepartsmottagare utanför Apples DPA har alltså kvar sin grund. Åldersgränsen i samma stycke har den inte — se **A16** |
-| A13 | `April 2026` — datumstämpeln, i tre förekomster per yta | 3 | 3 | — | ytorna själva, mätta 2026-10-14; iOS 27-släppet 2026-09-14 (Apple Newsroom → **200**) | **föråldrat.** Stämpeln är sex månader gammal och kan per definition inte bära det som hänt sedan dess: Siri AI och 27.0-generationen (14 september 2026), EU-spärren på iOS och iPadOS, lagringskravets fördubbling, och den nya hårdvarulistan. Stämpeln får sättas om **i samma commit som sakändringarna** i runda 2, aldrig före — annars daterar guiden sig själv till efter en rättelse den inte har gjort. Notera att de tre förekomsterna bär tre olika formuleringar och att två av dem står på bara en yta vardera (se Ytdivergenser); vaktens ankare är den nakna strängen, som står 3/3 |
+| A13 | `April 2026` — datumstämpeln, i tre förekomster per yta | 3 | 3 | — | ytorna själva, mätta 2026-10-14; iOS 27-släppet 2026-09-14 (Apple Newsroom → **200**) | **rättat i runda 2 Task 11.** Stämpeln är satt om till `October 2026` på båda ytorna, i samma tre förekomster (omslaget/hero, löptexten om hårdvarugolvet, avslutningens signatur) och i samma commit som sakändringarna i Task 2–10 redan gjort — ingen av de tre formuleringarna är omskriven, bara den nakna strängen. Alla tre A-text-föregångare (Siri AI, EU-spärren, lagringstaket, hårdvarulistan) som gjorde den gamla stämpeln `föråldrat` är rättade av tidigare uppgifter i den här rundan; stämpeln följer nu efter, inte före |
 | A14 | `Data Protection Impact Assessment` — den juridiska termen | 1 | 1 | — | ingen Apple-hämtning behövs eller gjord; termen är GDPR artikel 35 och inte ett produktpåstående | **står.** Juridisk term, inte Apple-fakta, och oförändrad. Raden finns i vaktblocket för att termen inte ska städas bort av misstag när kapitlet skrivs om |
 | A15 | `Siri 2.0's fully localised voice responses` — och löftet att svensk Siri "keep[s] improving through 2026" | 1 | 1 | — | apple.com/newsroom/2026/06/due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27/ → **200**, ordagrant: "users in the EU will not have access to Siri AI" på "iOS 27 and iPadOS 27" och watchOS 27, medan "EU users will be able to access Siri AI on macOS 27 and visionOS 27", och "there is currently no timeline for Siri AI's availability in the EU on iOS and iPadOS"; Apple Newsroom 2026-09-14 → **200**: "Siri AI will not be available initially in the EU on iOS, iPadOS, and watchOS. Features that rely on Siri AI will also not be available in the EU."; support.apple.com ChatGPT-guiden → **200**: "Available in English to start. Siri AI will not initially be available in the EU on iOS."; apple.com/newsroom/2026/09/major-updates-for-apples-software-platforms-are-now-available/ → **200**, ordagrant: "Siri AI is now rolling out as a beta in English, with support for French, Japanese, Korean, Portuguese, and Spanish coming in October." — samtliga lästa 2026-10-14 | **föråldrat, och det är rundans viktigaste fynd.** Guiden ger en svensk lärare ett vänteläge: funktionen finns, svenskan blir bättre under 2026. Verkligheten sedan 14 september 2026 är att Siri AI **inte finns alls** på iOS och iPadOS i EU, att Apple anger DMA som skäl, att det inte finns någon tidplan, och att Siri AI dessutom börjar på **engelska**. **Svenska står inte i Apples namngivna språkvåg heller:** oktoberlistan är franska, japanska, koreanska, portugisiska och spanska. Guiden lovar alltså förbättrad svensk Siri på en tidslinje där Apple varken har lovat svenska eller EU-tillgång. Guidens hela Del 2 §2 — fem klassrumsexempel på en iPad — beskriver en funktion en svensk lärare med en skol-iPad inte kan få. Och eftersom Apple skriver "Features that rely on Siri AI will also not be available in the EU" sprider spärren sig till varje funktion guiden hänger på Siri. Att en guide för svenska skolor saknar den uppgiften är mer läsarskadligt än något enskilt felaktigt årtal i tabellen. Ankaret `Siri 2.0's fully localised voice responses` bär posten eftersom det är den enda meningsdel där båda ytorna lovar samma sak ordagrant |
 | A16 | `requires the user to be 18 or over` — åldersgränsen för ChatGPT-vägen | 1 | 1 | — | support.apple.com/guide/iphone/use-chatgpt-with-apple-intelligence-iph00fd3c8c2/ios → **200**, ordagrant 2026-10-14: "Note: You must be at least 13 years old or the minimum age required in your country to consent to use ChatGPT." — och **arkiverad primärkälla**: samma Apple-sida, Wayback-capture **2026-04-17**, ordagrant samma mening: "You must be at least 13 years old or the minimum age required in your country to consent to use ChatGPT." | **falskt — och falskt redan i april 2026.** Apple har satt gränsen vid **13 år** (eller landets minimiålder), inte 18, både i dag och i en arkiverad kopia från två dagar efter guidens stämpelmånads mitt. Det är det enda stället där inventeringen går till arkivet, just för att skilja `falskt` från `föråldrat`, och skillnaden spelar roll: `föråldrat` hade betytt "Apple har sänkt gränsen", vilket inte hänt. Felet går åt den farliga riktningen — guiden säger till en skolledare att ChatGPT-vägen är vuxenspärrad och att åldern därför sköter sig själv, när Apples egen spärr släpper in en trettonåring. Det underminerar guidens egen slutsats i Del 3, som är rätt av fel skäl: ChatGPT-integrationen ska stängas av på skol-iPads, men därför att den inte är åldersspärrad på ett sätt som skyddar en elev, inte därför att den är |
@@ -259,7 +259,7 @@ A09 | en | Genmoji | aktiv
 A10 | en | Siri 2.0 | borttaget
 A11 | en | ChatGPT | aktiv
 A12 | en | OpenAI | aktiv
-A13 | en | April 2026 | aktiv
+A13 | en | April 2026 | borttaget
 A14 | en | Data Protection Impact Assessment | aktiv
 # Raderna ovan är mätta på BÅDA engelska ytorna 2026-10-14 och är
 # `aktiv` därför att de står där i dag — inte därför att de är sanna.
@@ -865,4 +865,71 @@ A32 | en | will come at a fee in the future | aktiv
 # den enda kvarvarande förekomsten är en sann biografisk uppgift om
 # guideförfattaren, inte en nationell generalisering av läsarens
 # kontext.
+
+# Runda 2 Task 11 — omslaget, sidfoten, datumstämpeln och quick-starten
+#
+# A13: `April 2026` är flyttad till `borttaget` ovan (raden som stod bland
+# planens fjorton) och ersatt av `October 2026` nedan, mätt ordagrant 3/3
+# på BÅDA engelska ytorna efter ett rent sök-och-ersätt (omslaget/hero,
+# löptextens hårdvarustycke, avslutningens signatur — samma tre
+# förekomster och samma tre formuleringar A13:s postrad redan beskriver,
+# bara med det nya ordet). Stämpeln sätts om i den här commiten,
+# tillsammans med hela rundans sakändringar — i enlighet med postradens
+# egen regel ("aldrig före").
+A13 | en | October 2026 | aktiv
+#
+# TOC-underraden för Del 3 (EP-exklusiv, ingen vaktrad — samma skäl som
+# Ytdivergenser-avsnittets IMY-rad: EW har ingen motsvarande underrad att
+# jämföra mot). "On-device, PCC, ChatGPT — and five policy decisions" bar
+# inget om Task 8:s nya AI Act-avsnitt och är bytt till "On-device, PCC,
+# ChatGPT, the EU AI Act — and five policy decisions". Sidnumren i samma
+# `<li>` (`toc__page`) är ORÖRDA — de räknas om mot den omrenderade PDF:en
+# i Task 13, enligt briefens uttryckliga instruktion.
+#
+# Byggarens sidfot (`exports/build-apple-intelligence-pdf.py`, `jobs`):
+# titelsträngen är `"Apple Intelligence for teachers and school leaders"`,
+# verifierad ordagrant mot den redan renderade PDF:en
+# (`pdftotext -layout … | grep -c "for teachers and school leaders"` → 26
+# träffar, en per sidfot). Ingen pensionerad sträng i sidfoten — den bär
+# varken ett gammalt guidenamn, ett föråldrat firmanamn eller någon
+# Advania-rest. Ingen ändring i byggaren.
+#
+# Quick-starten (`_unpublished/exports/apple-intelligence-quick-start-en.html`,
+# utanför ytkonsistensvakten, se modulens egen notis ovan): fyra ändringar,
+# var och en läst mot guiden, inte mot minnet.
+#   1. `Siri 2.0` (rad 112, den sista kvarvarande förekomsten enligt A10:s
+#      postrad) → `Siri AI`.
+#   2. Siri AI-kortet (sida 1, kort 2) och "Ask Siri for Thursday's
+#      schedule" (sida 2, uppgift 3) fick vardera en kort EU-notis — Siri
+#      AI är blockerad i EU på iPhone och iPad, DMA angivet skäl, ingen
+#      tidplan (samma sakuppgift som A15, ankaret "the EU's Digital
+#      Markets Act" på de två vaktade ytorna). Observationernas punkt 1
+#      pekar uttryckligen ut quick-startens "punkt 3" som obrukbar för en
+#      EU-läsare utan den här notisen.
+#   3. "Some features are 18+" (Watch out-rutan) → "ChatGPT access
+#      requires the user to be at least 13 (or your country's minimum)" —
+#      samma rättelse som A16 (18 var aldrig rätt; Apples egen gräns är 13
+#      år eller landets minimiålder, och gäller specifikt ChatGPT-vägen,
+#      inte funktioner i allmänhet).
+#   4. Avslutningens mening skriven om med en sidantalsplatshållare,
+#      INTE ett tal: "The full [PAGE_COUNT]-page <em>Apple Intelligence
+#      Guide</em> comes with this quick start in the community." Talet är
+#      inte känt förrän Task 13 renderat om PDF:erna; `[PAGE_COUNT]` är en
+#      textmarkör (inga siffror) som Task 13 ersätter med det uppmätta
+#      sidantalet utan att skriva om meningen i övrigt. Ordet `Guide` står
+#      direkt efter markören, långt inom de 60 tecken `_PAGE_CLAIM` tillåter.
+#      Ingen ny vaktrad: `test_every_quick_starts_page_count_claim_matches_
+#      its_rendered_main_guide` läser den LEVERERADE pdf:en
+#      (`_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-
+#      en.pdf`), som den här uppgiften uttryckligen inte renderar om — PDF:en
+#      bär alltså ännu ingen sifferträff, `NO_PAGE_CLAIM["apple-
+#      intelligence"]` gäller oförändrat till Task 13 har renderat och kan
+#      tömma den.
+#
+# Mail categorisation-, Notification summaries-, Writing Tools- och Visual
+# Intelligence-korten är lästa mot guiden och lämnade orörda: ingen av dem
+# gör ett påstående som motsäger A05 (öppen fråga, oförändrad), A06 (öppen
+# fråga om Writing Tools delas), A07 (notissammanfattningar är fortfarande
+# en legitim on-device-rad; Mail-kortet påstår inget om var det körs) eller
+# A20–A22 (ingen av dem nämner en inställningsväg i quick-starten).
 ```
