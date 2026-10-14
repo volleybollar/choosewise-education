@@ -121,7 +121,7 @@ Förekomstkolumnerna är mätta 2026-10-14 mot vaktens egen normalisering
 | A29 | `Summaries are on by default` — notissammanfattningarnas utgångsläge | 1 | 1 | — | support.apple.com/guide/iphone/summarize-notifications-reduce-interruptions-iph1fbe7d2b9/ios → **200**, läst ordagrant 2026-10-14: instruktionen lyder "Tap Summarize Notifications, **turn on** Summarize Notifications, then tap Choose Notifications to Summarize", och sidan har ett eget avsnitt "Turn notification summaries on or off" | **obelagt, och sannolikt fel riktning.** Apples egen instruktion börjar med att användaren slår **på** funktionen och sedan väljer vilka appar som ska omfattas — ingen hämtad sida säger att sammanfattningar är på som standard "for most app categories". Jag skriver `obelagt` och inte `falskt` därför att Apples sida beskriver hur man ställer in funktionen, inte vad utgångsläget är efter en uppdatering; ingen hämtbar sida uttalar sig om defaulten. För en skolutrullning pekar felet ändå åt ett praktiskt håll: guiden säger "To fine-tune …" där Apples flöde säger "turn on" |
 | A30 | `Siri & Apple Intelligence → ChatGPT Extension` — inställningsvägen för ChatGPT-spärren | 1 | **0** | — | support.apple.com ChatGPT-guiden → **200**, nuvarande väg ordagrant: "Go to the Settings app on your iPhone. Tap Siri. Tap ChatGPT, tap Set Up …" och, under Siri AI: "tap Set Up Extensions, tap ChatGPT, then turn on Use Extension"; **arkiverad primärkälla** (Wayback-capture 2026-04-17 av samma sida) gav aprilvägen ordagrant: "Tap Apple Intelligence & Siri. Below Extensions, tap ChatGPT, then tap Set Up." | **föråldrat — och EW-exklusivt, alltså ingen vaktrad.** Guidens väg var rätt i april 2026: den arkiverade kopian bekräftar att menyn då hette `Apple Intelligence & Siri` med `Extensions` under sig. I dag är ingången `Settings → Siri`. Två saker för runda 2: ordet **`Extensions` är Apples eget och har varit det hela tiden** — guidens "ChatGPT Extension" är alltså inte en felstavad gissning utan Apples terminologi, vilket gör leadets Extensions-nyhet mindre ny än den såg ut (se huvudet, lead 3) — och vägen står bara på webbytan, så en rättelse som bara träffar EW lämnar EP utan motsvarande instruktion över huvud taget |
 | A31 | `Every path to ChatGPT shows a confirmation screen before sending` | **0** | 1 | — | samma källa som **A18**: support.apple.com ChatGPT-guiden → **200**, "Turn off Confirm Requests" — läst 2026-10-14; **samma arkiverade aprilbelägg som A18** (Wayback-capture 2026-04-17: "Send requests to ChatGPT without confirming … Turn off Confirm ChatGPT Requests") | **falskt — falskt redan i april 2026, och EP-exklusivt, alltså ingen vaktrad.** Samma fel som **A18**, men i sin absoluta form ("Every path") och bara på printytan, i uppslaget "Where each feature runs" som är tänkt som guidens snabbreferens. Printläsaren får alltså den starkaste och mest felaktiga formuleringen av guidens integritetslöfte, och webbläsaren får den inte. Att rätta **A18** utan att rätta den här raden lämnar felet kvar i PDF:en |
-| A32 | **saknas i guiden:** daglig användningsgräns och kommande betalnivå | 0 | 0 | 0 | support.apple.com/en-us/121115 → **200**, ordagrant 2026-10-14: "Certain Apple Intelligence features that rely on server-side models are subject to daily usage limits, including but not limited to Siri AI, Intelligent Photo Editing Tools, Image Playground, and AFM 3 Cloud models in Shortcuts. Daily limits may vary by feature, request complexity, system demand, system policies, and other factors. **Expanded access to such features will be available for a fee in the future.**" | **föråldrat (genom frånvaro).** Guiden bygger hela sitt säljargument på att Apple Intelligence är gratis och ingår i enheten — "You do not need to sign into anything new" — och nämner ingen gräns och ingen avgift. Apple anger i dag både dagliga gränser på de serverburna funktionerna och en kommande betald nivå. För en skolchef som planerar en utrullning till hundra klassrums-iPads är det en upphandlingsfråga, inte en detalj, och den finns inte i guiden alls. Posten har noll förekomster och därför ingen vaktrad — den är en uppgift runda 2 ska lägga **till**, inte en sträng att bevaka |
+| A32 | **saknas i guiden:** daglig användningsgräns och kommande betalnivå | 1 | 1 | 0 | support.apple.com/en-us/121115 → **200**, ordagrant 2026-10-14: "Certain Apple Intelligence features that rely on server-side models are subject to daily usage limits, including but not limited to Siri AI, Intelligent Photo Editing Tools, Image Playground, and AFM 3 Cloud models in Shortcuts. Daily limits may vary by feature, request complexity, system demand, system policies, and other factors. **Expanded access to such features will be available for a fee in the future.**" | **lagt till i runda 2 Task 10.** Guiden byggde hela sitt säljargument på att Apple Intelligence är gratis och ingår i enheten — "You do not need to sign into anything new" (den meningen själv är orörd, ligger utanför FAQ:n och alltså utanför Task 10:s sidspann) — och nämnde ingen gräns och ingen avgift. FAQ-svaret "Does my iPad support Apple Intelligence?" bär nu, ordagrant olika men sakligt identiskt per yta, att flera serverburna funktioner (Siri AI, Intelligent Photo Editing Tools, Image Playground, AFM 3 cloud-modeller i Shortcuts) har en daglig användningsgräns, och att Apple har sagt att utökad åtkomst till dem kommer kosta i framtiden, utan angivet datum. Ingen tidplan påstås — bara att en avgiftsnivå är annonserad. Bakgrund: för en skolchef som planerar en utrullning till hundra klassrums-iPads är det en upphandlingsfråga, inte en detalj, och den fanns inte i guiden alls före den här uppgiften |
 | A33 | **saknades i guiden:** AI Act-avsnittets tillämplighetsdatum, `2 August 2026` | 1 | 1 | — | `korsref P13` (`docs/guide-facts-claude.md`) — kommissionens ordalydelse "entered into force on 1 August 2024 and became applicable on 2 August 2026". Samma datum redan rättat i Gemini-guiden (G25/G48). Ingen ny hämtning | **lagt till.** I Task 8: avsnittet "A short word on the EU AI Act" fanns inte i guiden före den här uppgiften; det här är det första av avsnittets två AI Act-datum |
 | A34 | **saknades i guiden:** Annex III-högriskens startdatum för utbildning, `2 December 2027` | 1 | 2 | — | `korsref P13` — "the rules for high-risk use cases in certain sensitive areas (Annex III) have been extended to 2 December 2027 as a result of … the AI Omnibus". Samma datum i G48 | **lagt till.** I Task 8: Annex III omfattar uttryckligen utbildning (P13, G51 bilaga III punkt 3). EP-förekomsten är 2 därför att avsnittets andra stycke, tillagt i Fixrunda 1, återupprepar datumet ("From 2 December 2027, what a school would carry …") |
 | A35 | **saknades i guiden:** de tre korrekta risknivånamnen `Unacceptable risk` / `Transparency risk` / `Minimal or no risk` | 1/1/1 | 1/1/1 | — | `korsref P13` — "The AI Act defines 4 levels of risk for AI systems: Unacceptable risk / High risk / Transparency risk / Minimal or no risk"; samma tre namn redan rättade i Gemini-guiden (G26) | **lagt till.** I Task 8: avsnittet namnger ingen av de tre föråldrade varianterna (`Limited risk`, `Minimal risk`, `Prohibited`) som stod i Gemini-guiden innan G26 rättade dem. `High risk` står också i löptexten men bär ingen egen rad — det är inte ett namn som stått fel i någon syskonguide |
@@ -223,10 +223,13 @@ utvecklarramverket. Men medan leadet letade efter Gemini i Inställningar satt G
 inne i assistenten (A17). Den som skriver runda 2 utifrån leadet i stället för utifrån
 källorna skulle ha skrivit in ett fel och missat det riktiga.
 
-**6. Fyra poster saknar vaktrad med avsikt** — A30 (EW 1 / EP 0), A31 (EP 1 / EW 0), A32
-(0 / 0) och IMY-divergensen (EP 1 / EW 0). Ingen av dem är glömd; var och en är mätt och
-står i Ytdivergenser eller i sin egen postrad. En framtida runda som "städar" dem in i
-vaktblocket gör den röd.
+**6. Tre poster saknar vaktrad med avsikt** — A30 (EW 1 / EP 0), A31 (EP 1 / EW 0) och
+IMY-divergensen (EP 1 / EW 0). Ingen av dem är glömd; var och en är mätt och står i
+Ytdivergenser eller i sin egen postrad. En framtida runda som "städar" dem in i
+vaktblocket gör den röd. (**A32 stod här före runda 2 Task 10** — den var 0/0 och alltså
+i samma läge som dessa tre. Task 10 lade till uppgiften i FAQ:n på båda ytorna och gav den
+två egna `aktiv`-rader i vaktblocket; den hör därför inte längre till den här gruppen. Se
+Task 10:s kommentarblock i Vaktblocket.)
 
 ## Vaktblocket
 
@@ -241,8 +244,9 @@ vaktblocket gör den röd.
 #
 # INGEN RAD PÅ `IMY`: EP:1 / EW:0, alltså `saknas_på_en_yta` från start.
 # Divergensen står i prosan ovan och är runda 2:s sak. Samma skäl gäller
-# A30 (EW:1 / EP:0), A31 (EP:1 / EW:0) och A32 (0/0, saknas i guiden) —
-# de har postrader men ingen vaktrad, med avsikt.
+# A30 (EW:1 / EP:0) och A31 (EP:1 / EW:0) — de har postrader men ingen
+# vaktrad, med avsikt. A32 stod här som (0/0) till och med Task 9; Task 10
+# lade till uppgiften och gav den två `aktiv`-rader längst ner i blocket.
 A01 | en | M1 chip or later | aktiv
 A02 | en | iPhone 15 Pro | aktiv
 A03 | en | iPad Pro or iPad Air from 2021 | borttaget
@@ -744,4 +748,81 @@ A39 | en | every school that deploys an AI system | aktiv
 # ChatGPT-vägens egen inställning heter i dag (`Settings → Siri`); ingen
 # hämtad källa i inventeringen uttalar sig om det allmänna
 # kompatibilitetsmenyns namn. Lämnat orört — ingen gissning.
+
+# Runda 2 Task 10 — FAQ:n
+#
+# 1) Internationaliseringen av språkfrågan. Frågan själv (tidigare "Is
+# Apple Intelligence available in Swedish?") är skriven om till en
+# generell fråga om icke-engelska språk — EP: "Is Apple Intelligence
+# available in my language?"; EW: "Is Apple Intelligence available in a
+# language other than English?" (husstilens vanliga ~40 % variation).
+# Task 5/Task 4:s givna text (se Task 4:s kommentarblock ovan: "detta
+# föregriper INTE A15 ... det är Task 5:s fynd") är behandlad som given:
+# Siri AI-meningen och "Verify the [current/live] language matrix ..."
+# är ORÖRDA i sak, bara "for the language you teach in" infogat i den
+# senare. Ingen kadens och inget vänteläge är återinfört — "Swedish
+# rolled out during 2025" / "Swedish localisation rolled out during
+# 2025" är en förfluten, daterad händelse, inte ett löfte om framtida
+# täckning, och ingen ny frekvens eller "kommer snart"-formulering är
+# tillagd.
+#
+# BESLUT — `Swedish` som exempel, inte struket: båda ytornas nya svar
+# behåller ordet `Swedish` EN gång som en uttrycklig exempelmarkering
+# ("Swedish, for example, rolled out during 2025, and ..."), i stället
+# för att stryka det helt. Skälet: det är den enda konkreta, daterade,
+# källbelagda uppgiften svaret har (2025-utrullningen); att generalisera
+# bort den helt hade lämnat svaret utan något verifierbart ankare alls,
+# bara en uppmaning att "kontrollera själv". Att hålla den kvar SOM
+# EXEMPEL — samma mönster Task 4 redan etablerade i klassrumsexemplen
+# ("the language you teach in") — svarar på frågans egen generalisering
+# utan att låtsas som att uppgiften om Swedish aldrig fanns. Mätt efter
+# ändringen: `Swedish` står 2 (EP) / 3 (EW), ordagrant i samma stycke
+# som den nya, generella frågan och ramen "for the language you teach
+# in" / "Language support varies by language" — ingen förekomst utanför
+# den här frågan på någon yta.
+#
+# `Sweden` (skiljt från `Swedish`, annan sträng): 0 (EP) / 1 (EW). Den
+# enda EW-förekomsten är Fixrunda 1 på Task 4:s återställda
+# "I offer consulting for schools, primarily in Sweden." i FAQ-svaret
+# "Where do I get help if something goes wrong?" — ett ägarbeslut om
+# guideförfattarens egen verksamhet, inte läsarens jurisdiktion (se
+# Task 4:s Fixrunda 1-kommentar ovan för hela resonemanget). Task 10 har
+# INTE rört den meningen. Mätt med briefens eget skript (steg 4):
+# `{'Sweden': 0, 'Swedish': 2, 'IMY': 0, 'Siri 2.0': 0}` (EP) och
+# `{'Sweden': 1, 'Swedish': 3, 'IMY': 0, 'Siri 2.0': 0}` (EW) — noll på
+# alla fyra utom de två avsiktliga, nu dokumenterade undantagen.
+#
+# 2) A03:s hårdvaruår i FAQ:n. FAQ-svaret "Does my iPad support Apple
+# Intelligence?" bar på EP en ANNAN formulering än A03:s vaktsträng
+# ("iPad Pro and iPad Air from 2021" — "and", inte "or", och ingen egen
+# vaktrad fångade den, se Task 2:s självgranskning). Samma sakfel som
+# A03 (iPad Air är 2022, inte 2021). Rättad till "iPad Pro from 2021,
+# iPad Air from 2022" — FAQ:ns egna, kortare register, inte ett
+# ordagrant lån av A03:s vaktsträng. EW:s motsvarande svar nämnde aldrig
+# ett årtal ("iPad Pro (M1 and up), iPad Air (M1 and up)") och bar
+# alltså aldrig felet — ingen ändring behövdes där. Ingen ny guard-rad:
+# FAQ:ns fras är och förblir en annan ordalydelse än A03:s existerande
+# `aktiv`-rad, med avsikt (FAQ:ns kompakta stil), så den dupliceras inte
+# här.
+#
+# 3) A32 — lagt till, båda ytorna, i samma FAQ-svar som punkt 2 ("Does
+# my iPad support Apple Intelligence?"), som en avslutande
+# budgetanmärkning efter hårdvarukontrollen. Tre sakuppgifter ur källan:
+# namngivna serverburna funktioner har en daglig användningsgräns,
+# gränsen kan variera, och utökad åtkomst kommer kosta i framtiden utan
+# angivet datum. Ingen tidplan påstås (källan ger ingen, och svaret
+# upprepar inte "i framtiden" som om det vore snart). Två ankare, mätta
+# ordagrant på BÅDA engelska ytorna efter tillägget:
+A32 | en | Siri AI, Intelligent Photo Editing Tools, Image Playground | aktiv
+A32 | en | will come at a fee in the future | aktiv
+#
+# A32:s huvudtabellsrad uppdaterad (förekomst 0/0 → 1/1, verdikt
+# "lagt till i runda 2 Task 10"). Observationernas punkt 6 och
+# vaktblockets inledande kommentar (ovan) uppdaterade i samma commit —
+# A32 räknas inte längre bland posterna utan vaktrad.
+#
+# Meny-namnet `Apple Intelligence & Siri` i FAQ-svar 1 och 2 är ORÖRT —
+# samma avgörande som Task 9 gjorde (ingen källa i inventeringen avgör
+# den allmänna kompatibilitetsmenyns namn). Ingen av de två tilläggen
+# ovan (punkt 2 och 3) rör den frasen.
 ```
