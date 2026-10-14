@@ -607,10 +607,23 @@ A16 | en | requires the user to be at least 13 | aktiv
 # sammanfattning av HÄLFTEN av källan, skriven som om den vore hela. Båda
 # de obetingade raderna som denna fixrunda skrev in är därför flyttade
 # till `borttaget` nedan, och ersatta av EN delad, tvådelad formulering
-# som står ordagrant likadan på BÅDA förekomster och BÅDA ytorna:
+# som stod ordagrant likadan på BÅDA förekomster och BÅDA ytorna:
+#
+# ÄGARENS REDAKTIONELLA PASS 2026-10-14 (punkt C2) BRÖT DEN DELNINGEN,
+# avsiktligt: förklaringen var härledd två gånger, i Del 2:s funktionsruta
+# och i Del 3:s policyavsnitt. Del 3 (förekomst 2) äger den nu med
+# inställningens väg och den praktiska slutsatsen; förekomst 1 bär samma
+# TVÅDELADE sanning i kortare ord plus en pekare till Del 3. Den långa
+# raden nedan vaktar därför nu förekomst 2, och förekomst 1 har fått två
+# EGNA korta ankare — utan dem hade presensvakten varit nöjd med att bara
+# förekomst 2 fanns, och en framtida runda kunnat av-hedga Del 2:s ruta
+# utan att något test såg det. Båda halvorna är ankrade var för sig,
+# eftersom det är halvorna felet gick ut över båda gångerna:
 A18 | en | shows a confirmation screen before sending by default | borttaget
 A18 | en | turns this confirmation off | borttaget
 A18 | en | that option isn't available when using Siri AI itself, so for Siri AI specifically the confirmation can't be disabled | aktiv
+A18 | en | can't be switched off under Siri AI | aktiv
+A18 | en | Apple's setting covers classic Siri only | aktiv
 #
 # Förekomst 1 — "Where it runs · Siri AI"-rutan (EP sida 11, EW samma
 # kort): bekräftelsen visas, kan stängas av för klassisk Siri, men INTE
@@ -653,6 +666,16 @@ A18 | en | that option isn't available when using Siri AI itself, so for Siri AI
 # this one is entirely on-device; Apple hasn't confirmed it either way" —
 # ingen av de två nya ankarna står i den meningen). Provade mot båda före
 # commit, se rapporten.
+#
+# ÄGARENS REDAKTIONELLA PASS 2026-10-14 (punkt C1): brasklappen stod i FYRA
+# versioner — Del 1:s trevägslista, Del 2:s "Where it runs"-ruta (den fulla,
+# EP sida 12), Del 2:s sammanfattning (sida 16) och Del 3 (sida 19), där de
+# två senare var 96 % identiska. Del 2:s ruta äger sakuppgiften. Del 3 slutar
+# härleda den och pekar dit i stället. Sidan 12 och sidan 16 är ORÖRDA.
+# Samtidigt rättades Del 1:s pekare från "see Part 3" till "see Part 2" —
+# den hade annars pekat på en sida som bara pekar vidare. Ingen vaktrad bar
+# den pekaren, och ingen av de två `borttaget`-strängarna nedan står i den
+# nya Del 3-meningen (provat före commit).
 #
 # Ankare 1 — Del 3:s "What stays on your device" (EP sida 19, EW p3-stays),
 # ordagrant likadan på båda ytorna innan rättelsen:
