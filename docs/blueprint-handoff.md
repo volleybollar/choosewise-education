@@ -30,7 +30,7 @@
 
 ### Först, per 2026-10-14 (Apple-guiden klar)
 
-- **JOHANS REDAKTIONELLA PASS PÅ APPLE-GUIDEN — elva punkter.** Underlaget ligger i `~/Desktop/choosewise-apple-runda-2/task-15-report.md`. Se Apple-sektionen nedan. Guiden är klar i sak; det här är hans text och hans röst.
+- **JOHANS REDAKTIONELLA PASS PÅ APPLE-GUIDEN — PUNKT A GENOMFÖRD 2026-10-14** (`9b2dda4`). Sex röstfrågor avgjorda och skrivna in på båda engelska ytorna; B1 var redan gjord i fixvågens Minor 2. **Kvar: två dubbleringar han inte beslutat** — Mail-kategoriseringens brasklapp på sidorna 12/16/19 och `Confirm Requests`-förklaringen på 11/21. Se Apple-sektionen nedan.
 - **PUSHEN ÄR JOHANS BESLUT.** `main` ligger tre merges och 51 commits före `origin/main`: Apple runda 1, runda 2 och den här överlämningen. Hygienrundan är `origin/main` och är redan pushad. Ingenting av det är publicerat — guiderna distribueras via Skool — men historiken finns bara lokalt tills den pushas.
 - **Omklassificeringen av tolv inventeringsposters verdikt**, med färdig brytning i inventeringens huvud. **Gör den inte svepande** — tre av de tolv passar ingen nuvarande kategori, och en granskare varnade för att en generell omklassificering inför nya sakfel. Se Apple-sektionen.
 
@@ -1108,12 +1108,13 @@ Ett filter som sållar bort breda element för att slippa fullbreddsbehållare d
 
 ### Vad som väntar på Johan
 
-**Elva punkter för det redaktionella passet**, med fullt underlag i `~/Desktop/choosewise-apple-runda-2/task-15-report.md`:
-- **sex röstfrågor** — passager där femton uppgifter kan ha skrivit kommittéprosa i hans första person,
-- **två EU-förbehåll** att läsa om med misstanken att de kan läsas som "kommer senare",
-- **tre dubbleringar** ingen vakt kan se: Mail-kategoriseringens brasklapp på sidorna 12/16/19, `Confirm Requests`-förklaringen på 11/21, artikel 4:s plikt på 23/24.
+**Av de elva punkterna är åtta avgjorda. Underlaget står kvar i `~/Desktop/choosewise-apple-runda-2/task-15-report.md`.**
 
-Plus: **`skolchef` och `rektor` står oglosade** i den engelska printytan. Behålls de bör de glosas som CLAUDE.md:s egen vokabulär gör; stryks de hör de på förbudslistan.
+**GENOMFÖRT 2026-10-14 — punkt A, hela, i `9b2dda4`:** `worth ___` från nio förekomster till två (de två kvarvarande är idiomatiska, inte krycka); `honest` från fyra till två som följd; artikel 26:s fem plikter ur bisatsen och in i fem egna meningar; `skolchef`/`rektor` **strukna** för `school administrator`/`principal` och lagda på förbudslistan (20 → 22 strängar); artikel 4:s dubblering på 23/24 löst som korsreferens (s 23 äger plikten); FAQ:ns `Start off, enable consciously.` omskriven. B1 (`remains blocked`) var redan gjord i fixvågens Minor 2, och B2:s tre olika callout-titlar står kvar med avsikt — skillnaden är saklig och brödtexten förklarar den.
+
+**KVAR, obeslutat: de två dubbleringarna i §4C.** Mail-kategoriseringens brasklapp står trestämd på 12/16/19 (s 16 och s 19 är 96 % identiska), och `Confirm Requests`-förklaringen är härledd två gånger på 11/21. Båda är förslagna i chatten 2026-10-14 men inte avgjorda: s 12 resp s 21 äger sakuppgiften, den andra förekomsten blir en korsreferens.
+
+**LÄRDOM UR PASSET, och den gäller varje framtida omskrivning av en faktamening:** min första version av artikel 26-stycket skrev `— five duties` i stället för `which includes`, och **införde därmed exakt det fel formuleringen fanns till för att undvika** — ett kolon eller en räkning lovar en sluten lista, och artikel 26 har sju punkter mot avsnittets fem. Det stod i inventeringens egen motiveringscell, inte i guiden. **Läs postradens motivering innan du skriver om meningen den beskriver** — den bär skälen till ordval som ser utbytbara ut. Samma pass bytte `the logs it controls` → `the logs the school controls`, vilket är tillåtet (26.6:s förbehåll intakt, pronomenet upplöst) och dokumenterat i A37:s cell.
 
 **En utestående omklassificering, med färdig brytning i inventeringens huvud.** Tolv posters verdikt säger fortfarande `föråldrat`/`falskt`/`obelagt` trots att texten är rättad:
 - **sju är entydigt rättade** — A15, A16, A18, A20, A21, A30, A31,
