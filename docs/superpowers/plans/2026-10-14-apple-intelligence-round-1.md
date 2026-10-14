@@ -130,8 +130,11 @@ def test_an_unknown_guide_is_a_loud_error():
 
 - [ ] **Steg 5: Bevisa att sentinelvakten fortfarande fångar det den ska**
 
-I en engångsworktree, lägg till `"ingen-sådan-guide": {}` i `GUIDE_TOC` och kör testet.
-Förväntat: FAIL på `pytest.raises` — vakten ser att ett okänt namn plötsligt är känt.
+I en engångsworktree, lägg till `"ingen-sådan-guide": {"anchors": {}}` i `GUIDE_TOC` och kör
+testet. Förväntat: FAIL på `pytest.raises` (`DID NOT RAISE`) — vakten ser att ett okänt namn
+plötsligt är känt. Använd INTE en bar `{}`: `_cases()` läser `cfg["anchors"]` på modulnivå
+(rad 127), så en post utan `anchors`-nyckeln kraschar hela collection-steget innan vakten
+någonsin körs — ett obesläktat fel som inte bevisar något om sentinelns egen assertion.
 Riv worktreen; rör inte arbetsträdet.
 
 ```bash
