@@ -265,6 +265,26 @@ def test_the_debt_list_cannot_rot():
     assert not unexplained, f"post utan skäl: {sorted(unexplained)}"
 
 
+# Guider vars påståendeinventering ännu är en MÄTNING och inte en
+# rättelse: varje rad är `aktiv` och ingen är `borttaget`, därför att
+# rundan kartlade guiden utan att röra dess prosa. Listan ska TÖMMAS av
+# guidens egen innehållsrunda, i samma pass som den stryker sitt första
+# påstående. Värdet är skälet — en tom sträng duger inte.
+#
+# Varför den behövs: de två vakterna nedan antog att varje kartlagd guide
+# redan har strukna påståenden. Det gällde Claude, Copilot och Gemini —
+# deras rundor skrev om guiden OCH skrev inventeringen i samma svep.
+# Apple är den första guiden som kartläggs i en egen mät-och-vakta-runda,
+# och antagandet syntes först då.
+MEASURE_ONLY_INVENTORIES = {
+    "apple-intelligence":
+        "runda 1 (mät och vakta) kartlade guiden och skrev inventeringen som "
+        "en mätning av dagens prosa; runda 2 skriver om guiden och flyttar då "
+        "de föråldrade posterna till `borttaget`. Spec: "
+        "docs/superpowers/specs/2026-10-14-apple-intelligence-guide-update-design.md",
+}
+
+
 @pytest.mark.parametrize("guide", surfacecheck.GUIDES)
 def test_every_guides_guard_block_is_not_empty(guide):
     """Ett tömt vaktblock gör de tre vakterna nedan grönt av fel skäl.
@@ -273,15 +293,40 @@ def test_every_guides_guard_block_is_not_empty(guide):
     passerar de utan att vakta något. Den här raden är det som gör ett
     tömt block rött, och den gäller varje guide i ytkartan: en vakt som
     bara skyddade Claudes block lämnade Copilots tömbart.
+
+    `borttaget`-kravet undantar guider i MEASURE_ONLY_INVENTORIES: en
+    guide vars prosa ännu inte är rörd kan inte ärligt bära en struken
+    rad utan att hitta på den.
     """
     rows = factinventory.load(factinventory.inventory_path(guide))
-    assert [r for r in rows if r.status == "borttaget"], f"{guide}: inga borttaget-rader"
     assert [r for r in rows if r.status == "aktiv"], f"{guide}: inga aktiv-rader"
+    if guide in MEASURE_ONLY_INVENTORIES:
+        return
+    assert [r for r in rows if r.status == "borttaget"], f"{guide}: inga borttaget-rader"
 
 
 def _rows(guide: str, status: str) -> list:
     return [r for r in factinventory.load(factinventory.inventory_path(guide))
             if r.status == status]
+
+
+@pytest.mark.parametrize("guide", sorted(MEASURE_ONLY_INVENTORIES))
+def test_the_measure_only_list_cannot_rot(guide):
+    """Listan ska beskriva verkligheten, annars tömmer den sig i prosa.
+
+    Tre sätt den kan ruttna, alla röda här: en post som inte är en känd
+    guide, en post utan skäl, och en post vars inventering FAKTISKT har
+    borttaget-rader — då är skulden betald, och står posten kvar ligger
+    guiden utanför två vakter den klarar. Samma form som
+    UNMAPPED_GUIDE_SURFACES och test_the_debt_list_cannot_rot.
+    """
+    assert guide in surfacecheck.GUIDES, (
+        f"{guide} står i MEASURE_ONLY_INVENTORIES men inte i ytkartan")
+    assert MEASURE_ONLY_INVENTORIES[guide].strip(), f"post utan skäl: {guide}"
+    removed = _rows(guide, "borttaget")
+    assert not removed, (
+        f"{guide} har {len(removed)} borttaget-rader — skulden är betald, "
+        "stryk posten ur MEASURE_ONLY_INVENTORIES")
 
 
 @pytest.mark.parametrize("guide", surfacecheck.GUIDES)
@@ -311,6 +356,12 @@ def test_the_real_forbidden_list_would_catch_a_reintroduction(guide):
     håller valet ärligt, för innehåller offrets värde en annan förbudsrad
     blir två id:n röda och likhetsjämförelsen vore fel krav."""
     rows = [r for r in _rows(guide, "borttaget") if r.lang == "en"]
+    if not rows:
+        assert guide in MEASURE_ONLY_INVENTORIES, (
+            f"{guide} har inga engelska borttaget-rader men står inte i "
+            "MEASURE_ONLY_INVENTORIES — en guide tappar inte sina "
+            "förbudsrader tyst")
+        return
     victim = min(rows, key=lambda r: len(r.value))
     needle = surfacecheck.normalise(victim.value)
     assert not [r for r in rows
