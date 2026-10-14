@@ -23,14 +23,13 @@ _SPEC = importlib.util.spec_from_file_location(
 # omfångas. Töms och fylls om i varje ny runda — aldrig radvis tillägg,
 # för en lista som bara växer slutar vakta något.
 RECAPTURED_THIS_ROUND = [
-    # Ägarens redaktionella pass 2026-10-14 (punkt A i underlaget): sju
-    # `worth`-omskrivningar, artikel 26-listan delad i fem meningar, de två
-    # oglosade svenska titlarna strukna, artikel 4-dubbleringen gjord till en
-    # korsreferens och FAQ:ns slutmening omskriven. Bara den ENGELSKA
-    # guide-PDF:en renderades om — sidantalet står kvar på 26, texten ändrad
-    # på nio sidor (3, 6, 16, 17, 18, 22, 23, 24, 25), alla nio spårbara till
-    # en godkänd punkt. Den engelska quick-starten och båda svenska PDF:erna
-    # rördes INTE och är byte-identiska med bascommiten.
+    # Ägarens redaktionella pass 2026-10-14, punkt C: Del 3 slutar härleda
+    # Mail-brasklappen (Del 2 äger den), Del 1:s pekare riktad om till Del 2,
+    # och Del 2:s Siri AI-ruta slutar härleda `Confirm Requests`-förklaringen
+    # (Del 3 äger den). Bara den ENGELSKA guide-PDF:en renderades om —
+    # sidantalet står kvar på 26, texten ändrad på sida 5, 11 och 19, en per
+    # ändring. Den engelska quick-starten och båda svenska PDF:erna rördes
+    # INTE och är byte-identiska med bascommiten.
     "_unpublished/assets/pdfs/guides/apple-intelligence-guide-en.pdf",
 ]
 
