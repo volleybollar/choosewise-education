@@ -172,6 +172,29 @@ NO_PAGE_CLAIM: dict = {
     # ovan. Se historiken för skälet till att posten fanns.
 }
 
+# Ett tomt läge här är ett GILTIGT, ÅTERKOMMANDE tillstånd, inte
+# migreringsskuld att städa bort. Posten pendlar med det redaktionella
+# beslutet den beskriver: runda 1 tog bort apple-intelligences påstående
+# (posten fylldes i), runda 2 Task 13 la tillbaka det (posten ströks).
+# Nästa guide som skriver om sin quick-start och tillfälligt tappar
+# påståendet fyller på en ny post; när påståendet kommer tillbaka töms
+# den igen.
+#
+# Ett tomt NO_PAGE_CLAIM gör `test_the_no_page_claim_list_cannot_rot`
+# parametriserad över noll fall, och pytest syntetiserar då EN `skipped`-
+# rad i stället för noll tester (synligt i `-rs`-utskriften som "got
+# empty parameter set for (guide)"). Det är FÖRVÄNTAT och OFARLIGT — inte
+# ett tecken på att mekanismen är trasig eller överflödig.
+#
+# Mekanismen får alltså INTE strykas bara för att den står tom, och ska
+# INTE fyllas med en konstlad post bara för att slippa `skipped`-raden.
+# Den riktiga vakten mot ett tyst försvunnet sidantalspåstående är
+# `test_every_quick_starts_page_count_claim_matches_its_rendered_main_guide`
+# ovan — den är parametriserad över ALLA `GUIDES`, oavsett vad som står
+# i den här dicten, och fäller varje guide vars påstående försvinner
+# eller blir fel. NO_PAGE_CLAIM är bara deklarationen av UNDANTAGET från
+# den vakten för de guider som just nu saknar ett påstående helt.
+
 # Oskyldiga `\d+-page`-strängar: tal i quick-startens egen prosa som inte
 # är ett påstående om guiden. Varje post är en ordagrann sträng ur den
 # levererade PDF:en, mätt i `_flat()`-form. Listan finns för att
