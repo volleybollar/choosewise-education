@@ -23,11 +23,11 @@ _SPEC = importlib.util.spec_from_file_location(
 # omfångas. Töms och fylls om i varje ny runda — aldrig radvis tillägg,
 # för en lista som bara växer slutar vakta något.
 RECAPTURED_THIS_ROUND = [
-    # Apple-rundan 1, 2026-10-14: quick-starten renderades om när de två
-    # pekarna till en sida som aldrig publiceras togs bort. Huvudguiden
-    # rördes INTE — prosan står still i runda 1 — så dess tre facitnycklar
-    # ska stå under vakten, inte i undantaget.
-    "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-en.pdf",
+    # Runda 2 Task 1, 2026-10-14: den svenska quick-starten renderades om när
+    # dess två pekare till en sida som aldrig publiceras togs bort (Johans
+    # beslut, spec §5 amendemang II). Guide-PDF:erna och den engelska
+    # quick-starten rördes INTE i den här uppgiften.
+    "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-sv.pdf",
 ]
 
 

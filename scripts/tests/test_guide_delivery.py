@@ -113,9 +113,14 @@ GUIDE_DELIVERY = {
         # Båda byggarna renderar EN *och* SV i samma körning, så de svenska
         # filerna skrivs varje gång de engelska renderas om. Raden jämför
         # bytes mot merge-basen.
+        #
+        # Quick-starten lämnade listan i runda 2 Task 1: Johans beslut
+        # 2026-10-14 (spec §5 amendemang II) var att den svenska
+        # avslutningen städas med samma kirurgi som den engelska fick, så
+        # filen ÄR ändrad med avsikt. Guide-PDF:en står kvar — de svenska
+        # guideytornas prosa är fortsatt fryst.
         "untouched": (
             "_unpublished/assets/pdfs/guides/apple-intelligence-guide-sv.pdf",
-            "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-sv.pdf",
         ),
     },
 }
