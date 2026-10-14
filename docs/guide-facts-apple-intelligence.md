@@ -19,20 +19,52 @@ Varje volatilt faktapåstående i de **engelska** ytorna, med alla sina förekom
 svenska ytorna ingår inte i rundan och har därför inga poster.
 
 Inventeringen mätte ursprungligen **guiden som den stod 2026-10-14** (runda 1, mät och
-vakta) och var inte en beskrivning av den omskrivna guiden. Efter runda 2:s Task 2–11
-beskriver den i stället **den omskrivna guiden**: varje post bär fortfarande ett
-**verdikt**, men verdiktkolumnen bär nu också vad runda 2 gjorde med posten.
+vakta) och var inte en beskrivning av den omskrivna guiden. Varje post bär ett
+**verdikt** — och i de allra flesta cellerna är det verdiktet fortfarande runda 1:s
+ursprungliga klassificering, **inte** en rapport om vad runda 2 gjorde:
 
 - `står` — verifierat sant mot primärkälla 2026-10-14; ingen ändring behövdes
-- `föråldrat` — var sant i april 2026, är det inte längre; cellens text säger vad runda 2 gjorde åt det
-- `falskt` — var fel redan då; cellens text säger vad runda 2 gjorde åt det
-- `obelagt` — ingen hämtbar primärkälla säger något om påståendet; cellens text säger vad runda 2 gjorde åt det
-- `rättat` — ett tidigare `föråldrat`- eller `falskt`-värde är ersatt med ett nytt, källbelagt värde
+- `föråldrat` — var sant i april 2026, är det inte längre
+- `falskt` — var fel redan då
+- `obelagt` — ingen hämtbar primärkälla säger något om påståendet
+- `rättat` — ett tidigare `föråldrat`- eller `falskt`-värde är ersatt med ett nytt,
+  källbelagt värde — bara den delmängd poster där uppgiften som gjorde bytet också skrev
+  om själva token
 - `lagt till` — guiden saknade uppgiften helt; den är tillagd i runda 2
 
-Verdikten var runda 2:s arbetsorder och är nu dess facit. Källkolumnen bär
-**primärkälla** (apple.com, support.apple.com, security.apple.com, Apples eget
-pressmaterial) med hämtdatum; en sekundärkälla räcker aldrig till `står`.
+**`föråldrat`/`falskt`/`obelagt` säger inget om huruvida guiden faktiskt är rättad.** För
+en del av dessa poster är cellens prosa uppdaterad med vad runda 2 gjorde; för andra står
+prosan kvar precis som den skrevs i runda 1 — i presens eller imperativ, som om
+rättelsen återstår — oavsett om guiden själv redan är omskriven. **Vaktblocket
+(`## Vaktblocket` nedan) är den auktoritativa källan för vad som faktiskt ändrades i
+guiden:** varje uppgift loggade sina rader där, under sin egen rubrik
+(`# Runda 2 Task N — …`). En läsare som vill veta om och hur en given post lagades ska gå
+dit, inte lita på verdiktordet.
+
+**Omklassificering är utestående och helgranskningens sak.** En Fixrunda 1-granskning av
+Task 12 (2026-10-14) kartlade, mot vaktblocket, vilka `föråldrat`/`falskt`-poster som
+faktiskt fick guiden omskriven under runda 2:
+- **Sju är entydigt rättade** (ett tidigare värde ersatt med ett nytt, källbelagt värde):
+  **A15** (Task 5), **A16** (Task 7), **A18** (Task 7), **A20** (Task 6), **A21**
+  (Task 6), **A30** (Task 7), **A31** (Task 7).
+- **Två passar inte utan vidare:** **A17** (Task 3) — den gamla strängen är orörd och
+  fortfarande sann; det som lagades var en outtalad implikation, genom att lägga till två
+  nya meningar, inte genom att byta ett värde — och **A22** (Task 6) — bara halva
+  problemet är löst (stilnamnen); den andra halvan (ChatGPT som stilval i Image
+  Playground) står kvar som en öppen brist, se kvalifikatortabellen nedan. En delvis
+  rättad cell får inte bli `rättat`.
+- **Tre passar ingen nuvarande kategori:** **A25** (Task 3), **A27** (Task 3), **A29**
+  (Task 6) — påståendena är strukna **utan ersättning**, så det finns inget nytt
+  källbelagt värde att peka ut som "rättelse". Taxonomin saknar i dag ett ord för
+  "obelagt påstående struket, inget ersatt".
+
+Ingen av dessa tolv poster är omklassificerad av den här uppgiften — det hade krävt att
+ändra `## Poster`-radernas verdikt, vilket ligger utanför den här uppgiftens fillista.
+Brytningen ovan finns så att nästa uppgift som rör verdikten kan använda den direkt, utan
+att själv läsa om vaktblocket post för post.
+
+Källkolumnen bär **primärkälla** (apple.com, support.apple.com, security.apple.com, Apples
+eget pressmaterial) med hämtdatum; en sekundärkälla räcker aldrig till `står`.
 
 ## Hur källorna läses
 
