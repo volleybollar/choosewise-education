@@ -23,11 +23,11 @@ _SPEC = importlib.util.spec_from_file_location(
 # omfångas. Töms och fylls om i varje ny runda — aldrig radvis tillägg,
 # för en lista som bara växer slutar vakta något.
 RECAPTURED_THIS_ROUND = [
-    # premarket-rundan 2026-10-13: bara huvudguiden renderades om.
-    # Quick-starten rördes INTE — pagineringen stod still på 44 sidor,
-    # så dess tryckta `44-page`-påstående behövde ingen ändring, och
-    # dess facitnyckel ska därför stå under vakten, inte i undantaget.
-    "_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf",
+    # Apple-rundan 1, 2026-10-14: quick-starten renderades om när de två
+    # pekarna till en sida som aldrig publiceras togs bort. Huvudguiden
+    # rördes INTE — prosan står still i runda 1 — så dess tre facitnycklar
+    # ska stå under vakten, inte i undantaget.
+    "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-en.pdf",
 ]
 
 

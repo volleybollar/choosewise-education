@@ -50,6 +50,18 @@ GUIDE_SURFACES = {
         ("sv", "web"):   "_unpublished/sv/guider/gemini-notebooklm/index.html",
         ("sv", "print"): "_unpublished/exports/gemini-notebooklm-print-a4-sv.html",
     },
+    # Apple Intelligence ligger under _unpublished/ av samma skäl som
+    # Copilot och Gemini: GitHub Pages serverar inte kataloger som börjar
+    # med understreck. De svenska ytorna står med fast runda 1 bara rör
+    # deras typsnitt — de FINNS, och en svensk vaktrad ska jämföras mot
+    # dem och inte mot ingenting. Att de divergerar i sak från de engelska
+    # efter runda 2 är ett känt läge (spec §1), inte något vakten ska dölja.
+    "apple-intelligence": {
+        ("en", "web"):   "_unpublished/guides/apple-intelligence/index.html",
+        ("en", "print"): "_unpublished/exports/apple-intelligence-print-a4-en.html",
+        ("sv", "web"):   "_unpublished/sv/guider/apple-intelligence/index.html",
+        ("sv", "print"): "_unpublished/exports/apple-intelligence-print-a4-sv.html",
+    },
 }
 GUIDES = tuple(GUIDE_SURFACES)
 
