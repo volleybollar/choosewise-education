@@ -47,7 +47,7 @@
 
 3c. **GUIDESIDORNAS LÖFTEN PÅ SAJTEN — egen gren, egen PR.** Johans omfångsbeslut 2026-10-13: guiderna distribueras via **Skool**, inte via sajten, och inga svenska guider utöver Claude och presentationsteknik. `guides/index.html` och `sv/guider/index.html` är **publicerade** och lovar i löptext guider om Copilot, Gemini & NotebookLM, Apple Intelligence och elevguiden som "in preparation" / "under arbete" — **det löftet ska bort.** Båda nämner dessutom inte presentationsteknik, som stannar, och båda är daterade 27 april 2026. **Hör inte på Gemini-grenen:** dess PR-text säger att ingenting publiceras, och det ska den fortsätta göra. Detaljerna i **"⚑ OMFÅNGSBESLUTET 2026-10-13"** nedan.
 
-4. **Diagram- och social-exporterna.** Åtta mallar plus SVG, PNG och PDF för WISE och RÄTT. Johans beslut 2026-10-06: egen runda, gärna ihop med märket. Sju av åtta bär hans ocommittade ändringar — han bör commita svepet först.
+4. **Diagram- och social-exporterna.** Åtta mallar plus SVG, PNG och PDF för WISE och RÄTT. Johans beslut 2026-10-06: egen runda, gärna ihop med märket. **RÄTTAT 2026-10-14: påståendet att sju av åtta bär Johans ocommittade ändringar gäller inte längre** — arbetsträdet är rent (mätt `git status --short` före push av `1ffbb44`). Raden stod kvar från 2026-10-06 och användes som skäl att ta exporterna först; det skälet finns inte. Vad som hände med svepet — committat eller tappat — är inte utrett här, så en runda som rör mallarna ska börja med att läsa dem, inte med att anta att hans ändringar ligger kvar i arbetsträdet.
 5. **Visual Codes Vol. 1–3** i `~/Projekt/Choosewise/visual-codes-pdf/`, utanför repot. Specen §8 räknar dem till våg 2; varken 2a:s eller 2b:s plan nämner dem. Tredje kopian av paletten.
 6. **NotebookLM-dokumentet** — se "Känt trasigt" nedan.
 
@@ -60,7 +60,7 @@
 - **Evidence Toolkits band** "kring" vs "över": 1,54:1. Palettak sedan våg 1, inte ett förbiseende.
 - **Sajtens header** bär inget märke. Spår A:s spec säger nej idag; frågan kan tas när tecknet setts i bruk.
 - ~~**Choosewise på LinkedIn:** egen sida eller Johans profil?~~ **AVGJORT 2026-10-09: egen sida.** Den personliga bannern används inte — Johans profil behåller sin egen avsändare. Sidan skapas nu för att säkra namnet, men posterna fortsätter från profilen tills Skool öppnar. Båda måtten ligger kvar committade.
-- **De tre återstående guiderna** (Gemini/NotebookLM, Apple Intelligence, elevguiden) tas i egna rundor, en guide i taget, med Copilot-rundan som mall. Vaktlagret är redan guide-agnostiskt (se "Copilot-guiden — vad rundan lämnar" nedan) — nästa runda fyller två dict:ar och skriver en inventering, den behöver inte ändra vakten själv.
+- ~~**De tre återstående guiderna** (Gemini/NotebookLM, Apple Intelligence, elevguiden) tas i egna rundor, en guide i taget~~ — **två av tre levererade: Gemini 2026-10-13, Apple 2026-10-14. Kvar: elevguiden, och dess omfång är beslutat 2026-10-14 — se "Elevguiden" nedan.** Copilot-rundan är fortfarande mallen, och vaktlagret är guide-agnostiskt (se "Copilot-guiden — vad rundan lämnar" nedan): rundan fyller två dict:ar och skriver en inventering, den behöver inte ändra vakten själv.
 - ~~**De svenska Copilot- OCH Gemini-ytorna** — ska de hämta in de engelska?~~ **AVGJORT 2026-10-13: nej.** Johans omfångsbeslut: **inga svenska guider utöver Claude och presentationsteknik**, och guiderna distribueras via **Skool** i stället för via sajten. De svenska Copilot- och Gemini-ytorna (`copilot-print-a4-sv.html`, `copilot-quick-start-sv.html`, `_unpublished/sv/guider/copilot/`; `gemini-notebooklm-print-a4-sv.html`, `gemini-notebooklm-quick-start-sv.html`, `_unpublished/sv/guider/gemini-notebooklm/`) står kvar **frysta, permanent**, med juni- respektive aprilfakta. **De två språken divergerar i sak med avsikt.** Deras PDF:er är byte-identiska mot före sin runda och vaktas av `test_guide_delivery.py`. **Beslutet stänger samtidigt Gemini-fallets tre följdfrågor:** de svenska filnamnen stannar, den svenska quick-startens "39-sidiga" når ingen läsare, och axeletiketten behöver nu bara lagas på **två engelska ytor** i stället för fyra. Detaljerna i **"⚑ OMFÅNGSBESLUTET 2026-10-13"** nedan.
 - **Fyra frågor i Gemini-guiden väntar på Johan, inte på en källa** — alla preexisterande, alla med detaljer och sidnummer i "Gemini-guiden — vad rundan lämnar" nedan: **(1)** tre passager står dubblerat och en fjärde (Fristadsskolan) står tre gånger — avduplicering är ett redaktionellt pass på hans egen text, inte en faktarättelse; **(2)** författaren omtalas både som "Johan" och som "I" i samma dokument; **(3)** bonuskapitlets "pre-market obligations" lägger plikter på skolan som i huvudsak faller på *leverantören* — att rätta det kräver en källa ingen hämtat; **(4)** titeln `Gemini & Gemini Notebook for teachers and school leaders` och omslagets eyebrow `Gemini · Gemini Notebook for education`, som stammar.
 - **Tre beslut ur Gemini-rundan som Johan bör veta att han tog**, så att nästa guide inte tar dem om: **(1)** namnbytet NotebookLM → Gemini Notebook omfattar **allt, även filnamnen** (inte bara prosa och titel); **(2)** det källbelagda svenska praktikexemplet (Fristadsskolan i Eskilstuna) **stannar** i den internationella guiden, med en post och en utskriven motivering; **(3)** bonuskapitlet tar in **emotion recognition** i utbildningsinstitutioner och kommissionens egen högriskformulering om tillträde till utbildning, men **inte förbud 9** (nudification-appar) — kapitlet stannar vid "vad gäller dina verktyg och din skola".
@@ -1144,6 +1144,57 @@ Ett filter som sållar bort breda element för att slippa fullbreddsbehållare d
 
 - **En rundartefakt smög in i repot.** En implementerare force-addade sin rapport under `.superpowers/`, som är gitignorerad just därför att den är kladd. Borttagen i `601a3b8`. Kontrollera `git ls-files .superpowers/` före leverans.
 - **Byggarna är inte deterministiska för de svenska PDF:erna.** En omrendering ger en byte-ändrad SV-fil med identisk text. `git checkout --` räcker, men `untouched`-vakten fäller den som committar den ändrad. Gäller varje runda som renderar om en guide med två språk i samma byggare.
+
+---
+
+## Elevguiden — omfånget beslutat 2026-10-14, rundan inte påbörjad
+
+**Johans beslut 2026-10-14, tre delar:**
+
+1. **Ny målgrupp: `educators` som har engelska som språk.** Inte elever. Guidens ämne är
+   fortfarande elevernas AI-användning i klassrummet — det är läsaren som är beslutad, inte
+   ämnet.
+2. **Design OCH innehåll ska uppdateras och anpassas efter den målgruppen.** Rundan är alltså
+   inte bara en faktarunda som de tre föregående; den rör uttrycket också.
+3. **`ai-for-elever-sv` fryses.** Samma hantering som Apples svenska guideytor: ytan och PDF:en
+   står kvar orörda, ingen inventering, ingen vaktrad, och ingen runda rättar dem. Beslutet
+   ligger i linje med omfångsbeslutet 2026-10-13 (inga svenska guider utöver Claude och
+   presentationsteknik).
+
+**Mätt 2026-10-14, innan en plan är skriven — fyra förutsättningar och tre av dem är arbete:**
+
+- **Guiden är REDAN skriven till läraren, inte till eleven.** Rubrikerna är "Should students use
+  AI in class?", "GDPR and the EU AI Act — what teachers need to know", "Teacher knowledge isn't
+  a bonus — it's a prerequisite", "Should students use AI in this lesson?". Namnet "elevguiden"
+  är intern kortform och **vilseleder** — `ai-for-students` beskriver ämnet, inte läsaren.
+  Rundan ska alltså skärpa och rama in en befintlig lärartilltal, inte byta läsare. Det är
+  billigare än de tre föregående rundorna, och en plan som utgår från "skriv om från elev till
+  lärare" planerar fel arbete.
+- **Webbytan bär Crestioras typsnitt.** Ett `<link>` till Google Fonts med `Playfair Display` +
+  `Inter` (`_unpublished/guides/ai-for-students/index.html`, rad 34) — Blueprint är Hanken
+  Grotesk med Instrument Serif i citat. Det är därför ytan står utanför
+  `test_fonts.GUIDE_WEB_SURFACES`, och den är den **enda** guide-webbytan under
+  `_unpublished/guides/` som fortfarande gör det.
+- **Båda engelska ytorna bär `Updated April 2026`** (printytan två gånger, inklusive sidfoten;
+  webbytan en gång). Samma klass som Apples A13 och Geminis datumstämpel.
+- **Ingen påståendeinventering.** `docs/guide-facts-ai-for-students.md` finns inte, och ytan är
+  därför **enda posten i `UNMAPPED_GUIDE_SURFACES`**. När inventeringen finns flyttas ytan in i
+  `surfacecheck.GUIDE_SURFACES`, listan blir tom — **och då ska både listan och dess två vakter
+  strykas**, enligt listans eget huvud. Elevguidens runda är alltså den som stänger ett helt
+  vaktlager.
+
+**Två saker rundan ska avgöra, inte ärva:**
+
+- **Quick-start eller inte.** De fyra andra guiderna har en; elevguiden har ingen. En quick-start
+  drar in `NO_PAGE_CLAIM`/sidantalspåståendet och förbudslistan i rundan.
+- **Titelkonventionen.** Systerguiderna bär `… for teachers and school leaders`, utom Gemini som
+  avsiktligt bär `… for educators`. Beslutet "educators" för den här guiden pekar mot Geminis
+  linje, men titeln står i dag som en fråga (`Should students use AI in class?`) och frågan är
+  en bättre hook än en målgruppsetikett. Avgör medvetet.
+
+**Sidantal i dag: 16** (`class="page"`-räkning på printytan). PDF:erna är `ai-for-students-en.pdf`
+och den frysta `ai-for-elever-sv.pdf`; båda står i `pdf_fingerprint.GUIDE_PDFS` och i
+`pdf_body_text`, så en omrendering kräver `RECAPTURED_THIS_ROUND` som alla andra.
 
 ---
 
