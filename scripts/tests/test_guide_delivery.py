@@ -88,12 +88,39 @@ GUIDE_DELIVERY = {
             "_unpublished/assets/pdfs/guides/apple-intelligence-guide-en.pdf",
             "_unpublished/assets/pdfs/guides/apple-intelligence-quick-start-en.pdf",
         ),
-        # Runda 1:s lista förbjuder BARA strängar de levererade PDF:erna
-        # redan är fria från. Guiden bär `Swedish`, `IMY`, `Schrems` och
-        # `Siri 2.0` legitimt — de är sanna påståenden om en guide som ännu
-        # inte är omskriven, och att förbjuda dem nu vore att göra billigaste
-        # vägen till grönt att stryka innehåll. De läggs till i runda 2, vid
-        # omrenderingen.
+        # Runda 1:s lista förbjöd BARA strängar de levererade PDF:erna
+        # redan var fria från. Runda 2 har gjort och renderat om tretton
+        # uppgifters rättelser, och listan kan nu bära dem — mätt rakt i
+        # de levererade engelska PDF:erna (inte i källan), och samtliga
+        # på noll i båda: `Siri 2.0`, `Sweden`, `Swedish`, `IMY`,
+        # `April 2026`, `18 or over`, `always shows a confirmation
+        # screen`, `Summarise Previews`, `PCC regions in Europe`,
+        # `features monthly`, `three visual styles`,
+        # `support.apple.com/apple-intelligence`, `iPad Air from 2021`.
+        #
+        # `Sweden`/`Swedish`: en ägargodkänd mening om guideförfattarens
+        # konsultverksamhet bär ordet "Sweden" — men den meningen står
+        # BARA i webbytan. Förbudslistan läser PDF:erna, byggda ur
+        # printytan och quick-starten, och ingen av dem bär meningen.
+        # Orden kan alltså förbjudas rakt av här utan att webbytan
+        # därmed är fri från "Sweden" — det är den inte.
+        #
+        # `[PAGE_COUNT]`: Task 11 skrev en literal markör i quick-
+        # startens avslutning eftersom sidantalet inte var känt då;
+        # Task 13 ersatte den med det äkta talet. En förbudsrad gör det
+        # permanent och automatiskt omöjligt för en framtida runda att
+        # glömma att ersätta markören OCH glömma deklarationslistorna
+        # samtidigt och ändå leverera markören i en PDF utan att något
+        # test ser det — det är hela skälet raden finns.
+        #
+        # Medvetet INTE på listan: `GDPR` (10 förekomster i guiden, 1 i
+        # quick-starten — guiden ÄR en integritetsguide), `ChatGPT` (39
+        # förekomster) och `OpenAI` (12) — A11 och A12 har verdikt
+        # `står`: ChatGPT är fortfarande den enda leverantör Apple
+        # dokumenterar som valbar extension, och Del 3:s bärande analys
+        # vilar på det. `Schrems` (1 förekomst i guiden) är ett sakligt
+        # belagt omnämnande, inte en övergiven rättelse, och förbjuds av
+        # samma skäl inte heller.
         #
         # Bara den FÖRSTA raden står i versalspärrad form: pdftotext spärrar
         # versaler, så URL:en `/guides/apple-intelligence` står som
@@ -109,6 +136,20 @@ GUIDE_DELIVERY = {
             "Skolverket",
             "NotebookLM",
             "Copilot",
+            "Siri 2.0",
+            "Sweden",
+            "Swedish",
+            "IMY",
+            "April 2026",
+            "18 or over",
+            "always shows a confirmation screen",
+            "Summarise Previews",
+            "PCC regions in Europe",
+            "features monthly",
+            "three visual styles",
+            "support.apple.com/apple-intelligence",
+            "iPad Air from 2021",
+            "[PAGE_COUNT]",
         ),
         # Båda byggarna renderar EN *och* SV i samma körning, så de svenska
         # filerna skrivs varje gång de engelska renderas om. Raden jämför
