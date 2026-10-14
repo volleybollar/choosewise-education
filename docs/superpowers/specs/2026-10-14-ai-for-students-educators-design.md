@@ -11,6 +11,47 @@ mallen för arbetsgången, men inte för arbetets innehåll** — se §3 och §6
 
 ## 1. Vad som ska levereras, och vad som inte ska det
 
+> **AMENDEMANG 2026-10-14, före planen.** Ett värde i specen är fel och rättas här; specen
+> står i övrigt oförändrad som bindande auktoritet.
+>
+> | specen säger | mätt | varför specen hade fel |
+> |---|---|---|
+> | guiden är **16 sidor** (§1 rad 57, §2:s ytkarta, §3:s stoppvillkor, §6:s omfång, §7:s TOC-resonemang) | **22 renderade sidor** | `grep -c 'class="page"'` ger 16, men räknar varken omslaget eller de fyra `class="page part-divider"`-sidorna. Källan har 20 page-divar plus omslag = 21, och en div spiller till två renderade sidor. **Talet som räknas är PDF:ens, mätt med `pdftotext` och formfeed.** |
+> | stoppvillkoret *"ingen sida under 400 tecken utom omslaget"* (§3) | **undantar omslaget OCH de fyra avdelningssidorna** | tre avdelningssidor ligger redan under gränsen i dag — s7 257 tecken, s13 237, s17 184 — och är korta med avsikt. Villkoret som det stod hade varit rött från första sekunden. |
+>
+> **Sidkartan, mätt ur den renderade PDF:en 2026-10-14** (tecken per sida med kollapsade
+> blanktecken, aldrig borttagna):
+>
+> | sida | innehåll | tkn |
+> |---|---|---|
+> | 1 | omslaget | 281 |
+> | 2 | Introduction — "The question isn't technical" | 2432 |
+> | 3 | **Part 1-avdelare** — "Learning is the point" | 712 |
+> | 4 | "If the tool elevates learning" — **OECD *Unlocking High-Quality Teaching*** | 1774 |
+> | 5 | WISE-ramverket | 1740 |
+> | 6 | "Challenging thinking, or replacing it" — **Wang & Fan, Kosmyna, Lee** | 2320 |
+> | 7 | **Part 2-avdelare** | 257 |
+> | 8 | "Teacher knowledge isn't a bonus" — **UNESCO-ramverket** | 1521 |
+> | 9 | källkritik, bias, hallucinationer | 1784 |
+> | 10 | "Teachers don't need to know the tech better" | 1696 |
+> | 11 | **GDPR och AI Act** | 2483 |
+> | 12 | **GDPR i praktiken / motsvarande regler annorstädes** | 1099 |
+> | 13 | **Part 3-avdelare** | 237 |
+> | 14 | 1:1-eran — **PISA 2015, Carter 2017, Zheng 2016, Unos Uno** | 2575 |
+> | 15 | **The visibility gap** — hela produktlandskapet | 2402 |
+> | 16 | klassrumshantering | 1688 |
+> | 17 | **Part 4-avdelare** | 184 |
+> | 18 | checklistan: pedagogik, förutsättningar | 951 |
+> | 19 | checklistan: tillsyn, uppföljning | 1330 |
+> | 20 | FAQ, första halvan | 2270 |
+> | 21 | FAQ, andra halvan — **AI Act-svaret, DPIA-svaret** | 2140 |
+> | 22 | slutcitatet och licensbandet | 730 |
+>
+> **Forskningscitaten sitter på fyra sidor (4, 6, 8, 14), produktlandskapet på en (15), och
+> läsaretiketten `teachers and school leaders` står på EN plats: omslaget.** Det är mätt, och
+> det gör rundan mindre än specen antog.
+
+
 **Leveransen är EN PDF på engelska**, avsedd för Skool-communityt:
 
 - `_unpublished/assets/pdfs/guides/ai-for-students-en.pdf` (16 sidor i dag)
