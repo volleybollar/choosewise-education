@@ -729,10 +729,10 @@
   max-width: 640px;
   margin: 0 auto;
 }
-.jl-page .cta-fineprint {
+.jl-page .license-updated {
   font-size: 13px;
   opacity: 0.65;
-  margin: 0 0 var(--space-2);
+  margin: var(--space-2) 0 0;
 }
 .jl-page .license-title {
   font-size: 11px;

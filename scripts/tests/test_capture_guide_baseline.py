@@ -23,16 +23,20 @@ _SPEC = importlib.util.spec_from_file_location(
 # omfångas. Töms och fylls om i varje ny runda — aldrig radvis tillägg,
 # för en lista som bara växer slutar vakta något.
 RECAPTURED_THIS_ROUND = [
-    # Task 14, educators-rundan 2026-10-15: Task 2–13:s källrättningar
-    # (Wang & Fan-citatet struket s6, Zheng-citatet struket s14, GDPR/AI
-    # Act utökad s11, visibility gap-avsnittet utökat med SchoolAI vid
-    # sidan av Khanmigo s15, FAQ:ns AI Act/DPIA-svar utökade s21, m.fl.)
-    # renderades om i den ENGELSKA guide-PDF:en. Sidantalet står kvar på
-    # 22 — ingen avdelningssida har flyttat. Bara
-    # `ai-for-students-en.pdf` omfångas här: den svenska filen
-    # (`ai-for-elever-sv.pdf`) och den svenska printytan rördes inte och
-    # är byte-identiska med bascommiten (spec §1, vaktat av
-    # test_guide_delivery.py:s `untouched`-rader).
+    # Fixvågen 2026-10-15, educators-rundan: helgranskningens ett Critical
+    # och åtta Important lagades i en vända, och fem av rättelserna står i
+    # printytans prosa (C1 — UNESCO/OECD-attributionen struken på sidorna
+    # 15 och 20; I2 — visibility gap-rubriken rättad s15; I1 —
+    # Grönlund-citatet märkt som översättning s14; I7 — GDPR-punkten
+    # omskriven utan produktnamn s12; M7 — ellipsen i OECD-citatet s4).
+    # Sidantalet står kvar på 22 och ingen avdelningssida har flyttat.
+    # Listan är TÖMD på Task 14:s post och fylld med EN — samma post, men
+    # av ett nytt skäl: en lista som bara växer slutar vakta något. Bara
+    # `ai-for-students-en.pdf` omfångas; den svenska filen
+    # (`ai-for-elever-sv.pdf`) kopierades undan före omrenderingen och
+    # återställdes efteråt, och är verifierat byte-identisk med
+    # bascommiten (spec §1, vaktat av test_guide_delivery.py:s
+    # `untouched`-rader).
     "_unpublished/assets/pdfs/guides/ai-for-students-en.pdf",
 ]
 

@@ -257,7 +257,47 @@ GUIDE_DELIVERY = {
             # S20 — Copilots modellpåstående, falskt enligt Task 4:s
             # mätning.
             "Copilot is built on ChatGPT",
+            # ── Fixvågen 2026-10-15, helgranskningens fynd. Varje sträng
+            # är mätt på NOLL i den omrenderade PDF:en innan den skrevs
+            # in här, och den sträng som ersatte den är mätt på minst en
+            # träff (se fixvågens rapport för båda mätningarna).
+            #
+            # S38/C1 — attributionen till UNESCO och OECD bakom rådet
+            # "start together, visibly", struken eftersom inget av sex
+            # hämtade primärdokument från de två organen säger något om
+            # rådet. Tre strängar, en per struken ordalydelse i PDF:en:
+            # printytans gamla underrubrik och de två attributionssatserna.
+            # (EW:s egen gamla rubrik, "What education authorities say",
+            # står INTE här: den fanns bara på webbytan, och den här
+            # vakten läser bara den levererade PDF:en. Den vaktas i
+            # stället av `borttaget`-raden i inventeringens vaktblock, som
+            # läser båda ytornas källa.)
+            "What international guidance says",
+            "Guidance from major education bodies",
+            "consistently recommends",
+            # S25/I2 — avsnittsrubriken som motsade sitt eget stycke. Den
+            # korta formen `show teachers what students are asking` är
+            # GEMENSAM för den gamla och den nya rubriken och får därför
+            # INTE stå här; ankaret är den del som bar felet.
+            "today's AI tools don't show teachers",
+            # S42/I7 — det namngivna produkt- och avtalspåståendet i
+            # GDPR-punktlistan. Två strängar, båda unika för den struckna
+            # satsen; `ChatGPT` ensamt vore fel ankare (produkten nämns
+            # legitimt på sidorna 15 och 20).
+            "Many consumer chatbots",
+            "without a specific school contract",
+            # S03/M7 — OECD-citatets tysta avkortning. Den oelliderade
+            # formen mätte 1 i bascommitens PDF och 0 i den nya; den
+            # elliderade (`achievement …"`) kan inte matcha den här
+            # strängen, eftersom mellanslaget före ellipsen skiljer dem.
+            'stagnating student achievement."',
         ),
+        # MEDVETET INTE på listan (fixvågen): S44:s struckna Discovery
+        # Education-attribution ("Inspired by Discovery Education's ...").
+        # Den stod bara på webbytan — EP bar samma ingress utan den redan
+        # före rundan — och mätte därför 0 i PDF:en både före och efter
+        # strykningen. En sträng som aldrig kunde finnas här kan inte
+        # vaktas här. Samma princip som S36:s Gerlich-fragment nedan.
         # MEDVETET INTE på listan: S36:s struckna Gerlich-fragment ("A Swiss
         # study", "-0.75", "among younger users", sidan 6). Den meningen är
         # EW-exklusiv (står aldrig på printytan, se S36:s cell och
