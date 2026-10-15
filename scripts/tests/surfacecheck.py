@@ -62,6 +62,18 @@ GUIDE_SURFACES = {
         ("sv", "web"):   "_unpublished/sv/guider/apple-intelligence/index.html",
         ("sv", "print"): "_unpublished/exports/apple-intelligence-print-a4-sv.html",
     },
+    # ai-for-students ligger under _unpublished/ av samma skäl som de andra:
+    # GitHub Pages serverar inte kataloger som börjar med understreck. De
+    # svenska ytorna står med i kartan fast den här rundan bara gör om
+    # guiden till engelskspråkiga educators — de FINNS, och en svensk
+    # vaktrad ska jämföras mot dem och inte mot ingenting. Inventeringen har
+    # med avsikt inga svenska rader (ägaren har fryst de svenska ytorna).
+    "ai-for-students": {
+        ("en", "web"):   "_unpublished/guides/ai-for-students/index.html",
+        ("en", "print"): "_unpublished/exports/ai-for-students-print-a4-en.html",
+        ("sv", "web"):   "_unpublished/sv/guider/ai-for-elever/index.html",
+        ("sv", "print"): "_unpublished/exports/ai-for-elever-print-a4-sv.html",
+    },
 }
 GUIDES = tuple(GUIDE_SURFACES)
 

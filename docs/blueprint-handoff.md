@@ -1,6 +1,6 @@
 # Blueprint — överlämning
 
-**Senast uppdaterad:** 2026-10-14 (**Apple Intelligence-guiden KLAR — båda rundorna mergade, `main` = `6071f6e`, svit 837 passed / 1 skipped / 0 failed, OPUSHAT**)
+**Senast uppdaterad:** 2026-10-15 (**Elevguiden KLAR — gren `feat/ai-for-students-educators`, svit 868 passed / 1 skipped / 0 failed, ingenting publicerat**)
 **LÄS FÖRST** vid fortsättning. Specen är den bindande auktoriteten, planerna argumenterar från den.
 
 ---
@@ -16,7 +16,7 @@
 | **Copilot-guiden** — första av de fyra | **MERGAD 2026-10-11** som merge-commit `26c661a` (PR #38, 28 commits). Grenen och worktreen borttagna. Leveransen: två engelska PDF:er i `_unpublished/assets/pdfs/guides/`, ingenting publicerat. Svit 757 passed (plus elva miljöberoende fel, se nedan). |
 | **Gemini Notebook** — andra av de fyra | **LEVERERAD PÅ GREN 2026-10-13.** Gren `feat/gemini-guide-international`, worktree `.worktrees/gemini-guide-international`, avstamp `main` = `e2282b7`, med `origin/main` (`aee4117`) inmergad 2026-10-13. **Tjugo uppgifter** — planens nitton `## Task`-rubriker plus Task 16B — körda i **nitton dispatcher** (Task 10 och 11 batchades i en), alla granskade. Leverans: `_unpublished/assets/pdfs/guides/gemini-notebook-guide-en.pdf` (**44 sidor**) och `gemini-notebook-quick-start-en.pdf` (2 sidor), till Skool-communityt. **Ingenting publicerat på sajten.** Svit **796 passed, 0 failed, 0 skipped, 0 xfailed, 0 xpassed** med `test_prompt_pdf_parity.py` undantagen — **helt grön.** Grenen rapporterade länge ett rött `test_brand_mark.py::test_the_page_count_is_what_we_think` (199 mot 198) som preexisterande; `main` hade då redan lagat det i `aee4117`, och mergen hämtade in fixen. **Grenen är inte pushad och ingen PR är öppnad** — det görs efter Johans besked. **Specens PR #39 mergas före eller tillsammans med rundans PR**: planen argumenterar från specen, och en mergad plan utan mergad spec lämnar en hängande korsreferens. Se **"Gemini-guiden — vad rundan lämnar"** nedan. |
 | **Apple Intelligence** — tredje av de fyra | **KLAR, BÅDA RUNDORNA MERGADE 2026-10-14.** Runda 1 "mät och vakta" som `1fea250`, runda 2 "skriv om" som `6071f6e`. Guiden **26 sidor** (var 25), två engelska PDF:er, ingenting publicerat. Svit **837 passed / 1 skipped / 0 failed** — den enda `skipped` är dokumenterad, se Apple-sektionen. Alla grenar och worktrees borttagna. **Opushat:** `origin/main` står på `fae8983`; `main` ligger tre merges och 51 commits före. **Kvar: Johans redaktionella pass, elva punkter.** |
-| **Elevguiden** (`ai-for-students`) — fjärde av de fyra | Inte påbörjad. Står kvar på skuldlistan i `test_guide_surface_consistency.py` med sitt eget skäl, och bär fortfarande Crestioras typsnitt i sin webbyta. |
+| **Elevguiden** (`ai-for-students`) — fjärde av de fyra | **KLAR 2026-10-15.** Gren `feat/ai-for-students-educators`, 25 commits, HEAD `442fb85`, svit **868 passed / 1 skipped / 0 failed**. Ingenting publicerat. Svenska ytorna frysta och verifierat byte-identiska mot basen. Se **"Elevguiden — vad rundan lämnar"** nedan. |
 | Diagram- och social-exporterna | Inte påbörjad, Johans beslut: egen runda |
 | Visual Codes Vol. 1–3 | Inte påbörjad, **ingen plan äger den** |
 
@@ -60,7 +60,7 @@
 - **Evidence Toolkits band** "kring" vs "över": 1,54:1. Palettak sedan våg 1, inte ett förbiseende.
 - **Sajtens header** bär inget märke. Spår A:s spec säger nej idag; frågan kan tas när tecknet setts i bruk.
 - ~~**Choosewise på LinkedIn:** egen sida eller Johans profil?~~ **AVGJORT 2026-10-09: egen sida.** Den personliga bannern används inte — Johans profil behåller sin egen avsändare. Sidan skapas nu för att säkra namnet, men posterna fortsätter från profilen tills Skool öppnar. Båda måtten ligger kvar committade.
-- ~~**De tre återstående guiderna** (Gemini/NotebookLM, Apple Intelligence, elevguiden) tas i egna rundor, en guide i taget~~ — **två av tre levererade: Gemini 2026-10-13, Apple 2026-10-14. Kvar: elevguiden, och dess omfång är beslutat 2026-10-14 — se "Elevguiden" nedan.** Copilot-rundan är fortfarande mallen, och vaktlagret är guide-agnostiskt (se "Copilot-guiden — vad rundan lämnar" nedan): rundan fyller två dict:ar och skriver en inventering, den behöver inte ändra vakten själv.
+- ~~**De tre återstående guiderna** (Gemini/NotebookLM, Apple Intelligence, elevguiden) tas i egna rundor, en guide i taget~~ — **alla tre levererade: Gemini 2026-10-13, Apple 2026-10-14, elevguiden 2026-10-15 — se "Elevguiden — vad rundan lämnar" nedan.** Copilot-rundan var mallen, och vaktlagret är guide-agnostiskt (se "Copilot-guiden — vad rundan lämnar" nedan): varje runda fyllde kartor och skrev en inventering, ingen ändrade vakten själv.
 - ~~**De svenska Copilot- OCH Gemini-ytorna** — ska de hämta in de engelska?~~ **AVGJORT 2026-10-13: nej.** Johans omfångsbeslut: **inga svenska guider utöver Claude och presentationsteknik**, och guiderna distribueras via **Skool** i stället för via sajten. De svenska Copilot- och Gemini-ytorna (`copilot-print-a4-sv.html`, `copilot-quick-start-sv.html`, `_unpublished/sv/guider/copilot/`; `gemini-notebooklm-print-a4-sv.html`, `gemini-notebooklm-quick-start-sv.html`, `_unpublished/sv/guider/gemini-notebooklm/`) står kvar **frysta, permanent**, med juni- respektive aprilfakta. **De två språken divergerar i sak med avsikt.** Deras PDF:er är byte-identiska mot före sin runda och vaktas av `test_guide_delivery.py`. **Beslutet stänger samtidigt Gemini-fallets tre följdfrågor:** de svenska filnamnen stannar, den svenska quick-startens "39-sidiga" når ingen läsare, och axeletiketten behöver nu bara lagas på **två engelska ytor** i stället för fyra. Detaljerna i **"⚑ OMFÅNGSBESLUTET 2026-10-13"** nedan.
 - **Fyra frågor i Gemini-guiden väntar på Johan, inte på en källa** — alla preexisterande, alla med detaljer och sidnummer i "Gemini-guiden — vad rundan lämnar" nedan: **(1)** tre passager står dubblerat och en fjärde (Fristadsskolan) står tre gånger — avduplicering är ett redaktionellt pass på hans egen text, inte en faktarättelse; **(2)** författaren omtalas både som "Johan" och som "I" i samma dokument; **(3)** bonuskapitlets "pre-market obligations" lägger plikter på skolan som i huvudsak faller på *leverantören* — att rätta det kräver en källa ingen hämtat; **(4)** titeln `Gemini & Gemini Notebook for teachers and school leaders` och omslagets eyebrow `Gemini · Gemini Notebook for education`, som stammar.
 - **Tre beslut ur Gemini-rundan som Johan bör veta att han tog**, så att nästa guide inte tar dem om: **(1)** namnbytet NotebookLM → Gemini Notebook omfattar **allt, även filnamnen** (inte bara prosa och titel); **(2)** det källbelagda svenska praktikexemplet (Fristadsskolan i Eskilstuna) **stannar** i den internationella guiden, med en post och en utskriven motivering; **(3)** bonuskapitlet tar in **emotion recognition** i utbildningsinstitutioner och kommissionens egen högriskformulering om tillträde till utbildning, men **inte förbud 9** (nudification-appar) — kapitlet stannar vid "vad gäller dina verktyg och din skola".
@@ -281,8 +281,13 @@ den till en XPASS.
 
 **Och en lista som fylls i stället för att tömmas:** `test_fonts.GUIDE_WEB_SURFACES` tar in en
 guides webbyta när den städats. Gemini lades till i Task 5; Copilot och Claude står redan där.
-`_unpublished/guides/apple-intelligence/` och `_unpublished/guides/ai-for-students/` står
-**inte** där, eftersom de ännu bär Crestioras typsnitt — se de kända luckorna nedan.
+**Rättat 2026-10-15 (var falskt sedan Apple- och elevguide-rundorna städade sina ytor):**
+`_unpublished/guides/apple-intelligence/` (alla fyra sökvägar, EN+SV) och
+`_unpublished/guides/ai-for-students/` (den ENGELSKA webbytan) står **i** listan i dag — noll
+`Playfair`/`Inter`-träffar, mätt. Kvarvarande skuld är smalare än den gamla formuleringen sa:
+ai-for-students SVENSKA webbyta (fryst med avsikt, se Elevguide-avsnittet) och Copilots och
+Geminis svenska webbytor, som fortfarande bär Crestioras typsnitt och står utanför listan —
+se `test_fonts.py`:s egen kommentar för varför.
 
 ### ⚑ OMFÅNGSBESLUTET 2026-10-13: guiderna distribueras via Skool, inte via sajten
 
@@ -708,9 +713,13 @@ omdöme** — och med den hämtningen gjord är rättelsen en mening på två yt
 
 1. **Claude-guidens femton TOC-nummer står ovaktade.** `test_guide_toc.py` tar inte in dem;
    varför står i filens docstring. De två andra guiderna är vaktade.
-2. **`_unpublished/guides/apple-intelligence/` och `_unpublished/guides/ai-for-students/` bär
+2. ~~**`_unpublished/guides/apple-intelligence/` och `_unpublished/guides/ai-for-students/` bär
    fortfarande Crestioras typsnitt**, inklusive inline-`font-family`-attribut i SVG. De står
-   därför inte i `test_fonts.GUIDE_WEB_SURFACES`. Städas i sina egna rundor.
+   därför inte i `test_fonts.GUIDE_WEB_SURFACES`. Städas i sina egna rundor.~~ **STÄNGT.** Apple-
+   rundan (2026-10-14) städade sina fyra ytor, elevguidens runda (2026-10-15) sin ENGELSKA
+   webbyta; båda står nu i `test_fonts.GUIDE_WEB_SURFACES`, mätt med noll `Playfair`/`Inter`-
+   träffar. Kvar: ai-for-students SVENSKA webbyta (fryst med avsikt) och Copilots och Geminis
+   svenska webbytor — se raden om `test_fonts.GUIDE_WEB_SURFACES` ovan.
 3. ~~**Quick-startens pekare till guidens egen adress svarar 404 så länge guiden är
    opublicerad.**~~ **STÄNGD 2026-10-13 (Task 21): pekaren är borttagen.** Omfångsbeslutet gjorde
    404:an permanent i stället för tillfällig — sidan kommer aldrig att finnas — så adressen är
@@ -911,20 +920,28 @@ behålls **bara** för att vara andra halvan i ytkonsistensvakten. Guiderna dist
 Skool, inte via sajten, så de publiceras aldrig. Fram till nu stod det skyddet bara i punkt (c)
 ovan, och en städrunda som läste filträdet såg fyra opublicerade HTML-sidor utan funktion.
 
-**Två vakter i `scripts/tests/test_guide_surface_consistency.py`.**
-`test_every_unpublished_guide_web_surface_is_accounted_for` läser **filträdet** och kräver att
-varje `_unpublished/guides/*/index.html` står antingen i `surfacecheck.GUIDE_SURFACES` eller på
-`UNMAPPED_GUIDE_SURFACES`. `test_the_debt_list_cannot_rot` fäller tre ruttnings-riktningar: en
-post vars fil försvunnit, en post som samtidigt står i ytkartan (skulden betald men posten
+**STRUKEN 2026-10-15 (elevguidens runda) — `UNMAPPED_GUIDE_SURFACES` och
+`test_the_debt_list_cannot_rot` finns inte längre.** `ai-for-students` var listans sista
+post; när dess inventering skrevs (Task 13a) krympte listan till tom och ströks
+tillsammans med sin vakt, precis enligt den egna regeln nedan. De två styckena härunder
+beskriver mekanismen som den fungerade fram till då och står kvar som historik — **varje
+nutida beskrivning av listan som en levande skuld är en död referens.**
+
+**Historik: Två vakter fanns i `scripts/tests/test_guide_surface_consistency.py`.**
+`test_every_unpublished_guide_web_surface_is_accounted_for` läste **filträdet** och krävde att
+varje `_unpublished/guides/*/index.html` stod antingen i `surfacecheck.GUIDE_SURFACES` eller på
+`UNMAPPED_GUIDE_SURFACES`. `test_the_debt_list_cannot_rot` fällde tre ruttnings-riktningar: en
+post vars fil försvunnit, en post som samtidigt stod i ytkartan (skulden betald men posten
 kvar), och en post utan skäl. Båda sågs röda med flit — en femte katalog fällde den första,
 och alla tre riktningarna den andra.
 
-**`UNMAPPED_GUIDE_SURFACES` är en SKULD SOM SKA TÖMMAS, inte en parkering.**
-`apple-intelligence` och `ai-for-students` står där för att de ännu saknar påståendeinventering;
-utan den kan ingen vaktrad peka på ytan, och en post i ytkartan utan inventering är en tyst vakt
+**`UNMAPPED_GUIDE_SURFACES` var en SKULD SOM SKA TÖMMAS, inte en parkering.**
+`apple-intelligence` och `ai-for-students` stod där för att de ännu saknade påståendeinventering;
+utan den kunde ingen vaktrad peka på ytan, och en post i ytkartan utan inventering är en tyst vakt
 som `test_every_guide_has_an_inventory_file` redan förbjuder. **Varje guides egen runda
-kartlägger sin yta, flyttar den härifrån in i ytkartan, och listan krymper. Är listan tom ska
-både den och dess två vakter strykas** — de vaktar ingenting då.
+kartlade sin yta, flyttade den härifrån in i ytkartan, och listan kröp. Blev listan tom skulle
+både den och dess två vakter strykas** — de vaktade ingenting då. Apples runda lämnade
+`ai-for-students` som ensam kvarvarande post; elevguidens runda tömde och strök.
 
 **Och en banner i toppen av alla fyra filerna**, så att den som städar läser filen och inte
 överlämningen. Den ligger mellan doctype och `<html`, utanför `<body>`-flödet, och har **inget
@@ -1147,66 +1164,165 @@ Ett filter som sållar bort breda element för att slippa fullbreddsbehållare d
 
 ---
 
-## Elevguiden — SPECEN SKRIVEN 2026-10-14, väntar godkännande
+## Elevguiden — vad rundan lämnar (2026-10-15)
 
-**Specen:** `docs/superpowers/specs/2026-10-14-ai-for-students-educators-design.md`
-(361 rader, nio avsnitt). Den bär allt nedan plus inventeringens tre volatilitetsklasser,
-kodarbetet och stoppvillkoren. **Nästa steg efter Johans godkännande är en
-implementationsplan**, inte kod.
+**Läs det här avsnittet före varje framtida arbete på elevguiden — det ersätter avsnittet
+"Elevguiden — SPECEN SKRIVEN", inte kompletterar det.** Specen är godkänd, planen är körd,
+guiden är klar.
 
-**Två beslut tillkom 2026-10-14 och står i specen:** guiden ska **inte** ha en
-quick-start, och **titeln får avvika** från systerguidernas — specens förslag är att
-behålla frågan `Should students use AI in class?` som titel och låta underrubriken bära
-läsaren (`for educators`). Specen föreslår också **ingen innehållsförteckning**, vilket
-håller programmets svåraste fälla — innehållsförteckningens hårdkodade sidnummer —
-helt utanför rundan.
+### Var det står
 
-**Johans beslut 2026-10-14, tre delar:**
+Gren `feat/ai-for-students-educators`, worktree `.worktrees/students-educators`, avstamp
+`main` = `c66ee5c`. **25 implementationscommits**, BASE `c66ee5c` → `442fb85` (fixvågens
+sista commit). Överlämningen (den här sektionen) och varje fixrunda på den ligger som egna
+commits ovanpå `442fb85` — se `git log --oneline` för aktuell HEAD i stället för ett
+totaltal här: ett sådant tal ogiltigförklaras av sin egen commit. Svit **868 passed / 1
+skipped / 0 failed**, oförändrat sedan fixvågen. **Ingenting publicerat** — guiden
+distribueras via Skool, som de tre föregående. De svenska ytorna
+(`_unpublished/exports/ai-for-elever-print-a4-sv.html`,
+`_unpublished/assets/pdfs/guides/ai-for-elever-sv.pdf`, `_unpublished/sv/guider/ai-for-elever/`)
+är **frysta** på Johans beslut (specen §1) och **verifierat byte-identiska** mot basen
+`c66ee5c` (sha256, tre led). Specen: `docs/superpowers/specs/2026-10-14-ai-for-students-educators-design.md`.
+Plan: `docs/superpowers/plans/2026-10-14-ai-for-students-educators.md`. Inventering:
+`docs/guide-facts-ai-for-students.md` — **44 poster**, `{står 26, rättat 10, struket 5,
+lagt till 3}`. Ledgern (`.superpowers/sdd/2026-10-14-ai-for-students-educators/progress.md`
+— rundans rulings, lärdomar, uppskjutna minors och mätningar) och uppgiftsrapporterna
+ligger utanför repot i `~/Desktop/choosewise-elevguiden/` enligt Ruling 5 —
+`.superpowers/` är gitignorerad och följer inte med leveransen. `main` (lokalt) har
+fortsatt röra sig under rundan med fristående blogginlägg (PR #46, #47, #48; ingen av dem
+rör någon av de tre katalogerna rundan ändrat) — ingen filkrock, men kontrollera
+`git log --oneline main` för aktuellt läge i stället för att lita på den här uppräkningen.
 
-1. **Ny målgrupp: `educators` som har engelska som språk.** Inte elever. Guidens ämne är
-   fortfarande elevernas AI-användning i klassrummet — det är läsaren som är beslutad, inte
-   ämnet.
-2. **Design OCH innehåll ska uppdateras och anpassas efter den målgruppen.** Rundan är alltså
-   inte bara en faktarunda som de tre föregående; den rör uttrycket också.
-3. **`ai-for-elever-sv` fryses.** Samma hantering som Apples svenska guideytor: ytan och PDF:en
-   står kvar orörda, ingen inventering, ingen vaktrad, och ingen runda rättar dem. Beslutet
-   ligger i linje med omfångsbeslutet 2026-10-13 (inga svenska guider utöver Claude och
-   presentationsteknik).
+Rundan gjorde två saker på samma gång: **(1)** den gjorde om en guide som redan var
+skriven till läraren men namngiven och etiketterad som en elevguide, till en guide
+uttryckligen för `educators` (läsaretikett, datumstämpel, röst); **(2)** den körde samma
+faktakontroll som de tre föregående guiderna — tio forskningscitat, sex
+produktpåståenden, sju regleringspåståenden — och fann att nästan ingen av dem höll
+obehandlad.
 
-**Mätt 2026-10-14, innan en plan är skriven — fyra förutsättningar och tre av dem är arbete:**
+### Vad rundan gjorde, i prioritetsordning
 
-- **Guiden är REDAN skriven till läraren, inte till eleven.** Rubrikerna är "Should students use
-  AI in class?", "GDPR and the EU AI Act — what teachers need to know", "Teacher knowledge isn't
-  a bonus — it's a prerequisite", "Should students use AI in this lesson?". Namnet "elevguiden"
-  är intern kortform och **vilseleder** — `ai-for-students` beskriver ämnet, inte läsaren.
-  Rundan ska alltså skärpa och rama in en befintlig lärartilltal, inte byta läsare. Det är
-  billigare än de tre föregående rundorna, och en plan som utgår från "skriv om från elev till
-  lärare" planerar fel arbete.
-- **Webbytan bär Crestioras typsnitt.** Ett `<link>` till Google Fonts med `Playfair Display` +
-  `Inter` (`_unpublished/guides/ai-for-students/index.html`, rad 34) — Blueprint är Hanken
-  Grotesk med Instrument Serif i citat. Det är därför ytan står utanför
-  `test_fonts.GUIDE_WEB_SURFACES`, och den är den **enda** guide-webbytan under
-  `_unpublished/guides/` som fortfarande gör det.
-- **Båda engelska ytorna bär `Updated April 2026`** (printytan två gånger, inklusive sidfoten;
-  webbytan en gång). Samma klass som Apples A13 och Geminis datumstämpel.
-- **Ingen påståendeinventering.** `docs/guide-facts-ai-for-students.md` finns inte, och ytan är
-  därför **enda posten i `UNMAPPED_GUIDE_SURFACES`**. När inventeringen finns flyttas ytan in i
-  `surfacecheck.GUIDE_SURFACES`, listan blir tom — **och då ska både listan och dess två vakter
-  strykas**, enligt listans eget huvud. Elevguidens runda är alltså den som stänger ett helt
-  vaktlager.
+De tyngsta sakfynden, med talen:
 
-**Två saker rundan ska avgöra, inte ärva:**
+1. **En indragen metaanalys som bärande positivt belägg.** Guiden citerade Wang & Fan
+   (2025) — en metaanalys som den sa omfattade 69 ChatGPT-studier — som det positiva
+   motstycket till avsnittets kritiska röster. Artikeln är **indragen av Springer Nature
+   2026-04-22**. Felet var inte en uppfinning utan en **sammanblandning av två verkliga
+   artiklar**: tidskriften (*Computers & Education*) och talet **69 studier** tillhörde
+   hela tiden **Deng et al. (2024)** — bara författarnamnen kom från den indragna Wang &
+   Fan-artikeln, som i verkligheten rapporterar 51 studier i en annan tidskrift. **Samma
+   institution står i båda** (Jing Hengyi School of Education, Hangzhou Normal
+   University), vilket förklarar hur sammanblandningen kunde uppstå. Johans beslut vid
+   grinden: ta bort och ersätt, inte bara ta bort. Deng et al. belagd mot en bitidentisk
+   förlagskopia, retraktionskontrollerad mot CrossRef och hela Retraction
+   Watch-databasen — noll träffar.
+2. **Ett korrelationstal på fel variabelpar, i en mening med tre sakfel.** En
+   EW-exklusiv mening (Gerlich 2025) satte **−0,75** på "AI use and critical thinking";
+   källans egen tabell 6 reserverar −0,75 för ett annat par (cognitive offloading ↔
+   critical thinking) och ger AI-användning ↔ kritiskt tänkande **−0,68**. Samma mening
+   bar dessutom **fel land** ("A Swiss study" — institutionen är schweizisk, urvalet
+   brittiskt, N=666) och **fel population** ("among younger users" — källans enda
+   åldersfynd är ett ANOVA-gruppmedelvärde, ingen åldersnedbruten korrelation). Tre
+   sakfel i en mening.
+3. **Högriskstycket — fjärde instansen av samma felklass i programmet.** Sidan 11
+   framställde Annex III-högriskens dokumentations-, transparens- och
+   granskningsplikter som bindande **i dag**. De gäller från **2 december 2027**. Bara
+   artikel 4:s AI-kunnighetsplikt binder en skola nu, sedan 2026-02-02. Samma
+   felriktning som Geminis "pre-market obligations" och Apples A36/A37.
+4. **Två attributioner till UNESCO och OECD utan täckning.** "Guidance from major
+   education bodies (UNESCO, OECD...) converges on..." och "international guidance
+   (UNESCO, OECD) consistently recommends...". Sex primärdokument genomsökta (UNESCO:s
+   generativa AI-vägledning och lärarramverk, OECD:s och Education Internationals
+   riktlinjer, OECD Digital Education Outlook 2023/2026, OECD Insights 2025) plus fyra
+   webbsökningar: noll träffar på sakinnehållet. Attributionen borttagen; rådet står kvar
+   ordagrant, i guidens eget namn ("Where to start" / "this guide recommends instead").
+5. **Fem mindre sakfel, alla rättade.** OECD:s urvalsenhet var skriven som **"150
+   classrooms"**; källan säger **"150 schools"**. Zhengs 1:1-villkor ("only where
+   teachers integrated the devices pedagogically") gick inte att belägga (betalvägg,
+   ingen laglig fri kopia) — hela citatet struket på Johans beslut, och 1:1-argumentet
+   bärs kvar av PISA, Carter och Unos Uno. Khanmigo namngavs först som ensamt undantag
+   från "lärarvyn saknas" — granskningen fann att SchoolAI klarar samma ribba, belagt
+   mot schoolai.com/mission-control, och Johans beslut blev att namnge **båda**
+   leverantörerna explicit, ingen i singular "the exception".
 
-- **Quick-start eller inte.** De fyra andra guiderna har en; elevguiden har ingen. En quick-start
-  drar in `NO_PAGE_CLAIM`/sidantalspåståendet och förbudslistan i rundan.
-- **Titelkonventionen.** Systerguiderna bär `… for teachers and school leaders`, utom Gemini som
-  avsiktligt bär `… for educators`. Beslutet "educators" för den här guiden pekar mot Geminis
-  linje, men titeln står i dag som en fråga (`Should students use AI in class?`) och frågan är
-  en bättre hook än en målgruppsetikett. Avgör medvetet.
+### Vad som väntar på Johan
 
-**Sidantal i dag: 16** (`class="page"`-räkning på printytan). PDF:erna är `ai-for-students-en.pdf`
-och den frysta `ai-for-elever-sv.pdf`; båda står i `pdf_fingerprint.GUIDE_PDFS` och i
-`pdf_body_text`, så en omrendering kräver `RECAPTURED_THIS_ROUND` som alla andra.
+Två innehållsfrågor, inga fel:
+
+1. **C1:s röstskifte.** Sedan UNESCO/OECD-attributionen togs bort rekommenderar guiden
+   nu "start together, visibly" i eget namn i stället för att citera en myndighet.
+   Sakinnehållet är oförändrat — bara vem som säger det. Sidhänvisningar:
+   `EP:494`/`EW:299` (ingressen) och `EP:575`/`EW:385` (FAQ-svaret).
+2. **I7:s smalare mening.** Påståendet att konsument-ChatGPT utan skolavtal inte
+   uppfyller biträdesavtalsbart gick inte att belägga mot OpenAI:s egna villkor —
+   `openai.com` gav 403 på sju vägar, Wayback 429. Meningen är nu GDPR artikel 28 i
+   klartext: sann, men smalare än originalet och utan produktnamn. Att få tillbaka
+   produktsvaret kräver att någon öppnar `openai.com/policies/data-processing-addendum/`
+   i en riktig webbläsare, inte ett verktyg.
+
+### Vaktläget efter rundan
+
+- **`UNMAPPED_GUIDE_SURFACES` STRUKEN**, med sina två vakter
+  (`test_the_debt_list_cannot_rot` och undantagsgrenen i
+  `test_every_unpublished_guide_web_surface_is_accounted_for`) — elevguiden var dess
+  sista post. **Varje tidigare beskrivning av listan som en levande skuld att tömma är nu
+  en död referens** — rättad i Hygienrundans avsnitt ovan.
+- **`NO_QUICK_START` införd** som deklarationsmekanism (`("ai-for-students",)`): guiden
+  har ingen quick-start-fil alls, ett ägarbeslut (specen §1), inte en tillfällig lucka —
+  skiljer sig från `NO_PAGE_CLAIM`, som gäller en quick-start som finns men för stunden
+  inte påstår ett sidantal.
+- **Förbudslistan bär 18 strängar. Vaktblocket är 51 rader** (32 `aktiv`, 19
+  `borttaget`).
+- **Inventeringen har 44 poster**, `{står 26, rättat 10, struket 5, lagt till 3}`,
+  räknad på varje cells inledande token — samma maskinräkning Apple-rundan etablerade.
+- **Guiden står nu i fyra kartor:** `surfacecheck.GUIDE_SURFACES["ai-for-students"]`
+  (fyra ytor — EN/SV × web/print), `factinventory.INVENTORIES["ai-for-students"]`,
+  `test_guide_delivery.GUIDE_DELIVERY["ai-for-students"]` (en PDF, inget quick-start-par)
+  och `test_fonts.GUIDE_WEB_SURFACES` (webbytan är städad, se nedan).
+- **Webbytans Crestiora-typsnitt är städat.** `Playfair Display`/`Inter`-länken till
+  Google Fonts och tre `--font-*`-överskrivningar är borta;
+  `_unpublished/guides/ai-for-students/index.html` och dess `styles.css` står nu i
+  `test_fonts.GUIDE_WEB_SURFACES`.
+
+### Lärdomarna för nästa guides runda
+
+Ur ledgern, de viktigaste:
+
+1. **Mätuppgifternas leverantörs- och källista måste komma ur guidens EGEN TEXT, inte
+   ur planens föreställning om den.** Specen listade fem leverantörer; guiden namnger
+   sju. Rundan hittade fyra faktameningar utan post **efter** att mätfasen var klar.
+2. **En spec som pekar ut en FORMULERING i stället för en KÄLLA producerar sakfel.**
+   Specen och planen pekade ut en **sann** mening som felklassens bärare, och en
+   granskare fällde felläsningen.
+3. **`surfacecheck.normalise()` mappar aldrig bindestreck till blanksteg**, så
+   `minimal-risk` är osynligt för en rad ankrad på `minimal risk`. Kan en term
+   avstavas: skriv båda varianterna. **Normaliseraren ändrades INTE** — den delas av fem
+   inventeringar med 200+ rader, och en ändring där är en egen runda med egen mätning.
+4. **Ett kort `borttaget`-ankare är starkare bara om varje förekomst av strängen var
+   felet.** Lever strängen legitimt kvar måste ankaret vara den längsta strängen som
+   bara matchar det borttagna.
+5. **`rättat` = samma posts värde rättat på plats; `struket` = påståendet borttaget,
+   ersättning spåras som egen post.** Taxonomins `struket` breddades från att bara gälla
+   `obelagt`-poster.
+6. **Åtta av rundans defekter kom ur kontrollerns eget material** och upptäcktes varje
+   gång av att någon läste källan i stället för instruktionen.
+7. **`git stash` är förbjudet i en worktree** — stacken delas; en uppgift var nära att
+   tappa arbete.
+8. **En rundartefakt smög in i indexet igen** trots att `.superpowers/` är
+   gitignorerad. Kontrollera `git ls-files .superpowers/` före leverans.
+
+### Öppna punkter som INTE åtgärdades
+
+- **Ytdivergensen är mätt men inte harmoniserad** — 37 EW-exklusiva och 30 EP-exklusiva
+  meningar, 64 av 67 preexisterande — eftersom ägaren beslutat att guiden inte byggs ut.
+- **MailerLite-grinden försvann från webbytan**, som bieffekt av att nedladdningslöftet
+  togs bort. Filen (`assets/js/mailerlite-gate.js`) och nio andra referenser är orörda,
+  men publiceras guiden någon gång med en nedladdning måste grinden återinföras
+  medvetet.
+- **`openai.com` är stängt för verktygskedjan**, och poster i fyra inventeringar hänger
+  på dess citat.
+- **I8:s tal reproducerar i storlek och riktning men inte till heltalet**, eftersom
+  metoden inte pinnar ner meningsdelaren och inget skript är committat.
 
 ---
 

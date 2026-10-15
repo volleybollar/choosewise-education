@@ -60,11 +60,12 @@ def test_published_files_excludes_untracked_files():
 # Geminis sidor kunde ligga med Google Fonts.
 #
 # Listan är de guider vars webbyta ÄR städad och ska förbli det. Apples
-# alla fyra sökvägar (EN och SV) står nu här efter den här rundan. Det
-# enda som saknas är _unpublished/guides/ai-for-students/ — elevguiden
-# är den enda guide-webbyta under _unpublished/guides/ som fortfarande
-# bär Crestioras typsnitt och tas i sin egen runda. Copilots och
-# Geminis SVENSKA webbytor (_unpublished/sv/guider/copilot/,
+# alla fyra sökvägar (EN och SV) står nu här efter den rundan.
+# ai-for-students' ENGELSKA webbyta städades i den här rundans Task 12 och
+# står nu här också. Det enda som saknas är ai-for-students' SVENSKA
+# webbyta (_unpublished/sv/guider/ai-for-elever/) — den är fryst med
+# avsikt (Johans beslut 2026-10-14, samma runda) och tas inte upp här.
+# Copilots och Geminis SVENSKA webbytor (_unpublished/sv/guider/copilot/,
 # _unpublished/sv/guider/gemini-notebooklm/) bär också kvar typsnitten
 # och är fortsatt skuld — de står utanför den här listan för att de inte
 # är guide-webbytor under _unpublished/guides/, inte för att de är
@@ -86,6 +87,8 @@ GUIDE_WEB_SURFACES = (
     "_unpublished/guides/apple-intelligence/styles.css",
     "_unpublished/sv/guider/apple-intelligence/index.html",
     "_unpublished/sv/guider/apple-intelligence/styles.css",
+    "_unpublished/guides/ai-for-students/index.html",
+    "_unpublished/guides/ai-for-students/styles.css",
 )
 
 # Crestioras två typsnitt. 'Inter' söks med citattecken och som

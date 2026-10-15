@@ -291,9 +291,22 @@ A33–A39 bär AI Act:s datum, artikel 4:s AI-kunnighetsplikt (gäller sedan 2 f
 **Den kända felklassen, och den ska letas aktivt:** att framställa högriskskyldigheter
 som bindande i dag, eller att lägga **leverantörens** förhandsplikter på skolan. Det
 felet har nu fällts i tre dokument — G48 i Gemini-rundan, Geminis bonuskapitels
-`pre-market obligations` (fortfarande öppet), och Apples A36/A37. Guidens mening *"Both
-apply, both are the teacher's and the school authority's responsibility, and neither
-can be postponed"* är precis den formulering som bär risken och ska mätas först.
+`pre-market obligations` (fortfarande öppet), och Apples A36/A37.
+
+> **AMENDEMANG 2026-10-15, efter Task 5:s mätning och granskning.** Specen pekade här ut
+> meningen *"Both apply, both are the teacher's and the school authority's responsibility,
+> and neither can be postponed"* som den som bär risken. **Det var en felläsning, och den
+> rättas här.** `both`/`neither` syftar på de två REGELVERKEN i föregående mening — EU AI Act
+> och GDPR — och båda gäller faktiskt (AI Act sedan 2026-08-02, GDPR sedan länge), så meningen
+> är sann: inventeringens **S27**, verdikt `står`, med skälet skrivet i cellen.
+>
+> **Felklassen sitter i det FÖLJANDE högriskstycket** — inventeringens **S28**, verdikt
+> `falskt` — som framställer Annex III-plikterna som bindande i dag. Mellan de två ligger hela
+> icke-EU-avsnittet, en ny underrubrik och minimalrisk-meningen; de står inte i följd.
+>
+> **Lärdomen, och den är specskrivarens:** en spec som pekar ut en FORMULERING i stället för
+> en KÄLLA producerar sakfel. Det är exakt lärdom 1 ur Apple-rundan, tillämpad på mig själv.
+
 
 ### Omfång
 

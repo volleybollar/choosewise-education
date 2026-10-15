@@ -203,15 +203,155 @@ GUIDE_DELIVERY = {
             "_unpublished/assets/pdfs/guides/apple-intelligence-guide-sv.pdf",
         ),
     },
+    "ai-for-students": {
+        # Ingen quick-start finns och ingen ska byggas — Johans beslut
+        # 2026-10-14 (specens §1). `pdfs` bär därför EN fil, inte ett par.
+        "pdfs": (
+            "_unpublished/assets/pdfs/guides/ai-for-students-en.pdf",
+        ),
+        # Härledd ur docs/guide-facts-ai-for-students.md:s `borttaget`-rader
+        # (vaktblocket, S01–S20), mätt rakt i den levererade PDF:en — inte i
+        # källan. Varje rad är den KORTASTE strängen som bara träffar den
+        # borttagna förekomsten (regel 3 i inventeringens huvud): en lång
+        # sträng som innehåller en kort förbjuden är strikt svagare, så
+        # ankaret är det korta värdet utom där en legitim kvarvarande
+        # förekomst av det korta värdet tvingar ett längre ankare (S01,
+        # nedan).
+        "forbidden": (
+            # S01 — läsaretiketten. Den NAKNA strängen "teachers and school
+            # leaders" lever kvar legitimt i EW:s omnämnande av WISE-
+            # ramverkets egna "separate versions for teachers and school
+            # leaders" (ett annat dokument, aldrig felet). Ankaret är därför
+            # FÖRLÄNGT till den distinkta ordalydelsen ur den struckna
+            # underrubriken, ordagrant ur alla tre borttagna förekomster
+            # (EP:s cover__subtitle, EW:s og:description och <p
+            # class="lede">) och frånvarande ur WISE-meningen.
+            "teachers and school leaders who want to choose tools with "
+            "judgement, not hype",
+            # S02 — datumstämpeln, struken ur cover__footer,
+            # back-cover__license och cta-fineprint.
+            "April 2026",
+            # S04 — OECD-urvalets enhet, sidan 4. Bara den fulla frasen:
+            # ordet "classrooms" ensamt lever legitimt kvar i samma stycke
+            # ("the current realities of classrooms").
+            "150 classrooms across 40 countries",
+            # S05/S06 — Wang & Fan-citatet, sidan 6, struket helt.
+            "Wang & Fan",
+            # S06, med den stängande parentesen — utan den krockar ankaret
+            # med S34:s nya, legitima "69 studies identified)".
+            "69 studies)",
+            # S06, den längre frasen — den nakna "motivation" är nu en
+            # substräng av S34:s nya "affective-motivational states".
+            "performance, motivation and higher-order thinking",
+            # S29 — risknivåbenämningen, sidan 11, med mellanslag.
+            "minimal risk",
+            # S29, andra förekomsten — FAQ:n sidan 21, HYFENERAD. normalise()
+            # slår aldrig om bindestreck till mellanslag, så det hyfenerade
+            # ekot är en egen, nödvändig rad skild från raden ovan.
+            "minimal-risk",
+            # S16 — Zheng-citatet, sidan 14, struket helt. Enda förekomsten
+            # av namnet i hela guiden.
+            "Zheng",
+            # S19 — den implicerade rangordningen, sidan 15.
+            "The largest chatbots",
+            # S20 — Copilots modellpåstående, falskt enligt Task 4:s
+            # mätning.
+            "Copilot is built on ChatGPT",
+            # ── Fixvågen 2026-10-15, helgranskningens fynd. Varje sträng
+            # är mätt på NOLL i den omrenderade PDF:en innan den skrevs
+            # in här, och den sträng som ersatte den är mätt på minst en
+            # träff (se fixvågens rapport för båda mätningarna).
+            #
+            # S38/C1 — attributionen till UNESCO och OECD bakom rådet
+            # "start together, visibly", struken eftersom inget av sex
+            # hämtade primärdokument från de två organen säger något om
+            # rådet. Tre strängar, en per struken ordalydelse i PDF:en:
+            # printytans gamla underrubrik och de två attributionssatserna.
+            # (EW:s egen gamla rubrik, "What education authorities say",
+            # står INTE här: den fanns bara på webbytan, och den här
+            # vakten läser bara den levererade PDF:en. Den vaktas i
+            # stället av `borttaget`-raden i inventeringens vaktblock, som
+            # läser båda ytornas källa.)
+            "What international guidance says",
+            "Guidance from major education bodies",
+            "consistently recommends",
+            # S25/I2 — avsnittsrubriken som motsade sitt eget stycke. Den
+            # korta formen `show teachers what students are asking` är
+            # GEMENSAM för den gamla och den nya rubriken och får därför
+            # INTE stå här; ankaret är den del som bar felet.
+            "today's AI tools don't show teachers",
+            # S42/I7 — det namngivna produkt- och avtalspåståendet i
+            # GDPR-punktlistan. Två strängar, båda unika för den struckna
+            # satsen; `ChatGPT` ensamt vore fel ankare (produkten nämns
+            # legitimt på sidorna 6 och 15).
+            "Many consumer chatbots",
+            "without a specific school contract",
+            # S03/M7 — OECD-citatets tysta avkortning. Den oelliderade
+            # formen mätte 1 i bascommitens PDF och 0 i den nya; den
+            # elliderade (`achievement …"`) kan inte matcha den här
+            # strängen, eftersom mellanslaget före ellipsen skiljer dem.
+            'stagnating student achievement."',
+        ),
+        # MEDVETET INTE på listan (fixvågen): S44:s struckna Discovery
+        # Education-attribution ("Inspired by Discovery Education's ...").
+        # Den stod bara på webbytan — EP bar samma ingress utan den redan
+        # före rundan — och mätte därför 0 i PDF:en både före och efter
+        # strykningen. En sträng som aldrig kunde finnas här kan inte
+        # vaktas här. Samma princip som S36:s Gerlich-fragment nedan.
+        # MEDVETET INTE på listan: S36:s struckna Gerlich-fragment ("A Swiss
+        # study", "-0.75", "among younger users", sidan 6). Den meningen är
+        # EW-exklusiv (står aldrig på printytan, se S36:s cell och
+        # Ytdivergenser i inventeringen) och den här vakten läser bara de
+        # LEVERERADE PDF:erna, byggda ur printytan — en sträng som bara stod
+        # på webbytan kan aldrig mätas här. Samma princip som Apples
+        # `Sweden`/`Swedish`-undantag ovan: strängarna kan vara borta ur
+        # PDF:en utan att webbytan därför är fri från dem. Inget S-id gavs
+        # dem i vaktblocket av exakt det skälet (se "INGEN RAD" i
+        # inventeringen) — håll dem borta härifrån tills en framtida runda
+        # gör printytan EW-identisk på den punkten.
+        #
+        # Ingen post i NO_PAGE_CLAIM: guiden saknar en quick-start helt
+        # (ingen rad i `pdfs` ovan att göra ett sidantalspåstående om), inte
+        # bara ett sidantalspåstående — dicten gäller bara guider som HAR
+        # en quick-start men vars avslutning för stunden inte påstår något.
+        #
+        # DE SVENSKA FILERNA LÄSES INTE AV FÖRBUDSLISTAN, se Apples
+        # motsvarande kommentar ovan för mekanismen. Båda byggarna
+        # (`exports/build-ai-for-elever-pdf.py`) renderar EN *och* SV i
+        # samma körning, så den svenska filen skrivs varje gång den
+        # engelska renderas om — raden nedan jämför bytes mot bascommiten
+        # och fäller den som committar en byte-ändrad svensk fil.
+        "untouched": (
+            "_unpublished/assets/pdfs/guides/ai-for-elever-sv.pdf",
+            "_unpublished/exports/ai-for-elever-print-a4-sv.html",
+        ),
+    },
 }
 
 GUIDES = tuple(GUIDE_DELIVERY)
 
-# Task 13 har renderat om PDF:erna — båda paren (huvudguidens och
-# quick-startens) går nu grönt rakt av. Tom till nästa guide fyller den
-# igen. Mängden är PER PDF, inte per guide, samma form som
-# XFAIL_UNTIL_RECOUNTED i test_guide_toc.py: (guide, identitet).
-XFAIL_UNTIL_RERENDERED = set()
+# Guider utan NÅGON quick-start-fil alls — ett ägarbeslut (ai-for-students,
+# specens §1), inte en tillfällig lucka. Skiljer sig från NO_PAGE_CLAIM
+# nedan: den dicten gäller en quick-start som FINNS men för stunden inte
+# påstår ett sidantal; den här tupeln gäller en guide som aldrig har en
+# quick-start-fil att läsa, så varje vakt som är byggd kring ett
+# huvudguide/quick-start-PAR måste hoppa över den i stället för att anta
+# att paret alltid finns.
+NO_QUICK_START = ("ai-for-students",)
+
+# ai-for-students lade till sin post i Task 13b, FÖRE Task 14:s
+# omrendering: alla elva strängar i dess `forbidden`-lista mätte mot den
+# DÅVARANDE PDF:en, byggd innan Task 7–11:s rättelser fanns i källan, och
+# samtliga elva gav fortfarande träff där (mätt, se task-13b-rapporten).
+# Task 14 renderade om och mätte alla elva på noll i den nya PDF:en (se
+# task-14-rapporten) — tömd här av exakt det skälet.
+#
+# Töms i slutet av varje runda vars omrendering gör förbudslistan sann
+# igen. En mängd som bara växer slutar vakta något — samma konvention
+# som RECAPTURED_THIS_ROUND i test_capture_guide_baseline.py och
+# XFAIL_UNTIL_RECOUNTED i test_guide_toc.py. Mängden är PER PDF, inte
+# per guide: (guide, identitet).
+XFAIL_UNTIL_RERENDERED: set = set()
 
 
 def delivery_for(guide: str) -> dict:
@@ -300,7 +440,11 @@ def _rendered_page_count(rel: str) -> int:
 
 def _main_and_quick_start(guide: str) -> tuple[str, str]:
     """Plockar isär en guides pdf-par ur GUIDE_DELIVERY, (huvudguide, quick-start),
-    utan att anta ordning — "quick-start" i filnamnet är det som skiljer dem."""
+    utan att anta ordning — "quick-start" i filnamnet är det som skiljer dem.
+
+    Anropas aldrig för en guide i NO_QUICK_START — paret den letar efter
+    finns inte för en sådan guide, så varje anropsplats hoppar över den
+    i stället."""
     pdfs = delivery_for(guide)["pdfs"]
     quick = [rel for rel in pdfs if "quick-start" in rel]
     main = [rel for rel in pdfs if "quick-start" not in rel]
@@ -339,9 +483,16 @@ def test_the_delivered_pdfs_carry_no_abandoned_claim(guide, rel):
 @pytest.mark.parametrize("guide", GUIDES)
 def test_the_quick_start_pdf_is_part_of_the_delivery_guard(guide):
     """Quick-starten står utanför ytvakten med avsikt. Faller den också
-    ur den här vakten bevakas dess innehåll av ingenting alls."""
+    ur den här vakten bevakas dess innehåll av ingenting alls.
+
+    En guide i NO_QUICK_START har inte avsagt sig den här vakten — den
+    kräver i stället att guiden inte RÅKAR ha en fil som heter
+    quick-start utan att stå i den tuppeln."""
     pdfs = delivery_for(guide)["pdfs"]
-    assert any("quick-start" in rel for rel in pdfs), guide
+    if guide in NO_QUICK_START:
+        assert not any("quick-start" in rel for rel in pdfs), guide
+    else:
+        assert any("quick-start" in rel for rel in pdfs), guide
     for rel in pdfs:
         assert rel in fp.UNPUBLISHED_GUIDE_PDFS, f"{rel} står inte i facitlistan"
 
@@ -434,9 +585,16 @@ def test_every_quick_starts_page_count_claim_matches_its_rendered_main_guide():
 
     En utebliven träff kräver en deklaration i NO_PAGE_CLAIM, inte tystnad
     — annars kan en redigerad avslutning tappa ett äkta påstående utan att
-    något blir rött."""
+    något blir rött.
+
+    En guide i NO_QUICK_START har ingen quick-start-fil att läsa ett
+    påstående ur och hoppas över innan paret plockas isär — den skiljer
+    sig från NO_PAGE_CLAIM, som gäller en quick-start som finns men inte
+    påstår något just nu."""
     mismatches = []
     for guide in GUIDES:
+        if guide in NO_QUICK_START:
+            continue
         main_rel, quick_rel = _main_and_quick_start(guide)
         match = _PAGE_CLAIM.search(_flat(quick_rel))
         if match is None:
@@ -461,10 +619,14 @@ def test_the_no_page_claim_list_cannot_rot(guide):
     Tre sätt den kan ruttna, alla röda här: en post som inte är en känd
     guide, en post utan skäl, och en post vars quick-start FAKTISKT gör ett
     påstående igen — då är skulden betald, och står posten kvar ligger
-    påståendet ovaktat. Samma form som UNMAPPED_GUIDE_SURFACES i
-    test_guide_surface_consistency.py (MEASURE_ONLY_INVENTORIES, som stod
-    här som andra exempel, ströks i runda 2 Task 2 — se den filens
-    historiknot).
+    påståendet ovaktat.
+
+    Mekanismen är generell för varje skulddeklarerande dict eller tupel i
+    den här sviten: en sådan lista deklarerar ett UNDANTAG från en annan
+    vakt, inte ett eget facit, så dess ruttnandevakt prövar bara listans
+    poster mot sin egen, aktuella verklighet — aldrig mot en annan fils
+    namngivna mekanism, som kan strykas eller döpas om utan förvarning och
+    då göra en sådan hänvisning till ett dött namn.
     """
     assert guide in GUIDE_DELIVERY, (
         f"{guide} står i NO_PAGE_CLAIM men inte i leveranskartan")
@@ -490,7 +652,12 @@ def test_every_bare_page_number_in_a_quick_start_is_accounted_for(guide):
     NO_PAGE_CLAIM:s ruttnandevakt vore copilot och gemini SVAGARE vaktade
     efter skärpningen än före den — före den jämfördes deras bara tal
     åtminstone mot det renderade sidantalet.
+
+    En guide i NO_QUICK_START har ingen quick-start-fil att leta bara tal
+    i och hoppas över.
     """
+    if guide in NO_QUICK_START:
+        return
     _, quick_rel = _main_and_quick_start(guide)
     stripped = _flat(quick_rel)
     for phrase in BARE_PAGE_NUMBERS.get(guide, ()):

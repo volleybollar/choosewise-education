@@ -616,13 +616,29 @@ git commit -m "fix(students): Del 1 — forskningscitaten mot primärkälla"
 | 11 | **GDPR och AI Act** | regleringen enligt Task 5, och felklassen nedan |
 | 12 | **GDPR i praktiken / motsvarande regler annorstädes** | regleringen enligt Task 5 |
 
-**Felklassen som ska rättas om Task 5 mätte den:** *"Both apply, both are the teacher's and
-the school authority's responsibility, and neither can be postponed."* Artikel 4 gäller sedan
-2 februari 2025; Annex III-högrisk gäller från **2 december 2027**. En mening som läser som
-att allt gäller nu lägger framtida högriskplikter på läsaren i dag — och den motsatta
-varianten, att lägga **leverantörens** förhandsplikter på skolan, är samma fel i andra
-riktningen. **Skriv distinktionen explicit: vad som binder skolan i dag, och vad som binder
-den från ett datum.**
+> **AMENDEMANG 2026-10-15, efter Task 5:s mätning och granskning.** Stycket nedan pekade ut
+> FEL MENING. Planen rättas här i stället för att skicka en implementerare på en sann mening.
+>
+> Meningen *"Both apply, both are the teacher's and the school authority's responsibility,
+> and neither can be postponed"* har `both`/`neither` syftande på de **två regelverken** i den
+> föregående meningen — EU AI Act och GDPR — inte på artikel 4 kontra Annex III, som inte är
+> introducerade i texten vid den punkten. Båda regelverken gäller faktiskt: AI Act sedan
+> 2026-08-02, GDPR sedan länge. **Meningen är sann och ska inte röras** (inventeringens S27,
+> verdikt `står`, med skälet skrivet i cellen).
+>
+> **Felklassen finns i det FÖLJANDE högriskstycket** (inventeringens S28, verdikt `falskt`),
+> som framställer Annex III-högriskens dokumentations-, transparens- och granskningsplikter
+> som bindande i dag. Mellan de två ligger hela icke-EU-avsnittet, en ny underrubrik och
+> minimalrisk-meningen — de står **inte** i följd.
+
+**Felklassen som ska rättas, enligt Task 5:s mätning:** högriskstycket på sidan 11
+(inventeringens **S28**) framställer Annex III-plikter som bindande i dag. Artikel 4:s
+AI-kunnighetsplikt gäller sedan **2 februari 2025** och är det enda som binder en skola nu;
+Annex III-högrisk gäller från **2 december 2027**. Den motsatta varianten — att lägga
+**leverantörens** förhandsplikter på skolan — är samma fel i andra riktningen. **Skriv
+distinktionen explicit: vad som binder skolan i dag, och vad som binder den från ett datum.**
+Två lindrigare fynd hör till samma sidor: guiden skriver `minimal risk` där AI Act säger
+`Minimal or no risk` (S29), och den nämner DPIA/artikel 35 men aldrig artikel 27:s FRIA (S30).
 
 - [ ] **Steg 1: Mät sidornas luft före, samma skript som Task 7 steg 1 med sidorna 8, 11, 12**
 

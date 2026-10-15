@@ -16,6 +16,7 @@ INVENTORIES = {
     "copilot": ROOT / "docs" / "guide-facts-copilot.md",
     "gemini":  ROOT / "docs" / "guide-facts-gemini.md",
     "apple-intelligence": ROOT / "docs" / "guide-facts-apple-intelligence.md",
+    "ai-for-students": ROOT / "docs" / "guide-facts-ai-for-students.md",
 }
 
 
