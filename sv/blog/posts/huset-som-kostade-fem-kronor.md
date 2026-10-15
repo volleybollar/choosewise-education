@@ -2,9 +2,9 @@ Debatten om AI i skolan handlar nästan alltid om tillgång. Ska mobilerna låsa
 
 Det finns en siffra som gör det antagandet svårt att försvara.
 
-## 13 gånger om året
+## En faktor 13 om året
 
-Epoch AI publicerade i september 2026 en genomgång av vad det kostar att nå en *given* prestationsnivå med AI ([The Plunging Price of Thought](https://epoch.ai/publications/the-plunging-price-of-thought)). Slutsatsen: kostnaden har fallit med ca 47 procent per kvartal sedan 2023 — d v s ungefär 13 gånger per år.
+Epoch AI publicerade i september 2026 en genomgång av vad det kostar att nå en *given* prestationsnivå med AI ([The Plunging Price of Thought](https://epoch.ai/publications/the-plunging-price-of-thought)). Slutsatsen: kostnaden har fallit med ca 47 procent per kvartal sedan 2023 — d v s med en faktor på ca 13 per år.
 
 Lägg märke till vad som mäts. Inte priset per token, och inte priset på "AI" i allmänhet. Det som mäts är vad det kostar att komma upp i en bestämd kvalitetsnivå, över fem olika uppgiftstyper (bl a avancerade matematikproblem, naturvetenskapliga frågor på doktorandnivå och schackpussel). Samma uppgift, samma resultat — till en bråkdel av kostnaden.
 
@@ -14,7 +14,7 @@ Författarna jämför takten med andra teknikskiften: fyra gånger snabbare än 
 
 ## Räkneexempel: ditt hus
 
-Problemet med den sortens siffror är att de inte säger oss någonting. Vi hör "13 gånger per år" och nickar. Så låt oss byta ut AI mot något vi faktiskt har en känsla för.
+Problemet med den sortens siffror är att de inte säger oss någonting. Vi hör "en faktor 13 per år" och nickar. Så låt oss byta ut AI mot något vi faktiskt har en känsla för.
 
 Tänk ett hus som kostar 5 miljoner kronor. Tänk att priset — samma hus, samma läge, samma skick — faller i exakt den takt Epoch har mätt.
 
@@ -25,7 +25,7 @@ Tänk ett hus som kostar 5 miljoner kronor. Tänk att priset — samma hus, samm
 
 <figure class="data-table">
   <table>
-    <caption>Huspriset år för år, vid ett fall på 13 gånger per år</caption>
+    <caption>Huspriset år för år, vid ett fall med en faktor 13 per år</caption>
     <thead>
       <tr>
         <th scope="col">Tid</th>
@@ -93,7 +93,7 @@ Där ligger poängen. När något har fallit så mycket att vi uppfattar det som
       </div>
     </fieldset>
   </div>
-  <svg class="prisfall__chart" viewBox="0 0 760 420" role="img" aria-label="Diagram över huspriset som faller 13 gånger per år"></svg>
+  <svg class="prisfall__chart" viewBox="0 0 760 420" role="img" aria-label="Diagram över huspriset som faller med en faktor 13 per år"></svg>
 </section>
 <script defer src="/sv/blog/posts/assets/huset-prisfall.js"></script>
 
@@ -114,7 +114,7 @@ Jag ska inte överdriva säkerheten i siffran. Epochs egna invändningar är rim
 - Vanliga användare byter inte modell så fort en billigare dyker upp, så den besparing en enskild användare gör är mindre än den som mäts vid fronten.
 - Författarna är själva tydliga med att siffrorna är representativa, inte exakta.
 
-Takten kan alltså visa sig bli 5 gånger per år i stället för 13. Det är ingen tröst. Då tar huset åtta år i stället för fem.
+Takten kan alltså visa sig bli en faktor 5 per år i stället för 13. Det är ingen tröst. Då tar huset åtta år i stället för fem.
 
 ## Slutsats
 
