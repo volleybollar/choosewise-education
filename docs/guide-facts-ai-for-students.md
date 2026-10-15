@@ -117,8 +117,8 @@ in i någon av de tre klasserna från spec §6, eftersom ingen av dem passar dä
 
 | id | påstående i guiden | EW | EP | primärkälla + hämtdatum | verdikt |
 |---|---|---|---|---|---|
-| S01 | `teachers and school leaders` — läsaretiketten. På EP står den en gång, i omslagets underrubrik ("for teachers and school leaders who want to choose tools with judgement, not hype"). På EW står den tre gånger: `og:description`, `<p class="lede">` (samma formulering som EP:s underrubrik) och en tredje gång i ett stycke om WISE-ramverkets egna "separate versions for teachers and school leaders" — den tredje förekomsten talar om WISE-ramverket, inte om den här guidens läsare, och är en annan sorts påstående trots den identiska strängen. |  3 |  1 |  |  |
-| S02 | `Updated April 2026` — datumstämpeln. EP bär den två gånger (omslagets fot, radens `<span>Updated April 2026</span>`, och avslutningssidans sidfot `Johan Lindström · choosewise.education · Updated April 2026`). EW bär den en gång (`<p class="cta-fineprint">Updated April 2026.</p>`). |  1 |  2 |  |  |
+| S01 | `teachers and school leaders` — läsaretiketten. På EP står den en gång, i omslagets underrubrik ("for teachers and school leaders who want to choose tools with judgement, not hype"). På EW står den tre gånger: `og:description`, `<p class="lede">` (samma formulering som EP:s underrubrik) och en tredje gång i ett stycke om WISE-ramverkets egna "separate versions for teachers and school leaders" — den tredje förekomsten talar om WISE-ramverket, inte om den här guidens läsare, och är en annan sorts påstående trots den identiska strängen. |  3 |  1 |   | **rättat.** Läsaretiketten i omslagets underrubrik (EP) och dess två EW-motsvarigheter (`og:description`, `<p class="lede">`) är ändrad `teachers and school leaders` → `educators` — Johans beslut 2026-10-14 (brevets §4, Task 11). Titeln (`Should students use AI in class?`) och eyebrow:n (`Pedagogical decision guide`) är orörda. EW:s tredje förekomst (WISE-ramverkets egna "separate versions for teachers and school leaders", rad ~152) talar om ett annat dokument och är medvetet lämnad orörd — se vaktblockets egen varning om vad det betyder för raden nedan. |
+| S02 | `Updated April 2026` — datumstämpeln. EP bär den två gånger (omslagets fot, radens `<span>Updated April 2026</span>`, och avslutningssidans sidfot `Johan Lindström · choosewise.education · Updated April 2026`). EW bär den en gång (`<p class="cta-fineprint">Updated April 2026.</p>`). |  1 |  2 |   | **rättat.** Stämpeln är satt om från `April 2026` till `October 2026` i samtliga tre förekomster — EP:s `cover__footer`-rad (nu `<span>October 2026</span>`, utan `Updated`) och avslutningssidans licensrad (`Johan Lindström · choosewise.education · October 2026`), EW:s cta-finprint (`Updated October 2026.`, med `Updated` kvar) — samma form som syskonguiderna copilot och apple-intelligence redan bär på sina motsvarande ytor. 2026-10-15 (leveransdagen) ligger inom oktober 2026, så stämpeln är sann vid leverans. Byggaren (`exports/build-ai-for-elever-pdf.py`) bär ingen egen datumtext i `cover_footer`/`standard_footer` — bara titel och sidnummer — så den femte ytan krävde ingen ändring. |
 
 ### Forskningscitaten (spec §6 klass 1) — nio citat, sexton ankare
 
@@ -234,17 +234,50 @@ Summan 2 + 16 + 8 + 7 = **33**, lika med postantalet ovan.
 # Ingen QS — guiden har ingen quick-start (Johans beslut 2026-10-14). De svenska
 # ytorna är frysta och ingår inte i rundan; de får aldrig en rad här.
 #
-# BLOCKET ÄR TOMT MED AVSIKT. Guiden står ännu inte i någon vaktkarta
-# (`surfacecheck.GUIDE_SURFACES` fylls av en senare uppgift, se spec §7), och
-# `test_every_guides_guard_block_is_not_empty` kräver minst en `aktiv`- och minst
-# en `borttaget`-rad i samma stund guiden kommer in i kartan. Inga sådana rader
-# finns förrän innehållet är rättat — att skriva in rader nu, innan Task 2–7 har
-# mätt och rättat påståendena, hade gissat utfallet i stället för att mäta det.
+# Guiden står ännu inte i någon vaktkarta (`surfacecheck.GUIDE_SURFACES` fylls
+# av en senare uppgift, se spec §7), så raderna nedan vaktar ingenting förrän
+# den uppgiften är klar — `test_every_guides_guard_block_is_not_empty` och de
+# två ytkonsistenstesterna körs bara för guider som redan står i kartan.
+# BLOCKET ÄR INTE LÄNGRE TOMT: Task 11, rundans första skrivuppgift, lade de
+# två första raderna, S01 och S02 — de enda två poster i "Omslaget och
+# läsartilltalet" (se tabellen ovan) som krävde en prosaändring i guiden
+# snarare än bara ett verdikt.
 #
-# När en senare uppgift fyller blocket: varje `aktiv`-rad ska bära det KORTASTE
-# värde som bär påståendet (ett tal, ett namn, en tidskriftstitel) — aldrig hela
-# satsen (se regel 3 i huvudet ovan). En rad krävs ordagrant på BÅDA engelska
-# ytorna för `aktiv`; en kandidat som bara träffar en yta får ingen rad, bara en
-# notering i prosan (samma hantering som Apples IMY-divergens).
+# S01 — läsaretiketten. Omslagets underrubrik (EP) och dess EW-motsvarigheter
+# (`og:description`, `<p class="lede">`) är ändrade `teachers and school
+# leaders` → `educators`. VARNING till den uppgift som lägger guiden i
+# `GUIDE_SURFACES`: EW rad ~152 ("A full walkthrough of the WISE framework —
+# with separate versions for teachers and school leaders — is available...")
+# bär samma sträng om ETT ANNAT dokument (WISE-ramverkets egna lärar-/
+# skolledarversioner) och är medvetet lämnad orörd (se S01:s egen tabellrad).
+# `borttaget`-raden nedan blir alltså `återinfört` i samma sekund kartan
+# fylls — inte på grund av ett missat sök-och-ersätt, utan på grund av den
+# här legitima, kvarvarande förekomsten. Samma felklass som
+# `docs/guide-facts-gemini.md` G49 redan dokumenterade för `NotebookLM`: en
+# sträng kan inte vaktas som bart `borttaget` om en legitim förekomst
+# kvarstår. Den uppgiften måste antingen omformulera WISE-meningen eller
+# välja ett annat sätt att vakta S01 — Task 11 äger bara prosaändringen och
+# mätningen, inte lösningen.
+S01 | en | teachers and school leaders | borttaget
+S01 | en | for educators | aktiv
+#
+# S02 — datumstämpeln, samma klass som Apples A13. Satt om från `April 2026`
+# till `October 2026` i alla tre förekomster (EP:s `cover__footer` och
+# `back-cover__license`, EW:s `cta-fineprint`). Den nakna strängen är
+# ankaret, eftersom de två ytorna bär olika ordval runt den — `Updated` kvar
+# på EW, inget prefix på EP — samma skillnad som syskonguiderna copilot och
+# apple-intelligence redan landat på. Byggaren (`exports/
+# build-ai-for-elever-pdf.py`) bär ingen egen datumtext och rördes inte.
+S02 | en | April 2026 | borttaget
+S02 | en | October 2026 | aktiv
+#
+# Resten av blocket fylls av senare uppgifter, i takt med att de skriver om
+# guidens prosa för S03–S34 (forskningscitaten, produktlandskapet,
+# regleringen) — samma mönster som Apple-rundans A-rader. Varje ny `aktiv`-
+# rad ska bära det KORTASTE värde som bär påståendet (ett tal, ett namn, en
+# tidskriftstitel) — aldrig hela satsen (se regel 3 i huvudet ovan). En rad
+# krävs ordagrant på BÅDA engelska ytorna för `aktiv`; en kandidat som bara
+# träffar en yta får ingen rad, bara en notering i prosan (samma hantering
+# som Apples IMY-divergens).
 ```
 
