@@ -24,7 +24,7 @@
   }
 
   // ─── 2. Active section highlighting in nav ───
-  const sectionIds = ['part-1', 'part-2', 'part-3', 'faq', 'download'];
+  const sectionIds = ['part-1', 'part-2', 'part-3', 'faq'];
   const sections = sectionIds
     .map(id => document.getElementById(id))
     .filter(Boolean);
