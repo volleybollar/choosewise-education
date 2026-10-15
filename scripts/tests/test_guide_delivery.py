@@ -283,7 +283,7 @@ GUIDE_DELIVERY = {
             # S42/I7 — det namngivna produkt- och avtalspåståendet i
             # GDPR-punktlistan. Två strängar, båda unika för den struckna
             # satsen; `ChatGPT` ensamt vore fel ankare (produkten nämns
-            # legitimt på sidorna 15 och 20).
+            # legitimt på sidorna 6 och 15).
             "Many consumer chatbots",
             "without a specific school contract",
             # S03/M7 — OECD-citatets tysta avkortning. Den oelliderade
