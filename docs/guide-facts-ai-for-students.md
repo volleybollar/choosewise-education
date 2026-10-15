@@ -117,7 +117,7 @@ in i någon av de tre klasserna från spec §6, eftersom ingen av dem passar dä
 
 | id | påstående i guiden | EW | EP | primärkälla + hämtdatum | verdikt |
 |---|---|---|---|---|---|
-| S01 | `teachers and school leaders` — läsaretiketten. På EP står den en gång, i omslagets underrubrik ("for teachers and school leaders who want to choose tools with judgement, not hype"). På EW står den tre gånger: `og:description`, `<p class="lede">` (samma formulering som EP:s underrubrik) och en tredje gång i ett stycke om WISE-ramverkets egna "separate versions for teachers and school leaders" — den tredje förekomsten talar om WISE-ramverket, inte om den här guidens läsare, och är en annan sorts påstående trots den identiska strängen. |  3 |  1 |   | **rättat.** Läsaretiketten i omslagets underrubrik (EP) och dess två EW-motsvarigheter (`og:description`, `<p class="lede">`) är ändrad `teachers and school leaders` → `educators` — Johans beslut 2026-10-14 (brevets §4, Task 11). Titeln (`Should students use AI in class?`) och eyebrow:n (`Pedagogical decision guide`) är orörda. EW:s tredje förekomst (WISE-ramverkets egna "separate versions for teachers and school leaders", rad ~152) talar om ett annat dokument och är medvetet lämnad orörd — se vaktblockets egen varning om vad det betyder för raden nedan. |
+| S01 | `teachers and school leaders` — läsaretiketten. På EP står den en gång, i omslagets underrubrik ("for teachers and school leaders who want to choose tools with judgement, not hype"). På EW står den tre gånger: `og:description`, `<p class="lede">` (samma formulering som EP:s underrubrik) och en tredje gång i ett stycke om WISE-ramverkets egna "separate versions for teachers and school leaders" — den tredje förekomsten talar om WISE-ramverket, inte om den här guidens läsare, och är en annan sorts påstående trots den identiska strängen. |  3 |  1 |   | **rättat.** Läsaretiketten i omslagets underrubrik (EP) och dess två EW-motsvarigheter (`og:description`, `<p class="lede">`) är ändrad `teachers and school leaders` → `educators` — Johans beslut 2026-10-14 (brevets §4, Task 11). Titeln (`Should students use AI in class?`) och eyebrow:n (`Pedagogical decision guide`) är orörda. EW:s tredje förekomst (WISE-ramverkets egna "separate versions for teachers and school leaders", rad ~152) talar om ett annat dokument och är medvetet lämnad orörd — därför är vaktblockets `borttaget`-ankare för den här posten den längre, distinkta ordalydelsen ur den gamla underrubriken, inte den nakna strängen; se vaktblockets egen kommentar för undantaget från regel 3. |
 | S02 | `Updated April 2026` — datumstämpeln. EP bär den två gånger (omslagets fot, radens `<span>Updated April 2026</span>`, och avslutningssidans sidfot `Johan Lindström · choosewise.education · Updated April 2026`). EW bär den en gång (`<p class="cta-fineprint">Updated April 2026.</p>`). |  1 |  2 |   | **rättat.** Stämpeln är satt om från `April 2026` till `October 2026` i samtliga tre förekomster — EP:s `cover__footer`-rad (nu `<span>October 2026</span>`, utan `Updated`) och avslutningssidans licensrad (`Johan Lindström · choosewise.education · October 2026`), EW:s cta-finprint (`Updated October 2026.`, med `Updated` kvar) — samma form som syskonguiderna copilot och apple-intelligence redan bär på sina motsvarande ytor. 2026-10-15 (leveransdagen) ligger inom oktober 2026, så stämpeln är sann vid leverans. Byggaren (`exports/build-ai-for-elever-pdf.py`) bär ingen egen datumtext i `cover_footer`/`standard_footer` — bara titel och sidnummer — så den femte ytan krävde ingen ändring. |
 
 ### Forskningscitaten (spec §6 klass 1) — nio citat, sexton ankare
@@ -245,20 +245,30 @@ Summan 2 + 16 + 8 + 7 = **33**, lika med postantalet ovan.
 #
 # S01 — läsaretiketten. Omslagets underrubrik (EP) och dess EW-motsvarigheter
 # (`og:description`, `<p class="lede">`) är ändrade `teachers and school
-# leaders` → `educators`. VARNING till den uppgift som lägger guiden i
-# `GUIDE_SURFACES`: EW rad ~152 ("A full walkthrough of the WISE framework —
-# with separate versions for teachers and school leaders — is available...")
-# bär samma sträng om ETT ANNAT dokument (WISE-ramverkets egna lärar-/
-# skolledarversioner) och är medvetet lämnad orörd (se S01:s egen tabellrad).
-# `borttaget`-raden nedan blir alltså `återinfört` i samma sekund kartan
-# fylls — inte på grund av ett missat sök-och-ersätt, utan på grund av den
-# här legitima, kvarvarande förekomsten. Samma felklass som
-# `docs/guide-facts-gemini.md` G49 redan dokumenterade för `NotebookLM`: en
-# sträng kan inte vaktas som bart `borttaget` om en legitim förekomst
-# kvarstår. Den uppgiften måste antingen omformulera WISE-meningen eller
-# välja ett annat sätt att vakta S01 — Task 11 äger bara prosaändringen och
-# mätningen, inte lösningen.
-S01 | en | teachers and school leaders | borttaget
+# leaders` → `educators`.
+#
+# UNDANTAGET FRÅN REGEL 3, I KLARTEXT (rättat vid granskningen, se nedan):
+# "en kort sträng är strikt starkare än en lång" gäller bara SÅ LÄNGE VARJE
+# FÖREKOMST av den korta strängen faktiskt var felet. EW rad ~152 ("A full
+# walkthrough of the WISE framework — with separate versions for teachers
+# and school leaders — is available...") bär den bara nakna strängen
+# `teachers and school leaders` legitimt, om ETT ANNAT dokument
+# (WISE-ramverkets egna lärar-/skolledarversioner) — den förekomsten var
+# aldrig felet och ska stå kvar. Ett `borttaget`-ankare på den nakna
+# strängen hade därför slagit ut som `återinfört` i samma sekund guiden
+# läggs i `GUIDE_SURFACES`, mot en mening som aldrig skrevs om. Lösningen är
+# INTE att korta ankaret ytterligare utan att FÖRLÄNGA det: raden nedan är
+# ankrad på den distinkta ordalydelsen ur den gamla underrubriken —
+# `teachers and school leaders who want to choose tools with judgement, not
+# hype` — ordagrant tagen ur alla tre borttagna förekomster (EP:s
+# `cover__subtitle`, EW:s `og:description` och `<p class="lede">`) och
+# frånvarande ur WISE-meningen, som aldrig fortsätter med "who want to
+# choose tools...". Samma felklass som `docs/guide-facts-gemini.md` G49
+# dokumenterade för `NotebookLM` (en sträng kan inte vaktas som bart
+# `borttaget` om en legitim förekomst kvarstår) — skillnaden här är att
+# undantaget gäller ANKRINGEN av samma post, inte att posten saknar vaktrad
+# helt.
+S01 | en | teachers and school leaders who want to choose tools with judgement, not hype | borttaget
 S01 | en | for educators | aktiv
 #
 # S02 — datumstämpeln, samma klass som Apples A13. Satt om från `April 2026`
