@@ -31,6 +31,13 @@
     <lastmod>2026-10-13</lastmod>
   </url>
   <url>
+    <loc>https://choosewise.education/blog/posts/the-house-that-cost-one-dollar.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/blog/posts/the-house-that-cost-one-dollar.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/blog/posts/huset-som-kostade-fem-kronor.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/blog/posts/the-house-that-cost-one-dollar.html"/>
+  </url>
+  <url>
     <loc>https://choosewise.education/blog/posts/when-the-copy-is-free.html</loc>
     <lastmod>2026-10-12</lastmod>
   </url>
@@ -620,6 +627,9 @@
   <url>
     <loc>https://choosewise.education/sv/blog/posts/huset-som-kostade-fem-kronor.html</loc>
     <lastmod>2026-10-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/blog/posts/the-house-that-cost-one-dollar.html"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/blog/posts/huset-som-kostade-fem-kronor.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/blog/posts/the-house-that-cost-one-dollar.html"/>
   </url>
   <url>
     <loc>https://choosewise.education/sv/blog/posts/tva-grona-rutor-av-sextio.html</loc>

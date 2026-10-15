@@ -1,5 +1,14 @@
 [
   {
+    "slug": "the-house-that-cost-one-dollar",
+    "title": "The house that cost one dollar",
+    "date": "2026-10-15",
+    "reading_time": "6 min read",
+    "cover_image": "/blog/posts/assets/the-house-that-cost-one-dollar.webp",
+    "og_image": "/blog/posts/assets/the-house-that-cost-one-dollar-og.jpg",
+    "excerpt": "The cost of reaching a given level of performance with AI is falling by a factor of 13 per year. If a million-dollar house fell at the same pace it would cost $455 after three years — and one dollar after five. Which is why bans are the wrong question for schools."
+  },
+  {
     "slug": "gpts-and-gems-retires",
     "title": "Your custom GPT or Gem is changing shape",
     "date": "2026-10-13",

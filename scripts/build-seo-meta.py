@@ -78,6 +78,8 @@ PAIR_MAP = {
     "/guides/ai-for-students/": "/sv/guider/ai-for-elever/",
     "/blog/posts/why-i-built-choosewise-education.html":
         "/sv/blog/posts/varfor-jag-byggt-choosewise-education.html",
+    "/blog/posts/the-house-that-cost-one-dollar.html":
+        "/sv/blog/posts/huset-som-kostade-fem-kronor.html",
     "/prompts/after-school-care/": "/sv/promptar/fritids/",
     "/prompts/art/": "/sv/promptar/bild/",
     "/prompts/biology/": "/sv/promptar/biologi/",

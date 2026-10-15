@@ -1,0 +1,162 @@
+/*
+  Styles for the interactive chart in the post "The house that cost one dollar".
+  Loaded by that post only — everything is scoped under .pricefall so that
+  nothing leaks into the rest of the site's components.
+
+  Every colour and measurement comes from tokens.css. Never put raw hex values
+  in here: that would drop this module out of the Blueprint palette the next
+  time the palette is adjusted.
+*/
+
+.pricefall {
+  margin-block: var(--space-6);
+  padding: var(--space-5);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* The module heading must not inherit the large top margin of .post__body h2. */
+.pricefall .pricefall__title {
+  margin: 0;
+  font-size: var(--fs-h3);
+  font-weight: var(--weight-emphasis);
+}
+
+.pricefall .pricefall__intro {
+  margin: 0;
+  font-size: var(--fs-small);
+  color: var(--color-text-soft);
+}
+
+/* ───── The readout: price + everyday comparison ───── */
+.pricefall__readout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-5);
+}
+
+.pricefall__price {
+  font-size: clamp(2rem, 5vw + 0.5rem, 3rem);
+  font-weight: var(--weight-emphasis);
+  letter-spacing: -0.035em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent);
+}
+
+/* The module's only serif — the same role quotes have elsewhere on the site. */
+.pricefall__equiv {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw + 0.5rem, 1.5rem);
+  line-height: 1.2;
+  color: var(--color-highlight-ink);
+}
+
+.pricefall__when {
+  width: 100%;
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ───── The controls ───── */
+.pricefall__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-5);
+}
+
+.pricefall__slider {
+  flex: 1 1 240px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.pricefall__cap {
+  font-size: var(--fs-caption);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.pricefall input[type="range"] {
+  width: 100%;
+  accent-color: var(--color-highlight);
+  cursor: ew-resize;
+}
+
+.pricefall fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* The scale picker: two buttons that behave as a single control. */
+.pricefall__segmented {
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-pill);
+}
+
+.pricefall__segmented button {
+  font: inherit;
+  font-size: var(--fs-small);
+  border: 0;
+  border-radius: var(--radius-pill);
+  padding: var(--space-2) var(--space-4);
+  background: transparent;
+  color: var(--color-text-soft);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.pricefall__segmented button[aria-pressed="true"] {
+  background: var(--color-accent);
+  color: var(--color-dark-text);
+}
+
+.pricefall__segmented button:focus-visible,
+.pricefall input[type="range"]:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/* ───── The chart ─────
+   viewBox keeps the proportions; the width follows the column.
+   touch-action: none lets a finger drag the curve without scrolling the page. */
+.pricefall__chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  touch-action: none;
+  /* .post__body img gets a radius and a margin — an svg is not an img, but
+     the margin is zeroed here for clarity. */
+  margin: 0;
+}
+
+.pricefall__chart .ax       { font-size: 13px; fill: var(--color-text-muted); }
+.pricefall__chart .gridline { stroke: var(--color-border); stroke-width: 1; }
+.pricefall__chart .axisline { stroke: var(--color-border-strong); stroke-width: 1.5; }
+.pricefall__chart .series   { fill: none; stroke: var(--color-accent); stroke-width: 2.5; stroke-linecap: round; }
+.pricefall__chart .guide    { stroke: var(--color-highlight); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.pricefall__chart .dot      { fill: var(--color-highlight); stroke: var(--color-bg); stroke-width: 2.5; }
+.pricefall__chart .hint     { font-size: 13px; fill: var(--color-text-muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pricefall * { transition: none; animation: none; }
+}
