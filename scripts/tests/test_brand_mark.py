@@ -170,22 +170,27 @@ PAGES = [p for p in brandguard.published_files((".html",))
 
 
 def test_the_page_count_is_what_we_think():
-    """201 av 206. scripts/ är verktygsfixturer, inte sidor — en ny fil
+    """202 av 207. scripts/ är verktygsfixturer, inte sidor — en ny fil
     där ska inte kunna ändra talet tyst. Faller globbet ihop vaktar
     resten ingenting.
 
     Talet gick från 198 till 199 när bloggposten when-the-copy-is-free.html
     lades till (PR #40), från 199 till 200 med gpts-and-gems-retires.html
     (PR #42) och från 200 till 201 med huset-som-kostade-fem-kronor.html
-    (PR #46). Räkna upp det med flit när en sida tillkommer — det är vaktens
-    hela poäng att det ska kräva ett medvetet handgrepp.
+    (PR #46), och från 201 till 202 med den engelska the-house-that-cost-one-
+    dollar.html (PR #48). Räkna upp det med flit när en sida tillkommer — det
+    är vaktens hela poäng att det ska kräva ett medvetet handgrepp.
 
     Obs: published_files() läser `git ls-files`, så vakten ser en ny sida
     först när den är spårad. En svit körd medan sidan ännu är otrackad är
     grön av fel skäl — kör om efter commit, inte bara före. PR #46 gick i
     precis den fällan: sviten kördes med sidan otrackad, vakten var grön,
-    och talet bumpades först här i efterhand."""
-    assert len(PAGES) == 201, len(PAGES)
+    och talet bumpades först här i efterhand. **PR #48 gick i samma fälla
+    en PR senare** — dess engelska sida landade utan bump, och talet rättades
+    i efterhand av elevguiderundans leveranssteg, som upptäckte att main var
+    rött innan den mergade. Fällan har alltså slagit till två gånger på tre
+    sidor: det är inte slarv, det är att vakten bara kan se spårade filer."""
+    assert len(PAGES) == 202, len(PAGES)
 
 
 @pytest.mark.parametrize("path", PAGES, ids=lambda p: str(p.relative_to(ROOT)))
