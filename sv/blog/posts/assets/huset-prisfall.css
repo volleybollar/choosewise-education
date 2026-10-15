@@ -1,0 +1,161 @@
+/*
+  Stil för den interaktiva grafen i inlägget "Huset som kostade fem kronor".
+  Laddas bara av det inlägget — allt ligger under .prisfall så att inget
+  läcker ut i sajtens övriga komponenter.
+
+  Alla färger och mått kommer från tokens.css. Lägg aldrig in egna hex-värden
+  här: då hamnar den här modulen utanför Blueprint-paletten vid nästa justering.
+*/
+
+.prisfall {
+  margin-block: var(--space-6);
+  padding: var(--space-5);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Rubriken i modulen ska inte ärva .post__body h2:s stora toppmarginal. */
+.prisfall .prisfall__title {
+  margin: 0;
+  font-size: var(--fs-h3);
+  font-weight: var(--weight-emphasis);
+}
+
+.prisfall .prisfall__intro {
+  margin: 0;
+  font-size: var(--fs-small);
+  color: var(--color-text-soft);
+}
+
+/* ───── Avläsningen: pris + vardagsjämförelse ───── */
+.prisfall__readout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-5);
+}
+
+.prisfall__price {
+  font-size: clamp(2rem, 5vw + 0.5rem, 3rem);
+  font-weight: var(--weight-emphasis);
+  letter-spacing: -0.035em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent);
+}
+
+/* Modulens enda serif — samma roll som citat har på resten av sajten. */
+.prisfall__equiv {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw + 0.5rem, 1.5rem);
+  line-height: 1.2;
+  color: var(--color-highlight-ink);
+}
+
+.prisfall__when {
+  width: 100%;
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ───── Kontrollerna ───── */
+.prisfall__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-5);
+}
+
+.prisfall__slider {
+  flex: 1 1 240px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.prisfall__cap {
+  font-size: var(--fs-caption);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.prisfall input[type="range"] {
+  width: 100%;
+  accent-color: var(--color-highlight);
+  cursor: ew-resize;
+}
+
+.prisfall fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Skalväljaren: två knappar som uppträder som en enda kontroll. */
+.prisfall__segmented {
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-pill);
+}
+
+.prisfall__segmented button {
+  font: inherit;
+  font-size: var(--fs-small);
+  border: 0;
+  border-radius: var(--radius-pill);
+  padding: var(--space-2) var(--space-4);
+  background: transparent;
+  color: var(--color-text-soft);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.prisfall__segmented button[aria-pressed="true"] {
+  background: var(--color-accent);
+  color: var(--color-dark-text);
+}
+
+.prisfall__segmented button:focus-visible,
+.prisfall input[type="range"]:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/* ───── Diagrammet ─────
+   viewBox håller proportionerna; bredden följer spalten.
+   touch-action: none låter fingret dra i kurvan utan att sidan scrollar. */
+.prisfall__chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  touch-action: none;
+  /* .post__body img får radius och marginal — svg är inte img, men
+     marginalen nollställs här för tydlighetens skull. */
+  margin: 0;
+}
+
+.prisfall__chart .ax       { font-size: 13px; fill: var(--color-text-muted); }
+.prisfall__chart .gridline { stroke: var(--color-border); stroke-width: 1; }
+.prisfall__chart .axisline { stroke: var(--color-border-strong); stroke-width: 1.5; }
+.prisfall__chart .series   { fill: none; stroke: var(--color-accent); stroke-width: 2.5; stroke-linecap: round; }
+.prisfall__chart .guide    { stroke: var(--color-highlight); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.prisfall__chart .dot      { fill: var(--color-highlight); stroke: var(--color-bg); stroke-width: 2.5; }
+.prisfall__chart .hint     { font-size: 13px; fill: var(--color-text-muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .prisfall * { transition: none; animation: none; }
+}
