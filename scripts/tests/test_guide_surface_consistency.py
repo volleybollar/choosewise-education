@@ -140,8 +140,8 @@ def test_every_guide_surface_file_exists(guide):
 
 
 # Guider vars fyra ytor ligger under _unpublished/, som Pages inte
-# serverar. Claude är publicerad; de andra tre tas i sina egna rundor.
-UNPUBLISHED_GUIDES = ("copilot", "gemini", "apple-intelligence")
+# serverar. Claude är publicerad; de andra tas i sina egna rundor.
+UNPUBLISHED_GUIDES = ("copilot", "gemini", "apple-intelligence", "ai-for-students")
 
 
 @pytest.mark.parametrize("guide", UNPUBLISHED_GUIDES)
@@ -188,22 +188,13 @@ def test_every_unpublished_guide_is_in_the_surface_map():
 # i docs/blueprint-handoff.md, och en städrunda som läser filträdet såg
 # fyra opublicerade HTML-sidor utan uppenbar funktion.
 #
-# Nedan är SKULDLISTAN: guide-webbytor som finns på disk men ännu INTE
-# står i surfacecheck.GUIDE_SURFACES. Den ska tömmas, inte fyllas. Varje
-# post bär sitt skäl, och värdet är skälet — en tom sträng duger inte.
-#
-# Flyttordningen är enkelriktad: när en guide fått sin påståendeinventering
-# flyttas den HÄRIFRÅN och in i GUIDE_SURFACES. Då krymper listan. Är den
-# tom ska både listan och dess två vakter strykas — de vaktar ingenting då.
-UNMAPPED_GUIDE_SURFACES = {
-    "_unpublished/guides/ai-for-students/index.html":
-        "ingen påståendeinventering ännu (docs/guide-facts-ai-for-students.md "
-        "finns inte) — utan den kan ingen vaktrad peka på ytan, och en post i "
-        "ytkartan utan inventering är en tyst vakt som "
-        "test_every_guide_has_an_inventory_file redan förbjuder. Kartläggs i "
-        "sin egen runda. Ytan bär dessutom kvar Crestioras typsnitt och står "
-        "därför utanför test_fonts.GUIDE_WEB_SURFACES också.",
-}
+# Skuldlistan som tidigare stod här (UNMAPPED_GUIDE_SURFACES) hade en enda
+# post, ai-for-students, och den posten är nu betald: guiden står i
+# surfacecheck.GUIDE_SURFACES och har sin påståendeinventering. En tom
+# lista med kvarvarande ruttnandevakt vore grön av fel skäl, så listan och
+# dess ruttnandevakt (test_the_debt_list_cannot_rot) ströks tillsammans —
+# samma regel som Apple-rundans historik ovan beskriver för
+# MEASURE_ONLY_INVENTORIES.
 
 
 def _guide_web_surfaces_on_disk() -> set:
@@ -219,46 +210,18 @@ def _guide_web_surfaces_on_disk() -> set:
 def test_every_unpublished_guide_web_surface_is_accounted_for():
     """En guide-webbyta utan synlig funktion ska göra sviten röd.
 
-    Antingen står ytan i ytkartan — då jämförs den mot sin printyta och
-    har en funktion — eller på skuldlistan ovan med ett utskrivet skäl.
-    Ingen tredje möjlighet: en okartlagd sida under _unpublished/guides/
-    ser för en städrunda ut som skräp, och den som slänger den tar bort
-    halva ytkonsistensvakten utan att något blir rött.
+    Mäts enbart mot surfacecheck.GUIDE_SURFACES — ingen undantagslista.
+    En okartlagd sida under _unpublished/guides/ ser för en städrunda ut
+    som skräp, och den som slänger den tar bort halva
+    ytkonsistensvakten utan att något blir rött.
     """
     mapped = {rel for guide in surfacecheck.GUIDES
               for rel in surfacecheck.surfaces_for(guide).values()}
-    unaccounted = _guide_web_surfaces_on_disk() - mapped - set(UNMAPPED_GUIDE_SURFACES)
+    unaccounted = _guide_web_surfaces_on_disk() - mapped
     assert not unaccounted, (
         f"guide-webbytor utan synlig funktion: {sorted(unaccounted)}. "
-        "Lägg ytan i surfacecheck.GUIDE_SURFACES (med en inventering), "
-        "eller på UNMAPPED_GUIDE_SURFACES med ett utskrivet skäl.")
-
-
-def test_the_debt_list_cannot_rot():
-    """Skuldlistan ska beskriva verkligheten, annars tömmer den sig i prosa.
-
-    Tre sätt den kan ruttna, alla röda här: en post vars fil inte finns
-    (ytan är borta, posten kvar), en post som samtidigt står i ytkartan
-    (kartlagd men aldrig struken härifrån — då ser nästa läsare en skuld
-    som är betald), och en post utan skäl. Den andra riktningen är
-    lärdomen från test_every_unpublished_guide_is_in_the_surface_map: en
-    delmängdsassert vänd ett håll fångar inte att listan slutat gälla.
-    """
-    on_disk = _guide_web_surfaces_on_disk()
-    mapped = {rel for guide in surfacecheck.GUIDES
-              for rel in surfacecheck.surfaces_for(guide).values()}
-
-    gone = set(UNMAPPED_GUIDE_SURFACES) - on_disk
-    assert not gone, f"står på skuldlistan men finns inte på disk: {sorted(gone)}"
-
-    paid = set(UNMAPPED_GUIDE_SURFACES) & mapped
-    assert not paid, (
-        f"står på skuldlistan OCH i ytkartan: {sorted(paid)} — skulden är "
-        "betald, stryk posten härifrån")
-
-    unexplained = [rel for rel, why in UNMAPPED_GUIDE_SURFACES.items()
-                   if not why or not why.strip()]
-    assert not unexplained, f"post utan skäl: {sorted(unexplained)}"
+        "Kartlägg ytan i surfacecheck.GUIDE_SURFACES och skriv en "
+        "påståendeinventering för den.")
 
 
 # Historik: fram till runda 2 Task 2 fanns här en MEASURE_ONLY_INVENTORIES
