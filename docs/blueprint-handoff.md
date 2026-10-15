@@ -1115,7 +1115,7 @@ Ett filter som sållar bort breda element för att slippa fullbreddsbehållare d
 
 ### Var det står
 
-`main` = **`6071f6e`**, svit **837 passed / 1 skipped / 0 failed** mätt på det mergade trädet. **Opushat** — `origin/main` står på `fae8983`. `main` ligger **tre merges och 51 commits** före: Apple runda 1 (`1fea250`), runda 2 (`6071f6e`) och den här överlämningen (`fa3b66c`). **Hygienrundan ÄR `fae8983`** och är alltså redan pushad. Alla rundgrenar och worktrees borttagna; `docs/apple-guide-spec` står kvar och är helt mergad.
+**HISTORIK — läget när Apple-rundan levererade.** Apple runda 1 är `1fea250`, runda 2 `6071f6e`, överlämningen `fa3b66c`, och hygienrundan `fae8983`. Svit **837 passed / 1 skipped / 0 failed** mätt på det mergade trädet då. Allt detta är sedan dess **pushat**, och `main` har gått vidare genom ägarens redaktionella pass, omklassificeringen och elevguidens runda — **se `git log` för aktuellt läge i stället för ett tal här.** Alla rundgrenar och worktrees är borttagna, inklusive `docs/apple-guide-spec` (togs bort 2026-10-15, helt mergad, spets `98ee04d`).
 
 **Rundan delades i två på Johans beslut.** Runda 1 (`1fea250`) kartlade guiden i fyra vaktlager och skrev arbetsordern; runda 2 (`6071f6e`) skrev om innehållet. Spec: `docs/superpowers/specs/2026-10-14-apple-intelligence-guide-update-design.md` — **läs dess två amendemang först, de rättar specens egna premisser.** Planer: `docs/superpowers/plans/2026-10-14-apple-intelligence-round-{1,2}.md`. Ledgrar, uppgiftsrapporter och samtliga granskningsdiffar ligger **utanför repot** i `~/Desktop/choosewise-apple-runda-1/` och `~/Desktop/choosewise-apple-runda-2/`.
 
