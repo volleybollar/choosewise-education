@@ -300,16 +300,18 @@ GUIDES = tuple(GUIDE_DELIVERY)
 NO_QUICK_START = ("ai-for-students",)
 
 # ai-for-students lade till sin post i Task 13b, FÖRE Task 14:s
-# omrendering: alla elva strängar i dess `forbidden`-lista mäter mot den
-# NUVARANDE PDF:en, byggd innan Task 7–11:s rättelser fanns i källan, och
-# samtliga elva ger fortfarande träff där (mätt, se task-13b-rapporten).
-# Samma mekanism som Apple-rundans Task 13 använde och sedan tömde när
-# dess PDF:er var omrenderade — fylls på igen här av samma skäl, töms av
-# Task 14. Mängden är PER PDF, inte per guide, samma form som
-# XFAIL_UNTIL_RECOUNTED i test_guide_toc.py: (guide, identitet).
-XFAIL_UNTIL_RERENDERED = {
-    ("ai-for-students", "_unpublished/assets/pdfs/guides/ai-for-students-en.pdf"),
-}
+# omrendering: alla elva strängar i dess `forbidden`-lista mätte mot den
+# DÅVARANDE PDF:en, byggd innan Task 7–11:s rättelser fanns i källan, och
+# samtliga elva gav fortfarande träff där (mätt, se task-13b-rapporten).
+# Task 14 renderade om och mätte alla elva på noll i den nya PDF:en (se
+# task-14-rapporten) — tömd här av exakt det skälet.
+#
+# Töms i slutet av varje runda vars omrendering gör förbudslistan sann
+# igen. En mängd som bara växer slutar vakta något — samma konvention
+# som RECAPTURED_THIS_ROUND i test_capture_guide_baseline.py och
+# XFAIL_UNTIL_RECOUNTED i test_guide_toc.py. Mängden är PER PDF, inte
+# per guide: (guide, identitet).
+XFAIL_UNTIL_RERENDERED: set = set()
 
 
 def delivery_for(guide: str) -> dict:

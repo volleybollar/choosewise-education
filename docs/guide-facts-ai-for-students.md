@@ -28,36 +28,45 @@ och de står här med avsikt:**
    Specen föreslår att det ska förbli så (§7) — en guide på 22 sidor behöver ingen, och
    en TOC med hårdkodade sidnummer är programmets svåraste fälla vid ompaginering.
 
-## Sidkartan (ärvd från specens §1-amendemang, mätt 2026-10-14)
+## Sidkartan (uppdaterad av Task 14, omrendering 2026-10-15 — ersätter den förra mätningen från specens §1-amendemang 2026-10-14)
 
 Mätt ur den renderade PDF:en med `pdftotext`, tecken per sida, blanktecken kollapsade
-men aldrig borttagna. Detta är rundans referens för ompaginering — Task 14 mäter mot
-den.
+men aldrig borttagna. Fortfarande 22 sidor efter rundans innehållsändringar — ingen
+avdelningssida har flyttat (3, 7, 13, 17 är desamma före och efter). Detta är NÄSTA
+rundas referens för ompaginering.
 
-| sida | innehåll | tkn |
-|---|---|---|
-| 1 | omslaget | 281 |
-| 2 | Introduction — "The question isn't technical" | 2432 |
-| 3 | **Part 1-avdelare** — "Learning is the point" | 712 |
-| 4 | "If the tool elevates learning" — **OECD *Unlocking High-Quality Teaching*** | 1774 |
-| 5 | WISE-ramverket | 1740 |
-| 6 | "Challenging thinking, or replacing it" — **Wang & Fan, Kosmyna, Lee** | 2320 |
-| 7 | **Part 2-avdelare** | 257 |
-| 8 | "Teacher knowledge isn't a bonus" — **UNESCO-ramverket** | 1521 |
-| 9 | källkritik, bias, hallucinationer | 1784 |
-| 10 | "Teachers don't need to know the tech better" | 1696 |
-| 11 | **GDPR och AI Act** | 2483 |
-| 12 | **GDPR i praktiken / motsvarande regler annorstädes** | 1099 |
-| 13 | **Part 3-avdelare** | 237 |
-| 14 | 1:1-eran — **PISA 2015, Carter 2017, Zheng 2016, Unos Uno** | 2575 |
-| 15 | **The visibility gap** — hela produktlandskapet | 2402 |
-| 16 | klassrumshantering | 1688 |
-| 17 | **Part 4-avdelare** | 184 |
-| 18 | checklistan: pedagogik, förutsättningar | 951 |
-| 19 | checklistan: tillsyn, uppföljning | 1330 |
-| 20 | FAQ, första halvan | 2270 |
-| 21 | FAQ, andra halvan — **AI Act-svaret, DPIA-svaret** | 2140 |
-| 22 | slutcitatet och licensbandet | 730 |
+Tre sidor växte, en krympte, resten oförändrade — konsekvens av Task 2–13:s
+källrättningar, inte en bugg:
+
+- sida 11 (regleringen): 2483 → 2874 tkn, **+16 %**
+- sida 15 (visibility gap): 2402 → 3024 tkn, **+26 %, guidens tyngsta sida nu**
+- sida 21 (FAQ, andra halvan): 2140 → 2420 tkn, **+13 %**
+- sida 14 (1:1-eran): 2575 → 2336 tkn, **krympt** (Zheng-citatet struket)
+
+| sida | innehåll | tkn (före) | tkn (efter) |
+|---|---|---|---|
+| 1 | omslaget (datumstämpeln struken, S02) | 281 | 257 |
+| 2 | Introduction — "The question isn't technical" | 2432 | 2432 |
+| 3 | **Part 1-avdelare** — "Learning is the point" | 712 | 712 |
+| 4 | "If the tool elevates learning" — **OECD *Unlocking High-Quality Teaching*** | 1774 | 1771 |
+| 5 | WISE-ramverket | 1740 | 1740 |
+| 6 | "Challenging thinking, or replacing it" — **Deng et al., Kosmyna, Lee** (Wang & Fan struket, S05/S06) | 2320 | 2435 |
+| 7 | **Part 2-avdelare** | 257 | 257 |
+| 8 | "Teacher knowledge isn't a bonus" — **UNESCO-ramverket** | 1521 | 1521 |
+| 9 | källkritik, bias, hallucinationer | 1784 | 1784 |
+| 10 | "Teachers don't need to know the tech better" | 1696 | 1696 |
+| 11 | **GDPR och AI Act** | 2483 | 2874 |
+| 12 | **GDPR i praktiken / motsvarande regler annorstädes** | 1099 | 1099 |
+| 13 | **Part 3-avdelare** | 237 | 237 |
+| 14 | 1:1-eran — **PISA 2015, Carter 2017, Unos Uno** (Zheng struket, S16) | 2575 | 2336 |
+| 15 | **The visibility gap** — produktlandskapet, nu med Khanmigo OCH SchoolAI namngivna (S19/S20) | 2402 | 3024 |
+| 16 | klassrumshantering | 1688 | 1688 |
+| 17 | **Part 4-avdelare** | 184 | 184 |
+| 18 | checklistan: pedagogik, förutsättningar | 951 | 951 |
+| 19 | checklistan: tillsyn, uppföljning | 1330 | 1330 |
+| 20 | FAQ, första halvan | 2270 | 2270 |
+| 21 | FAQ, andra halvan — **AI Act-svaret, DPIA-svaret** | 2140 | 2420 |
+| 22 | slutcitatet och licensbandet | 730 | 724 |
 
 Forskningscitaten sitter på fyra sidor (4, 6, 8, 14), produktlandskapet på en (15), och
 läsaretiketten `teachers and school leaders` står på EN plats i PDF:ens sidkarta:

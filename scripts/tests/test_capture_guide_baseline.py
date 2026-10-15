@@ -23,14 +23,17 @@ _SPEC = importlib.util.spec_from_file_location(
 # omfångas. Töms och fylls om i varje ny runda — aldrig radvis tillägg,
 # för en lista som bara växer slutar vakta något.
 RECAPTURED_THIS_ROUND = [
-    # Ägarens redaktionella pass 2026-10-14, punkt C: Del 3 slutar härleda
-    # Mail-brasklappen (Del 2 äger den), Del 1:s pekare riktad om till Del 2,
-    # och Del 2:s Siri AI-ruta slutar härleda `Confirm Requests`-förklaringen
-    # (Del 3 äger den). Bara den ENGELSKA guide-PDF:en renderades om —
-    # sidantalet står kvar på 26, texten ändrad på sida 5, 11 och 19, en per
-    # ändring. Den engelska quick-starten och båda svenska PDF:erna rördes
-    # INTE och är byte-identiska med bascommiten.
-    "_unpublished/assets/pdfs/guides/apple-intelligence-guide-en.pdf",
+    # Task 14, educators-rundan 2026-10-15: Task 2–13:s källrättningar
+    # (Wang & Fan-citatet struket s6, Zheng-citatet struket s14, GDPR/AI
+    # Act utökad s11, visibility gap-avsnittet utökat med SchoolAI vid
+    # sidan av Khanmigo s15, FAQ:ns AI Act/DPIA-svar utökade s21, m.fl.)
+    # renderades om i den ENGELSKA guide-PDF:en. Sidantalet står kvar på
+    # 22 — ingen avdelningssida har flyttat. Bara
+    # `ai-for-students-en.pdf` omfångas här: den svenska filen
+    # (`ai-for-elever-sv.pdf`) och den svenska printytan rördes inte och
+    # är byte-identiska med bascommiten (spec §1, vaktat av
+    # test_guide_delivery.py:s `untouched`-rader).
+    "_unpublished/assets/pdfs/guides/ai-for-students-en.pdf",
 ]
 
 
