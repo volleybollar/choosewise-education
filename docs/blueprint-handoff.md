@@ -1,6 +1,6 @@
 # Blueprint — överlämning
 
-**Senast uppdaterad:** 2026-10-14 (**Apple Intelligence-guiden KLAR — båda rundorna mergade, `main` = `6071f6e`, svit 837 passed / 1 skipped / 0 failed, OPUSHAT**)
+**Senast uppdaterad:** 2026-10-15 (**Elevguiden KLAR — gren `feat/ai-for-students-educators`, svit 868 passed / 1 skipped / 0 failed, ingenting publicerat**)
 **LÄS FÖRST** vid fortsättning. Specen är den bindande auktoriteten, planerna argumenterar från den.
 
 ---
@@ -281,8 +281,13 @@ den till en XPASS.
 
 **Och en lista som fylls i stället för att tömmas:** `test_fonts.GUIDE_WEB_SURFACES` tar in en
 guides webbyta när den städats. Gemini lades till i Task 5; Copilot och Claude står redan där.
-`_unpublished/guides/apple-intelligence/` och `_unpublished/guides/ai-for-students/` står
-**inte** där, eftersom de ännu bär Crestioras typsnitt — se de kända luckorna nedan.
+**Rättat 2026-10-15 (var falskt sedan Apple- och elevguide-rundorna städade sina ytor):**
+`_unpublished/guides/apple-intelligence/` (alla fyra sökvägar, EN+SV) och
+`_unpublished/guides/ai-for-students/` (den ENGELSKA webbytan) står **i** listan i dag — noll
+`Playfair`/`Inter`-träffar, mätt. Kvarvarande skuld är smalare än den gamla formuleringen sa:
+ai-for-students SVENSKA webbyta (fryst med avsikt, se Elevguide-avsnittet) och Copilots och
+Geminis svenska webbytor, som fortfarande bär Crestioras typsnitt och står utanför listan —
+se `test_fonts.py`:s egen kommentar för varför.
 
 ### ⚑ OMFÅNGSBESLUTET 2026-10-13: guiderna distribueras via Skool, inte via sajten
 
@@ -708,9 +713,13 @@ omdöme** — och med den hämtningen gjord är rättelsen en mening på två yt
 
 1. **Claude-guidens femton TOC-nummer står ovaktade.** `test_guide_toc.py` tar inte in dem;
    varför står i filens docstring. De två andra guiderna är vaktade.
-2. **`_unpublished/guides/apple-intelligence/` och `_unpublished/guides/ai-for-students/` bär
+2. ~~**`_unpublished/guides/apple-intelligence/` och `_unpublished/guides/ai-for-students/` bär
    fortfarande Crestioras typsnitt**, inklusive inline-`font-family`-attribut i SVG. De står
-   därför inte i `test_fonts.GUIDE_WEB_SURFACES`. Städas i sina egna rundor.
+   därför inte i `test_fonts.GUIDE_WEB_SURFACES`. Städas i sina egna rundor.~~ **STÄNGT.** Apple-
+   rundan (2026-10-14) städade sina fyra ytor, elevguidens runda (2026-10-15) sin ENGELSKA
+   webbyta; båda står nu i `test_fonts.GUIDE_WEB_SURFACES`, mätt med noll `Playfair`/`Inter`-
+   träffar. Kvar: ai-for-students SVENSKA webbyta (fryst med avsikt) och Copilots och Geminis
+   svenska webbytor — se raden om `test_fonts.GUIDE_WEB_SURFACES` ovan.
 3. ~~**Quick-startens pekare till guidens egen adress svarar 404 så länge guiden är
    opublicerad.**~~ **STÄNGD 2026-10-13 (Task 21): pekaren är borttagen.** Omfångsbeslutet gjorde
    404:an permanent i stället för tillfällig — sidan kommer aldrig att finnas — så adressen är
@@ -1164,18 +1173,25 @@ guiden är klar.
 ### Var det står
 
 Gren `feat/ai-for-students-educators`, worktree `.worktrees/students-educators`, avstamp
-`main` = `c66ee5c`. **25 commits**, HEAD `442fb85`. Svit **868 passed / 1 skipped / 0
-failed**, oförändrat sedan fixvågen. **Ingenting publicerat** — guiden distribueras via
-Skool, som de tre föregående. De svenska ytorna (`_unpublished/exports/ai-for-elever-print-a4-sv.html`,
+`main` = `c66ee5c`. **25 implementationscommits**, BASE `c66ee5c` → `442fb85` (fixvågens
+sista commit). Överlämningen (den här sektionen) och varje fixrunda på den ligger som egna
+commits ovanpå `442fb85` — se `git log --oneline` för aktuell HEAD i stället för ett
+totaltal här: ett sådant tal ogiltigförklaras av sin egen commit. Svit **868 passed / 1
+skipped / 0 failed**, oförändrat sedan fixvågen. **Ingenting publicerat** — guiden
+distribueras via Skool, som de tre föregående. De svenska ytorna
+(`_unpublished/exports/ai-for-elever-print-a4-sv.html`,
 `_unpublished/assets/pdfs/guides/ai-for-elever-sv.pdf`, `_unpublished/sv/guider/ai-for-elever/`)
 är **frysta** på Johans beslut (specen §1) och **verifierat byte-identiska** mot basen
 `c66ee5c` (sha256, tre led). Specen: `docs/superpowers/specs/2026-10-14-ai-for-students-educators-design.md`.
 Plan: `docs/superpowers/plans/2026-10-14-ai-for-students-educators.md`. Inventering:
 `docs/guide-facts-ai-for-students.md` — **44 poster**, `{står 26, rättat 10, struket 5,
-lagt till 3}`. Ledgern (291 rader) och uppgiftsrapporterna ligger utanför repot i
-`~/Desktop/choosewise-elevguiden/` enligt Ruling 5 — `.superpowers/` är gitignorerad och
-följer inte med leveransen. `main` (lokalt) har flyttat under rundan med bloggfiler
-(PR #46/#47) som inte rör någon av de tre katalogerna rundan ändrat — ingen filkrock.
+lagt till 3}`. Ledgern (`.superpowers/sdd/2026-10-14-ai-for-students-educators/progress.md`
+— rundans rulings, lärdomar, uppskjutna minors och mätningar) och uppgiftsrapporterna
+ligger utanför repot i `~/Desktop/choosewise-elevguiden/` enligt Ruling 5 —
+`.superpowers/` är gitignorerad och följer inte med leveransen. `main` (lokalt) har
+fortsatt röra sig under rundan med fristående blogginlägg (PR #46, #47, #48; ingen av dem
+rör någon av de tre katalogerna rundan ändrat) — ingen filkrock, men kontrollera
+`git log --oneline main` för aktuellt läge i stället för att lita på den här uppräkningen.
 
 Rundan gjorde två saker på samma gång: **(1)** den gjorde om en guide som redan var
 skriven till läraren men namngiven och etiketterad som en elevguide, till en guide
