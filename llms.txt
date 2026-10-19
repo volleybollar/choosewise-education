@@ -6,7 +6,7 @@ The site's thesis: schools usually don't need more AI tools — they need the ju
 
 ## The WISE Framework for Education
 
-- [The WISE Framework for Education (English)](https://choosewise.education/wise/): Four-step decision model — Why, Implications, Standards, Execution — for choosing AI tools in school settings.
+- [The WISE Framework for Education (English)](https://choosewise.education/wise/): Four-step decision model — Weigh the learning goal, Inspect what the subject requires, Select the right tool, Evaluate the outcome — for choosing AI tools in school settings.
 - [RÄTT-modellen (Swedish)](https://choosewise.education/sv/ratt/): Same framework, Swedish surface and language.
 
 ## Prompt Packs

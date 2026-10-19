@@ -19,7 +19,7 @@ RÄTT fungerar på samma sätt en nivå upp för skolledare: reflektera över *m
 
 Ett ramverk räcker inte. Du behöver något i handen. Därför finns det också på sajten:
 
-- **[AI-guider](/sv/guider/)** anpassade för de verktyg som faktiskt används i skolan — Microsoft Copilot, Google Gemini, Apple Intelligence, Claude, NotebookLM. Fria att ladda ner, skriva ut och dela.
+- **[AI-guider](/sv/guider/)** anpassade för de verktyg som faktiskt används i skolan. Först ut är Claude, fri att ladda ner, skriva ut och dela. Guider för Microsoft Copilot, Google Gemini, Apple Intelligence och NotebookLM är på väg.
 - **[Promptpaket](/sv/promptar/)** för fler än 50 yrkesroller i skolan — lärare (per ämne och stadium), rektorer, skolchefer, skolbibliotekarier, skolsköterskor, IT-ansvariga, studie- och yrkesvägledare, specialpedagoger och fler. Varje paket har 20–120 färdiga promptar med hakparenteser du byter ut mot din egen kontext.
 - **[Bibliotek med NotebookLM-stilar](/sv/notebooklm-stilar/)** — en kurerad katalog av notebook-stilar och promptar för att skapa infografiker.
 
