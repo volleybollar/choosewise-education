@@ -19,7 +19,7 @@ WISE works the same way one rung up for school leaders: weigh the *objective*, i
 
 A framework alone isn't enough. You need something in hand. That's why the site also hosts:
 
-- **[AI guides](/guides/)** tailored to the tools actually used in schools — Microsoft Copilot, Google Gemini, Apple Intelligence, Claude, NotebookLM. Free to download, print, share.
+- **[AI guides](/guides/)** tailored to the tools actually used in schools, starting with Claude — free to download, print and share. Guides for Microsoft Copilot, Google Gemini, Apple Intelligence and NotebookLM are on the way.
 - **[Prompt packs](/prompts/)** for more than 50 school roles — teachers (by subject and level), principals, superintendents, school librarians, school nurses, IT managers, career counsellors, special education specialists, and more. Each pack is 20–120 ready-to-use prompts with placeholders you adapt to your context.
 - **[A NotebookLM style library](/notebooklm-styles/)** — a curated catalog of notebook styles and prompts for creating infographics.
 
