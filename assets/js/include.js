@@ -5,6 +5,15 @@
     <script src="/assets/js/include.js"></script>
 */
 
+// Remember where this visit came from (?src=yt, ig …) so the email gate can
+// record it even when the download happens on a later page. Same rule as in
+// mailerlite-gate.js: short lowercase slugs only. Storage may be blocked — ignore.
+(function rememberSource() {
+  const src = (new URLSearchParams(location.search).get('src') || '').toLowerCase();
+  if (!/^[a-z0-9-]{1,20}$/.test(src)) return;
+  try { sessionStorage.setItem('cw-src', src); } catch (e) { /* ignore */ }
+})();
+
 (async function includePartials() {
   const slots = document.querySelectorAll('[data-include]');
   await Promise.all([...slots].map(async (el) => {

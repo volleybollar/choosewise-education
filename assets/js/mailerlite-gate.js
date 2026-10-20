@@ -30,7 +30,8 @@ function load(kind, key) {
 }
 
 // Traffic source: ?src= on this page wins, then what an earlier page in this
-// visit saw, else "site". Only short lowercase slugs are accepted.
+// visit saw (include.js stores it on every page), else "site".
+// Only short lowercase slugs are accepted.
 function readSource() {
   const raw = (new URLSearchParams(location.search).get('src') || '').toLowerCase();
   if (/^[a-z0-9-]{1,20}$/.test(raw)) {
@@ -68,7 +69,7 @@ const MODAL_HTML = `
       </form>
       <div class="modal__success">
         <h3>Your download is ready</h3>
-        <p class="modal__desc">Confirm your email in the message I just sent, and new resources will reach you as they're published.</p>
+        <p class="modal__desc">If you're new here, look for a confirmation email from me. Confirm it, and new resources will reach you as they're published.</p>
         <a class="btn btn--secondary" href="" download>Download PDF</a>
       </div>
     </div>
@@ -115,6 +116,9 @@ function ensureModal() {
         data.set(MAILERLITE.fields.role, form.role.value);
         data.set('anticsrf', 'true');
         await fetch(MAILERLITE.formAction, { method: 'POST', mode: 'no-cors', body: data });
+        // Only remember the sign-up when the request actually went out. If an ad
+        // blocker or the network stopped it, the visitor is asked again next time.
+        store('localStorage', SUBSCRIBED_KEY, '1');
       } catch (err) {
         console.error('[gate] MailerLite submit failed:', err);
         // Continue to success screen anyway — user still gets the PDF
@@ -122,8 +126,6 @@ function ensureModal() {
     } else {
       console.info('[gate] MailerLite not configured — skipping email capture, offering direct download');
     }
-
-    store('localStorage', SUBSCRIBED_KEY, '1');
 
     // Always reveal the download regardless of email submission outcome
     form.style.display = 'none';

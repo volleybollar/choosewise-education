@@ -122,7 +122,7 @@ def test_success_copy_does_not_claim_email_was_sent(page, site):
     submit(page)
     text = page.inner_text(".modal__success")
     assert "We've sent" not in text
-    assert "Confirm your email" in text
+    assert "confirmation email" in text
 
 
 def test_returning_subscriber_skips_the_modal(page, site):
@@ -153,3 +153,38 @@ def test_gate_still_works_when_storage_throws(page, site):
     page.goto(f"{site}{FIXTURE}?src=yt")
     submit(page)
     assert page.posts[-1]["fields[email]"] == "test@school.edu"
+
+
+# ── Slutgranskningens fynd (2026-10-20) ──
+
+def test_success_copy_holds_for_existing_subscribers(page, site):
+    """En redan bekräftad prenumerant (ny enhet) får inget mejl alls —
+    texten får inte påstå att ett meddelande just skickades."""
+    page.goto(f"{site}{FIXTURE}")
+    submit(page)
+    text = page.inner_text(".modal__success")
+    assert "I just sent" not in text
+    assert "If you're new here" in text
+
+
+def test_source_is_captured_on_pages_without_the_gate(page, site):
+    """Videor länkar ofta till innehållssidan, inte /free/. Källan måste
+    fångas där och följa med till sidan där nedladdningen sker."""
+    page.goto(f"{site}/visual-codes/?src=yt", wait_until="networkidle")
+    page.goto(f"{site}/free/visual-codes/", wait_until="networkidle")
+    page.click('main [data-gate="visual-codes-50-en"]')
+    page.wait_for_selector(".modal-backdrop--open")
+    page.fill("#gate-email", "test@school.edu")
+    page.click(".modal__submit")
+    page.wait_for_selector(".modal__success--visible")
+    assert page.posts[-1]["fields[signup_source]"] == "yt"
+
+
+def test_failed_post_does_not_mark_the_browser_as_subscribed(page, site):
+    """Stoppar en annonsblockerare POST:en hamnar besökaren aldrig på
+    listan — då ska hen få frågan igen nästa gång."""
+    page.unroute(ML)
+    page.route(ML, lambda route: route.abort())
+    page.goto(f"{site}{FIXTURE}")
+    submit(page)
+    assert page.evaluate("localStorage.getItem('cw-subscribed')") is None
