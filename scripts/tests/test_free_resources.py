@@ -73,3 +73,40 @@ def test_ai_or_human_page_links_to_its_free_page():
 
 def test_swedish_ai_page_is_untouched_by_free_resources():
     assert "/free/" not in read("sv/ai-eller-manniska/index.html")
+
+
+# ── robots.txt och integritetssidan (Task 6) ──
+
+GATED_PDF_RULES = ("Disallow: /assets/pdfs/free/", "Disallow: /assets/pdfs/prompts/*-en.pdf$")
+
+
+def robots_groups() -> list[str]:
+    """Varje User-agent-grupp för sig: en crawler läser bara sin mest
+    specifika grupp, så AI-crawlarnas egna Allow: /-grupper måste också
+    bära raderna."""
+    text = read("robots.txt")
+    return [g for g in re.split(r"\n(?=User-agent:)", text) if g.startswith("User-agent:")]
+
+
+def test_robots_hides_gated_pdfs_in_every_group():
+    for group in robots_groups():
+        for rule in GATED_PDF_RULES:
+            assert rule in group, group.splitlines()[0]
+
+
+def test_robots_keeps_wise_and_swedish_open():
+    rules = [l for l in read("robots.txt").splitlines() if l.startswith("Disallow:")]
+    for path in ("/assets/pdfs/wise/wise-framework-en.pdf", "/assets/pdfs/prompts/larare-sv.pdf"):
+        for rule in rules:
+            pattern = re.escape(rule.split(":", 1)[1].strip()).replace(r"\*", ".*").replace(r"\$", "$")
+            assert not re.match(pattern, path), f"{rule} träffar {path}"
+
+
+def test_privacy_mentions_source_and_role():
+    page = read("privacy/index.html")
+    assert "where you arrived from" in page and "your role" in page
+    assert "varifrån du kom" in page and "din roll" in page
+
+
+def test_privacy_no_longer_says_prompt_packs_need_no_email():
+    assert "prompt packs, and NotebookLM styles do <em>not</em> require an email" not in read("privacy/index.html")

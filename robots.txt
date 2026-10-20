@@ -1,7 +1,11 @@
 # choosewise.education — robots.txt
 # Default: allow all conventional search-engine crawlers.
+# The two PDF Disallow lines in every group keep the email-gated English
+# downloads out of search results (each crawler reads only its own group).
 User-agent: *
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 Disallow: /guides/
 Disallow: /sv/guider/
 
@@ -9,53 +13,83 @@ Disallow: /sv/guider/
 # OpenAI
 User-agent: GPTBot
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 
 # Anthropic
 User-agent: ClaudeBot
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 
 User-agent: Claude-User
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 
 # Perplexity
 User-agent: PerplexityBot
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 
 # Google AI training / Bard / Gemini
 User-agent: Google-Extended
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 
 User-agent: GoogleOther
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 
 # Apple Intelligence
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 
 # Meta AI
 User-agent: meta-externalagent
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 
 User-agent: Meta-ExternalAgent
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 
 User-agent: FacebookBot
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 
 # Common Crawl (used by many LLMs)
 User-agent: CCBot
 Allow: /
+Disallow: /assets/pdfs/free/
+Disallow: /assets/pdfs/prompts/*-en.pdf$
 
 Sitemap: https://choosewise.education/sitemap.xml
