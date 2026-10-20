@@ -329,10 +329,10 @@ TEMPLATES = list(brandguard.guide_templates())
 
 
 def test_the_glob_finds_every_template():
-    """27 handskrivna mallar (26 + AI OS-guiden 2026-10-19). Faller globbet ihop tyst vaktar resten
+    """28 handskrivna mallar (26 + AI OS-guiden 2026-10-19 + AI or human-PDF:en 2026-10-20). Faller globbet ihop tyst vaktar resten
     ingenting — värdet är verifierat mot det faktiska filsystemet, inte
     bara ihoptänkt (se uppgift 8:s rapport)."""
-    assert len(TEMPLATES) == 27, [p.name for p in TEMPLATES]
+    assert len(TEMPLATES) == 28, [p.name for p in TEMPLATES]
 
 
 @pytest.mark.parametrize("path", TEMPLATES, ids=lambda p: p.name)
