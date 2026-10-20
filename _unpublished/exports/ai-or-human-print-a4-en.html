@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI or human? — Johan Lindström</title>
+<!-- Colours, fonts and the A4 page size come from the shared Blueprint
+     stylesheet, so this PDF matches the other choosewise.education PDFs. -->
+<link rel="stylesheet" href="../../exports/_guide-print.css">
+<style>
+  /* ─── Base typography ───
+     Same scale as the AI OS guide, so the PDFs look like one family. */
+  body {
+    font-size: 10.5pt;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* One .page = one A4 sheet. Content must fit inside it. */
+  .page {
+    page-break-after: always;
+    padding: 20mm 20mm 18mm 20mm;
+    min-height: 297mm;
+    position: relative;
+  }
+  .page:last-child { page-break-after: auto; }
+  /* The shared stylesheet makes .page a flex column. Without this, an
+     overfull page silently squeezes its boxes instead of showing the overflow. */
+  .page > * { flex-shrink: 0; }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+  }
+  h2 { font-size: 21pt; line-height: 1.2; margin-bottom: 5mm; }
+  h3 { font-size: 13pt; line-height: 1.3; margin-top: 4mm; margin-bottom: 2.5mm; }
+  p { margin-bottom: 3.5mm; }
+  p:last-child { margin-bottom: 0; }
+  a { color: var(--color-accent); text-decoration: none; }
+  ul { margin: 2mm 0 3.5mm 0; padding-left: 6mm; }
+  li { margin-bottom: 1.5mm; }
+
+  /* ─── Cover (dark band, first page) ─── */
+  .cover {
+    background: linear-gradient(135deg, var(--color-dark-bg) 0%, var(--color-deep) 100%);
+    color: var(--color-dark-text);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 22mm 20mm;
+    page-break-after: always;
+    min-height: 297mm;
+  }
+  .cover__brand,
+  .cover__eyebrow {
+    font-size: 9pt;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-highlight-on-dark);
+  }
+  .cover__eyebrow { margin-bottom: 4mm; }
+  .cover__middle h1 {
+    font-size: 54pt;
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--color-dark-text);
+    margin-bottom: 10mm;
+  }
+  .cover__subtitle {
+    font-size: 13pt;
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 140mm;
+  }
+  .cover__footer {
+    border-top: 1px solid color-mix(in srgb, var(--color-dark-text) 20%, transparent);
+    padding-top: 5mm;
+    font-size: 9pt;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ─── Small uppercase label above each page heading ─── */
+  .eyebrow {
+    font-size: 9pt;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 3mm;
+  }
+  .lede {
+    font-size: 11pt;
+    color: var(--color-text-soft);
+  }
+
+  /* ─── Text cards in Test 1: one card per text, with a tick box to mark
+     "AI-generated" by pen. ─── */
+  .topic {
+    font-size: 9pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-highlight-ink);
+    border-bottom: 1px solid var(--color-highlight);
+    padding-bottom: 2mm;
+    margin: 5mm 0 4mm 0;
+  }
+  .text-card {
+    border: 1px solid var(--color-border);
+    border-radius: 3mm;
+    padding: 4.5mm 6mm;
+    margin-bottom: 4.5mm;
+    background: var(--color-bg);
+  }
+  .text-card__label {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 11pt;
+    margin-bottom: 2mm;
+  }
+  .text-card p { font-size: 9.8pt; line-height: 1.55; }
+  /* The empty square the reader ticks with a pen. */
+  .tick {
+    display: flex;
+    align-items: center;
+    gap: 2.5mm;
+    margin-top: 3mm;
+    font-size: 9.5pt;
+    font-weight: 500;
+    color: var(--color-text-soft);
+  }
+  .tick::before {
+    content: "";
+    width: 4.5mm;
+    height: 4.5mm;
+    border: 1.2px solid var(--color-text);
+    border-radius: 0.8mm;
+    flex-shrink: 0;
+  }
+
+  /* ─── Test 2: the photo grid and a row of numbered tick boxes ─── */
+  .photo-grid {
+    width: 100%;
+    border-radius: 2mm;
+    margin: 3mm 0 6mm 0;
+    display: block;
+  }
+  .tick-row {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 2mm;
+    margin-bottom: 8mm;
+  }
+  .tick-row .tick {
+    flex-direction: column;
+    gap: 1.5mm;
+    margin: 0;
+    font-size: 11pt;
+    color: var(--color-text);
+  }
+  .tick-row .tick::before { width: 6mm; height: 6mm; }
+
+  /* ─── Upside-down boxes: hints and answers are printed rotated 180°,
+     the puzzle-book trick, so nobody reads them by accident. Turn the
+     page to read. ─── */
+  .upside-down { transform: rotate(180deg); }
+  .hint-box {
+    border: 1px dashed var(--color-border);
+    border-radius: 3mm;
+    padding: 4mm 6mm;
+    font-size: 9.5pt;
+    margin-top: auto;
+  }
+  .hint-box__label,
+  .answers__label {
+    font-size: 8.5pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 1.5mm;
+  }
+  .hint-box p { margin-bottom: 1.5mm; }
+
+  /* ─── Talk it through: the questions to discuss with a partner ─── */
+  .questions { list-style: none; padding-left: 0; counter-reset: q; margin: 4mm 0 6mm 0; }
+  .questions li {
+    counter-increment: q;
+    position: relative;
+    padding: 3mm 0 3mm 12mm;
+    border-bottom: 1px solid var(--color-border);
+    margin: 0;
+    font-size: 11pt;
+  }
+  .questions li:last-child { border-bottom: none; }
+  /* Ruled lines under each question, for notes during the conversation. */
+  .write-lines {
+    display: block;
+    height: 24mm;
+    margin-top: 2mm;
+    background: repeating-linear-gradient(to bottom, transparent 0, transparent 7.5mm,
+                var(--color-border) 7.5mm, var(--color-border) calc(7.5mm + 1px));
+  }
+  .questions li::before {
+    content: counter(q);
+    position: absolute;
+    left: 0;
+    top: 2.4mm;
+    font-size: 16pt;
+    font-weight: 300;
+    color: var(--color-highlight-ink);
+    line-height: 1;
+  }
+
+  /* ─── Answers: a cut line that says "stop", then the key upside down ─── */
+  .stop-line {
+    margin-top: auto;
+    border-top: 1.5px dashed var(--color-text-muted);
+    padding-top: 2.5mm;
+    font-size: 9pt;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-bottom: 5mm;
+  }
+  .answers {
+    background: var(--color-bg-alt);
+    border-radius: 3mm;
+    padding: 5mm 6mm;
+  }
+  .answers .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .answers h4 { font-size: 11pt; margin-bottom: 2mm; }
+  .answers ul { margin: 0; padding-left: 4.5mm; font-size: 9.5pt; }
+  .answers li { margin-bottom: 1mm; }
+
+  /* ─── Back cover (dark band, last page) ─── */
+  .back-cover {
+    background: linear-gradient(135deg, var(--color-dark-bg) 0%, var(--color-deep) 100%);
+    color: var(--color-dark-text);
+    padding: 22mm 20mm;
+    min-height: 297mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .back-cover h2 { color: var(--color-dark-text); font-size: 24pt; margin-bottom: 6mm; }
+  .back-cover p { font-size: 11pt; line-height: 1.55; margin-bottom: 4mm; }
+  .back-cover a { color: var(--color-highlight-on-dark); }
+  .back-cover__license {
+    font-size: 8.5pt;
+    border-top: 1px solid color-mix(in srgb, var(--color-dark-text) 20%, transparent);
+    padding-top: 4mm;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════
+     Dark band. The build script prints a white footer with the title only here. -->
+<div class="cover">
+  <div class="cover__brand">choosewise.education</div>
+  <div class="cover__middle">
+    <p class="cover__eyebrow">Printable exercise · Text and images</p>
+    <h1>AI or human?</h1>
+    <p class="cover__subtitle">Two short tests that show how hard it has become to tell AI-generated content from content made by people. Take them yourself, then let someone else take them, and talk about what you saw.</p>
+  </div>
+  <div class="cover__footer">
+    <span>Johan Lindström</span>
+    <span>October 2026</span>
+  </div>
+</div>
+
+<!-- ═════════════ TEST 1, PART 1 ═════════════
+     Intro + the first topic pair. Text order is fixed here (on the website it
+     is shuffled), so the answer key at the end must match this order:
+     Text 1 = human, Text 2 = AI, Text 3 = AI, Text 4 = human. -->
+<div class="page">
+  <span class="eyebrow">Test 1 — Texts</span>
+  <h2>Which two texts are AI-generated?</h2>
+  <p class="lede">I'm not thinking about mass-produced AI slop, but the kind of output produced by people who know how to create quality content with these tools. Four texts on two topics follow. Two of them are AI-generated. Tick the two you think are.</p>
+
+  <p class="topic">Efficiency and AI</p>
+
+  <div class="text-card">
+    <p class="text-card__label">Text 1</p>
+    <p>Every year that goes by, school operations get more efficient. From one year to the next, that can be solved. But when we look at a longer time horizon it becomes very problematic in all sectors that work with people. In schools it's hard to be efficient, because student learning happens at a predetermined pace. So efficiency usually means cutting the number of people at a school, since salaries are the largest cost and therefore the largest saving. That means those who stay are forced to do more. Looking at how AI can make teachers' work more efficient becomes a must if those who work as teachers are going to handle ever-increasing demands with fewer and fewer resources.</p>
+    <span class="tick">This is AI-generated</span>
+  </div>
+
+  <div class="text-card">
+    <p class="text-card__label">Text 2</p>
+    <p>Teachers I talk to who use AI in their work say the same thing: the time AI saves isn't really the point. AI can write the first draft of a piece of feedback, a parent letter, or an explanation of a tricky concept. That saves minutes. What happens in those minutes afterwards is what decides whether the student gets more of the teacher. Some teachers use the time to sit down with the student who's stuck, or to plan the next lesson more carefully. Others forward the draft and move on. The students notice the difference. The model isn't doing the teaching, and it shouldn't be. In practice, AI gives back time that routine writing has eaten up, and what that time gets used for decides the value.</p>
+    <span class="tick">This is AI-generated</span>
+  </div>
+</div>
+
+<!-- ═════════════ TEST 1, PART 2 ═════════════
+     The second topic pair. -->
+<div class="page">
+  <span class="eyebrow">Test 1 — Texts</span>
+  <p class="topic">School's role in society</p>
+
+  <div class="text-card">
+    <p class="text-card__label">Text 3</p>
+    <p>Most of what gets talked about when school is in the news comes down to results, rankings, and money. Those are the things that are easy to measure, which is part of why they dominate the conversation. But school has always been doing more than that. It also shapes how a generation thinks and what kind of people they grow into. A school system that is good at producing students who answer correctly on standardized tests is doing half its job. The other half — preparing young people for a world that nobody can predict the shape of — doesn't show up in the same numbers. It shows up later, in whether the students can still think for themselves once they're out of school. That doesn't change because we say it should. It changes when individual teachers, in individual classrooms, have the time and the room to lift their gaze beyond the next test. Whether they have that depends on whether the conditions around the school actually support it. The question of school's role in society is, in practice, the question of whether we build those conditions or not.</p>
+    <span class="tick">This is AI-generated</span>
+  </div>
+
+  <div class="text-card">
+    <p class="text-card__label">Text 4</p>
+    <p>In a society that changes over time, it's important to be clear about what role we want school to play. Much of what school does today is left over from when school was primarily meant to educate people for jobs in manufacturing. In many countries those jobs have disappeared as technology has made huge leaps forward. That doesn't mean everything we do in school is bad, but when technology develops some things go up in value and others go down. That's nothing new, but today's technology development happens exponentially, so these increases and decreases in value are bigger and happen faster than before. For the students' sake we need to talk about what has gone up in value and what students need to take with them, and what has gone down in value and is no longer as important as it used to be. A student's time in school doesn't run on replay. No one has the answer, but together we can find the best way forward.</p>
+    <span class="tick">This is AI-generated</span>
+  </div>
+</div>
+
+<!-- ═════════════ TEST 2 ═════════════
+     The same 3x3 photo grid as on the website. The hints sit upside down at the
+     bottom, so reading them is a choice, just like the fold-out hints online. -->
+<div class="page">
+  <span class="eyebrow">Test 2 — Images</span>
+  <h2>Which images are AI-generated?</h2>
+  <p class="lede">Nine images. Some are AI-generated and some are not. Tick the ones you think are AI-generated.</p>
+
+  <img class="photo-grid" src="../../assets/images/ai-or-human/photo-grid.jpg" alt="Nine numbered photographs in a 3x3 grid; some AI-generated, some not.">
+
+  <div class="tick-row">
+    <span class="tick">1</span><span class="tick">2</span><span class="tick">3</span>
+    <span class="tick">4</span><span class="tick">5</span><span class="tick">6</span>
+    <span class="tick">7</span><span class="tick">8</span><span class="tick">9</span>
+  </div>
+
+  <div class="hint-box upside-down">
+    <span class="hint-box__label">Hints — turn the page to read</span>
+    <p><strong>Hint 1:</strong> Six of the images are AI-generated.</p>
+    <p><strong>Hint 2:</strong> Each row contains exactly one image that is NOT AI-generated. Each column does too.</p>
+  </div>
+</div>
+
+<!-- ═════════════ TALK IT THROUGH + ANSWERS ═════════════
+     Same discussion prompt as on the website. The answer key sits below a
+     dashed "stop" line and is printed upside down. -->
+<div class="page">
+  <span class="eyebrow">Before you check the answers</span>
+  <h2>Now let someone else take the tests</h2>
+  <p>Ask a colleague, a friend or a student to take both tests. Then talk it through together:</p>
+  <ol class="questions">
+    <li>What was easy? Why?<span class="write-lines"></span></li>
+    <li>What was hard? Why?<span class="write-lines"></span></li>
+    <li>What misled you (if anything)? Why?<span class="write-lines"></span></li>
+  </ol>
+
+  <p class="stop-line">Stop here until both of you have finished. The answers are printed upside down below.</p>
+
+  <div class="answers upside-down">
+    <span class="answers__label">Answers</span>
+    <div class="grid-2">
+      <div>
+        <h4>Test 1 — Texts</h4>
+        <ul>
+          <li><strong>Text 1:</strong> Not AI-generated. Written by Johan.</li>
+          <li><strong>Text 2:</strong> AI-generated, in Johan's voice.</li>
+          <li><strong>Text 3:</strong> AI-generated, in Johan's voice.</li>
+          <li><strong>Text 4:</strong> Not AI-generated. Written by Johan.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Test 2 — Images</h4>
+        <ul>
+          <li><strong>AI-generated:</strong> 2, 3, 4, 5, 7, 9</li>
+          <li><strong>Not AI-generated:</strong> 1, 6, 8</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════ BACK COVER ═════════════
+     Points to the video test online, which can't be printed. No page footer here. -->
+<div class="back-cover">
+  <div>
+    <h2>There is a third test online</h2>
+    <p>Video doesn't print. The full version of <em>AI or human?</em>, with a video test and a short anonymous rating of how hard each test was, is at <a href="https://choosewise.education/ai-or-human/">choosewise.education/ai-or-human</a>.</p>
+  </div>
+  <p class="back-cover__license">© 2026 Johan Lindström · choosewise.education. Free to print and share with colleagues in its original form.</p>
+</div>
+
+</body>
+</html>
