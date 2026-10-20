@@ -170,7 +170,7 @@ PAGES = [p for p in brandguard.published_files((".html",))
 
 
 def test_the_page_count_is_what_we_think():
-    """202 av 207. scripts/ är verktygsfixturer, inte sidor — en ny fil
+    """205 av 210. scripts/ är verktygsfixturer, inte sidor — en ny fil
     där ska inte kunna ändra talet tyst. Faller globbet ihop vaktar
     resten ingenting.
 
@@ -178,7 +178,8 @@ def test_the_page_count_is_what_we_think():
     lades till (PR #40), från 199 till 200 med gpts-and-gems-retires.html
     (PR #42) och från 200 till 201 med huset-som-kostade-fem-kronor.html
     (PR #46), och från 201 till 202 med den engelska the-house-that-cost-one-
-    dollar.html (PR #48). Räkna upp det med flit när en sida tillkommer — det
+    dollar.html (PR #48), och från 202 till 205 med free/, free/ai-or-human/
+    och free/prompts/ (gratismaterialet 2026-10-20). Räkna upp det med flit när en sida tillkommer — det
     är vaktens hela poäng att det ska kräva ett medvetet handgrepp.
 
     Obs: published_files() läser `git ls-files`, så vakten ser en ny sida
@@ -190,7 +191,7 @@ def test_the_page_count_is_what_we_think():
     i efterhand av elevguiderundans leveranssteg, som upptäckte att main var
     rött innan den mergade. Fällan har alltså slagit till två gånger på tre
     sidor: det är inte slarv, det är att vakten bara kan se spårade filer."""
-    assert len(PAGES) == 202, len(PAGES)
+    assert len(PAGES) == 205, len(PAGES)
 
 
 @pytest.mark.parametrize("path", PAGES, ids=lambda p: str(p.relative_to(ROOT)))
