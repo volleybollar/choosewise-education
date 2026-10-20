@@ -16,6 +16,7 @@ GATE_SCRIPT = '<script type="module" src="/assets/js/mailerlite-gate.js"'
 # Djuplänk -> (resurs-id, PDF-adress) för de grindade resurser som är live.
 DEEP_LINKS = {
     "free/ai-or-human/index.html": ("ai-or-human-en", "/assets/pdfs/free/ai-or-human-en.pdf"),
+    "free/visual-codes/index.html": ("visual-codes-50-en", "/assets/pdfs/free/visual-codes-50-en.pdf"),
 }
 
 
@@ -69,6 +70,21 @@ def test_ai_or_human_page_links_to_its_free_page():
     page = read("ai-or-human/index.html")
     assert 'href="/free/ai-or-human/"' in page
     assert "data-gate" not in page
+
+
+def test_visual_codes_page_links_to_its_free_page():
+    page = read("visual-codes/index.html")
+    assert 'href="/free/visual-codes/"' in page
+    assert "data-gate" not in page
+
+
+def test_hub_has_no_coming_soon_left():
+    assert "Coming soon" not in HUB.read_text(encoding="utf-8")
+
+
+def test_nav_has_free_resources_link():
+    assert '<a class="nav__link" href="/free/">Free resources</a>' in read("assets/partials/header-en.html")
+    assert "/free/" not in read("assets/partials/header-sv.html")
 
 
 def test_swedish_ai_page_is_untouched_by_free_resources():
