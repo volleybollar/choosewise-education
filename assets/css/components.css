@@ -333,6 +333,8 @@
 .modal__desc { color: var(--color-text-soft); margin-bottom: var(--space-5); font-size: var(--fs-small); }
 .modal__form { display: flex; flex-direction: column; gap: var(--space-3); }
 .modal__submit { margin-top: var(--space-3); }
+/* Small label above the optional role select in the gate modal */
+.modal__label { font-size: var(--fs-small); color: var(--color-text-soft); margin-bottom: calc(-1 * var(--space-2)); }
 .modal__close {
   position: absolute; top: var(--space-3); right: var(--space-3);
   background: transparent; border: 0; font-size: 1.5rem; line-height: 1;

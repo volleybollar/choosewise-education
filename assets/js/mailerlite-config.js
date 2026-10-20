@@ -19,5 +19,8 @@ export const MAILERLITE = {
     email: 'fields[email]',
     name:  'fields[name]',
     guide: 'fields[requested_guide]',
+    source: 'fields[signup_source]', // where the visitor came from (?src=yt, ig …), else "site"
+    role:   'fields[role]',          // optional: teacher / school-leader / other
+    pdf:    'fields[pdf_url]',       // absolute PDF URL, used as the link in the delivery email
   },
 };
