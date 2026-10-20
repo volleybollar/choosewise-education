@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Build your own AI OS — Johan Lindström</title>
+<!-- Colours, fonts and the A4 page size come from the shared Blueprint
+     stylesheet, so this guide matches the other choosewise.education PDFs. -->
+<link rel="stylesheet" href="../../exports/_guide-print.css">
+<style>
+  /* ─── Base typography ───
+     Same scale as the other A4 guides (ai-for-students etc.), so the
+     PDFs look like one family. Only the components further down are new. */
+  body {
+    font-size: 10.5pt;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* One .page = one A4 sheet. Content must fit inside it — the build
+     script renders each .page as exactly one printed page. */
+  .page {
+    page-break-after: always;
+    padding: 20mm 20mm 18mm 20mm;
+    min-height: 297mm;
+    position: relative;
+  }
+  .page:last-child { page-break-after: auto; }
+  /* The shared stylesheet makes .page a flex column. Without this, an
+     overfull page silently squeezes its boxes instead of showing the overflow. */
+  .page > * { flex-shrink: 0; }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+  }
+  h2 { font-size: 21pt; line-height: 1.2; margin-bottom: 7mm; }
+  h3 { font-size: 13pt; line-height: 1.3; margin-top: 5mm; margin-bottom: 2.5mm; }
+  p { margin-bottom: 3.5mm; }
+  p:last-child { margin-bottom: 0; }
+  em { font-style: italic; color: var(--color-accent); }
+  a { color: var(--color-accent); text-decoration: none; }
+  ul, ol { margin: 2mm 0 3.5mm 0; padding-left: 6mm; }
+  li { margin-bottom: 1.5mm; }
+
+  /* ─── Cover (dark band, first page) ─── */
+  .cover {
+    background: linear-gradient(135deg, var(--color-dark-bg) 0%, var(--color-deep) 100%);
+    color: var(--color-dark-text);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 22mm 20mm;
+    page-break-after: always;
+    min-height: 297mm;
+  }
+  .cover__brand,
+  .cover__eyebrow {
+    font-size: 9pt;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-highlight-on-dark);
+  }
+  .cover__eyebrow { margin-bottom: 4mm; }
+  .cover__middle h1 {
+    font-size: 44pt;
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--color-dark-text);
+    margin-bottom: 10mm;
+  }
+  .cover__subtitle {
+    font-size: 13pt;
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 140mm;
+  }
+  .cover__footer {
+    border-top: 1px solid color-mix(in srgb, var(--color-dark-text) 20%, transparent);
+    padding-top: 5mm;
+    font-size: 9pt;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ─── Small uppercase label above each page heading ─── */
+  .eyebrow {
+    font-size: 9pt;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 3mm;
+  }
+
+  /* ─── Part header: the big copper number that opens each of the four parts.
+     Sits at the top of a normal page instead of taking a full page,
+     which keeps the guide compact. ─── */
+  .part-head {
+    border-bottom: 1px solid var(--color-highlight);
+    padding-bottom: 5mm;
+    margin-bottom: 6mm;
+  }
+  .part-head__number {
+    font-size: 54pt;
+    font-weight: 300;
+    color: var(--color-highlight-ink);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    margin-bottom: 3mm;
+  }
+  .part-head h2 { margin-bottom: 3mm; }
+  .part-head__lede {
+    font-family: var(--font-quote);
+    font-style: italic;
+    font-size: 13pt;
+    line-height: 1.4;
+    color: var(--color-text-soft);
+  }
+
+  /* ─── Callouts: "Johan's note" (copper) and "Watch out" (navy) ─── */
+  .callout {
+    padding: 4.5mm 6mm;
+    margin: 4.5mm 0;
+    border-left: 3px solid var(--color-accent);
+    background: var(--color-bg-alt);
+    border-radius: 0 3mm 3mm 0;
+  }
+  .callout--watch { border-left-color: var(--color-deep); }
+  .callout--johan { border-left-color: var(--color-highlight); }
+  .callout__label {
+    font-size: 8.5pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 1.5mm;
+  }
+  .callout--watch .callout__label { color: var(--color-deep); }
+  .callout--johan .callout__label { color: var(--color-highlight-ink); }
+  .callout p { font-size: 10pt; }
+
+  /* ─── Prompt box: text the reader copies into Claude Code word for word ─── */
+  .prompt {
+    margin: 4mm 0;
+    border: 1px solid var(--color-border);
+    border-radius: 3mm;
+    background: var(--color-bg);
+    overflow: hidden;
+  }
+  .prompt__label {
+    display: block;
+    background: var(--color-accent);
+    color: var(--color-dark-text);
+    font-size: 8pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 1.5mm 5mm;
+  }
+  .prompt p {
+    padding: 3.5mm 5mm;
+    margin: 0;
+    font-size: 9.8pt;
+    line-height: 1.55;
+    color: var(--color-text);
+  }
+
+  /* ─── Terminal command: the few lines typed into the Terminal itself.
+     Monospace only here, so commands are unmistakable. ─── */
+  .cmd {
+    display: block;
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 9pt;
+    background: var(--color-text);
+    color: var(--color-dark-text);
+    padding: 3mm 5mm;
+    border-radius: 2mm;
+    margin: 2.5mm 0 3.5mm 0;
+    white-space: pre-wrap;
+  }
+  code {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 9pt;
+    background: var(--color-bg-alt);
+    padding: 0.3mm 1.2mm;
+    border-radius: 1mm;
+  }
+
+  /* ─── The four-layer diagram on the introduction page ─── */
+  .layers { margin: 5mm 0; }
+  .layer {
+    display: grid;
+    grid-template-columns: 14mm 1fr;
+    gap: 4mm;
+    align-items: center;
+    padding: 3.5mm 5mm;
+    margin-bottom: 1.5mm;
+    border-radius: 2.5mm;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-alt);
+  }
+  /* Darker tone the higher up the stack — the foundation sits at the bottom. */
+  .layer--4 { background: var(--color-dark-bg); border-color: var(--color-dark-bg); color: var(--color-dark-text); }
+  .layer--3 { background: color-mix(in srgb, var(--color-accent) 70%, var(--color-bg)); border-color: transparent; color: var(--color-dark-text); }
+  .layer--2 { background: color-mix(in srgb, var(--color-accent) 22%, var(--color-bg)); border-color: transparent; }
+  .layer__num { font-size: 20pt; font-weight: 300; line-height: 1; }
+  .layer--4 .layer__num, .layer--3 .layer__num { color: var(--color-highlight-on-dark); }
+  .layer--2 .layer__num, .layer--1 .layer__num { color: var(--color-highlight-ink); }
+  .layer__title { font-weight: 500; font-size: 11pt; }
+  .layer__text { font-size: 9.3pt; line-height: 1.45; }
+  .layers__caption { font-size: 8.5pt; color: var(--color-text-muted); text-align: right; }
+
+  /* ─── Two-column cards (used for "what goes in / what stays out" etc.) ─── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin: 4mm 0; }
+  .card {
+    border: 1px solid var(--color-border);
+    border-radius: 3mm;
+    padding: 4.5mm 5mm;
+    background: var(--color-bg);
+  }
+  .card h4 { font-size: 10.5pt; margin-bottom: 2mm; color: var(--color-accent); }
+  .card ul { margin: 0; padding-left: 4.5mm; font-size: 9.5pt; }
+  .card p { font-size: 9.5pt; }
+
+  /* ─── Numbered steps with copper numerals (workflow and roadmap) ─── */
+  .steps { list-style: none; padding-left: 0; counter-reset: step; margin: 3mm 0; }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 2.5mm 0 2.5mm 12mm;
+    border-bottom: 1px solid var(--color-border);
+    margin: 0;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+  .steps li:last-child { border-bottom: none; }
+  /* Roadmap page holds four lists, so its rows are a little tighter. */
+  .steps--tight li { padding-top: 1.6mm; padding-bottom: 1.6mm; }
+  .steps--tight li::before { top: 1.4mm; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 2.2mm;
+    font-size: 15pt;
+    font-weight: 300;
+    color: var(--color-highlight-ink);
+    line-height: 1;
+  }
+
+  /* ─── Back cover (dark band, last page) ─── */
+  .back-cover {
+    background: linear-gradient(135deg, var(--color-dark-bg) 0%, var(--color-deep) 100%);
+    color: var(--color-dark-text);
+    padding: 22mm 20mm;
+    min-height: 297mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .back-cover h2 { color: var(--color-dark-text); font-size: 24pt; margin-bottom: 6mm; }
+  .back-cover p { font-size: 11pt; line-height: 1.55; margin-bottom: 4mm; }
+  .back-cover a { color: var(--color-highlight-on-dark); }
+  .back-cover__license {
+    font-size: 8.5pt;
+    border-top: 1px solid color-mix(in srgb, var(--color-dark-text) 20%, transparent);
+    padding-top: 4mm;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════════ COVER ═════════════
+     Dark band. The build script prints a white footer with the title only here. -->
+<div class="cover">
+  <div class="cover__brand">choosewise.education</div>
+  <div class="cover__middle">
+    <p class="cover__eyebrow">Advanced guide · Claude Code</p>
+    <h1>Build your own AI OS</h1>
+    <p class="cover__subtitle">A practical blueprint for educators who want one working system instead of twenty open chat windows, built with Claude Code and without being a developer.</p>
+  </div>
+  <div class="cover__footer">
+    <span>Johan Lindström</span>
+    <span>October 2026</span>
+  </div>
+</div>
+
+<!-- ═════════════ INTRODUCTION ═════════════
+     What an AI OS is, and the four-layer map the rest of the guide follows. -->
+<div class="page">
+  <span class="eyebrow">Introduction</span>
+  <h2>From chat windows to a system that remembers</h2>
+  <p>Most educators use AI the same way: a new chat, a long explanation of who they are and what they need, a decent answer, and then the whole context disappears when the window closes. The next day the explanation starts again. That is not a skills problem. It is an architecture problem: nothing you teach the AI is stored anywhere you control.</p>
+  <p>An <strong>AI OS</strong> (a personal AI operating system) solves that by moving the context out of the chat and into files on your own computer. Your instructions, your memory, your recurring ways of working and your tools live in folders that Claude Code reads every time it starts. The system grows with every task instead of starting from zero.</p>
+
+  <div class="layers">
+    <div class="layer layer--4">
+      <span class="layer__num">04</span>
+      <div><div class="layer__title">Way of working</div><div class="layer__text">Spec → plan → build → review. How larger things get built without breaking what already works.</div></div>
+    </div>
+    <div class="layer layer--3">
+      <span class="layer__num">03</span>
+      <div><div class="layer__title">Command centre</div><div class="layer__text">A small web page on your own computer that gathers your tools, files and costs in one place.</div></div>
+    </div>
+    <div class="layer layer--2">
+      <span class="layer__num">02</span>
+      <div><div class="layer__title">Skills</div><div class="layer__text">Recurring tasks packaged once, so they are done the same way every time.</div></div>
+    </div>
+    <div class="layer layer--1">
+      <span class="layer__num">01</span>
+      <div><div class="layer__title">Foundation: instructions and memory</div><div class="layer__text">Who you are, how you want things done, and what has been decided, all stored in plain text files.</div></div>
+    </div>
+    <p class="layers__caption">Build from the bottom up. Each layer only works if the one beneath it is in place.</p>
+  </div>
+
+  <div class="callout callout--johan">
+    <span class="callout__label">Johan's note</span>
+    <p>I built mine in the autumn of 2026, when I went independent and needed one place that held several brands, several projects and the decisions behind them. The order in this guide is not the order I built it in. It is the order I would build it in if I started again: foundation first, because every layer above it reads from it.</p>
+  </div>
+</div>
+
+<!-- ═════════════ BEFORE YOU START ═════════════
+     The short on-ramp for readers who have never opened the Terminal. -->
+<div class="page">
+  <span class="eyebrow">Before you start</span>
+  <h2>Twenty minutes in the Terminal is enough</h2>
+  <p>This is an advanced project, but you do not need to be a developer. Claude Code runs in the <strong>Terminal</strong>, a window where you type instead of click. You type a handful of commands yourself. Everything else you write in plain English, and Claude types the commands for you.</p>
+
+  <h3>What you need</h3>
+  <ul>
+    <li>A Mac or a Windows computer that you control (not a locked-down school device).</li>
+    <li>A paid Claude plan (Pro, Max, Team or Enterprise). The free plan does not include Claude Code.</li>
+  </ul>
+
+  <h3>Install and start</h3>
+  <p>Follow Anthropic's setup page, <a href="https://code.claude.com/docs/en/setup">code.claude.com/docs/en/setup</a>. On a Mac, open the Terminal (<code>⌘ Space</code>, type <em>Terminal</em>) and paste:</p>
+  <span class="cmd">curl -fsSL https://claude.ai/install.sh | bash</span>
+  <p>Then create a folder for your system, step into it and start Claude Code:</p>
+  <span class="cmd">mkdir ~/ai-os
+cd ~/ai-os
+claude</span>
+  <p>The first time, you log in with your Claude account. After that you are in an ordinary conversation, except that Claude can now read and write files in this folder. (Anthropic also offers a desktop app that runs Claude Code without the Terminal. It is a gentle start, but the Terminal is where the whole system is visible.)</p>
+
+  <h3>Three commands to recognise</h3>
+  <p><code>cd</code> moves you into a folder, and Claude Code always works in the folder you start it from. <code>ls</code> lists what is in the folder. <code>claude</code> starts Claude Code, and <code>/exit</code> leaves it.</p>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Watch out</span>
+    <p>Read what Claude Code asks to run before you approve it. If you do not understand a command, ask: <em>"What does this do, and can it be undone?"</em> That habit keeps you safe.</p>
+  </div>
+</div>
+
+<!-- ═════════════ PART 1 — FOUNDATION: CLAUDE.md ═════════════ -->
+<div class="page">
+  <div class="part-head">
+    <div class="part-head__number">01</div>
+    <span class="eyebrow">Part 1 · Foundation</span>
+    <h2>Instructions: the file Claude reads every time</h2>
+    <p class="part-head__lede">Everything you would otherwise explain at the start of every chat belongs in one file. Write it once, and keep sharpening it.</p>
+  </div>
+  <p>Claude Code reads a file called <code>CLAUDE.md</code> before every session. A <code>CLAUDE.md</code> in your home folder applies everywhere, and one inside a project folder applies only there. This file is your operating manual for Claude, and it is the single highest-value thing in the whole system.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <h4>What belongs in it</h4>
+      <ul>
+        <li>Who you are, and your experience</li>
+        <li>Your audiences and the tone for each</li>
+        <li>Your brands or hats, and how to tell them apart</li>
+        <li>Hard rules, marked MUST and NEVER</li>
+        <li>A short checklist to run before every reply</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>What stays out</h4>
+      <ul>
+        <li>Long background texts (link to a file instead)</li>
+        <li>Project status (that goes in memory)</li>
+        <li>Passwords, keys, student data. Ever.</li>
+        <li>Rules you would not actually enforce</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="prompt">
+    <span class="prompt__label">Prompt · write your CLAUDE.md</span>
+    <p>Interview me, one question at a time, so that you can write my personal CLAUDE.md in my home folder. Ask about my role and experience, my audiences, the tone I want for each, the brands or roles I work under, the mistakes you must never make, and the tools I already use. When you have enough, show me a draft before you save it. Write every hard rule with a short reason, so you can apply it to cases the rule does not mention.</p>
+  </div>
+
+  <div class="callout callout--johan">
+    <span class="callout__label">Johan's note</span>
+    <p>My most useful rule is the one that says "if you are unsure which brand this is for, ask before you produce anything". One question costs ten seconds. Content in the wrong voice costs an afternoon. Write the rules that protect you from your own most expensive mistakes.</p>
+  </div>
+</div>
+
+<!-- ═════════════ PART 1 — FOUNDATION: MEMORY ═════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 1 · Foundation</span>
+  <h2>Memory: what Claude should know next time</h2>
+  <p>Instructions describe how you want things done. Memory holds what has <em>happened</em>: decisions, project status, lessons learned and where things live. Claude Code has a built-in memory, but you get the most from it when you decide its shape yourself.</p>
+
+  <h3>One fact per file, plus an index</h3>
+  <p>Keep memory as a folder of short text files, each holding one fact, and one index file that lists them all with a one-line description. The index is loaded at the start of every session; the individual files are read when they are relevant. Four kinds of memory cover almost everything:</p>
+  <ul>
+    <li><strong>About you</strong>: role, preferences, how you like to work.</li>
+    <li><strong>Feedback</strong>: corrections you have given, with the reason, so they are not repeated.</li>
+    <li><strong>Projects</strong>: status, decisions and deadlines, with absolute dates.</li>
+    <li><strong>References</strong>: where things are: folders, accounts, external documents.</li>
+  </ul>
+
+  <h3>Reference documents</h3>
+  <p>Some knowledge is too big for memory: a brand guide, your voice and writing style, the positioning of a product. Give each its own document, store it in the folder of the brand it belongs to, and point to it from <code>CLAUDE.md</code> with an instruction such as <em>"read this before every task for this brand"</em>.</p>
+
+  <div class="prompt">
+    <span class="prompt__label">Prompt · set up memory</span>
+    <p>Set up a memory for me: one folder, one file per fact with a short header (name, description, type), and an index file with one line per memory. From now on, save anything worth remembering between sessions without me asking, and update an existing memory instead of creating a duplicate. Start by saving what you learned about me in this session.</p>
+  </div>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Watch out</span>
+    <p>Decide early where memory lives. Mine ended up spread across twelve project folders before I gathered it in one. And treat memory as a record of what was true when it was written: ask Claude to check a remembered file or setting before acting on it.</p>
+  </div>
+</div>
+
+<!-- ═════════════ PART 2 — SKILLS ═════════════ -->
+<div class="page">
+  <div class="part-head">
+    <div class="part-head__number">02</div>
+    <span class="eyebrow">Part 2 · Skills</span>
+    <h2>Package what you do more than twice</h2>
+    <p class="part-head__lede">A skill is a way of working written down once, so it is carried out the same way every time, by you, by Claude, or by both.</p>
+  </div>
+  <p>A <strong>skill</strong> is a folder containing a file called <code>SKILL.md</code>: a short description of when it should be used, followed by the instructions. Personal skills live in <code>~/.claude/skills/</code>. Claude Code sees the descriptions of all your skills and uses the right one when a task matches. You can also call one directly by typing a slash and its name, for example <code>/lesson-plan</code>.</p>
+
+  <p>A task deserves a skill when you have explained the same procedure three times, when the result must look the same every time (a lesson plan, a newsletter, a feedback format), or when it has steps that are easy to forget, such as a quality check before delivery.</p>
+
+  <div class="prompt">
+    <span class="prompt__label">Prompt · turn a task into a skill</span>
+    <p>We have just done [task] together. Turn the way we did it into a personal skill. Write a description that says exactly when it should be used, using words I would actually say. Include the steps, the quality checks and the mistakes we corrected along the way. Show me the skill before you save it, then test it on a new example.</p>
+  </div>
+
+  <h3>Skills from other people</h3>
+  <p>There are thousands of shared skills and plugins. The one most worth installing early is <strong>superpowers</strong>, a plugin that gives Claude Code a disciplined way of working: brainstorming before building, written plans, tests and review. Part 4 is built on it. Install it from inside Claude Code:</p>
+  <span class="cmd">/plugin install superpowers@claude-plugins-official</span>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Watch out</span>
+    <p>A skill can include scripts that run on your computer. Before installing someone else's, ask Claude to review it for anything that sends data elsewhere or runs code. And curate: with a hundred vaguely described skills, the wrong one gets picked. Group them, and delete what you no longer use.</p>
+  </div>
+</div>
+
+<!-- ═════════════ PART 3 — COMMAND CENTRE: WHY AND HOW ═════════════ -->
+<div class="page">
+  <div class="part-head">
+    <div class="part-head__number">03</div>
+    <span class="eyebrow">Part 3 · Command centre</span>
+    <h2>One page that gathers everything</h2>
+    <p class="part-head__lede">When the system holds more than you can keep in your head, give it a face: a small web page that runs only on your own computer.</p>
+  </div>
+  <p>The command centre is a local web page that you open in your browser at an address like <code>localhost:4000</code>. No one else can reach it, and nothing is uploaded anywhere. Claude Code builds it and maintains it. You describe what you want to see. You never need to write the code yourself.</p>
+
+  <h3>Six principles that keep it maintainable</h3>
+  <ol class="steps">
+    <li><strong>Local only.</strong> The server listens only to your own computer, never to the network.</li>
+    <li><strong>Panels, not one big app.</strong> Each tab is its own small app with its own folder, so one broken panel never takes the others down.</li>
+    <li><strong>As few dependencies as possible.</strong> Plain HTML, CSS and JavaScript, run by Node. Fewer moving parts means fewer things that break after an update.</li>
+    <li><strong>Starts by itself.</strong> It starts when you log in and restarts if it crashes. You should never have to remember to start it.</li>
+    <li><strong>Keys in one separate file.</strong> API keys live in one file that is never shared or put under version control.</li>
+    <li><strong>Every action shows its cost.</strong> Anything that calls a paid service logs what it cost.</li>
+  </ol>
+
+  <div class="prompt">
+    <span class="prompt__label">Prompt · build the shell</span>
+    <p>I want a personal command centre: a local web page at localhost that only my own computer can reach. Build the shell first: a simple server, a start page with tabs, and a rule that every tab is a separate panel in its own folder. Use as few dependencies as possible. Make it start automatically when I log in. Before you write any code, describe the plan in plain language and wait for my approval.</p>
+  </div>
+</div>
+
+<!-- ═════════════ PART 3 — COMMAND CENTRE: PANELS ═════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 3 · Command centre</span>
+  <h2>Build one panel at a time</h2>
+  <p>Start with the panel that saves you the most friction this week, not the most impressive one. Each panel below has a starter prompt. Run them one at a time, and use each panel for a few days before you build the next.</p>
+
+  <div class="prompt">
+    <span class="prompt__label">Panel · Today</span>
+    <p>Add a Today panel as the start page: buttons that open the programs and folders I use every day, today's open tasks from a simple list I can edit, and a short status line for each of my projects, read from my memory files.</p>
+  </div>
+  <div class="prompt">
+    <span class="prompt__label">Panel · Skills</span>
+    <p>Add a Skills panel that reads all my installed skills and commands from disk and shows them in groups with their descriptions. Flag skills whose description is too vague to trigger reliably. Store my grouping in a file in the project.</p>
+  </div>
+  <div class="prompt">
+    <span class="prompt__label">Panel · Media library</span>
+    <p>Add a Media panel: a searchable library of the images and videos I generate, with the prompt, the model, the date and the cost saved next to each file. Let me generate new images from the panel, and show the cost before anything is sent.</p>
+  </div>
+  <div class="prompt">
+    <span class="prompt__label">Panel · Costs</span>
+    <p>Add a Costs panel that shows what I have spent today, this week and this month, per service, using the cost log the other panels write to.</p>
+  </div>
+
+  <div class="callout callout--johan">
+    <span class="callout__label">Johan's note</span>
+    <p>The lesson that cost me most time: a server that starts automatically keeps running the code it was started with. After every change, ask Claude to restart it before you test anything. Otherwise you will spend an evening debugging a bug that was fixed hours ago.</p>
+  </div>
+</div>
+
+<!-- ═════════════ PART 4 — WAY OF WORKING ═════════════ -->
+<div class="page">
+  <div class="part-head">
+    <div class="part-head__number">04</div>
+    <span class="eyebrow">Part 4 · Way of working</span>
+    <h2>Spec, plan, build, review</h2>
+    <p class="part-head__lede">The single biggest difference between a system that grows and one that collapses is not the AI. It is the order in which you work.</p>
+  </div>
+  <p>Small tasks you simply ask for. Anything that takes more than an hour (a new panel, a new skill family, a change that touches several parts) goes through the same five steps. The superpowers plugin from Part 2 carries most of this for you.</p>
+
+  <ol class="steps">
+    <li><strong>Brainstorm.</strong> Claude asks you questions, one at a time, until it understands what you actually want. Answer in plain language. This is where most mistakes are prevented.</li>
+    <li><strong>Spec.</strong> The answers become a short design document: what is being built, what is not, and how you will know it works. You approve it. From then on, the spec decides.</li>
+    <li><strong>Plan.</strong> The spec becomes a numbered list of small tasks, each with its own check.</li>
+    <li><strong>Build.</strong> Claude works through the plan, often by handing each task to a separate agent and checking the work. Every task gets a test, so later changes cannot quietly break it.</li>
+    <li><strong>Review and merge.</strong> A fresh review looks for errors before the work is merged into the main version. You try it yourself before you say yes.</li>
+  </ol>
+
+  <h3>Git is your undo button</h3>
+  <p>Ask Claude to put your system under <strong>git</strong> (version control) from day one, with a private copy on GitHub. Every change is saved as a step you can go back to. New work happens on a separate branch, so the version you use every day keeps working while the new one is being built.</p>
+
+  <div class="prompt">
+    <span class="prompt__label">Prompt · start a larger change</span>
+    <p>I want to build [feature]. Use the brainstorming skill and ask me one question at a time. When we agree, write a spec, then a plan. Do the work on a separate branch, and do not merge anything until I have tried it and said yes.</p>
+  </div>
+</div>
+
+<!-- ═════════════ PART 4 — CONTINUITY BETWEEN SESSIONS ═════════════ -->
+<div class="page">
+  <span class="eyebrow">Part 4 · Way of working</span>
+  <h2>Make every session hand over to the next</h2>
+  <p>Long projects outlive a single conversation. The conversation ends; the files remain. So the files have to carry the thread.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <h4>Decision log</h4>
+      <p>Every decision that was not obvious, with the reason. When you wonder in three weeks why something works the way it does, the answer is here, not in your head.</p>
+    </div>
+    <div class="card">
+      <h4>Handover document</h4>
+      <p>At the end of a session: what is done, what is half done, what comes next, and what to read first. The next session starts by reading it.</p>
+    </div>
+  </div>
+
+  <div class="prompt">
+    <span class="prompt__label">Prompt · end of session</span>
+    <p>We are stopping here. Write a handover document for the next session: what we finished, what is unfinished, what the next step is, which files to read first, and any lesson from today worth keeping. Update the project's memory file to point to it.</p>
+  </div>
+
+  <h3>Three rules that protect the system</h3>
+  <ul>
+    <li><strong>Check costs before running anything paid.</strong> Some scripts call paid services silently. Ask what a command will cost before you approve it, and keep API keys out of your everyday environment.</li>
+    <li><strong>Verify, do not trust.</strong> "Done" means you have seen it work. Ask Claude to show you the evidence: the test that passed, the screenshot, the file.</li>
+    <li><strong>Keep personal data out.</strong> Student information, assessments and colleagues' personal data never go into your AI OS. It is a tool for your own work, not a student register, and your local data protection rules still apply.</li>
+  </ul>
+
+  <div class="callout callout--johan">
+    <span class="callout__label">Johan's note</span>
+    <p>The handover document changed how I work more than any feature did. I can close the computer in the middle of a large build, open a new session days later, and be back at full speed within minutes.</p>
+  </div>
+</div>
+
+<!-- ═════════════ ROADMAP ═════════════
+     The practical tool: what to do, week by week. -->
+<div class="page">
+  <span class="eyebrow">Your first month</span>
+  <h2>A four-week roadmap</h2>
+  <p>Build in this order. Do not move on to the next week until the current one is in daily use.</p>
+
+  <h3>Week 1 · Foundation</h3>
+  <ol class="steps steps--tight">
+    <li>Install Claude Code, create your folder and put it under git with a private GitHub copy.</li>
+    <li>Let Claude interview you and write your <code>CLAUDE.md</code>.</li>
+    <li>Set up memory: one file per fact, plus an index.</li>
+    <li>Move your most important reference document (brand, voice or course plan) into the system.</li>
+  </ol>
+
+  <h3>Week 2 · Skills</h3>
+  <ol class="steps steps--tight">
+    <li>Install the superpowers plugin.</li>
+    <li>Pick the two tasks you repeat most and turn each into a skill.</li>
+    <li>Use them for real, and correct the skill every time it misses.</li>
+  </ol>
+
+  <h3>Week 3 · First panel</h3>
+  <ol class="steps steps--tight">
+    <li>Build the command centre shell with automatic start.</li>
+    <li>Build the one panel that saves you the most time, and use it daily.</li>
+  </ol>
+
+  <h3>Week 4 · The habit</h3>
+  <ol class="steps steps--tight">
+    <li>Run your next larger change through brainstorm, spec, plan, build and review.</li>
+    <li>End every session with a handover document.</li>
+    <li>Read your <code>CLAUDE.md</code> again and add the rules this month taught you.</li>
+  </ol>
+
+  <div class="callout callout--watch">
+    <span class="callout__label">Watch out</span>
+    <p>The most common way to fail is to build too much too early. A small system you use every day beats a large one you are still building. Let real use decide what the next panel or skill should be.</p>
+  </div>
+</div>
+
+<!-- ═════════════ BACK COVER ═════════════ -->
+<div class="back-cover">
+  <div>
+    <h2>Build it together with others</h2>
+    <p>This guide is part of the Choosewise community, where educators build and share their AI systems. Bring your questions, your first <code style="background: transparent; color: inherit;">CLAUDE.md</code> and your best skill, and see how others have solved the same problems.</p>
+    <p><a href="https://choosewise.education/community">choosewise.education/community</a></p>
+  </div>
+  <div class="back-cover__license">
+    © 2026 Johan Lindström · choosewise.education. For members of the Choosewise community. Not for redistribution.
+  </div>
+</div>
+
+</body>
+</html>
