@@ -3,14 +3,14 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://choosewise.education/about/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/about/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/om/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/about/"/>
   </url>
   <url>
     <loc>https://choosewise.education/ai-or-human/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/ai-or-human/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/ai-eller-manniska/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/ai-or-human/"/>
@@ -43,7 +43,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/blog/posts/why-i-built-choosewise-education.html</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/blog/posts/varfor-jag-byggt-choosewise-education.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
@@ -111,6 +111,18 @@
   <url>
     <loc>https://choosewise.education/evidence/wellbeing-motivation-agency/</loc>
     <lastmod>2026-10-08</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/free/ai-or-human/</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/free/</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/free/prompts/</loc>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/</loc>
@@ -608,7 +620,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/sv/ai-eller-manniska/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/ai-or-human/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/ai-eller-manniska/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/ai-or-human/"/>
@@ -637,7 +649,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/sv/blog/posts/varfor-jag-byggt-choosewise-education.html</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/blog/posts/varfor-jag-byggt-choosewise-education.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/blog/posts/why-i-built-choosewise-education.html"/>
@@ -665,7 +677,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/sv/om/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/about/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/om/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/about/"/>

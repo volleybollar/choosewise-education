@@ -16,7 +16,7 @@ from playwright.sync_api import sync_playwright
 root = Path(__file__).parent.parent
 
 SRC = root / "_unpublished/exports/ai-or-human-print-a4-en.html"
-DST = root / "_unpublished/assets/pdfs/guides/ai-or-human-en.pdf"
+DST = root / "assets/pdfs/free/ai-or-human-en.pdf"
 TITLE = "AI or human?"
 PAGE_LABEL = "Page"
 
