@@ -361,10 +361,32 @@ _FONT_URL = re.compile(r'url\("?([^")]+?)"?\)')
                                  "linkedin/personal-banner.svg"])
 def test_generated_card_font_path_exists(rel):
     text = (ROOT / "assets/images/brand" / rel).read_text(encoding="utf-8")
-    match = _FONT_URL.search(text)
-    assert match, f"{rel}: no @font-face src url found"
-    font_path = ROOT / match.group(1).lstrip("/")
-    assert font_path.exists(), f"{rel}: font path {match.group(1)} does not exist"
+    urls = _FONT_URL.findall(text)
+    assert urls, f"{rel}: no @font-face src url found"
+    for url in urls:
+        font_path = ROOT / url.lstrip("/")
+        assert font_path.exists(), f"{rel}: font path {url} does not exist"
+
+
+@pytest.mark.parametrize("rel", ["skool/cover.svg", "linkedin/page-banner.svg",
+                                 "linkedin/personal-banner.svg"])
+def test_the_wordmark_splits_choose_and_wise(rel):
+    """Johans beslut 2026-10-22, förslag C: "wise" ska kunna ägas som eget
+    ord, så det sätts i Instrument Serif kursiv i sand medan "Choose" står
+    kvar i Hanken Grotesk. Underrubriken går över till dämpad blågrå så att
+    sanden bara hör till wise."""
+    text = (ROOT / "assets/images/brand" / rel).read_text(encoding="utf-8")
+    assert ">Choosewise<" not in text, f"{rel} bär kvar det odelade ordmärket"
+    choose = re.search(r'<tspan[^>]*>Choose</tspan>', text)
+    wise = re.search(r'<tspan[^>]*>wise</tspan>', text)
+    assert choose and wise, f"{rel}: Choose och wise ska vara egna tspan"
+    assert 'fill="#FBFAF8"' in choose.group(0)
+    assert 'font-family="Instrument Serif' in wise.group(0)
+    assert 'font-style="italic"' in wise.group(0)
+    assert 'fill="#E8C9A8"' in wise.group(0)
+    sub = re.search(r'<text[^>]*>AI &amp;', text)
+    assert sub and 'fill="#C3CFDC"' in sub.group(0), \
+        f"{rel}: underrubriken ska vara dämpad blågrå"
 
 
 SUBTITLE = "AI &amp; Digitalization for Educators"

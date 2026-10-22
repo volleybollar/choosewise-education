@@ -29,6 +29,7 @@ PORT = 8801
 BLUE = "#0B3A6F"
 CREAM = "#FBFAF8"
 COPPER_DK = "#E8C9A8"
+MIST = "#C3CFDC"   # sajtens --color-border-strong; underrubriken, så att sanden bara hör till wise
 
 # Märkets element plockas UT ur källfilen, aldrig skrivna på nytt här.
 # Skriver man dem två gånger har man två sanningar.
@@ -85,9 +86,10 @@ def serve() -> socketserver.TCPServer:
     return httpd
 
 
-# Måste matcha @font-face-källan i card_svg() (och i render-og-pngs.py,
-# som vaktar samma väg för de 12 og-korten).
+# Måste matcha @font-face-källorna i card_svg() (Hanken-vägen också i
+# render-og-pngs.py, som vaktar samma väg för de 12 og-korten).
 FONT_SUFFIX = "fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2"
+SERIF_SUFFIX = "fonts/instrument-serif/InstrumentSerif-Italic.woff2"
 
 
 def render_png(page, svg_text: str, w: int, h: int, out: Path,
@@ -113,14 +115,15 @@ def render_png(page, svg_text: str, w: int, h: int, out: Path,
     out.parent.mkdir(parents=True, exist_ok=True)
     page.set_viewport_size({"width": w, "height": h})
 
-    needs_font = FONT_SUFFIX in svg_text
-    font_response: dict[str, object] = {"seen": False, "ok": False, "status": None}
+    fonts = [s for s in (FONT_SUFFIX, SERIF_SUFFIX) if s in svg_text]
+    needs_font = bool(fonts)
+    responses: dict[str, dict[str, object]] = {
+        s: {"seen": False, "ok": False, "status": None} for s in fonts}
 
     def on_response(resp):
-        if resp.url.endswith(FONT_SUFFIX):
-            font_response["seen"] = True
-            font_response["ok"] = resp.ok
-            font_response["status"] = resp.status
+        for s in fonts:
+            if resp.url.endswith(s):
+                responses[s].update(seen=True, ok=resp.ok, status=resp.status)
 
     if needs_font:
         assert svg_path is not None, (
@@ -131,13 +134,14 @@ def render_png(page, svg_text: str, w: int, h: int, out: Path,
         page.goto(f"http://127.0.0.1:{PORT}/{rel}", wait_until="networkidle")
         page.wait_for_timeout(300)  # låt typsnittet sätta sig
         page.remove_listener("response", on_response)
-        if not font_response["seen"] or not font_response["ok"]:
-            raise RuntimeError(
-                f"Hanken Grotesk laddades inte för {out.relative_to(ROOT)} — "
-                f"väntade en lyckad begäran till .../{FONT_SUFFIX}, fick "
-                f"seen={font_response['seen']} status={font_response['status']}. "
-                f"Vägrar skärmdumpa ett kort som tyst skulle falla tillbaka "
-                f"till ett systemtypsnitt.")
+        for s, r in responses.items():
+            if not r["seen"] or not r["ok"]:
+                raise RuntimeError(
+                    f"Typsnittet laddades inte för {out.relative_to(ROOT)} — "
+                    f"väntade en lyckad begäran till .../{s}, fick "
+                    f"seen={r['seen']} status={r['status']}. "
+                    f"Vägrar skärmdumpa ett kort som tyst skulle falla tillbaka "
+                    f"till ett systemtypsnitt.")
     else:
         page.set_content(
             f'<body style="margin:0">{svg_text}</body>',
@@ -187,7 +191,7 @@ def build_favicons(page) -> None:
 
 
 def card_svg(w: int, h: int, mark_size: int, mark_x: int, mark_y: int,
-             title: str | None, subtitle: str | None,
+             title: tuple[str, str] | None, subtitle: str | None,
              title_pt: int, sub_pt: int, text_x: int,
              title_y: int, sub_y: int, band: int,
              anchor: str = "start") -> str:
@@ -201,7 +205,10 @@ def card_svg(w: int, h: int, mark_size: int, mark_x: int, mark_y: int,
         f'viewBox="0 0 {w} {h}">',
         '<style>@font-face{font-family:"Hanken Grotesk";'
         'src:url("/assets/fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2") '
-        'format("woff2");font-weight:300 600}</style>',
+        'format("woff2");font-weight:300 600}'
+        '@font-face{font-family:"Instrument Serif";font-style:italic;'
+        'src:url("/assets/fonts/instrument-serif/InstrumentSerif-Italic.woff2") '
+        'format("woff2")}</style>',
         f'<rect width="{w}" height="{h}" fill="{BLUE}"/>',
         f'<rect y="{h - band}" width="{w}" height="{band}" fill="#C2793A"/>',
     ]
@@ -213,21 +220,28 @@ def card_svg(w: int, h: int, mark_size: int, mark_x: int, mark_y: int,
             f'<svg x="{mark_x}" y="{mark_y}" width="{mark_size}" height="{mark_size}" '
             f'viewBox="0 0 64 64">{mark_markup("dark")}</svg>')
     tail = f' text-anchor="{anchor}"' if anchor != "start" else ""
+    # Ordmärket delas i två: "Choose" i Hanken, "wise" i Instrument Serif
+    # kursiv och sand. Johans beslut 2026-10-22 (förslag C) — wise ska kunna
+    # ägas som eget ord. Serifen har lägre x-höjd, därav 1,16 gånger storleken.
     if title:
+        choose, wise = title
         parts.append(
             f'<text x="{text_x}" y="{title_y}"{tail} font-family="Hanken Grotesk, sans-serif" '
-            f'font-size="{title_pt}" font-weight="300" fill="{CREAM}" '
-            f'letter-spacing="-2">{title}</text>')
+            f'font-size="{title_pt}">'
+            f'<tspan font-weight="300" fill="{CREAM}" letter-spacing="-2">{choose}</tspan>'
+            f'<tspan font-family="Instrument Serif, serif" font-style="italic" '
+            f'font-size="{round(title_pt * 1.16)}" fill="{COPPER_DK}" letter-spacing="0">'
+            f'{wise}</tspan></text>')
     if subtitle:
         parts.append(
             f'<text x="{text_x}" y="{sub_y}"{tail} font-family="Hanken Grotesk, sans-serif" '
-            f'font-size="{sub_pt}" font-weight="400" fill="{COPPER_DK}" '
+            f'font-size="{sub_pt}" font-weight="400" fill="{MIST}" '
             f'letter-spacing="1.6">{subtitle}</text>')
     parts.append("</svg>")
     return "".join(parts)
 
 
-TITLE = "Choosewise"
+TITLE = ("Choose", "wise")
 SUBTITLE = "AI &amp; Digitalization for Educators"
 
 
