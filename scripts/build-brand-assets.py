@@ -194,12 +194,14 @@ def card_svg(w: int, h: int, mark_size: int, mark_x: int, mark_y: int,
              title: tuple[str, str] | None, subtitle: str | None,
              title_pt: int, sub_pt: int, text_x: int,
              title_y: int, sub_y: int, band: int,
-             anchor: str = "start") -> str:
+             anchor: str = "start", band_bottom: float | None = None) -> str:
     """Mörkt kort med märket, rubrik, underrubrik och kopparbandet nederst.
 
     Bandet är samma band som sajtens footer. Det är det som binder
-    Skool och LinkedIn till sajten visuellt.
+    Skool och LinkedIn till sajten visuellt. `band_bottom` flyttar upp
+    bandet från kortets nederkant (YouTube, där bara mitten syns).
     """
+    band_y = (h if band_bottom is None else band_bottom) - band
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
         f'viewBox="0 0 {w} {h}">',
@@ -210,7 +212,7 @@ def card_svg(w: int, h: int, mark_size: int, mark_x: int, mark_y: int,
         'src:url("/assets/fonts/instrument-serif/InstrumentSerif-Italic.woff2") '
         'format("woff2")}</style>',
         f'<rect width="{w}" height="{h}" fill="{BLUE}"/>',
-        f'<rect y="{h - band}" width="{w}" height="{band}" fill="#C2793A"/>',
+        f'<rect y="{band_y}" width="{w}" height="{band}" fill="#C2793A"/>',
     ]
     # mark_size=0 utelämnar märket helt. LinkedIn-omslaget använder det:
     # avataren ÄR märket och lägger sig ovanpå omslagets nedre vänstra
@@ -299,6 +301,38 @@ def build_linkedin(page) -> None:
                svg_path=personal_svg_path)
 
 
+def build_youtube(page) -> None:
+    # YouTubes spec: bannern 2560×1440 (16:9). Mobilen visar bara den säkra
+    # ytan i mitten, 1546×423 (minsta säkra yta 1235×338 vid 2048 bredd,
+    # skalad till 2560); datorn visar full bredd men samma höjd, tv:n allt.
+    # Därför ligger lockupen centrerad i den ytan och kopparbandet i dess
+    # nederkant (y=931,5), där mobil och dator slutar — inte i bildens.
+    # Profilbilden laddas upp i 800×800 och visas som cirkel; märket
+    # ryms inom cirkeln med frizonen (se _MARK_INNER_FRACTION).
+    out = BRAND / "youtube"
+    render_png(page, tile_svg(800, radius_pct=0), 800, 800, out / "profile.png")
+
+    # Samma lockup som den personliga LinkedIn-bannern, skalad 1,6 gånger
+    # och centrerad horisontellt: märket 192 + luft 51 + texten ~717 = ~960.
+    banner = card_svg(
+        w=2560, h=1440, mark_size=192, mark_x=800, mark_y=624,
+        title=TITLE, subtitle=SUBTITLE,
+        title_pt=100, sub_pt=45, text_x=1043,
+        title_y=717, sub_y=797, band=19, band_bottom=931.5,
+    )
+    banner_svg_path = out / "banner.svg"
+    banner_svg_path.write_text(banner, encoding="utf-8")
+    render_png(page, banner, 2560, 1440, out / "banner.png",
+               svg_path=banner_svg_path)
+
+
+def build_instagram(page) -> None:
+    # Instagram visar profilbilden som cirkel, ~110 px i appen, och skalar
+    # ner uppladdningen själv. 1080×1080 håller skärpan på retinaskärmar.
+    render_png(page, tile_svg(1080, radius_pct=0), 1080, 1080,
+               BRAND / "instagram" / "profile.png")
+
+
 def main() -> None:
     with sync_playwright() as pw:
         httpd = serve()
@@ -312,6 +346,8 @@ def main() -> None:
             build_favicons(page)
             build_skool(page)
             build_linkedin(page)
+            build_youtube(page)
+            build_instagram(page)
         finally:
             browser.close()
             httpd.shutdown()
