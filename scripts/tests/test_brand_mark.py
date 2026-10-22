@@ -418,7 +418,6 @@ def test_the_generator_owns_the_subtitle():
 
 
 LINKEDIN_BANNER = "linkedin/page-banner.svg"
-BANNER_W = 1512
 
 
 def test_the_linkedin_page_banner_carries_no_mark():
@@ -434,15 +433,23 @@ def test_the_linkedin_page_banner_carries_no_mark():
         assert f'd="{d}"' not in text, "märket är tillbaka på LinkedIn-omslaget"
 
 
-def test_the_linkedin_page_banner_text_is_centred():
-    """Mobilen beskär omslaget mot mitten, så lockupen måste ligga där.
+# Johans skärmdump 2026-10-22: i smal vy beskär LinkedIn omslaget mot
+# mitten till ungefär x=287–1226, och sidloggan täcker då allt till
+# vänster om x≈654 (och en bra bit upp i bilden). Centrerad text hamnade
+# under loggan. Fritt fönster med luft: textstart 694–742, så att
+# underrubriken (~448 bred) slutar före ~1190.
+PAGE_BANNER_TEXT_X = (694, 742)
 
-    Centreringen görs med text-anchor och inte med ett handräknat x —
-    annars hamnar den fel så fort ordmärket eller underrubriken ändras.
-    """
+
+def test_the_linkedin_page_banner_text_clears_the_page_logo():
     text = (ROOT / "assets/images/brand" / LINKEDIN_BANNER).read_text(encoding="utf-8")
-    assert text.count('text-anchor="middle"') == 2, "båda raderna ska vara centrerade"
-    assert f'x="{BANNER_W // 2}"' in text, "texten ska sitta i omslagets mitt"
+    assert 'text-anchor="middle"' not in text, \
+        "centrerad text hamnar under sidloggan i smal vy"
+    xs = [float(x) for x in re.findall(r'<text x="([\d.]+)"', text)]
+    assert len(xs) == 2, "rubrik och underrubrik"
+    lo, hi = PAGE_BANNER_TEXT_X
+    assert all(lo <= x <= hi for x in xs), \
+        f"texten börjar vid {xs}, ska ligga mellan {lo} och {hi}"
 
 
 # YouTube visar hela 2560×1440 bara på tv. Mobilen beskär till den säkra
