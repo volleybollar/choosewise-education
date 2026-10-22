@@ -274,6 +274,9 @@ EXPECTED_SIZES = {
     "linkedin/page-logo.png": (400, 400),
     "linkedin/page-banner.png": (1512, 256),
     "linkedin/personal-banner.png": (1584, 396),
+    "youtube/banner.png": (2560, 1440),
+    "youtube/profile.png": (800, 800),
+    "instagram/profile.png": (1080, 1080),
 }
 
 
@@ -284,7 +287,8 @@ def test_asset_exists_with_exact_size(rel, size):
     assert Image.open(path).size == size
 
 
-@pytest.mark.parametrize("rel", ["skool/cover.svg", "linkedin/personal-banner.svg"])
+@pytest.mark.parametrize("rel", ["skool/cover.svg", "linkedin/personal-banner.svg",
+                                 "youtube/banner.svg"])
 def test_generated_card_carries_the_marks_own_paths(rel):
     text = (ROOT / "assets/images/brand" / rel).read_text(encoding="utf-8")
     for d in (NEEDLE_NORTH, NEEDLE_SOUTH):
@@ -331,7 +335,8 @@ def _mark_sample_box(tile_size: int) -> tuple[int, int, int, int]:
     )
 
 
-@pytest.mark.parametrize("rel", ["skool/logo.png", "linkedin/page-logo.png"])
+@pytest.mark.parametrize("rel", ["skool/logo.png", "linkedin/page-logo.png",
+                                 "youtube/profile.png", "instagram/profile.png"])
 def test_svg_less_tiles_carry_the_marks_copper(rel):
     """No .svg to text-match against, so this opens the PNG itself and
     looks for the mark's copper in the region the north needle actually
@@ -358,7 +363,7 @@ _FONT_URL = re.compile(r'url\("?([^")]+?)"?\)')
 
 
 @pytest.mark.parametrize("rel", ["skool/cover.svg", "linkedin/page-banner.svg",
-                                 "linkedin/personal-banner.svg"])
+                                 "linkedin/personal-banner.svg", "youtube/banner.svg"])
 def test_generated_card_font_path_exists(rel):
     text = (ROOT / "assets/images/brand" / rel).read_text(encoding="utf-8")
     urls = _FONT_URL.findall(text)
@@ -369,7 +374,7 @@ def test_generated_card_font_path_exists(rel):
 
 
 @pytest.mark.parametrize("rel", ["skool/cover.svg", "linkedin/page-banner.svg",
-                                 "linkedin/personal-banner.svg"])
+                                 "linkedin/personal-banner.svg", "youtube/banner.svg"])
 def test_the_wordmark_splits_choose_and_wise(rel):
     """Johans beslut 2026-10-22, förslag C: "wise" ska kunna ägas som eget
     ord, så det sätts i Instrument Serif kursiv i sand medan "Choose" står
@@ -394,7 +399,7 @@ OLD_SUBTITLE = "AI &amp; EdTech for Educators"
 
 
 @pytest.mark.parametrize("rel", ["skool/cover.svg", "linkedin/page-banner.svg",
-                                 "linkedin/personal-banner.svg"])
+                                 "linkedin/personal-banner.svg", "youtube/banner.svg"])
 def test_the_subtitle_is_the_decided_one(rel):
     """Johans beslut 2026-10-09. `digitalization` följer sajtens egen
     -ize-konvention (382 förekomster mot 18 för -isation), och versalt D
@@ -438,3 +443,23 @@ def test_the_linkedin_page_banner_text_is_centred():
     text = (ROOT / "assets/images/brand" / LINKEDIN_BANNER).read_text(encoding="utf-8")
     assert text.count('text-anchor="middle"') == 2, "båda raderna ska vara centrerade"
     assert f'x="{BANNER_W // 2}"' in text, "texten ska sitta i omslagets mitt"
+
+
+# YouTube visar hela 2560×1440 bara på tv. Mobilen beskär till den säkra
+# ytan i mitten, 1546×423 (YouTubes minsta säkra yta 1235×338 vid 2048
+# bredd, skalad till 2560), och datorn visar full bredd men samma höjd.
+YT_SAFE = (1280 - 1546 / 2, 720 - 423 / 2, 1280 + 1546 / 2, 720 + 423 / 2)
+
+
+def test_the_youtube_banner_keeps_the_lockup_in_the_safe_area():
+    text = (ROOT / "assets/images/brand/youtube/banner.svg").read_text(encoding="utf-8")
+    x0, y0, x1, y1 = YT_SAFE
+    mark = re.search(r'<svg x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="([\d.]+)"', text)
+    assert mark, "märket saknas på YouTube-bannern"
+    mx, my, mw, mh = map(float, mark.groups())
+    assert x0 <= mx and mx + mw <= x1 and y0 <= my and my + mh <= y1
+    for y in re.findall(r'<text x="[\d.]+" y="([\d.]+)"', text):
+        assert y0 <= float(y) <= y1, f"textraden y={y} ligger utanför den säkra ytan"
+    band = re.search(r'<rect y="([\d.]+)" width="2560" height="([\d.]+)"', text)
+    assert band and float(band.group(1)) + float(band.group(2)) == y1, \
+        "kopparbandet ska ligga i den säkra ytans nederkant, där mobil och dator slutar"
