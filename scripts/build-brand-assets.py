@@ -268,16 +268,16 @@ def build_linkedin(page) -> None:
     out = BRAND / "linkedin"
     render_png(page, tile_svg(400, radius_pct=0), 400, 400, out / "page-logo.png")
 
-    # Inget märke, och texten centrerad. Johans beslut 2026-10-09:
-    # företagssidans logga lägger sig över omslagets nedre vänstra hörn
-    # och mobilen beskär mot mitten, så vänstra ~20 % är osäker yta.
-    # Avataren visar redan märket precis där, så omslaget bär ordmärket
-    # ensamt — centrerat, vilket överlever både loggan och beskärningen.
+    # Inget märke: avataren visar redan märket (Johans beslut 2026-10-09).
+    # Texten var först centrerad, men Johans skärmdump 2026-10-22 visade
+    # att den smala vyn beskär mot mitten (x≈287–1226) och att sidloggan
+    # då täcker allt till vänster om x≈654. Ordmärket börjar därför vid
+    # x=718, vänsterställt, och underrubriken slutar före x≈1190.
     page_banner = card_svg(
         w=1512, h=256, mark_size=0, mark_x=0, mark_y=0,
         title=TITLE, subtitle=SUBTITLE,
-        title_pt=62, sub_pt=28, text_x=756,
-        title_y=126, sub_y=174, band=11, anchor="middle",
+        title_pt=62, sub_pt=28, text_x=718,
+        title_y=126, sub_y=174, band=11,
     )
     page_banner_svg_path = out / "page-banner.svg"
     page_banner_svg_path.write_text(page_banner, encoding="utf-8")
