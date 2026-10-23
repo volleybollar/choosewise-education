@@ -1,0 +1,521 @@
+{
+  "_readme": "Data for the Visual codes for video page. 'prompt' is the exact text that was sent with the start image (code + any added sentence) — the page shows it and the copy button hands it over, so it must never be edited by hand. 'slug' names the media files in media/: <slug>.mp4, <slug>-poster.webp, <slug>-start.webp, built by scripts/build-video-codes-media.py from 'source_clip' and 'source_start' (files in the test folder outside the repo). status: works | partial | fails ('fails' only in the doesnt-work-yet section).",
+  "model": "Seedance 2.0, image-to-video, 5 seconds",
+  "sections": [
+    {
+      "id": "see-the-invisible",
+      "part": 1,
+      "title": "See the invisible",
+      "intro": "Too slow, too fast, too small or hidden inside: motion shows what a single picture cannot.",
+      "codes": [
+        {
+          "code": "/timelapse",
+          "slug": "timelapse",
+          "status": "works",
+          "prompt": "/timelapse",
+          "description": "Compresses a slow process into seconds — growth, decay, a moving shadow.",
+          "spot_the_error": false,
+          "source_clip": "01-timelapse",
+          "source_start": "plant.webp"
+        },
+        {
+          "code": "/slowmotion",
+          "slug": "slowmotion",
+          "status": "works",
+          "prompt": "/slowmotion A single drop falls into the water and makes a splash.",
+          "description": "Stretches a split second so the class can actually see it happen.",
+          "note": "Needs an event in the picture: on a still glass of water the code had nothing to slow down. Compare the result with real high-speed footage — the drop behaves more like a glass bead than water.",
+          "spot_the_error": false,
+          "source_clip": "02b-slowmotion",
+          "source_start": "waterglass.webp"
+        },
+        {
+          "code": "/xray",
+          "slug": "xray",
+          "status": "works",
+          "prompt": "/xray",
+          "description": "Turns the outer shell see-through while the machine keeps working.",
+          "spot_the_error": false,
+          "source_clip": "05-xray",
+          "source_start": "windturbine.webp"
+        },
+        {
+          "code": "/explodedview",
+          "slug": "explodedview",
+          "status": "works",
+          "prompt": "/explodedview",
+          "description": "Pulls the parts apart in mid-air so every component and its place become visible.",
+          "spot_the_error": false,
+          "source_clip": "04-explodedview",
+          "source_start": "drone.webp"
+        },
+        {
+          "code": "/zoomscale",
+          "slug": "zoomscale",
+          "status": "works",
+          "prompt": "/zoomscale One continuous zoom into the leaf, down to its cells and chloroplasts.",
+          "description": "One unbroken zoom from the visible world down to the microscopic.",
+          "note": "Convincing — and wrong: plant cells are boxy with cell walls, not floating green spheres. Ask the class what the model got wrong.",
+          "spot_the_error": true,
+          "source_clip": "06b-zoomscale",
+          "source_start": "leaf.webp"
+        },
+        {
+          "code": "/earthzoomout",
+          "slug": "earthzoomout",
+          "status": "works",
+          "prompt": "/earthzoomout",
+          "description": "Pulls back from a single place until the whole planet is in view.",
+          "note": "The valley looks Alpine, but the globe the camera arrives at shows India. Where should it have ended?",
+          "spot_the_error": true,
+          "source_clip": "07-earthzoomout",
+          "source_start": "landscape.webp"
+        },
+        {
+          "code": "/phasechange",
+          "slug": "phasechange",
+          "status": "partial",
+          "prompt": "/phasechange The temperature rises steadily throughout the clip.",
+          "description": "Shows matter changing state as the temperature rises.",
+          "note": "The ice shrinks, but no puddle grows and no steam appears. Where did the water go?",
+          "spot_the_error": true,
+          "source_clip": "52-phasechange",
+          "source_start": "icecube.webp"
+        },
+        {
+          "code": "/particleview",
+          "slug": "particleview",
+          "status": "partial",
+          "prompt": "/particleview Show the water molecules moving faster as the burner heats the beaker.",
+          "description": "Meant to reveal moving molecules — a model of matter at particle scale.",
+          "note": "No molecules appear. Instead the water boils in a beaker that is not even on the burner — a ready-made physics question.",
+          "spot_the_error": true,
+          "source_clip": "11-particleview",
+          "source_start": "lab.webp"
+        }
+      ]
+    },
+    {
+      "id": "processes",
+      "part": 1,
+      "title": "Processes and change over time",
+      "intro": "Cycles, sequences and slow transformations: content that is change gets clearer when it moves.",
+      "codes": [
+        {
+          "code": "/seasons",
+          "slug": "seasons",
+          "status": "works",
+          "prompt": "/seasons The camera stays still while a full year passes.",
+          "description": "Runs a full year through one fixed view — summer, autumn, winter, spring.",
+          "spot_the_error": false,
+          "source_clip": "54-seasons",
+          "source_start": "tree.webp"
+        },
+        {
+          "code": "/lifecycle",
+          "slug": "lifecycle",
+          "status": "works",
+          "prompt": "/lifecycle",
+          "description": "Plays out a whole life cycle, from beginning to end.",
+          "note": "Arrives as a short montage with cuts. Check species and stages before you show it.",
+          "spot_the_error": false,
+          "source_clip": "08-lifecycle",
+          "source_start": "butterfly.webp"
+        },
+        {
+          "code": "/reverse",
+          "slug": "reverse",
+          "status": "works",
+          "prompt": "/reverse Play what happened backwards in time.",
+          "description": "Runs an event backwards — and raises the question of why some processes only go one way.",
+          "spot_the_error": false,
+          "source_clip": "68-reverse",
+          "source_start": "dominoes.webp"
+        },
+        {
+          "code": "/flowtrace",
+          "slug": "flowtrace",
+          "status": "works",
+          "prompt": "/flowtrace Follow one drop of water from the roots up through the trunk to a leaf.",
+          "description": "Follows one particle through a system, from start to finish.",
+          "note": "The trunk turns into red, blood-vessel-like tubes. Trees do not work like that — let the class explain why.",
+          "spot_the_error": true,
+          "source_clip": "12-flowtrace",
+          "source_start": "tree.webp"
+        },
+        {
+          "code": "/reconstruct",
+          "slug": "reconstruct",
+          "status": "works",
+          "prompt": "/reconstruct The ruin rebuilds itself into the complete castle as it looked when it was new.",
+          "description": "Rebuilds a ruin to how it may once have looked.",
+          "note": "The model invents a flag on the tower. How would we know what really flew there? Source criticism in five seconds.",
+          "spot_the_error": true,
+          "source_clip": "13-reconstruct",
+          "source_start": "castle.webp"
+        },
+        {
+          "code": "/assemblysequence",
+          "slug": "assemblysequence",
+          "status": "works",
+          "prompt": "/assemblysequence The loose parts fly in and join, step by step, until the chair is complete.",
+          "description": "Puts the parts together in order, step by step.",
+          "spot_the_error": false,
+          "source_clip": "22-assemblysequence",
+          "source_start": "chair.webp"
+        },
+        {
+          "code": "/throughtime",
+          "slug": "throughtime",
+          "status": "works",
+          "prompt": "/throughtime Decades pass: the pond fills in, grows over and becomes a forest.",
+          "description": "Compresses decades of change in one place into a single clip.",
+          "spot_the_error": false,
+          "source_clip": "23-throughtime",
+          "source_start": "pond.webp"
+        },
+        {
+          "code": "/oxidize",
+          "slug": "oxidize",
+          "status": "works",
+          "prompt": "/oxidize Days pass in seconds.",
+          "description": "Makes a slow chemical reaction visible — the cut apple browns.",
+          "note": "The nail does not rust. Realistic over a few days — a good question for the class.",
+          "spot_the_error": false,
+          "source_clip": "55-oxidize",
+          "source_start": "applenail.webp"
+        }
+      ]
+    },
+    {
+      "id": "film-language",
+      "part": 1,
+      "title": "Film language for art class",
+      "intro": "Light, focus, colour and style change how a picture feels. Each code isolates one tool from the film-maker's kit.",
+      "codes": [
+        {
+          "code": "/lightshift",
+          "slug": "lightshift",
+          "status": "works",
+          "prompt": "/lightshift The same scene goes from midday to sunset to night.",
+          "description": "Keeps the scene and changes the light — and with it the whole mood.",
+          "spot_the_error": false,
+          "source_clip": "18-lightshift",
+          "source_start": "house.webp"
+        },
+        {
+          "code": "/paintingalive",
+          "slug": "paintingalive",
+          "status": "works",
+          "prompt": "/paintingalive Subtle, natural movement only. Keep the painted style.",
+          "description": "Brings a public-domain painting gently to life while keeping the brushwork.",
+          "note": "Vermeer, The Milkmaid (c. 1658), Rijksmuseum — public domain. Use only paintings old enough to be out of copyright.",
+          "spot_the_error": false,
+          "source_clip": "56-paintingalive",
+          "source_start": "milkmaid.webp"
+        },
+        {
+          "code": "/selectivecolor",
+          "slug": "selectivecolor",
+          "status": "partial",
+          "prompt": "/selectivecolor Everything except the red umbrella slowly loses its color.",
+          "description": "Drains the colour from everything except one object, so colour itself carries the meaning.",
+          "note": "The umbrella stays red, but the colour drains almost at once instead of evenly over the clip.",
+          "spot_the_error": false,
+          "source_clip": "57-selectivecolor",
+          "source_start": "umbrella.webp"
+        },
+        {
+          "code": "/matchcut",
+          "slug": "matchcut",
+          "status": "works",
+          "prompt": "/matchcut The eye turns into the planet Earth.",
+          "description": "Turns one shape into another that looks alike — a visual rhyme.",
+          "spot_the_error": false,
+          "source_clip": "70-matchcut",
+          "source_start": "eye.webp"
+        },
+        {
+          "code": "/tiltshift",
+          "slug": "tiltshift",
+          "status": "works",
+          "prompt": "/tiltshift",
+          "description": "Turns a real place into what looks like a miniature model — focus that changes scale.",
+          "spot_the_error": false,
+          "source_clip": "60-tiltshift",
+          "source_start": "harbour.webp"
+        },
+        {
+          "code": "/rackfocus",
+          "slug": "rackfocus",
+          "status": "works",
+          "prompt": "/rackfocus Focus shifts from the butterfly to the red flowers in the background.",
+          "description": "Moves the focus from one subject to another and steers where we look.",
+          "note": "Needs a start image with shallow depth of field. On a photo that is sharp front to back there was nothing to shift.",
+          "spot_the_error": false,
+          "source_clip": "28-rackfocus",
+          "source_start": "butterfly.webp"
+        },
+        {
+          "code": "/stopmotion",
+          "slug": "stopmotion",
+          "status": "works",
+          "prompt": "/stopmotion Animated frame by frame: the clock hands jump in small, jerky steps.",
+          "description": "Animates frame by frame, the way stop-motion films are made.",
+          "spot_the_error": false,
+          "source_clip": "29-stopmotion",
+          "source_start": "clock.webp"
+        },
+        {
+          "code": "/noir",
+          "slug": "noir",
+          "status": "works",
+          "prompt": "/noir Black and white film noir: hard light and deep shadows.",
+          "description": "Recasts the scene as film noir: black and white, hard light, deep shadows.",
+          "spot_the_error": false,
+          "source_clip": "30-noir",
+          "source_start": "flashlight.webp"
+        },
+        {
+          "code": "/dutchangle",
+          "slug": "dutchangle",
+          "status": "works",
+          "prompt": "/dutchangle The camera slowly tilts until the horizon is crooked.",
+          "description": "Tilts the horizon until the picture feels uneasy.",
+          "spot_the_error": false,
+          "source_clip": "16-dutchangle",
+          "source_start": "polarbear.webp"
+        },
+        {
+          "code": "/flythrough",
+          "slug": "flythrough",
+          "status": "works",
+          "prompt": "/flythrough The camera flies in through the front door and on through the rooms.",
+          "description": "Moves the camera into the scene, so the movement itself tells the story.",
+          "spot_the_error": false,
+          "source_clip": "09b-flythrough",
+          "source_start": "house.webp"
+        },
+        {
+          "code": "/sketchtolife",
+          "slug": "sketchtolife",
+          "status": "works",
+          "prompt": "/sketchtolife The drawing comes alive and moves, still in the same crayon style.",
+          "description": "Lets a drawing come alive without losing its style.",
+          "note": "Subtle: the cat and the sun move a little. Try it on a pupil's own drawing.",
+          "spot_the_error": false,
+          "source_clip": "27-sketchtolife",
+          "source_start": "crayondrawing.webp"
+        }
+      ]
+    },
+    {
+      "id": "doesnt-work-yet",
+      "part": 1,
+      "title": "Tested — doesn't work (yet)",
+      "intro": "We tested these two or three times each, with added sentences. Moving the camera through space and freezing time are beyond the model when it starts from a single still image — even when we supplied the end image as well. For art class that is a lesson in itself: AI can imitate a film crew, but it has no camera to move.",
+      "codes": [
+        {
+          "code": "/dollyzoom",
+          "slug": "dollyzoom",
+          "status": "fails",
+          "prompt": "/dollyzoom The chair stays the same size while the corridor behind it stretches away.",
+          "description": "Hitchcock's vertigo effect: the subject stays put while the background stretches.",
+          "note": "The chair shrinks — the camera simply moves back.",
+          "spot_the_error": false,
+          "source_clip": "25-dollyzoom",
+          "source_start": "corridorchair.webp"
+        },
+        {
+          "code": "/lowangle",
+          "slug": "lowangle",
+          "status": "fails",
+          "prompt": "/lowangle The camera sinks to the ground and looks up at the runner.",
+          "description": "A low angle that makes the subject look powerful.",
+          "note": "The camera sinks to the runner's legs but never looks up.",
+          "spot_the_error": false,
+          "source_clip": "26-lowangle",
+          "source_start": "runner.webp"
+        },
+        {
+          "code": "/orbit",
+          "slug": "orbit",
+          "status": "fails",
+          "prompt": "/orbit The camera flies all the way around the castle and back to the start.",
+          "description": "The camera circles the subject to show its shape.",
+          "note": "Never more than a short arc in three attempts.",
+          "spot_the_error": false,
+          "source_clip": "34-orbit",
+          "source_start": "castle.webp"
+        },
+        {
+          "code": "/bullettime",
+          "slug": "bullettime",
+          "status": "fails",
+          "prompt": "/bullettime Freeze the moment: the player and the ball hang motionless in mid-air while the camera slowly circles.",
+          "description": "Time stops while the camera sweeps around the frozen moment.",
+          "note": "The moment never freezes — the shot simply carries on.",
+          "spot_the_error": false,
+          "source_clip": "50-bullettime",
+          "source_start": "basketball.webp"
+        },
+        {
+          "code": "/freezeframe",
+          "slug": "freezeframe",
+          "status": "fails",
+          "prompt": "/freezeframe Freeze at the moment the ball leaves the hands.",
+          "description": "Stops the action mid-movement.",
+          "note": "No freeze — the camera zooms in on the player instead.",
+          "spot_the_error": false,
+          "source_clip": "61-freezeframe",
+          "source_start": "basketball.webp"
+        },
+        {
+          "code": "/silhouette",
+          "slug": "silhouette",
+          "status": "fails",
+          "prompt": "/silhouette The light moves behind the person.",
+          "description": "Backlight that turns a figure into a dark shape.",
+          "note": "A rim of light appears, but the person never becomes a silhouette.",
+          "spot_the_error": false,
+          "source_clip": "58-silhouette",
+          "source_start": "silhouette.webp"
+        }
+      ]
+    },
+    {
+      "id": "beyond-the-classroom",
+      "part": 2,
+      "title": "Beyond the classroom",
+      "intro": "Not every code needs a lesson plan. These are useful for family photos, travel pictures, a small business or social media.",
+      "codes": [
+        {
+          "code": "/oldphotoalive",
+          "slug": "oldphotoalive",
+          "status": "works",
+          "prompt": "/oldphotoalive Gentle, natural movement only. No talking.",
+          "description": "Gives an old family photo gentle, natural movement.",
+          "note": "Ask the family first — and never make people in old photos speak.",
+          "spot_the_error": false,
+          "source_clip": "37-oldphotoalive",
+          "source_start": "oldphoto.webp"
+        },
+        {
+          "code": "/turntable",
+          "slug": "turntable",
+          "status": "works",
+          "prompt": "/turntable The product rotates 360 degrees on a turntable. Nothing else changes.",
+          "description": "Spins a product so it is seen from every side.",
+          "note": "Use one object that is not round: on a round thermos the rotation was invisible, and several small objects just moved around.",
+          "spot_the_error": false,
+          "source_clip": "51-turntable",
+          "source_start": "drone.webp"
+        },
+        {
+          "code": "/staging",
+          "slug": "staging",
+          "status": "works",
+          "prompt": "/staging Furniture appears piece by piece.",
+          "description": "Furnishes an empty room, piece by piece.",
+          "note": "If you use it to sell or rent a home, say that the furnishing is AI-generated.",
+          "spot_the_error": false,
+          "source_clip": "63-staging",
+          "source_start": "emptyroom.webp"
+        },
+        {
+          "code": "/unboxing",
+          "slug": "unboxing",
+          "status": "works",
+          "prompt": "/unboxing",
+          "description": "Opens the box and reveals what is inside.",
+          "spot_the_error": false,
+          "source_clip": "65-unboxing",
+          "source_start": "giftbox.webp"
+        },
+        {
+          "code": "/crashzoom",
+          "slug": "crashzoom",
+          "status": "works",
+          "prompt": "/crashzoom",
+          "description": "A sudden, fast zoom — the comic punchline of social media video.",
+          "spot_the_error": false,
+          "source_clip": "39-crashzoom",
+          "source_start": "fish.webp"
+        },
+        {
+          "code": "/cinemagraph",
+          "slug": "cinemagraph",
+          "status": "works",
+          "prompt": "/cinemagraph Only the clouds move. Everything else stays still.",
+          "description": "A still photo where only one thing moves — made for loops.",
+          "spot_the_error": false,
+          "source_clip": "40-cinemagraph",
+          "source_start": "airplane.webp"
+        },
+        {
+          "code": "/dronereveal",
+          "slug": "dronereveal",
+          "status": "works",
+          "prompt": "/dronereveal",
+          "description": "The camera rises and reveals how big the place really is.",
+          "spot_the_error": false,
+          "source_clip": "33-dronereveal",
+          "source_start": "whale.webp"
+        },
+        {
+          "code": "/fpv",
+          "slug": "fpv",
+          "status": "works",
+          "prompt": "/fpv Fast, swooping drone flight low over the ground and up the slope toward the crater.",
+          "description": "A fast, low drone flight through the landscape.",
+          "spot_the_error": false,
+          "source_clip": "49-fpv",
+          "source_start": "volcano.webp"
+        },
+        {
+          "code": "/watercolor",
+          "slug": "watercolor",
+          "status": "works",
+          "prompt": "/watercolor The whole scene turns into a moving watercolor painting with soft washes and visible paper texture.",
+          "description": "Turns the photo into a moving watercolour painting.",
+          "spot_the_error": false,
+          "source_clip": "46-watercolor",
+          "source_start": "castle.webp"
+        },
+        {
+          "code": "/parallax",
+          "slug": "parallax",
+          "status": "partial",
+          "prompt": "/parallax Slide the camera sideways so the foreground and the background move at different speeds.",
+          "description": "Makes a flat photo feel three-dimensional.",
+          "note": "The background slides past — but the cow glides along without walking.",
+          "spot_the_error": true,
+          "source_clip": "47-parallax",
+          "source_start": "cow.webp"
+        },
+        {
+          "code": "/vhs",
+          "slug": "vhs",
+          "status": "partial",
+          "prompt": "/vhs Make it look like it was filmed on a 1980s VHS camcorder: soft picture, color bleed and scan lines.",
+          "description": "A retro home-video look.",
+          "note": "The picture gets softer, but no scan lines or colour bleed appear.",
+          "spot_the_error": false,
+          "source_clip": "45-vhs",
+          "source_start": "newbike.webp"
+        },
+        {
+          "code": "/colorize",
+          "slug": "colorize",
+          "status": "partial",
+          "prompt": "/colorize",
+          "description": "Gives a black-and-white photo its colours.",
+          "note": "Only a faint sepia tone. Add a sentence describing the colours you expect — and remember that colour added to an old photo is an interpretation, not evidence.",
+          "spot_the_error": false,
+          "source_clip": "62-colorize",
+          "source_start": "bwphoto.webp"
+        }
+      ]
+    }
+  ]
+}
