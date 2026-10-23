@@ -25,6 +25,7 @@ SECTIONS = [
     ("notebooklm-en",      "140 visual styles",         "for NotebookLM",         "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("evidence-en",        "Evidence Toolkit",          "for schools",            "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("visualcodes-en",     "50 visual codes",           "for ChatGPT",            "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("visualcodes-video-en", "Visual codes",            "for video",              "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("about-en",           "Johan Lindström",           "Education consultant",   "CHOOSEWISE.EDUCATION", "#C2793A"),
     ("free-en",            "Free resources",            "for educators",          "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("aiorhuman-free-en",  "AI or human?",              "Printable tests",        "CHOOSEWISE.EDUCATION", "#C2793A"),
