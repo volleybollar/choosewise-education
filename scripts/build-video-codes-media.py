@@ -13,7 +13,10 @@ Källorna ligger utanför repot (de är råmaterial, inte publiceringsfiler):
 
 Kör:  /usr/bin/python3 scripts/build-video-codes-media.py
       [--source ~/Projekt/Choosewise/visual-codes-video-test] [--only <slug>]
-Filer som redan finns och är nyare än källan hoppas över.
+Filer som redan finns och är nyare än källan hoppas över — men bara om de
+byggdes ur samma källa. media/manifest.json minns vilket klipp och vilken
+startbild varje kod byggdes från; byter ett kort källa byggs dess filer om,
+även om den nya källfilen är äldre.
 """
 import argparse
 import json
@@ -76,6 +79,8 @@ def main():
 
     MEDIA.mkdir(parents=True, exist_ok=True)
     data = json.loads(DATA.read_text(encoding="utf-8"))
+    manifest_path = MEDIA / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.exists() else {}
     total = 0
     for section in data["sections"]:
         for code in section["codes"]:
@@ -88,17 +93,25 @@ def main():
                 if not src.exists():
                     sys.exit(f"{slug}: källfilen saknas: {src}")
 
+            source = {"clip": code["source_clip"], "start": code["source_start"]}
+            same_source = manifest.get(slug) == source
             mp4 = MEDIA / f"{slug}.mp4"
-            if not up_to_date(mp4, clip):
+            if not (same_source and up_to_date(mp4, clip)):
                 crf = encode_clip(clip, mp4)
                 print(f"{slug}: {mp4.stat().st_size // 1000} kB (crf {crf})")
             poster = MEDIA / f"{slug}-poster.webp"
-            if not up_to_date(poster, clip):
+            if not (same_source and up_to_date(poster, clip)):
                 make_poster(clip, poster)
             start_out = MEDIA / f"{slug}-start.webp"
-            if not up_to_date(start_out, start):
+            if not (same_source and up_to_date(start_out, start)):
                 make_start(start, start_out)
+            manifest[slug] = source
             total += mp4.stat().st_size
+    if not args.only:
+        # Koder som tagits bort ur JSON ska inte minnas som byggda
+        manifest = {k: v for k, v in manifest.items()
+                    if any(c["slug"] == k for s in data["sections"] for c in s["codes"])}
+    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"totalt video: {total / 1e6:.1f} MB")
 
 

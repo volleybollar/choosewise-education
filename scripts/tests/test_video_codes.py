@@ -60,26 +60,36 @@ def test_lightshift_and_seasons_exist_and_work():
         assert by_code[code]["status"] == "works"
 
 
-def normalised_prompts():
-    """Prompterna ur jobs.tsv i samma form som på sidan.
-    Higgsfield-raderna skrev tillägg som '/orbit + "The camera …"',
-    kie-raderna som '/reverse Play …'. Båda blir '/kod tillägg'."""
-    prompts = set()
+def prompts_by_clip():
+    """Prompten per klipp ur jobs.tsv. Kolumn 1 är klippnamnet (kie-rader:
+    '44-reverse') eller bara klippets nummer (Higgsfield-rader: '5', '2b' för
+    '05-xray', '02b-slowmotion'). Higgsfield-raderna loggade tillägg som
+    '/orbit + "The camera …"' men skickade '/orbit The camera …' — det är den
+    skickade formen som jämförs."""
+    rows = {}
     for line in JOBS.read_text(encoding="utf-8").splitlines():
         cols = line.split("\t")
         if len(cols) < 2:
             continue
-        p = re.sub(r' \+ "(.*)"$', r" \1", cols[1].strip())
-        prompts.add(p)
-    return prompts
+        rows[cols[0].strip()] = re.sub(r' \+ "(.*)"$', r" \1", cols[1].strip())
+    return rows
 
 
-def test_prompts_match_what_was_sent():
+def test_each_prompt_is_the_one_sent_with_its_own_clip():
+    """Inte bara 'prompten finns någonstans i loggen' — den ska höra till
+    exakt det klipp kortet visar. Annars kan ett kort visa klipp 59 med
+    prompt 70 och ändå passera."""
     if not JOBS.exists():
         pytest.skip("jobs.tsv finns bara på Johans maskin")
-    sent = normalised_prompts()
-    wrong = [c["code"] for _, c in all_codes() if c["prompt"] not in sent]
-    assert wrong == [], f"prompter som aldrig skickades: {wrong}"
+    rows = prompts_by_clip()
+    wrong = []
+    for _, c in all_codes():
+        clip = c["source_clip"]
+        number = clip.split("-")[0].lstrip("0")
+        sent = rows.get(clip, rows.get(number))
+        if sent != c["prompt"]:
+            wrong.append((c["code"], clip, sent))
+    assert wrong == []
 
 
 # ── Media (byggs av scripts/build-video-codes-media.py) ──────────────────────
@@ -99,6 +109,16 @@ def test_every_code_has_its_three_media_files():
     missing = [str(p.relative_to(ROOT)) for _, c in all_codes()
                for p in media_files(c["slug"]) if not p.exists()]
     assert missing == []
+
+
+def test_media_was_built_from_the_listed_source():
+    """Mediabygget skriver vilken källa varje fil kommer från. Pekas ett kort
+    om till ett annat klipp måste filerna byggas om — annars visar kortet
+    ny prompt bredvid gammalt klipp."""
+    built = _json.loads((MEDIA / "manifest.json").read_text(encoding="utf-8"))
+    wrong = [c["slug"] for _, c in all_codes()
+             if built.get(c["slug"]) != {"clip": c["source_clip"], "start": c["source_start"]}]
+    assert wrong == []
 
 
 def test_each_clip_is_within_budget():
@@ -290,5 +310,45 @@ def test_videos_side_by_side_share_top_and_bottom(site, browser):
         assert rows, "inga rader med flera kort — testet mäter inget"
         bad = [r for r in rows if len({t for _, t, _ in r}) > 1 or len({b for _, _, b in r}) > 1]
         assert bad == [], bad[:3]
+    finally:
+        context.close()
+
+
+# ── Sidans påståenden ska stämma (granskningen 2026-10-23) ───────────────────
+HTML = (ROOT / "visual-codes/video/index.html").read_text(encoding="utf-8")
+
+
+def test_box_intro_does_not_overstate_the_attempts():
+    """/freezeframe och /silhouette testades en gång, /reverse fem — 'två
+    eller tre gånger var' är fel."""
+    box = next(s for s in load()["sections"] if s["id"] == "doesnt-work-yet")
+    assert "two or three times each" not in box["intro"]
+
+
+def test_spot_the_error_callout_does_not_say_above():
+    """Ett märkt kort (/parallax) ligger i del 2, under rutan."""
+    assert "Spot the error</strong> above" not in HTML
+
+
+def test_short_clips_are_not_credited_to_berney_and_betrancourt():
+    """Klipplängd var ingen moderator i Berney & Bétrancourt 2016 —
+    'korta klipp' kommer ur segmenteringsforskningen (Rey m.fl. 2019)."""
+    text = re.sub(r"<[^>]+>", "", HTML).replace("&amp;", "&")   # länkadresser innehåller punkter
+    sentence = text.split("Berney & Bétrancourt, 2016")[0].rsplit(".", 1)[-1]
+    assert "Short clips" not in sentence
+
+
+def test_a_paused_clip_shows_a_play_cue(site, browser):
+    """Utan autoplay (reducerad rörelse, Safaris strömsparläge) ser postern ut
+    som en stillbild. En synlig play-symbol säger att det är ett klipp —
+    och den försvinner när klippet spelar."""
+    context, page = open_page(browser, site, reduced_motion="reduce")
+    try:
+        cue = page.locator(".vc-hero .vcv-media").first.locator(".vcv-play")
+        assert cue.is_visible()
+        page.locator(".vc-hero .vcv-video").first.focus()
+        page.keyboard.press("Space")
+        page.wait_for_timeout(800)
+        assert not cue.is_visible()
     finally:
         context.close()

@@ -1,0 +1,182 @@
+{
+  "assemblysequence": {
+    "clip": "22-assemblysequence",
+    "start": "chair.webp"
+  },
+  "bullettime": {
+    "clip": "50-bullettime",
+    "start": "basketball.webp"
+  },
+  "cinemagraph": {
+    "clip": "40-cinemagraph",
+    "start": "airplane.webp"
+  },
+  "colorize": {
+    "clip": "62-colorize",
+    "start": "bwphoto.webp"
+  },
+  "crashzoom": {
+    "clip": "39-crashzoom",
+    "start": "fish.webp"
+  },
+  "dollyzoom": {
+    "clip": "25-dollyzoom",
+    "start": "corridorchair.webp"
+  },
+  "dronereveal": {
+    "clip": "33-dronereveal",
+    "start": "whale.webp"
+  },
+  "dutchangle": {
+    "clip": "16-dutchangle",
+    "start": "polarbear.webp"
+  },
+  "earthzoomout": {
+    "clip": "07-earthzoomout",
+    "start": "landscape.webp"
+  },
+  "explodedview": {
+    "clip": "04-explodedview",
+    "start": "drone.webp"
+  },
+  "flowtrace": {
+    "clip": "12-flowtrace",
+    "start": "tree.webp"
+  },
+  "flythrough": {
+    "clip": "09b-flythrough",
+    "start": "house.webp"
+  },
+  "fpv": {
+    "clip": "49-fpv",
+    "start": "volcano.webp"
+  },
+  "freezeframe": {
+    "clip": "61-freezeframe",
+    "start": "basketball.webp"
+  },
+  "lifecycle": {
+    "clip": "08-lifecycle",
+    "start": "butterfly.webp"
+  },
+  "lightshift": {
+    "clip": "18-lightshift",
+    "start": "house.webp"
+  },
+  "lowangle": {
+    "clip": "26-lowangle",
+    "start": "runner.webp"
+  },
+  "matchcut": {
+    "clip": "70-matchcut",
+    "start": "eye.webp"
+  },
+  "noir": {
+    "clip": "30-noir",
+    "start": "flashlight.webp"
+  },
+  "oldphotoalive": {
+    "clip": "37-oldphotoalive",
+    "start": "oldphoto.webp"
+  },
+  "orbit": {
+    "clip": "34-orbit",
+    "start": "castle.webp"
+  },
+  "oxidize": {
+    "clip": "55-oxidize",
+    "start": "applenail.webp"
+  },
+  "paintingalive": {
+    "clip": "56-paintingalive",
+    "start": "milkmaid.webp"
+  },
+  "parallax": {
+    "clip": "47-parallax",
+    "start": "cow.webp"
+  },
+  "particleview": {
+    "clip": "11-particleview",
+    "start": "lab.webp"
+  },
+  "phasechange": {
+    "clip": "52-phasechange",
+    "start": "icecube.webp"
+  },
+  "rackfocus": {
+    "clip": "28-rackfocus",
+    "start": "butterfly.webp"
+  },
+  "reconstruct": {
+    "clip": "13-reconstruct",
+    "start": "castle.webp"
+  },
+  "reverse": {
+    "clip": "68-reverse",
+    "start": "dominoes.webp"
+  },
+  "seasons": {
+    "clip": "54-seasons",
+    "start": "tree.webp"
+  },
+  "selectivecolor": {
+    "clip": "57-selectivecolor",
+    "start": "umbrella.webp"
+  },
+  "silhouette": {
+    "clip": "58-silhouette",
+    "start": "silhouette.webp"
+  },
+  "sketchtolife": {
+    "clip": "27-sketchtolife",
+    "start": "crayondrawing.webp"
+  },
+  "slowmotion": {
+    "clip": "02b-slowmotion",
+    "start": "waterglass.webp"
+  },
+  "staging": {
+    "clip": "63-staging",
+    "start": "emptyroom.webp"
+  },
+  "stopmotion": {
+    "clip": "29-stopmotion",
+    "start": "clock.webp"
+  },
+  "throughtime": {
+    "clip": "23-throughtime",
+    "start": "pond.webp"
+  },
+  "tiltshift": {
+    "clip": "60-tiltshift",
+    "start": "harbour.webp"
+  },
+  "timelapse": {
+    "clip": "01-timelapse",
+    "start": "plant.webp"
+  },
+  "turntable": {
+    "clip": "51-turntable",
+    "start": "drone.webp"
+  },
+  "unboxing": {
+    "clip": "65-unboxing",
+    "start": "giftbox.webp"
+  },
+  "vhs": {
+    "clip": "45-vhs",
+    "start": "newbike.webp"
+  },
+  "watercolor": {
+    "clip": "46-watercolor",
+    "start": "castle.webp"
+  },
+  "xray": {
+    "clip": "05-xray",
+    "start": "windturbine.webp"
+  },
+  "zoomscale": {
+    "clip": "06b-zoomscale",
+    "start": "leaf.webp"
+  }
+}

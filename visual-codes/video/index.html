@@ -43,6 +43,8 @@
           <video class="vcv-video" src="media/lightshift.mp4" poster="media/lightshift-poster.webp"
                  muted loop playsinline preload="none" tabindex="0"
                  aria-label="Clip made with /lightshift: the same house goes from midday to sunset to night. Press to pause or play."></video>
+          <!-- Play cue: shown only while the clip is paused (video-codes.js) -->
+          <span class="vcv-play" aria-hidden="true"></span>
           <span class="vc-compare__chip vc-compare__chip--after">/lightshift</span>
           <figure class="vcv-start">
             <img src="media/lightshift-start.webp" alt="Start image: a white house in the snow at midday" decoding="async">
@@ -54,6 +56,8 @@
           <video class="vcv-video" src="media/seasons.mp4" poster="media/seasons-poster.webp"
                  muted loop playsinline preload="none" tabindex="0"
                  aria-label="Clip made with /seasons: one tree through summer, autumn, winter and spring. Press to pause or play."></video>
+          <!-- Play cue: shown only while the clip is paused (video-codes.js) -->
+          <span class="vcv-play" aria-hidden="true"></span>
           <span class="vc-compare__chip vc-compare__chip--after">/seasons</span>
           <figure class="vcv-start">
             <img src="media/seasons-start.webp" alt="Start image: a single oak tree in summer" decoding="async">
@@ -118,7 +122,7 @@
       <!-- The research case for moving images — and its limits -->
       <div class="callout" data-reveal>
         <p class="callout__headline">Why moving images — and when not</p>
-        <p>Animation beats a still picture when the content <em>is</em> change: a meta-analysis of 26 studies found an overall effect of d = 0.37, rising to d = 1.06 for procedural skills (<a href="https://www.leibniz-ipn.de/en/research/publications/instructional-animation-versus-static-pictures-a-meta-analysis" target="_blank" rel="noopener">Höffler &amp; Leutner, 2007</a>). Short clips work better than long ones, and clips without on-screen text work best when the teacher does the talking (<a href="https://archive-ouverte.unige.ch/unige:92234" target="_blank" rel="noopener">Berney &amp; Bétrancourt, 2016</a>). No study has yet tested AI-generated clips against still images. These codes are grounded in the research on animation — not proven in their AI form.</p>
+        <p>Animation beats a still picture when the content <em>is</em> change: a meta-analysis of 26 studies found an overall effect of d = 0.37, rising to d = 1.06 for procedural skills (<a href="https://www.leibniz-ipn.de/en/research/publications/instructional-animation-versus-static-pictures-a-meta-analysis" target="_blank" rel="noopener">Höffler &amp; Leutner, 2007</a>). Short, segmented clips are easier to learn from than long ones (<a href="https://is.mpg.de/publications/rey2018segmenting" target="_blank" rel="noopener">Rey et al., 2019</a>), and clips without on-screen text work best when the teacher does the talking (<a href="https://archive-ouverte.unige.ch/unige:92234" target="_blank" rel="noopener">Berney &amp; Bétrancourt, 2016</a>). No study has yet tested AI-generated clips against still images. These codes are grounded in the research on animation — not proven in their AI form.</p>
       </div>
     </section>
 
@@ -137,7 +141,7 @@
     <section class="container" data-reveal>
       <div class="callout">
         <p class="callout__headline">Spot the error</p>
-        <p>Video models cannot do physics. In the VideoPhy-2 benchmark the best model got both the content and the physics right in only 22 % of the hard test cases (<a href="https://arxiv.org/abs/2503.06800" target="_blank" rel="noopener">Bansal et al., 2025</a>). That makes the mistakes teaching material. Cards marked <strong>Spot the error</strong> above contain one. Four ways to use any clip:</p>
+        <p>Video models cannot do physics. In the VideoPhy-2 benchmark the best model got both the content and the physics right in only 22 % of the hard test cases (<a href="https://arxiv.org/abs/2503.06800" target="_blank" rel="noopener">Bansal et al., 2025</a>). That makes the mistakes teaching material. Cards marked <strong>Spot the error</strong> contain one. Four ways to use any clip:</p>
         <ul>
           <li><strong>Spot the error</strong> — what in the clip could not happen, and how do you know?</li>
           <li><strong>Real vs AI</strong> — compare the clip with real footage of the same process.</li>

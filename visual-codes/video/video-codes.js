@@ -50,6 +50,7 @@ function vcvCardHtml(item) {
       <video class="vcv-video" src="media/${slug}.mp4" poster="media/${slug}-poster.webp"
              muted loop playsinline preload="none" tabindex="0"
              aria-label="Clip made with ${code}. Press to pause or play."></video>
+      <span class="vcv-play" aria-hidden="true"></span>
       <span class="vc-compare__chip vc-compare__chip--after">${code}</span>
       <figure class="vcv-start">
         <img src="media/${slug}-start.webp" alt="Start image sent with ${code}" loading="lazy" decoding="async">
@@ -89,6 +90,15 @@ function vcvInitVideo(video) {
       video.pause();
     }
   };
+  /* The play cue shows whenever the clip is not running — otherwise a paused
+     poster looks like a still photo and nobody knows it is a clip. Driven by
+     the video's own play/pause events, so it is right however playback
+     started or stopped (observer, click, keyboard, or the browser itself). */
+  const media = video.closest('.vcv-media');
+  const sync = () => media && media.classList.toggle('is-paused', video.paused);
+  video.addEventListener('play', sync);
+  video.addEventListener('pause', sync);
+  sync();
   video.addEventListener('click', toggle);
   video.addEventListener('keydown', (e) => {
     if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); }

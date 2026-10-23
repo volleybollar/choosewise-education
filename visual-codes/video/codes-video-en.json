@@ -303,7 +303,7 @@
       "id": "doesnt-work-yet",
       "part": 1,
       "title": "Tested — doesn't work (yet)",
-      "intro": "We tested these two or three times each, with added sentences. Most ask the model to move the camera through space or to freeze time, and that is beyond it when it starts from a single still image — even when we supplied the end image as well. The last two never looked real. For art class that is a lesson in itself: AI can imitate a film crew, but it has no camera to move.",
+      "intro": "We tested each of these, most of them several times and with added sentences. Moving a camera through space or stopping time is beyond the model when it starts from a single still image — even when we supplied the end image as well. /silhouette never turned the figure into a dark shape, and /reverse never looked real. For art class that is a lesson in itself: AI can imitate a film crew, but it has no camera to move.",
       "codes": [
         {
           "code": "/dollyzoom",
