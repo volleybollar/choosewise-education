@@ -47,6 +47,7 @@ PAGES = (
     + [
         "guides/claude/", "sv/guider/claude/",
         "infographic-styles/", "sv/infografik-stilar/",
+        "visual-codes/video/",
         "notebooklm-styles/", "sv/notebooklm-stilar/",
         "presentation-skills/", "sv/presentationsteknik/",
         "presentation-skills/module-2/deep-dive/",

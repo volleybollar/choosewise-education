@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visual codes for video — choosewise.education</title>
+  <meta name="description" content="One image, one code, a five-second teaching clip. Visual codes for AI video with real classroom value — every code tested, shown as start image and finished clip, including the ones that don't work yet.">
+  <meta property="og:title" content="Visual codes for video">
+  <meta property="og:description" content="One image, one code, a five-second teaching clip. Every code tested — including the ones that don't work yet.">
+  <meta property="og:image" content="https://choosewise.education/assets/images/brand/og/visualcodes-video-en.png">
+  <!-- Same shared stylesheets as every page on the site -->
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- The image page's own styles, loaded unchanged: cards, steps, chips and
+       notes look exactly the same here, so the two pages read as one family. -->
+  <link rel="stylesheet" href="/visual-codes/visual-codes.css">
+  <!-- Only what is new for video: the playing clip, the start-image inset,
+       the status badges and the "doesn't work yet" box. -->
+  <link rel="stylesheet" href="video-codes.css">
+<!-- seo:start (build-seo-meta.py) -->
+<link rel="canonical" href="https://choosewise.education/visual-codes/video/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."}]}</script>
+<!-- seo:end -->
+</head>
+<body class="page-visual-codes page-video-codes">
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- ───── Hook: two finished clips before any text ─────
+         Hand-written (not rendered from JSON) so they show at once, above the
+         fold. Same markup as the cards further down; video-codes.js starts
+         and stops every .vcv-video as it scrolls in and out of view. -->
+    <section class="vc-hero container">
+      <div class="vc-hero__grid">
+
+        <div class="vcv-media">
+          <video class="vcv-video" src="media/lightshift.mp4" poster="media/lightshift-poster.webp"
+                 muted loop playsinline preload="none" tabindex="0"
+                 aria-label="Clip made with /lightshift: the same house goes from midday to sunset to night. Press to pause or play."></video>
+          <!-- Play cue: shown only while the clip is paused (video-codes.js) -->
+          <span class="vcv-play" aria-hidden="true"></span>
+          <span class="vc-compare__chip vc-compare__chip--after">/lightshift</span>
+          <figure class="vcv-start">
+            <img src="media/lightshift-start.webp" alt="Start image: a white house in the snow at midday" decoding="async">
+            <figcaption>Start image</figcaption>
+          </figure>
+        </div>
+
+        <div class="vcv-media">
+          <video class="vcv-video" src="media/xray.mp4" poster="media/xray-poster.webp"
+                 muted loop playsinline preload="none" tabindex="0"
+                 aria-label="Clip made with /xray: the wind turbine turns see-through and shows the gearbox inside. Press to pause or play."></video>
+          <!-- Play cue: shown only while the clip is paused (video-codes.js) -->
+          <span class="vcv-play" aria-hidden="true"></span>
+          <span class="vc-compare__chip vc-compare__chip--after">/xray</span>
+          <figure class="vcv-start">
+            <img src="media/xray-start.webp" alt="Start image: a wind turbine on an open field" decoding="async">
+            <figcaption>Start image</figcaption>
+          </figure>
+        </div>
+
+      </div>
+      <p class="vc-hero__caption">Two of the codes, each sent with one ordinary photo: <code>/lightshift</code> keeps the scene and changes the light, <code>/xray</code> turns the shell see-through while the machine keeps working. The full library — including the codes that don't work yet — follows below.</p>
+      <p class="free-note">Looking for still images? <a href="/visual-codes/">50 visual codes for ChatGPT</a> do the same thing for pictures.</p>
+    </section>
+
+    <!-- ───── Hero: what this page is, in two sentences ───── -->
+    <section class="page-hero container">
+      <span class="eyebrow" data-reveal>AI video</span>
+      <h1 data-reveal>Visual codes for video</h1>
+      <p class="lede" data-reveal>Upload one image, add one code, and an AI video tool turns it into a five-second teaching clip — a time-lapse, an X-ray, a life cycle, a lesson in film language. Every code on this page has been tested on real images, and the ones that failed are shown too.</p>
+    </section>
+
+    <!-- ───── Answer capsule for search engines and AI assistants,
+               same pattern as the image page ───── -->
+    <section class="seo-answer" data-reveal>
+      <h2 class="seo-answer__question">What is a visual code for video?</h2>
+      <p class="seo-answer__capsule">A visual code for video is a one-word, slash-prefixed prompt — like /timelapse or /xray — that you send to an AI video tool together with a start image. The model reads the word as an instruction for how the picture should move or change, and returns a short clip. This page collects codes with classroom value, from science processes to film language for art class, each shown as start image and finished clip, plus codes for everyday use. They are not official commands, and they work across tools rather than in one product. Codes that failed in testing are listed with what went wrong.</p>
+    </section>
+
+    <!-- ───── How-to: the main purpose of the page, so it sits above the clips ───── -->
+    <section class="container section--flush-top" id="how-to">
+      <h2 data-reveal>Make your own clip</h2>
+      <div class="vc-steps" data-reveal>
+        <div class="vc-step">
+          <span class="vc-step__number">01</span>
+          <h3>Choose a start image</h3>
+          <p>A photo, a drawing, a museum painting or an image you have generated. The picture decides more than the code: a code can only change what is already there.</p>
+        </div>
+        <div class="vc-step">
+          <span class="vc-step__number">02</span>
+          <h3>Add one code</h3>
+          <p>Upload the image to your video tool and send the code — for example <code>/timelapse</code>. Established words like time-lapse or X-ray often work on their own.</p>
+        </div>
+        <div class="vc-step">
+          <span class="vc-step__number">03</span>
+          <h3>Add a sentence if needed</h3>
+          <p>Say <em>how</em> it should move — direction, pace, what stays still — never what the result should be. If you write the answer, the code is no longer doing the work.</p>
+        </div>
+        <div class="vc-step">
+          <span class="vc-step__number">04</span>
+          <h3>Check before you show</h3>
+          <p>Watch the whole clip before the lesson. Video models look convincing and still get physics, biology and history wrong.</p>
+        </div>
+      </div>
+
+      <!-- Johan's instruction: say plainly that results vary, and what to do about it -->
+      <p class="vc-note" data-reveal><strong>Results vary.</strong> The same code on the same image can give a different clip next time, and different video tools read the same word differently. If you don't get what you wanted, don't give up on the code — add more information to complement it: which direction the camera should move, how fast the change should happen, or exactly what should stay still. One extra sentence usually does it. Cards with an <strong>Add</strong> line show the exact sentence we used.</p>
+
+      <!-- Where teachers can actually make AI video — and the age limits -->
+      <div class="callout" data-reveal>
+        <p class="callout__headline">Where can you make AI video?</p>
+        <p>Most general AI assistants now generate short clips from an image, and several dedicated video tools do the same. Check the age limit before you plan a lesson: video generation in Gemini requires a paid plan and is 18+, and most other tools are 13+ with parental consent below 18. In most classrooms that means the teacher generates and the class analyses. You are responsible for following your country's rules and your school's guidelines. All clips on this page were made with Seedance 2.0, image-to-video, five seconds.</p>
+      </div>
+
+      <!-- The research case for moving images — and its limits -->
+      <div class="callout" data-reveal>
+        <p class="callout__headline">Why moving images — and when not</p>
+        <p>Animation beats a still picture when the content <em>is</em> change: a meta-analysis of 26 studies found an overall effect of d = 0.37, rising to d = 1.06 for procedural skills (<a href="https://www.leibniz-ipn.de/en/research/publications/instructional-animation-versus-static-pictures-a-meta-analysis" target="_blank" rel="noopener">Höffler &amp; Leutner, 2007</a>). Short, segmented clips are easier to learn from than long ones (<a href="https://is.mpg.de/publications/rey2018segmenting" target="_blank" rel="noopener">Rey et al., 2019</a>), and clips without on-screen text work best when the teacher does the talking (<a href="https://archive-ouverte.unige.ch/unige:92234" target="_blank" rel="noopener">Berney &amp; Bétrancourt, 2016</a>). No study has yet tested AI-generated clips against still images. These codes are grounded in the research on animation — not proven in their AI form.</p>
+      </div>
+    </section>
+
+    <!-- ───── Part 1: In the classroom ─────
+         video-codes.js renders the three teaching categories and the
+         "doesn't work yet" box into #vcv-part1 from codes-video-en.json. -->
+    <section class="container vcv-part">
+      <span class="eyebrow" data-reveal>Part 1</span>
+      <h2 data-reveal>In the classroom</h2>
+    </section>
+    <div id="vcv-part1">
+      <noscript><p class="container">This page needs JavaScript to show the code cards and clips.</p></noscript>
+    </div>
+
+    <!-- ───── Spot the error: the teaching move that makes AI mistakes useful ───── -->
+    <section class="container" data-reveal>
+      <div class="callout">
+        <p class="callout__headline">Spot the error</p>
+        <p>Video models cannot do physics. In the VideoPhy-2 benchmark the best model got both the content and the physics right in only 22 % of the hard test cases (<a href="https://arxiv.org/abs/2503.06800" target="_blank" rel="noopener">Bansal et al., 2025</a>). That makes the mistakes teaching material. Cards marked <strong>Spot the error</strong> contain one. Four ways to use any clip:</p>
+        <ul>
+          <li><strong>Spot the error</strong> — what in the clip could not happen, and how do you know?</li>
+          <li><strong>Real vs AI</strong> — compare the clip with real footage of the same process.</li>
+          <li><strong>Predict and stop</strong> — pause before the end and let the class predict the outcome.</li>
+          <li><strong>Silent loop</strong> — play the clip without text and explain it yourself.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ───── Part 2: Beyond the classroom (rendered into #vcv-part2) ───── -->
+    <section class="container vcv-part">
+      <span class="eyebrow" data-reveal>Part 2</span>
+      <h2 data-reveal>Beyond the classroom</h2>
+    </section>
+    <div id="vcv-part2"></div>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <!-- GSAP powers the same subtle scroll reveals as the rest of the site -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/include.js"></script>
+  <script defer src="/assets/js/copy-to-clipboard.js"></script>
+  <script defer src="/assets/js/scroll-reveals.js"></script>
+  <script defer src="video-codes.js"></script>
+</body>
+</html>

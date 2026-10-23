@@ -40,6 +40,10 @@ A curated catalogue of 140 visual styles (with prompts) for generating NotebookL
 
 Fifty one-word, slash-prefixed prompts (such as /cutaway, /anatomy, /ghosted) that turn an uploaded photo into a teaching visual in ChatGPT. Sorted into eight categories; every code is demonstrated with a draggable before/after slider on the same photo, and the page explains how to make your own.
 
+- [Visual codes for video — English](https://choosewise.education/visual-codes/video/)
+
+One-word codes for AI video: send a start image with a code such as /timelapse, /xray or /lightshift and get a five-second clip. Codes with classroom value (science processes, change over time, film language for art class) and for everyday use, each shown as start image and finished clip with the exact prompt. Codes that failed in testing are listed with what went wrong, and clips with factual errors are marked as "spot the error" material.
+
 ## Presentation Skills
 
 - [Presentation Skills landing — English](https://choosewise.education/presentation-skills/)
