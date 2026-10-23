@@ -123,16 +123,6 @@
           "source_start": "butterfly.webp"
         },
         {
-          "code": "/reverse",
-          "slug": "reverse",
-          "status": "works",
-          "prompt": "/reverse Play what happened backwards in time.",
-          "description": "Runs an event backwards — and raises the question of why some processes only go one way.",
-          "spot_the_error": false,
-          "source_clip": "68-reverse",
-          "source_start": "dominoes.webp"
-        },
-        {
           "code": "/flowtrace",
           "slug": "flowtrace",
           "status": "works",
@@ -313,7 +303,7 @@
       "id": "doesnt-work-yet",
       "part": 1,
       "title": "Tested — doesn't work (yet)",
-      "intro": "We tested these two or three times each, with added sentences. Moving the camera through space and freezing time are beyond the model when it starts from a single still image — even when we supplied the end image as well. For art class that is a lesson in itself: AI can imitate a film crew, but it has no camera to move.",
+      "intro": "We tested these two or three times each, with added sentences. Most ask the model to move the camera through space or to freeze time, and that is beyond it when it starts from a single still image — even when we supplied the end image as well. The last two never looked real. For art class that is a lesson in itself: AI can imitate a film crew, but it has no camera to move.",
       "codes": [
         {
           "code": "/dollyzoom",
@@ -380,6 +370,17 @@
           "spot_the_error": false,
           "source_clip": "58-silhouette",
           "source_start": "silhouette.webp"
+        },
+        {
+          "code": "/reverse",
+          "slug": "reverse",
+          "status": "fails",
+          "prompt": "/reverse Play what happened backwards in time.",
+          "description": "Runs an event backwards — meant to raise the question of why some processes only go one way.",
+          "spot_the_error": false,
+          "source_clip": "68-reverse",
+          "source_start": "dominoes.webp",
+          "note": "Three motifs — pancakes, a broken glass, a row of dominoes — and none looked real. The last clip ends as a mix of dice and dominoes."
         }
       ]
     },

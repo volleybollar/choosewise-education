@@ -3,7 +3,7 @@
 
 För varje kod i visual-codes/video/codes-video-en.json skapas tre filer i
 visual-codes/video/media/:
-  <slug>.mp4          klippet: H.264, 640 px brett, utan ljud, högst 900 kB
+  <slug>.mp4          klippet: H.264, 960 px brett (skarpt på retina), utan ljud, högst 900 kB
   <slug>-poster.webp  första bildrutan — visas innan videon har laddat
   <slug>-start.webp   startbilden som skickades till modellen (584 px)
 
@@ -37,13 +37,13 @@ def up_to_date(target, source):
 
 
 def encode_clip(src, dst):
-    """Koda om till 640 px H.264 utan ljud. Ryms filen inte i budgeten
+    """Koda om till 960 px H.264 utan ljud. Ryms filen inte i budgeten
     höjs komprimeringen (crf) två steg i taget tills den gör det."""
     crf = START_CRF
     while True:
         subprocess.run(
             ["ffmpeg", "-v", "error", "-y", "-i", str(src), "-an",
-             "-vf", "scale=640:-2", "-c:v", "libx264", "-crf", str(crf),
+             "-vf", "scale=960:-2", "-c:v", "libx264", "-crf", str(crf),
              "-preset", "slow", "-pix_fmt", "yuv420p", "-movflags", "+faststart",
              str(dst)],
             check=True)
@@ -56,7 +56,7 @@ def make_poster(src, dst):
     """Första bildrutan som webp, så kortet aldrig är en tom svart ruta."""
     tmp = dst.with_suffix(".png")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(src),
-                    "-vf", "scale=640:-2", "-frames:v", "1", str(tmp)], check=True)
+                    "-vf", "scale=960:-2", "-frames:v", "1", str(tmp)], check=True)
     Image.open(tmp).save(dst, "WEBP", quality=80)
     tmp.unlink()
 
