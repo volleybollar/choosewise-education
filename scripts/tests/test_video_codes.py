@@ -80,3 +80,45 @@ def test_prompts_match_what_was_sent():
     sent = normalised_prompts()
     wrong = [c["code"] for _, c in all_codes() if c["prompt"] not in sent]
     assert wrong == [], f"prompter som aldrig skickades: {wrong}"
+
+
+# ── Media (byggs av scripts/build-video-codes-media.py) ──────────────────────
+import json as _json
+import subprocess
+
+MEDIA = ROOT / "visual-codes/video/media"
+MAX_CLIP = 900_000          # byte per klipp
+MAX_TOTAL = 40_000_000      # byte all video på sidan
+
+
+def media_files(slug):
+    return [MEDIA / f"{slug}.mp4", MEDIA / f"{slug}-poster.webp", MEDIA / f"{slug}-start.webp"]
+
+
+def test_every_code_has_its_three_media_files():
+    missing = [str(p.relative_to(ROOT)) for _, c in all_codes()
+               for p in media_files(c["slug"]) if not p.exists()]
+    assert missing == []
+
+
+def test_each_clip_is_within_budget():
+    big = {c["slug"]: (MEDIA / f"{c['slug']}.mp4").stat().st_size
+           for _, c in all_codes()
+           if (MEDIA / f"{c['slug']}.mp4").stat().st_size > MAX_CLIP}
+    assert big == {}
+
+
+def test_total_video_within_budget():
+    total = sum((MEDIA / f"{c['slug']}.mp4").stat().st_size for _, c in all_codes())
+    assert total <= MAX_TOTAL, total
+
+
+def test_clips_have_no_audio_track_and_are_h264():
+    for _, c in all_codes():
+        out = subprocess.run(
+            ["ffprobe", "-v", "error", "-show_entries", "stream=codec_type,codec_name",
+             "-of", "json", str(MEDIA / f"{c['slug']}.mp4")],
+            capture_output=True, text=True, check=True).stdout
+        streams = _json.loads(out)["streams"]
+        assert [s["codec_type"] for s in streams] == ["video"], c["slug"]
+        assert streams[0]["codec_name"] == "h264", c["slug"]
