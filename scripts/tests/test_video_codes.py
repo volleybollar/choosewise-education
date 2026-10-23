@@ -352,3 +352,11 @@ def test_a_paused_clip_shows_a_play_cue(site, browser):
         assert not cue.is_visible()
     finally:
         context.close()
+
+
+def test_hero_shows_lightshift_and_xray():
+    """Johan 2026-10-23: /lightshift och /xray överst (xray ersatte seasons)."""
+    hero = HTML.split('class="vc-hero container"')[1].split("</section>")[0]
+    assert 'src="media/lightshift.mp4"' in hero
+    assert 'src="media/xray.mp4"' in hero
+    assert "seasons" not in hero
