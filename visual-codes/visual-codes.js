@@ -30,7 +30,9 @@ function vcImgAttrs(path) {
 }
 
 /* Build the markup for one code card. Codes without a generated image pair
-   fall back to the neutral placeholder images. */
+   fall back to the neutral placeholder images. .vc-slot stands in for a
+   missing Add line or note — so the CSS subgrid can line the slider up with
+   the card next to it. */
 function vcCardHtml(item) {
   const before = item.before || 'images/placeholder-before.svg';
   const after  = item.after  || 'images/placeholder-after.svg';
@@ -47,7 +49,7 @@ function vcCardHtml(item) {
       <span class="vc-card__hint">${item.addition ? 'Click to copy both' : 'Click to copy'}</span>
     </div>
     <p class="vc-card__desc">${vcEscape(item.description)}</p>
-    ${item.addition ? `<p class="vc-card__addition"><span class="vc-card__addition-label">Add</span> ${vcEscape(item.addition)}</p>` : ''}
+    ${item.addition ? `<p class="vc-card__addition"><span class="vc-card__addition-label">Add</span> ${vcEscape(item.addition)}</p>` : '<div class="vc-slot"></div>'}
     <div class="vc-compare">
       <img ${vcImgAttrs(after)} alt="Result after sending ${code} to ChatGPT" loading="lazy" decoding="async">
       <span class="vc-compare__chip vc-compare__chip--after">${code}</span>
@@ -60,7 +62,7 @@ function vcCardHtml(item) {
         <span class="vc-compare__grip" aria-hidden="true">&#9664;&#9654;</span>
       </button>
     </div>
-    ${item.note ? `<p class="vc-card__note">${vcEscape(item.note)}</p>` : ''}
+    ${item.note ? `<p class="vc-card__note">${vcEscape(item.note)}</p>` : '<div class="vc-slot"></div>'}
   </article>`;
 }
 
