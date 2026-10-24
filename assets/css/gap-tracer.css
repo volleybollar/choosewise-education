@@ -1,0 +1,79 @@
+/* Gap Tracer (/gap-tracer/). Färger bara som var(--…): hex bor i tokens.css. */
+
+.gt-disclaimer { max-width: var(--content-text-max); }
+.gt-step[hidden] { display: none; }
+/* Heron har redan luft under sig; utan detta hamnar sökningen långt ned på mobilen. */
+#gt-step-1 { padding-top: 0; }
+
+/* ───── Steg 1: sökning och namn ───── */
+.gt-fields { display: grid; gap: var(--space-4); grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); max-width: var(--content-max); }
+.gt-field { display: flex; flex-direction: column; gap: var(--space-2); }
+.gt-field__label { font-size: var(--fs-small); color: var(--color-text-soft); }
+.gt-field .input { width: 100%; }
+
+.gt-results { list-style: none; padding: 0; margin: var(--space-5) 0 0; display: grid; gap: var(--space-3); max-width: var(--content-max); }
+.gt-result { display: block; width: 100%; text-align: left; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-4) var(--space-5); cursor: pointer; color: var(--color-text); font: inherit; }
+.gt-result:hover { border-color: var(--color-border-strong); }
+.gt-result:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+.gt-result[aria-pressed="true"] { border-color: var(--color-highlight); border-left-width: 3px; }
+.gt-result__name { font-weight: var(--weight-emphasis); display: block; }
+.gt-result__meta, .gt-result__standards { display: block; font-size: var(--fs-small); color: var(--color-text-soft); margin-top: var(--space-1); }
+.gt-empty { color: var(--color-text-soft); }
+
+/* Markeringen "Practice activities" / "No practice activities yet". Text, inte
+   bara färg, så att den går att läsa för den som inte ser färgskillnaden. */
+.gt-badge { display: inline-block; font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; border: 1px solid var(--color-border-strong); border-radius: var(--radius-pill); padding: 0 var(--space-2); margin-top: var(--space-2); color: var(--color-text-soft); }
+.gt-badge--yes { border-color: var(--color-highlight); color: var(--color-highlight-ink); }
+
+/* ───── Steg 2: byggstenarna ───── */
+.gt-check__list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); }
+.gt-check__list .gt-check__list { margin-top: var(--space-4); padding-left: var(--space-5); border-left: 2px solid var(--color-border); }
+.gt-block { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-4) var(--space-5); }
+.gt-block__name { font-weight: var(--weight-emphasis); }
+.gt-block__strength { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-text-soft); margin-left: var(--space-2); }
+.gt-block__question { margin: var(--space-2) 0 var(--space-3); }
+.gt-block details { font-size: var(--fs-small); color: var(--color-text-soft); margin-bottom: var(--space-3); }
+.gt-answers { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.gt-answer[aria-pressed="true"] { border-color: var(--color-text); background: var(--color-bg-alt); font-weight: var(--weight-emphasis); }
+.gt-deeper { margin-top: var(--space-3); }
+
+/* ───── Steg 3: planen ───── */
+.gt-plan__intro { max-width: var(--content-text-max); margin-bottom: var(--space-5); }
+.gt-plan__items { padding-left: var(--space-5); display: grid; gap: var(--space-6); max-width: var(--content-text-max); }
+.gt-plan__item h3 { font-size: var(--fs-h3); margin-bottom: var(--space-2); }
+.gt-plan__item h4 { font-size: var(--fs-body); font-weight: var(--weight-emphasis); margin: var(--space-4) 0 var(--space-2); }
+.gt-plan__item ul { padding-left: var(--space-5); }
+.gt-plan__target { color: var(--color-text-soft); font-size: var(--fs-small); }
+.gt-activity { border-left: 3px solid var(--color-highlight); padding-left: var(--space-4); margin-top: var(--space-3); }
+.gt-activity__title { font-weight: var(--weight-emphasis); }
+.gt-none, .gt-error { color: var(--color-text-soft); font-style: italic; }
+.gt-plan__made { font-size: var(--fs-small); color: var(--color-text-soft); max-width: var(--content-text-max); margin-block: var(--space-6) var(--space-4); }
+
+.gt-feedback { margin-top: var(--space-7); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
+.gt-feedback__buttons { display: flex; gap: var(--space-2); }
+
+/* ───── Steg 1: exempel för föräldrar ───── */
+.gt-examples { max-width: var(--content-text-max); padding-left: var(--space-5); margin-bottom: var(--space-4); display: grid; gap: var(--space-1); }
+.gt-examples__teachers { max-width: var(--content-text-max); color: var(--color-text-soft); margin-bottom: var(--space-6); }
+
+/* ───── About this tool: rutnät över hela bredden ───── */
+.gt-about__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); margin-bottom: var(--space-6); }
+.gt-about__grid h3 { font-size: var(--fs-body); font-weight: var(--weight-emphasis); margin-bottom: var(--space-2); }
+.gt-about__grid p { max-width: none; }
+.gt-notices { font-size: var(--fs-small); color: var(--color-text-soft); max-width: none; }
+
+@media (max-width: 900px) {
+  .gt-about__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .gt-fields { grid-template-columns: minmax(0, 1fr); }
+  .gt-about__grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ───── Utskrift: bara planen, med disclaimer och "How this was made" ───── */
+@media print {
+  [data-include], header, footer, .page-hero, #gt-step-1, #gt-step-2, #gt-about,
+  #gt-print, .gt-feedback { display: none !important; }
+  #gt-plan { padding: 0; }
+  .gt-activity { break-inside: avoid; }
+}
