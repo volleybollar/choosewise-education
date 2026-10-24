@@ -282,3 +282,23 @@
 .page-visual-codes .page-hero  { padding-block: var(--space-7) var(--space-5); }
 .page-visual-codes .seo-answer { padding-block: var(--space-5); }
 .page-visual-codes #how-to     { padding-top: var(--space-5); }
+
+/* ───── Side-by-side cards line up ─────
+   Same pattern as the video page: each card takes five rows of the grid
+   (code, description, Add line, slider, note) and shares them with the card
+   next to it via subgrid. An Add line in one card makes that row taller in
+   both, so the two sliders always start and end on the same horizontal lines.
+   The grid's own row gap must be 0 here — a subgrid inherits it between every
+   row inside the card — so the spacing is set on the cards instead.
+   The video page overrides the span with its own six rows (video-codes.css).
+   Browsers without subgrid keep the plain column layout above. */
+@supports (grid-template-rows: subgrid) {
+  .page-visual-codes .vc-grid { row-gap: 0; }
+  .page-visual-codes .vc-card {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 5;
+    row-gap: var(--space-3);
+    margin-bottom: var(--space-5);
+  }
+}

@@ -245,7 +245,8 @@
           "code": "/technicaldrawing",
           "description": "Shows accurate front, side and top views, like an engineer's sheet.",
           "before": "images/bicycle-before.webp",
-          "after": "images/bicycle-technicaldrawing.webp"
+          "after": "images/bicycle-technicaldrawing.webp",
+          "addition": "show the front, side and top views on one engineer's sheet"
         },
         {
           "code": "/dimensionview",
