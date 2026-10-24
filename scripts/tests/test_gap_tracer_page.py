@@ -328,3 +328,14 @@ def test_hidden_controls_stay_hidden(page):
     assert not page.locator(f'.gt-block[data-id="{HALVES}"] .gt-deeper').first.is_visible()
     page.click('#gt-feedback [data-feedback="yes"]')
     assert not page.locator(".gt-feedback__buttons").is_visible()
+
+
+def test_nav_links_to_gap_tracer_in_english_only():
+    # Sidan finns bara på engelska, så den svenska menyn ska inte länka dit.
+    en = (ROOT / "assets/partials/header-en.html").read_text(encoding="utf-8")
+    sv = (ROOT / "assets/partials/header-sv.html").read_text(encoding="utf-8")
+    link = '<li><a class="nav__link" href="/gap-tracer/">Gap Tracer</a></li>'
+    assert link in en
+    # Bredvid det andra interaktiva verktyget, mellan AI or human? och Claude.
+    assert en.index('href="/ai-or-human/"') < en.index(link) < en.index('href="/guides/claude/"')
+    assert "/gap-tracer/" not in sv
