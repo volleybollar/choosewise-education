@@ -1,6 +1,8 @@
 /* Gap Tracer (/gap-tracer/). Färger bara som var(--…): hex bor i tokens.css. */
 
-.gt-disclaimer { max-width: var(--content-text-max); }
+/* Disclaimer-rutan och texten i steg 1 går över hela sidans bredd, som
+   ingressen ovanför (base.css begränsar annars p och li till en textspalt). */
+#gt-step-1 p, #gt-step-1 li { max-width: none; }
 .gt-step[hidden] { display: none; }
 /* Skriptet döljer knappar och listor med hidden. Sajtens .btn och listorna här
    har display: flex/grid, som annars tar över och visar dem ändå. */
@@ -58,12 +60,13 @@
 .gt-feedback__buttons { display: flex; gap: var(--space-2); }
 
 /* ───── Steg 1: exempel för föräldrar ───── */
-.gt-examples { max-width: var(--content-text-max); padding-left: var(--space-5); margin-bottom: var(--space-4); display: grid; gap: var(--space-1); }
-.gt-examples__teachers { max-width: var(--content-text-max); color: var(--color-text-soft); margin-bottom: var(--space-6); }
+.gt-examples { padding-left: var(--space-5); margin-bottom: var(--space-4); display: grid; gap: var(--space-1); }
+.gt-examples__teachers { color: var(--color-text-soft); margin-bottom: var(--space-6); }
 
 /* ───── About this tool: rutnät över hela bredden ───── */
 .gt-about__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); margin-bottom: var(--space-6); }
-.gt-about__grid h3 { font-size: var(--fs-body); font-weight: var(--weight-emphasis); margin-bottom: var(--space-2); }
+/* 600 är det fetaste typsnittet sajten laddar (fonts.css: 300–600). */
+.gt-about__grid h3 { font-size: var(--fs-body); font-weight: 600; margin-bottom: var(--space-2); }
 .gt-about__grid p { max-width: none; }
 .gt-notices { font-size: var(--fs-small); color: var(--color-text-soft); max-width: none; }
 
