@@ -20,7 +20,8 @@
   const MAX_RESULTS = 20;
 
   const skillsById = new Map();
-  const state = { targetId: null, answers: new Map() };
+  // answers: id → "yes" | "unsure" | "no". expanded: ids whose earlier layer is open.
+  const state = { targetId: null, answers: new Map(), expanded: new Set() };
   const activityCache = new Map();  // id → Promise of the activity list
 
   const $ = (sel) => document.querySelector(sel);
@@ -58,9 +59,22 @@
     return order.filter((id) => id !== targetId && gaps.has(id)).concat(targetId);
   }
 
-  // Skills answered "Not sure" or "No".
+  // Skills answered "Not sure" or "No" that are still on the path from the
+  // target. A layer only counts while the skill above it is open and not
+  // "Yes, secure": if halves are secure, what lies under halves isn't a gap.
   function gapIds() {
-    return new Set([...state.answers].filter(([, a]) => a !== 'yes').map(([id]) => id));
+    const gaps = new Set();
+    const target = skillsById.get(state.targetId);
+    (function walk(edges) {
+      edges.forEach(({ id }) => {
+        const answer = state.answers.get(id);
+        if (answer !== 'no' && answer !== 'unsure') return;
+        if (gaps.has(id)) return;
+        gaps.add(id);
+        if (state.expanded.has(id)) walk(skillsById.get(id).prereqs);
+      });
+    })(target ? target.prereqs : []);
+    return gaps;
   }
 
   // ───── Step 1: search ─────
@@ -114,11 +128,15 @@
   function selectTarget(id) {
     state.targetId = id;
     state.answers.clear();
+    state.expanded.clear();
     document.querySelectorAll('.gt-result').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.id === id)));
     $('#gt-step-2').hidden = false;
     $('#gt-plan').hidden = false;
     renderCheck();
     renderPlan();
+    // On a phone step 2 opens far below the results: take her there.
+    $('#gt-step-2').scrollIntoView({ block: 'start' });
+    $('#gt-step-2-title').focus({ preventScroll: true });
   }
 
   // ───── Step 2: the building blocks ─────
@@ -181,7 +199,11 @@
       deeper.hidden = true;
       deeper.addEventListener('click', () => {
         deeper.remove();
-        item.append(blockList(skill.prereqs));
+        state.expanded.add(skill.id);
+        const layer = blockList(skill.prereqs);
+        item.append(layer);
+        layer.querySelector('.gt-answer').focus();  // keep keyboard users in place
+        renderPlan();
       });
       item.append(deeper);
     }
@@ -196,6 +218,9 @@
       b.setAttribute('aria-pressed', String(b.dataset.answer === answer)));
     const deeper = item.querySelector(':scope > .gt-deeper');
     if (deeper) deeper.hidden = !(answer === 'no' || answer === 'unsure');
+    // An open layer hides while the skill is "Yes, secure"; its answers are kept.
+    const layer = item.querySelector(':scope > .gt-check__list');
+    if (layer) layer.hidden = answer === 'yes';
   }
 
   function setAnswer(id, value) {
@@ -267,7 +292,14 @@
         item.append(box);
         loadActivities(id)
           .then((acts) => acts.slice(0, 2).forEach((a) => box.append(renderActivity(a))))
-          .catch(() => box.append(el('p', 'gt-error', FETCH_FAILED)));
+          .catch(() => {
+            const error = el('p', 'gt-error', FETCH_FAILED + ' ');
+            const retry = el('button', 'btn btn--secondary gt-retry', 'Try again');
+            retry.type = 'button';
+            retry.addEventListener('click', renderPlan);
+            error.append(retry);
+            box.append(error);
+          });
       }
       list.append(item);
     });

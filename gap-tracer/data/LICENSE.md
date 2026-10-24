@@ -7,7 +7,7 @@ The files in this folder (`skills.json`, `meta.json` and `activities/`) are a se
 - Database (the collection, structure, IDs and relationships): [Open Database License 1.0](https://opendatacommons.org/licenses/odbl/1-0/)
 - Text written by Marble (skill names, descriptions, evidence, check questions and activities): [Creative Commons Attribution-ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
-What we changed: we removed activities that need Marble's app, removed one activity whose shown text contained a curriculum omission marker, kept only the fields the page shows, and replaced curriculum codes with readable labels for the Common Core State Standards, the Australian Curriculum v9 and the National Curriculum in England.
+What we changed: we removed activities that need Marble's app, activities whose shown text contained a curriculum omission marker and activities that refer to NGSS, kept only the fields the page shows, and replaced curriculum codes with readable labels for the Common Core State Standards, the Australian Curriculum v9 and the National Curriculum in England.
 
 Curriculum notices:
 

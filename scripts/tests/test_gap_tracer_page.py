@@ -248,3 +248,83 @@ def test_feedback_is_hidden_when_printing(page):
     page.emulate_media(media="print")
     assert not page.locator("#gt-feedback").is_visible()
     assert page.locator("#gt-plan .gt-disclaimer").is_visible()
+
+
+# ---- Slutgranskningen ----
+
+def test_print_hides_site_nav(page):
+    pick(page, "equivalent fractions", TARGET)
+    page.emulate_media(media="print")
+    assert page.locator("nav.nav").count() >= 1
+    assert not page.locator("nav.nav").first.is_visible()
+
+
+def go_deeper(page, levels):
+    """Svara No på den djupaste byggstenen som har förkunskaper och öppna nästa nivå."""
+    for _ in range(levels):
+        block = page.locator(".gt-block:has(> .gt-deeper)").last
+        block.locator(":scope > .gt-answers .gt-answer[data-answer='no']").click()
+        block.locator(":scope > .gt-deeper").click()
+
+
+def test_deep_layers_do_not_scroll_sideways_on_phone(page):
+    page.set_viewport_size({"width": 375, "height": 800})
+    pick(page, "equivalent fractions", TARGET)
+    go_deeper(page, 4)
+    depth = page.evaluate("Math.max(...[...document.querySelectorAll('.gt-block')].map(b => { let d = 0, n = b; while ((n = n.parentElement.closest('.gt-check__list'))) d++; return d; }))")
+    assert depth >= 4
+    assert page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth") == 0
+
+
+def test_choosing_a_skill_moves_focus_to_step_2(page):
+    pick(page, "equivalent fractions", TARGET)
+    assert page.evaluate("document.activeElement.id") == "gt-step-2-title"
+
+
+def test_focus_moves_into_the_new_layer(page):
+    pick(page, "equivalent fractions", TARGET)
+    answer(page, HALVES, "no")
+    page.locator(f'.gt-block[data-id="{HALVES}"] .gt-deeper').first.click()
+    assert page.evaluate(f"document.activeElement.closest('.gt-block')?.dataset.id") == HALF
+    assert page.evaluate("document.activeElement.classList.contains('gt-answer')")
+
+
+def test_yes_after_going_deeper_drops_what_lies_under_it(page):
+    pick(page, "equivalent fractions", TARGET)
+    answer(page, HALVES, "no")
+    page.locator(f'.gt-block[data-id="{HALVES}"] .gt-deeper').first.click()
+    answer(page, HALF, "no")
+    assert plan_ids(page) == [HALF, HALVES, TARGET]
+    answer(page, HALVES, "yes")
+    assert plan_ids(page) == [TARGET]
+    assert not page.locator(f'.gt-block[data-id="{HALF}"]').first.is_visible()
+    answer(page, HALVES, "no")  # tillbaka: svaren därunder finns kvar
+    assert plan_ids(page) == [HALF, HALVES, TARGET]
+
+
+def test_retry_after_failed_fetch(page):
+    failing = {"on": True}
+    page.route("**/gap-tracer/data/activities/**",
+               lambda route: route.fulfill(status=500) if failing["on"] else route.continue_())
+    pick(page, "equivalent fractions", TARGET)
+    item = page.locator(f'#gt-plan-items .gt-plan__item[data-id="{TARGET}"]')
+    item.locator(".gt-error").wait_for()
+    failing["on"] = False
+    item.locator(".gt-retry").click()
+    page.locator(f'#gt-plan-items .gt-plan__item[data-id="{TARGET}"] .gt-activity').first.wait_for()
+
+
+def test_plan_intro_does_not_overpromise(page):
+    pick(page, "equivalent fractions", TARGET)
+    intro = page.inner_text(".gt-plan__intro")
+    assert "builds on the one before it" not in intro
+    assert "after the skills it builds on" in intro
+
+
+def test_hidden_controls_stay_hidden(page):
+    # Sajtens CSS (display: flex/grid på .btn och listor) får inte ta över hidden.
+    page.evaluate("document.getElementById('gt-feedback').dataset.telemetryUrl = ''")
+    pick(page, "equivalent fractions", TARGET)
+    assert not page.locator(f'.gt-block[data-id="{HALVES}"] .gt-deeper').first.is_visible()
+    page.click('#gt-feedback [data-feedback="yes"]')
+    assert not page.locator(".gt-feedback__buttons").is_visible()

@@ -61,7 +61,19 @@ SCREEN_WORDS = (
     "dial", "dials",                         # "turn the eruption dial"
     "zoom", "zooms",
     "in-role",                               # Marble's AI characters ("an in-role dentist")
+    # Added after the final review: simulation language. Words that also name
+    # real things ("virtual image", "device", "replay the count") stay out.
+    "flythrough", "step through",            # "watch (or step through) as they divide"
+    "gauge", "gauges",                       # "observe a sea-level gauge"
+    "panel", "panels",                       # "a consequences panel", "a question panel"
+    "app", "apps",                           # "a planetarium/star app"
+    "time-lapse", "in the model",
+    "species counter", "tool is available",
 )
+
+# NGSS isn't shown (Johan's decision 2026-10-24), and every NGSS reference
+# needs WestEd's trademark notice. Activities that mention it are dropped.
+NGSS_RE = re.compile(r"\bNGSS\b", re.IGNORECASE)
 SCREEN_RE = re.compile(r"\b(?:" + "|".join(re.escape(w) for w in SCREEN_WORDS) + r")\b",
                        re.IGNORECASE)
 
@@ -133,13 +145,15 @@ def build(src: Path, out: Path, built_date: str) -> dict:
     for edges in prereqs.values():
         edges.sort(key=lambda e: e["strength"] != "hard")  # stable: hard first, then file order
 
-    removed_screen = removed_marker = kept = 0
+    removed_screen = removed_marker = removed_ngss = kept = 0
     activities: dict[str, list] = {}
     for record in research:
         keep = []
         for a in record["learn"]["activities"]:
             if has_marker(a):
                 removed_marker += 1
+            elif NGSS_RE.search(shown_text(a)):
+                removed_ngss += 1
             elif needs_screen(a):
                 removed_screen += 1
             else:
@@ -184,6 +198,7 @@ def build(src: Path, out: Path, built_date: str) -> dict:
             "activitiesKept": kept,
             "removedScreen": removed_screen,
             "removedMarker": removed_marker,
+            "removedNgss": removed_ngss,
         },
     }
 

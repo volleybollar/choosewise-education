@@ -118,3 +118,27 @@ def test_build_is_deterministic(tmp_path):
     files_b = sorted(p.relative_to(b) for p in b.rglob("*") if p.is_file())
     assert files_a == files_b
     assert all((a / f).read_bytes() == (b / f).read_bytes() for f in files_a)
+
+
+# ---- Slutgranskningen: skärmövningar som slank igenom, och NGSS ----
+
+def test_needs_screen_catches_simulation_phrases():
+    for text in [
+        "Seed a few polyps and watch (or step through) as they divide",
+        "Watch a species counter climb as the structure grows",
+        "Melt components one at a time and observe a sea-level gauge",
+        "OPTIONAL interaction if a chain tool is available: watch the bar",
+        "An optional flythrough can display a light-travel-time counter",
+        "Optional with a question panel that shades each bar",
+        "In the model, see that much of the nutrient store is removed",
+        "Use a planetarium/star app to spot the Plough",
+    ]:
+        assert gt.needs_screen(activity(learnerActions=[text])), text
+
+
+def test_no_kept_activity_mentions_ngss():
+    # NGSS visas inte (Johans beslut), och varumärkesnotisen krävs för varje
+    # NGSS-omnämnande. En övning som nämner NGSS tas därför bort.
+    bad = [p.name for p in (DATA / "activities").glob("*.json")
+           if "ngss" in p.read_text(encoding="utf-8").lower()]
+    assert bad == []

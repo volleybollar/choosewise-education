@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
   <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
   <!-- Sidans egna stilar: steg, svarsknappar, markeringar och utskrift. -->
-  <link rel="stylesheet" href="/assets/css/gap-tracer.css?v=20261024b">
+  <link rel="stylesheet" href="/assets/css/gap-tracer.css?v=20261024d">
 <!-- seo:start (build-seo-meta.py) -->
 <link rel="canonical" href="https://choosewise.education/gap-tracer/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -79,7 +79,9 @@
          på en gång, eftersom den kan vara hundratals steg lång. -->
     <section class="section section--alt gt-step" id="gt-step-2" hidden>
       <div class="container">
-        <h2 class="section__title">2. Check the building blocks</h2>
+        <!-- tabindex="-1" låter skriptet flytta fokus hit när en färdighet
+             väljs, så att man på mobilen hamnar vid steg 2 direkt. -->
+        <h2 class="section__title" id="gt-step-2-title" tabindex="-1">2. Check the building blocks</h2>
         <div id="gt-check"></div>
       </div>
     </section>
@@ -91,7 +93,7 @@
       <aside class="callout gt-disclaimer">
         <p><strong>What this tool is not.</strong> It doesn't diagnose. It doesn't measure your child's or student's level, it doesn't replace a teacher's judgement, and it doesn't promise that they'll catch up. It suggests where to look and where to start practising.</p>
       </aside>
-      <p class="gt-plan__intro">Start at the top. Each step builds on the one before it, and the plan ends with the skill the child was stuck on.</p>
+      <p class="gt-plan__intro">Start at the top. Each skill comes after the skills it builds on, and the plan ends with the skill the child was stuck on.</p>
       <ol class="gt-plan__items" id="gt-plan-items"></ol>
       <p class="gt-plan__made">
         <strong>How this was made:</strong> the prerequisite map and the practice activities were written by AI at Marble. They have not been tested with children, and their sources have not been re-checked. Data: Marble Skill Taxonomy, snapshot <span data-meta="marbleCommit"></span> (<span data-meta="marbleDate"></span>). Page data rebuilt <span data-meta="builtDate"></span>. Marble Skill Taxonomy (v1) · © Generative Spark, Inc. (Marble) · https://withmarble.com · licensed under ODbL 1.0 (database) and CC BY-SA 4.0 (content).
