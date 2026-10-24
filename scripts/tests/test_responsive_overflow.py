@@ -56,6 +56,7 @@ PAGES = (
         "sv/presentationsteknik/modul-4/fordjupning/",
         "sv/presentationsteknik/modul-1/",
         "sv/promptar/skolmaltidspersonal/",
+        "gap-tracer/",
     ]
 )
 

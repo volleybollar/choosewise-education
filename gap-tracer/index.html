@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gap Tracer — choosewise.education</title>
+  <meta name="description" content="A child is stuck and you're not sure why. Trace the skill back to the building blocks that may be missing, and get a free practice plan you can print.">
+  <meta property="og:title" content="Gap Tracer — choosewise.education">
+  <meta property="og:description" content="A child is stuck and you're not sure why. Trace the skill back to the building blocks that may be missing, and get a free practice plan you can print.">
+  <meta property="og:image" content="https://choosewise.education/assets/images/brand/og/wise-en.png">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Sidans egna stilar: steg, svarsknappar, markeringar och utskrift. -->
+  <link rel="stylesheet" href="/assets/css/gap-tracer.css?v=20261024e">
+<!-- seo:start (build-seo-meta.py) -->
+<link rel="canonical" href="https://choosewise.education/gap-tracer/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."}]}</script>
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: vad verktyget är, i en mening. Löftet hålls medvetet litet,
+         eftersom Johans anti-mål är att lova mer än verktyget håller. -->
+    <section class="page-hero container">
+      <span class="eyebrow">Free tool</span>
+      <h1>Gap Tracer</h1>
+      <p class="lede">When a child is stuck, the problem often sits further back than the skill in front of them. Pick the skill, check the building blocks one question at a time, and get a plan for where to start practising.</p>
+
+      <!-- Disclaimer-rutan. Den ska synas INNAN något har lovats, och den får
+           aldrig fällas ihop. Texten är fastställd i specen (§3) — ändra den
+           inte utan att Johan godkänt det. En kopia står överst i planen. -->
+      <aside class="callout gt-disclaimer">
+        <p><strong>What this tool is not.</strong> It doesn't diagnose. It doesn't measure your child's or student's level, it doesn't replace a teacher's judgement, and it doesn't promise that they'll catch up. It suggests where to look and where to start practising.</p>
+      </aside>
+    </section>
+
+    <!-- Steg 1: välj det barnet kör fast på. Sökningen och namnet sköts av
+         assets/js/gap-tracer.js. Namnet används bara för att göra frågorna
+         personliga — det sparas inte och skickas aldrig någonstans. -->
+    <section class="section container gt-step" id="gt-step-1">
+      <h2 class="section__title">1. What is the child stuck on?</h2>
+      <!-- Förklaring och exempel, framför allt för föräldrar som inte tänker i
+           kurskoder. Alla exempel är provsökta mot datan 2026-10-24 och ger
+           träffar — byt inte ut dem utan att söka på dem först. -->
+      <p class="section__lede">Start with what the child is struggling with right now: the homework that won't work out, or something the teacher mentioned. Type a few words that describe the skill, then pick the closest match. For example, if the child…</p>
+      <ul class="gt-examples">
+        <li>can't remember what 7 × 8 is — try <strong>times tables</strong></li>
+        <li>doesn't see that 2/4 and 1/2 are the same amount — try <strong>equivalent fractions</strong></li>
+        <li>can't read the time on a clock with hands — try <strong>telling time</strong></li>
+        <li>gets the change wrong when paying in a shop — try <strong>giving change</strong></li>
+        <li>guesses words instead of sounding them out — try <strong>blending sounds</strong></li>
+      </ul>
+      <p class="gt-examples__teachers">Teachers can also search by a curriculum code, such as <strong>3.NF.3</strong> (Common Core) or <strong>AC9M4N03</strong> (Australian Curriculum).</p>
+      <div class="gt-fields">
+        <label class="gt-field">
+          <span class="gt-field__label">Search for a skill or a curriculum code</span>
+          <input class="input" type="search" id="gt-search" placeholder="e.g. equivalent fractions, 3.NF.3, AC9M4N03" autocomplete="off">
+        </label>
+        <label class="gt-field gt-field--name">
+          <span class="gt-field__label">Child's first name (optional — it never leaves this page)</span>
+          <input class="input" type="text" id="gt-name" autocomplete="off" maxlength="40">
+        </label>
+      </div>
+      <!-- Träffarna skrivs in här. Varje träff visar om det finns övningar,
+           så att ingen tror att det finns övningar där det inte gör det. -->
+      <ul class="gt-results" id="gt-results" aria-live="polite"></ul>
+    </section>
+
+    <!-- Steg 2: byggstenarna. En kort fråga per förkunskap. "Not sure" och
+         "No" erbjuder att gå ett steg längre bakåt — hela kedjan visas aldrig
+         på en gång, eftersom den kan vara hundratals steg lång. -->
+    <section class="section section--alt gt-step" id="gt-step-2" hidden>
+      <div class="container">
+        <!-- tabindex="-1" låter skriptet flytta fokus hit när en färdighet
+             väljs, så att man på mobilen hamnar vid steg 2 direkt. -->
+        <h2 class="section__title" id="gt-step-2-title" tabindex="-1">2. Check the building blocks</h2>
+        <div id="gt-check"></div>
+      </div>
+    </section>
+
+    <!-- Steg 3: träningsplanen. Det här är den del som skrivs ut, så
+         disclaimern och "How this was made" står inne i den. -->
+    <section class="section container gt-step" id="gt-plan" hidden>
+      <h2 class="section__title">3. Where to spend your time</h2>
+      <aside class="callout gt-disclaimer">
+        <p><strong>What this tool is not.</strong> It doesn't diagnose. It doesn't measure your child's or student's level, it doesn't replace a teacher's judgement, and it doesn't promise that they'll catch up. It suggests where to look and where to start practising.</p>
+      </aside>
+      <p class="gt-plan__intro">Start at the top. Each skill comes after the skills it builds on, and the plan ends with the skill the child was stuck on.</p>
+      <ol class="gt-plan__items" id="gt-plan-items"></ol>
+      <p class="gt-plan__made">
+        <strong>How this was made:</strong> the prerequisite map and the practice activities were written by AI at Marble. They have not been tested with children, and their sources have not been re-checked. Data: Marble Skill Taxonomy, snapshot <span data-meta="marbleCommit"></span> (<span data-meta="marbleDate"></span>). Page data rebuilt <span data-meta="builtDate"></span>. Marble Skill Taxonomy (v1) · © Generative Spark, Inc. (Marble) · https://withmarble.com · licensed under ODbL 1.0 (database) and CC BY-SA 4.0 (content).
+      </p>
+      <button type="button" class="btn btn--secondary" id="gt-print">Print / save as PDF</button>
+
+      <!-- Återkoppling: bara ja eller nej. Ingen fritext, eftersom fritext kan
+           innehålla barnets namn. data-telemetry-url är tom tills Johan har
+           skapat sitt Google Sheet — tom adress betyder att inget skickas. -->
+      <div class="gt-feedback" id="gt-feedback" data-telemetry-url="">
+        <p class="gt-feedback__question">Did this help you know where to start?</p>
+        <div class="gt-feedback__buttons">
+          <button type="button" class="btn btn--secondary" data-feedback="yes">Yes</button>
+          <button type="button" class="btn btn--secondary" data-feedback="no">No</button>
+        </div>
+        <p class="gt-feedback__thanks" hidden>Thanks — that helps.</p>
+      </div>
+    </section>
+
+    <!-- About this tool: Johans fyra öppenhetspunkter (vad verktyget gör och
+         inte gör, var det finns övningar, vilka läroplaner, när det
+         uppdaterades) plus vem som skrivit innehållet och alla notiser.
+         Talen och datumen fylls i från gap-tracer/data/meta.json — skriv
+         aldrig in dem för hand, då blir de fel vid nästa uppdatering. -->
+    <section class="section section--alt" id="gt-about">
+      <div class="container">
+        <h2 class="section__title">About this tool</h2>
+        <!-- Punkterna ligger i ett rutnät som använder hela bredden: tre
+             kolumner på dator, en på mobil. Raderna blir då kortare utan att
+             texten sprids ut i för långa rader. -->
+        <div class="gt-about__grid">
+          <div><h3>What it does</h3><p>Shows which earlier skills a skill builds on, gives you one quick question for each, and turns the ones that aren't secure yet into a practice plan, foundations first.</p></div>
+          <div><h3>What it doesn't do</h3><p>It doesn't diagnose, measure a child's level or replace a teacher's judgement, and it can't promise that a child will catch up. The questions are prompts for your own judgement, not a test.</p></div>
+          <div><h3>Where there are activities</h3><p>Practice activities exist only in Mathematics and Science — <span data-meta="counts.bySubject.Mathematics.withActivities"></span> of <span data-meta="counts.bySubject.Mathematics.skills"></span> Mathematics skills and <span data-meta="counts.bySubject.Science.withActivities"></span> of <span data-meta="counts.bySubject.Science.skills"></span> Science skills have at least one. We only show activities you can do with paper, objects and conversation. Other subjects show the building blocks and the questions, without activities.</p></div>
+          <div><h3>Curricula</h3><p>Skills are linked to the Common Core State Standards (US), the National Curriculum in England and the Australian Curriculum v9.</p></div>
+          <div><h3>Who wrote it</h3><p>The prerequisite map and the practice activities were written by AI at Marble. They have not been tested with children, and their sources have not been re-checked.</p></div>
+          <div><h3>Updated</h3><p>Data: Marble Skill Taxonomy, snapshot <span data-meta="marbleCommit"></span> (<span data-meta="marbleDate"></span>). Page data rebuilt <span data-meta="builtDate"></span>.</p></div>
+        </div>
+        <p class="gt-notices"><strong>Sources and licences.</strong> Marble Skill Taxonomy (v1) · © Generative Spark, Inc. (Marble) · https://withmarble.com · licensed under ODbL 1.0 (database) and CC BY-SA 4.0 (content). The data this page uses is offered under the same licences: see <a href="/gap-tracer/data/LICENSE.md">the data licence</a>.</p>
+        <p class="gt-notices">© Copyright 2010 National Governors Association Center for Best Practices and Council of Chief State School Officers. Contains public sector information licensed under the Open Government Licence v3.0. © Australian Curriculum, Assessment and Reporting Authority (ACARA) 2009 to present, unless otherwise indicated; licensed under CC BY 4.0. ACARA does not endorse any product that uses ACARA material or make any representations as to the quality of such products.</p>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <!-- Själva verktyget: sökning, byggstenar och plan. -->
+  <script src="/assets/js/gap-tracer.js" defer></script>
+</body>
+</html>
