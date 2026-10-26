@@ -44,6 +44,10 @@ Fifty one-word, slash-prefixed prompts (such as /cutaway, /anatomy, /ghosted) th
 
 One-word codes for AI video: send a start image with a code such as /timelapse, /xray or /lightshift and get a five-second clip. Codes with classroom value (science processes, change over time, film language for art class) and for everyday use, each shown as start image and finished clip with the exact prompt. Codes that failed in testing are listed with what went wrong, and clips with factual errors are marked as "spot the error" material.
 
+- [Visual codes for studying — English](https://choosewise.education/visual-codes/study/)
+
+Codes such as /cheatsheet, /quizmate or /flashcards that, typed into an AI chatbot with a topic and "Make it an image", return a study poster or a worksheet. 27 codes tested on photosynthesis, the French Revolution and the Pythagorean theorem. Part 1 holds the codes that make students practise (each needs one added sentence, shown on its card); Part 2 the posters to read, each with a way to make reading active. The page explains that the codes are not official commands but the model's average reading of the word, documents the factual errors and weak answer keys found in testing, and lists four codes that failed.
+
 ## Presentation Skills
 
 - [Presentation Skills landing — English](https://choosewise.education/presentation-skills/)

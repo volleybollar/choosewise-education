@@ -134,7 +134,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/"/>
@@ -210,7 +210,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/privacy/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-24</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/prompts/after-school-care/</loc>
@@ -1192,7 +1192,11 @@
   </url>
   <url>
     <loc>https://choosewise.education/visual-codes/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/visual-codes/study/</loc>
+    <lastmod>2026-10-26</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/visual-codes/video/</loc>
