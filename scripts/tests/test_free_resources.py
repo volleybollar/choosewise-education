@@ -17,6 +17,7 @@ GATE_SCRIPT = '<script type="module" src="/assets/js/mailerlite-gate.js"'
 DEEP_LINKS = {
     "free/ai-or-human/index.html": ("ai-or-human-en", "/assets/pdfs/free/ai-or-human-en.pdf"),
     "free/visual-codes/index.html": ("visual-codes-50-en", "/assets/pdfs/free/visual-codes-50-en.pdf"),
+    "free/study-codes/index.html": ("visual-codes-study-en", "/assets/pdfs/free/visual-codes-study-en.pdf"),
 }
 
 
@@ -75,6 +76,12 @@ def test_ai_or_human_page_links_to_its_free_page():
 def test_visual_codes_page_links_to_its_free_page():
     page = read("visual-codes/index.html")
     assert 'href="/free/visual-codes/"' in page
+    assert "data-gate" not in page
+
+
+def test_study_codes_page_links_to_its_free_page():
+    page = read("visual-codes/study/index.html")
+    assert 'href="/free/study-codes/"' in page
     assert "data-gate" not in page
 
 
