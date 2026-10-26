@@ -180,7 +180,7 @@ def test_the_page_count_is_what_we_think():
     (PR #46), och från 201 till 202 med den engelska the-house-that-cost-one-
     dollar.html (PR #48), och från 202 till 205 med free/, free/ai-or-human/
     och free/prompts/ (gratismaterialet 2026-10-20), och till 206 med
-    free/visual-codes/, och till 207 med visual-codes/video/ (2026-10-23), och till 208 med gap-tracer/ (2026-10-24). Räkna upp det med flit när en sida tillkommer — det
+    free/visual-codes/, och till 207 med visual-codes/video/ (2026-10-23), och till 208 med gap-tracer/ (2026-10-24), och till 209 med visual-codes/study/ (2026-10-26). Räkna upp det med flit när en sida tillkommer — det
     är vaktens hela poäng att det ska kräva ett medvetet handgrepp.
 
     Obs: published_files() läser `git ls-files`, så vakten ser en ny sida
@@ -192,7 +192,7 @@ def test_the_page_count_is_what_we_think():
     i efterhand av elevguiderundans leveranssteg, som upptäckte att main var
     rött innan den mergade. Fällan har alltså slagit till två gånger på tre
     sidor: det är inte slarv, det är att vakten bara kan se spårade filer."""
-    assert len(PAGES) == 208, len(PAGES)
+    assert len(PAGES) == 209, len(PAGES)
 
 
 @pytest.mark.parametrize("path", PAGES, ids=lambda p: str(p.relative_to(ROOT)))
@@ -216,15 +216,15 @@ OG_DIR = ROOT / "assets/images/brand/og"
 OG_SVGS = sorted(OG_DIR.glob("*.svg"))
 OG_DEFAULT = ROOT / "assets/images/brand/og-default.svg"
 
-# The fifteen section cards (twelve + the two free-resources cards 2026-10-20 + visual codes for video 2026-10-23) plus og-default.svg — the file the site-wide
-# og:image tag actually points at. It is not one of the fifteen (see
-# test_there_are_fifteen_og_cards below, which must keep counting exactly
+# The sixteen section cards (twelve + the two free-resources cards 2026-10-20 + visual codes for video 2026-10-23 + visual codes for studying 2026-10-26) plus og-default.svg — the file the site-wide
+# og:image tag actually points at. It is not one of the sixteen (see
+# test_there_are_sixteen_og_cards below, which must keep counting exactly
 # that) but it gets the mark too, so it needs the same two guards.
 ALL_OG_CARDS = OG_SVGS + [OG_DEFAULT]
 
 
-def test_there_are_fifteen_og_cards():
-    assert len(OG_SVGS) == 15, [p.name for p in OG_SVGS]
+def test_there_are_sixteen_og_cards():
+    assert len(OG_SVGS) == 16, [p.name for p in OG_SVGS]
 
 
 @pytest.mark.parametrize("svg", ALL_OG_CARDS, ids=lambda p: p.name)
@@ -233,7 +233,7 @@ def test_no_og_card_carries_the_mark(svg):
     og-korten är de stora bilderna folk ser när sajten delas — det är där
     märket hade blivit "överallt". Korten bär ordmärket och inget mer.
 
-    Parametriseringen kan inte gå tom: test_there_are_fifteen_og_cards
+    Parametriseringen kan inte gå tom: test_there_are_sixteen_og_cards
     räknar källan."""
     text = svg.read_text(encoding="utf-8")
     for d in (NEEDLE_NORTH, NEEDLE_SOUTH):

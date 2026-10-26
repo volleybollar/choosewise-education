@@ -1,0 +1,346 @@
+{
+  "_readme": "Data for the Visual codes for studying page. The prompt that was sent is always: '<code> <topic>. Make it an image.' + 'addition' (if any). The page shows the addition on the card and the copy button hands over the whole prompt with [your topic] in place of the topic — so 'addition' must be exactly the text used in testing and never edited by hand. 'slug' names the image files in images/: <slug>.webp (1024 px) and <slug>-512w.webp, built by scripts/build-study-codes-media.py from 'source' (a file in the test folder outside the repo). status: works | partial | fails ('fails' only in the doesnt-work-yet section). uses: print | wall | digital.",
+  "model": "GPT Image 2, portrait 1024 × 1536, high quality",
+  "sections": [
+    {
+      "id": "test-yourself",
+      "part": 1,
+      "title": "Test yourself",
+      "intro": "Worksheets that make the student retrieve the answer instead of reading it. The answer key goes at the bottom — cut it off, or check it, before the sheet goes out.",
+      "codes": [
+        {
+          "code": "/quizmate",
+          "slug": "quizmate",
+          "status": "works",
+          "addition": "A quiz sheet with 8 questions and empty answer lines. Answer key in small print at the bottom.",
+          "description": "A quiz sheet with empty answer lines. In maths it drew the triangles to solve.",
+          "uses": ["print"],
+          "subject": "the Pythagorean theorem",
+          "note": "Tested in three subjects — the answer key was right every time.",
+          "source": "matematik/quizmate-tillagg-final.png"
+        },
+        {
+          "code": "/flashcards",
+          "slug": "flashcards",
+          "status": "works",
+          "addition": "Show the front and back of each card side by side: question on the left, answer on the right, so the sheet can be folded down the middle to hide the answers. The question side shows only the question, with no pictures or hints that give away the answer.",
+          "description": "Question on the left, answer on the right. Fold the sheet down the middle and quiz yourself.",
+          "uses": ["print", "digital"],
+          "subject": "the French Revolution",
+          "note": "The last sentence matters: without it, the pictures on the question side gave the answers away.",
+          "source": "historia/flashcards-tillagg-final.png"
+        },
+        {
+          "code": "/matchinggame",
+          "slug": "matchinggame",
+          "status": "works",
+          "addition": "A matching worksheet: terms on the left, shuffled descriptions on the right, no lines drawn. Answer key in small print at the bottom.",
+          "description": "Terms on one side, shuffled descriptions on the other. The student draws the lines.",
+          "uses": ["print"],
+          "subject": "the French Revolution",
+          "note": "All twelve pairs in the key were correct.",
+          "source": "historia/matchinggame-tillagg-final.png"
+        },
+        {
+          "code": "/labeltheimage",
+          "slug": "labeltheimage",
+          "status": "works",
+          "addition": "Numbered empty label boxes with no text in them. Answer key in small print at the bottom.",
+          "description": "A diagram with numbered, empty labels to fill in.",
+          "uses": ["print", "wall"],
+          "subject": "photosynthesis",
+          "note": "Clean on photosynthesis. In history the key named a painting from 1830 as a scene from 1789, and in maths the grid squares did not match the triangle.",
+          "source": "fotosyntes/labeltheimage-tillagg.png"
+        },
+        {
+          "code": "/clozecards",
+          "slug": "clozecards",
+          "status": "partial",
+          "addition": "Leave every blank empty. Answer key in small print at the bottom, with one numbered answer for every blank.",
+          "description": "Sentences with gaps to fill in, numbered against a key.",
+          "uses": ["print"],
+          "subject": "photosynthesis",
+          "note": "Two answers are missing from this key. In maths the model also blanked out the numbers the student needed, so the tasks could not be solved.",
+          "source": "fotosyntes/clozecards-tillagg-v3.png"
+        },
+        {
+          "code": "/mcq",
+          "slug": "mcq",
+          "status": "partial",
+          "addition": "Multiple-choice questions with options A–D and no answer marked. Answer key in small print at the bottom.",
+          "description": "Multiple-choice questions, options A–D, no answer marked.",
+          "uses": ["print", "digital"],
+          "subject": "the French Revolution",
+          "note": "Work through every question before you trust the key: in maths it was wrong on two of five questions, and one question had two right answers. Note the typo in question 4.",
+          "source": "historia/mcq-tillagg-final.png"
+        },
+        {
+          "code": "/sortinggame",
+          "slug": "sortinggame",
+          "status": "partial",
+          "addition": "A sorting worksheet: a mixed list of items and empty columns to sort them into. No items placed in the columns. Answer key in small print at the bottom.",
+          "description": "A mixed list and empty columns. The student sorts each item into a category.",
+          "uses": ["print"],
+          "subject": "the French Revolution",
+          "note": "The categories can be vague. In maths the key sorted false equations such as 2² + 3² = 4² as worked examples.",
+          "source": "historia/sortinggame-tillagg-final.png"
+        }
+      ]
+    },
+    {
+      "id": "explain-it",
+      "part": 1,
+      "title": "Explain it",
+      "intro": "Sheets with questions and empty space — no key, because the answer is the student's own explanation.",
+      "codes": [
+        {
+          "code": "/socratic",
+          "slug": "socratic",
+          "status": "works",
+          "addition": "Only questions, each one building on the last, with empty space to write an answer. No answers anywhere.",
+          "description": "A chain of questions, each one building on the last.",
+          "uses": ["print", "digital"],
+          "subject": "the French Revolution",
+          "note": "Without the added sentence, every question came with its answer printed right after it.",
+          "source": "historia/socratic-tillagg-final.png"
+        },
+        {
+          "code": "/feynman",
+          "slug": "feynman",
+          "status": "works",
+          "addition": "Use the Feynman learning technique: a worksheet where the student explains the topic in their own words as if to a 10-year-old, with guiding prompts and empty boxes to write in. No answers, and no drawings or hints that give away the content.",
+          "description": "Explain it simply, find the gaps, simplify again — the Feynman technique as a worksheet.",
+          "uses": ["print"],
+          "subject": "photosynthesis",
+          "note": "The code alone gave a Feynman diagram from particle physics — see the comparison at the top of the page.",
+          "source": "fotosyntes/feynman-tillagg-v2.png"
+        }
+      ]
+    },
+    {
+      "id": "see-the-whole",
+      "part": 2,
+      "title": "See the whole topic",
+      "intro": "One page that holds the whole topic. Good for the wall, for revision — and as the thing to test yourself against.",
+      "codes": [
+        {
+          "code": "/cheatsheet",
+          "slug": "cheatsheet",
+          "status": "works",
+          "description": "The whole topic on one page: rule, diagram, worked examples, things to remember.",
+          "active": "Write down everything you remember first, then compare with the sheet.",
+          "uses": ["wall", "digital", "print"],
+          "subject": "the Pythagorean theorem",
+          "note": "The most reliable code in the test — strong in all three subjects.",
+          "source": "matematik/cheatsheet.png"
+        },
+        {
+          "code": "/mindmap",
+          "slug": "mindmap",
+          "status": "works",
+          "description": "Branches out from the topic in the middle: causes, events, people, legacy.",
+          "active": "Draw your own mind map from memory, then compare.",
+          "uses": ["wall", "digital"],
+          "subject": "the French Revolution",
+          "source": "historia/mindmap.png"
+        },
+        {
+          "code": "/conceptmap",
+          "slug": "conceptmap",
+          "status": "works",
+          "spot_the_error": true,
+          "description": "Boxes and arrows that show how the ideas connect.",
+          "active": "Find the error before you use it.",
+          "uses": ["wall", "digital"],
+          "subject": "the French Revolution",
+          "note": "The clergy and the nobility have swapped places: the clergy was the First Estate. The photosynthesis version had a factual error too.",
+          "source": "historia/conceptmap.png"
+        },
+        {
+          "code": "/blueprint",
+          "slug": "blueprint",
+          "status": "works",
+          "description": "The topic drawn as an architect's plan: problem, stages, result.",
+          "active": "Cover the middle column and rebuild the stages in order.",
+          "uses": ["wall"],
+          "subject": "the French Revolution",
+          "note": "On the image-codes page /blueprint restyles a photo. With a topic it builds a plan instead.",
+          "source": "historia/blueprint.png"
+        },
+        {
+          "code": "/visualvocab",
+          "slug": "visualvocab",
+          "status": "works",
+          "description": "Key terms as a picture glossary: one image and one sentence per term.",
+          "active": "Cover the sentences and explain each picture.",
+          "uses": ["wall", "digital"],
+          "subject": "the French Revolution",
+          "source": "historia/visualvocab.png"
+        },
+        {
+          "code": "/iconsummary",
+          "slug": "iconsummary",
+          "status": "works",
+          "description": "The main points, each carried by an icon.",
+          "active": "Cover the text and tell the story from the icons alone.",
+          "uses": ["digital"],
+          "subject": "the French Revolution",
+          "note": "Close to /cheatsheet — pick one of the two.",
+          "source": "historia/iconsummary.png"
+        },
+        {
+          "code": "/formulacard",
+          "slug": "formulacard",
+          "status": "works",
+          "description": "The formula, what each letter means and one worked example — nothing more.",
+          "active": "Make up a new example and solve it.",
+          "uses": ["wall", "digital"],
+          "subject": "the Pythagorean theorem",
+          "source": "matematik/formulacard.png"
+        }
+      ]
+    },
+    {
+      "id": "follow-the-sequence",
+      "part": 2,
+      "title": "Follow the sequence",
+      "intro": "For anything that happens in order: events, steps, a method.",
+      "codes": [
+        {
+          "code": "/timeline",
+          "slug": "timeline",
+          "status": "works",
+          "description": "Dated events in order, each with a picture and a sentence.",
+          "active": "Cover the dates and put the events in order.",
+          "uses": ["wall", "digital"],
+          "subject": "the French Revolution",
+          "note": "On photosynthesis it drew the history of the discovery rather than the steps of the process — a fair choice, but not the obvious one.",
+          "source": "historia/timeline.png"
+        },
+        {
+          "code": "/storyboard",
+          "slug": "storyboard",
+          "status": "works",
+          "description": "The topic as a sequence of illustrated frames.",
+          "active": "Cut the frames apart and lay them out in order.",
+          "uses": ["wall", "digital"],
+          "subject": "the French Revolution",
+          "source": "historia/storyboard.png"
+        },
+        {
+          "code": "/flowchart",
+          "slug": "flowchart",
+          "status": "works",
+          "description": "A method as decisions and steps. In maths: which side are you looking for?",
+          "active": "Solve a problem by following the chart, step by step.",
+          "uses": ["wall", "digital"],
+          "subject": "the Pythagorean theorem",
+          "note": "In history it drew causes and phases as a flow instead.",
+          "source": "matematik/flowchart.png"
+        },
+        {
+          "code": "/comicstrip",
+          "slug": "comicstrip",
+          "status": "works",
+          "description": "The topic told as a comic, with characters who explain.",
+          "active": "Blank out the speech bubbles and write them yourself.",
+          "uses": ["digital", "print"],
+          "subject": "photosynthesis",
+          "note": "A talking leaf for younger students. On the French Revolution it became a long history comic.",
+          "source": "fotosyntes/comicstrip.png"
+        }
+      ]
+    },
+    {
+      "id": "remember-and-compare",
+      "part": 2,
+      "title": "Remember and compare",
+      "intro": "Codes that sort out what is easy to mix up — and help the facts stick.",
+      "codes": [
+        {
+          "code": "/misconceptions",
+          "slug": "misconceptions",
+          "status": "works",
+          "description": "Common mistakes on the left, what is actually true on the right.",
+          "active": "Fold back the right column and explain why each statement is wrong.",
+          "uses": ["wall", "print"],
+          "subject": "photosynthesis",
+          "source": "fotosyntes/misconceptions.png"
+        },
+        {
+          "code": "/mnemonicart",
+          "slug": "mnemonicart",
+          "status": "works",
+          "spot_the_error": true,
+          "description": "A memory aid drawn as a picture — here the acrostic LIBERTÉ.",
+          "active": "Memory aids help with facts and words, not with understanding. Use it for the list, then explain the links yourself.",
+          "uses": ["digital", "wall"],
+          "subject": "the French Revolution",
+          "note": "The central figure is borrowed from Delacroix's Liberty Leading the People — painted in 1830, about a later revolution.",
+          "source": "historia/mnemonicart.png"
+        },
+        {
+          "code": "/venndiagram",
+          "slug": "venndiagram",
+          "status": "partial",
+          "spot_the_error": true,
+          "description": "Two overlapping circles: what is unique to each, and what they share.",
+          "active": "Name the two things to compare in your prompt.",
+          "uses": ["print", "wall"],
+          "subject": "photosynthesis",
+          "note": "Needs two things to compare. Here it chose the light reactions and the Calvin cycle, but claims both produce sugar — only the Calvin cycle does. On the French Revolution it had nothing to compare and became decoration.",
+          "source": "fotosyntes/venndiagram.png"
+        }
+      ]
+    },
+    {
+      "id": "doesnt-work-yet",
+      "part": 2,
+      "title": "Tested — doesn't work (yet)",
+      "intro": "Four codes from the lists that failed. Shown so you don't have to find out in front of a class.",
+      "codes": [
+        {
+          "code": "/crosswordit",
+          "slug": "crosswordit",
+          "status": "fails",
+          "addition": "An empty crossword grid with numbered clues. Answer key in small print at the bottom.",
+          "description": "Should give a crossword.",
+          "uses": [],
+          "subject": "the French Revolution",
+          "note": "The grid does not fit the answers, clue numbers clash, and one clue calls merchants the Second Estate. Puzzles that must add up exactly are beyond the model.",
+          "source": "historia/crosswordit-tillagg-final.png"
+        },
+        {
+          "code": "/mapit",
+          "slug": "mapit",
+          "status": "fails",
+          "description": "Should give a map of the topic.",
+          "uses": [],
+          "subject": "the French Revolution",
+          "note": "Convincing at a glance, wrong in detail: the battle of Jemappes is placed inside France and the coup of 1799 in the south-west. A good image for spotting errors — not for learning geography.",
+          "source": "historia/mapit.png"
+        },
+        {
+          "code": "/thenvsnow",
+          "slug": "thenvsnow",
+          "status": "fails",
+          "description": "Should compare then and now.",
+          "uses": [],
+          "subject": "the French Revolution",
+          "note": "Ignored. It became a general poster — again built around a painting from 1830.",
+          "source": "historia/thenvsnow.png"
+        },
+        {
+          "code": "/analogy",
+          "slug": "analogy",
+          "status": "fails",
+          "description": "Should explain the topic through a comparison from everyday life.",
+          "uses": [],
+          "subject": "photosynthesis",
+          "note": "Ignored. It drew an ordinary poster of a plant — no analogy anywhere.",
+          "source": "fotosyntes/analogy.png"
+        }
+      ]
+    }
+  ]
+}

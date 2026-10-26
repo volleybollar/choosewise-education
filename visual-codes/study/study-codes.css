@@ -1,0 +1,120 @@
+/*
+  Visual codes for studying — page-local styles.
+  Cards, steps, chips and notes come from /visual-codes/visual-codes.css,
+  badges, slots and the "doesn't work yet" box from the video page's
+  video-codes.css. This file only adds what is new here: portrait posters
+  instead of 4:3 frames, the use chips, the "Make it active" line and the
+  two image pairs at the top. Colours come from tokens.css only.
+*/
+
+/* ───── Three cards per row: the images are tall posters, so they need
+         less width than the image page's 4:3 sliders ───── */
+.page-study-codes .vc-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+}
+
+/* ───── The poster on each card: portrait 2:3, clickable to full size ───── */
+.vcs-figure {
+  position: relative;
+  margin: 0;
+}
+/* Inside a code card the card itself is the box, so the image only gets a
+   thin border. */
+.vcs-figure a { display: block; border-radius: var(--radius-sm); }
+.vcs-figure a:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+.vcs-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-alt);
+}
+
+/* The frame (Johan's choice A2, "passepartout") — only on the image pairs
+   that sit straight on the page, outside any card: a paper mat, a thin
+   border and a clear shadow, like a framed print. The mat uses the paper
+   token rather than pure white, because the palette in tokens.css is locked. */
+.vcs-pair .vcs-figure a {
+  padding: 12px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 4px rgba(12, 26, 46, 0.08), 0 14px 36px rgba(12, 26, 46, 0.16);
+}
+.vcs-pair .vcs-figure a:focus-visible { box-shadow: var(--shadow-focus); }
+.vcs-pair .vcs-figure img { border: none; border-radius: 0; }
+
+.vcs-figure figcaption {
+  margin-top: var(--space-3);
+  font-size: var(--fs-caption);
+  color: var(--color-text-soft);
+}
+
+/* ───── Use chips: Print · Wall · Digital ───── */
+.vcs-use {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-alt);
+  color: var(--color-text-soft);
+}
+
+/* ───── "Make it active" line on reading cards: same shape as the Add line,
+         without the copper rule, so it reads as advice rather than prompt ───── */
+.vcs-active {
+  margin: calc(-1 * var(--space-1)) 0 0;
+  font-size: var(--fs-small);
+  color: var(--color-text);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  max-width: none;
+}
+.vcs-active__label {
+  font-size: var(--fs-caption);
+  letter-spacing: var(--tracking-loose);
+  text-transform: uppercase;
+  color: var(--color-highlight-ink);
+  margin-right: var(--space-2);
+}
+
+/* ───── Image pairs at the top (hero, and code-only vs code + sentence):
+         two posters side by side, never wider than they need to be ───── */
+.vcs-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  max-width: 760px;
+}
+.vcs-pair--small { max-width: 560px; margin-block: var(--space-4); }
+.vcs-pair .vcs-figure figcaption { font-size: var(--fs-small); }
+/* Code names in captions use the same small mono pill as the how-to steps */
+.vcs-figure figcaption code,
+.vcs-intro code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 1px 6px;
+}
+
+/* ───── "Not commands" intro: air between the heading and the two paragraphs ───── */
+.vcs-intro h2 { margin-bottom: var(--space-4); }
+.vcs-intro p { margin-bottom: var(--space-4); }
+
+/* ───── Three ways to use the images: a lighter version of the step cards ───── */
+.vcs-uses .vc-step h3 { margin-bottom: var(--space-1); }
+
+/* Callout lists and long intros fill the column, as on the video page */
+.page-study-codes .callout li,
+.page-study-codes .vc-category > p,
+.page-study-codes .vcs-intro p { max-width: none; }
+
+/* ───── Side-by-side cards line up (same six rows as the video page) ───── */
+@supports (grid-template-rows: subgrid) {
+  .page-study-codes .vcs-card { grid-row: span 6; }
+}
