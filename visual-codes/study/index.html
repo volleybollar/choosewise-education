@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visual codes for studying — choosewise.education</title>
+  <meta name="description" content="One code and a topic give a study poster or a worksheet in seconds. 27 codes tested on three subjects — the ones that make students practise come first, and the ones that failed are shown too.">
+  <meta property="og:title" content="Visual codes for studying">
+  <meta property="og:description" content="One code and a topic give a study poster or a worksheet. 27 codes tested — practise codes first, failures included.">
+  <meta property="og:image" content="https://choosewise.education/assets/images/brand/og/visualcodes-study-en.png">
+  <!-- Same shared stylesheets as every page on the site -->
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- The image and video pages' styles, loaded unchanged, so the three pages
+       read as one family: cards, steps, chips, badges and the failure box. -->
+  <link rel="stylesheet" href="/visual-codes/visual-codes.css">
+  <link rel="stylesheet" href="/visual-codes/video/video-codes.css">
+  <!-- Only what is new here: portrait posters, use chips, image pairs -->
+  <link rel="stylesheet" href="study-codes.css">
+<!-- seo:start (build-seo-meta.py) -->
+<link rel="canonical" href="https://choosewise.education/visual-codes/study/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."}]}</script>
+<!-- seo:end -->
+</head>
+<body class="page-visual-codes page-study-codes">
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- ───── Hook: the same topic, one poster to read and one sheet to fill in ─────
+         Hand-written (not rendered from JSON) so they show at once, above the fold. -->
+    <section class="vc-hero container">
+      <div class="vcs-pair">
+        <figure class="vcs-figure">
+          <a href="images/hero-cheatsheet.webp" target="_blank" rel="noopener" aria-label="Open the full-size cheat sheet">
+            <img src="images/hero-cheatsheet-512w.webp"
+                 srcset="images/hero-cheatsheet-512w.webp 512w, images/hero-cheatsheet.webp 1024w"
+                 sizes="(min-width: 800px) 370px, 46vw" width="512" height="768" decoding="async"
+                 alt="A cheat sheet on photosynthesis: equation, chloroplast, the two stages and a comparison table">
+          </a>
+          <figcaption><strong>To read.</strong> <code>/cheatsheet</code> and a topic.</figcaption>
+        </figure>
+        <figure class="vcs-figure">
+          <a href="images/hero-quizmate.webp" target="_blank" rel="noopener" aria-label="Open the full-size quiz sheet">
+            <img src="images/hero-quizmate-512w.webp"
+                 srcset="images/hero-quizmate-512w.webp 512w, images/hero-quizmate.webp 1024w"
+                 sizes="(min-width: 800px) 370px, 46vw" width="512" height="768" decoding="async"
+                 alt="A quiz sheet on photosynthesis: eight questions with empty answer lines and a key in small print">
+          </a>
+          <figcaption><strong>To practise.</strong> <code>/quizmate</code>, a topic and one added sentence.</figcaption>
+        </figure>
+      </div>
+      <p class="vc-hero__caption">Same topic, same tool, two codes. Click an image to see it full size.</p>
+      <p class="free-note">Looking for codes that transform a photo? See <a href="/visual-codes/">visual codes for images</a> and <a href="/visual-codes/video/">for video</a>.</p>
+    </section>
+
+    <!-- ───── Hero: what this page is ───── -->
+    <section class="page-hero container">
+      <span class="eyebrow" data-reveal>AI images for learning</span>
+      <h1 data-reveal>Visual codes for studying</h1>
+      <p class="lede" data-reveal>Type a code and a topic into an AI chatbot and you get a study poster or a worksheet in seconds. We tested 27 codes from the lists circulating on social media, on three subjects. The codes that make students practise come first — because a poster that is only read does the least for learning.</p>
+    </section>
+
+    <!-- ───── Answer capsule for search engines and AI assistants,
+               same pattern as the image and video pages ───── -->
+    <section class="seo-answer" data-reveal>
+      <h2 class="seo-answer__question">What is a visual code for studying?</h2>
+      <p class="seo-answer__capsule">A visual code for studying is a short, slash-prefixed word — like /cheatsheet or /quizmate — that you type into an AI chatbot together with a topic and the words "Make it an image". The chatbot returns a study poster, a mind map, a timeline or a worksheet on that topic. The codes are not official commands: the model recognises the word from its training data and produces its most typical version of it. This page shows 27 codes tested on photosynthesis, the French Revolution and the Pythagorean theorem, with the exact prompt for each, the sentence some codes need added, and the codes that failed.</p>
+    </section>
+
+    <!-- ───── Johan's point, stated first: not commands, an average reading ───── -->
+    <section class="container section--flush-top vcs-intro" id="what-they-are">
+      <h2 data-reveal>Not commands — an educated guess</h2>
+      <p data-reveal>These codes are not official commands built into the chatbot. Nobody has programmed a <code>/cheatsheet</code> button. The model has simply seen so many cheat sheets, mind maps and quizzes in the data it was trained on that one word is enough for it to understand what you are after.</p>
+      <p data-reveal>That is also the catch. What you get is an average interpretation of everything the model has seen. Often the average is exactly right. Sometimes it is not, and then you need to add your own instructions to get the result you want. That is why every practise code below comes with one extra sentence.</p>
+
+      <div class="vcs-pair vcs-pair--small" data-reveal>
+        <figure class="vcs-figure">
+          <a href="images/feynman-codeonly.webp" target="_blank" rel="noopener" aria-label="Open the full-size image made with the code alone">
+            <img src="images/feynman-codeonly-512w.webp" width="512" height="768" loading="lazy" decoding="async"
+                 alt="A Feynman diagram from particle physics, drawn for photosynthesis">
+          </a>
+          <figcaption><strong><code>/feynman</code> alone.</strong> A Feynman diagram from particle physics — notation that does not fit photosynthesis.</figcaption>
+        </figure>
+        <figure class="vcs-figure">
+          <a href="images/feynman.webp" target="_blank" rel="noopener" aria-label="Open the full-size worksheet made with the code and one sentence">
+            <img src="images/feynman-512w.webp" width="512" height="768" loading="lazy" decoding="async"
+                 alt="A Feynman technique worksheet on photosynthesis with four empty boxes to write in">
+          </a>
+          <figcaption><strong><code>/feynman</code> + one sentence.</strong> The worksheet the code was meant for.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ───── How-to ───── -->
+    <section class="container" id="how-to">
+      <h2 data-reveal>Make your own</h2>
+      <div class="vc-steps" data-reveal>
+        <div class="vc-step">
+          <span class="vc-step__number">01</span>
+          <h3>Code and topic</h3>
+          <p>Type the code, then the topic: <code>/cheatsheet photosynthesis</code>. Better still, paste your own notes or the textbook page after it.</p>
+        </div>
+        <div class="vc-step">
+          <span class="vc-step__number">02</span>
+          <h3>Ask for an image</h3>
+          <p>End with <code>Make it an image.</code> Without it, most chatbots answer in text.</p>
+        </div>
+        <div class="vc-step">
+          <span class="vc-step__number">03</span>
+          <h3>Add the sentence</h3>
+          <p>Practise codes need one more sentence. It decides whether the answers land on the sheet or in a key at the bottom. The copy button on each card includes it.</p>
+        </div>
+        <div class="vc-step">
+          <span class="vc-step__number">04</span>
+          <h3>Check before you share</h3>
+          <p>Read every fact and work through the answer key yourself. The key was the weakest part of almost every worksheet we tested.</p>
+        </div>
+      </div>
+
+      <!-- Johan's addition: what the finished images are for -->
+      <h3 data-reveal>Three ways to use them</h3>
+      <div class="vc-steps vcs-uses" data-reveal>
+        <div class="vc-step">
+          <h3>Print and hand out</h3>
+          <p>The worksheets in Part 1: students fill them in, fold them or cut them up.</p>
+        </div>
+        <div class="vc-step">
+          <h3>Put it on the wall</h3>
+          <p>Cheat sheets, timelines and mind maps as support for the whole unit.</p>
+        </div>
+        <div class="vc-step">
+          <h3>Share it digitally</h3>
+          <p>In your learning platform, or on the student's phone before a test.</p>
+        </div>
+      </div>
+      <p class="vc-note" data-reveal>Each card shows which uses suit that code. The images are about 1024 × 1536 pixels: sharp on A4, soft on an A3 poster — upscale before you print large. And check the facts first: a mistake on the wall stays up for months.</p>
+
+      <!-- The research case for putting practise first — phrased relatively,
+           because summarising still helps (d = 0.44), just least of the ten -->
+      <div class="callout" data-reveal>
+        <p class="callout__headline">Why the practise codes come first</p>
+        <p>A review of ten common study techniques found that testing yourself and spreading practice over time give the largest gains (<a href="https://doi.org/10.1177/1529100612453266" target="_blank" rel="noopener">Dunlosky et al., 2013</a>). A later meta-analysis of 242 studies put numbers on it: d = 0.85 for spaced practice, d = 0.74 for practice testing, and d = 0.44 for both summarising and highlighting (<a href="https://doi.org/10.3389/feduc.2021.581216" target="_blank" rel="noopener">Donoghue &amp; Hattie, 2021</a>). All ten techniques help; summarising and highlighting help least. Most of the studies measured factual knowledge, so the ranking says less about deep understanding.</p>
+        <p>One thing matters here: when AI writes the summary, the student skips the part that did the helping. That is the trade-off question in practice — what does the student stop doing, and does it matter? A poster is fine. A poster the student tests themselves against is better.</p>
+      </div>
+
+      <!-- Where to make them — and the age limits -->
+      <div class="callout" data-reveal>
+        <p class="callout__headline">Where can you make them?</p>
+        <p>In any chatbot that generates images, such as ChatGPT or Gemini. Check the age limit before you plan a lesson: ChatGPT is 13+, with parental consent below 18. Gemini is 13+ with a personal or school account — a school account only once the school's administrator has turned it on — and Google's paid AI plans are 18+ in the EEA, Switzerland and the UK. In most classrooms that means the teacher makes the sheet and prints or shares it — the student needs no account at all. You are responsible for following your country's rules and your school's guidelines.</p>
+        <p>All images on this page were made with GPT Image 2, portrait, high quality. The prompt went straight to the image model; in a chatbot the chat model reads it first, so your result can differ — sometimes for the better.</p>
+      </div>
+    </section>
+
+    <!-- ───── Part 1: Practise ─────
+         study-codes.js renders the two practise categories into #vcs-part1
+         from codes-study-en.json. -->
+    <section class="container vcv-part">
+      <span class="eyebrow" data-reveal>Part 1</span>
+      <h2 data-reveal>Practise</h2>
+      <p class="vc-note" data-reveal>Worksheets the student fills in, folds or answers. Each code needs the sentence on its <strong>Add</strong> line. The copy button hands over the whole prompt — replace [your topic] with yours.</p>
+    </section>
+    <div id="vcs-part1">
+      <noscript><p class="container">This page needs JavaScript to show the code cards.</p></noscript>
+    </div>
+
+    <!-- ───── What went wrong: the pitfalls, with the fix in a tip box ───── -->
+    <section class="container" id="what-went-wrong" data-reveal>
+      <div class="callout">
+        <p class="callout__headline">What went wrong when we tested</p>
+        <ul>
+          <li><strong>The answer key is the weak link.</strong> The questions were good; the answers were sometimes not. In maths the multiple-choice key was wrong on two of five questions.</li>
+          <li><strong>Exact things break first.</strong> Answer keys, calculations, maps and crosswords failed more often than mind maps and comics.</li>
+          <li><strong>Plausible facts, wrong facts.</strong> In the first round, six of sixteen posters contained a factual error — written as confidently as the rest.</li>
+          <li><strong>Wrong pictures.</strong> Delacroix's <em>Liberty Leading the People</em>, painted in 1830, turned up again and again on posters about the revolution of 1789.</li>
+          <li><strong>The surface reading wins.</strong> When a word has two meanings, the model picks the most common one: <code>/feynman</code> gave physics, not a study technique.</li>
+        </ul>
+        <p>Cards marked <strong>Spot the error</strong> contain a mistake worth showing to the class. Finding it is a lesson in itself.</p>
+      </div>
+
+      <!-- Johan's tip: ground the facts in the teacher's own material -->
+      <div class="callout">
+        <p class="callout__headline">Tip: anchor the facts in your own material</p>
+        <p>If you have Gemini and Gemini Notebook (formerly NotebookLM), add your own material as sources in a notebook — the textbook chapter, your slides, your notes. Then open Gemini, add the notebook through the + button in the chat, and use the codes there. The image is built from your sources instead of from the model's general memory, which reduces the risk of factual errors. It does not remove it, so the check in step 04 still applies.</p>
+      </div>
+    </section>
+
+    <!-- ───── Part 2: Read (rendered into #vcs-part2) ───── -->
+    <section class="container vcv-part">
+      <span class="eyebrow" data-reveal>Part 2</span>
+      <h2 data-reveal>Read</h2>
+      <p class="vc-note" data-reveal>Posters and overviews. The code alone is usually enough. Every card suggests a way to turn reading into practice.</p>
+    </section>
+    <div id="vcs-part2"></div>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <!-- GSAP powers the same subtle scroll reveals as the rest of the site -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/include.js"></script>
+  <script defer src="/assets/js/copy-to-clipboard.js"></script>
+  <script defer src="/assets/js/scroll-reveals.js"></script>
+  <script defer src="study-codes.js"></script>
+</body>
+</html>
