@@ -1,6 +1,6 @@
 # choosewise.education
 
-> An independent education resource on AI in schools, built and edited by Johan Lindström — a Swedish education consultant with 28 years in the school system (10 as teacher, 7 as school leader, 11 in EdTech). The site offers a four-step decision framework (WISE), downloadable prompt packs by role and subject, curated infographic styles for NotebookLM, and interactive AI-or-human tests. Content is published in English and Swedish; the Swedish surface uses the parallel name RÄTT-modellen.
+> An independent education resource on AI in schools, built and edited by Johan Lindström — a Swedish education consultant with 28 years in the school system (10 as teacher, 7 as school leader, 11 in EdTech). The site offers a four-step decision framework (WISE), downloadable prompt packs by role and subject, curated infographic styles for Gemini Notebook, and interactive AI-or-human tests. Content is published in English and Swedish; the Swedish surface uses the parallel name RÄTT-modellen.
 
 The site's thesis: schools usually don't need more AI tools — they need the judgment to choose the right tool at the right time. Material is written for principals, school administrators (skolchefer), and teachers, and aims to be practical, evidence-aware, and free of vendor hype.
 
@@ -32,7 +32,7 @@ Interactive tests where visitors check whether they can tell AI-generated text, 
 - [Infographic styles (140) — English](https://choosewise.education/infographic-styles/)
 - [Infografik-stilar (140) — Svenska](https://choosewise.education/sv/infografik-stilar/)
 
-A curated catalogue of 140 visual styles (with prompts) for generating NotebookLM video overviews and slide decks.
+A curated catalogue of 140 visual styles (with prompts) for generating Gemini Notebook video overviews and slide decks.
 
 ## Visual Codes
 

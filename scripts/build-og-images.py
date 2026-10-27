@@ -22,7 +22,7 @@ SECTIONS = [
     ("wise-en",            "The WISE Framework",        "for Education",          "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("guides-en",          "AI Guides",                 "for schools",            "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("prompts-en",         "Prompts",                   "for schools",            "CHOOSEWISE.EDUCATION", "#0B3A6F"),
-    ("notebooklm-en",      "140 visual styles",         "for NotebookLM",         "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("notebooklm-en",      "140 visual styles",         "for Gemini Notebook",    "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("evidence-en",        "Evidence Toolkit",          "for schools",            "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("visualcodes-en",     "50 visual codes",           "for ChatGPT",            "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("visualcodes-video-en", "Visual codes",            "for video",              "CHOOSEWISE.EDUCATION", "#0B3A6F"),
@@ -34,7 +34,7 @@ SECTIONS = [
     ("wise-sv",            "RÄTT-modellen",             "för utbildning",         "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("guides-sv",          "AI-guider",                 "för skolan",             "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("prompts-sv",         "Promptar",                  "för skolan",             "CHOOSEWISE.EDUCATION", "#0B3A6F"),
-    ("notebooklm-sv",      "140 visuella stilar",       "för NotebookLM",         "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("notebooklm-sv",      "140 visuella stilar",       "för Gemini Notebook",    "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("about-sv",           "Johan Lindström",           "Skolutvecklingskonsult", "CHOOSEWISE.EDUCATION", "#C2793A"),
 ]
 

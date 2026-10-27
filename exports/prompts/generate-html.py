@@ -75,7 +75,7 @@ BOILERPLATE_SV = """
 <ul class="chatbot-list">
   <li><strong>ChatGPT</strong> — Open AIs chattbot</li>
   <li><strong>Gemini</strong> — Googles chattbot</li>
-  <li><strong>NotebookLM</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
+  <li><strong>Gemini Notebook</strong> — Googles verktyg som bland annat kan skapa podd med två röster</li>
   <li><strong>Copilot</strong> — Microsofts chattbot</li>
   <li><strong>Claude</strong> — En chattbot från Anthropic</li>
   <li><strong>Perplexity</strong> — Från San Francisco, använde tidigt länkar till källor</li>
@@ -143,7 +143,7 @@ BOILERPLATE_EN = """
 <ul class="chatbot-list">
   <li><strong>ChatGPT</strong> — OpenAI's chatbot</li>
   <li><strong>Gemini</strong> — Google's chatbot</li>
-  <li><strong>NotebookLM</strong> — Google's tool that can, among other things, generate a two-voice podcast</li>
+  <li><strong>Gemini Notebook</strong> — Google's tool that can, among other things, generate a two-voice podcast</li>
   <li><strong>Copilot</strong> — Microsoft's chatbot</li>
   <li><strong>Claude</strong> — Anthropic's chatbot</li>
   <li><strong>Perplexity</strong> — From San Francisco, was early to include source links</li>
