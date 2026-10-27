@@ -180,7 +180,7 @@ def test_the_page_count_is_what_we_think():
     (PR #46), och från 201 till 202 med den engelska the-house-that-cost-one-
     dollar.html (PR #48), och från 202 till 205 med free/, free/ai-or-human/
     och free/prompts/ (gratismaterialet 2026-10-20), och till 206 med
-    free/visual-codes/, och till 207 med visual-codes/video/ (2026-10-23), och till 208 med gap-tracer/ (2026-10-24), och till 209 med visual-codes/study/ (2026-10-26), och till 210 med free/study-codes/ (2026-10-26). Räkna upp det med flit när en sida tillkommer — det
+    free/visual-codes/, och till 207 med visual-codes/video/ (2026-10-23), och till 208 med gap-tracer/ (2026-10-24), och till 209 med visual-codes/study/ (2026-10-26), och till 210 med free/study-codes/ (2026-10-26), och till 212 med think/ och thinking-moves/ (2026-10-27). Räkna upp det med flit när en sida tillkommer — det
     är vaktens hela poäng att det ska kräva ett medvetet handgrepp.
 
     Obs: published_files() läser `git ls-files`, så vakten ser en ny sida
@@ -192,7 +192,7 @@ def test_the_page_count_is_what_we_think():
     i efterhand av elevguiderundans leveranssteg, som upptäckte att main var
     rött innan den mergade. Fällan har alltså slagit till två gånger på tre
     sidor: det är inte slarv, det är att vakten bara kan se spårade filer."""
-    assert len(PAGES) == 210, len(PAGES)
+    assert len(PAGES) == 212, len(PAGES)
 
 
 @pytest.mark.parametrize("path", PAGES, ids=lambda p: str(p.relative_to(ROOT)))
@@ -224,7 +224,8 @@ ALL_OG_CARDS = OG_SVGS + [OG_DEFAULT]
 
 
 def test_there_are_sixteen_og_cards():
-    assert len(OG_SVGS) == 16, [p.name for p in OG_SVGS]
+    # 16 → 18 med think-en och thinkingmoves-en (2026-10-27).
+    assert len(OG_SVGS) == 18, [p.name for p in OG_SVGS]
 
 
 @pytest.mark.parametrize("svg", ALL_OG_CARDS, ids=lambda p: p.name)

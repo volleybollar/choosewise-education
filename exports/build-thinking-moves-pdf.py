@@ -22,7 +22,6 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "thinking-moves/moves-en.json"
 SRC = ROOT / "_unpublished/exports/thinking-moves-cards-a4-en.html"
 DST = ROOT / "assets/pdfs/free/thinking-moves-cards-en.pdf"
-ICONS = ROOT / "thinking-moves/icons"
 URL = "choosewise.education/thinking-moves"
 TITLE = "Thinking Moves"
 
@@ -33,7 +32,7 @@ PARTS = [("task", "Task"), ("look_for", "Look for"), ("probe", "Probe"), ("think
 STYLE = """
 @page { size: A4; margin: 0; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { background: #FFFFFF; }
+html, body { background: var(--color-bg); }
 body { font-family: var(--font-body); color: var(--color-text-soft); font-size: 10.8pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 strong, b { font-weight: 500; }
 .page { width: 210mm; height: 297mm; padding: 16mm 17mm 20mm; display: flex; flex-direction: column; gap: 5mm; page-break-after: always; overflow: hidden; }
@@ -41,13 +40,13 @@ strong, b { font-weight: 500; }
 h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; color: var(--color-text); }
 .kicker { font-size: 7.5pt; letter-spacing: .12em; text-transform: uppercase; color: var(--color-highlight-ink); font-weight: 500; }
 .top { display: grid; grid-template-columns: 22mm 1fr; gap: 6mm; align-items: center; border-bottom: 0.6mm solid var(--color-accent); padding-bottom: 4.5mm; }
-.top svg { width: 22mm; height: 22mm; }
+.top img { width: 22mm; height: 22mm; }
 .top h2 { font-size: 28pt; line-height: 1.05; letter-spacing: -.01em; margin-top: 1mm; }
 .oneliner { font-size: 13pt; color: var(--color-text); }
 .meta { display: flex; gap: 4mm; align-items: center; font-size: 9.5pt; color: var(--color-text-muted); }
 .chip { display: inline-block; border: 0.35mm solid var(--color-accent); color: var(--color-accent); border-radius: 1mm; padding: .3mm 2mm; font-weight: 500; font-size: 8pt; }
-.chip--strong { background: var(--color-accent); color: #FFFFFF; }
-.chip--framework { border-color: #C3CFDC; border-style: dashed; color: var(--color-text-muted); }
+.chip--strong { background: var(--color-accent); color: var(--color-bg); }
+.chip--framework { border-color: var(--color-border); border-style: dashed; color: var(--color-text-muted); }
 .ex { border-left: 1mm solid var(--color-highlight); background: var(--color-bg-alt); padding: 4.5mm 6mm; display: flex; flex-direction: column; gap: 2mm; }
 .ex h3 { font-size: 12pt; }
 .ex h3 span { font-weight: 400; color: var(--color-text-muted); }
@@ -71,7 +70,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; color: var(
 
 
 def _icon(move_id: str) -> str:
-    return (ICONS / f"{move_id}.svg").read_text(encoding="utf-8").strip()
+    # Ikonen länkas som bild i stället för att bäddas in, så att mallen
+    # inte bär hårdkodade hexfärger (test_guide_print_css.py).
+    return f'<img src="../../thinking-moves/icons/{move_id}.svg" alt="">'
 
 
 def _foot(right: str) -> str:
