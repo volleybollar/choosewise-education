@@ -2,7 +2,7 @@
   "domain_id": "explicit-instruction",
   "domain_label": "Explicit Instruction",
   "domain_description": "Rosenshine's Principles of Instruction in practice — opening a lesson with review, modelling expert thinking aloud, building I Do / We Do / You Do sequences, and designing scaffolded practice. All interventions cross-referenced to peer-reviewed meta-analyses where one exists.",
-  "last_reviewed": "2026-05-18",
+  "last_reviewed": "2026-10-27",
   "skills": [
     {
       "id": "explicit-instruction/explicit-instruction-sequence-builder",
@@ -13,7 +13,7 @@
       "effect_months": null,
       "effect_months_source": null,
       "effect_months_year": null,
-      "effect_d": 0.60,
+      "effect_d": 0.54,
       "effect_d_source": "Stockard, Wood, Coughlin & Khoury",
       "effect_d_journal": "Review of Educational Research",
       "effect_d_year": 2018,
@@ -21,7 +21,9 @@
       "implementation_cost_rationale": "Designing a quality I Do / We Do / You Do sequence requires real prep work per topic — script the modelling, anticipate misconceptions to address during guided practice, calibrate independent tasks for the right level of challenge. No materials or training needed once teachers know the pattern.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/explicit-instruction/explicit-instruction-sequence-builder/SKILL.md",
-      "verification_status": "partial"
+      "verification_status": "partial",
+      "evidence_type": "indirect",
+      "evidence_note": "Engelmann's scripted Direct Instruction programmes (328 studies), not generic 'I do, we do, you do'. 0.54 is the overall estimate; the often-quoted 0.60 is adjusted for other variables."
     },
     {
       "id": "explicit-instruction/lesson-opening-designer",
@@ -32,7 +34,7 @@
       "effect_months": null,
       "effect_months_source": null,
       "effect_months_year": null,
-      "effect_d": 0.50,
+      "effect_d": 0.5,
       "effect_d_source": "Yang, Luo, Vadillo, Yu & Shanks",
       "effect_d_journal": "Psychological Bulletin",
       "effect_d_year": 2021,
@@ -40,7 +42,8 @@
       "implementation_cost_rationale": "A 3-5 minute opening routine takes minutes to design and minutes to deliver per lesson; no materials beyond a slide or prompt, no training beyond awareness that retrieval-anchored openings beat content-recap openings. The cost is the recurring discipline, not setup.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/explicit-instruction/lesson-opening-designer/SKILL.md",
-      "verification_status": "partial"
+      "verification_status": "partial",
+      "evidence_note": "Classroom retrieval quizzes (222 classroom studies). The other parts of the opening routine were not tested."
     },
     {
       "id": "explicit-instruction/practice-problem-sequence-designer",
@@ -59,7 +62,9 @@
       "implementation_cost_rationale": "Designing a high-quality faded practice sequence requires real PCK — anticipating where students need scaffolds, calibrating fade rate, generating worked solutions plus problem variants. Once designed, the sequence is reusable across cohorts; AI generation accelerates but doesn't eliminate the design work.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/explicit-instruction/practice-problem-sequence-designer/SKILL.md",
-      "verification_status": "partial"
+      "verification_status": "partial",
+      "evidence_type": "indirect",
+      "evidence_note": "Worked examples versus problem solving in mathematics, primary school to university. Graded or varied practice sequences were not tested."
     },
     {
       "id": "explicit-instruction/think-aloud-script-generator",
@@ -78,7 +83,9 @@
       "implementation_cost_rationale": "Scripting a quality think-aloud takes real prep — unpacking one's own (often automatic) expert thinking, anticipating which cognitive moves to highlight, sometimes word-for-word to avoid skipping steps. Delivery in lesson is 1-3 min. Once scripted, reusable across cohorts.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/explicit-instruction/think-aloud-script-generator/SKILL.md",
-      "verification_status": "partial"
+      "verification_status": "partial",
+      "evidence_type": "indirect",
+      "evidence_note": "Prompts that make students explain to themselves, not a teacher thinking aloud."
     }
   ]
 }

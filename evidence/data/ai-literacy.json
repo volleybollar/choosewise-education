@@ -2,13 +2,13 @@
   "domain_id": "ai-literacy",
   "domain_label": "AI Literacy",
   "domain_description": "Skills for teaching students to use AI critically — not AI as a tutor, but the human judgment needed to interrogate, verify and bound what AI produces. Fact-checking AI output with lateral reading, auditing it against critical-thinking standards, interrogating a chatbot across multiple rounds, using domain expertise to catch distortions, mapping where AI is reliable across disciplines, teaching prompt quality, and setting defensible assignment-level AI-use policies. This is the companion to the <a href=\"/evidence/ai-learning-science/\">AI Learning Science</a> domain — that one is about AI as a learning tool (tutors, feedback, worked examples); this one is about the critical literacy students need to not be fooled by it. Honest evidence profile: AI literacy is a new field, so the base is deliberately mixed. Two cards carry independent meta-analytic effect sizes from the critical-thinking and source-credibility literatures the skills build on, one maps to an EEF dialogic-teaching strand, and four are shown openly as unverified — no meta-analysis yet exists for these specific 2023–2025 activities, and we say so rather than borrow an adjacent number and dress it up as direct evidence.",
-  "last_reviewed": "2026-06-28",
+  "last_reviewed": "2026-10-27",
   "skills": [
     {
       "id": "ai-literacy/ai-hallucination-fact-check-protocol",
       "manning_name": "ai-hallucination-fact-check-protocol",
       "display_title": "AI Hallucination Fact-Check Protocol",
-      "description": "Teach students a fact-checking protocol for AI-generated text, extending the SIFT method (Stop, Investigate the source, Find better coverage, Trace claims to the original) with AI-specific moves for catching hallucinated facts and fabricated citations. The core discipline is lateral reading — leaving the AI's answer to verify its claims against independent sources, the way professional fact-checkers do, rather than reading vertically down the page the model produced. Evidence anchor: Fendt, Muth & Edelsbrunner (2025) in Learning and Individual Differences — a meta-analysis of 64 controlled studies (17,120 participants, 2002–2025) of interventions that teach source-credibility assessment. The overall pooled effect is g=0.42 (95% CI 0.35–0.49); the lateral-reading subgroup specifically (14 studies) is the strongest of the four approaches at g=0.55 (95% CI 0.35–0.75). The card anchors on the conservative overall g=0.42, because the lateral-reading subgroup carries a wider confidence interval and high heterogeneity (I-squared around 87%). The meta pools the Stanford Civic Online Reasoning lineage this skill builds on — Wineburg, Breakstone, McGrew & Smith's lateral-reading work and the Brodsky et al. community-college trials. Honest framing: the meta covers teaching source-credibility assessment broadly; verifying AI hallucinations and fabricated citations is a specific, newer application of the same moves, so g=0.42 transfers the underlying skill, not the AI-specific task — no AI-hallucination-specific meta-analysis exists yet. No matching EEF Toolkit strand. Pairs with the AI Output Critical Audit Designer.",
+      "description": "Teach students a fact-checking protocol for AI-generated text, extending the SIFT method (Stop, Investigate the source, Find better coverage, Trace claims to the original) with AI-specific moves for catching hallucinated facts and fabricated citations. The core discipline is lateral reading — leaving the AI's answer to verify its claims against independent sources, the way professional fact-checkers do, rather than reading vertically down the page the model produced. Evidence anchor: Fendt, Muth & Edelsbrunner (2025) in Learning and Individual Differences — a meta-analysis of 64 controlled studies (17,120 participants, 2002–2025) of interventions that teach source-credibility assessment. The overall pooled effect is g=0.42 (95% CI 0.35–0.49); the lateral-reading subgroup specifically (14 studies) is the strongest of the four approaches at g=0.55 (95% CI 0.35–0.75). The card anchors on the conservative overall g=0.42, because the lateral-reading subgroup carries a wider confidence interval and very high heterogeneity (I-squared around 95%; around 87% overall). The meta pools the Stanford Civic Online Reasoning lineage this skill builds on — Wineburg, Breakstone, McGrew & Smith's lateral-reading work and the Brodsky et al. community-college trials. Honest framing: the meta covers teaching source-credibility assessment broadly; verifying AI hallucinations and fabricated citations is a specific, newer application of the same moves, so g=0.42 transfers the underlying skill, not the AI-specific task — no AI-hallucination-specific meta-analysis exists yet. No matching EEF Toolkit strand. Pairs with the AI Output Critical Audit Designer.",
       "tags": [
         "AI-literacy",
         "hallucination",
@@ -31,7 +31,8 @@
       "implementation_cost_rationale": "Lateral reading is genuinely teachable, but the Fendt meta-analysis and the underlying Civic Online Reasoning trials are clear that it does not stick from a single lesson — the studies that produced gains used sustained, repeated practice embedded across the curriculum, not a one-off demonstration. Three concrete costs: (1) repeated practice time — students need to verify many claims across several weeks before lateral reading becomes a habit rather than a trick; (2) device and internet access during the activity, since the whole method depends on leaving the AI's answer to check independent sources; (3) teacher fluency — the teacher has to model the verification moves credibly, which takes a cycle or two to develop. For Swedish schools the natural home is källkritik, already a curriculum strength: this skill extends existing källkritik routines to AI output and fabricated citations rather than starting from scratch, which lowers the marginal cost where källkritik is already taught well. Verification-status note: shipped as verified-partial — a real pooled meta-analytic d exists (Fendt et al. 2025) but it measures source-credibility assessment broadly, not AI-hallucination checking specifically, and no EEF months strand maps to this construct.",
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-literacy/ai-hallucination-fact-check-protocol/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_note": "Interventions that teach students to judge source credibility (64 studies), not checking AI output specifically."
     },
     {
       "id": "ai-literacy/ai-output-critical-audit-designer",
@@ -52,7 +53,7 @@
       "effect_months": null,
       "effect_months_source": null,
       "effect_months_year": null,
-      "effect_d": 0.30,
+      "effect_d": 0.3,
       "effect_d_source": "Abrami, Bernard, Borokhovski, Waddington, Wade & Persson",
       "effect_d_journal": "Review of Educational Research",
       "effect_d_year": 2015,
@@ -60,7 +61,9 @@
       "implementation_cost_rationale": "Abrami's own moderator analysis is the implementation guide and the reason this is medium, not low: critical-thinking instruction produces its largest effects when it combines dialogue, authentic problems and mentoring — a one-off 'spot the errors' worksheet is exactly the low-intensity design that underperforms in the meta-analysis. Doing it well means (1) teacher facility with the six Ennis standards so the audit is rigorous rather than vibes-based; (2) recurring use across a unit so the standards become a habit of mind, not a single exercise; (3) discussion time, since the dialogue around disagreements is where the evidence says the gains concentrate. Prep per lesson is light once the protocol exists; the real cost is the sustained, dialogic use the evidence rewards. For Swedish schools this fits naturally into the existing emphasis on analys and värdering across subjects. Verification-status note: verified-partial — a named meta-analysis anchors it, but on the broad construct (critical-thinking instruction), not AI-output auditing, and with no matching EEF strand.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/ai-literacy/ai-output-critical-audit-designer/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_type": "indirect",
+      "evidence_note": "Critical-thinking instruction in general, at all educational levels, measured on critical-thinking tests."
     },
     {
       "id": "ai-literacy/ai-socratic-dialogue-designer",
@@ -78,9 +81,9 @@
         "oral-language",
         "capitulation"
       ],
-      "effect_months": 2,
-      "effect_months_source": "EEF Dialogic Teaching evaluation (Jay et al.)",
-      "effect_months_year": 2017,
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
       "effect_d": null,
       "effect_d_source": null,
       "effect_d_journal": null,

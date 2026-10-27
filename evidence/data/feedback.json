@@ -2,7 +2,7 @@
   "domain_id": "feedback-formative-assessment",
   "domain_label": "Feedback & Formative Assessment",
   "domain_description": "The classroom formative cycle — setting clear targets, eliciting evidence of learning, diagnosing gaps, and closing them with usable feedback. All interventions cross-referenced to peer-reviewed meta-analyses where one exists, and to the EEF Toolkit where a matching strand exists.",
-  "last_reviewed": "2026-05-17",
+  "last_reviewed": "2026-10-27",
   "skills": [
     {
       "id": "curriculum-assessment/competency-unpacker",
@@ -21,7 +21,9 @@
       "implementation_cost_rationale": "Unpacking standards into success criteria is teacher prep work that can be done once per unit; no new materials, no training beyond awareness, no structural change.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/competency-unpacker/SKILL.md",
-      "verification_status": "partial"
+      "verification_status": "partial",
+      "evidence_type": "indirect",
+      "evidence_note": "Formative assessment in K-12 (118 studies). Unpacking standards is a planning step before formative assessment, not the practice that was measured."
     },
     {
       "id": "original-frameworks/learning-target-authoring-guide",
@@ -116,7 +118,9 @@
       "implementation_cost_rationale": "Looking for patterns across a class set takes real time per cycle and benefits from a framework or lens for what to look for; no materials beyond student work, but more cognitive effort than a single check-for-understanding move.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/curriculum-assessment/gap-analysis-from-student-work/SKILL.md",
-      "verification_status": "partial"
+      "verification_status": "partial",
+      "evidence_type": "indirect",
+      "evidence_note": "Ongoing support for teachers using data-based individualization with preK-12 students who struggle (26 studies), not analysis of class work in general."
     },
     {
       "id": "self-regulated-learning/error-analysis-protocol",
@@ -135,7 +139,9 @@
       "implementation_cost_rationale": "A protocol used after assessment or practice; takes 10-15 min per session, no materials beyond student work, technique is teachable in a short briefing.",
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/self-regulated-learning/error-analysis-protocol/SKILL.md",
-      "verification_status": "partial"
+      "verification_status": "partial",
+      "evidence_type": "indirect",
+      "evidence_note": "Prompts that make students explain to themselves, not error analysis. In maths, studying incorrect worked examples gave smaller effects than correct ones (Barbieri et al. 2023)."
     },
     {
       "id": "curriculum-assessment/learning-progression-builder",
@@ -179,7 +185,7 @@
       "id": "original-frameworks/single-point-rubric-designer",
       "manning_name": "single-point-rubric-designer",
       "display_title": "Single-Point Rubric Designer",
-      "description": "Design a single-point rubric — one column describing proficient performance, with open spaces for noting 'areas to grow' and 'areas of strength' — for feedback that's faster to write and more growth-oriented than traditional analytic rubrics.",
+      "description": "Design a single-point rubric — one column describing proficient performance, with open spaces for noting 'areas to grow' and 'areas of strength' — for feedback that's faster to write than traditional analytic rubrics.",
       "tags": ["rubric", "single-point", "narrative-feedback", "self-assessment", "peer-assessment"],
       "effect_months": null,
       "effect_months_source": null,
@@ -192,7 +198,9 @@
       "implementation_cost_rationale": "Single-point rubrics are simpler to design than multi-level analytic rubrics — one performance description per criterion. The cost saving over analytic rubrics is real. Teachers can craft them per assignment with no training beyond awareness of the format.",
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/original-frameworks/single-point-rubric-designer/SKILL.md",
-      "verification_status": "partial"
+      "verification_status": "partial",
+      "evidence_type": "indirect",
+      "evidence_note": "Rubrics in general; the meta-analysis includes no single-point rubric studies."
     },
     {
       "id": "original-frameworks/coherent-rubric-logic-builder",
@@ -219,9 +227,9 @@
       "display_title": "Goal-Setting Protocol Designer",
       "description": "Design a structured goal-setting protocol where students set specific, near-term learning goals tied to success criteria, track progress, and revise the goal based on evidence — turning self-regulated learning from a slogan into a routine.",
       "tags": ["goal-setting", "self-regulated-learning", "metacognition", "self-assessment", "motivation"],
-      "effect_months": 7,
-      "effect_months_source": "EEF Toolkit — Metacognition and self-regulation strand",
-      "effect_months_year": 2021,
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
       "effect_d": 0.38,
       "effect_d_source": "Theobald",
       "effect_d_journal": "Contemporary Educational Psychology",
@@ -230,7 +238,9 @@
       "implementation_cost_rationale": "Goal-setting protocols are 5-10 min per student per cycle; no materials beyond a goal-tracking sheet, technique teachable in a single short CPD. The cost is the recurring discipline, not setup.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/self-regulated-learning/goal-setting-protocol-designer/SKILL.md",
-      "verification_status": "verified"
+      "verification_status": "verified",
+      "evidence_type": "indirect",
+      "evidence_note": "Self-regulated learning training for university students, all outcomes combined. Effect on academic performance alone: 0.37."
     },
     {
       "id": "curriculum-assessment/assessment-validity-checker",

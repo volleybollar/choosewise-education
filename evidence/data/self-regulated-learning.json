@@ -2,7 +2,7 @@
   "domain_id": "self-regulated-learning",
   "domain_label": "Self-Regulated Learning",
   "domain_description": "Teach students to plan, monitor, and evaluate their own learning — through metacognitive prompts, scaffolds, study-strategy guidance, self-explanation, and if-then implementation intentions. All interventions cross-referenced to peer-reviewed meta-analyses where one exists.",
-  "last_reviewed": "2026-05-18",
+  "last_reviewed": "2026-10-27",
   "skills": [
     {
       "id": "self-regulated-learning/metacognitive-prompt-library",
@@ -10,10 +10,10 @@
       "display_title": "Metacognitive Prompt Library",
       "description": "Build a library of metacognitive prompts that target planning (\"What's my goal here?\"), monitoring (\"Is this working?\"), or evaluation (\"What worked, what didn't?\") — so students develop the habit of asking themselves the right cognitive question at the right moment.",
       "tags": ["metacognition", "prompts", "self-regulated-learning", "planning", "monitoring", "evaluation"],
-      "effect_months": 7,
+      "effect_months": 8,
       "effect_months_source": "EEF Toolkit — Metacognition and self-regulation strand",
-      "effect_months_year": 2021,
-      "effect_d": 0.40,
+      "effect_months_year": 2025,
+      "effect_d": 0.4,
       "effect_d_source": "Guo",
       "effect_d_journal": "Journal of Computer Assisted Learning",
       "effect_d_year": 2022,
@@ -29,10 +29,10 @@
       "display_title": "Self-Regulation Scaffold Generator",
       "description": "Generate scaffolds — planning sheets, monitoring checklists, evaluation rubrics — that support students through the three phases of self-regulated learning before, during, and after a task.",
       "tags": ["self-regulation", "scaffolds", "metacognition", "planning", "monitoring", "evaluation"],
-      "effect_months": 7,
+      "effect_months": 8,
       "effect_months_source": "EEF Toolkit — Metacognition and self-regulation strand",
-      "effect_months_year": 2021,
-      "effect_d": 0.50,
+      "effect_months_year": 2025,
+      "effect_d": 0.5,
       "effect_d_source": "Shao, Chen, Wei, Li & Li",
       "effect_d_journal": "Frontiers in Psychology",
       "effect_d_year": 2023,
@@ -40,7 +40,8 @@
       "implementation_cost_rationale": "Designing quality scaffolds for plan/monitor/evaluate phases takes real prep work — calibrating what to scaffold, choosing the right format (sheet, checklist, rubric), planning fade. Once built, scaffolds are reusable across cohorts. AI generation accelerates but doesn't eliminate the design work.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/self-regulated-learning/self-regulation-scaffold-generator/SKILL.md",
-      "verification_status": "verified"
+      "verification_status": "verified",
+      "evidence_note": "Effect on academic performance of mostly digital, collaborative scaffolds, primary school to university. Overall effect: 0.59."
     },
     {
       "id": "self-regulated-learning/study-strategy-selector",
@@ -48,9 +49,9 @@
       "display_title": "Study Strategy Selector & Guide",
       "description": "Select evidence-based study strategies — spaced practice, retrieval, interleaving, elaboration — matched to the material type, the learning goal, and the student's current habits, so students stop highlighting and re-reading and start doing what actually works.",
       "tags": ["study-strategies", "metacognition", "self-regulated-learning", "Dunlosky", "learning-techniques"],
-      "effect_months": 7,
-      "effect_months_source": "EEF Toolkit — Metacognition and self-regulation strand",
-      "effect_months_year": 2021,
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
       "effect_d": 0.38,
       "effect_d_source": "Theobald",
       "effect_d_journal": "Contemporary Educational Psychology",
@@ -59,7 +60,9 @@
       "implementation_cost_rationale": "The selector itself is a one-time prep job; in-class use takes minutes of explicit instruction plus reference handouts. No materials beyond a strategy guide, no training beyond teacher fluency with Dunlosky's framework of which strategies actually work.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/self-regulated-learning/study-strategy-selector/SKILL.md",
-      "verification_status": "verified"
+      "verification_status": "verified",
+      "evidence_type": "indirect",
+      "evidence_note": "Self-regulated learning training for university students, all outcomes combined. Training in single techniques such as retrieval or spacing was not studied separately."
     },
     {
       "id": "ai-learning-science/self-explanation-prompt-designer",
@@ -67,9 +70,9 @@
       "display_title": "Self-Explanation Prompt Designer",
       "description": "Design prompts that get students to self-explain — 'Why does this step make sense?', 'How does this connect to what you knew before?' — so they generate inferences instead of just absorbing information.",
       "tags": ["self-explanation", "metacognition", "elaboration", "encoding", "self-regulated-learning"],
-      "effect_months": 7,
-      "effect_months_source": "EEF Toolkit — Metacognition and self-regulation strand",
-      "effect_months_year": 2021,
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
       "effect_d": 0.55,
       "effect_d_source": "Bisra, Liu, Nesbit, Salimi & Winne",
       "effect_d_journal": "Educational Psychology Review",
@@ -86,10 +89,10 @@
       "display_title": "Implementation Intention Designer",
       "description": "Help students design if-then plans — \"When situation X occurs, I will respond by Y\" — so good intentions translate into action. Gollwitzer's classic mechanism for closing the gap between wanting to study and actually studying.",
       "tags": ["implementation-intentions", "if-then-planning", "goal-setting", "self-regulation", "Gollwitzer"],
-      "effect_months": 7,
-      "effect_months_source": "EEF Toolkit — Metacognition and self-regulation strand",
-      "effect_months_year": 2021,
-      "effect_d": 0.40,
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.25,
       "effect_d_source": "Sheeran, Listrom & Gollwitzer",
       "effect_d_journal": "European Review of Social Psychology",
       "effect_d_year": 2024,
@@ -97,7 +100,8 @@
       "implementation_cost_rationale": "If-then plans are a 5-minute activity per student per goal cycle. No materials beyond a template. The technique is teachable in a single short briefing. The cost is the recurring discipline of using them, not setup.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/implementation-intention-designer/SKILL.md",
-      "verification_status": "verified"
+      "verification_status": "verified",
+      "evidence_note": "If-then plans for academic behaviours such as studying. Across all outcomes: 0.36, and 0.15 after a strict correction for publication bias."
     }
   ]
 }

@@ -2,7 +2,7 @@
   "domain_id": "literacy-critical-thinking",
   "domain_label": "Literacy & Critical Thinking",
   "domain_description": "Reading, writing, and thinking skills that transfer across subjects — strategy instruction that builds comprehension, scaffolds that make complex texts and disciplinary writing accessible, and protocols that teach students to evaluate sources, deconstruct media, and design tasks worth thinking hard about. All interventions cross-referenced to peer-reviewed meta-analyses where one exists.",
-  "last_reviewed": "2026-05-20",
+  "last_reviewed": "2026-10-27",
   "skills": [
     {
       "id": "literacy-critical-thinking/reading-comprehension-strategy-selector",
@@ -19,7 +19,7 @@
       "effect_months": 7,
       "effect_months_source": "EEF Toolkit — Reading comprehension strategies strand",
       "effect_months_year": 2021,
-      "effect_d": 0.43,
+      "effect_d": 0.19,
       "effect_d_source": "Okkinga et al.",
       "effect_d_journal": "Educational Psychology Review",
       "effect_d_year": 2018,
@@ -27,7 +27,8 @@
       "implementation_cost_rationale": "EEF rates this Very low. Teachers need PD on a small set of strategies (reciprocal teaching, summarisation, prediction, monitoring), but no materials change and no structural reorganisation. The harder part is fidelity over time — strategies have to be modelled, practised, then released to students gradually — not the up-front investment.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/reading-comprehension-strategy-selector/SKILL.md",
-      "verification_status": "verified"
+      "verification_status": "verified",
+      "evidence_note": "Reading strategy instruction in whole classes, effect on standardized reading tests. On tests designed by the researchers the effect was 0.43."
     },
     {
       "id": "literacy-critical-thinking/text-complexity-analyser",
@@ -41,10 +42,10 @@
         "vocabulary",
         "differentiation"
       ],
-      "effect_months": 7,
-      "effect_months_source": "EEF Toolkit — Reading comprehension strategies strand",
-      "effect_months_year": 2021,
-      "effect_d": 0.37,
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": null,
       "effect_d_source": "Bogaerds-Hazenberg et al.",
       "effect_d_journal": "Reading Research Quarterly",
       "effect_d_year": 2021,
@@ -52,7 +53,9 @@
       "implementation_cost_rationale": "Teachers need PD in recognising text structures (cause-effect, compare-contrast, problem-solution), signal-words, and how to design graphic organisers and pre-teaching that fit the specific text. No materials cost but real lesson-design work — and Bogaerds-Hazenberg's delayed-posttest finding (effects faded without sustained practice) means scaffolds have to be revisited across the year, not deployed once.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/text-complexity-analyser/SKILL.md",
-      "verification_status": "verified"
+      "verification_status": "verified",
+      "evidence_type": "indirect",
+      "evidence_note": "Text structure instruction in grades 4-6. The study gives no single pooled effect: immediate effects ranged from 0.25 (comprehension questions) to 0.57 (summarising) and were gone at delayed tests."
     },
     {
       "id": "literacy-critical-thinking/disciplinary-writing-scaffold",
@@ -69,21 +72,23 @@
       "effect_months": null,
       "effect_months_source": null,
       "effect_months_year": null,
-      "effect_d": 0.59,
-      "effect_d_source": "Graham, Tate & Yang",
+      "effect_d": 0.47,
+      "effect_d_source": "Graham, Kim, Cao, Lee, Tate, Collins et al.",
       "effect_d_journal": "Journal of Educational Psychology",
       "effect_d_year": 2023,
       "implementation_cost": "medium",
       "implementation_cost_rationale": "Teachers need to know their discipline's genre conventions (different for science, history, English), model them, and embed scaffolds into existing writing tasks. Higher PD lift than reciprocal teaching because scaffolds must be discipline-specific, but no materials cost. Sustained PD matters — scaffolds work when teachers can model the discipline's reasoning, not just supply a template.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/disciplinary-writing-scaffold/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_type": "indirect",
+      "evidence_note": "All writing instruction in grades 6-12, effect on writing; strategy instruction: 0.76. Genre scaffolds by subject were not tested separately."
     },
     {
       "id": "literacy-critical-thinking/critical-thinking-task-designer",
       "manning_name": "critical-thinking-task-designer",
       "display_title": "Critical Thinking Task Designer",
-      "description": "Design tasks that make students actually do the cognitive work — analyse competing claims, evaluate evidence, weigh tradeoffs, justify a position — instead of recall dressed up as 'higher-order thinking'. Domain-specific framing built in: critical thinking transfers when it is taught inside the discipline, not as a generic skill.",
+      "description": "Design tasks that make students actually do the cognitive work — analyse competing claims, evaluate evidence, weigh tradeoffs, justify a position — instead of recall dressed up as 'higher-order thinking'. Domain-specific framing built in: tasks sit inside the subject, though the evidence shows both generic and subject-embedded teaching of critical thinking work.",
       "tags": [
         "critical-thinking",
         "analysis",
@@ -94,7 +99,7 @@
       "effect_months": null,
       "effect_months_source": null,
       "effect_months_year": null,
-      "effect_d": 0.30,
+      "effect_d": 0.3,
       "effect_d_source": "Abrami et al.",
       "effect_d_journal": "Review of Educational Research",
       "effect_d_year": 2015,
@@ -102,7 +107,8 @@
       "implementation_cost_rationale": "No materials cost and no structural change, but real PD lift — teachers need domain-specific evaluation criteria, modelling of expert reasoning, and the ability to give feedback on the reasoning itself, not just the answer. Abrami et al. found generic and content-specific approaches both work, but dialogue and authentic problems are the active ingredients — not worksheet 'critical thinking exercises'.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/critical-thinking-task-designer/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_note": "Critical-thinking instruction at all educational levels, measured on critical-thinking tests. Both generic and subject-embedded teaching worked."
     },
     {
       "id": "literacy-critical-thinking/source-credibility-evaluation-protocol",
@@ -119,7 +125,7 @@
       "effect_months": null,
       "effect_months_source": null,
       "effect_months_year": null,
-      "effect_d": 0.76,
+      "effect_d": 0.6,
       "effect_d_source": "Huang, Jia & Yu",
       "effect_d_journal": "Communication Research",
       "effect_d_year": 2024,
@@ -127,7 +133,9 @@
       "implementation_cost_rationale": "SIFT and lateral reading are concrete, teachable moves — but Huang et al. found multiple sessions outperform single-session interventions, and durability depends on repeated practice across real sources students encounter. No materials cost; the lift is sustained instructional time, not start-up. Effect sizes are near-transfer (immediate credibility judgments on researcher-supplied items) — long-term real-world transfer is less well-established.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/literacy-critical-thinking/source-credibility-evaluation-protocol/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_type": "indirect",
+      "evidence_note": "Media literacy interventions against misinformation (49 experiments), mostly college students and adults. 0.60 is the overall effect; telling true from false news alone was 0.76."
     },
     {
       "id": "literacy-critical-thinking/media-literacy-deconstruction-protocol",

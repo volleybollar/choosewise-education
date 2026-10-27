@@ -2,7 +2,7 @@
   "domain_id": "professional-learning",
   "domain_label": "Professional Learning",
   "domain_description": "How teachers actually get better at the job — not training days that vanish on Monday morning. Coaching conversations, lesson study cycles, observation routines, structured inquiry, and PD design that respects what we know about adult learning. All interventions cross-referenced to peer-reviewed meta-analyses where one exists. We have curated the Manning catalogue here for relevance, leaving out internal QA tools and operational utilities that do not function as teaching interventions.",
-  "last_reviewed": "2026-05-20",
+  "last_reviewed": "2026-10-27",
   "skills": [
     {
       "id": "professional-learning/professional-development-session-designer",
@@ -21,14 +21,16 @@
       "effect_months_source": null,
       "effect_months_year": null,
       "effect_d": 0.21,
-      "effect_d_source": "Lynch, Gonzalez, Hill & Merritt",
-      "effect_d_journal": "AERA Open",
-      "effect_d_year": 2025,
+      "effect_d_source": "Lynch, Hill, Gonzalez & Pollard",
+      "effect_d_journal": "Educational Evaluation and Policy Analysis",
+      "effect_d_year": 2019,
       "implementation_cost": "medium",
       "implementation_cost_rationale": "Designing mechanism-rich PD (per Sims, Fletcher-Wood et al. 2025's IMTP theory: Insight, Motivation, Techniques, Practice) requires the facilitator to understand cognitive- and behavioural-science principles, not just CPD buzzwords. No materials cost; the lift is on the person designing and running the PD. Sims's finding is that average PD has d=0.05 — well-designed PD has to do something different to land.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/professional-development-session-designer/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_type": "indirect",
+      "evidence_note": "STEM professional development and curriculum programmes, effect on student achievement."
     },
     {
       "id": "professional-learning/instructional-coaching-conversation-guide",
@@ -79,7 +81,9 @@
       "implementation_cost_rationale": "Requires sustained time for the full cycle (planning, research lesson, observer debrief, refined re-teach), pairs or triads of teachers freed up together, and continuity across terms. The g=0.47 reflects teacher self-efficacy outcomes — the proximal target lesson study reliably moves. Be transparent about the distal evidence: Bradbury et al. 2021 (EEF trial, 181 English primary schools) found null on student attainment overall, with heterogeneous effects by school size. Lesson study delivers on teacher growth more reliably than on direct student outcomes.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/lesson-study-cycle-designer/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_type": "indirect",
+      "evidence_note": "Interventions of any kind aimed at teachers' self-efficacy (115 studies); the outcome is teacher self-efficacy, not lesson study or student learning."
     },
     {
       "id": "professional-learning/teacher-inquiry-cycle-designer",
@@ -98,14 +102,15 @@
       "effect_months_source": null,
       "effect_months_year": null,
       "effect_d": 0.41,
-      "effect_d_source": "Ansyari et al.",
+      "effect_d_source": "Spiele, Janssen, Schildkamp & Poortman",
       "effect_d_journal": "Studies in Educational Evaluation",
       "effect_d_year": 2025,
       "implementation_cost": "high",
-      "implementation_cost_rationale": "Real inquiry cycles take terms or years to run properly: a full loop from collecting student-learning evidence, interpreting it as a team, agreeing action, and re-measuring impact. Ansyari et al. found heterogeneity: effects are largest when collaboration is genuine and leadership actively supports the inquiry. The honest comparison: generic teacher PD sits around d=0.05–0.09 (Sims 2025; 2025 128-study meta-analysis); disciplined inquiry with collaboration and support reaches g=0.41 — but only when the structural conditions are in place.",
+      "implementation_cost_rationale": "Real inquiry cycles take terms or years to run properly: a full loop from collecting student-learning evidence, interpreting it as a team, agreeing action, and re-measuring impact. Spiele et al. found large heterogeneity: effects are largest when collaboration is genuine and leadership actively supports the inquiry. The honest comparison: generic teacher PD sits around d=0.05–0.09 (Sims 2025; 2025 128-study meta-analysis); disciplined inquiry with collaboration and support reaches g=0.41 — but only when the structural conditions are in place.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/teacher-inquiry-cycle-designer/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_note": "Teacher data-use professional development, effect on student achievement (27 studies). Results vary widely and shrink in better-designed studies."
     },
     {
       "id": "professional-learning/lesson-observation-protocol-designer",
@@ -130,7 +135,9 @@
       "implementation_cost_rationale": "No materials cost. The lift is on developing genuinely useful look-fors (subject-specific, behavioural, not vague 'engagement'), a non-evaluative feedback structure, and protected time for paired observation and debrief. Less expensive than full instructional coaching (no external coach required) but the same boundary condition applies: Bradbury et al. 2021's EEF trial (181 English primary schools) found that low-stakes peer observation with light protocols produced no measurable effect on student attainment. Quality of the protocol and the feedback conversation are what carry the d=0.49 — not observation alone.",
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/lesson-observation-protocol-designer/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_type": "indirect",
+      "evidence_note": "Sustained instructional coaching programmes; the effect is on teachers' instruction (0.18 on student achievement). Peer observation protocols were not tested on their own."
     },
     {
       "id": "professional-learning/pedagogical-content-knowledge-developer",
@@ -155,10 +162,11 @@
       "effect_d_journal": "AERA Open",
       "effect_d_year": 2025,
       "implementation_cost": "high",
-      "implementation_cost_rationale": "PCK is the most subject-specific form of teacher learning, which makes it expensive: subject-specialist PD facilitators (often hard to find at scale), sustained engagement, and a separate PD track per subject area. Lynch et al.'s d=0.52 is the proximal effect on teacher knowledge — the construct PCK directly grows. The downstream effect on student achievement is more modest (d=0.21). Hill, Rowan & Ball 2008 found teachers with stronger Mathematical Knowledge for Teaching produced student gains equivalent to 2–3 extra weeks of instruction per year. Evidence is strongest in STEM; PCK in language and social-science subjects is less well meta-analysed.",
+      "implementation_cost_rationale": "PCK is the most subject-specific form of teacher learning, which makes it expensive: subject-specialist PD facilitators (often hard to find at scale), sustained engagement, and a separate PD track per subject area. Lynch et al.'s d=0.52 is the proximal effect on teacher knowledge — the construct PCK directly grows. The downstream effect on student achievement is more modest: Lynch, Hill, Gonzalez & Pollard (2019) found d=0.21 for STEM PD and curriculum programmes. Hill, Rowan & Ball 2008 found teachers with stronger Mathematical Knowledge for Teaching produced student gains equivalent to 2–3 extra weeks of instruction per year. Evidence is strongest in STEM; PCK in language and social-science subjects is less well meta-analysed.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/professional-learning/pedagogical-content-knowledge-developer/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_note": "Effect on teachers' knowledge in maths and science professional development, mostly on measures made by the programme developers."
     },
     {
       "id": "professional-learning/reflective-practice-prompt-generator",
