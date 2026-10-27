@@ -1,8 +1,17 @@
 {
   "labels": {
-    "strong": {"name": "Strong", "definition": "Meta-analyses of classroom interventions show that teaching this kind of thinking improves it."},
-    "promising": {"name": "Promising", "definition": "Controlled studies show gains, but results are mixed, small in number or dependent on context."},
-    "framework": {"name": "Framework", "definition": "A useful structure for thinking, with no intervention studies behind it yet."},
+    "strong": {
+      "name": "Strong",
+      "definition": "Meta-analyses of classroom interventions show that teaching this kind of thinking improves it."
+    },
+    "promising": {
+      "name": "Promising",
+      "definition": "Controlled studies show gains, but results are mixed, small in number or dependent on context."
+    },
+    "framework": {
+      "name": "Framework",
+      "definition": "A useful structure for thinking, with no intervention studies behind it yet."
+    },
     "note": "Labels rate the research on teaching this kind of thinking regularly, not a single five-minute move. One move is one small piece of that practice."
   },
   "clusters": [
@@ -11,64 +20,132 @@
       "name": "Generating ideas",
       "description": "Producing many and unusual options.",
       "modes": [
-        {"name": "Divergent", "added": false},
-        {"name": "Associative", "added": false},
-        {"name": "Lateral", "added": false},
-        {"name": "Janusian", "added": false, "note": "No move of its own: the evidence is thin and comes almost entirely from one researcher."}
+        {
+          "name": "Divergent",
+          "added": false
+        },
+        {
+          "name": "Associative",
+          "added": false
+        },
+        {
+          "name": "Lateral",
+          "added": false
+        },
+        {
+          "name": "Janusian",
+          "added": false,
+          "note": "No move of its own: the evidence is thin and comes almost entirely from one researcher."
+        }
       ],
-      "moves": ["many-ways"]
+      "moves": [
+        "many-ways"
+      ]
     },
     {
       "id": "evaluating",
       "name": "Evaluating and choosing",
       "description": "Weighing evidence, testing claims and deciding.",
       "modes": [
-        {"name": "Critical", "added": false},
-        {"name": "Convergent", "added": false},
-        {"name": "Argumentation from evidence", "added": true}
+        {
+          "name": "Critical",
+          "added": false
+        },
+        {
+          "name": "Convergent",
+          "added": false
+        },
+        {
+          "name": "Argumentation from evidence",
+          "added": true
+        }
       ],
-      "moves": ["pick-and-justify", "check-the-claim", "argue-it"]
+      "moves": [
+        "pick-and-justify",
+        "check-the-claim",
+        "argue-it"
+      ]
     },
     {
       "id": "comparing",
       "name": "Comparing and transferring",
       "description": "Seeing the structure one case shares with another.",
       "modes": [
-        {"name": "Analogical", "added": false}
+        {
+          "name": "Analogical",
+          "added": false
+        }
       ],
-      "moves": ["like-what"]
+      "moves": [
+        "like-what"
+      ]
     },
     {
       "id": "explaining",
       "name": "Explaining and reasoning from basics",
       "description": "Finding the best explanation and rebuilding from what is certainly true.",
       "modes": [
-        {"name": "Abductive", "added": false},
-        {"name": "First principles", "added": false},
-        {"name": "Mathematical modelling", "added": true},
-        {"name": "Estimation", "added": true}
+        {
+          "name": "Abductive",
+          "added": false
+        },
+        {
+          "name": "First principles",
+          "added": false
+        },
+        {
+          "name": "Mathematical modelling",
+          "added": true
+        },
+        {
+          "name": "Estimation",
+          "added": true
+        }
       ],
-      "moves": ["best-explanation", "strip-it-down", "estimate-it", "model-it"]
+      "moves": [
+        "best-explanation",
+        "strip-it-down",
+        "estimate-it",
+        "model-it"
+      ]
     },
     {
       "id": "causes",
       "name": "Causes and systems",
       "description": "Chains, loops and side effects.",
       "modes": [
-        {"name": "Systems", "added": false},
-        {"name": "Second-order", "added": false},
-        {"name": "Inversion", "added": false, "note": "No move of its own: the evidence is thin and comes from adult lab studies of the pre-mortem."}
+        {
+          "name": "Systems",
+          "added": false
+        },
+        {
+          "name": "Second-order",
+          "added": false
+        },
+        {
+          "name": "Inversion",
+          "added": false,
+          "note": "No move of its own: the evidence is thin and comes from adult lab studies of the pre-mortem."
+        }
       ],
-      "moves": ["then-what", "map-the-loop"]
+      "moves": [
+        "then-what",
+        "map-the-loop"
+      ]
     },
     {
       "id": "regulating",
       "name": "Regulating your own thinking",
       "description": "Watching and adjusting how you think. It makes every other cluster sharper.",
       "modes": [
-        {"name": "Metacognitive", "added": false}
+        {
+          "name": "Metacognitive",
+          "added": false
+        }
       ],
-      "moves": ["think-back"]
+      "moves": [
+        "think-back"
+      ]
     }
   ],
   "moves": [
@@ -80,9 +157,12 @@
       "modes": "Divergent, associative and lateral thinking",
       "cluster": "generating",
       "label": "promising",
-      "evidence": "Creativity training works on average (Haase, Hanel & Gronau 2023: g = 0.53), but that meta-analysis covers adults, and older school-age studies show publication bias.",
+      "evidence": "Creativity training works on average (Haase, Hanel & Gronau 2023: g = 0.53), but that meta-analysis covers adults, and the evidence for school-age students is older and less certain.",
       "sources": [
-        {"text": "Haase, Hanel & Gronau 2023, Psychology of Aesthetics, Creativity, and the Arts", "url": "https://doi.org/10.1037/aca0000557"}
+        {
+          "text": "Haase, Hanel & Gronau 2023, Psychology of Aesthetics, Creativity, and the Arts",
+          "url": "https://doi.org/10.1037/aca0000557"
+        }
       ],
       "prompt_brief": "Pose an open problem from the lesson topic that has many possible solutions. Ask students for a high number of ideas (about ten), then to mark the two most unusual. The Look for part should name the different principles or categories strong lists cover, so the teacher can tell variety from ten versions of one idea.",
       "examples": [
@@ -114,7 +194,10 @@
       "label": "promising",
       "evidence": "In the Haase, Hanel & Gronau 2023 meta-analysis, training convergent thinking showed larger effects than training divergent thinking, but the studies are on adults. In school it is part of ordinary problem solving.",
       "sources": [
-        {"text": "Haase, Hanel & Gronau 2023, Psychology of Aesthetics, Creativity, and the Arts", "url": "https://doi.org/10.1037/aca0000557"}
+        {
+          "text": "Haase, Hanel & Gronau 2023, Psychology of Aesthetics, Creativity, and the Arts",
+          "url": "https://doi.org/10.1037/aca0000557"
+        }
       ],
       "prompt_brief": "Give students three realistic options from the lesson topic, each with a clear strength and a clear cost. Ask them to agree on criteria before they choose, then to justify one option against every criterion. The Look for part should reward naming what the choice costs.",
       "examples": [
@@ -146,7 +229,10 @@
       "label": "strong",
       "evidence": "Explicit teaching of critical thinking improves it across subjects and ages (Abrami et al. 2015: g = 0.30 over 341 effect sizes), most when combined with discussion and authentic problems.",
       "sources": [
-        {"text": "Abrami et al. 2015, Review of Educational Research", "url": "https://doi.org/10.3102/0034654314551063"}
+        {
+          "text": "Abrami et al. 2015, Review of Educational Research",
+          "url": "https://doi.org/10.3102/0034654314551063"
+        }
       ],
       "prompt_brief": "Choose a short, plausible claim connected to the lesson topic, the kind students meet in everyday life or the media. Ask students to decide what evidence would convince them before they judge it. The Look for part should separate anecdote from comparison and name what the actual evidence shows; flag any fact the teacher should verify.",
       "examples": [
@@ -155,7 +241,7 @@
           "grade": 10,
           "task": "Claim: \"Cracking your knuckles gives you arthritis.\" Before deciding whether it is true, write down what kind of evidence would convince you, and what kind would not.",
           "look_for": "The difference between an anecdote (\"my grandad did it and has arthritis\") and a comparison of people who crack their knuckles with people who don't. Strong answers ask for a comparison group, a large sample and years of follow-up. Studies comparing the two groups have not found more arthritis among knuckle-crackers.",
-          "probe": "One doctor cracked the knuckles of one hand for 60 years and never the other. What does that show, and what can it not show?",
+          "probe": "One doctor cracked the knuckles of one hand for more than 50 years and never the other. What does that show, and what can it not show?",
           "think_back": "The evidence I would have accepted too quickly was …"
         },
         {
@@ -178,7 +264,10 @@
       "label": "promising",
       "evidence": "School interventions that teach scientific reasoning and argumentation show a medium effect on average across 30 interventions (Engelmann, Neuhaus & Fischer 2016).",
       "sources": [
-        {"text": "Engelmann, Neuhaus & Fischer 2016, Educational Research and Evaluation", "url": "https://doi.org/10.1080/13803611.2016.1240089"}
+        {
+          "text": "Engelmann, Neuhaus & Fischer 2016, Educational Research and Evaluation",
+          "url": "https://doi.org/10.1080/13803611.2016.1240089"
+        }
       ],
       "prompt_brief": "State a debatable claim from the lesson topic where real evidence exists on more than one side. Ask students to build an argument with a claim, a piece of evidence and the reasoning that connects them, and to answer the strongest counterargument. The Look for part should name usable evidence and flag any figure the teacher should check.",
       "examples": [
@@ -208,10 +297,16 @@
       "modes": "Analogical thinking",
       "cluster": "comparing",
       "label": "strong",
-      "evidence": "Learning by comparing cases improves understanding across 57 experiments (Alfieri, Nokes-Malach & Schunn 2013), and comparing solution methods built flexibility in Year 7–8 algebra classrooms (Rittle-Johnson & Star).",
+      "evidence": "Learning by comparing cases improves understanding across 57 experiments (Alfieri, Nokes-Malach & Schunn 2013), and comparing solution methods built flexibility in Grade 7–8 algebra (Rittle-Johnson & Star 2007).",
       "sources": [
-        {"text": "Alfieri, Nokes-Malach & Schunn 2013, Educational Psychologist", "url": "https://doi.org/10.1080/00461520.2013.775712"},
-        {"text": "Richland, Zur & Holyoak 2007, Science", "url": "https://doi.org/10.1126/science.1142103"}
+        {
+          "text": "Alfieri, Nokes-Malach & Schunn 2013, Educational Psychologist",
+          "url": "https://doi.org/10.1080/00461520.2013.775712"
+        },
+        {
+          "text": "Rittle-Johnson & Star 2007, Journal of Educational Psychology",
+          "url": "https://doi.org/10.1037/0022-0663.99.3.561"
+        }
       ],
       "prompt_brief": "Pick a familiar comparison for a key idea in the lesson topic. Ask students to map the parts that correspond, then to find at least two places where the comparison breaks down. The Look for part should list the correct correspondences and the main breaking points.",
       "examples": [
@@ -243,7 +338,10 @@
       "label": "promising",
       "evidence": "Generating and testing hypotheses is part of scientific reasoning, which school interventions improve on average (Engelmann, Neuhaus & Fischer 2016). Studies of abductive reasoning on its own are few and small.",
       "sources": [
-        {"text": "Engelmann, Neuhaus & Fischer 2016, Educational Research and Evaluation", "url": "https://doi.org/10.1080/13803611.2016.1240089"}
+        {
+          "text": "Engelmann, Neuhaus & Fischer 2016, Educational Research and Evaluation",
+          "url": "https://doi.org/10.1080/13803611.2016.1240089"
+        }
       ],
       "prompt_brief": "Describe a short, puzzling observation connected to the lesson topic that has more than one reasonable explanation. Ask students for three explanations and, for each, an observation that would support it. The Look for part should give the accepted explanation and at least one real alternative, each with a test that separates them.",
       "examples": [
@@ -259,7 +357,7 @@
           "subject": "History",
           "grade": 11,
           "task": "Archaeologists find an English village that was lived in for 300 years and empty by 1500. Give three explanations, and the evidence that would make each one more likely.",
-          "look_for": "Plague (a sudden end around 1349, burials), land turned into sheep pasture (gradual, enclosure records, new field boundaries), and failing soil or climate. Strong answers match each cause with a kind of evidence.",
+          "look_for": "Plague (the population fell sharply after 1349, though villages rarely emptied from plague alone; look for burials and tax records), land turned into sheep pasture (gradual, mostly in the 1400s; enclosure records and new field boundaries), and failing soil or climate. Strong answers match each cause with a kind of evidence.",
           "probe": "Which single piece of evidence could rule out two explanations at once?",
           "think_back": "I changed my mind when …"
         }
@@ -273,9 +371,12 @@
       "modes": "First-principles thinking",
       "cluster": "explaining",
       "label": "framework",
-      "evidence": "There are no intervention studies of first-principles thinking itself. The closest research, productive failure, where students try to build a method before being taught it, shows positive results across 53 studies (Sinha & Kapur 2021).",
+      "evidence": "There are no intervention studies of first-principles thinking itself. The closest research is productive failure, where students try to build a method before being taught it. Across 53 studies it helped conceptual understanding more than teaching first, but not procedural skill (Sinha & Kapur 2021).",
       "sources": [
-        {"text": "Sinha & Kapur 2021, Review of Educational Research", "url": "https://doi.org/10.3102/00346543211019105"}
+        {
+          "text": "Sinha & Kapur 2021, Review of Educational Research",
+          "url": "https://doi.org/10.3102/00346543211019105"
+        }
       ],
       "prompt_brief": "Take a rule, formula or convention students already use in the lesson topic. Ask them to put it aside and rebuild it, or explain why it must be so, starting only from something they know for certain. The Look for part should show the line of reasoning and the case where it is easiest to go wrong.",
       "examples": [
@@ -305,9 +406,12 @@
       "modes": "Estimation (Fermi problems)",
       "cluster": "explaining",
       "label": "framework",
-      "evidence": "Estimation carries real weight in maths and science curricula, but a 2019 review found no studies testing whether Fermi problems improve students' estimation.",
+      "evidence": "Estimation carries real weight in maths and science curricula, but research on Fermi problems mostly describes how students solve them (Albarracín & Ärlebäck 2019) rather than testing whether they improve students' estimation.",
       "sources": [
-        {"text": "Ärlebäck & Albarracín 2019, For the Learning of Mathematics", "url": "https://ddd.uab.cat/pub/artpub/2019/296776/2019_FLM_Albarracin_Arleback.pdf"}
+        {
+          "text": "Albarracín & Ärlebäck 2019, For the Learning of Mathematics",
+          "url": "https://ddd.uab.cat/pub/artpub/2019/296776/2019_FLM_Albarracin_Arleback.pdf"
+        }
       ],
       "prompt_brief": "Ask a question connected to the lesson topic that has no exact answer to look up but can be estimated in steps. Ask students to write each assumption and aim for the right order of magnitude. The Look for part should show one sensible chain of steps and the rough result.",
       "examples": [
@@ -339,7 +443,10 @@
       "label": "promising",
       "evidence": "Teaching mathematical modelling improved problem solving and achievement in a meta-analysis of 20 studies (Hidayat et al. 2025). The field is small.",
       "sources": [
-        {"text": "Hidayat et al. 2025, STEM Education", "url": "https://doi.org/10.3934/steme.2025020"}
+        {
+          "text": "Hidayat et al. 2025, STEM Education",
+          "url": "https://doi.org/10.3934/steme.2025020"
+        }
       ],
       "prompt_brief": "Describe a simple real situation connected to the lesson topic with numbers students can work with by hand. Ask them to build a model, use it to answer a question, and name what the model ignores. The Look for part should give the correct result and the key assumption to question; flag any calculation the teacher should check.",
       "examples": [
@@ -371,7 +478,10 @@
       "label": "framework",
       "evidence": "Teaching students to see patterns of cause and effect has been developed through design research (Grotzer, Harvard Project Zero), but there are no effect sizes for it yet.",
       "sources": [
-        {"text": "Grotzer, Understandings of Consequence, Project Zero", "url": "https://pz.harvard.edu/projects/understandings-of-consequence"}
+        {
+          "text": "Grotzer, Understandings of Consequence, Project Zero",
+          "url": "https://pz.harvard.edu/projects/understandings-of-consequence"
+        }
       ],
       "prompt_brief": "Describe a decision, rule or change connected to the lesson topic, ideally a real one with a documented surprising result. Ask students to write the first consequence, then the consequence of that, then one more. The Look for part should name the surprising later consequence and where it is documented.",
       "examples": [
@@ -401,9 +511,12 @@
       "modes": "Systems thinking",
       "cluster": "causes",
       "label": "promising",
-      "evidence": "Year 8 students taught with a systems approach progressed through levels of systems thinking (Ben-Zvi Assaraf & Orion 2005). There is no meta-analysis yet, and few secondary-school trials.",
+      "evidence": "About 50 Grade 8 students taught with an earth-systems approach progressed through levels of systems thinking, and a third reached the highest level (Ben-Zvi Assaraf & Orion 2005). There is no meta-analysis yet, and few secondary-school trials.",
       "sources": [
-        {"text": "Ben-Zvi Assaraf & Orion 2005, Journal of Research in Science Teaching", "url": "https://doi.org/10.1002/tea.20061"}
+        {
+          "text": "Ben-Zvi Assaraf & Orion 2005, Journal of Research in Science Teaching",
+          "url": "https://doi.org/10.1002/tea.20061"
+        }
       ],
       "prompt_brief": "Name three or four parts of a system connected to the lesson topic. Ask students to draw arrows for how each affects the others, find a loop, and say whether it grows or balances itself. The Look for part should describe the main loop and one change that would alter it.",
       "examples": [
@@ -435,7 +548,10 @@
       "label": "strong",
       "evidence": "Teaching students to plan, monitor and evaluate their own learning is one of the strongest strands in the EEF Teaching and Learning Toolkit: +8 months of progress on average, with 4 of 5 padlocks for the strength of the evidence.",
       "sources": [
-        {"text": "EEF Teaching and Learning Toolkit: Metacognition and self-regulation", "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation"}
+        {
+          "text": "EEF Teaching and Learning Toolkit: Metacognition and self-regulation",
+          "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation"
+        }
       ],
       "prompt_brief": "Set a short reflection tied to a task students have just done in the lesson topic. Ask them to describe how they worked, where they got stuck and what moved them on, and to compare a prediction with the result where possible. The Look for part should separate named strategies from vague statements such as \"I thought harder\".",
       "examples": [
@@ -459,9 +575,21 @@
     }
   ],
   "age_rules": [
-    {"tool": "Copilot Chat", "rule": "Students aged 13 and over, through the school's own Microsoft 365 account. The school's administrator must set each student's age group and consent."},
-    {"tool": "Gemini for Education", "rule": "Open to education users of all ages, with a stricter experience for under-18s. The school's administrator must turn it on."},
-    {"tool": "ChatGPT", "rule": "Ages 13 and over on personal accounts, with a parent's or guardian's permission under 18. ChatGPT for Teachers is for school staff only."},
-    {"tool": "Claude", "rule": "Ages 18 and over. In a school, for teachers only."}
+    {
+      "tool": "Copilot Chat",
+      "rule": "Students aged 13 and over, through the school's own Microsoft 365 account. The school's administrator must set each student's age group and consent."
+    },
+    {
+      "tool": "Gemini for Education",
+      "rule": "Open to education users of all ages, with a stricter experience for under-18s. The school's administrator must turn it on."
+    },
+    {
+      "tool": "ChatGPT",
+      "rule": "Ages 13 and over on personal accounts, with a parent's or guardian's permission under 18. ChatGPT for Teachers is for school staff only."
+    },
+    {
+      "tool": "Claude",
+      "rule": "Ages 18 and over. In a school, for teachers only."
+    }
   ]
 }
