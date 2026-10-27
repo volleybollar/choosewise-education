@@ -151,11 +151,14 @@ def _fill_in() -> str:
         "whiteboards or talk.\n\n"
         "Reply in plain text, no tables, with exactly these six parts:\n"
         "MOVE: the move's name and one line on what it trains\n"
-        "TASK: the task, written to the students\n"
-        "LOOK FOR: what strong thinking looks like in their answers\n"
+        "TASK: the task, written to the students: at most three\n"
+        "  short steps, under 80 words, about two minutes of work\n"
+        "LOOK FOR: at most five short bullets: the strongest answer\n"
+        "  first, then the most common mistake\n"
         "PROBE: one follow-up question that pushes past the first answer\n"
         "THINK BACK: one sentence starter about how they thought\n"
-        "CHECK: any fact in the task the teacher should verify"
+        "CHECK: every fact, figure, date or source to verify,\n"
+        "  one per line, or None"
     )
     return (
         '<section class="page">'

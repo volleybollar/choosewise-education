@@ -269,7 +269,7 @@
           "url": "https://doi.org/10.1080/13803611.2016.1240089"
         }
       ],
-      "prompt_brief": "State a debatable claim from the lesson topic where real evidence exists on more than one side. Ask students to build an argument with a claim, a piece of evidence and the reasoning that connects them, and to answer the strongest counterargument. The Look for part should name usable evidence and flag any figure the teacher should check.",
+      "prompt_brief": "State a debatable claim from the lesson topic. Give students three or four short, verifiable evidence statements to choose from, at least one on each side, so they need no device. Ask for one argument with a claim, a piece of the evidence and the reasoning that links them, plus one answer to the other side. List every evidence statement under CHECK.",
       "examples": [
         {
           "subject": "Civics",
@@ -308,7 +308,7 @@
           "url": "https://doi.org/10.1037/0022-0663.99.3.561"
         }
       ],
-      "prompt_brief": "Pick a familiar comparison for a key idea in the lesson topic. Ask students to map the parts that correspond, then to find at least two places where the comparison breaks down. The Look for part should list the correct correspondences and the main breaking points.",
+      "prompt_brief": "Pick a familiar comparison for a key idea in the lesson topic. Ask students for three things that correspond and one place where the comparison breaks down. The Look for part should list the correct correspondences and the main breaking point.",
       "examples": [
         {
           "subject": "Physics",
@@ -343,7 +343,7 @@
           "url": "https://doi.org/10.1080/13803611.2016.1240089"
         }
       ],
-      "prompt_brief": "Describe a short, puzzling observation connected to the lesson topic that has more than one reasonable explanation. Ask students for three explanations and, for each, an observation that would support it. The Look for part should give the accepted explanation and at least one real alternative, each with a test that separates them.",
+      "prompt_brief": "Describe a short, puzzling observation connected to the lesson topic that has at least two explanations a teacher would take seriously. Ask students for two explanations and one observation that would tell them apart. The Look for part should give the accepted explanation and the real alternative, with the test that separates them.",
       "examples": [
         {
           "subject": "Biology",
@@ -378,7 +378,7 @@
           "url": "https://doi.org/10.3102/00346543211019105"
         }
       ],
-      "prompt_brief": "Take a rule, formula or convention students already use in the lesson topic. Ask them to put it aside and rebuild it, or explain why it must be so, starting only from something they know for certain. The Look for part should show the line of reasoning and the case where it is easiest to go wrong.",
+      "prompt_brief": "Take a rule, formula or convention students already use in the lesson topic. Name the one starting point they may use, but do not hand them the steps that make the rule obvious. Ask them to rebuild or justify the rule from that starting point. The Look for part should show the line of reasoning and the case where it is easiest to go wrong.",
       "examples": [
         {
           "subject": "Maths",
@@ -413,7 +413,7 @@
           "url": "https://ddd.uab.cat/pub/artpub/2019/296776/2019_FLM_Albarracin_Arleback.pdf"
         }
       ],
-      "prompt_brief": "Ask a question connected to the lesson topic that has no exact answer to look up but can be estimated in steps. Ask students to write each assumption and aim for the right order of magnitude. The Look for part should show one sensible chain of steps and the rough result.",
+      "prompt_brief": "Ask one question connected to the lesson topic that has no exact answer to look up but can be estimated. Do not list the steps: students choose how to break the question down and write each assumption. The Look for part should show one possible chain of steps and the rough result, aiming for the right order of magnitude.",
       "examples": [
         {
           "subject": "Maths",
@@ -448,7 +448,7 @@
           "url": "https://doi.org/10.3934/steme.2025020"
         }
       ],
-      "prompt_brief": "Describe a simple real situation connected to the lesson topic with numbers students can work with by hand. Ask them to build a model, use it to answer a question, and name what the model ignores. The Look for part should give the correct result and the key assumption to question; flag any calculation the teacher should check.",
+      "prompt_brief": "Describe a simple real situation connected to the lesson topic with numbers students can work with by hand. Let students build the model themselves; do not spell out the formula. Ask one question to answer with the model and one thing the model ignores. The Look for part should give the correct result and the key assumption to question.",
       "examples": [
         {
           "subject": "Maths",
@@ -483,7 +483,7 @@
           "url": "https://pz.harvard.edu/projects/understandings-of-consequence"
         }
       ],
-      "prompt_brief": "Describe a decision, rule or change connected to the lesson topic, ideally a real one with a documented surprising result. Ask students to write the first consequence, then the consequence of that, then one more. The Look for part should name the surprising later consequence and where it is documented.",
+      "prompt_brief": "Describe a decision, rule or change connected to the lesson topic, ideally a real one with a documented surprising result. Ask students for the first consequence, the consequence of that, and one more. Do not hint at where the later consequences lie. The Look for part should name the surprising later consequence and where it is documented.",
       "examples": [
         {
           "subject": "History",
@@ -518,7 +518,7 @@
           "url": "https://doi.org/10.1002/tea.20061"
         }
       ],
-      "prompt_brief": "Name three or four parts of a system connected to the lesson topic. Ask students to draw arrows for how each affects the others, find a loop, and say whether it grows or balances itself. The Look for part should describe the main loop and one change that would alter it.",
+      "prompt_brief": "Name three or four parts of a system connected to the lesson topic. Ask students to draw arrows for how each affects the others, find one loop, and say whether it grows or balances itself. In Look for, list each arrow as 'X → Y (+ or −)' using one stated sign rule (+ means more X gives more Y), then name the loop type from the number of minus signs.",
       "examples": [
         {
           "subject": "Biology",

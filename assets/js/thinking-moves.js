@@ -39,11 +39,11 @@
       '',
       'Reply in plain text, no tables, with exactly these six parts:',
       "MOVE: the move's name and one line on what it trains",
-      'TASK: the task, written to the students',
-      'LOOK FOR: what strong thinking looks like in their answers',
+      'TASK: the task, written to the students. At most three short steps and under 80 words: about two minutes of work on their own. Pair talk, PROBE and THINK BACK use the rest of the five minutes, so do not put them inside TASK.',
+      'LOOK FOR: at most five short bullets and 80 words. The strongest answer first, then the most common mistake.',
       'PROBE: one follow-up question that pushes past the first answer',
       'THINK BACK: one sentence starter about how they thought, not what they found',
-      'CHECK: any fact in the task the teacher should verify before using it'
+      'CHECK: every fact, figure, date or source in TASK or LOOK FOR that the teacher should verify, one per line. Write "None" if there are none.'
     );
     return lines.join('\n');
   }
