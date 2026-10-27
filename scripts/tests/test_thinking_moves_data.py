@@ -115,3 +115,14 @@ def test_every_source_has_https_url():
 def test_age_rules_cover_four_tools():
     assert {r["tool"] for r in data()["age_rules"]} == {
         "Copilot Chat", "Gemini for Education", "ChatGPT", "Claude"}
+
+
+def test_every_move_has_an_icon():
+    for mid in ORDER:
+        path = ICONS / f"{mid}.svg"
+        assert path.exists(), mid
+        root = ET.fromstring(path.read_text(encoding="utf-8"))
+        assert root.get("viewBox") == "0 0 48 48", mid
+        colours = {c.upper() for c in re.findall(r"#[0-9A-Fa-f]{6}", path.read_text(encoding="utf-8"))}
+        assert colours <= ICON_COLOURS, (mid, colours - ICON_COLOURS)
+        assert root.find(".//{http://www.w3.org/2000/svg}text") is None, mid
