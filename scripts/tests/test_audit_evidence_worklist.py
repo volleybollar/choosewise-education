@@ -15,9 +15,14 @@ def _cards_in(filename):
 
 
 def test_worklist_counts_match_data():
+    # The October 2026 audit ran on 53 d-sources and 10 months-sources; the corrections
+    # changed the data since, so count what the data holds now.
+    skills = [s for f in DATA_DIR.glob("*.json") for s in json.loads(f.read_text())["skills"]]
+    d_sources = {f"{s['effect_d_source']}|{s['effect_d_year']}" for s in skills if s.get("effect_d") is not None}
+    month_sources = {s["effect_months_source"] for s in skills if s.get("effect_months") is not None}
     worklist = build_worklist(DATA_DIR)
-    assert sum(1 for e in worklist if e["kind"] == "d") == 53
-    assert sum(1 for e in worklist if e["kind"] == "months") == 10
+    assert sum(1 for e in worklist if e["kind"] == "d") == len(d_sources)
+    assert sum(1 for e in worklist if e["kind"] == "months") == len(month_sources)
 
 
 def test_reused_source_lists_all_cards():

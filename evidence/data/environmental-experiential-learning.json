@@ -2,7 +2,7 @@
   "domain_id": "environmental-experiential-learning",
   "domain_label": "Environmental & Experiential Learning",
   "domain_description": "Skills for learning that happens through direct experience and with the environment as a partner rather than a backdrop. Outdoor learning sequences, service learning, Kolb-style experiential learning cycles, ecological inquiry anchored in local living systems, interdisciplinary real-world connection mapping, and biophilic classroom design. Pairs naturally with the Place-Based Inquiry Anchor and Phenomenon-Based Unit Anchor cards in the Global &amp; Cross-Cultural Pedagogies domain — those operate at the curriculum-design level; the cards here operate at the lesson-sequence and physical-environment level. Evidence base is mixed: outdoor adventure learning has a clean EEF strand, service learning and environmental education have multiple solid meta-analyses, while biophilic design and the experiential-learning-cycle literature are stronger on conceptual scholarship than pooled student-outcome effect sizes.",
-  "last_reviewed": "2026-05-28",
+  "last_reviewed": "2026-10-27",
   "skills": [
     {
       "id": "environmental-experiential-learning/outdoor-learning-sequence-designer",
@@ -37,7 +37,7 @@
       "id": "environmental-experiential-learning/service-learning-project-designer",
       "manning_name": "service-learning-project-designer",
       "display_title": "Service Learning Project Designer",
-      "description": "Design a service-learning project connecting genuine community need with embedded curriculum learning. Built on the work of Shelley Billig and others, with Celio, Durlak & Dymnicki's 2011 meta-analysis (62 studies, 11,837 students) reporting positive effects across five outcomes (attitudes toward self, attitudes toward school, civic engagement, social skills, academic performance) at d range 0.27–0.43. Honest evidence note: Filges et al.'s 2022 Campbell Systematic Review applied stricter methodological filters than Celio 2011 and concluded the evidence is inconclusive — 18 of 37 located studies were excluded for 'critical risk of bias', and too few remaining studies reported on the same outcome to pool effects. The card anchors on d=0.30 (conservative, toward the lower end of Celio's range) to acknowledge that the average implementation evidence is methodologically weaker than the headline d=0.43 suggests. Celio's actionable finding remains useful: programmes following recommended practices — linking explicitly to curriculum, including student voice, involving community partners genuinely, and structured reflection — produced larger effects than programmes lacking these elements.",
+      "description": "Design a service-learning project connecting genuine community need with embedded curriculum learning. Built on the work of Shelley Billig and others, with Celio, Durlak & Dymnicki's 2011 meta-analysis (62 studies, 11,837 students) reporting positive effects across five outcomes (attitudes toward self, attitudes toward school, civic engagement, social skills, academic performance) at d range 0.27–0.43. Honest evidence note: Filges et al.'s 2022 Campbell Systematic Review applied stricter methodological filters than Celio 2011 and concluded the evidence is inconclusive — 18 of 37 located studies were excluded for 'critical risk of bias', and too few remaining studies reported on the same outcome to pool effects. The card shows no single number, because Celio reports a range across outcomes rather than one pooled effect. Celio's actionable finding remains useful: programmes following recommended practices — linking explicitly to curriculum, including student voice, involving community partners genuinely, and structured reflection — produced larger effects than programmes lacking these elements.",
       "tags": [
         "service-learning",
         "Billig",
@@ -52,7 +52,7 @@
       "effect_months": null,
       "effect_months_source": null,
       "effect_months_year": null,
-      "effect_d": 0.30,
+      "effect_d": null,
       "effect_d_source": "Celio, Durlak & Dymnicki",
       "effect_d_journal": "Journal of Experiential Education",
       "effect_d_year": 2011,
@@ -60,13 +60,14 @@
       "implementation_cost_rationale": "Service learning done well requires structural commitments most schools don't have: (1) community partnerships — finding genuine community needs, building relationships with partners, sustaining those relationships across staff turnover; (2) structured reflection time — Celio's meta-analysis identified reflection as the strongest predictor of effect, but reflection requires planned time in the curriculum that often collides with subject content time; (3) assessment redesign — service learning's outcomes don't fit a typical end-of-unit test, so assessment design has to handle authentic performance and reflective writing; (4) safeguarding and logistics — students in community settings need safer-recruitment-style vetting of partner organisations, transport, supervision. Quick-fix service learning (one-off community visit, no reflection, no curriculum link) reliably produces small or null effects — Filges 2022's bias finding partly reflects programmes that didn't have these structural supports. PD investment is real — 1–2 cycles before a department can run quality service learning consistently. For Swedish schools, the closest natural home is samhällskunskap and biologi projects in upper secondary, where civic-engagement curriculum already provides the spine. Source-recency note: Celio 2011 is 15 years old, but no quality successor meta-analysis exists — Filges 2022 Campbell Review applied stricter filters and found insufficient data to pool, which is a downgrade signal worth carrying transparently rather than a replacement anchor.",
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/service-learning-project-designer/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_note": "Service learning from primary school to college. Effects ranged from 0.27 to 0.43 across five outcomes; the study gives no single pooled figure."
     },
     {
       "id": "environmental-experiential-learning/experiential-learning-cycle-designer",
       "manning_name": "experiential-learning-cycle-designer",
       "display_title": "Experiential Learning Cycle Designer",
-      "description": "Structure a direct experience into a full learning cycle with concrete experience, reflection, and conceptual transfer. Anchored on Kolb's experiential learning theory (concrete experience → reflective observation → abstract conceptualization → active experimentation), with foundational lineage to Dewey's experience-and-reflection model. Burch et al.'s 2019 meta-analysis in Decision Sciences Journal of Innovative Education (89 studies with control groups, 43-year span) reports d=0.43 for experiential pedagogies vs traditional instruction, robust across moderators. Ranken, Wyse, Manyukhina & Bradbury's 2025 rapid evidence assessment in The Curriculum Journal (88 studies 2013-2023, ages 4-14) triangulates with subject-specific findings: strong evidence for science and mathematics, mixed for language and literacy, and particularly positive effects for at-risk students. Honest framing: the meta-analytic evidence covers experiential teaching broadly (at least concrete experience + reflection); it doesn't isolate Kolb's full four-stage cycle, which is often partially operationalised in practice. Use when planning field trips, simulations, laboratory work, role-plays, or practical tasks where the reflection-to-concept step is the critical move that distinguishes learning from activity.",
+      "description": "Structure a direct experience into a full learning cycle with concrete experience, reflection, and conceptual transfer. Anchored on Kolb's experiential learning theory (concrete experience → reflective observation → abstract conceptualization → active experimentation), with foundational lineage to Dewey's experience-and-reflection model. Burch et al.'s 2019 meta-analysis in Decision Sciences Journal of Innovative Education (89 studies with control groups, 43-year span) reports d=0.43 for experiential pedagogies vs traditional instruction. Ranken, Wyse, Manyukhina & Bradbury's 2025 rapid evidence assessment in The Curriculum Journal (88 studies 2013-2023, ages 4-14) triangulates with subject-specific findings: strong evidence for science and mathematics, mixed for language and literacy, and particularly positive effects for at-risk students. Honest framing: the meta-analytic evidence covers experiential teaching broadly (at least concrete experience + reflection); it doesn't isolate Kolb's full four-stage cycle, which is often partially operationalised in practice. Use when planning field trips, simulations, laboratory work, role-plays, or practical tasks where the reflection-to-concept step is the critical move that distinguishes learning from activity.",
       "tags": [
         "experiential-learning",
         "simulation",
@@ -90,7 +91,8 @@
       "implementation_cost_rationale": "The concrete-experience phase is usually easy to organise (the activity itself). The substantial cost lives in the reflection-to-concept transfer — most experiential teaching produces concrete experience and skips the reflection step that converts experience into transferable understanding. Teachers need protocols for structured reflection (journaling prompts, debriefing structures, group reflective dialogue) and time in the curriculum to use them, which often collides with content-coverage pressure. Ranken 2025's subject-specific finding is actionable: prioritise experiential cycles in science and mathematics where the evidence is strongest; treat language and literacy gains as bonus rather than primary justification. For Swedish schools, the closest natural homes are NO/SO field studies in middle years and laborationer in upper secondary science — both already structurally support concrete experience but often skimp on reflection time. Note: the meta-analytic d=0.43 covers experiential teaching broadly (concrete experience + reflection at minimum); it doesn't isolate Kolb's full four-stage cycle, which is often partially operationalised in practice — so the card framing prioritises the reflection step as the critical move.",
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/experiential-learning-cycle-designer/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_note": "Experiential teaching in general versus traditional instruction (89 studies). The education level of the studies is not reported."
     },
     {
       "id": "environmental-experiential-learning/ecological-inquiry-anchor-designer",
@@ -119,7 +121,9 @@
       "implementation_cost_rationale": "The conceptual move — pick a local ecological anchor, return to it repeatedly across the unit, let curriculum content emerge from sustained observation — is straightforward to plan. The real cost lives in three places: (1) ecological literacy gap — most secondary teachers have subject training, not field-naturalist training, and need scaffolding to read a hedgerow or pond as a curriculum object rather than a backdrop; (2) repeated access — the anchor only pays off if students return to it multiple times across weeks (one visit produces a memorable lesson, not an inquiry arc), which collides with timetabling; (3) assessment redesign — observation-driven inquiry doesn't fit a typical end-of-unit test, so assessment needs to handle field notes, hypotheses tested over time, and reflective writing. The attitudes effect (g=0.38) is real and durable; the knowledge effect headline (g=0.95) is partly test-inflation and shouldn't be the implementation case. For Swedish schools the closest natural homes are biologi and NO field studies in middle years and laboration cycles in upper secondary; pair with the Outdoor Learning Sequence Designer card for the lesson-by-lesson outdoor structure. Source-reuse note: van de Wetering 2022 also anchors Place-Based Inquiry Anchor in Global & Cross-Cultural Pedagogies — that card is curriculum-design level (which anchor to choose for a unit); this card is inquiry-launch level (how to design the inquiry sequence the anchor supports).",
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/ecological-inquiry-anchor-designer/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_type": "indirect",
+      "evidence_note": "Environmental education in general for children and adolescents (169 studies); the number is the effect on environmental attitudes."
     },
     {
       "id": "environmental-experiential-learning/interdisciplinary-real-world-connection-mapper",
@@ -141,14 +145,15 @@
       "effect_months_source": null,
       "effect_months_year": null,
       "effect_d": 0.66,
-      "effect_d_source": "Zhou, Dong & Wang",
+      "effect_d_source": "Zhou, Dong, Wang & Chiu",
       "effect_d_journal": "Research in Science Education",
       "effect_d_year": 2025,
       "implementation_cost": "medium",
       "implementation_cost_rationale": "The conceptual move — pick a real-world anchor, map which curriculum content from which subjects it pulls in, then sequence the connections — is straightforward to plan but expensive to deliver well. Three concrete costs: (1) cross-departmental coordination — the strongest version of this skill needs at least two teachers planning together across subject boundaries, which collides with timetabling, planning-time allocation, and departmental identity (Kreijkes & Greatorex's point about 'subject identity must lead' is real); (2) integration depth discipline — Zhou et al.'s moderator finding is actionable: prioritise context integration (real-world problem frames cross-disciplinary inquiry) over tool integration (using the same software across subjects), because the effect-size differential is large; (3) assessment alignment — cross-curricular work doesn't fit single-subject grade reporting, so assessment needs an explicit decision about whether the unit produces subject-specific grades, a combined grade, or both. Source-recency note: the Chen et al. 2025 RER meta-analysis is bigger and newer, but the 2026 García-Carmona commentary identifying inclusion-criteria and confounding flaws means using it as the primary anchor would carry the contestation forward; Zhou 2025's precise g=0.66 with a clean uncontested methodology is the better citation. For Swedish schools the closest natural home is ämnesövergripande arbete in middle years and project-based upper-secondary units; Kreijkes & Greatorex's cautionary point — subject identity and progression have to lead — is the implementation principle that distinguishes good cross-curricular mapping from cosmetic integration that dilutes both subjects.",
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/interdisciplinary-real-world-connection-mapper/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_note": "STEM integration only (40 studies), not connections across all subjects."
     },
     {
       "id": "environmental-experiential-learning/biophilic-learning-environment-designer",
@@ -170,14 +175,16 @@
       "effect_months_source": null,
       "effect_months_year": null,
       "effect_d": 0.13,
-      "effect_d_source": "Liu, Yang & Shao",
+      "effect_d_source": "Liu, Yang, Shao & Yu",
       "effect_d_journal": "Educational Psychology Review",
       "effect_d_year": 2025,
       "implementation_cost": "high",
       "implementation_cost_rationale": "Biophilic retrofit is expensive in absolute terms — daylight modifications, indoor plant systems, natural-material surfaces, view-of-green-space provisions, water elements — and the case for the cost lives mostly in the wellbeing/social-functioning evidence (d≈0.43 from Liu et al. 2025), not the academic-achievement evidence (d≈0.13) or cognitive-functioning evidence (d≈0.07). Three concrete implementation considerations: (1) New build vs retrofit: biophilic principles cost roughly 1–3% on new-build school projects but 10–25% on deep retrofits of existing buildings — the case for retrofit needs to be made on wellbeing grounds, not learning grounds; (2) Maintenance burden: indoor plants in classrooms require sustained gardening labour that schools rarely budget for, and dying plants signal neglect — start small (one resilient species per classroom, e.g. pothos or sansevieria) and grow only what is sustainable; (3) Outdoor-window access: of all biophilic interventions, view-of-green-space from a classroom window is the cheapest to deliver and the closest to the cognitive-restoration mechanism in ART — prioritise this in classroom-allocation decisions. Verification-status note: shipped as verified-partial because Liu et al. 2025 provides pooled effect sizes for academic and cognitive outcomes, but the construct match is approximate (nature contact broadly across lifespan, not biophilic classroom design specifically). The wellbeing case is the honest case — biophilic design as social/affective infrastructure, not academic-achievement intervention.",
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/environmental-experiential-learning/biophilic-learning-environment-designer/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_type": "indirect",
+      "evidence_note": "Association between contact with nature and academic performance across all ages (r = 0.065, mostly correlational studies), not the effect of classroom design."
     }
   ]
 }

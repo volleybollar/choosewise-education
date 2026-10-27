@@ -72,13 +72,13 @@ def _months_pill(skill):
 def _d_pill(skill):
     d = skill.get("effect_d")
     band = band_for_d(d)
-    if band is None:
+    src = skill.get("effect_d_source")
+    if band is None and not src:
         return (
             '<div class="metric-cell">'
             '<span class="metric-pill metric-pill--d band-none">no independent meta-analysis found</span>'
             '</div>'
         )
-    src = skill.get("effect_d_source")
     journal = skill.get("effect_d_journal")
     yr = skill.get("effect_d_year")
     source_parts = []
@@ -92,12 +92,32 @@ def _d_pill(skill):
         f'<span class="metric-source">{source_text}{yr_html}</span>'
         if (source_text or yr_html) else ""
     )
+    # A meta-analysis exists but gives no single figure that fits the card: name it, show no number.
+    pill = (
+        f'<span class="metric-pill metric-pill--d band-{band}">d = {d:.2f}</span>'
+        if band is not None else
+        '<span class="metric-pill metric-pill--d band-none">no single pooled effect</span>'
+    )
     return (
         f'<div class="metric-cell">'
-        f'<span class="metric-pill metric-pill--d band-{band}">d = {d:.2f}</span>'
+        f'{pill}'
         f'{source_span}'
         f'</div>'
     )
+
+
+def _evidence_type_html(skill):
+    """Label cards whose number comes from a related practice or population, not the card's own."""
+    if skill.get("evidence_type") != "indirect":
+        return ""
+    return '<span class="evidence-type evidence-type--indirect">Indirect evidence</span>'
+
+
+def _evidence_note_html(skill):
+    note = skill.get("evidence_note")
+    if not note:
+        return ""
+    return f'<p class="skill-evidence-note"><strong>What the number measures:</strong> {escape(note)}</p>'
 
 
 def _impl_pill(skill):
@@ -137,6 +157,8 @@ def render_card(skill, domain_label):
         f'    {_d_pill(skill)}'
         f'    {_impl_pill(skill)}'
         f'  </div>'
+        f'  {_evidence_type_html(skill)}'
+        f'  {_evidence_note_html(skill)}'
         f'  <footer class="skill-footer">'
         f'    {_tags_html(skill)}'
         f'    <button class="skill-action" data-action="interrogate" data-skill-id="{skill_id}">'

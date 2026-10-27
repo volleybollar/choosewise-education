@@ -2,7 +2,7 @@
   "domain_id": "memory-learning-science",
   "domain_label": "Memory & Learning Science",
   "domain_description": "How learners encode, store, and retrieve information — and the teaching moves that exploit how memory actually works. All interventions cross-referenced to peer-reviewed meta-analyses.",
-  "last_reviewed": "2026-05-17",
+  "last_reviewed": "2026-10-27",
   "skills": [
     {
       "id": "memory-learning-science/spaced-practice-scheduler",
@@ -10,10 +10,10 @@
       "display_title": "Spaced Practice Schedule Builder",
       "description": "Schedule retrieval intervals across a unit so learning is distributed, not massed.",
       "tags": ["spaced", "retrieval"],
-      "effect_months": 5,
-      "effect_months_source": "EEF Toolkit — Spaced learning strand",
-      "effect_months_year": 2021,
-      "effect_d": 0.60,
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
+      "effect_d": 0.74,
       "effect_d_source": "Latimier, Peyre & Ramus",
       "effect_d_journal": "Educational Psychology Review",
       "effect_d_year": 2021,
@@ -21,7 +21,8 @@
       "implementation_cost_rationale": "Runs inside existing lessons; only requires re-sequencing of planned retrieval, no new materials.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/spaced-practice-scheduler/SKILL.md",
-      "verification_status": "verified"
+      "verification_status": "verified",
+      "evidence_note": "Spaced versus massed retrieval practice after correcting for publication bias (11 studies, mostly undergraduates in the lab). Expanding gaps were no better than equal gaps."
     },
     {
       "id": "memory-learning-science/cognitive-load-analyser",
@@ -32,7 +33,7 @@
       "effect_months": null,
       "effect_months_source": null,
       "effect_months_year": null,
-      "effect_d": 0.51,
+      "effect_d": 0.38,
       "effect_d_source": "Noetel, Griffith, Delaney et al.",
       "effect_d_journal": "Review of Educational Research",
       "effect_d_year": 2022,
@@ -40,7 +41,8 @@
       "implementation_cost_rationale": "Requires teacher understanding of CLT principles (split-attention, redundancy, modality); applying analysis to existing tasks takes prep time but no structural changes.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/cognitive-load-analyser/SKILL.md",
-      "verification_status": "partial"
+      "verification_status": "partial",
+      "evidence_note": "Average effect of multimedia design principles on learning (overview of 29 reviews). Effect on cognitive load itself: 0.22."
     },
     {
       "id": "memory-learning-science/dual-coding-designer",
@@ -59,7 +61,9 @@
       "implementation_cost_rationale": "Requires sourcing or creating visual assets that genuinely complement verbal content (not decorative); takes prep time per lesson and basic visual design literacy.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/dual-coding-designer/SKILL.md",
-      "verification_status": "partial"
+      "verification_status": "partial",
+      "evidence_type": "indirect",
+      "evidence_note": "Average across all of Mayer's multimedia design principles (one research group, 1990-2022), not the words-plus-pictures principle alone."
     },
     {
       "id": "memory-learning-science/elaborative-interrogation-generator",
@@ -78,7 +82,8 @@
       "implementation_cost_rationale": "Asking 'why' questions during reading or after instruction requires no materials and no training beyond awareness of the technique; can be embedded in any lesson.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/elaborative-interrogation-generator/SKILL.md",
-      "verification_status": "partial"
+      "verification_status": "partial",
+      "evidence_note": "Mostly undergraduates and short, surface-level tests. Primary school: 0.38."
     },
     {
       "id": "memory-learning-science/feedback-quality-analyser",
@@ -116,7 +121,8 @@
       "implementation_cost_rationale": "Requires intentional planning to redesign blocked sequences into interleaved ones; no new materials, but careful thinking about which topics belong together.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/interleaving-unit-planner/SKILL.md",
-      "verification_status": "partial"
+      "verification_status": "partial",
+      "evidence_note": "Mostly learning to tell categories apart, such as painting styles. Maths tasks: 0.34; word learning favoured blocked practice."
     },
     {
       "id": "memory-learning-science/retrieval-practice-generator",
@@ -127,15 +133,16 @@
       "effect_months": null,
       "effect_months_source": null,
       "effect_months_year": null,
-      "effect_d": 0.67,
-      "effect_d_source": "Adesope, Trevisan & Sundararajan",
-      "effect_d_journal": "Review of Educational Research",
-      "effect_d_year": 2017,
+      "effect_d": 0.5,
+      "effect_d_source": "Yang, Luo, Vadillo, Yu & Shanks",
+      "effect_d_journal": "Psychological Bulletin",
+      "effect_d_year": 2021,
       "implementation_cost": "low",
       "implementation_cost_rationale": "Generating retrieval questions takes minutes; using them in class takes ~5 min per lesson; no materials, no training beyond awareness.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/retrieval-practice-generator/SKILL.md",
-      "verification_status": "partial"
+      "verification_status": "partial",
+      "evidence_note": "Classroom quizzing (222 classroom studies, 48,478 students)."
     },
     {
       "id": "memory-learning-science/worked-example-fading-designer",
@@ -154,7 +161,8 @@
       "implementation_cost_rationale": "Creating worked example sequences with proper fading requires real instructional design work per topic; AI assistance reduces but does not eliminate the time investment, and the technique is most effective for novice learners (expertise reversal effect for experts).",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/memory-learning-science/worked-example-fading-designer/SKILL.md",
-      "verification_status": "partial"
+      "verification_status": "partial",
+      "evidence_note": "Worked examples in mathematics, primary school to university. Fading was not tested separately, and adding self-explanation prompts to worked examples lowered the effect."
     }
   ]
 }

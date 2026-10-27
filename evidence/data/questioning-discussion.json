@@ -2,7 +2,7 @@
   "domain_id": "questioning-discussion",
   "domain_label": "Questioning & Discussion",
   "domain_description": "Classroom talk that actually develops thinking — dialogic moves that extend reasoning, discussion protocols that structure participation, Socratic sequences that go deeper, and argument scaffolds that give students a way to reason out loud. All interventions cross-referenced to peer-reviewed meta-analyses where one exists.",
-  "last_reviewed": "2026-06-28",
+  "last_reviewed": "2026-10-27",
   "skills": [
     {
       "id": "questioning-discussion/dialogic-teaching-move-generator",
@@ -67,9 +67,9 @@
       "display_title": "Argument Structure Scaffold Generator",
       "description": "Give students an explicit structure for building an argument — Toulmin (claim, evidence, warrant, rebuttal), PEEL, or CER (claim, evidence, reasoning) — so they have something to lean on when reasoning isn't yet automatic.",
       "tags": ["argument", "Toulmin", "PEEL", "scaffold", "writing", "reasoning", "critical-thinking"],
-      "effect_months": 6,
-      "effect_months_source": "EEF Toolkit — Oral language interventions strand",
-      "effect_months_year": 2021,
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
       "effect_d": null,
       "effect_d_source": null,
       "effect_d_journal": null,

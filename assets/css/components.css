@@ -1765,6 +1765,26 @@
 .impl-pill--medium { background: var(--et-impl-med-bg); color: var(--et-impl-med-fg); }
 .impl-pill--high { background: var(--et-impl-high-bg); color: var(--et-impl-high-fg); }
 
+/* Evidence that comes from a related practice or population, not the card's own (audit 2026-10) */
+.evidence-type {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid var(--color-highlight);
+  border-radius: 6px;
+  color: var(--color-highlight-ink);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.skill-evidence-note {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text-soft);
+  margin: 0;
+}
+.skill-evidence-note strong { color: var(--color-text); font-weight: 500; }
+
 .metric-source {
   font-size: 13px;
   color: var(--color-text-soft);

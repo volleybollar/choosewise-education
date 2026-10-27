@@ -2,7 +2,7 @@
   "domain_id": "wellbeing-motivation-agency",
   "domain_label": "Wellbeing, Motivation & Agency",
   "domain_description": "How students feel, what motivates them, and whether they experience themselves as agents in their own learning — belonging, autonomy, emotional literacy, self-efficacy, restorative practice, trauma-informed teaching. All interventions cross-referenced to peer-reviewed meta-analyses where one exists. We have curated the Manning catalogue here for relevance and evidence quality, leaving out skills where the research base was too thin to grade fairly.",
-  "last_reviewed": "2026-05-20",
+  "last_reviewed": "2026-10-27",
   "skills": [
     {
       "id": "wellbeing-motivation-agency/belonging-classroom-culture-designer",
@@ -17,9 +17,9 @@
         "equity",
         "marginalisation"
       ],
-      "effect_months": 4,
-      "effect_months_source": "EEF Toolkit — Social and emotional learning strand",
-      "effect_months_year": 2021,
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
       "effect_d": 0.64,
       "effect_d_source": "Davies, Cordier, Graham, Littlefair & Speyer",
       "effect_d_journal": "Education Sciences",
@@ -54,7 +54,8 @@
       "implementation_cost_rationale": "Teachers need working knowledge of the three SDT needs, diagnostic skill to spot which one is undermet, and the will to actually rework assignments — adding meaningful choices, calibrating challenge, articulating rationale. No materials cost; the lift is conceptual and habitual. Diagnostic step matters because generic 'autonomy' fixes (free choice) can backfire when competence is the real bottleneck.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/motivation-diagnostic-task-redesign/SKILL.md",
-      "verification_status": "verified-partial"
+      "verification_status": "verified-partial",
+      "evidence_note": "Self-determination-theory interventions, effect on intrinsic motivation (not achievement) after correcting for publication bias. Samples include university students."
     },
     {
       "id": "wellbeing-motivation-agency/ruler-emotional-literacy-sequence",
@@ -70,9 +71,9 @@
         "emotional-literacy",
         "mood-meter"
       ],
-      "effect_months": 4,
+      "effect_months": 3,
       "effect_months_source": "EEF Toolkit — Social and emotional learning strand",
-      "effect_months_year": 2021,
+      "effect_months_year": 2025,
       "effect_d": 0.22,
       "effect_d_source": "Cipriano, Strambler, Naples, Ha, Kirk, Wood et al.",
       "effect_d_journal": "Child Development",
@@ -81,7 +82,9 @@
       "implementation_cost_rationale": "Full RULER fidelity includes Yale Center training and coaching (real PD cost) but lighter adoption — RULER acronym, mood meter, classroom charter — can be run by trained teachers without certification. Either way, emotional literacy needs sustained practice across the year, not a single 'feelings unit'. Cipriano et al. found SAFE programs (Sequenced, Active, Focused, Explicit) outperform less structured rollouts.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/ruler-emotional-literacy-sequence/SKILL.md",
-      "verification_status": "verified"
+      "verification_status": "verified",
+      "evidence_type": "indirect",
+      "evidence_note": "All universal school SEL programmes (RULER is 6 of the studies), effect on SEL skills. Effect on academic achievement: 0.11."
     },
     {
       "id": "wellbeing-motivation-agency/self-efficacy-builder-sequence",
@@ -96,9 +99,9 @@
         "attribution",
         "mindset"
       ],
-      "effect_months": 7,
-      "effect_months_source": "EEF Toolkit — Metacognition and self-regulation strand",
-      "effect_months_year": 2021,
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
       "effect_d": 0.49,
       "effect_d_source": "Lazowski & Hulleman",
       "effect_d_journal": "Review of Educational Research",
@@ -107,7 +110,9 @@
       "implementation_cost_rationale": "Real PD lift, no materials cost. Teachers need to design calibrated mastery experiences (just-hard-enough tasks, not 'easy wins'), give attribution feedback that points at effort and strategy rather than ability, and sequence modelling alongside guided practice. Talsma et al.'s cross-lagged finding (past performance β=0.20 → self-efficacy; self-efficacy β=0.07 → performance) is the practical lesson: students need actual wins, not just encouragement.",
       "manning_label": "strong",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/self-efficacy-builder-sequence/SKILL.md",
-      "verification_status": "verified"
+      "verification_status": "verified",
+      "evidence_type": "indirect",
+      "evidence_note": "Motivation interventions built on many theories, on any educational outcome, not self-efficacy sequences specifically."
     },
     {
       "id": "wellbeing-motivation-agency/agency-scaffold-generator",
@@ -122,9 +127,9 @@
         "self-regulation",
         "gradual-release"
       ],
-      "effect_months": 7,
-      "effect_months_source": "EEF Toolkit — Metacognition and self-regulation strand",
-      "effect_months_year": 2021,
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
       "effect_d": 0.63,
       "effect_d_source": "Su & Reeve",
       "effect_d_journal": "Educational Psychology Review",
@@ -133,7 +138,9 @@
       "implementation_cost_rationale": "Mindset shift from director to coach is the real cost — teachers need to design meaningful choice structures (not 'pick a colour'), run gradual release sequences (modelling → guided → independent), and develop the skill of actually receiving and acting on student voice. Su & Reeve found brief skill-based training (1–3 h) was effective, so the start-up is modest — but transfer to durable classroom practice requires follow-through.",
       "manning_label": "moderate",
       "manning_url": "https://github.com/GarethManning/claude-education-skills/blob/main/skills/wellbeing-motivation-agency/agency-scaffold-generator/SKILL.md",
-      "verification_status": "verified"
+      "verification_status": "verified",
+      "evidence_type": "indirect",
+      "evidence_note": "Training adults (teachers, coaches, managers) to be more autonomy-supportive; the outcome is the trainees' own behaviour, not students' agency or learning."
     },
     {
       "id": "wellbeing-motivation-agency/restorative-practice-protocol-designer",
@@ -147,9 +154,9 @@
         "accountability",
         "repair"
       ],
-      "effect_months": 3,
-      "effect_months_source": "EEF Toolkit — Behaviour interventions strand",
-      "effect_months_year": 2021,
+      "effect_months": null,
+      "effect_months_source": null,
+      "effect_months_year": null,
       "effect_d": null,
       "effect_d_source": null,
       "effect_d_journal": null,

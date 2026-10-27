@@ -166,3 +166,37 @@ def test_render_card_with_unknown_implementation_cost_raises():
     skill = {**SAMPLE_SKILL, "implementation_cost": "veryhigh"}
     with pytest.raises(ValueError, match="implementation_cost"):
         build.render_card(skill, domain_label="Memory & Learning Science")
+
+
+def test_render_card_indirect_evidence_shows_label():
+    skill = {**SAMPLE_SKILL, "evidence_type": "indirect"}
+    html = build.render_card(skill, domain_label="Memory & Learning Science")
+    assert 'class="evidence-type evidence-type--indirect"' in html
+    assert "Indirect evidence" in html
+
+
+def test_render_card_without_evidence_type_has_no_indirect_label():
+    html = build.render_card(SAMPLE_SKILL, domain_label="Memory & Learning Science")
+    assert "Indirect evidence" not in html
+
+
+def test_render_card_evidence_note_is_shown_and_escaped():
+    skill = {**SAMPLE_SKILL, "evidence_note": "Mostly undergraduates & lab tasks <short delays>."}
+    html = build.render_card(skill, domain_label="Memory & Learning Science")
+    assert 'class="skill-evidence-note"' in html
+    assert "What the number measures:" in html
+    assert "Mostly undergraduates &amp; lab tasks &lt;short delays&gt;." in html
+
+
+def test_render_card_without_evidence_note_has_no_note():
+    html = build.render_card(SAMPLE_SKILL, domain_label="Memory & Learning Science")
+    assert "skill-evidence-note" not in html
+
+
+def test_render_card_source_without_number_says_no_single_pooled_effect():
+    # A meta-analysis exists but reports no single figure that fits the card (e.g. only a range).
+    skill = {**SAMPLE_SKILL, "effect_d": None}
+    html = build.render_card(skill, domain_label="Memory & Learning Science")
+    assert "no single pooled effect" in html
+    assert "no independent meta-analysis found" not in html
+    assert "Latimier, Peyre &amp; Ramus" in html
