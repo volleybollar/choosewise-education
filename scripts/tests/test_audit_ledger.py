@@ -85,6 +85,20 @@ def test_ledger_must_cover_every_card_with_d(tmp_path):
     assert validate_ledger(ledger, DATA_DIR, require_complete=False) == []
 
 
+def test_verdicts_that_keep_the_number_need_it_confirmed():
+    assert validate_entry(_with(verdict="holds_reword", number="different"))
+    assert validate_entry(_with(verdict="downgrade", fit="proxy", status="retracted"))
+    assert validate_entry(_with(verdict="downgrade", fit="proxy", exists="not_found"))
+    assert validate_entry(_with(verdict="holds_reword", status="concern"))
+    assert validate_entry(_with(verdict="downgrade", fit="proxy", status="corrected")) == []
+    assert validate_entry(_with(verdict="remove_number", number="different")) == []
+
+
+def test_holds_requires_a_real_doi():
+    assert validate_entry(_with(doi="unconfirmed"))
+    assert validate_entry(_with(doi="unconfirmed", verdict="downgrade", fit="proxy")) == []
+
+
 def test_verdict_reason_required():
     assert validate_entry(_with(verdict_reason=""))
     assert validate_entry(_with(fit_reason=" "))

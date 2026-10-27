@@ -4,7 +4,9 @@
 The ledger is a JSON list with one entry per card that has an effect size.
 Allowed values come from the audit plan's criteria table. A "holds" verdict
 needs all four: the source exists, the number is confirmed, the source fits
-the card's practice, and the source is not retracted or contested.
+the card's practice, and the source is not retracted or contested (plus a
+real DOI). "holds_reword" and "downgrade" keep the number on the site, so
+they too need a confirmed number from a source that is not retracted.
 
 Usage:
     /usr/bin/python3 scripts/audit_ledger.py LEDGER_PATH [--partial]
@@ -32,6 +34,7 @@ ACCESS = {"full", "abstract"}
 VERDICTS = {"holds", "holds_reword", "downgrade", "replace_source", "remove_number"}
 CHECKED_BY = re.compile(r"^(batch-[1-8]|adversarial|johan|external)$")
 CONFIRMED_NUMBERS = {"exact", "rounded", "converted_ok"}
+KEEPS_NUMBER = {"holds", "holds_reword", "downgrade"}
 TEXT_FIELDS = ("doi", "number_location", "fit_reason", "newer_source")
 
 
@@ -65,10 +68,15 @@ def validate_entry(entry: dict) -> list[str]:
             and criteria.get("number_location") != "abstract"):
         errors.append(f"{card}: number confirmed in {criteria.get('number_location')!r} but only the abstract was read")
 
-    if entry.get("verdict") == "holds":
+    if entry.get("verdict") in KEEPS_NUMBER:
         if not (criteria.get("exists") == "yes" and criteria.get("number") in CONFIRMED_NUMBERS
-                and criteria.get("fit") in {"exact", "near"} and criteria.get("status") == "clean"):
-            errors.append(f"{card}: 'holds' needs exists=yes, a confirmed number, fit exact/near and status clean")
+                and criteria.get("status") not in {"retracted", "concern"}):
+            errors.append(f"{card}: '{entry.get('verdict')}' keeps the number, so it needs exists=yes, "
+                          "a confirmed number and a source that is not retracted or flagged")
+    if entry.get("verdict") == "holds":
+        if not (criteria.get("fit") in {"exact", "near"} and criteria.get("status") == "clean"
+                and str(criteria.get("doi", "")).startswith("10.")):
+            errors.append(f"{card}: 'holds' also needs fit exact/near, status clean and a real DOI")
     return errors
 
 
