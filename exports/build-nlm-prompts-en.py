@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the NotebookLM 140 Styles — English Prompt Document.
+"""Build the Gemini Notebook 140 Styles — English Prompt Document.
 
 Produces three artifacts from the translated prompt JSON:
   1. exports/nlm-140-prompts-en.html (editable HTML source, A4-print-ready)
@@ -44,7 +44,7 @@ HTML_HEAD = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>NotebookLM 140 Styles — Prompt Library (English)</title>
+<title>Gemini Notebook 140 Styles — Prompt Library (English)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -209,10 +209,10 @@ HTML_HEAD = """<!DOCTYPE html>
 HTML_COVER = """
 <section class="cover">
   <div class="accent-rule"></div>
-  <p class="eyebrow">NotebookLM Style Library</p>
+  <p class="eyebrow">Gemini Notebook Style Library</p>
   <h1>140 Prompts for AI Infographics</h1>
   <p class="subtitle">English edition — every style, every directive, fully translated from the Swedish source.</p>
-  <p class="lede">This document collects all 140 art-direction prompts that produce the NotebookLM infographic styles on choosewise.education. Each prompt is numbered to match the original Swedish library and can be pasted directly into NotebookLM, Midjourney, Flux, or any other image generator that accepts long-form directives.</p>
+  <p class="lede">This document collects all 140 art-direction prompts that produce the Gemini Notebook infographic styles on choosewise.education. Each prompt is numbered to match the original Swedish library and can be pasted directly into Gemini Notebook, Midjourney, Flux, or any other image generator that accepts long-form directives.</p>
   <p class="byline"><strong>Johan Lindström</strong> · choosewise.education · Updated April 2026</p>
 </section>
 """
@@ -254,7 +254,7 @@ FOOTER_HTML = """
 <div style="font-size: 8pt; color: #8a8a85; width: 100%; padding: 0 18mm;
             display: flex; justify-content: space-between; align-items: center;
             font-family: 'Inter', -apple-system, sans-serif;">
-  <span>NotebookLM 140 Styles · Johan Lindström · choosewise.education</span>
+  <span>Gemini Notebook 140 Styles · Johan Lindström · choosewise.education</span>
   <span>Page <span class="pageNumber"></span> / <span class="totalPages"></span></span>
 </div>
 """
@@ -297,7 +297,7 @@ style.font.size = Pt(11)
 
 # Cover
 title = doc.add_paragraph()
-run = title.add_run("NotebookLM Style Library")
+run = title.add_run("Gemini Notebook Style Library")
 run.font.size = Pt(10)
 run.font.bold = True
 run.font.color.rgb = RGBColor(0xC8, 0xA8, 0x6B)
@@ -318,9 +318,9 @@ r.font.color.rgb = RGBColor(0x3E, 0x4A, 0x57)
 doc.add_paragraph()
 intro = doc.add_paragraph(
     "This document collects all 140 art-direction prompts that produce the "
-    "NotebookLM infographic styles on choosewise.education. Each prompt is "
+    "Gemini Notebook infographic styles on choosewise.education. Each prompt is "
     "numbered to match the original Swedish library and can be pasted directly "
-    "into NotebookLM, Midjourney, Flux, or any other image generator that "
+    "into Gemini Notebook, Midjourney, Flux, or any other image generator that "
     "accepts long-form directives."
 )
 
