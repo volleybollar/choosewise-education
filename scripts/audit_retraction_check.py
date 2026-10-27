@@ -77,9 +77,16 @@ def check_doi(doi: str, fetch=urlopen) -> dict:
     return {"doi": doi, "status": status, "notices": notices, "types": types}
 
 
-if __name__ == "__main__":
-    for arg in sys.argv[1:]:
+def main(dois: list[str], check=check_doi) -> list[str]:
+    """One JSON line per DOI; a failed lookup becomes an error line, never "clean", and the rest still run."""
+    lines = []
+    for doi in dois:
         try:
-            print(json.dumps(check_doi(arg)))
+            lines.append(json.dumps(check(doi)))
         except (ValueError, HTTPError, URLError) as error:
-            print(json.dumps({"doi": arg, "error": str(error)}))
+            lines.append(json.dumps({"doi": doi, "error": str(error)}))
+    return lines
+
+
+if __name__ == "__main__":
+    print("\n".join(main(sys.argv[1:])))

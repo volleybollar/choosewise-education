@@ -43,3 +43,12 @@ def test_batch_one_is_memory_and_explicit_instruction():
             continue
         uses_pilot_card = bool(pilot_cards & set(e["cards"]))
         assert (e["batch"] == 1) == uses_pilot_card, e["source_key"]
+
+
+def test_assign_batches_never_leaves_a_batch_empty():
+    from audit_evidence_worklist import assign_batches
+    for n in (7, 8, 9, 36, 42, 50):
+        batches = assign_batches(n)
+        assert len(batches) == n
+        assert set(batches) == set(range(2, 9)), n
+        assert batches == sorted(batches)

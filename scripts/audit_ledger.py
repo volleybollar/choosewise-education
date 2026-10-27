@@ -45,7 +45,10 @@ def _blank(value) -> bool:
 def validate_entry(entry: dict) -> list[str]:
     card = entry.get("card_id", "?")
     errors = []
-    criteria = entry.get("criteria", {})
+    criteria = entry.get("criteria")
+    if not isinstance(criteria, dict):
+        errors.append(f"{card}: criteria must be an object, got {criteria!r}")
+        criteria = {}
     for field, allowed in ENUMS.items():
         if criteria.get(field) not in allowed:
             errors.append(f"{card}: criteria.{field} = {criteria.get(field)!r} not in {sorted(allowed)}")
@@ -53,7 +56,7 @@ def validate_entry(entry: dict) -> list[str]:
         if _blank(criteria.get(field)):
             errors.append(f"{card}: criteria.{field} is empty")
     flags = criteria.get("quality_flags")
-    if not isinstance(flags, list) or set(flags) - QUALITY_FLAGS:
+    if not isinstance(flags, list) or any(not isinstance(f, str) or f not in QUALITY_FLAGS for f in flags):
         errors.append(f"{card}: criteria.quality_flags {flags!r} has unknown values")
     if entry.get("access") not in ACCESS:
         errors.append(f"{card}: access = {entry.get('access')!r} not in {sorted(ACCESS)}")
@@ -61,7 +64,7 @@ def validate_entry(entry: dict) -> list[str]:
         errors.append(f"{card}: verdict = {entry.get('verdict')!r} not in {sorted(VERDICTS)}")
     if _blank(entry.get("verdict_reason")):
         errors.append(f"{card}: verdict_reason is empty")
-    if not CHECKED_BY.match(str(entry.get("checked_by", ""))):
+    if not CHECKED_BY.fullmatch(str(entry.get("checked_by", ""))):
         errors.append(f"{card}: checked_by = {entry.get('checked_by')!r} not recognised")
 
     if (entry.get("access") == "abstract" and criteria.get("number") in CONFIRMED_NUMBERS
@@ -77,6 +80,9 @@ def validate_entry(entry: dict) -> list[str]:
         if not (criteria.get("fit") in {"exact", "near"} and criteria.get("status") == "clean"
                 and str(criteria.get("doi", "")).startswith("10.")):
             errors.append(f"{card}: 'holds' also needs fit exact/near, status clean and a real DOI")
+        if criteria.get("newer_source") != "none" or "contested" in (flags if isinstance(flags, list) else []):
+            errors.append(f"{card}: 'holds' cannot stand with a newer source or a 'contested' flag; "
+                          "use replace_source or holds_reword")
     return errors
 
 
@@ -91,9 +97,14 @@ def _cards_with_d(data_dir: Path) -> dict[str, str]:
 
 def validate_ledger(path: Path, data_dir: Path, require_complete: bool = True) -> list[str]:
     entries = json.loads(Path(path).read_text())
+    if not isinstance(entries, list):
+        return ["ledger must be a JSON list of entries"]
     expected = _cards_with_d(data_dir)
     errors, seen = [], set()
-    for entry in entries:
+    for position, entry in enumerate(entries):
+        if not isinstance(entry, dict):
+            errors.append(f"entry {position}: not an object ({entry!r})")
+            continue
         card = entry.get("card_id")
         errors.extend(validate_entry(entry))
         if card in seen:

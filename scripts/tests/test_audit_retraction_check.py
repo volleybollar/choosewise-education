@@ -93,3 +93,17 @@ def test_non_doi_is_refused(not_a_doi):
 def test_unknown_doi_is_refused_not_clean():
     with pytest.raises(ValueError):
         check_doi(DOI, fetch=_fake_fetch([], exists=False))
+
+
+def test_cli_reports_a_network_error_per_doi_and_continues():
+    from urllib.error import URLError
+    from audit_retraction_check import main
+
+    def check(doi):
+        if doi == "10.1/broken":
+            raise URLError("timed out")
+        return {"doi": doi, "status": "clean", "notices": [], "types": []}
+
+    lines = [json.loads(line) for line in main(["10.1/broken", "10.1/fine"], check=check)]
+    assert "error" in lines[0]
+    assert lines[1]["status"] == "clean"

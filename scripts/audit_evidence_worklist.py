@@ -12,7 +12,6 @@ Usage:
 from __future__ import annotations
 
 import json
-import math
 import sys
 from pathlib import Path
 
@@ -20,6 +19,12 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "evidence" / "data"
 PILOT_FILES = {"memory.json", "explicit-instruction.json"}
 D_BATCHES = 8
+
+
+def assign_batches(n: int) -> list[int]:
+    """Spread n sources in order over batches 2-8 as evenly as possible, none left empty (n >= 7)."""
+    batches = D_BATCHES - 1
+    return [2 + i * batches // n for i in range(n)]
 
 
 def build_worklist(data_dir: Path) -> list[dict]:
@@ -44,9 +49,8 @@ def build_worklist(data_dir: Path) -> list[dict]:
 
     # Remaining d sources: keep sources from the same domain file together, then chunk into batches 2-8.
     rest = sorted((k for k in entries if k[0] == "d" and k not in pilot_keys), key=lambda k: (first_file[k], k[1]))
-    per_batch = math.ceil(len(rest) / (D_BATCHES - 1))
-    for i, key in enumerate(rest):
-        entries[key]["batch"] = 2 + i // per_batch
+    for key, batch in zip(rest, assign_batches(len(rest))):
+        entries[key]["batch"] = batch
     for key in pilot_keys:
         entries[key]["batch"] = 1
 

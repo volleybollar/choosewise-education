@@ -102,3 +102,24 @@ def test_holds_requires_a_real_doi():
 def test_verdict_reason_required():
     assert validate_entry(_with(verdict_reason=""))
     assert validate_entry(_with(fit_reason=" "))
+
+
+def test_malformed_entries_give_errors_not_crashes(tmp_path):
+    assert validate_entry({**GOOD, "criteria": None})
+    assert validate_entry(_with(quality_flags=[{"bad": 1}]))
+    ledger = tmp_path / "ledger.json"
+    ledger.write_text(json.dumps([GOOD, "not an entry", 42]))
+    errors = validate_ledger(ledger, DATA_DIR, require_complete=False)
+    assert len([e for e in errors if "not an object" in e]) == 2
+    ledger.write_text(json.dumps({"card_id": "x"}))
+    assert validate_ledger(ledger, DATA_DIR, require_complete=False) == ["ledger must be a JSON list of entries"]
+
+
+def test_holds_refuses_newer_source_or_contested_flag():
+    assert validate_entry(_with(newer_source="Smith 2025, RER, g = 0.20"))
+    assert validate_entry(_with(quality_flags=["contested"]))
+    assert validate_entry(_with(newer_source="Smith 2025, RER, g = 0.20", verdict="replace_source")) == []
+
+
+def test_checked_by_must_match_exactly():
+    assert validate_entry(_with(checked_by="batch-1\n"))
