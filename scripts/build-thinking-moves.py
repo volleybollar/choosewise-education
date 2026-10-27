@@ -55,6 +55,7 @@ def render_move_card(move: dict, labels: dict) -> str:
         f'  <details class="tm-move__more"><summary>Two worked examples and the evidence</summary>'
         f"{examples}"
         f'<p class="tm-move__evidence"><strong>Evidence.</strong> {escape(move["evidence"])} '
+        f'The label rates research on teaching this kind of thinking regularly, not a single five-minute move. '
         f'<span class="tm-move__sources">Source: {sources}</span></p>'
         f"</details>\n"
         f'  <a class="tm-move__use" href="?move={mid}#tm-builder" data-use-move="{mid}">Use this move</a>\n'

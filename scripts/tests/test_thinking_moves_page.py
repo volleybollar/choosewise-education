@@ -110,3 +110,8 @@ def test_json_text_is_escaped():
                                                 "look_for": "l", "probe": "p", "think_back": "t"}] * 2}
     out = mod.render_move_card(move, {"strong": {"name": "Strong"}})
     assert "<b>" not in out and "&lt;b&gt;" in out and "<i>t</i>" not in out
+
+
+def test_every_card_carries_the_label_caveat():
+    for card in cards():
+        assert "not a single five-minute move" in card

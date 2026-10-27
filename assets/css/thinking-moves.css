@@ -21,6 +21,10 @@
 .tm-prompt { font-family: var(--font-mono); font-size: var(--fs-small); line-height: var(--lh-normal); resize: vertical; }
 .tm-copy-row { position: relative; display: flex; align-items: center; gap: var(--space-4); margin-top: var(--space-4); }
 .tm-copy-row .btn[disabled] { opacity: .5; cursor: not-allowed; }
+/* Bekräftelsen "Copied" står bredvid knappen i stället för ovanpå den
+   (den delade stilen centrerar den i raden, vilket täcker knappen på mobil). */
+.tm-copy-row .copy-toast { position: static; transform: scale(0.95); }
+.tm-copy-row .copy-toast--visible { transform: scale(1); }
 @media (max-width: 640px) { .tm-form { grid-template-columns: 1fr; } }
 
 /* ───── Dragkorten ───── */

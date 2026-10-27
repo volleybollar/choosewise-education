@@ -124,3 +124,12 @@ def test_builder_fetch_failure(site, browser):
     assert p.locator("article.tm-move").count() == 12
     assert p.is_disabled("#tm-copy")
     p.close()
+
+
+def test_copied_toast_does_not_cover_the_button(site, browser):
+    p = browser.new_page(viewport={"width": 390, "height": 800})
+    p.goto(f"{site}/thinking-moves/", wait_until="networkidle")
+    btn = p.locator("#tm-copy").bounding_box()
+    toast = p.locator(".tm-copy-row .copy-toast").bounding_box()
+    assert toast["x"] >= btn["x"] + btn["width"], (btn, toast)
+    p.close()

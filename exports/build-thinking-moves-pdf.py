@@ -25,6 +25,16 @@ DST = ROOT / "assets/pdfs/free/thinking-moves-cards-en.pdf"
 URL = "choosewise.education/thinking-moves"
 TITLE = "Thinking Moves"
 
+# De sex delarna, ordagrant som i assets/js/thinking-moves.js.
+PROMPT_PARTS = [
+    "MOVE: the move's name and one line on what it trains",
+    "TASK: the task, written to the students. At most three short steps and under 80 words: about two minutes of work on their own. Pair talk, PROBE and THINK BACK use the rest of the five minutes, so do not put them inside TASK.",
+    "LOOK FOR: at most five short bullets and 80 words. The strongest answer first, then the most common mistake.",
+    "PROBE: one follow-up question that pushes past the first answer",
+    "THINK BACK: one sentence starter about how they thought, not what they found",
+    'CHECK: every fact, figure, date or source in TASK or LOOK FOR that the teacher should verify, one per line. Write "None" if there are none.',
+]
+
 PARTS = [("task", "Task"), ("look_for", "Look for"), ("probe", "Probe"), ("think_back", "Think back")]
 
 # Kortens utseende. Följer mockupen Johan valde (alternativ B) och den delade
@@ -52,6 +62,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; color: var(
 .ex h3 span { font-weight: 400; color: var(--color-text-muted); }
 .ex dl { display: grid; grid-template-columns: 24mm 1fr; gap: 1.4mm 4mm; }
 .ex dt { font-size: 8.5pt; letter-spacing: .08em; text-transform: uppercase; color: var(--color-accent); font-weight: 500; padding-top: .5mm; }
+.for-ai { font-size: 9.5pt; color: var(--color-text); }
 .evidence { font-size: 9.5pt; color: var(--color-text-muted); }
 .foot { margin-top: auto; font-size: 7.5pt; color: var(--color-text-muted); border-top: 0.3mm solid var(--color-border); padding-top: 2.5mm; display: flex; justify-content: space-between; }
 .cover h1 { font-size: 34pt; font-weight: 300; letter-spacing: -.02em; line-height: 1.05; }
@@ -62,7 +73,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; color: var(
 .cluster p { font-size: 8.8pt; }
 .legend { display: flex; flex-direction: column; gap: 2mm; font-size: 9pt; }
 .note { font-size: 9.5pt; color: var(--color-text); font-weight: 500; }
-.prompt { border: 0.35mm dashed var(--color-accent); border-radius: 1.5mm; padding: 6mm 7mm; font-family: 'SF Mono', Menlo, monospace; font-size: 9.2pt; line-height: 1.7; color: var(--color-text); white-space: pre-wrap; }
+.prompt { border: 0.35mm dashed var(--color-accent); border-radius: 1.5mm; padding: 6mm 7mm; font-family: 'SF Mono', Menlo, monospace; font-size: 8.8pt; line-height: 1.65; color: var(--color-text); white-space: pre-wrap; }
 .blank { display: inline-block; border-bottom: 0.3mm solid var(--color-text); }
 .how { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; font-size: 9pt; }
 .how div { border-top: 0.5mm solid var(--color-highlight); padding-top: 2mm; }
@@ -129,6 +140,7 @@ def _card(move: dict, data: dict, page_no: int) -> str:
         f'<div class="meta"><span class="chip chip--{escape(move["label"])}">{escape(label)}</span>'
         f'<span>{escape(move["modes"])} · 5 minutes · no devices</span></div>'
         f"{examples}"
+        f'<p class="for-ai"><strong>For the AI.</strong> {escape(move["prompt_brief"])}</p>'
         f'<p class="evidence"><strong>Evidence.</strong> {escape(move["evidence"])} '
         f'Labels rate research on teaching this kind of thinking regularly, not a single move.</p>'
         f'{_foot(f"{page_no} / 14")}</section>'
@@ -139,28 +151,24 @@ def _fill_in() -> str:
     def blank(mm: int) -> str:
         return f'<span class="blank" style="width:{mm}mm"></span>'
 
-    prompt = (
-        "Do not include student names or student work in this conversation.\n\n"
-        f"You are helping a Grade {blank(12)} {blank(45)} teacher plan a\n"
-        "five-minute thinking task for tomorrow's lesson.\n\n"
-        f"Thinking move: {blank(60)} (copy the move's name and\n"
-        "one-line description from its card)\n\n"
-        f"Lesson topic: {blank(110)}\n"
-        f"Students already know: {blank(92)}\n\n"
-        "Write the task so it can only be done by thinking about this\n"
-        "topic's content, and so students need no devices: paper,\n"
-        "whiteboards or talk.\n\n"
-        "Reply in plain text, no tables, with exactly these six parts:\n"
-        "MOVE: the move's name and one line on what it trains\n"
-        "TASK: the task, written to the students: at most three\n"
-        "  short steps, under 80 words, about two minutes of work\n"
-        "LOOK FOR: at most five short bullets: the strongest answer\n"
-        "  first, then the most common mistake\n"
-        "PROBE: one follow-up question that pushes past the first answer\n"
-        "THINK BACK: one sentence starter about how they thought\n"
-        "CHECK: every fact, figure, date or source to verify,\n"
-        "  one per line, or None"
-    )
+    # Raderna är ordagrant desamma som i promptbyggaren (assets/js/thinking-moves.js);
+    # test_fill_in_prompt_matches_builder_word_for_word håller dem i takt.
+    prompt = "\n".join([
+        "Do not include student names or student work in this conversation.",
+        "",
+        f"You are helping a Grade {blank(12)} {blank(45)} teacher plan a five-minute thinking task for tomorrow's lesson.",
+        "",
+        f"Thinking move: {blank(70)}",
+        f"How to design it: {blank(40)} (copy the move's name, one-line description and \"For the AI\" text from its card)",
+        "",
+        f"Lesson topic: {blank(110)}",
+        f"Students already know (optional): {blank(70)}",
+        "",
+        "Write the task so it can only be done by thinking about this topic's content, and so students need no devices: paper, whiteboards or talk.",
+        "",
+        "Reply in plain text, no tables, with exactly these six parts:",
+        *PROMPT_PARTS,
+    ])
     return (
         '<section class="page">'
         '<div class="kicker">Without the website</div>'

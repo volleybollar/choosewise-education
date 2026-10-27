@@ -70,3 +70,26 @@ def test_source_html_is_generated_from_json():
     spec.loader.exec_module(mod)
     data = json.loads(DATA.read_text(encoding="utf-8"))
     assert mod.render_deck_html(data) == SRC.read_text(encoding="utf-8")
+
+
+def _builder_part_lines():
+    """De sex del-raderna exakt som promptbyggaren skriver dem."""
+    js = (ROOT / "assets/js/thinking-moves.js").read_text(encoding="utf-8")
+    block = js[js.index("'Reply in plain text"):js.index("return lines.join")]
+    lines = re.findall(r"""^\s*(['"])((?:MOVE|TASK|LOOK FOR|PROBE|THINK BACK|CHECK):.*?)\1,?\s*$""", block, re.M)
+    assert len(lines) == 6, lines
+    return [text for _, text in lines]
+
+
+def test_fill_in_prompt_matches_builder_word_for_word():
+    last = text(13)
+    for line in _builder_part_lines():
+        assert has(line, last), line
+    assert has("Students already know (optional)", last)
+
+
+def test_each_card_prints_its_ai_instruction():
+    moves = json.loads(DATA.read_text(encoding="utf-8"))["moves"]
+    for i, m in enumerate(moves):
+        page = text(i + 1)
+        assert has("For the AI", page) and has(m["prompt_brief"], page), m["id"]
