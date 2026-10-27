@@ -58,6 +58,7 @@ PAGES = (
         "sv/promptar/skolmaltidspersonal/",
         "gap-tracer/",
         "thinking-moves/",
+        "think/",
     ]
 )
 

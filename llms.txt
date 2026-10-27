@@ -48,6 +48,16 @@ One-word codes for AI video: send a start image with a code such as /timelapse, 
 
 Codes such as /cheatsheet, /quizmate or /flashcards that, typed into an AI chatbot with a topic and "Make it an image", return a study poster or a worksheet. 27 codes tested on photosynthesis, the French Revolution and the Pythagorean theorem. Part 1 holds the codes that make students practise (each needs one added sentence, shown on its card); Part 2 the posters to read, each with a way to make reading active. The page explains that the codes are not official commands but the model's average reading of the word, documents the factual errors and weak answer keys found in testing, and lists four codes that failed.
 
+## Think + AI
+
+- [Think + AI — English](https://choosewise.education/think/)
+
+Free tools that help teachers of Grades 8–12 train students' thinking when AI makes answers cheap. AI does the preparation on the teacher's side; students do the thinking, mostly without a screen.
+
+- [Thinking Moves — English](https://choosewise.education/thinking-moves/)
+
+Twelve five-minute thinking tasks (such as Best explanation, Check the claim, Then what? and Think back) grouped into six clusters of thinking. A prompt builder turns a subject, topic and grade into a prompt for any AI tool; each move has two worked examples from different subjects and an evidence label (Strong, Promising or Framework) that rates research on teaching that kind of thinking regularly. A free PDF card deck includes a fill-in prompt for offline use.
+
 ## Presentation Skills
 
 - [Presentation Skills landing — English](https://choosewise.education/presentation-skills/)
