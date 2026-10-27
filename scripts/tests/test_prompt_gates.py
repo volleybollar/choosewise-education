@@ -48,10 +48,7 @@ def test_gated_links_keep_href_for_no_js():
 
 
 def test_no_swedish_page_is_gated():
-    allowed = {ROOT / "sv/guider/claude/index.html"}
     for page in (ROOT / "sv").rglob("*.html"):
-        if page in allowed:
-            continue
         text = page.read_text(encoding="utf-8")
         assert "data-gate" not in text and "mailerlite-gate.js" not in text, page
 
