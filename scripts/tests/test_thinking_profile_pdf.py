@@ -175,3 +175,58 @@ def test_no_page_overflows(src):
         over = p.evaluate("[...document.querySelectorAll('.page')].map((el, i) => [i + 1, el.scrollHeight - el.clientHeight]).filter(x => x[1] > 0)")
         b.close()
     assert over == [], over
+
+
+# --- Fältraden mot de riktiga byggarna ---
+# Fältraden (FIELDS_LINE) står två gånger: i promptbyggaren och på PDF:ens
+# promptkort. Paritetstestet ovan håller dem lika med varandra; den här
+# vakten håller dem lika med byggarnas HTML, så att ett nytt fält, en ny
+# nivå eller en ny årskurs (till exempel Grade 7) i en byggare fäller sviten.
+BUILDERS = [("Thinking Moves", "thinking-moves", "tm"),
+            ("Flawed Answer", "flawed-answer", "fa"),
+            ("Side by Side", "side-by-side", "sb")]
+
+
+def _fields_line_js():
+    js = JS.read_text(encoding="utf-8")
+    return re.search(r"'(Builder fields\..*?)',\n", js).group(1)
+
+
+def _builder_form(tool):
+    """Formulärdelen av byggarens sida: fälten fram till promptrutan."""
+    html = (ROOT / tool / "index.html").read_text(encoding="utf-8")
+    return html[:html.index("Your prompt")]
+
+
+def _segment(line, name):
+    """Den del av fältraden som gäller en byggare: 'All three'-delen plus
+    byggarens egen mening."""
+    names = [n for n, _, _ in BUILDERS]
+    start = line.index(name + " also has")
+    later = [line.index(n + " also has") for n in names if line.index(n + " also has") > start]
+    end = min(later) if later else len(line)
+    common = line[:line.index(names[0] + " also has")]
+    return common, line[start:end]
+
+
+@pytest.mark.parametrize("name,tool,pre", BUILDERS, ids=[b[1] for b in BUILDERS])
+def test_fields_line_matches_builder_html(name, tool, pre):
+    line = _fields_line_js()
+    assert line == load_build().FIELDS_LINE
+    common, own = _segment(line, name)
+    form = _builder_form(tool)
+    labels = re.findall(r'class="tm-field__label">([^<]+)<', form)
+    assert len(labels) >= 5, labels
+    for label in labels:
+        label = label.replace(" (optional)", "").strip()
+        assert label in common or label in own, (tool, label)
+    if "(optional)" in form:
+        assert "What do students already know? (optional)" in common
+    grades = [int(g) for g in re.findall(r'<option value="(\d+)">Grade', form)]
+    assert grades, tool
+    assert "grades {} to {}".format(min(grades), max(grades)) in own, (tool, grades)
+    levels = re.findall(r'name="{}-level"[^>]*> <span><strong>([^<]+)</strong>'.format(pre), form)
+    for level in levels:
+        assert level in own, (tool, level)
+    if levels:
+        assert len(levels) == 2, levels
