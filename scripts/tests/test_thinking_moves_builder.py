@@ -164,3 +164,17 @@ def test_hint_is_shown_beside_disabled_copy_button(site, browser):
         hint = p.locator("#tm-hint").bounding_box()
         assert hint["y"] < btn["y"] + btn["height"] + 40, (width, btn, hint)
         p.close()
+
+
+def test_move_cards_side_by_side_are_equal_height(site, browser):
+    # Kort som står bredvid varandra i samma rad ska vara lika höga.
+    for width in (1280, 900):
+        p = browser.new_page(viewport={"width": width, "height": 900})
+        p.goto(f"{site}/thinking-moves/", wait_until="networkidle")
+        rows = {}
+        for box in (c.bounding_box() for c in p.locator("article.tm-move").all()):
+            rows.setdefault(round(box["y"]), []).append(box["height"])
+        assert any(len(h) > 1 for h in rows.values()), width
+        for heights in rows.values():
+            assert max(heights) - min(heights) < 1, (width, heights)
+        p.close()
