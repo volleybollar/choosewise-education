@@ -143,3 +143,10 @@ def test_evidence_section_lists_every_source():
 
 def test_form_onsubmit_is_commented():
     assert re.search(r"<!--[^>]*Enter[^>]*-->\s*<form[^>]*onsubmit", html(), re.S)
+
+
+def test_move_field_tells_teacher_to_choose():
+    builder = section("tm-builder")
+    label = builder.index('<span class="tm-field__label">Thinking move</span>')
+    line = builder.index("Choose one of the twelve moves.")
+    assert label < line < builder.index('id="tm-move"')
