@@ -50,67 +50,67 @@
   </url>
   <url>
     <loc>https://choosewise.education/evidence/ai-learning-science/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/ai-literacy/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/curriculum-alignment/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/curriculum-assessment/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/eal-language-development/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/environmental-experiential-learning/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/explicit-instruction/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/feedback/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/global-cross-cultural-pedagogies/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/literacy-critical-thinking/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/memory/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/professional-learning/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/questioning-discussion/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/self-regulated-learning/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/evidence/wellbeing-motivation-agency/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/free/ai-or-human/</loc>
@@ -118,7 +118,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/free/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-26</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/free/prompts/</loc>
@@ -145,7 +145,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/infographic-styles/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/infographic-styles/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/infografik-stilar/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/infographic-styles/"/>
@@ -214,7 +214,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/privacy/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/prompts/after-school-care/</loc>
@@ -675,7 +675,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/sv/infografik-stilar/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/infographic-styles/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/infografik-stilar/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/infographic-styles/"/>
@@ -1193,6 +1193,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/wise/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/ratt/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/wise/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/think/</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://choosewise.education/thinking-moves/</loc>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/visual-codes/</loc>

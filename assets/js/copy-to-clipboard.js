@@ -12,7 +12,12 @@ document.addEventListener('click', async (e) => {
     await navigator.clipboard.writeText(text);
     const toast = btn.parentElement.querySelector('.copy-toast');
     if (toast) {
+      /* Skärmläsare läser bara upp en role="status" när texten ändras,
+         så texten töms och skrivs in på nytt vid varje kopiering. */
+      const msg = toast.dataset.msg || (toast.dataset.msg = toast.textContent);
+      toast.textContent = '';
       toast.classList.add('copy-toast--visible');
+      setTimeout(() => { toast.textContent = msg; }, 50);
       setTimeout(() => toast.classList.remove('copy-toast--visible'), 2000);
     }
   } catch (err) {

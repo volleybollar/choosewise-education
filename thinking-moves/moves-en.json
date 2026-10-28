@@ -1,0 +1,595 @@
+{
+  "labels": {
+    "strong": {
+      "name": "Strong",
+      "definition": "Meta-analyses of classroom interventions show that teaching this kind of thinking improves it."
+    },
+    "promising": {
+      "name": "Promising",
+      "definition": "Controlled studies show gains, but results are mixed, small in number or dependent on context."
+    },
+    "framework": {
+      "name": "Framework",
+      "definition": "A useful structure for thinking, with no intervention studies behind it yet."
+    },
+    "note": "Labels rate the research on teaching this kind of thinking regularly, not a single five-minute move. One move is one small piece of that practice."
+  },
+  "clusters": [
+    {
+      "id": "generating",
+      "name": "Generating ideas",
+      "description": "Producing many and unusual options.",
+      "modes": [
+        {
+          "name": "Divergent",
+          "added": false
+        },
+        {
+          "name": "Associative",
+          "added": false
+        },
+        {
+          "name": "Lateral",
+          "added": false
+        },
+        {
+          "name": "Janusian",
+          "added": false,
+          "note": "No move of its own: the evidence is thin and comes almost entirely from one researcher."
+        }
+      ],
+      "moves": [
+        "many-ways"
+      ]
+    },
+    {
+      "id": "evaluating",
+      "name": "Evaluating and choosing",
+      "description": "Weighing evidence, testing claims and deciding.",
+      "modes": [
+        {
+          "name": "Critical",
+          "added": false
+        },
+        {
+          "name": "Convergent",
+          "added": false
+        },
+        {
+          "name": "Argumentation from evidence",
+          "added": true
+        }
+      ],
+      "moves": [
+        "pick-and-justify",
+        "check-the-claim",
+        "argue-it"
+      ]
+    },
+    {
+      "id": "comparing",
+      "name": "Comparing and transferring",
+      "description": "Seeing the structure one case shares with another.",
+      "modes": [
+        {
+          "name": "Analogical",
+          "added": false
+        }
+      ],
+      "moves": [
+        "like-what"
+      ]
+    },
+    {
+      "id": "explaining",
+      "name": "Explaining and reasoning from basics",
+      "description": "Finding the best explanation and rebuilding from what is certainly true.",
+      "modes": [
+        {
+          "name": "Abductive",
+          "added": false
+        },
+        {
+          "name": "First principles",
+          "added": false
+        },
+        {
+          "name": "Mathematical modelling",
+          "added": true
+        },
+        {
+          "name": "Estimation",
+          "added": true
+        }
+      ],
+      "moves": [
+        "best-explanation",
+        "strip-it-down",
+        "estimate-it",
+        "model-it"
+      ]
+    },
+    {
+      "id": "causes",
+      "name": "Causes and systems",
+      "description": "Chains, loops and side effects.",
+      "modes": [
+        {
+          "name": "Systems",
+          "added": false
+        },
+        {
+          "name": "Second-order",
+          "added": false
+        },
+        {
+          "name": "Inversion",
+          "added": false,
+          "note": "No move of its own: the evidence is thin and comes from adult lab studies of the pre-mortem."
+        }
+      ],
+      "moves": [
+        "then-what",
+        "map-the-loop"
+      ]
+    },
+    {
+      "id": "regulating",
+      "name": "Regulating your own thinking",
+      "description": "Watching and adjusting how you think. It makes every other cluster sharper.",
+      "modes": [
+        {
+          "name": "Metacognitive",
+          "added": false
+        }
+      ],
+      "moves": [
+        "think-back"
+      ]
+    }
+  ],
+  "moves": [
+    {
+      "id": "many-ways",
+      "number": 1,
+      "name": "Many ways",
+      "one_liner": "Students produce as many different solutions as they can, then look for the most unusual.",
+      "modes": "Divergent, associative and lateral thinking",
+      "cluster": "generating",
+      "label": "promising",
+      "evidence": "Creativity training works on average (Haase, Hanel & Gronau 2023: g = 0.53), but that meta-analysis covers adults, and the evidence for school-age students is older and less certain.",
+      "sources": [
+        {
+          "text": "Haase, Hanel & Gronau 2023, Psychology of Aesthetics, Creativity, and the Arts",
+          "url": "https://doi.org/10.1037/aca0000557"
+        }
+      ],
+      "prompt_brief": "Pose an open problem from the lesson topic that has many possible solutions. Ask students for a high number of ideas (about ten), then to mark the two most unusual. The Look for part should name the different principles or categories strong lists cover, so the teacher can tell variety from ten versions of one idea.",
+      "examples": [
+        {
+          "subject": "Technology",
+          "grade": 8,
+          "task": "Find as many ways as you can to keep a packed lunch cold until noon without a fridge or electricity. Aim for ten. Then circle the two most unusual ones.",
+          "look_for": "Ideas that use different principles, not ten versions of one: insulation (wool, foil, a vacuum flask), cold mass (a frozen bottle, an ice pack), evaporation (a wet cloth), shade and position, and changing the food itself (packing it frozen).",
+          "probe": "Which principle does each idea use? Is there a principle nobody in the class has used yet?",
+          "think_back": "My best idea came after I stopped thinking about …"
+        },
+        {
+          "subject": "Music",
+          "grade": 10,
+          "task": "Take a melody everyone knows, such as \"Happy Birthday\". List as many ways as you can to make it sound sad without changing a single note of the melody.",
+          "look_for": "Ideas across several musical elements: tempo, dynamics, instrument and timbre, minor chords in the accompaniment under the same melody, articulation, the rhythm of the accompaniment, and the setting it is played in.",
+          "probe": "Which musical element did nobody change? Try one idea from that element.",
+          "think_back": "I got stuck on … until I switched to thinking about …"
+        }
+      ]
+    },
+    {
+      "id": "pick-and-justify",
+      "number": 2,
+      "name": "Pick and justify",
+      "one_liner": "Students agree on criteria first, then choose one option and defend it against each criterion.",
+      "modes": "Convergent thinking",
+      "cluster": "evaluating",
+      "label": "promising",
+      "evidence": "In the Haase, Hanel & Gronau 2023 meta-analysis, training convergent thinking showed larger effects than training divergent thinking, but the studies are on adults. In school it is part of ordinary problem solving.",
+      "sources": [
+        {
+          "text": "Haase, Hanel & Gronau 2023, Psychology of Aesthetics, Creativity, and the Arts",
+          "url": "https://doi.org/10.1037/aca0000557"
+        }
+      ],
+      "prompt_brief": "Give students three realistic options from the lesson topic, each with a clear strength and a clear cost. Ask them to agree on criteria before they choose, then to justify one option against every criterion. The Look for part should reward naming what the choice costs.",
+      "examples": [
+        {
+          "subject": "Geography",
+          "grade": 9,
+          "task": "A town must choose one of three sites for a wind farm: a hilltop beside a nature reserve, flat farmland 15 km from the nearest road, or a coastal strip next to a holiday village. Agree on three criteria first, then pick a site and justify it against each criterion.",
+          "look_for": "Criteria set before the choice, such as wind exposure, the cost of roads and grid connection, and the impact on wildlife and people. Strong answers admit what their choice costs and say which criterion they weighted most.",
+          "probe": "Which criterion would have to change for you to pick a different site?",
+          "think_back": "The criterion I almost forgot was …"
+        },
+        {
+          "subject": "History",
+          "grade": 10,
+          "task": "You want to know how ordinary Londoners felt during the Blitz in 1940. You have three sources: a private diary written that week, a newspaper report from the next morning, and a school textbook from 2010. Rank them for this question and justify the order.",
+          "look_for": "A ranking tied to the question: the diary is closest to private feelings but shows one person; the wartime newspaper was shaped by censorship and the aim of keeping up morale; the textbook summarises with hindsight. Strong answers say what each source can and cannot show.",
+          "probe": "Would your ranking change if the question were \"How many bombs fell on London?\"",
+          "think_back": "I changed my ranking when I noticed …"
+        }
+      ]
+    },
+    {
+      "id": "check-the-claim",
+      "number": 3,
+      "name": "Check the claim",
+      "one_liner": "Before deciding whether a claim is true, students say what evidence would convince them and what would not.",
+      "modes": "Critical thinking",
+      "cluster": "evaluating",
+      "label": "strong",
+      "evidence": "Explicit teaching of critical thinking improves it across subjects and ages (Abrami et al. 2015: g = 0.30 over 341 effect sizes), most when combined with discussion and authentic problems.",
+      "sources": [
+        {
+          "text": "Abrami et al. 2015, Review of Educational Research",
+          "url": "https://doi.org/10.3102/0034654314551063"
+        }
+      ],
+      "prompt_brief": "Choose a short, plausible claim connected to the lesson topic, the kind students meet in everyday life or the media. Ask students to decide what evidence would convince them before they judge it. The Look for part should separate anecdote from comparison and name what the actual evidence shows; flag any fact the teacher should verify.",
+      "examples": [
+        {
+          "subject": "Biology",
+          "grade": 10,
+          "task": "Claim: \"Cracking your knuckles gives you arthritis.\" Before deciding whether it is true, write down what kind of evidence would convince you, and what kind would not.",
+          "look_for": "The difference between an anecdote (\"my grandad did it and has arthritis\") and a comparison of people who crack their knuckles with people who don't. Strong answers ask for a comparison group, a large sample and years of follow-up. Studies comparing the two groups have not found more arthritis among knuckle-crackers.",
+          "probe": "One doctor cracked the knuckles of one hand for more than 50 years and never the other. What does that show, and what can it not show?",
+          "think_back": "The evidence I would have accepted too quickly was …"
+        },
+        {
+          "subject": "English",
+          "grade": 11,
+          "task": "An advert says: \"80% of dentists recommend our toothpaste.\" List every question you would need answered before believing what the advert wants you to think.",
+          "look_for": "Questions about who was asked, how many, the exact wording of the question, whether dentists could name more than one brand, and who paid for the survey. In 2007 the UK advertising regulator ruled a claim like this misleading because the dentists surveyed could recommend several brands.",
+          "probe": "Rewrite the advert so it says only what such a survey could prove.",
+          "think_back": "The question I would not have thought of on my own was …"
+        }
+      ]
+    },
+    {
+      "id": "argue-it",
+      "number": 4,
+      "name": "Argue it",
+      "one_liner": "Students build an argument with a claim, evidence and the reasoning that links them, and answer the other side.",
+      "modes": "Argumentation from evidence",
+      "cluster": "evaluating",
+      "label": "promising",
+      "evidence": "School interventions that teach scientific reasoning and argumentation show a medium effect on average across 30 interventions (Engelmann, Neuhaus & Fischer 2016).",
+      "sources": [
+        {
+          "text": "Engelmann, Neuhaus & Fischer 2016, Educational Research and Evaluation",
+          "url": "https://doi.org/10.1080/13803611.2016.1240089"
+        }
+      ],
+      "prompt_brief": "State a debatable claim from the lesson topic. Give students three or four short, verifiable evidence statements to choose from, at least one on each side, so they need no device. Ask for one argument with a claim, a piece of the evidence and the reasoning that links them, plus one answer to the other side. List every evidence statement under CHECK.",
+      "examples": [
+        {
+          "subject": "Civics",
+          "grade": 11,
+          "task": "Claim: \"The voting age should be lowered to 16.\" Write one argument for and one against. Each needs a claim, a piece of evidence or an example, and the reasoning that links them.",
+          "look_for": "Evidence, not just opinion. For example, Austria lowered the voting age to 16 for national elections in 2007, so there is real experience to point to. Strong answers explain why the evidence supports the claim and answer the strongest argument on the other side.",
+          "probe": "What evidence would make you change sides?",
+          "think_back": "My argument got stronger when …"
+        },
+        {
+          "subject": "Chemistry",
+          "grade": 10,
+          "task": "Claim: \"Recycling an aluminium can saves more than recycling a glass bottle.\" Decide whether you agree and argue it with a claim, evidence and reasoning. Say what \"saves\" means in your argument.",
+          "look_for": "A definition of \"saves\" (energy, raw material or emissions). Key evidence: making aluminium from recycled metal uses about 95% less energy than making it from ore, because the electrolysis step is skipped; recycled glass saves far less, since it has to be melted either way. Strong answers say what the claim leaves out, such as weight and transport.",
+          "probe": "Which part of your reasoning depends on a number you would want to check?",
+          "think_back": "Defining … first changed my answer."
+        }
+      ]
+    },
+    {
+      "id": "like-what",
+      "number": 5,
+      "name": "Like what?",
+      "one_liner": "Students set a new idea beside a familiar one, map what matches, and find where the comparison breaks.",
+      "modes": "Analogical thinking",
+      "cluster": "comparing",
+      "label": "strong",
+      "evidence": "Learning by comparing cases improves understanding across 57 experiments (Alfieri, Nokes-Malach & Schunn 2013), and comparing solution methods built flexibility in Grade 7–8 algebra (Rittle-Johnson & Star 2007).",
+      "sources": [
+        {
+          "text": "Alfieri, Nokes-Malach & Schunn 2013, Educational Psychologist",
+          "url": "https://doi.org/10.1080/00461520.2013.775712"
+        },
+        {
+          "text": "Rittle-Johnson & Star 2007, Journal of Educational Psychology",
+          "url": "https://doi.org/10.1037/0022-0663.99.3.561"
+        }
+      ],
+      "prompt_brief": "Pick a familiar comparison for a key idea in the lesson topic. Ask students for three things that correspond and one place where the comparison breaks down. The Look for part should list the correct correspondences and the main breaking point.",
+      "examples": [
+        {
+          "subject": "Physics",
+          "grade": 9,
+          "task": "An electric circuit is often compared to water flowing in pipes. Fill in: battery = ?, wire = ?, current = ?, resistance = ?. Then find at least two places where the comparison breaks.",
+          "look_for": "Battery as a pump, current as the flow, resistance as a narrow section of pipe. Where it breaks: cut a pipe and water pours out, but cut a wire and the current simply stops; electrons in a wire drift slowly even though a lamp lights almost instantly. Strong answers say what the comparison is good for and when to stop using it.",
+          "probe": "Can you find a better comparison for the part where water pipes fail?",
+          "think_back": "The comparison helped me until …"
+        },
+        {
+          "subject": "Religion and ethics",
+          "grade": 10,
+          "task": "Is a promise like a contract? List what they have in common, then where the comparison breaks down. Give one example of each.",
+          "look_for": "Both create obligations and expectations. Where it breaks: a contract can be enforced by a court and a promise usually cannot; a contract needs both sides to agree, while a promise can be one-sided; breaking a promise is judged morally rather than legally. Strong answers ask what the comparison hides.",
+          "probe": "Which kind of promise comes closest to being a contract? Why?",
+          "think_back": "The difference I did not notice at first was …"
+        }
+      ]
+    },
+    {
+      "id": "best-explanation",
+      "number": 6,
+      "name": "Best explanation",
+      "one_liner": "Students meet a puzzling observation, propose several explanations, and say what evidence would tell them apart.",
+      "modes": "Abductive thinking",
+      "cluster": "explaining",
+      "label": "promising",
+      "evidence": "Generating and testing hypotheses is part of scientific reasoning, which school interventions improve on average (Engelmann, Neuhaus & Fischer 2016). Studies of abductive reasoning on its own are few and small.",
+      "sources": [
+        {
+          "text": "Engelmann, Neuhaus & Fischer 2016, Educational Research and Evaluation",
+          "url": "https://doi.org/10.1080/13803611.2016.1240089"
+        }
+      ],
+      "prompt_brief": "Describe a short, puzzling observation connected to the lesson topic that has at least two explanations a teacher would take seriously. Ask students for two explanations and one observation that would tell them apart. The Look for part should give the accepted explanation and the real alternative, with the test that separates them.",
+      "examples": [
+        {
+          "subject": "Biology",
+          "grade": 9,
+          "task": "The bean plants on the windowsill all lean toward the glass. The ones on the table in the middle of the room grow straight up. Write three possible explanations. For each, name one thing you could observe that would support it.",
+          "look_for": "Light from one side (phototropism), plus at least one real alternative such as warmth or a draught, each with a test that separates it from the others.",
+          "probe": "Which explanation would still stand if we turned the pots every day?",
+          "think_back": "The explanation I gave up first was … because …"
+        },
+        {
+          "subject": "History",
+          "grade": 11,
+          "task": "Archaeologists find an English village that was lived in for 300 years and empty by 1500. Give three explanations, and the evidence that would make each one more likely.",
+          "look_for": "Plague (the population fell sharply after 1349, though villages rarely emptied from plague alone; look for burials and tax records), land turned into sheep pasture (gradual, mostly in the 1400s; enclosure records and new field boundaries), and failing soil or climate. Strong answers match each cause with a kind of evidence.",
+          "probe": "Which single piece of evidence could rule out two explanations at once?",
+          "think_back": "I changed my mind when …"
+        }
+      ]
+    },
+    {
+      "id": "strip-it-down",
+      "number": 7,
+      "name": "Strip it down",
+      "one_liner": "Students set aside the rule they were given and rebuild it from what they know for certain.",
+      "modes": "First-principles thinking",
+      "cluster": "explaining",
+      "label": "framework",
+      "evidence": "There are no intervention studies of first-principles thinking itself. The closest research is productive failure, where students try to build a method before being taught it. Across 53 studies it helped conceptual understanding more than teaching first, but not procedural skill (Sinha & Kapur 2021).",
+      "sources": [
+        {
+          "text": "Sinha & Kapur 2021, Review of Educational Research",
+          "url": "https://doi.org/10.3102/00346543211019105"
+        }
+      ],
+      "prompt_brief": "Take a rule, formula or convention students already use in the lesson topic. Name the one starting point they may use, but do not hand them the steps that make the rule obvious. Ask them to rebuild or justify the rule from that starting point. The Look for part should show the line of reasoning and the case where it is easiest to go wrong.",
+      "examples": [
+        {
+          "subject": "Maths",
+          "grade": 10,
+          "task": "Without using the formula, show why the area of any triangle is half of base times height. Start only from what you know for certain: the area of a rectangle.",
+          "look_for": "A triangle drawn inside a rectangle with the same base and height, split along its height into two right-angled triangles, each half of a smaller rectangle. Strong answers check the case where the height falls outside the triangle.",
+          "probe": "Does your argument still work if the triangle has an angle greater than 90°? What would you have to change?",
+          "think_back": "The step I could not justify at first was …"
+        },
+        {
+          "subject": "Art",
+          "grade": 8,
+          "task": "Forget what you have been taught about drawing in 3D. On a flat page, what are the basic things that make one object look closer than another? List them, then test each one with a quick sketch.",
+          "look_for": "Overlap, size, height on the page, detail and sharpness, colour and contrast fading with distance, lines that converge, shading and cast shadows. Strong answers test each cue on its own.",
+          "probe": "Which cue is strong enough to work on its own, without any of the others?",
+          "think_back": "I found the basics by asking …"
+        }
+      ]
+    },
+    {
+      "id": "estimate-it",
+      "number": 8,
+      "name": "Estimate it",
+      "one_liner": "Students reach a rough answer to a big question by breaking it into steps they can guess, and saying every assumption out loud.",
+      "modes": "Estimation (Fermi problems)",
+      "cluster": "explaining",
+      "label": "framework",
+      "evidence": "Estimation carries real weight in maths and science curricula, but research on Fermi problems mostly describes how students solve them (Albarracín & Ärlebäck 2019) rather than testing whether they improve students' estimation.",
+      "sources": [
+        {
+          "text": "Albarracín & Ärlebäck 2019, For the Learning of Mathematics",
+          "url": "https://ddd.uab.cat/pub/artpub/2019/296776/2019_FLM_Albarracin_Arleback.pdf"
+        }
+      ],
+      "prompt_brief": "Ask one question connected to the lesson topic that has no exact answer to look up but can be estimated. Do not list the steps: students choose how to break the question down and write each assumption. The Look for part should show one possible chain of steps and the rough result, aiming for the right order of magnitude.",
+      "examples": [
+        {
+          "subject": "Maths",
+          "grade": 9,
+          "task": "Roughly how many times will your heart beat in a lifetime? Work in pairs, write down every assumption and round freely. Aim for the right power of ten, not an exact answer.",
+          "look_for": "A chain such as 70 beats a minute × 60 × 24 × 365 × 80 years, which gives about 3 billion. Strong answers state their assumptions, round sensibly and check whether the result is plausible.",
+          "probe": "Which assumption changes the answer most if you get it wrong?",
+          "think_back": "Writing my assumptions down helped me notice …"
+        },
+        {
+          "subject": "PE and health",
+          "grade": 10,
+          "task": "Estimate how many kilometres a professional football midfielder runs in a whole league season. Show each step and the assumption behind it.",
+          "look_for": "A distance per match (top-level outfield players often cover around 10–12 km), the number of league matches (38 in a 20-team league), and a decision about cup games and training. Strong answers say which number they are least sure of.",
+          "probe": "Would training add more distance than matches? How could you find out?",
+          "think_back": "My estimate changed most when I …"
+        }
+      ]
+    },
+    {
+      "id": "model-it",
+      "number": 9,
+      "name": "Model it",
+      "one_liner": "Students turn a real situation into a simple mathematical model, use it, and say where it stops matching reality.",
+      "modes": "Mathematical modelling",
+      "cluster": "explaining",
+      "label": "promising",
+      "evidence": "Teaching mathematical modelling improved problem solving and achievement in a meta-analysis of 20 studies (Hidayat et al. 2025). The field is small.",
+      "sources": [
+        {
+          "text": "Hidayat et al. 2025, STEM Education",
+          "url": "https://doi.org/10.3934/steme.2025020"
+        }
+      ],
+      "prompt_brief": "Describe a simple real situation connected to the lesson topic with numbers students can work with by hand. Let students build the model themselves; do not spell out the formula. Ask one question to answer with the model and one thing the model ignores. The Look for part should give the correct result and the key assumption to question.",
+      "examples": [
+        {
+          "subject": "Maths",
+          "grade": 11,
+          "task": "A rumour starts with one student. Every hour, everyone who knows it tells one new person. How many know after 1, 2, 3 … hours? Then think about a school of 600 students and change your model to fit.",
+          "look_for": "Doubling at first (1, 2, 4, 8 … passing 600 after about 10 hours), then the realisation that the spread must slow down as fewer people are left to tell, giving an S-shaped curve. Strong answers state the model's assumptions and where it stops being realistic.",
+          "probe": "Which assumption in your model is least like real life?",
+          "think_back": "My first model broke when …"
+        },
+        {
+          "subject": "Economics",
+          "grade": 12,
+          "task": "The school concert has 300 seats. At €5 a ticket, 300 people come; for every €1 more, 30 fewer people come. Build a model of the ticket income and find the best price. Then name one thing the model ignores.",
+          "look_for": "Income = price × audience. The best whole-euro price is €7 or €8 (both give €1,680); €7.50 gives €1,687.50. Strong answers question the assumption that the audience falls by the same amount for every euro, and ask what the concert is for: money or a full hall.",
+          "probe": "If the goal were a full hall instead of the most money, what would your model recommend?",
+          "think_back": "The assumption I accepted without checking was …"
+        }
+      ]
+    },
+    {
+      "id": "then-what",
+      "number": 10,
+      "name": "Then what?",
+      "one_liner": "Students follow a decision through its first consequence, the consequence of that, and one more.",
+      "modes": "Second-order and causal thinking",
+      "cluster": "causes",
+      "label": "framework",
+      "evidence": "Teaching students to see patterns of cause and effect has been developed through design research (Grotzer, Harvard Project Zero), but there are no effect sizes for it yet.",
+      "sources": [
+        {
+          "text": "Grotzer, Understandings of Consequence, Project Zero",
+          "url": "https://pz.harvard.edu/projects/understandings-of-consequence"
+        }
+      ],
+      "prompt_brief": "Describe a decision, rule or change connected to the lesson topic, ideally a real one with a documented surprising result. Ask students for the first consequence, the consequence of that, and one more. Do not hint at where the later consequences lie. The Look for part should name the surprising later consequence and where it is documented.",
+      "examples": [
+        {
+          "subject": "History",
+          "grade": 10,
+          "task": "Hanoi, 1902. To fight rats that spread plague, the authorities pay a reward for every rat tail handed in. Write the first consequence, then the consequence of that, then one more.",
+          "look_for": "More than \"people kill more rats\": people cut off tails and let the rats go free to breed, and some started breeding rats for the reward, as the historian Michael Vann describes. Strong answers trace how the reward changed what people wanted.",
+          "probe": "How would you design the reward so the chain does not go wrong?",
+          "think_back": "The consequence I missed at first was …"
+        },
+        {
+          "subject": "Geography",
+          "grade": 12,
+          "task": "In 1989 Mexico City banned each car from driving on one weekday, based on its number plate, to cut air pollution. Write the chain of consequences: first, second, third.",
+          "look_for": "First, fewer cars on the road. Then some households bought a second, often older car to drive on their banned day. The economist Lucas Davis found no evidence that the ban improved air quality. Strong answers ask how people adapt to a rule.",
+          "probe": "What would you have to measure to know whether the ban worked?",
+          "think_back": "I started thinking further ahead when …"
+        }
+      ]
+    },
+    {
+      "id": "map-the-loop",
+      "number": 11,
+      "name": "Map the loop",
+      "one_liner": "Students draw how the parts of a system affect each other, and find the loops that make it grow or settle.",
+      "modes": "Systems thinking",
+      "cluster": "causes",
+      "label": "promising",
+      "evidence": "About 50 Grade 8 students taught with an earth-systems approach progressed through levels of systems thinking, and a third reached the highest level (Ben-Zvi Assaraf & Orion 2005). There is no meta-analysis yet, and few secondary-school trials.",
+      "sources": [
+        {
+          "text": "Ben-Zvi Assaraf & Orion 2005, Journal of Research in Science Teaching",
+          "url": "https://doi.org/10.1002/tea.20061"
+        }
+      ],
+      "prompt_brief": "Name three or four parts of a system connected to the lesson topic. Ask students to draw arrows for how each affects the others, find one loop, and say whether it grows or balances itself. In Look for, list each arrow as 'X → Y (+ or −)' using one stated sign rule (+ means more X gives more Y), then name the loop type from the number of minus signs.",
+      "examples": [
+        {
+          "subject": "Biology",
+          "grade": 10,
+          "task": "Draw the connections between sea otters, sea urchins and kelp forests on the Pacific coast. Then show what happens to all three if the otters are hunted out.",
+          "look_for": "Otters eat urchins and urchins eat kelp: fewer otters means more urchins and less kelp. Estes and Palmisano showed this in 1974 by comparing islands with and without otters. Strong answers add a link back, such as the kelp sheltering fish and other prey.",
+          "probe": "If the otters returned, what would happen first, and what would take years?",
+          "think_back": "Drawing it showed me …"
+        },
+        {
+          "subject": "Social studies",
+          "grade": 9,
+          "task": "A new café opens near the school and becomes popular. Draw a loop with three parts: how popular it is, how long the queue gets, and how many customers give up and go elsewhere. Does the loop keep growing or balance itself?",
+          "look_for": "More popular, longer queue, more people give up, fewer customers, shorter queue: a loop that balances itself. Strong answers add a loop that grows (crowds attract more customers) and say which one wins.",
+          "probe": "What could the café owner change to break the balancing loop?",
+          "think_back": "The arrow I nearly drew the wrong way was …"
+        }
+      ]
+    },
+    {
+      "id": "think-back",
+      "number": 12,
+      "name": "Think back",
+      "one_liner": "Students describe how they thought, not what they found, and decide what to do differently. It closes every move and works on its own.",
+      "modes": "Metacognitive thinking",
+      "cluster": "regulating",
+      "label": "strong",
+      "evidence": "Teaching students to plan, monitor and evaluate their own learning is one of the strongest strands in the EEF Teaching and Learning Toolkit: +8 months of progress on average, with 4 of 5 padlocks for the strength of the evidence.",
+      "sources": [
+        {
+          "text": "EEF Teaching and Learning Toolkit: Metacognition and self-regulation",
+          "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation"
+        }
+      ],
+      "prompt_brief": "Set a short reflection tied to a task students have just done in the lesson topic. Ask them to describe how they worked, where they got stuck and what moved them on, and to compare a prediction with the result where possible. The Look for part should separate named strategies from vague statements such as \"I thought harder\".",
+      "examples": [
+        {
+          "subject": "Modern languages",
+          "grade": 8,
+          "task": "Right after the vocabulary quiz, before you see your score, write: How did you study? Which words do you think you got wrong, and why those? Then compare with your result.",
+          "look_for": "Specific descriptions of how they studied (reading the list or testing themselves), predictions about which words they missed, and an honest comparison afterwards. Strong answers name one change for next time.",
+          "probe": "Was your prediction better or worse than you expected? What does that tell you?",
+          "think_back": "Next time I will study by … instead of …"
+        },
+        {
+          "subject": "Maths",
+          "grade": 12,
+          "task": "After solving a hard problem, write three lines: where I got stuck, what I tried, and what finally moved me forward. Then swap with a partner and compare strategies.",
+          "look_for": "Named strategies, such as drawing a diagram, trying a simpler case or working backwards, rather than \"I just thought harder\". Strong answers notice a strategy they could use on the next problem.",
+          "probe": "Which of your partner's strategies would have saved you time?",
+          "think_back": "When I get stuck next time, I will first try …"
+        }
+      ]
+    }
+  ],
+  "age_rules": [
+    {
+      "tool": "Copilot Chat",
+      "rule": "Students aged 13 and over, through the school's own Microsoft 365 account. The school's administrator must set each student's age group and consent."
+    },
+    {
+      "tool": "Gemini for Education",
+      "rule": "Open to education users of all ages, with a stricter experience for under-18s. The school's administrator must turn it on."
+    },
+    {
+      "tool": "ChatGPT",
+      "rule": "Ages 13 and over on personal accounts, with a parent's or guardian's permission under 18. ChatGPT for Teachers is for school staff only."
+    },
+    {
+      "tool": "Claude",
+      "rule": "Ages 18 and over. In a school, for teachers only."
+    }
+  ]
+}

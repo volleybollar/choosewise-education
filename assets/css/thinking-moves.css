@@ -1,0 +1,94 @@
+/* Thinking Moves (/thinking-moves/). Färger bara som var(--…): hex bor i tokens.css. */
+
+/* Länken tillbaka till översiktssidan Think + AI. */
+.tm-back { display: inline-block; font-size: var(--fs-small); color: var(--color-text-soft); text-decoration: none; margin-bottom: var(--space-4); }
+.tm-back:hover { color: var(--color-accent); }
+
+/* De tre löftena under ingressen: tre kolumner på dator, en på mobil. */
+.tm-promises { list-style: none; padding: 0; margin: var(--space-6) 0 0; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.tm-promises li { max-width: none; border-left: 3px solid var(--color-highlight); padding-left: var(--space-4); color: var(--color-text-soft); }
+.tm-promises strong { color: var(--color-text); font-weight: var(--weight-emphasis); }
+
+/* ───── Promptbyggaren ───── */
+.tm-privacy { max-width: none; margin-bottom: var(--space-5); }
+.tm-form { display: grid; gap: var(--space-4); grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); max-width: var(--content-max); }
+.tm-field { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.tm-field--wide { grid-column: 1 / -1; }
+.tm-field__label { font-size: var(--fs-small); color: var(--color-text-soft); }
+.tm-field__note { font-size: var(--fs-small); color: var(--color-text-soft); }
+.tm-field .input { width: 100%; box-sizing: border-box; font: inherit; }
+.tm-hint { margin: var(--space-4) 0; font-size: var(--fs-small); color: var(--color-highlight-ink); max-width: none; }
+.tm-hint:empty { display: none; }
+.tm-prompt { font-family: var(--font-mono); font-size: var(--fs-small); line-height: var(--lh-normal); resize: vertical; }
+.tm-copy-row { position: relative; display: flex; align-items: center; gap: var(--space-4); margin-top: var(--space-4); }
+.tm-copy-row .btn[disabled] { opacity: .5; cursor: not-allowed; }
+/* Bekräftelsen "Copied" står bredvid knappen i stället för ovanpå den
+   (den delade stilen centrerar den i raden, vilket täcker knappen på mobil). */
+.tm-copy-row .copy-toast { position: static; transform: scale(0.95); }
+.tm-copy-row .copy-toast--visible { transform: scale(1); }
+@media (max-width: 640px) { .tm-form { grid-template-columns: 1fr; } }
+
+/* ───── Dragkorten ───── */
+.tm-grid { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); align-items: start; }
+.tm-move { min-width: 0; overflow-wrap: anywhere; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); scroll-margin-top: calc(var(--nav-height) + var(--space-4)); }
+.tm-move__head { display: flex; gap: var(--space-4); align-items: center; }
+.tm-move__icon { width: 48px; height: 48px; flex: none; }
+.tm-move__num { display: block; font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-highlight-ink); }
+.tm-move__name { margin: 0; font-size: 1.35rem; font-weight: var(--weight-emphasis); }
+.tm-move__line { margin: 0; max-width: none; }
+.tm-move__meta { margin: 0; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3); align-items: center; font-size: var(--fs-small); color: var(--color-text-muted); }
+.tm-move__more summary { cursor: pointer; font-size: var(--fs-small); color: var(--color-accent); }
+.tm-move__more[open] summary { margin-bottom: var(--space-3); }
+.tm-move__evidence { font-size: var(--fs-small); color: var(--color-text-soft); margin: var(--space-3) 0 0; max-width: none; }
+.tm-move__sources { display: block; margin-top: var(--space-1); }
+.tm-move__use { margin-top: auto; font-size: var(--fs-small); font-weight: var(--weight-emphasis); color: var(--color-accent); }
+
+/* Ett genomarbetat exempel: ämne och årskurs, sedan Task/Look for/Probe/Think back. */
+.tm-example { border-left: 3px solid var(--color-highlight); background: var(--color-bg-alt); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: var(--space-3) var(--space-4); margin-bottom: var(--space-3); }
+.tm-example__subject { margin: 0 0 var(--space-2); font-size: var(--fs-body); font-weight: var(--weight-emphasis); }
+.tm-example__subject span { font-weight: var(--weight-body); color: var(--color-text-muted); }
+.tm-example dl { margin: 0; display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: var(--space-2) var(--space-3); font-size: var(--fs-small); }
+.tm-example dt { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); padding-top: 2px; }
+.tm-example dd { margin: 0; }
+@media (max-width: 480px) { .tm-example dl { grid-template-columns: 1fr; } .tm-example dd { margin-bottom: var(--space-2); } }
+
+/* Evidensetiketterna: text och ram, inte bara färg. */
+.tm-chip { display: inline-block; font-size: var(--fs-caption); font-weight: var(--weight-emphasis); letter-spacing: .03em; border: 1px solid; border-radius: var(--radius-sm); padding: 0 var(--space-2); white-space: nowrap; }
+.tm-chip--strong { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-bg); }
+.tm-chip--promising { color: var(--color-accent); border-color: var(--color-accent); }
+.tm-chip--framework { color: var(--color-text-muted); border-color: var(--color-border-strong); border-style: dashed; }
+
+/* ───── Fem minuter i lektionen ───── */
+.tm-steps { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); padding-left: var(--space-5); }
+.tm-steps li { max-width: none; }
+.tm-note { max-width: var(--content-text-max); margin-top: var(--space-6); color: var(--color-text-soft); }
+
+/* ───── Klustren ───── */
+.tm-clusters { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
+.tm-cluster { min-width: 0; border-top: 2px solid var(--color-accent); padding-top: var(--space-4); }
+.tm-cluster h3 { margin: 0 0 var(--space-2); font-size: 1.15rem; font-weight: var(--weight-emphasis); }
+.tm-cluster__num { color: var(--color-highlight-ink); margin-right: var(--space-1); }
+.tm-cluster p { margin: 0 0 var(--space-3); color: var(--color-text-soft); max-width: none; }
+.tm-cluster__modes { margin: 0 0 var(--space-3); padding-left: var(--space-5); font-size: var(--fs-small); }
+.tm-cluster__note { display: block; color: var(--color-text-muted); }
+.tm-cluster__moves { font-size: var(--fs-small); }
+.tm-added { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-highlight-ink); margin-left: var(--space-1); }
+
+/* ───── Evidens och åldersgränser ───── */
+.tm-legend { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-3); max-width: var(--content-text-max); }
+.tm-legend li { max-width: none; }
+.tm-legend__note { margin-top: var(--space-4); max-width: var(--content-text-max); font-weight: var(--weight-emphasis); }
+.tm-sources__title { margin-top: var(--space-8); }
+.tm-sources { padding-left: var(--space-5); margin: var(--space-3) 0 0; display: grid; gap: var(--space-2); max-width: var(--content-text-max); }
+.tm-age { display: grid; gap: var(--space-3); padding-left: var(--space-5); max-width: var(--content-text-max); }
+
+/* ───── Översiktssidan Think + AI (/think/) ───── */
+.think-grid { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); }
+.think-card { position: relative; display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; padding: var(--space-5); background: var(--color-bg); border: 1px solid var(--color-border); border-left: 4px solid var(--color-accent); border-radius: var(--radius-md); color: var(--color-text); text-decoration: none; transition: transform var(--dur-fast) var(--ease-out); }
+.think-card:hover { transform: translateY(-1px); border-color: var(--color-border-strong); border-left-color: var(--color-accent); }
+.think-card:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+.think-card__icon { width: 48px; height: 48px; }
+.think-card__status { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); }
+.think-card__title { font-size: 1.35rem; font-weight: var(--weight-emphasis); }
+.think-card__desc { color: var(--color-text-soft); padding-right: var(--space-6); }
+.think-card__arrow { position: absolute; right: var(--space-5); bottom: var(--space-5); color: var(--color-accent); }
