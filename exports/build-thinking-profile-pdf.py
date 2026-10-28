@@ -41,6 +41,7 @@ TOOL_NAMES = {"flawed-answer": "Flawed Answer", "side-by-side": "Side by Side"}
 # test_prompt_card_matches_builder_word_for_word håller dem i takt.
 PRIVACY = "Do not include student names or student work in this conversation."
 BUILDER_LINE = "Each task below is made in its own free builder on choosewise.education; the teacher types in the inputs you give, and the builder makes the task sheet students answer on paper."
+FIELDS_LINE = "Builder fields. All three: Subject, Grade, What is the lesson about? (at most 400 characters), What do students already know? (optional). Thinking Moves also has Thinking move (the task name); grades 8 to 12. Flawed Answer also has Flaw type and How hard should the flaw be to spot? (Easier to spot or Harder to spot); grades 8 to 12. Side by Side also has Pair type and How hard should the difference be to see? (Easier to see or Harder to see); grades 7 to 12. If the unit grade is not offered, use the nearest. The builder writes the task itself, so put the case, numbers or text for students into What is the lesson about?"
 PROMPT_PARTS = [
     "Reply in plain text, no tables, in this order:",
     "THE THINKING THREAD: one or two sentences on what kind of thinking this unit trains and why it fits the topic",
@@ -49,7 +50,7 @@ PROMPT_PARTS = [
     "TASK: the task name and the tool",
     "WHAT STUDENTS DO: one sentence",
     "ROOM FOR STEP: the highest step this task gives room for",
-    "BUILDER INPUTS: the exact value for each field in that builder",
+    "BUILDER INPUTS: one Field: value line per field of that builder, as listed above",
     "LINK: the builder link",
     "TELL STUDENTS: three or four sentences the teacher reads at the start of the unit, introducing the ladder and saying it is never graded",
     'CHECK: facts or claims in the plan that could be wrong, one per line, at most four lines. Write "None" if there are none.',
@@ -94,7 +95,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; color: var(
 .plan { display: grid; grid-template-columns: 14mm 30mm 1fr 17mm; gap: 1.6mm 3mm; font-size: 8.8pt; }
 .plan .h { font-size: 7.5pt; letter-spacing: .08em; text-transform: uppercase; color: var(--color-accent); font-weight: 500; }
 .plan .c { border-top: 0.3mm solid var(--color-border); padding-top: 1.4mm; }
-.prompt { border: 0.35mm dashed var(--color-accent); border-radius: 1.5mm; padding: 4.5mm 5.5mm; font-family: 'SF Mono', Menlo, monospace; font-size: 7.2pt; line-height: 1.45; color: var(--color-text); white-space: pre-wrap; }
+.prompt { border: 0.35mm dashed var(--color-accent); border-radius: 1.5mm; padding: 4.5mm 5.5mm; font-family: 'SF Mono', Menlo, monospace; font-size: 7pt; line-height: 1.33; color: var(--color-text); white-space: pre-wrap; }
 .names { display: flex; gap: 8mm; font-size: 10pt; color: var(--color-text); }
 .names span { flex: 1; border-bottom: 0.3mm solid var(--color-border); padding-bottom: 1mm; }
 .sheet h1 { font-size: 26pt; font-weight: 300; letter-spacing: -.02em; line-height: 1.05; }
@@ -258,6 +259,7 @@ def _prompt_card(data: dict) -> str:
         "4. {step 4}",
         "",
         BUILDER_LINE,
+        FIELDS_LINE,
         "Preferred tasks, because they train {cluster name}:",
         "- {task name} ({tool}): {one-line description} {link}",
         "Other tasks you may borrow:",

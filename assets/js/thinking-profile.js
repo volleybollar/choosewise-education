@@ -60,6 +60,7 @@
     lines.push(
       '',
       'Each task below is made in its own free builder on choosewise.education; the teacher types in the inputs you give, and the builder makes the task sheet students answer on paper.',
+      'Builder fields. All three: Subject, Grade, What is the lesson about? (at most 400 characters), What do students already know? (optional). Thinking Moves also has Thinking move (the task name); grades 8 to 12. Flawed Answer also has Flaw type and How hard should the flaw be to spot? (Easier to spot or Harder to spot); grades 8 to 12. Side by Side also has Pair type and How hard should the difference be to see? (Easier to see or Harder to see); grades 7 to 12. If the unit grade is not offered, use the nearest. The builder writes the task itself, so put the case, numbers or text for students into What is the lesson about?',
       'Preferred tasks, because they train ' + cluster.name + ':'
     );
     input.preferred.forEach(function (t) { lines.push(taskLine(t)); });
@@ -76,7 +77,7 @@
       'TASK: the task name and the tool',
       'WHAT STUDENTS DO: one sentence',
       'ROOM FOR STEP: the highest step this task gives room for',
-      'BUILDER INPUTS: the exact value for each field in that builder',
+      'BUILDER INPUTS: one Field: value line per field of that builder, as listed above',
       'LINK: the builder link',
       'TELL STUDENTS: three or four sentences the teacher reads at the start of the unit, introducing the ladder and saying it is never graded',
       'CHECK: facts or claims in the plan that could be wrong, one per line, at most four lines. Write "None" if there are none.'

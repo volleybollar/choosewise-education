@@ -131,11 +131,11 @@ def test_prompt_card_matches_builder_word_for_word():
     assert len(builder) == 11, builder
     assert mod.PROMPT_PARTS == builder
     js = JS.read_text(encoding="utf-8")
-    for fixed in (mod.PRIVACY, mod.BUILDER_LINE):
+    for fixed in (mod.PRIVACY, mod.BUILDER_LINE, mod.FIELDS_LINE):
         assert "'" + fixed + "'" in js, fixed
     assert data()["not_graded"].replace("'", "\\'") in js
     last = text(DECK, 8)
-    for line in builder + [mod.PRIVACY, mod.BUILDER_LINE, data()["not_graded"]]:
+    for line in builder + [mod.PRIVACY, mod.BUILDER_LINE, mod.FIELDS_LINE, data()["not_graded"]]:
         assert has(line, last), line
     for rule in data()["rules"] + data()["rules_regulating"]:
         assert has(rule, last), rule
