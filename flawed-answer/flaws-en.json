@@ -1,0 +1,248 @@
+{
+  "labels": {
+    "strong": {
+      "name": "Strong",
+      "definition": "Meta-analyses of classroom interventions show that teaching this kind of thinking improves it."
+    },
+    "thin": {
+      "name": "Thin",
+      "definition": "Only a few small studies so far, mostly outside school classrooms. Worth trying, not yet proven."
+    },
+    "note": "Labels rate the research on teaching this kind of thinking regularly, not a single use. One Flawed Answer is one small piece of that practice."
+  },
+  "levels": [
+    {
+      "id": "easier",
+      "name": "Easier to spot",
+      "instruction": "The flaw contradicts something students in this grade already know well, and the wrong step is stated openly in one sentence. The answer is 75–90 words."
+    },
+    {
+      "id": "harder",
+      "name": "Harder to spot",
+      "instruction": "The flaw sits in a plausible middle step, uses correct subject terms and is surrounded by correct statements. The answer is 120–150 words. The wrong step must be a misconception students in this grade could genuinely hold, not an absurd mechanism."
+    }
+  ],
+  "steps": [
+    {
+      "name": "Find",
+      "prompt": "Underline the one sentence where the reasoning goes wrong."
+    },
+    {
+      "name": "Fix",
+      "prompt": "Rewrite that sentence so the reasoning holds."
+    },
+    {
+      "name": "Explain why it convinces",
+      "prompt": "What makes the wrong sentence sound right?"
+    },
+    {
+      "name": "How would we test it?",
+      "prompt": "Describe one way to check it, in class or at home."
+    }
+  ],
+  "flaws": [
+    {
+      "id": "wrong-cause",
+      "number": 1,
+      "name": "Wrong cause",
+      "one_liner": "The effect is real, but it is put down to a cause that does not produce it.",
+      "telltale_signs": [
+        "A \"because\" that names a cause you cannot see working.",
+        "The effect is true, so the explanation gets a free ride.",
+        "Ask: if this cause were missing, would the effect disappear?"
+      ],
+      "prompt_brief": "Describe a real effect from the lesson topic correctly, then explain it with a cause that is a common misconception about this topic and sounds scientific or sensible, but does not produce the effect. Do not invent an extra effect for the cause to explain. The true cause must be something students in this grade can reach.",
+      "harder_ok": true,
+      "example": {
+        "subject": "Chemistry",
+        "grade": 9,
+        "level": "easier",
+        "question": "Why does spreading salt on an icy road make the ice melt?",
+        "answer": "Road crews spread salt on icy roads because it makes ice melt even when the air is below 0 °C. Salt melts ice because it gives off heat when it touches the ice, warming it above its melting point. The salt dissolves in the thin layer of water on the ice and forms brine. Brine freezes at a lower temperature than pure water, so the road stays clear. In very cold weather, salt works much more slowly.",
+        "flaw": "\"Salt melts ice because it gives off heat when it touches the ice, warming it above its melting point.\" Dissolving ordinary salt does not warm the ice. It works because salt water has a lower freezing point than pure water.",
+        "fix": "Salt melts ice because it dissolves in the thin film of water on the ice, and salt water freezes at a lower temperature than pure water.",
+        "why_convincing": "Melting usually means warming, so we expect something to be heating the ice. Some de-icing salts, such as calcium chloride, really do give off heat as they dissolve.",
+        "test_it": "Put ice cubes in two dishes and sprinkle salt on one. Measure the meltwater with a thermometer: the salty meltwater reads below 0 °C, colder than the plain meltwater, not warmer.",
+        "probe": "If salt melted ice by heating it, what would the thermometer in the salty dish show?",
+        "think_back": "I almost accepted the explanation because …"
+      }
+    },
+    {
+      "id": "correlation-as-cause",
+      "number": 2,
+      "name": "Correlation as cause",
+      "one_liner": "Two things happen together, so one is said to cause the other.",
+      "telltale_signs": [
+        "Two things that rise or fall together.",
+        "\"So\" or \"therefore\" turns a link into a cause.",
+        "No mention of a third factor that could drive both."
+      ],
+      "prompt_brief": "Report a real link between two things connected to the lesson topic accurately, then conclude that one causes the other. Leave out the third factor or reverse cause that actually explains the link, so students have to supply it. Choose a link where the claimed cause has little or no effect of its own, so the third factor or reverse cause clearly explains it. Both linked things must come from the lesson topic, so that spotting the error uses what students learn in this subject.",
+      "harder_ok": true,
+      "example": {
+        "subject": "Biology",
+        "grade": 10,
+        "level": "easier",
+        "question": "Does sleeping with a light on make children short-sighted?",
+        "answer": "In 1999 a study of nearly 500 children found that those who had slept with a light on before the age of two were much more likely to become short-sighted. The study was published in the journal Nature. Light reaching the eyes at night must therefore damage how young eyes develop, so sleeping with a light on causes short-sightedness. Short-sightedness, or myopia, means distant objects look blurry because the eye focuses light in front of the retina.",
+        "flaw": "\"Light reaching the eyes at night must therefore damage how young eyes develop, so sleeping with a light on causes short-sightedness.\" The study only showed that the two went together. Later studies found that short-sighted parents were more likely to leave a light on, and short-sightedness runs in families.",
+        "fix": "Children who slept with a light on were more likely to be short-sighted, but the link may come from a third factor, such as short-sighted parents.",
+        "why_convincing": "It comes from a real study with a big difference between the groups, and light acting on the eye sounds like a sensible mechanism.",
+        "test_it": "Ask: what else is different about families who leave a light on? Then look up the follow-up studies from 2000 and see what they compared.",
+        "probe": "What study design would show whether night lights themselves make a difference?",
+        "think_back": "The question I should have asked first was …"
+      }
+    },
+    {
+      "id": "missing-step",
+      "number": 3,
+      "name": "Missing step",
+      "one_liner": "The conclusion skips a step the argument needs.",
+      "telltale_signs": [
+        "\"So\" or \"therefore\" arrives too quickly.",
+        "A rule is used without checking that it applies here.",
+        "Ask: what would I have to add to make this airtight?"
+      ],
+      "prompt_brief": "Write a chain of reasoning about the lesson topic in which every stated step is correct, but one step the argument needs is silently skipped, and skipping it changes the conclusion. Students should be able to name the missing step.",
+      "harder_ok": true,
+      "example": {
+        "subject": "Maths",
+        "grade": 10,
+        "level": "harder",
+        "question": "Solve x² = 5x.",
+        "answer": "This is a quadratic equation, because the highest power of x is 2. Solving an equation means finding the values of x that make both sides equal. Both sides of the equation contain a factor of x, so we can simplify it straight away by dividing both sides by x. That leaves x = 5. We can check this by substituting it back into the original equation: the left side is 5² = 25 and the right side is 5 × 5 = 25, so both sides are equal. Dividing both sides by a common factor is often quicker than expanding or using the quadratic formula, and it keeps the working short and tidy. So the solution of x² = 5x is x = 5.",
+        "flaw": "\"Both sides of the equation contain a factor of x, so we can simplify it straight away by dividing both sides by x.\" Dividing by x is only allowed if x is not 0, and that check is skipped. x = 0 is also a solution, so the answer loses it.",
+        "fix": "Move everything to one side and factorise: x² − 5x = 0, so x(x − 5) = 0, which gives x = 0 or x = 5.",
+        "why_convincing": "Dividing both sides by the same thing is a rule students use all the time, and the check by substitution works, so the answer looks proven.",
+        "test_it": "Substitute x = 0 into x² = 5x. Then sketch y = x² − 5x and count where it crosses the x-axis.",
+        "probe": "The check showed x = 5 works. Why can a check never show that you have found every solution?",
+        "think_back": "The step I trusted without checking was …"
+      }
+    },
+    {
+      "id": "overgeneralisation",
+      "number": 4,
+      "name": "Overgeneralisation",
+      "one_liner": "A rule true in some cases is stated as always true.",
+      "telltale_signs": [
+        "Words like all, every, always or never.",
+        "A rule shown with one or two cases.",
+        "Ask: can I think of one case where it fails?"
+      ],
+      "prompt_brief": "State a rule or pattern from the lesson topic that holds in many cases, then claim it holds in all cases. Students should be able to find a clear counterexample from what they know or can check.",
+      "harder_ok": true,
+      "example": {
+        "subject": "English",
+        "grade": 8,
+        "level": "easier",
+        "question": "How do you know whether to write \"ie\" or \"ei\" in a word?",
+        "answer": "English spelling has a handy rule for this, one of the best-known spelling rhymes in the language: \"i before e, except after c\". It explains words like \"believe\", \"field\" and \"piece\", where i comes first, and \"receive\" and \"ceiling\", where e comes first after c. The rule works for every English word, so you never need to check a dictionary for ie or ei. Learning short rules like this can help you spell many words correctly and spot mistakes when you proofread.",
+        "flaw": "\"The rule works for every English word, so you never need to check a dictionary for ie or ei.\" Many common words break it, such as \"weird\", \"their\", \"seize\" and \"science\".",
+        "fix": "The rule works for many English words, but there are common exceptions, so check a dictionary when you are unsure.",
+        "why_convincing": "The rule is short, rhymes and fits the examples given, so it feels complete.",
+        "test_it": "In pairs, list as many ie and ei words as you can in two minutes and sort them into words that follow the rule and words that break it.",
+        "probe": "How many exceptions would a rule need before it stopped being useful?",
+        "think_back": "I would have believed the rule because …"
+      }
+    },
+    {
+      "id": "hidden-assumption",
+      "number": 5,
+      "name": "Hidden assumption",
+      "one_liner": "The argument only works if something unstated is true, and it isn't, or not always.",
+      "telltale_signs": [
+        "The conclusion needs something the answer never says.",
+        "Ask: what has to be true for this to work?",
+        "Everything stated is correct, yet the conclusion still goes too far."
+      ],
+      "prompt_brief": "Build an argument about the lesson topic from correct statements that reaches its conclusion only because of one unstated assumption. The assumption must be false or not always true, and students should be able to name it in one sentence. Never write the assumption as its own sentence. THE FLAW quotes the sentence whose conclusion depends on it; at the easier level that conclusion is stated openly while the assumption stays unstated.",
+      "harder_ok": true,
+      "example": {
+        "subject": "Economics",
+        "grade": 11,
+        "level": "harder",
+        "question": "What happens to low-paid workers' weekly pay when the minimum wage goes up?",
+        "answer": "A minimum wage is the lowest hourly pay that employers are legally allowed to offer. Many countries, including the UK and Germany, set one by law, and governments raise it from time to time to help low-paid workers. Suppose the minimum wage rises from £10 to £11 an hour. A worker on the minimum wage then earns 10% more for every hour worked. For someone working 30 hours a week, that is £30 more each week before tax. So every minimum-wage worker's weekly pay rises by 10%. Because the rise is set by law, employers cannot decide to pay less than the new rate. Economists still debate how large the wider effects of a rise are on prices and employment.",
+        "flaw": "\"So every minimum-wage worker's weekly pay rises by 10%.\" This assumes every worker keeps the same job and the same hours. If some employers cut hours or jobs, some workers gain less or lose pay.",
+        "fix": "Weekly pay rises by 10% for minimum-wage workers whose hours stay the same; workers whose hours are cut gain less, and some may lose pay.",
+        "why_convincing": "The arithmetic is right, and the hourly rate really does rise by 10%. It is easy to forget that weekly pay also depends on hours.",
+        "test_it": "Write weekly pay as hourly rate × hours. Work out the weekly pay for a worker whose hours fall from 30 to 27 after the rise.",
+        "probe": "Which kinds of employers could most easily cut hours, and which could not?",
+        "think_back": "The assumption I didn't notice was …"
+      }
+    },
+    {
+      "id": "right-for-wrong-reason",
+      "number": 6,
+      "name": "Right answer, wrong reason",
+      "one_liner": "The conclusion is correct, but the reasoning that leads there is not.",
+      "telltale_signs": [
+        "The conclusion matches what you know, so you stop checking.",
+        "The \"because\" doesn't actually lead to the conclusion.",
+        "Ask: would this reason also predict something false?"
+      ],
+      "prompt_brief": "Give the correct answer to a question about the lesson topic, but support it with a reason that is wrong, sounds plausible and would predict something false in another case. Every other statement must be correct. The wrong reason must be the only reason the answer gives for the conclusion; do not also give the correct reason.",
+      "harder_ok": true,
+      "example": {
+        "subject": "Physics",
+        "grade": 11,
+        "level": "harder",
+        "question": "Why did the hammer and the feather land at the same time on the Moon?",
+        "answer": "In 1971, Apollo 15 astronaut David Scott stood on the Moon, held a hammer in one hand and a falcon feather in the other, and let go of both at the same moment. They hit the ground together, and Scott said the result proved Galileo right. On Earth, the hammer would land well before the feather. The feather has a large surface area and very little mass, so air resistance slows it a lot. The Moon has almost no atmosphere. The two land together because the Moon's gravity is only about one sixth of Earth's, so both objects fall slowly enough that the difference in their weights no longer matters. The experiment was filmed and is easy to find online.",
+        "flaw": "\"The two land together because the Moon's gravity is only about one sixth of Earth's, so both objects fall slowly enough that the difference in their weights no longer matters.\" Weak gravity is not the reason. Without air resistance, all objects fall with the same acceleration whatever their mass, however strong the gravity.",
+        "fix": "The two land together because there is almost no air on the Moon, and without air resistance all objects fall with the same acceleration, whatever their mass.",
+        "why_convincing": "The conclusion is true and the Moon's gravity really is about one sixth of Earth's, so a true fact is used as the reason.",
+        "test_it": "Drop a book and a sheet of paper side by side. Then lay a sheet of paper, cut smaller than the book, flat on top of it and drop them together, so the book shields the paper from the air.",
+        "probe": "Would a hammer and a feather land together in a vacuum chamber on Earth? What does that tell you about the answer's reason?",
+        "think_back": "I nearly accepted the reason because …"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "Teaching critical thinking explicitly",
+      "label": "strong",
+      "text": "Explicit teaching of critical thinking improves it across subjects and ages (Abrami et al. 2015: g = 0.30 over 341 effect sizes), most when combined with discussion and authentic problems.",
+      "sources": [
+        {
+          "text": "Abrami et al. 2015, Review of Educational Research",
+          "url": "https://doi.org/10.3102/0034654314551063"
+        }
+      ]
+    },
+    {
+      "claim": "Students critiquing AI-generated answers",
+      "label": "thin",
+      "text": "One university report so far: first-year biology students got better at critiquing a ChatGPT-written text after scaffolded practice, but many did not turn their critique into changes to the text (van den Berg & Pye 2024, a conference abstract). There is no secondary-school classroom study yet. The closest solid evidence comes from errors written by a fictional student rather than an AI: middle-school students who found, explained and fixed those errors in decimals did no better straight away, but did better on a test a week later than students who solved the same problems (Adams et al. 2014).",
+      "sources": [
+        {
+          "text": "van den Berg & Pye 2024, Australian Conference on Science and Mathematics Education",
+          "url": "https://openjournals.library.sydney.edu.au/IISME/article/view/18953"
+        },
+        {
+          "text": "Adams et al. 2014, Computers in Human Behavior",
+          "url": "https://doi.org/10.1016/j.chb.2014.03.053"
+        }
+      ]
+    }
+  ],
+  "context": {
+    "text": "In a field experiment with about a thousand high-school maths students, those given unrestricted GPT-4 during practice did better while practising, then scored 17% lower on an exam without AI than students who had practised without it, and did not notice that they had learned less (Bastani et al. 2025). Flawed Answer trains the opposite habit, and in its main form students need no AI access at all.",
+    "sources": [
+      {
+        "text": "Bastani et al. 2025, PNAS",
+        "url": "https://doi.org/10.1073/pnas.2422633122"
+      }
+    ]
+  },
+  "variant": {
+    "intro": "Older students can generate the answer themselves in the school's approved AI tool, then audit it with the same four steps. A real AI answer may contain no planted error, so students look for its weakest step: the claim with the least support.",
+    "student_prompt": "Do not include names or personal details in this conversation.\n\nAnswer the question below in about 150 words, in plain text, as if explaining it to a classmate.\n\nQuestion: [paste your teacher's question here]",
+    "steps": [
+      "The teacher sets one question connected to the lesson.",
+      "Students paste the prompt into the school's approved AI tool and add the question.",
+      "In pairs, students print or copy the answer and work through Find, Fix, Explain and Test. If they find no error, they mark the weakest step and say what would make it stronger.",
+      "Close with Think back: one sentence about how they thought."
+    ]
+  }
+}

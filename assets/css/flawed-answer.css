@@ -1,0 +1,46 @@
+/* Flawed Answer (/flawed-answer/). Bygger på thinking-moves.css (tm-) och
+   lägger bara till det som är nytt här (fa-). Färger bara som var(--…). */
+
+/* Tidslöftet under ingressen. */
+.fa-promise { margin: var(--space-4) 0 0; font-weight: var(--weight-emphasis); color: var(--color-text); max-width: none; }
+
+/* ───── Svårighetsgraden i byggaren ───── */
+.fa-levels { border: 0; padding: 0; margin: 0; }
+.fa-levels legend { padding: 0; margin-bottom: var(--space-2); }
+.fa-level { display: flex; gap: var(--space-3); align-items: baseline; padding: var(--space-2) 0; cursor: pointer; }
+.fa-level input { flex: none; accent-color: var(--color-accent); }
+.fa-level strong { font-weight: var(--weight-emphasis); }
+/* En nivå som feltypen inte klarar är grå och går inte att välja. */
+.fa-level:has(input:disabled) { opacity: .5; cursor: not-allowed; }
+.fa-level__note:empty { display: none; }
+
+/* ───── Feltypskorten ───── */
+.fa-flaw__signs-title { margin: 0; font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); }
+.fa-flaw__signs { margin: 0; padding-left: var(--space-5); font-size: var(--fs-small); display: grid; gap: var(--space-1); }
+.fa-flaw__signs li { max-width: none; }
+.fa-flaw__only { margin: 0; font-size: var(--fs-small); color: var(--color-highlight-ink); max-width: none; }
+
+/* Exemplets fråga och det AI-skrivna svaret, tydligt märkt som AI. */
+.fa-question { margin: 0 0 var(--space-3); font-size: var(--fs-small); max-width: none; }
+.fa-question strong { font-weight: var(--weight-emphasis); }
+.fa-answer { margin: 0 0 var(--space-3); padding: var(--space-3) var(--space-4); background: var(--color-bg); border: 1px dashed var(--color-border-strong); border-radius: var(--radius-sm); font-size: var(--fs-small); }
+.fa-answer p { margin: 0; max-width: none; }
+.fa-answer__label { font-size: var(--fs-caption) !important; letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-text-muted); margin-bottom: var(--space-2) !important; }
+/* Nyckeln är längre än Thinking Moves exempel, så rubrik och text staplas. */
+.fa-flaw .tm-example dl { grid-template-columns: 1fr; gap: var(--space-1); }
+.fa-flaw .tm-example dd { margin-bottom: var(--space-2); }
+
+/* ───── Gymnasievarianten ───── */
+.fa-variant__steps { padding-left: var(--space-5); display: grid; gap: var(--space-2); max-width: var(--content-text-max); margin-bottom: var(--space-5); }
+
+/* ───── Evidens ───── */
+.fa-chip--strong { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-bg); }
+.fa-chip--thin { color: var(--color-text-muted); border-color: var(--color-border-strong); border-style: dashed; }
+.fa-evidence { list-style: none; padding: 0; margin: var(--space-6) 0 0; display: grid; gap: var(--space-4); max-width: var(--content-text-max); }
+.fa-evidence li { max-width: none; }
+.fa-evidence strong { font-weight: var(--weight-emphasis); }
+.fa-context { margin-top: var(--space-6); max-width: var(--content-text-max); color: var(--color-text-soft); }
+.fa-context strong { color: var(--color-text); font-weight: var(--weight-emphasis); }
+
+/* ───── Nedladdningar ───── */
+.fa-downloads { display: flex; flex-wrap: wrap; gap: var(--space-4); }

@@ -29,6 +29,7 @@ SECTIONS = [
     ("visualcodes-study-en", "Visual codes",            "for studying",           "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("think-en",           "Think + AI",                "for students' thinking", "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("thinkingmoves-en",   "Thinking Moves",            "for any subject",        "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("flawedanswer-en",    "Flawed Answer",             "for any subject",        "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("about-en",           "Johan Lindström",           "Education consultant",   "CHOOSEWISE.EDUCATION", "#C2793A"),
     ("free-en",            "Free resources",            "for educators",          "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("aiorhuman-free-en",  "AI or human?",              "Printable tests",        "CHOOSEWISE.EDUCATION", "#C2793A"),
