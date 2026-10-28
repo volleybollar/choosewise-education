@@ -207,12 +207,12 @@
           "shows": "Point to the strategy you name, such as \"I drew it\". \"I thought harder\" does not count."
         },
         {
-          "text": "I describe several steps in how I worked, including where I got stuck.",
-          "shows": "Point to each step and to the place where you got stuck."
+          "text": "I describe several steps in how I worked, and the moment I changed my approach or got stuck.",
+          "shows": "Point to each step and to the moment you changed your approach or got stuck."
         },
         {
-          "text": "I explain what moved me on when I got stuck, and why it worked.",
-          "shows": "Point to the sentence that says what moved you on and why it worked."
+          "text": "I explain what made me change my approach or moved me on, and why it helped.",
+          "shows": "Point to the sentence that says what made you change your approach or moved you on, and why it helped."
         },
         {
           "text": "I say what I would change next time and why, and how sure I am that it would help.",
