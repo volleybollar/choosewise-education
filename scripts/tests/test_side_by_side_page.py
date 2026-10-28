@@ -208,3 +208,19 @@ def test_example_pair_side_by_side_and_stacks(site, browser):
             assert b["y"] >= a["y"] + a["height"] - 1, (a, b)
             assert p.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
         p.close()
+
+
+def test_opening_an_example_keeps_the_card_in_place_and_it_closes(site, browser):
+    # Ett öppnat exempel får inte flytta kortet (då tappar läraren bort
+    # rubriken att klicka på), och ett nytt klick ska stänga det igen.
+    p = browser.new_page(viewport={"width": 1280, "height": 900})
+    p.goto(f"{site}/side-by-side/", wait_until="networkidle")
+    where = "id => { const r = document.getElementById(id).getBoundingClientRect(); " \
+            "return [Math.round(r.left), Math.round(r.top + window.scrollY), Math.round(r.width)]; }"
+    for pid in ORDER:
+        before = p.evaluate(where, pid)
+        p.click(f"#{pid} summary")
+        assert p.evaluate(where, pid) == before, pid
+        p.click(f"#{pid} summary")
+        assert not p.evaluate(f"document.querySelector('#{pid} details').open"), pid
+    p.close()

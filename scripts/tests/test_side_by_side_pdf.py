@@ -85,6 +85,7 @@ def test_deck_cards_have_example_key_and_for_the_ai():
         for item in p["look_for"]:
             assert has(item, page), (p["id"], item)
         assert has("For the AI", page) and has(p["prompt_brief"], page), p["id"]
+        assert has("This pair type:", page), p["id"]
         assert has("Easier to see only", page) == (not p["harder_ok"]), p["id"]
 
 
@@ -105,7 +106,7 @@ def test_fill_in_matches_builder_word_for_word():
     for line in builder:
         assert has(line, last), line
     assert has("Do not include student names or student work", last)
-    assert has("Students already know (optional)", last)
+    assert has("Students already know:", last) and has("(optional)", last)
 
 
 def test_sources_are_generated_from_json():

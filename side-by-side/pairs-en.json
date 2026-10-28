@@ -19,7 +19,7 @@
     {
       "id": "harder",
       "name": "Harder to see",
-      "instruction": "The surface and the principle do not line up: A and B look almost the same but rest on different principles, or look different but share one principle."
+      "instruction": "The surface and the principle do not line up: A and B look almost the same but rest on different principles, or look different but share one principle. A first glance at the pair should suggest the wrong rule; only a closer comparison shows the right one."
     }
   ],
   "steps": [
@@ -123,16 +123,16 @@
         "grade": 7,
         "level": "harder",
         "task": "Two dishes of cress seeds were set up on Monday. Compare them on Friday.",
-        "a_label": "Uncovered dish",
-        "a": "Cress seeds on damp cotton wool, uncovered on a windowsill at room temperature. On Friday the seeds have sprouted: short seedlings with green seed leaves.",
-        "b_label": "Covered dish",
-        "b": "Cress seeds on damp cotton wool, on the same windowsill, covered by a light-proof box. On Friday the seeds have sprouted: tall, thin seedlings with pale yellow seed leaves.",
-        "only_a": "Light. The seedlings are short with green seed leaves.",
-        "both": "Water, warmth, the same windowsill and the same seeds. Both dishes have sprouted.",
-        "only_b": "Darkness under the box. The seedlings are tall and thin with pale yellow seed leaves.",
+        "a_label": "Clear box",
+        "a": "Cress seeds on damp cotton wool, on a windowsill at room temperature, under a clear plastic box. On Friday the seeds have sprouted: short seedlings with green seed leaves.",
+        "b_label": "Light-proof box",
+        "b": "Cress seeds on damp cotton wool, on a windowsill at room temperature, under a light-proof box. On Friday the seeds have sprouted: tall, thin seedlings with pale yellow seed leaves.",
+        "only_a": "Light through the clear box. The seedlings are short with green seed leaves.",
+        "both": "Water, warmth, a box over the dish, the same windowsill and the same seeds. Both dishes have sprouted.",
+        "only_b": "Darkness under the light-proof box. The seedlings are tall and thin with pale yellow seed leaves.",
         "rule": "The cress seeds sprouted in both dishes, so cress seeds do not need light to sprout: the seed uses its own stored food. Light matters afterwards, for the green leaves that make new food.",
         "case_c": "Dish C is set up like the other two, with damp cotton wool, but it is left in a dark cupboard. Will the seeds sprout, and what will the seedlings look like on Friday?",
-        "case_c_answer": "Yes, they will sprout, because cress seeds do not need light to sprout. Without light the seedlings will be tall, thin and pale, like those in the covered dish.",
+        "case_c_answer": "Yes, they will sprout, because cress seeds do not need light to sprout. Without light the seedlings will be tall, thin and pale, like those under the light-proof box.",
         "probe": "The two dishes look very different. Why is \"light makes seeds sprout\" still the wrong conclusion?",
         "think_back": "At first I looked at ___ instead of what both dishes had in common."
       }
@@ -289,7 +289,7 @@
   },
   "variant": {
     "intro": "Older students can make a pair themselves in the school's approved AI tool, then swap with another group, who compare it with the same sheet. Making a pair with one difference that matters is itself a strong test of understanding.",
-    "student_prompt": "Do not include names or personal details in this conversation.\n\nHelp me make a comparison task for my classmates about this topic: [paste the topic].\n\nUse one of these pair types: Two ways to the same answer, Right next to wrong, One thing changed, Two concepts that are easily confused, Two sources on the same event.\n\nWrite a one-sentence task and two items, A and B, of at most 60 words each. A and B should differ in one main way that matters, and in exactly one way for One thing changed. Do not explain the difference and do not write a key: my classmates will work it out themselves.",
+    "student_prompt": "Do not include names or personal details in this conversation.\n\nHelp me make a comparison task for my classmates about this topic: [paste the topic].\n\nUse one of these pair types: Two ways to the same answer, Right next to wrong, One thing changed, Two concepts that are easily confused, Two sources on the same event.\n\nWrite a one-sentence task and two items, A and B, of at most 60 words each. A and B should differ in one main way that matters, and in exactly one way for One thing changed. For Right next to wrong, start the incorrect item with \"This solution has an error.\" Do not explain the difference and do not write a key: my classmates will work it out themselves.",
     "steps": [
       "Each group chooses a pair type and pastes the prompt into the school's approved AI tool, adding the lesson topic.",
       "The group checks that the pair has the difference they intended, and writes their own key on a separate sheet.",

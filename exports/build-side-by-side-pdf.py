@@ -221,7 +221,7 @@ def _card(pair: dict, data: dict, page_no: int) -> str:
         f'<div class="cols">{cols}</div>'
         f"<dl>{key}</dl></div>"
         f'<p class="for-ai"><strong>For the AI.</strong> {escape(pair["prompt_brief"])}</p>'
-        f'<p class="evidence"><strong>Evidence.</strong> {chip} Comparing cases in general: Strong. '
+        f'<p class="evidence"><strong>Evidence.</strong> This pair type: {chip} Comparing cases in general: Strong. '
         f'Labels rate research on teaching with comparisons regularly, not a single use.</p>'
         f'{_foot(f"{page_no} / 7")}</section>'
     )
@@ -239,7 +239,7 @@ def _fill_in() -> str:
         "Then they write the rule they found and try it on a new case C. Students work on paper, without AI.",
         "",
         f"Lesson topic: {blank(110)}",
-        f"Students already know (optional): {blank(70)}",
+        f"Students already know: {blank(70)} (optional)",
         "",
         f"Pair type: {blank(60)} (copy the name and one-line description from its card)",
         f"How to build the pair: {blank(30)} (copy the \"For the AI\" text from its card)",

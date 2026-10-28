@@ -20,9 +20,10 @@
 .sb-pair__look li { max-width: none; }
 .sb-pair__only { margin: 0; font-size: var(--fs-small); color: var(--color-highlight-ink); max-width: none; }
 
-/* Ett öppnat exempel tar hela raden, så att A och B får plats bredvid
-   varandra. Stängda kort i samma rad är lika höga (delade .tm-grid). */
-.sb-pair:has(details[open]) { grid-column: 1 / -1; }
+/* Parkorten står två och två, så att A och B i ett öppnat exempel får plats
+   bredvid varandra utan att kortet flyttar sig. Kort i samma rad är lika
+   höga (delade .tm-grid). */
+#sb-pairs .tm-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 24rem), 1fr)); }
 
 .sb-task { margin: 0 0 var(--space-3); font-size: var(--fs-small); max-width: none; }
 .sb-task strong { font-weight: var(--weight-emphasis); }
@@ -43,8 +44,8 @@
 .sb-example dl { grid-template-columns: 1fr; gap: var(--space-1); }
 .sb-example dd { margin-bottom: var(--space-2); }
 
-/* På smal skärm staplas paret och nyckeln. */
-@media (max-width: 640px) {
+/* När korten blir smala staplas paret och nyckeln. */
+@media (max-width: 960px) {
   .sb-ab, .sb-key { grid-template-columns: 1fr; }
 }
 

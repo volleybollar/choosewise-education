@@ -3,6 +3,7 @@
 Filen är enda källan för sidan, promptbyggaren och båda PDF:erna.
 Spec: docs/superpowers/specs/2026-10-28-side-by-side-design.md.
 """
+import difflib
 import json
 import re
 from pathlib import Path
@@ -123,3 +124,22 @@ def test_two_sources_rule_covers_purpose_used_in_case_c():
     ex = _example("two-sources")
     assert "persuade" in ex["case_c_answer"]
     assert "persuade" in ex["rule"]
+
+
+def test_one_change_setup_differs_in_one_place_only():
+    # A och B ska vara ordagrant lika utom på ett ställe (promptens egen regel).
+    ex = _example("one-change")
+    a, b = (ex[k].split(". On Friday")[0].split() for k in ("a", "b"))
+    changes = [op for op in difflib.SequenceMatcher(a=a, b=b).get_opcodes() if op[0] != "equal"]
+    assert len(changes) == 1, changes
+
+
+def test_variant_prompt_asks_to_mark_the_incorrect_item():
+    assert ERROR_LINE in data()["variant"]["student_prompt"]
+
+
+def test_harder_level_makes_a_first_glance_mislead():
+    # ChatGPT-testet 2026-10-28: ett "svårare" par blev rakt på sak. Den
+    # svårare nivån kräver nu att första intrycket pekar mot fel regel.
+    harder = next(lv for lv in data()["levels"] if lv["id"] == "harder")
+    assert "first glance" in harder["instruction"]
