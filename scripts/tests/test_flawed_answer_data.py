@@ -87,3 +87,15 @@ def test_six_icons_match_style():
         colours = {c.lower() for c in re.findall(r"#[0-9a-fA-F]{3,6}\b", svg)}
         assert colours <= allowed, (fid, colours)
         assert "#c2793a" in colours, fid
+
+
+def test_every_key_quotes_a_whole_sentence_from_the_answer():
+    """Nyckeln ska citera den felaktiga meningen ordagrant (spec: en
+    kontrollerbar nyckel). Ett avkortat citat lär läraren att godta lösa
+    citat när AI:ns nyckel granskas."""
+    for f in data()["flaws"]:
+        ex = f["example"]
+        quote = re.match(r'"(.+?[.!?])"', ex["flaw"])
+        assert quote, f["id"]
+        sentences = re.split(r"(?<=[.!?])\s+", ex["answer"])
+        assert quote.group(1) in sentences, (f["id"], quote.group(1))
