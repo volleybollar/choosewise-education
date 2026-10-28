@@ -77,7 +77,7 @@
       'TASK: the task name and the tool',
       'WHAT STUDENTS DO: one sentence',
       'ROOM FOR STEP: the highest step this task gives room for',
-      'BUILDER INPUTS: one Field: value line per field of that builder, as listed above',
+      'BUILDER INPUTS: one Field: value line per field listed above; skip a field you leave empty',
       'LINK: the builder link',
       'TELL STUDENTS: three or four sentences the teacher reads at the start of the unit, introducing the ladder and saying it is never graded',
       'CHECK: facts or claims in the plan that could be wrong, one per line, at most four lines. Write "None" if there are none.'
