@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Side by Side — choosewise.education</title>
+  <meta name="description" content="A fifteen-minute comparison task for Grades 7–12: students compare two solutions, cases, concepts or sources side by side, write the rule they found and test it on a new case. A free prompt builder for any AI tool, a student sheet and a card deck.">
+  <meta property="og:title" content="Side by Side — choosewise.education">
+  <meta property="og:description" content="A fifteen-minute comparison task for Grades 7–12: students compare two solutions, cases, concepts or sources side by side, write the rule they found and test it on a new case. A free prompt builder for any AI tool, a student sheet and a card deck.">
+  <meta property="og:image" content="https://choosewise.education/assets/images/brand/og/sidebyside-en.png">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Sidan lånar promptbyggarens och kortens stilar från Thinking Moves
+       (prefix tm-) utan att ändra dem. Det som är nytt här har prefix sb-. -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261028a">
+  <link rel="stylesheet" href="/assets/css/side-by-side.css?v=20261028a">
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: vad verktyget är och löftet om tid. Löftet kommer från specen —
+         ändra det bara om upplägget ändras. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/think/">← Think + AI</a>
+      <span class="eyebrow">Free tool · Grades 7–12</span>
+      <h1>Side by Side</h1>
+      <p class="lede">Students compare two solutions, two cases, two concepts or two sources placed next to each other. They sort what is only in A, in both and only in B, write the rule they found, and then try it on a new case.</p>
+      <p class="sb-promise">About 10 minutes to prepare, 15 minutes in class, no student devices needed.</p>
+      <ul class="tm-promises">
+        <li><strong>No personal data.</strong> You give a subject, a topic and a grade. Student names and work never go in.</li>
+        <li><strong>Any AI tool.</strong> The prompt works in Copilot, Gemini, ChatGPT and Claude.</li>
+        <li><strong>Students go first.</strong> They find the difference and write the rule before you say anything. That order is what the research rewards.</li>
+      </ul>
+    </section>
+
+    <!-- Promptbyggaren. Allt sker i webbläsaren: inget sparas och inget
+         skickas någonstans. Logiken finns i assets/js/side-by-side.js. -->
+    <section class="section section--alt" id="sb-builder">
+      <div class="container">
+        <h2 class="section__title">Build your pair</h2>
+        <p class="tm-privacy"><strong>Do not include student names or student work.</strong> The prompt only needs your subject, topic and grade.</p>
+        <!-- onsubmit="return false" hindrar att Enter i ett fält laddar om sidan:
+             prompten byggs medan man skriver, så formuläret ska aldrig skickas. -->
+        <form class="tm-form" id="sb-form" autocomplete="off" onsubmit="return false">
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">Pair type</span>
+            <span class="tm-field__note">Choose one of the five pair types.</span>
+            <select class="input" id="sb-pair" required></select>
+            <span class="tm-field__note">Read about all five pair types <a href="#sb-pairs">further down on this page</a>.</span>
+          </label>
+          <!-- Svårighetsgraden: två nivåer. En partyp som bara klarar den
+               lättare nivån gör "Harder to see" grå (se side-by-side.js). -->
+          <fieldset class="tm-field tm-field--wide sb-levels" id="sb-level">
+            <legend class="tm-field__label">How hard should the difference be to see?</legend>
+            <label class="sb-level"><input type="radio" name="sb-level" value="easier" checked> <span><strong>Easier to see</strong> — one difference students spot at once; the work is explaining why it matters.</span></label>
+            <label class="sb-level"><input type="radio" name="sb-level" value="harder" aria-describedby="sb-level-note"> <span><strong>Harder to see</strong> — the surface and the principle do not line up.</span></label>
+            <p class="tm-field__note sb-level__note" id="sb-level-note"></p>
+          </fieldset>
+          <label class="tm-field">
+            <span class="tm-field__label">Subject</span>
+            <input class="input" id="sb-subject" list="sb-subjects" maxlength="60" placeholder="e.g. Maths" required>
+            <datalist id="sb-subjects">
+              <option value="Art"><option value="Biology"><option value="Chemistry"><option value="Civics">
+              <option value="Economics"><option value="English"><option value="Geography"><option value="History">
+              <option value="Maths"><option value="Modern languages"><option value="Music"><option value="PE and health">
+              <option value="Physics"><option value="Religion and ethics"><option value="Social studies"><option value="Technology">
+            </datalist>
+          </label>
+          <label class="tm-field">
+            <span class="tm-field__label">Grade</span>
+            <select class="input" id="sb-grade">
+              <option value="7">Grade 7</option><option value="8">Grade 8</option><option value="9" selected>Grade 9</option>
+              <option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option>
+            </select>
+          </label>
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">What is the lesson about?</span>
+            <textarea class="input" id="sb-topic" rows="2" maxlength="400" placeholder="e.g. Solving linear equations with brackets" required></textarea>
+          </label>
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">What do students already know? (optional)</span>
+            <textarea class="input" id="sb-prior" rows="2" maxlength="400" placeholder="e.g. One-step and two-step equations; expanding brackets"></textarea>
+          </label>
+        </form>
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
+          <textarea class="input tm-prompt" id="sb-prompt" rows="14" readonly></textarea>
+        </label>
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--primary" id="sb-copy" data-copy="" aria-describedby="sb-hint" disabled>Copy prompt</button>
+          <!-- Ledtråden står bredvid knappen så att man ser varför den är grå.
+               Den töms av side-by-side.js när prompten är klar. -->
+          <p class="tm-hint" id="sb-hint" aria-live="polite">Fill in subject and topic to see your prompt.</p>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hur man genomför uppgiften på femton minuter. Ordningen följer
+         forskningen: eleverna jämför och skriver regeln först, läraren
+         bekräftar efteråt. -->
+    <section class="section container" id="sb-how">
+      <h2 class="section__title">Fifteen minutes in the lesson</h2>
+      <p class="section__lede">The AI's reply starts with a block headed FOR STUDENTS. Copy only that block: print it or show it on the board, with A and B visible at the same time, and hand out the student sheet. Students work in pairs or small groups.</p>
+      <ol class="tm-steps">
+        <li><strong>Compare (6 min).</strong> Fill in the three columns: only in A, in both, only in B.</li>
+        <li><strong>Write the rule (3 min).</strong> In one or two sentences, say what the comparison shows.</li>
+        <li><strong>Try it on case C (4 min).</strong> Use the rule on the new case and explain the answer.</li>
+        <li><strong>Think back (2 min).</strong> Each student writes one sentence about how they thought, not what they found.</li>
+      </ol>
+      <p class="tm-note">Let students find the difference and write the rule before you say anything; then confirm or sharpen their rule with the key. Before you print, read the TEACHER KEY and check everything listed under CHECK. If A and B differ in more than the intended way, generate a new pair. The AI prepares; you decide.</p>
+    </section>
+
+    <!-- De fem partyperna. Korten mellan markörerna byggs av
+         scripts/build-side-by-side.py från side-by-side/pairs-en.json —
+         redigera JSON-filen, inte korten, och kör skriptet igen. -->
+    <section class="section section--alt" id="sb-pairs">
+      <div class="container">
+        <h2 class="section__title">The five pair types</h2>
+        <p class="section__lede">Each type is a kind of comparison that works across subjects. Open a card to see a worked example as a real pair, with the teacher's key.</p>
+        <div class="tm-grid">
+<!-- pairs:start -->
+<article class="tm-move sb-pair" id="two-ways" data-pair-id="two-ways">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/side-by-side/icons/two-ways.svg" alt="" width="48" height="48"><div><span class="tm-move__num">Pair 1</span><h3 class="tm-move__name">Two ways to the same answer</h3></div></div>
+  <p class="tm-move__line">Two correct methods reach the same answer by different routes.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--strong">Strong</span></p>
+  <p class="sb-pair__look-title">What to look for</p>
+  <ul class="sb-pair__look"><li>Where do the two methods first part ways?</li><li>What does each method save, and what does it cost?</li><li>When would you choose each one?</li></ul>
+  <details class="tm-move__more"><summary>Worked example with the teacher's key</summary><div class="tm-example sb-example"><h4 class="tm-example__subject">Maths <span>· Grade 8 · Easier to see</span></h4><p class="sb-task"><strong>Task:</strong> Solve 3(x + 2) = 15.</p><div class="sb-ab"><div class="sb-item"><p class="sb-item__label">A · Alex</p><p>3x + 6 = 15<br>3x = 9<br>x = 3</p></div><div class="sb-item"><p class="sb-item__label">B · Sam</p><p>x + 2 = 5<br>x = 3</p></div></div><p class="sb-key__title">Teacher's key</p><div class="sb-key"><div class="sb-col"><h5>Only A</h5><p>Alex multiplies out the brackets first, then undoes the + 6 and the × 3. Three lines.</p></div><div class="sb-col"><h5>Both</h5><p>The same answer, x = 3. Both do the same thing to both sides, so the equation stays balanced.</p></div><div class="sb-col"><h5>Only B</h5><p>Sam divides both sides by 3 first, because 15 divides exactly by 3. Two lines.</p></div></div><dl><dt>The rule</dt><dd>Dividing first is quicker when the number outside the brackets divides the other side exactly. Otherwise, multiplying out first avoids fractions early on.</dd><dt>Case C</dt><dd>Solve 4(x − 1) = 10. Which method would you use, and why?</dd><dt>Case C answer</dt><dd>Multiply out first, because 10 does not divide exactly by 4: 4x − 4 = 10, 4x = 14, x = 3.5. Dividing first also works, but gives x − 1 = 2.5 straight away.</dd><dt>Probe</dt><dd>Change 3(x + 2) = 15 so that Sam&#x27;s first step becomes the harder one. What did you change?</dd><dt>Think back</dt><dd>Before today, my first step was always ___.</dd></dl></div></details>
+  <a class="tm-move__use" href="?pair=two-ways#sb-builder" data-use-pair="two-ways" aria-label="Use this pair: Two ways to the same answer">Use this pair</a>
+</article>
+<article class="tm-move sb-pair" id="right-and-wrong" data-pair-id="right-and-wrong">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/side-by-side/icons/right-and-wrong.svg" alt="" width="48" height="48"><div><span class="tm-move__num">Pair 2</span><h3 class="tm-move__name">Right next to wrong</h3></div></div>
+  <p class="tm-move__line">A correct and an incorrect solution to the same task, side by side.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--strong">Strong</span></p>
+  <p class="sb-pair__look-title">What to look for</p>
+  <ul class="sb-pair__look"><li>Find the first line where the two solutions differ.</li><li>Say which rule the wrong step breaks.</li><li>Check that the correct solution keeps that rule.</li></ul>
+  <details class="tm-move__more"><summary>Worked example with the teacher's key</summary><div class="tm-example sb-example"><h4 class="tm-example__subject">Chemistry <span>· Grade 9 · Easier to see</span></h4><p class="sb-task"><strong>Task:</strong> Balance the equation for hydrogen burning in oxygen to make water: H₂ + O₂ → H₂O.</p><div class="sb-ab"><div class="sb-item"><p class="sb-item__label">A · Mia</p><p>2H₂ + O₂ → 2H₂O<br>Left: 4 H, 2 O. Right: 4 H, 2 O.</p></div><div class="sb-item"><p class="sb-item__label">B · Leo</p><p>This solution has an error.<br>H₂ + O₂ → H₂O₂<br>Left: 2 H, 2 O. Right: 2 H, 2 O.</p></div></div><p class="sb-key__title">Teacher's key</p><div class="sb-key"><div class="sb-col"><h5>Only A</h5><p>Mia changes the big numbers in front of the formulas and keeps the product as H₂O.</p></div><div class="sb-col"><h5>Both</h5><p>Both start from the same reactants, and both end with the same number of each atom on each side.</p></div><div class="sb-col"><h5>Only B</h5><p>Leo changes the small number inside the formula, so the product becomes H₂O₂, hydrogen peroxide, not water.</p></div></div><dl><dt>The rule</dt><dd>Balance an equation by changing the numbers in front of the formulas, never the small numbers inside them. Changing those changes the substance.</dd><dt>Case C</dt><dd>Balance the equation for magnesium burning in oxygen: Mg + O₂ → MgO.</dd><dt>Case C answer</dt><dd>2Mg + O₂ → 2MgO. Writing MgO₂ would balance the oxygen but describe a different substance.</dd><dt>Probe</dt><dd>Leo&#x27;s equation is balanced. So why is it still wrong for this task?</dd><dt>Think back</dt><dd>The difference I nearly missed was ___.</dd></dl></div></details>
+  <a class="tm-move__use" href="?pair=right-and-wrong#sb-builder" data-use-pair="right-and-wrong" aria-label="Use this pair: Right next to wrong">Use this pair</a>
+</article>
+<article class="tm-move sb-pair" id="one-change" data-pair-id="one-change">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/side-by-side/icons/one-change.svg" alt="" width="48" height="48"><div><span class="tm-move__num">Pair 3</span><h3 class="tm-move__name">One thing changed</h3></div></div>
+  <p class="tm-move__line">Two cases are identical except for one thing.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--strong">Strong</span></p>
+  <p class="sb-pair__look-title">What to look for</p>
+  <ul class="sb-pair__look"><li>Name the one thing that is different.</li><li>Compare what happened, not just what was done.</li><li>Ask what the difference in results tells you about that one thing.</li></ul>
+  <details class="tm-move__more"><summary>Worked example with the teacher's key</summary><div class="tm-example sb-example"><h4 class="tm-example__subject">Biology <span>· Grade 7 · Harder to see</span></h4><p class="sb-task"><strong>Task:</strong> Two dishes of cress seeds were set up on Monday. Compare them on Friday.</p><div class="sb-ab"><div class="sb-item"><p class="sb-item__label">A · Dish A</p><p>Cress seeds on damp cotton wool, on a windowsill at room temperature. On Friday the seeds have sprouted: short seedlings with green leaves.</p></div><div class="sb-item"><p class="sb-item__label">B · Dish B</p><p>Cress seeds on damp cotton wool, in a dark cupboard at room temperature. On Friday the seeds have sprouted: tall, thin seedlings with pale yellow leaves.</p></div></div><p class="sb-key__title">Teacher's key</p><div class="sb-key"><div class="sb-col"><h5>Only A</h5><p>Light. The seedlings are short and green.</p></div><div class="sb-col"><h5>Both</h5><p>Water, warmth and the same seeds. Both dishes have sprouted.</p></div><div class="sb-col"><h5>Only B</h5><p>Darkness. The seedlings are tall, thin and pale.</p></div></div><dl><dt>The rule</dt><dd>The seeds sprouted in both dishes, so sprouting does not need light: the seed uses its own stored food. Light matters afterwards, for the green leaves that make new food.</dd><dt>Case C</dt><dd>Dish C is set up like Dish A, on the same windowsill, but the cotton wool is dry. What will it look like on Friday?</dd><dt>Case C answer</dt><dd>The seeds will not sprout. Sprouting needs water, even with light and warmth.</dd><dt>Probe</dt><dd>The two dishes look very different. Why is &quot;light makes seeds sprout&quot; still the wrong conclusion?</dd><dt>Think back</dt><dd>At first I looked at ___ instead of what both dishes had in common.</dd></dl></div></details>
+  <a class="tm-move__use" href="?pair=one-change#sb-builder" data-use-pair="one-change" aria-label="Use this pair: One thing changed">Use this pair</a>
+</article>
+<article class="tm-move sb-pair" id="confusable-concepts" data-pair-id="confusable-concepts">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/side-by-side/icons/confusable-concepts.svg" alt="" width="48" height="48"><div><span class="tm-move__num">Pair 4</span><h3 class="tm-move__name">Two concepts that are easily confused</h3></div></div>
+  <p class="tm-move__line">Two related ideas that students often mix up, shown in the same context.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--promising">Promising</span></p>
+  <p class="sb-pair__look-title">What to look for</p>
+  <ul class="sb-pair__look"><li>List what each one has that the other does not.</li><li>Find what they share, so you know why they get mixed up.</li><li>Make a quick test you could use next time.</li></ul>
+  <details class="tm-move__more"><summary>Worked example with the teacher's key</summary><div class="tm-example sb-example"><h4 class="tm-example__subject">English <span>· Grade 7 · Easier to see</span></h4><p class="sb-task"><strong>Task:</strong> Two sentences describe the same hot classroom.</p><div class="sb-ab"><div class="sb-item"><p class="sb-item__label">A · Simile</p><p>The classroom was like an oven.</p></div><div class="sb-item"><p class="sb-item__label">B · Metaphor</p><p>The classroom was an oven.</p></div></div><p class="sb-key__title">Teacher's key</p><div class="sb-key"><div class="sb-col"><h5>Only A</h5><p>The word &quot;like&quot;. It says the classroom resembles an oven.</p></div><div class="sb-col"><h5>Both</h5><p>Both compare the classroom to an oven to show how hot it was. Neither is meant literally.</p></div><div class="sb-col"><h5>Only B</h5><p>No comparing word. It says the classroom is an oven.</p></div></div><dl><dt>The rule</dt><dd>A simile compares with &quot;like&quot; or &quot;as&quot;. A metaphor says one thing is another. Both are comparisons, not literal statements.</dd><dt>Case C</dt><dd>&quot;The test was a mountain to climb.&quot; Simile or metaphor?</dd><dt>Case C answer</dt><dd>A metaphor: there is no &quot;like&quot; or &quot;as&quot;, and it says the test is a mountain.</dd><dt>Probe</dt><dd>Which sentence is stronger, and why might a writer still choose the simile?</dd><dt>Think back</dt><dd>The test I will use next time is ___.</dd></dl></div></details>
+  <a class="tm-move__use" href="?pair=confusable-concepts#sb-builder" data-use-pair="confusable-concepts" aria-label="Use this pair: Two concepts that are easily confused">Use this pair</a>
+</article>
+<article class="tm-move sb-pair" id="two-sources" data-pair-id="two-sources">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/side-by-side/icons/two-sources.svg" alt="" width="48" height="48"><div><span class="tm-move__num">Pair 5</span><h3 class="tm-move__name">Two sources on the same event</h3></div></div>
+  <p class="tm-move__line">Two sources describe the same event, and one difference changes how far we can trust them.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--promising">Promising</span></p>
+  <p class="sb-pair__look-title">What to look for</p>
+  <ul class="sb-pair__look"><li>Who wrote each source, when and why?</li><li>Which details agree, and which do not?</li><li>Which source would you trust for which question?</li></ul>
+  <details class="tm-move__more"><summary>Worked example with the teacher's key</summary><div class="tm-example sb-example"><h4 class="tm-example__subject">History <span>· Grade 9 · Harder to see</span></h4><p class="sb-task"><strong>Task:</strong> Two accounts of the first morning of a strike at a cotton mill in 1912. Both were written for this task.</p><div class="sb-ab"><div class="sb-item"><p class="sb-item__label">A · Source A</p><p>Mary Dent, mill worker, private diary, 4 May 1912: &quot;Went to the gate at six. Perhaps two hundred of us. Mr Hale came out and said the mill would close if we did not go in. Nobody moved. Rain all afternoon.&quot;</p></div><div class="sb-item"><p class="sb-item__label">B · Source B</p><p>Mary Dent, memoir published in 1950: &quot;I shall never forget the morning a thousand of us stood at the gates in brilliant sunshine, and the owner fled before our courage.&quot;</p></div></div><p class="sb-key__title">Teacher's key</p><div class="sb-key"><div class="sb-col"><h5>Only A</h5><p>Written the same day, in a private diary. Small, plain details: the time, the rain, about two hundred people.</p></div><div class="sb-col"><h5>Both</h5><p>The same eyewitness and the same event: a crowd at the gate and the owner facing them.</p></div><div class="sb-col"><h5>Only B</h5><p>Written 38 years later, for readers. Bigger numbers, sunshine and a heroic story.</p></div></div><dl><dt>The rule</dt><dd>Even the same eyewitness becomes less reliable on details when writing long after the event for an audience. For details, prefer accounts written close to the event; later accounts show how the event was remembered.</dd><dt>Case C</dt><dd>A union leaflet printed the next day, calling on other workers to join, says &quot;thousands stood firm at Hale&#x27;s gate&quot;. How far would you trust its number?</dd><dt>Case C answer</dt><dd>Not far. It was written close to the event, but to persuade, so the number may be inflated. Check it against Source A.</dd><dt>Probe</dt><dd>What can Source B tell us that Source A cannot?</dd><dt>Think back</dt><dd>I trusted ___ before I checked when and why it was written.</dd></dl></div></details>
+  <a class="tm-move__use" href="?pair=two-sources#sb-builder" data-use-pair="two-sources" aria-label="Use this pair: Two sources on the same event">Use this pair</a>
+</article>
+<!-- pairs:end -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Gymnasievarianten: äldre elever gör ett eget par i skolans godkända
+         AI-verktyg och byter med en annan grupp. Elevprompten kommer från
+         JSON-filen. -->
+    <section class="section container" id="sb-variant">
+      <h2 class="section__title">Upper-secondary variant</h2>
+<!-- variant:start -->
+<p class="section__lede">Older students can make a pair themselves in the school&#x27;s approved AI tool, then swap with another group, who compare it with the same sheet. Making a pair with one difference that matters is itself a strong test of understanding.</p>
+<ol class="sb-variant__steps"><li>Each group chooses a pair type and pastes the prompt into the school&#x27;s approved AI tool, adding the lesson topic.</li><li>The group checks that the pair has the difference they intended, and writes their own key on a separate sheet.</li><li>Groups swap pairs and work through the sheet: the three columns, the rule and a case C they make up for each other.</li><li>Close with Think back: one sentence about how they thought.</li></ol>
+<label class="tm-field tm-field--wide"><span class="tm-field__label">Student prompt</span><textarea class="input tm-prompt" id="sb-variant-prompt" rows="8" readonly>Do not include names or personal details in this conversation.
+
+Help me make a comparison task for my classmates about this topic: [paste the topic].
+
+Use one of these pair types: Two ways to the same answer, Right next to wrong, One thing changed, Two concepts that are easily confused, Two sources on the same event.
+
+Write a one-sentence task and two items, A and B, of at most 60 words each. A and B should differ in one main way that matters, and in exactly one way for One thing changed. Do not explain the difference and do not write a key: my classmates will work it out themselves.</textarea></label>
+<div class="tm-copy-row"><button type="button" class="btn btn--primary" id="sb-variant-copy" data-copy="Do not include names or personal details in this conversation.
+
+Help me make a comparison task for my classmates about this topic: [paste the topic].
+
+Use one of these pair types: Two ways to the same answer, Right next to wrong, One thing changed, Two concepts that are easily confused, Two sources on the same event.
+
+Write a one-sentence task and two items, A and B, of at most 60 words each. A and B should differ in one main way that matters, and in exactly one way for One thing changed. Do not explain the difference and do not write a key: my classmates will work it out themselves.">Copy student prompt</button><span class="copy-toast" role="status">Copied</span></div>
+<!-- variant:end -->
+      <p class="tm-note">Only with the school's approved AI tool, and only where the age rules below allow it.</p>
+    </section>
+
+    <!-- Evidensen: etiketter, påståenden och källor byggs från JSON-filen. -->
+    <section class="section section--alt" id="sb-evidence">
+      <div class="container">
+        <h2 class="section__title">How strong is the evidence?</h2>
+<!-- legend:start -->
+<ul class="tm-legend"><li><span class="tm-chip tm-chip--strong">Strong</span> Meta-analyses or several classroom experiments show that learning by this kind of comparison works.</li><li><span class="tm-chip tm-chip--promising">Promising</span> Comparison works in related research, but few school studies test this exact kind of pair.</li></ul>
+<p class="tm-legend__note">Labels rate the research on teaching with comparisons regularly, not a single use. One Side by Side is one small piece of that practice.</p>
+<!-- legend:end -->
+<!-- evidence:start -->
+<ul class="sb-evidence"><li><span class="tm-chip tm-chip--strong">Strong</span> <strong>Learning by comparing cases.</strong> Comparing cases side by side improves learning more than studying the same cases one at a time (Alfieri et al. 2013, a meta-analysis of 57 experiments, d ≈ 0.50). The effect is largest when the principle is given after the comparison, which is why students write the rule before the teacher confirms it. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1080/00461520.2013.775712">Alfieri, Nokes-Malach &amp; Schunn 2013, Educational Psychologist</a></span></li><li><span class="tm-chip tm-chip--strong">Strong</span> <strong>Comparing solution methods.</strong> In randomized classroom studies with Grade 7 and 8 algebra students, comparing two solution methods side by side built more flexible problem solving than studying the same methods one after another (Rittle-Johnson &amp; Star 2007, 2009). <span class="tm-move__sources">Source: <a href="https://doi.org/10.1037/0022-0663.99.3.561">Rittle-Johnson &amp; Star 2007, Journal of Educational Psychology</a>, <a href="https://doi.org/10.1037/a0014224">Rittle-Johnson &amp; Star 2009, Journal of Educational Psychology</a></span></li><li><span class="tm-chip tm-chip--strong">Strong</span> <strong>Comparing correct and incorrect solutions.</strong> Comparing a correct and an incorrect example helped students reduce misconceptions and understand concepts better than comparing two correct examples (Durkin &amp; Rittle-Johnson 2012; Booth et al. 2013). <span class="tm-move__sources">Source: <a href="https://doi.org/10.1016/j.learninstruc.2011.11.001">Durkin &amp; Rittle-Johnson 2012, Learning and Instruction</a>, <a href="https://doi.org/10.1016/j.learninstruc.2012.11.002">Booth et al. 2013, Learning and Instruction</a></span></li><li><span class="tm-chip tm-chip--strong">Strong</span> <strong>Contrasting cases with one change.</strong> Contrasting cases that differ in one feature help students notice what matters before they are taught the principle (Schwartz &amp; Bransford 1998), and the comparison meta-analysis above includes this kind of pair. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1207/s1532690xci1604_4">Schwartz &amp; Bransford 1998, Cognition and Instruction</a></span></li><li><span class="tm-chip tm-chip--promising">Promising</span> <strong>Concepts that are easily confused.</strong> Contrasting similar categories helps learners tell them apart (Brunmair &amp; Richter 2019, a meta-analysis of 59 studies, g = 0.42, largest for similar categories). No school study has yet tested confusable concept pairs side by side. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1037/bul0000209">Brunmair &amp; Richter 2019, Psychological Bulletin</a></span></li><li><span class="tm-chip tm-chip--promising">Promising</span> <strong>Comparing sources.</strong> Document-based history lessons, where students read and question several sources on the same event, improved historical thinking and reading in a high-school field study (Reisman 2012). <span class="tm-move__sources">Source: <a href="https://doi.org/10.1080/07370008.2011.634081">Reisman 2012, Cognition and Instruction</a></span></li></ul>
+<p class="sb-context"><strong>In the classroom.</strong> In a video study of maths lessons, teachers in Hong Kong and Japan supported comparisons more explicitly than teachers in the United States, for example by showing both cases at the same time and pointing out what to compare (Richland, Zur &amp; Holyoak 2007). Side by Side builds those supports into the sheet.</p>
+<!-- evidence:end -->
+        <h3 class="tm-sources__title">Sources</h3>
+<!-- sources:start -->
+<ul class="tm-sources"><li><a href="https://doi.org/10.1080/00461520.2013.775712">Alfieri, Nokes-Malach &amp; Schunn 2013, Educational Psychologist</a></li><li><a href="https://doi.org/10.1037/0022-0663.99.3.561">Rittle-Johnson &amp; Star 2007, Journal of Educational Psychology</a></li><li><a href="https://doi.org/10.1037/a0014224">Rittle-Johnson &amp; Star 2009, Journal of Educational Psychology</a></li><li><a href="https://doi.org/10.1016/j.learninstruc.2011.11.001">Durkin &amp; Rittle-Johnson 2012, Learning and Instruction</a></li><li><a href="https://doi.org/10.1016/j.learninstruc.2012.11.002">Booth et al. 2013, Learning and Instruction</a></li><li><a href="https://doi.org/10.1207/s1532690xci1604_4">Schwartz &amp; Bransford 1998, Cognition and Instruction</a></li><li><a href="https://doi.org/10.1037/bul0000209">Brunmair &amp; Richter 2019, Psychological Bulletin</a></li><li><a href="https://doi.org/10.1080/07370008.2011.634081">Reisman 2012, Cognition and Instruction</a></li><li><a href="https://doi.org/10.1126/science.1136379">Richland, Zur &amp; Holyoak 2007, Science</a></li></ul>
+<!-- sources:end -->
+        <p class="tm-note">For research on many other teaching strategies, see the <a href="/evidence/">Evidence Toolkit</a> on this site.</p>
+      </div>
+    </section>
+
+    <!-- AI-verktyg och åldersgränser. Reglerna hämtas från Thinking Moves
+         datafil så att sidorna aldrig visar olika regler. Global regel för
+         allt AI-innehåll: åldersgränser och läsarens eget ansvar. -->
+    <section class="section container" id="sb-age">
+      <h2 class="section__title">AI tools and age rules</h2>
+      <p class="section__lede">You use AI to prepare the pair. Your students do not need to. If older students use AI themselves, as in the upper-secondary variant, these rules apply (October 2026):</p>
+<!-- age:start -->
+<ul class="tm-age"><li><strong>Copilot Chat:</strong> Students aged 13 and over, through the school&#x27;s own Microsoft 365 account. The school&#x27;s administrator must set each student&#x27;s age group and consent.</li><li><strong>Gemini for Education:</strong> Open to education users of all ages, with a stricter experience for under-18s. The school&#x27;s administrator must turn it on.</li><li><strong>ChatGPT:</strong> Ages 13 and over on personal accounts, with a parent&#x27;s or guardian&#x27;s permission under 18. ChatGPT for Teachers is for school staff only.</li><li><strong>Claude:</strong> Ages 18 and over. In a school, for teachers only.</li></ul>
+<!-- age:end -->
+      <p class="tm-note">Rules differ between countries and change often. Check your own national rules and your school policy before students use any AI tool.</p>
+    </section>
+
+    <!-- Elevarket och kortleken som PDF. Fri nedladdning, ingen e-postgrind. -->
+    <section class="section section--alt" id="sb-download">
+      <div class="container">
+        <h2 class="section__title">Downloads</h2>
+        <p class="section__lede">The student sheet is one A4 page: room for A and B on top, the three columns, the rule box, case C and Think back. The card deck has all five pair types with their worked examples, plus a fill-in prompt for when you are offline. Free to print and share.</p>
+        <div class="sb-downloads">
+          <a class="btn btn--primary" href="/assets/pdfs/free/side-by-side-sheet-en.pdf" download>Download the student sheet (PDF)</a>
+          <a class="btn btn--secondary" href="/assets/pdfs/free/side-by-side-cards-en.pdf" download>Download the card deck (PDF)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknapparna (data-copy) och promptbyggaren. -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+  <script src="/assets/js/side-by-side.js" defer></script>
+</body>
+</html>
