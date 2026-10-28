@@ -117,7 +117,7 @@
         "Compare what happened, not just what was done.",
         "Ask what the difference in results tells you about that one thing."
       ],
-      "prompt_brief": "Describe two cases, such as two experiments, places or situations, that are identical except for one variable, and say what happened in each. Keep everything else word for word the same, including who carried it out. Do not name the changed variable as the point of the task; it belongs in the teacher key.",
+      "prompt_brief": "Describe two cases, such as two experiments, places or situations, that are identical except for one variable, and say what happened in each. Keep everything else word for word the same, including who carried it out. Do not name the changed variable as the point of the task; it belongs in the teacher key. At the harder level, change something students are unlikely to suspect, and keep the thing they would suspect first the same in A and B.",
       "example": {
         "subject": "Biology",
         "grade": 7,

@@ -35,7 +35,7 @@ EASIER_ONLY = "Easier to see only: AI tools could not build this pair reliably a
 
 # Regelraden och svarsdelarna, ordagrant som i assets/js/side-by-side.js;
 # test_fill_in_matches_builder_word_for_word håller dem i takt.
-RULES = "Rules: A and B respond to the same task and are as alike as possible apart from the difference this pair type asks for. Each of A and B is at most 60 words or six short lines, so it fits half a page width. Case C can be decided with the rule. Do not invent studies, measurements or sources; a source written for the task must say so. Write for students in this grade."
+RULES = "Rules: A and B respond to the same task and are as alike as possible apart from the difference this pair type asks for. Each of A and B is at most 60 words or six short lines, so it fits half a page width. Case C can be decided with the rule. Case C is a new situation, not the same pair with new names. Do not invent studies, measurements or sources; a source written for the task must say so. Write for students in this grade."
 PROMPT_PARTS = [
     "Reply in plain text, no tables, in two blocks. The first block is printed for students, so it must not contain anything from the second.",
     "FOR STUDENTS",

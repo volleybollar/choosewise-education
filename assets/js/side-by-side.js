@@ -38,7 +38,7 @@
       'How to build the pair: ' + pair.prompt_brief,
       'Difficulty: ' + level.name + '. ' + level.instruction,
       '',
-      'Rules: A and B respond to the same task and are as alike as possible apart from the difference this pair type asks for. Each of A and B is at most 60 words or six short lines, so it fits half a page width. Case C can be decided with the rule. Do not invent studies, measurements or sources; a source written for the task must say so. Write for students in this grade.',
+      'Rules: A and B respond to the same task and are as alike as possible apart from the difference this pair type asks for. Each of A and B is at most 60 words or six short lines, so it fits half a page width. Case C can be decided with the rule. Case C is a new situation, not the same pair with new names. Do not invent studies, measurements or sources; a source written for the task must say so. Write for students in this grade.',
       '',
       'Reply in plain text, no tables, in two blocks. The first block is printed for students, so it must not contain anything from the second.',
       'FOR STUDENTS',

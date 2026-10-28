@@ -143,3 +143,9 @@ def test_harder_level_makes_a_first_glance_mislead():
     # svårare nivån kräver nu att första intrycket pekar mot fel regel.
     harder = next(lv for lv in data()["levels"] if lv["id"] == "harder")
     assert "first glance" in harder["instruction"]
+
+
+def test_one_change_brief_hides_the_change_at_the_harder_level():
+    # ChatGPT-testet 2: på svårare nivå var det ändrade det eleverna gissar först.
+    brief = next(p for p in data()["pairs"] if p["id"] == "one-change")["prompt_brief"]
+    assert "unlikely to suspect" in brief

@@ -217,3 +217,9 @@ def test_pair_cards_side_by_side_are_equal_height(site, browser):
         for heights in rows.values():
             assert max(heights) - min(heights) < 1, (width, heights)
         p.close()
+
+
+def test_rules_ask_for_a_new_case_c(page):
+    # ChatGPT-testet 2: fall C var samma par med nya namn, så regeln prövades aldrig.
+    fill(page)
+    assert "Case C is a new situation, not the same pair with new names." in prompt(page)
