@@ -13,7 +13,7 @@
   'use strict';
 
   var DATA_URL = '/flawed-answer/flaws-en.json';
-  var HINT_EMPTY = 'Choose a flaw type and fill in subject and topic to see your prompt.';
+  var HINT_EMPTY = 'Fill in subject and topic to see your prompt.';
   var HINT_FAILED = "Couldn't load the flaw types — reload the page.";
   var NOTE_EASIER_ONLY = 'This flaw type is offered at "Easier to spot" only: AI tools could not plant it reliably at the harder level.';
 

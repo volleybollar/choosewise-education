@@ -120,3 +120,8 @@ def test_pdf_fonts_allowed_weights(pdf):
     out = subprocess.run(["pdffonts", str(pdf)], capture_output=True, text=True, check=True).stdout
     assert "HankenGrotesk" in out
     assert not re.search(r"(SemiBold|Bold|Black|Heavy)", out, re.I), out
+
+
+@pytest.mark.parametrize("src", [FRAME_SRC, DECK_SRC], ids=lambda p: p.name)
+def test_template_comment_is_swedish(src):
+    assert "<!-- Genererad av exports/build-flawed-answer-pdf.py" in src.read_text(encoding="utf-8")

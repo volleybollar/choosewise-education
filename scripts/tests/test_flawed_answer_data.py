@@ -99,3 +99,33 @@ def test_every_key_quotes_a_whole_sentence_from_the_answer():
         assert quote, f["id"]
         sentences = re.split(r"(?<=[.!?])\s+", ex["answer"])
         assert quote.group(1) in sentences, (f["id"], quote.group(1))
+
+
+def _flawed_sentence(f):
+    return re.match(r'"(.+?)"', f["example"]["flaw"]).group(1)
+
+
+def test_only_overgeneralisation_uses_sweeping_words():
+    # Samma regel som prompten ger AI:n: "always", "never", "all" och
+    # "every" hör till feltypen Overgeneralisation.
+    for f in data()["flaws"]:
+        if f["id"] == "overgeneralisation":
+            continue
+        assert not re.search(r"\b(always|never|all|every)\b", _flawed_sentence(f), re.I), f["id"]
+
+
+# Formuleringar som avslöjar det rätta resonemanget eller lutar mot felet.
+# Exemplen ska följa promptens regel: ingen annan mening antyder svaret.
+GIVEAWAYS = {
+    "wrong-cause": ["lower temperature", "freezes at"],
+    "missing-step": ["quicker", "common factor"],
+    "right-for-wrong-reason": ["atmosphere", "air resistance"],
+}
+
+
+def test_examples_do_not_give_away_the_reasoning():
+    by_id = {f["id"]: f for f in data()["flaws"]}
+    for fid, phrases in GIVEAWAYS.items():
+        rest = by_id[fid]["example"]["answer"].replace(_flawed_sentence(by_id[fid]), "")
+        for phrase in phrases:
+            assert phrase not in rest.lower(), (fid, phrase)
