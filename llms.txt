@@ -58,6 +58,10 @@ Free tools that help teachers of Grades 8–12 train students' thinking when AI 
 
 Twelve five-minute thinking tasks (such as Best explanation, Check the claim, Then what? and Think back) grouped into six clusters of thinking. A prompt builder turns a subject, topic and grade into a prompt for any AI tool; each move has two worked examples from different subjects and an evidence label (Strong, Promising or Framework) that rates research on teaching that kind of thinking regularly. A free PDF card deck includes a fill-in prompt for offline use.
 
+- [Flawed Answer — English](https://choosewise.education/flawed-answer/)
+
+A fifteen-minute task for Grades 8–12. The teacher uses any AI tool to write a confident answer about the lesson topic that contains exactly one error of reasoning, of one of six types (wrong cause, correlation as cause, missing step, overgeneralisation, hidden assumption, right answer for the wrong reason), at one of two difficulty levels. Students are told an AI wrote it and, in pairs, find the flaw, fix it, explain why it convinces and say how they would test it. Six worked examples with teacher keys, an upper-secondary variant, a one-page student frame and a PDF card deck.
+
 ## Presentation Skills
 
 - [Presentation Skills landing — English](https://choosewise.education/presentation-skills/)

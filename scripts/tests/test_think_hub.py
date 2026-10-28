@@ -1,7 +1,7 @@
 """Vakter för översiktssidan Think + AI (/think/), menyvalet och SEO-posterna.
 
 Översiktssidan visar bara verktyg som finns. Kommande verktyg nämns inte vid
-namn (Johans beslut 2026-10-27).
+namn (Johans beslut 2026-10-27). Flawed Answer fick sitt kort 2026-10-28.
 """
 import re
 from pathlib import Path
@@ -9,13 +9,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 HUB = ROOT / "think/index.html"
 HEADER = ROOT / "assets/partials/header-en.html"
-UNANNOUNCED = ["Flawed Answer", "Side by Side", "Sparring Partner", "Thinking Profile"]
+UNANNOUNCED = ["Side by Side", "Sparring Partner", "Thinking Profile"]
 
 
-def test_hub_has_one_card_to_thinking_moves():
+def test_hub_links_flawed_answer():
     html = HUB.read_text(encoding="utf-8")
     cards = re.findall(r'<a class="think-card"[^>]*href="([^"]+)"', html)
-    assert cards == ["/thinking-moves/"]
+    assert cards == ["/thinking-moves/", "/flawed-answer/"]
+    assert "More tools are on the way." in html
 
 
 def test_hub_mentions_more_tools_without_names():
@@ -32,11 +33,17 @@ def test_menu_link_after_gap_tracer():
 
 
 def test_og_images_absolute():
-    for page, png in (("think/index.html", "think-en.png"), ("thinking-moves/index.html", "thinkingmoves-en.png")):
+    for page, png in (("think/index.html", "think-en.png"), ("thinking-moves/index.html", "thinkingmoves-en.png"),
+                      ("flawed-answer/index.html", "flawedanswer-en.png")):
         html = (ROOT / page).read_text(encoding="utf-8")
         m = re.search(r'<meta property="og:image" content="([^"]+)"', html)
         assert m and m.group(1) == f"https://choosewise.education/assets/images/brand/og/{png}", page
         assert (ROOT / "assets/images/brand/og" / png).exists(), png
+
+
+def test_llms_lists_flawed_answer():
+    text = (ROOT / "llms.txt").read_text(encoding="utf-8")
+    assert "https://choosewise.education/flawed-answer/" in text
 
 
 def test_llms_lists_both_pages():
