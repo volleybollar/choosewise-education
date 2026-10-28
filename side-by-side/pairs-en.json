@@ -66,9 +66,9 @@
         "only_a": "Alex multiplies out the brackets first, then undoes the + 6 and the × 3. Three lines.",
         "both": "The same answer, x = 3. Both do the same thing to both sides, so the equation stays balanced.",
         "only_b": "Sam divides both sides by 3 first, because 15 divides exactly by 3. Two lines.",
-        "rule": "Dividing first is quicker when the number outside the brackets divides the other side exactly. Otherwise, multiplying out first avoids fractions early on.",
-        "case_c": "Solve 4(x − 1) = 10. Which method would you use, and why?",
-        "case_c_answer": "Multiply out first, because 10 does not divide exactly by 4: 4x − 4 = 10, 4x = 14, x = 3.5. Dividing first also works, but gives x − 1 = 2.5 straight away.",
+        "rule": "Dividing first is quicker when the number outside the brackets divides the other side exactly. Otherwise, multiplying out first avoids working with fractions early on.",
+        "case_c": "Solve 3(x + 4) = 20. Which method would you use, and why?",
+        "case_c_answer": "Multiply out first, because 20 does not divide exactly by 3: 3x + 12 = 20, 3x = 8, x = 8/3. Dividing first gives x + 4 = 20/3, and then you have to work out 20/3 − 4.",
         "probe": "Change 3(x + 2) = 15 so that Sam's first step becomes the harder one. What did you change?",
         "think_back": "Before today, my first step was always ___."
       }
@@ -77,7 +77,7 @@
       "id": "right-and-wrong",
       "number": 2,
       "name": "Right next to wrong",
-      "label": "strong",
+      "label": "promising",
       "harder_ok": true,
       "one_liner": "A correct and an incorrect solution to the same task, side by side.",
       "look_for": [
@@ -95,10 +95,10 @@
         "a": "2H₂ + O₂ → 2H₂O\nLeft: 4 H, 2 O. Right: 4 H, 2 O.",
         "b_label": "Leo",
         "b": "This solution has an error.\nH₂ + O₂ → H₂O₂\nLeft: 2 H, 2 O. Right: 2 H, 2 O.",
-        "only_a": "Mia changes the big numbers in front of the formulas and keeps the product as H₂O.",
+        "only_a": "Mia changes the coefficients, the numbers in front of the formulas, and keeps the product as H₂O.",
         "both": "Both start from the same reactants, and both end with the same number of each atom on each side.",
-        "only_b": "Leo changes the small number inside the formula, so the product becomes H₂O₂, hydrogen peroxide, not water.",
-        "rule": "Balance an equation by changing the numbers in front of the formulas, never the small numbers inside them. Changing those changes the substance.",
+        "only_b": "Leo changes a subscript, the small number inside the formula, so the product becomes H₂O₂, hydrogen peroxide, not water.",
+        "rule": "Balance an equation by changing the coefficients (the numbers in front of the formulas), never the subscripts (the small numbers inside them). Changing a subscript changes the substance.",
         "case_c": "Balance the equation for magnesium burning in oxygen: Mg + O₂ → MgO.",
         "case_c_answer": "2Mg + O₂ → 2MgO. Writing MgO₂ would balance the oxygen but describe a different substance.",
         "probe": "Leo's equation is balanced. So why is it still wrong for this task?",
@@ -109,7 +109,7 @@
       "id": "one-change",
       "number": 3,
       "name": "One thing changed",
-      "label": "strong",
+      "label": "promising",
       "harder_ok": true,
       "one_liner": "Two cases are identical except for one thing.",
       "look_for": [
@@ -123,15 +123,15 @@
         "grade": 7,
         "level": "harder",
         "task": "Two dishes of cress seeds were set up on Monday. Compare them on Friday.",
-        "a_label": "Dish A",
-        "a": "Cress seeds on damp cotton wool, on a windowsill at room temperature. On Friday the seeds have sprouted: short seedlings with green leaves.",
-        "b_label": "Dish B",
-        "b": "Cress seeds on damp cotton wool, in a dark cupboard at room temperature. On Friday the seeds have sprouted: tall, thin seedlings with pale yellow leaves.",
-        "only_a": "Light. The seedlings are short and green.",
-        "both": "Water, warmth and the same seeds. Both dishes have sprouted.",
-        "only_b": "Darkness. The seedlings are tall, thin and pale.",
-        "rule": "The seeds sprouted in both dishes, so sprouting does not need light: the seed uses its own stored food. Light matters afterwards, for the green leaves that make new food.",
-        "case_c": "Dish C is set up like Dish A, on the same windowsill, but the cotton wool is dry. What will it look like on Friday?",
+        "a_label": "Uncovered dish",
+        "a": "Cress seeds on damp cotton wool, uncovered on a windowsill at room temperature. On Friday the seeds have sprouted: short seedlings with green seed leaves.",
+        "b_label": "Covered dish",
+        "b": "Cress seeds on damp cotton wool, on the same windowsill, covered by a light-proof box. On Friday the seeds have sprouted: tall, thin seedlings with pale yellow seed leaves.",
+        "only_a": "Light. The seedlings are short with green seed leaves.",
+        "both": "Water, warmth, the same windowsill and the same seeds. Both dishes have sprouted.",
+        "only_b": "Darkness under the box. The seedlings are tall and thin with pale yellow seed leaves.",
+        "rule": "The cress seeds sprouted in both dishes, so cress seeds do not need light to sprout: the seed uses its own stored food. Light matters afterwards, for the green leaves that make new food.",
+        "case_c": "Dish C is set up like the uncovered dish, on the same windowsill, but the cotton wool is dry. What will it look like on Friday?",
         "case_c_answer": "The seeds will not sprout. Sprouting needs water, even with light and warmth.",
         "probe": "The two dishes look very different. Why is \"light makes seeds sprout\" still the wrong conclusion?",
         "think_back": "At first I looked at ___ instead of what both dishes had in common."
@@ -162,7 +162,7 @@
         "only_a": "The word \"like\". It says the classroom resembles an oven.",
         "both": "Both compare the classroom to an oven to show how hot it was. Neither is meant literally.",
         "only_b": "No comparing word. It says the classroom is an oven.",
-        "rule": "A simile compares with \"like\" or \"as\". A metaphor says one thing is another. Both are comparisons, not literal statements.",
+        "rule": "A simile compares two different things using \"like\" or \"as\". A metaphor says one thing is another. Both are comparisons, not literal statements.",
         "case_c": "\"The test was a mountain to climb.\" Simile or metaphor?",
         "case_c_answer": "A metaphor: there is no \"like\" or \"as\", and it says the test is a mountain.",
         "probe": "Which sentence is stronger, and why might a writer still choose the simile?",
@@ -175,7 +175,7 @@
       "name": "Two sources on the same event",
       "label": "promising",
       "harder_ok": true,
-      "one_liner": "Two sources describe the same event, and one difference changes how far we can trust them.",
+      "one_liner": "Two sources describe the same event but differ in when, by whom or why they were written, which changes how far we can trust them.",
       "look_for": [
         "Who wrote each source, when and why?",
         "Which details agree, and which do not?",
@@ -187,10 +187,10 @@
         "grade": 9,
         "level": "harder",
         "task": "Two accounts of the first morning of a strike at a cotton mill in 1912. Both were written for this task.",
-        "a_label": "Source A",
-        "a": "Mary Dent, mill worker, private diary, 4 May 1912: \"Went to the gate at six. Perhaps two hundred of us. Mr Hale came out and said the mill would close if we did not go in. Nobody moved. Rain all afternoon.\"",
-        "b_label": "Source B",
-        "b": "Mary Dent, memoir published in 1950: \"I shall never forget the morning a thousand of us stood at the gates in brilliant sunshine, and the owner fled before our courage.\"",
+        "a_label": "Diary, 1912",
+        "a": "Mary Dent, mill worker, private diary, 4 May 1912: \"Went to the gate at six. Perhaps two hundred of us. Mr Hale, the owner, came out and said the mill would close if we did not go in. Nobody moved. Rain all afternoon.\" (Written for this task.)",
+        "b_label": "Memoir, 1950",
+        "b": "Mary Dent, memoir published in 1950: \"I shall never forget the morning a thousand of us stood at the gates in brilliant sunshine, and the owner fled before our courage.\" (Written for this task.)",
         "only_a": "Written the same day, in a private diary. Small, plain details: the time, the rain, about two hundred people.",
         "both": "The same eyewitness and the same event: a crowd at the gate and the owner facing them.",
         "only_b": "Written 38 years later, for readers. Bigger numbers, sunshine and a heroic story.",
@@ -206,7 +206,7 @@
     {
       "claim": "Learning by comparing cases",
       "label": "strong",
-      "text": "Comparing cases side by side improves learning more than studying the same cases one at a time (Alfieri et al. 2013, a meta-analysis of 57 experiments, d ≈ 0.50). The effect is largest when the principle is given after the comparison, which is why students write the rule before the teacher confirms it.",
+      "text": "Comparing cases side by side improves learning more than other ways of studying the same material, such as studying cases one at a time (Alfieri et al. 2013, a meta-analysis of 57 experiments, d ≈ 0.50). Learning was greater when the principle was given after the comparison, which is why students write the rule before the teacher confirms it.",
       "sources": [
         {
           "text": "Alfieri, Nokes-Malach & Schunn 2013, Educational Psychologist",
@@ -217,7 +217,7 @@
     {
       "claim": "Comparing solution methods",
       "label": "strong",
-      "text": "In randomized classroom studies with Grade 7 and 8 algebra students, comparing two solution methods side by side built more flexible problem solving than studying the same methods one after another (Rittle-Johnson & Star 2007, 2009).",
+      "text": "In randomized classroom studies with Grade 7 and 8 algebra students, comparing two solution methods side by side built more flexible problem solving than studying the methods one at a time (Rittle-Johnson & Star 2007) or comparing problems solved the same way (2009). Gains in conceptual knowledge appeared in the second study but not the first.",
       "sources": [
         {
           "text": "Rittle-Johnson & Star 2007, Journal of Educational Psychology",
@@ -231,8 +231,8 @@
     },
     {
       "claim": "Comparing correct and incorrect solutions",
-      "label": "strong",
-      "text": "Comparing a correct and an incorrect example helped students reduce misconceptions and understand concepts better than comparing two correct examples (Durkin & Rittle-Johnson 2012; Booth et al. 2013).",
+      "label": "promising",
+      "text": "Comparing a correct and an incorrect example helped primary students learn decimals and reduced misconceptions more than comparing two correct examples (Durkin & Rittle-Johnson 2012), and incorrect examples supported conceptual understanding in algebra classes (Booth et al. 2013). Results have not replicated consistently.",
       "sources": [
         {
           "text": "Durkin & Rittle-Johnson 2012, Learning and Instruction",
@@ -246,8 +246,8 @@
     },
     {
       "claim": "Contrasting cases with one change",
-      "label": "strong",
-      "text": "Contrasting cases that differ in one feature help students notice what matters before they are taught the principle (Schwartz & Bransford 1998), and the comparison meta-analysis above includes this kind of pair.",
+      "label": "promising",
+      "text": "Analysing contrasting cases before a lecture helped college students notice what matters and learn more from the explanation that followed (Schwartz & Bransford 1998).",
       "sources": [
         {
           "text": "Schwartz & Bransford 1998, Cognition and Instruction",
@@ -258,7 +258,7 @@
     {
       "claim": "Concepts that are easily confused",
       "label": "promising",
-      "text": "Contrasting similar categories helps learners tell them apart (Brunmair & Richter 2019, a meta-analysis of 59 studies, g = 0.42, largest for similar categories). No school study has yet tested confusable concept pairs side by side.",
+      "text": "Mixing examples from different categories (interleaving) helps learners tell them apart (Brunmair & Richter 2019, a meta-analysis of 59 studies, g = 0.42), especially when the categories are similar. Few studies have tested confusable concept pairs side by side in school.",
       "sources": [
         {
           "text": "Brunmair & Richter 2019, Psychological Bulletin",
@@ -269,7 +269,7 @@
     {
       "claim": "Comparing sources",
       "label": "promising",
-      "text": "Document-based history lessons, where students read and question several sources on the same event, improved historical thinking and reading in a high-school field study (Reisman 2012).",
+      "text": "In a six-month quasi-experiment in five urban high schools, Grade 11 students taught with document-based lessons, which involved reading and questioning several sources on the same event, outperformed control classes in historical thinking, factual knowledge and reading comprehension (Reisman 2012). The study tested the whole curriculum, not source comparison alone.",
       "sources": [
         {
           "text": "Reisman 2012, Cognition and Instruction",
@@ -279,11 +279,11 @@
     }
   ],
   "context": {
-    "text": "In a video study of maths lessons, teachers in Hong Kong and Japan supported comparisons more explicitly than teachers in the United States, for example by showing both cases at the same time and pointing out what to compare (Richland, Zur & Holyoak 2007). Side by Side builds those supports into the sheet.",
+    "text": "In a video study of eighth-grade maths lessons, teachers in Hong Kong and Japan used analogies as often as US teachers but supported them more, for example by keeping both cases visible at the same time and using gestures to show what to compare (Richland, Zur & Holyoak 2007). Side by Side builds those supports into the sheet.",
     "sources": [
       {
         "text": "Richland, Zur & Holyoak 2007, Science",
-        "url": "https://doi.org/10.1126/science.1136379"
+        "url": "https://doi.org/10.1126/science.1142103"
       }
     ]
   },
