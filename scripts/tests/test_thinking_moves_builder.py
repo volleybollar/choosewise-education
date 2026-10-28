@@ -131,7 +131,8 @@ def test_copied_toast_does_not_cover_the_button(site, browser):
     p.goto(f"{site}/thinking-moves/", wait_until="networkidle")
     btn = p.locator("#tm-copy").bounding_box()
     toast = p.locator(".tm-copy-row .copy-toast").bounding_box()
-    assert toast["x"] >= btn["x"] + btn["width"], (btn, toast)
+    apart = (toast["x"] >= btn["x"] + btn["width"] or toast["y"] >= btn["y"] + btn["height"])
+    assert apart, (btn, toast)
     p.close()
 
 
@@ -150,3 +151,16 @@ def test_copy_toast_text_changes_so_screen_readers_hear_it(site, browser):
     p.wait_for_function("window.__toastChanges >= 2")
     p.wait_for_function("document.querySelector('.tm-copy-row .copy-toast').textContent === 'Copied'")
     ctx.close()
+
+
+def test_hint_is_shown_beside_disabled_copy_button(site, browser):
+    for width in (1280, 390):
+        p = browser.new_page(viewport={"width": width, "height": 800})
+        p.goto(f"{site}/thinking-moves/", wait_until="networkidle")
+        p.wait_for_function("document.querySelectorAll('#tm-move option').length === 12")
+        assert p.is_disabled("#tm-copy")
+        assert p.locator(".tm-copy-row #tm-hint").is_visible(), width
+        btn = p.locator("#tm-copy").bounding_box()
+        hint = p.locator("#tm-hint").bounding_box()
+        assert hint["y"] < btn["y"] + btn["height"] + 40, (width, btn, hint)
+        p.close()

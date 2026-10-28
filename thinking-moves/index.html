@@ -81,13 +81,15 @@
             <textarea class="input" id="tm-prior" rows="2" maxlength="400" placeholder="e.g. Particle model; they have done one practical on dissolving"></textarea>
           </label>
         </form>
-        <p class="tm-hint" id="tm-hint" aria-live="polite">Choose a move and fill in subject and topic to see your prompt.</p>
         <label class="tm-field tm-field--wide">
           <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
           <textarea class="input tm-prompt" id="tm-prompt" rows="14" readonly></textarea>
         </label>
         <div class="tm-copy-row">
           <button type="button" class="btn btn--primary" id="tm-copy" data-copy="" aria-describedby="tm-hint" disabled>Copy prompt</button>
+          <!-- Ledtråden står bredvid knappen så att man ser varför den är grå.
+               Den töms av thinking-moves.js när prompten är klar. -->
+          <p class="tm-hint" id="tm-hint" aria-live="polite">Choose a move and fill in subject and topic to see your prompt.</p>
           <span class="copy-toast" role="status">Copied</span>
         </div>
       </div>

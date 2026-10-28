@@ -17,10 +17,10 @@
 .tm-field__label { font-size: var(--fs-small); color: var(--color-text-soft); }
 .tm-field__note { font-size: var(--fs-small); color: var(--color-text-soft); }
 .tm-field .input { width: 100%; box-sizing: border-box; font: inherit; }
-.tm-hint { margin: var(--space-4) 0; font-size: var(--fs-small); color: var(--color-highlight-ink); max-width: none; }
+.tm-hint { margin: 0; font-size: var(--fs-small); color: var(--color-highlight-ink); max-width: none; }
 .tm-hint:empty { display: none; }
 .tm-prompt { font-family: var(--font-mono); font-size: var(--fs-small); line-height: var(--lh-normal); resize: vertical; }
-.tm-copy-row { position: relative; display: flex; align-items: center; gap: var(--space-4); margin-top: var(--space-4); }
+.tm-copy-row { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); margin-top: var(--space-4); }
 .tm-copy-row .btn[disabled] { opacity: .5; cursor: not-allowed; }
 /* Bekräftelsen "Copied" står bredvid knappen i stället för ovanpå den
    (den delade stilen centrerar den i raden, vilket täcker knappen på mobil). */
