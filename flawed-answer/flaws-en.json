@@ -23,10 +23,22 @@
     }
   ],
   "steps": [
-    {"name": "Find", "prompt": "Underline the one sentence where the reasoning goes wrong."},
-    {"name": "Fix", "prompt": "Rewrite that sentence so the reasoning holds."},
-    {"name": "Explain why it convinces", "prompt": "What makes the wrong sentence sound right?"},
-    {"name": "How would we test it?", "prompt": "Describe one way to check it, in class or at home."}
+    {
+      "name": "Find",
+      "prompt": "Underline the one sentence where the reasoning goes wrong."
+    },
+    {
+      "name": "Fix",
+      "prompt": "Rewrite that sentence so the reasoning holds."
+    },
+    {
+      "name": "Explain why it convinces",
+      "prompt": "What makes the wrong sentence sound right?"
+    },
+    {
+      "name": "How would we test it?",
+      "prompt": "Describe one way to check it, in class or at home."
+    }
   ],
   "flaws": [
     {
@@ -50,7 +62,7 @@
         "flaw": "\"Salt melts ice because it gives off heat when it touches the ice.\" Dissolving ordinary salt does not warm the ice. It works because salt water has a lower freezing point than pure water.",
         "fix": "Salt melts ice because it dissolves in the thin film of water on the ice, and salt water freezes at a lower temperature than pure water.",
         "why_convincing": "Melting usually means warming, so we expect something to be heating the ice. Some de-icing salts, such as calcium chloride, really do give off heat as they dissolve.",
-        "test_it": "Put ice cubes in two dishes and sprinkle salt on one. Measure the meltwater with a thermometer: the salty meltwater is colder than 0 °C, not warmer.",
+        "test_it": "Put ice cubes in two dishes and sprinkle salt on one. Measure the meltwater with a thermometer: the salty meltwater reads below 0 °C, colder than the plain meltwater, not warmer.",
         "probe": "If salt melted ice by heating it, what would the thermometer in the salty dish show?",
         "think_back": "I almost accepted the explanation because …"
       }
@@ -180,7 +192,7 @@
         "flaw": "\"The two land together because the Moon's gravity is only about one sixth of Earth's.\" Weak gravity is not the reason. Without air resistance, all objects fall with the same acceleration whatever their mass, however strong the gravity.",
         "fix": "The two land together because there is almost no air on the Moon, and without air resistance all objects fall with the same acceleration, whatever their mass.",
         "why_convincing": "The conclusion is true and the Moon's gravity really is about one sixth of Earth's, so a true fact is used as the reason.",
-        "test_it": "Drop a book and a sheet of paper side by side. Then lay the paper flat on top of the book and drop them together, so the book shields the paper from the air.",
+        "test_it": "Drop a book and a sheet of paper side by side. Then lay a sheet of paper, cut smaller than the book, flat on top of it and drop them together, so the book shields the paper from the air.",
         "probe": "Would a hammer and a feather land together in a vacuum chamber on Earth? What does that tell you about the answer's reason?",
         "think_back": "I nearly accepted the reason because …"
       }
@@ -201,8 +213,17 @@
     {
       "claim": "Students critiquing AI-generated answers",
       "label": "thin",
-      "text": "No classroom studies yet.",
-      "sources": []
+      "text": "One university report so far: first-year biology students got better at critiquing a ChatGPT-written text after scaffolded practice, but many did not turn their critique into changes to the text (van den Berg & Pye 2024, a conference abstract). There is no secondary-school classroom study yet. The closest solid evidence comes from errors written by a fictional student rather than an AI: middle-school students who found, explained and fixed those errors in decimals did no better straight away, but did better on a test a week later than students who solved the same problems (Adams et al. 2014).",
+      "sources": [
+        {
+          "text": "van den Berg & Pye 2024, Australian Conference on Science and Mathematics Education",
+          "url": "https://openjournals.library.sydney.edu.au/IISME/article/view/18953"
+        },
+        {
+          "text": "Adams et al. 2014, Computers in Human Behavior",
+          "url": "https://doi.org/10.1016/j.chb.2014.03.053"
+        }
+      ]
     }
   ],
   "context": {
