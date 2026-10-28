@@ -1,0 +1,232 @@
+{
+  "intro": {
+    "what": "Thinking Profile helps you plan a whole unit around one kind of thinking, so students practise it in four to six tasks and can see for themselves that they are getting better.",
+    "why_unit": "A single task shows that students can do their own thinking with AI in the room. A whole unit shows them that they are getting better at it: they meet the same ladder four to six times and watch themselves climb.",
+    "retell": "I followed Causes and systems through our ecosystems unit, and my students climbed from step 1 to step 3."
+  },
+  "not_graded": "The ladder is for students' own self-check. It is never graded.",
+  "honesty": "The ladders are Choosewise's own, built on the logic of the SOLO taxonomy. They have not been tested in research.",
+  "self_check": {
+    "questions": [
+      "Which step did my answer reach?",
+      "What in my answer shows it?",
+      "My next step"
+    ]
+  },
+  "rules": [
+    "At least half of the tasks in the plan come from the followed cluster's preferred tasks.",
+    "A task from another cluster may be borrowed only when its content makes students use the followed cluster's thinking.",
+    "Repeating the same task is intended when each round has harder inputs: more variables, less familiar content or less support.",
+    "Demand rises across the unit, so the later tasks give room to reach steps 3 and 4.",
+    "Students rate every task on the followed cluster's ladder, whatever tool the task came from."
+  ],
+  "regulating_rule": "Students rate the ladder on the Think back part at the end of each task, not on the task answer.",
+  "ladders": [
+    {
+      "cluster": "generating",
+      "icon": "/thinking-moves/icons/many-ways.svg",
+      "in_class": "Students solve one problem in as many different ways as they can, then hunt for the most unusual way.",
+      "steps": [
+        {
+          "text": "I write down one idea that works.",
+          "shows": "Point to the idea and to what makes it work."
+        },
+        {
+          "text": "I write down several ideas that work in different ways, not small changes of the same idea.",
+          "shows": "Point to each idea and to what makes it different from the others."
+        },
+        {
+          "text": "I sort my ideas into kinds and add one from a kind I had missed.",
+          "shows": "Point to your groups, their names and the idea you added to fill the gap."
+        },
+        {
+          "text": "I pick the idea that fits best when one condition changes, explain why, and say how sure I am.",
+          "shows": "Point to the changed condition, the idea you picked, your reason and the words that say how sure you are."
+        }
+      ],
+      "tasks": [
+        {
+          "tool": "thinking-moves",
+          "id": "many-ways"
+        }
+      ]
+    },
+    {
+      "cluster": "evaluating",
+      "icon": "/thinking-moves/icons/pick-and-justify.svg",
+      "in_class": "Students set criteria or say what evidence would convince them before they decide, then defend their choice against the other side.",
+      "steps": [
+        {
+          "text": "I make a choice or a judgement and give one reason for it.",
+          "shows": "Point to your choice and the one reason."
+        },
+        {
+          "text": "I give several reasons, each backed by evidence or a criterion.",
+          "shows": "Point to each reason and the evidence or criterion beside it."
+        },
+        {
+          "text": "I weigh my reasons against each other and against the other side, and show which one decides it.",
+          "shows": "Point to where you answer the other side and the sentence that says which reason weighs most."
+        },
+        {
+          "text": "I test my judgement on a new case or a new piece of evidence, and say how sure I am.",
+          "shows": "Point to the new case or evidence, whether your judgement held, and the words that say how sure you are."
+        }
+      ],
+      "tasks": [
+        {
+          "tool": "thinking-moves",
+          "id": "pick-and-justify"
+        },
+        {
+          "tool": "thinking-moves",
+          "id": "check-the-claim"
+        },
+        {
+          "tool": "thinking-moves",
+          "id": "argue-it"
+        },
+        {
+          "tool": "flawed-answer"
+        }
+      ]
+    },
+    {
+      "cluster": "comparing",
+      "icon": "/thinking-moves/icons/like-what.svg",
+      "in_class": "Students set two cases side by side, map what matches, write the rule the comparison shows and try it on a new case.",
+      "steps": [
+        {
+          "text": "I name one thing the two cases share.",
+          "shows": "Point to the shared feature in both cases."
+        },
+        {
+          "text": "I name several things that match and at least one place where the cases differ.",
+          "shows": "Point to each match and to the difference."
+        },
+        {
+          "text": "I explain the rule that makes the cases match, and where the comparison breaks.",
+          "shows": "Point to the sentence that states the rule and to the place where the comparison breaks."
+        },
+        {
+          "text": "I use the rule on a new case, and say how sure I am that it fits.",
+          "shows": "Point to the new case, your rule used on it, and the words that say how sure you are."
+        }
+      ],
+      "tasks": [
+        {
+          "tool": "thinking-moves",
+          "id": "like-what"
+        },
+        {
+          "tool": "side-by-side"
+        }
+      ]
+    },
+    {
+      "cluster": "explaining",
+      "icon": "/thinking-moves/icons/best-explanation.svg",
+      "in_class": "Students explain a puzzling result, rebuild a rule from what they know for certain, or estimate and model a real question, saying every assumption out loud.",
+      "steps": [
+        {
+          "text": "I give one explanation or one fact I know for certain.",
+          "shows": "Point to the explanation or the fact."
+        },
+        {
+          "text": "I give several explanations or steps, and say what each one rests on.",
+          "shows": "Point to each explanation or step and what it rests on: evidence, a known fact or an assumption."
+        },
+        {
+          "text": "I link my steps into one line of reasoning, or show which explanation fits the evidence best.",
+          "shows": "Point to the linking words (because, so, which means) or to the evidence that rules out the other explanations."
+        },
+        {
+          "text": "I use my reasoning on a new case or a changed number, say where it stops working, and say how sure I am.",
+          "shows": "Point to the new case, the place where your reasoning stops working, and the words that say how sure you are."
+        }
+      ],
+      "tasks": [
+        {
+          "tool": "thinking-moves",
+          "id": "best-explanation"
+        },
+        {
+          "tool": "thinking-moves",
+          "id": "strip-it-down"
+        },
+        {
+          "tool": "thinking-moves",
+          "id": "estimate-it"
+        },
+        {
+          "tool": "thinking-moves",
+          "id": "model-it"
+        }
+      ]
+    },
+    {
+      "cluster": "causes",
+      "icon": "/thinking-moves/icons/map-the-loop.svg",
+      "in_class": "Students follow a decision through its consequences, or draw how the parts of a system affect each other and find the loops.",
+      "steps": [
+        {
+          "text": "I name one cause and one effect.",
+          "shows": "Point to the cause, the effect and the word that links them."
+        },
+        {
+          "text": "I build a chain: A leads to B leads to C.",
+          "shows": "Point to each link in the chain: at least three parts in a row."
+        },
+        {
+          "text": "I find a loop: C affects A again, or a delay or a side effect.",
+          "shows": "Point to the arrow or sentence that leads back to the start, or that names the delay or side effect."
+        },
+        {
+          "text": "I use the loop to predict what happens if one part changes, and say how sure I am.",
+          "shows": "Point to the part you changed, your prediction and the words that say how sure you are."
+        }
+      ],
+      "tasks": [
+        {
+          "tool": "thinking-moves",
+          "id": "then-what"
+        },
+        {
+          "tool": "thinking-moves",
+          "id": "map-the-loop"
+        }
+      ]
+    },
+    {
+      "cluster": "regulating",
+      "icon": "/thinking-moves/icons/think-back.svg",
+      "in_class": "At the end of any task, students write for two minutes about how they thought, not what they found, and what they would do differently.",
+      "steps": [
+        {
+          "text": "I name one thing I did while I worked.",
+          "shows": "Point to the strategy you name, such as \"I drew it\". \"I thought harder\" does not count."
+        },
+        {
+          "text": "I describe several steps in how I worked, including where I got stuck.",
+          "shows": "Point to each step and to the place where you got stuck."
+        },
+        {
+          "text": "I explain what moved me on when I got stuck, and why it worked.",
+          "shows": "Point to the sentence that says what moved you on and why it worked."
+        },
+        {
+          "text": "I say what I would change next time and why, and how sure I am that it would help.",
+          "shows": "Point to what you would change, your reason and the words that say how sure you are."
+        }
+      ],
+      "tasks": [
+        {
+          "tool": "thinking-moves",
+          "id": "think-back"
+        }
+      ]
+    }
+  ],
+  "example": {},
+  "evidence": []
+}
