@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thinking Profile — choosewise.education</title>
+  <meta name="description" content="Plan a whole unit around one kind of thinking. Six four-step ladders, a free unit-plan builder for any AI tool, and self-check sheets so students can see themselves get better. For Grades 7–12.">
+  <meta property="og:title" content="Thinking Profile — choosewise.education">
+  <meta property="og:description" content="Plan a whole unit around one kind of thinking. Six four-step ladders, a free unit-plan builder for any AI tool, and self-check sheets so students can see themselves get better. For Grades 7–12.">
+  <meta property="og:image" content="https://choosewise.education/assets/images/brand/og/thinkingprofile-en.png">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Sidan lånar korten, byggaren och evidensetiketterna från Thinking Moves
+       (prefix tm-) utan att ändra dem. Det som är nytt här har prefix tp-. -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261028a">
+  <link rel="stylesheet" href="/assets/css/thinking-profile.css?v=20261028a">
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: vad verktyget är och löftet om tid. Löftet kommer från specen —
+         ändra det bara om upplägget ändras. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/think/">← Think + AI</a>
+      <span class="eyebrow">Free tool · Grades 7–12</span>
+      <h1>Thinking Profile</h1>
+      <p class="lede">Choose one kind of thinking and follow it through a whole unit. Students meet the same four-step ladder after every task, check themselves against it and see their own progress.</p>
+      <p class="tp-promise">One kind of thinking, one unit. A plan in about 30 minutes, two minutes of self-check after each task.</p>
+      <ul class="tm-promises">
+        <li><strong>No personal data.</strong> You give a subject, a grade and a topic. Student names and work never go in.</li>
+        <li><strong>Any AI tool.</strong> The prompt works in Copilot, Gemini, ChatGPT and Claude.</li>
+        <li><strong>Never graded.</strong> The ladder is the students' own check, not a mark.</li>
+      </ul>
+    </section>
+
+    <!-- Varför en hel enhet. Texten mellan markörerna byggs från JSON-filen
+         (intro), så den kan ändras på ett ställe. -->
+    <section class="section container" id="tp-why">
+      <h2 class="section__title">Why a whole unit</h2>
+<!-- why:start -->
+<p class="section__lede">Thinking Profile helps you plan a whole unit around one kind of thinking, so students practise it in four to six tasks and can see for themselves that they are getting better.</p>
+<p class="tm-note">A single task shows that students can do their own thinking with AI in the room. A whole unit shows them that they are getting better at it: they meet the same ladder four to six times and watch themselves climb.</p>
+<blockquote class="tp-tell">I followed Causes and systems through our ecosystems unit, and my students climbed from step 1 to step 3.</blockquote>
+<!-- why:end -->
+    </section>
+
+    <!-- De sex trapporna. Korten mellan markörerna byggs av
+         scripts/build-thinking-profile.py från thinking-profile/ladders-en.json —
+         redigera JSON-filen, inte korten, och kör skriptet igen. -->
+    <section class="section section--alt" id="tp-ladders">
+      <div class="container">
+        <h2 class="section__title">Six ladders, six kinds of thinking</h2>
+        <p class="section__lede">Each ladder has four steps. Every step names something students can point to in their own answer, so they can check themselves honestly. Pick the one that fits your unit.</p>
+        <div class="tm-grid">
+<!-- ladders:start -->
+<article class="tm-move tp-ladder" id="generating" data-cluster="generating">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/thinking-moves/icons/many-ways.svg" alt="" width="48" height="48"><div><h3 class="tm-move__name">Generating ideas</h3></div></div>
+  <p class="tm-move__line">Producing many and unusual options.</p>
+  <p class="tp-card__label">The four steps</p>
+  <ol class="tp-steps"><li>I write down one idea that works.</li><li>I write down several ideas that work in different ways, not small changes of the same idea.</li><li>I sort my ideas into kinds and add one from a kind I had missed.</li><li>I pick the idea that fits best when one condition changes, explain why, and say how sure I am.</li></ol>
+  <p class="tp-trained"><strong>Trained by:</strong> Many ways</p>
+  <a class="tm-move__use" href="?cluster=generating#tp-builder" data-use-cluster="generating" aria-label="Plan with this ladder: Generating ideas">Plan with this ladder</a>
+</article>
+<article class="tm-move tp-ladder" id="evaluating" data-cluster="evaluating">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/thinking-moves/icons/pick-and-justify.svg" alt="" width="48" height="48"><div><h3 class="tm-move__name">Evaluating and choosing</h3></div></div>
+  <p class="tm-move__line">Weighing evidence, testing claims and deciding.</p>
+  <p class="tp-card__label">The four steps</p>
+  <ol class="tp-steps"><li>I make a choice or a judgement and give one reason for it.</li><li>I give several reasons, each backed by a fact or a rule I can check.</li><li>I weigh my reasons against each other and against the other side, and show which one decides it.</li><li>I test my judgement on a new case or a new piece of evidence, and say how sure I am.</li></ol>
+  <p class="tp-trained"><strong>Trained by:</strong> Pick and justify, Check the claim, Argue it, Flawed Answer</p>
+  <a class="tm-move__use" href="?cluster=evaluating#tp-builder" data-use-cluster="evaluating" aria-label="Plan with this ladder: Evaluating and choosing">Plan with this ladder</a>
+</article>
+<article class="tm-move tp-ladder" id="comparing" data-cluster="comparing">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/thinking-moves/icons/like-what.svg" alt="" width="48" height="48"><div><h3 class="tm-move__name">Comparing and transferring</h3></div></div>
+  <p class="tm-move__line">Seeing the structure one case shares with another.</p>
+  <p class="tp-card__label">The four steps</p>
+  <ol class="tp-steps"><li>I name one thing the two cases share.</li><li>I name several things that match and at least one place where the cases differ.</li><li>I explain the rule that makes the cases match, and where the comparison breaks.</li><li>I use the rule on a new case, and say how sure I am that it fits.</li></ol>
+  <p class="tp-trained"><strong>Trained by:</strong> Like what?, Side by Side</p>
+  <a class="tm-move__use" href="?cluster=comparing#tp-builder" data-use-cluster="comparing" aria-label="Plan with this ladder: Comparing and transferring">Plan with this ladder</a>
+</article>
+<article class="tm-move tp-ladder" id="explaining" data-cluster="explaining">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/thinking-moves/icons/best-explanation.svg" alt="" width="48" height="48"><div><h3 class="tm-move__name">Explaining and reasoning from basics</h3></div></div>
+  <p class="tm-move__line">Finding the best explanation and rebuilding from what is certainly true.</p>
+  <p class="tp-card__label">The four steps</p>
+  <ol class="tp-steps"><li>I give one explanation or one fact I know for certain.</li><li>I give several explanations or steps, and say what each one rests on.</li><li>I link my steps into one line of reasoning, or show which explanation fits the evidence best.</li><li>I use my reasoning on a new case or a changed number, say where it stops working, and say how sure I am.</li></ol>
+  <p class="tp-trained"><strong>Trained by:</strong> Best explanation, Strip it down, Estimate it, Model it</p>
+  <a class="tm-move__use" href="?cluster=explaining#tp-builder" data-use-cluster="explaining" aria-label="Plan with this ladder: Explaining and reasoning from basics">Plan with this ladder</a>
+</article>
+<article class="tm-move tp-ladder" id="causes" data-cluster="causes">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/thinking-moves/icons/map-the-loop.svg" alt="" width="48" height="48"><div><h3 class="tm-move__name">Causes and systems</h3></div></div>
+  <p class="tm-move__line">Chains, loops and side effects.</p>
+  <p class="tp-card__label">The four steps</p>
+  <ol class="tp-steps"><li>I name one cause and one effect.</li><li>I build a chain: A leads to B leads to C.</li><li>I find a loop: C affects A again, or a delay or a side effect.</li><li>I use the loop to predict what happens if one part changes, and say how sure I am.</li></ol>
+  <p class="tp-trained"><strong>Trained by:</strong> Then what?, Map the loop</p>
+  <a class="tm-move__use" href="?cluster=causes#tp-builder" data-use-cluster="causes" aria-label="Plan with this ladder: Causes and systems">Plan with this ladder</a>
+</article>
+<article class="tm-move tp-ladder" id="regulating" data-cluster="regulating">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/thinking-moves/icons/think-back.svg" alt="" width="48" height="48"><div><h3 class="tm-move__name">Regulating your own thinking</h3></div></div>
+  <p class="tm-move__line">Watching and adjusting how you think. It makes every other cluster sharper.</p>
+  <p class="tp-card__label">The four steps</p>
+  <ol class="tp-steps"><li>I name one thing I did while I worked.</li><li>I describe several steps in how I worked, and one moment that shaped how I worked, such as changing my approach or getting stuck.</li><li>I explain what made me change my approach or moved me on, and why it helped.</li><li>I say what I would change next time and why, and how sure I am that it would help.</li></ol>
+  <p class="tp-trained"><strong>Trained by:</strong> Think back</p>
+  <a class="tm-move__use" href="?cluster=regulating#tp-builder" data-use-cluster="regulating" aria-label="Plan with this ladder: Regulating your own thinking">Plan with this ladder</a>
+</article>
+<!-- ladders:end -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Planeringsbyggaren. Här finns bara formuläret; logiken (att bygga
+         prompten medan man skriver) kommer i assets/js/thinking-profile.js.
+         Allt sker i webbläsaren: inget sparas och inget skickas. Id:na
+         (tp-…) är det skriptet letar efter, så byt inte namn på dem. -->
+    <section class="section" id="tp-builder">
+      <div class="container">
+        <h2 class="section__title">Plan your unit</h2>
+        <p class="tm-privacy"><strong>Do not include student names or student work in this conversation.</strong> The prompt only needs your cluster, subject, grade, number of weeks and topic.</p>
+        <!-- onsubmit="return false" hindrar att Enter i ett fält laddar om sidan:
+             prompten byggs medan man skriver, så formuläret ska aldrig skickas. -->
+        <form class="tm-form" id="tp-form" autocomplete="off" onsubmit="return false">
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">Kind of thinking to follow</span>
+            <span class="tm-field__note">Choose one ladder. Read about all six <a href="#tp-ladders">further up on this page</a>.</span>
+            <select class="input" id="tp-cluster" required>
+              <option value="">Choose a cluster</option>
+              <option value="generating">Generating ideas</option>
+              <option value="evaluating">Evaluating and choosing</option>
+              <option value="comparing">Comparing and transferring</option>
+              <option value="explaining">Explaining and reasoning from basics</option>
+              <option value="causes">Causes and systems</option>
+              <option value="regulating">Regulating your own thinking</option>
+            </select>
+          </label>
+          <label class="tm-field">
+            <span class="tm-field__label">Subject</span>
+            <input class="input" id="tp-subject" list="tp-subjects" maxlength="60" placeholder="e.g. Biology" required>
+            <datalist id="tp-subjects">
+              <option value="Art"><option value="Biology"><option value="Chemistry"><option value="Civics">
+              <option value="Economics"><option value="English"><option value="Geography"><option value="History">
+              <option value="Maths"><option value="Modern languages"><option value="Music"><option value="PE and health">
+              <option value="Physics"><option value="Religion and ethics"><option value="Social studies"><option value="Technology">
+            </datalist>
+          </label>
+          <label class="tm-field">
+            <span class="tm-field__label">Grade</span>
+            <select class="input" id="tp-grade">
+              <option value="7">Grade 7</option><option value="8">Grade 8</option><option value="9" selected>Grade 9</option>
+              <option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option>
+            </select>
+          </label>
+          <label class="tm-field">
+            <span class="tm-field__label">Weeks in the unit</span>
+            <input class="input" id="tp-weeks" type="number" min="3" max="8" value="6" inputmode="numeric">
+          </label>
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">What is the unit about?</span>
+            <textarea class="input" id="tp-topic" rows="2" maxlength="400" placeholder="e.g. Ecosystems" required></textarea>
+          </label>
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">Unit outline (optional)</span>
+            <textarea class="input" id="tp-overview" rows="4" maxlength="2000" placeholder="Paste your unit outline here. Leave out anything about individual students."></textarea>
+          </label>
+        </form>
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
+          <textarea class="input tm-prompt" id="tp-prompt" rows="14" readonly></textarea>
+        </label>
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--primary" id="tp-copy" data-copy="" aria-describedby="tp-hint" disabled>Copy prompt</button>
+          <!-- Ledtråden står bredvid knappen så att man ser varför den är grå.
+               Den töms av thinking-profile.js när prompten är klar. -->
+          <p class="tm-hint" id="tp-hint" aria-live="polite">Choose a cluster and fill in subject and topic to see your prompt.</p>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Arbetsgången i fem steg. Meningen om att trappan aldrig betygsätts
+         (not_graded) byggs ordagrant från JSON-filen. -->
+    <section class="section section--alt" id="tp-how">
+      <div class="container">
+        <h2 class="section__title">How to run it</h2>
+        <ol class="tm-steps">
+          <li><strong>Pick one cluster.</strong> Choose the kind of thinking your unit needs most.</li>
+          <li><strong>Read what to tell students.</strong> The plan ends with a short text for students. Read it out before the first task.</li>
+          <li><strong>Make each task in its own builder.</strong> Every week in the plan lists exactly what to enter, with a link to the right builder.</li>
+          <li><strong>Self-check after each task (2 min).</strong> Students answer three questions: Which step did my answer reach? What in my answer shows it? My next step.</li>
+          <li><strong>Look at the sheets for movement.</strong> Over the weeks, the step students reach should climb. That is your sign that it works.</li>
+        </ol>
+        <p class="tm-note"><strong><!-- notgraded:start -->
+The ladder is for students&#x27; own self-check. It is never graded.
+<!-- notgraded:end --></strong> In the next unit you can follow the same cluster again or pick another one.</p>
+      </div>
+    </section>
+
+    <!-- Det genomarbetade exemplet: en biologienhet i årskurs 8. Allt mellan
+         markörerna byggs från JSON-filen (exempelelevernas svar är påhittade
+         och märkta så). -->
+    <section class="section container" id="tp-example">
+      <h2 class="section__title">A worked unit</h2>
+<!-- example:start -->
+<div class="tm-example tp-example"><h3 class="tm-example__subject">Biology <span>· Grade 8 · 6 weeks · Ecosystems · Causes and systems</span></h3><p class="tp-thread">One question runs through the unit: when one thing in an ecosystem changes, what else changes, and when? Each week students follow the effects a little further: a chain in week 1, a loop in week 2, a delayed side effect in week 3, and by week 6 a prediction they back with the loop.</p></div>
+<h3 class="tp-sub">The plan, week by week</h3>
+<ol class="tp-plan"><li class="tp-plan__item"><p class="tp-plan__week">Week 1 · Then what? <span>· aim: step 2</span></p><p>Queensland, 1935: cane toads are released to eat the beetles that damage sugar cane. Students write the first consequence, the consequence of that, and one more.</p><details class="tp-plan__inputs"><summary>What to enter in the builder</summary><ul><li>Thinking move: Then what?</li><li>Subject: Biology</li><li>Grade: 8</li><li>What is the lesson about?: Food chains and what happens when a new species is introduced: the cane toads released in Queensland in 1935 to control cane beetles</li><li>What do students already know?: Producers, consumers and simple food chains</li></ul><a class="tm-move__use" href="/thinking-moves/?move=then-what">Open this task in its builder</a></details></li><li class="tp-plan__item"><p class="tp-plan__week">Week 2 · Map the loop <span>· aim: step 3</span></p><p>Students draw how snowshoe hares, lynx and the shrubs the hares eat affect each other, find one loop and say whether it grows or balances itself.</p><details class="tp-plan__inputs"><summary>What to enter in the builder</summary><ul><li>Thinking move: Map the loop</li><li>Subject: Biology</li><li>Grade: 8</li><li>What is the lesson about?: Predators and prey: snowshoe hares, lynx and the shrubs the hares eat in the Canadian forest, whose numbers rise and fall in a cycle of about ten years</li><li>What do students already know?: Food chains and food webs; the cane toad chain from week 1</li></ul><a class="tm-move__use" href="/thinking-moves/?move=map-the-loop">Open this task in its builder</a></details></li><li class="tp-plan__item"><p class="tp-plan__week">Week 3 · Then what? <span>· aim: step 3</span></p><p>Harder inputs: a farmer spreads extra fertiliser next to a lake. Students follow the chain into the water and find the delayed side effect: algae bloom, die and rot, and the fish run short of oxygen.</p><details class="tp-plan__inputs"><summary>What to enter in the builder</summary><ul><li>Thinking move: Then what?</li><li>Subject: Biology</li><li>Grade: 8</li><li>What is the lesson about?: Nutrients in a lake ecosystem: a farmer spreads extra fertiliser on a field next to a lake to grow more wheat</li><li>What do students already know?: Food webs, photosynthesis, and that decomposers break down dead material</li></ul><a class="tm-move__use" href="/thinking-moves/?move=then-what">Open this task in its builder</a></details></li><li class="tp-plan__item"><p class="tp-plan__week">Week 4 · Best explanation <span>· aim: step 3</span></p><p>Borrowed from Explaining. 29 reindeer released on St. Matthew Island in 1944 grew to about 6,000 by 1963, then fell to 42 by 1966. Students propose explanations and say what evidence would tell them apart. Researchers still disagree: overgrazed lichen plus a hard winter, or the winter alone.</p><details class="tp-plan__inputs"><summary>What to enter in the builder</summary><ul><li>Thinking move: Best explanation</li><li>Subject: Biology</li><li>Grade: 8</li><li>What is the lesson about?: Population growth and crashes: the reindeer on St. Matthew Island, Alaska, which grew from 29 in 1944 to about 6,000 in 1963 and fell to 42 by 1966</li><li>What do students already know?: Food webs, predator and prey loops, and that a population needs enough food to survive the winter</li></ul><a class="tm-move__use" href="/thinking-moves/?move=best-explanation">Open this task in its builder</a></details></li><li class="tp-plan__item"><p class="tp-plan__week">Week 5 · One thing changed <span>· aim: step 4</span></p><p>Borrowed from Comparing. Two identical forests have too many deer, and both remove the same number every year. In A most of the deer removed are females, in B most are males. Students compare what happens, write the rule and predict a third forest.</p><details class="tp-plan__inputs"><summary>What to enter in the builder</summary><ul><li>Pair type: One thing changed</li><li>How hard should the difference be to see?: Easier to see</li><li>Subject: Biology</li><li>Grade: 8</li><li>What is the lesson about?: Managing a population: two forests with too many deer that remove the same number of deer each year, mostly females in one forest and mostly males in the other</li><li>What do students already know?: Birth and death rates, predator and prey loops, and the St. Matthew Island reindeer crash</li></ul><a class="tm-move__use" href="/side-by-side/?pair=one-change">Open this task in its builder</a></details></li><li class="tp-plan__item"><p class="tp-plan__week">Week 6 · Map the loop <span>· aim: step 4</span></p><p>Back to the hares, now with less support: a disease halves the lynx. Students use their loop to predict what happens to hares and shrubs over the next few years, and say how sure they are.</p><details class="tp-plan__inputs"><summary>What to enter in the builder</summary><ul><li>Thinking move: Map the loop</li><li>Subject: Biology</li><li>Grade: 8</li><li>What is the lesson about?: Predicting change in an ecosystem: a disease halves the lynx in a forest with snowshoe hares and the shrubs they eat. What happens to the hares and the shrubs over the next few years?</li><li>What do students already know?: The hare and lynx loop from week 2, delays and side effects from week 3, and the deer comparison from week 5</li></ul><a class="tm-move__use" href="/thinking-moves/?move=map-the-loop">Open this task in its builder</a></details></li></ol>
+<h3 class="tp-sub">What you say to students</h3>
+<blockquote class="tp-tell">For six weeks we practise one kind of thinking: causes and systems. After every task you check your answer against the same four-step ladder, point to the words that show your step, and write your next step. Nobody grades the ladder. It is there so you can see yourself climb.</blockquote>
+<h3 class="tp-sub">Two students, one task</h3>
+<p class="tp-note">Fictional examples: two Grade 8 answers to the week 4 task, each with the student&#x27;s own self-check.</p>
+<div class="tp-students"><div class="tp-student"><h5>Amira <span>· Best explanation · step 2</span></h5><p class="tp-student__answer">There were no wolves on the island, so nothing killed the reindeer and there got to be too many. They ate all the lichen, so there was no food left, so they starved. Maybe some of them also got a disease.</p><dl><dt>What shows it</dt><dd>No predators, then too many reindeer, then they ate the lichen, then they starved. That is four parts in a row.</dd><dt>My next step</dt><dd>Find the arrow that goes back: what eating the lichen did to the reindeer the year after.</dd></dl></div><div class="tp-student"><h5>Theo <span>· Best explanation · step 3</span></h5><p class="tp-student__answer">More reindeer ate more lichen, and less lichen meant less food for the reindeer, so it is a loop. But lichen grows back really slowly, so the herd kept growing for years after the food started running out. Then one very bad winter with deep snow finished them off. If it was only the winter, they would have been fat and healthy in 1963. If it was the food, they would already be getting thinner. Weighing the reindeer from before the crash would tell us which.</p><dl><dt>What shows it</dt><dd>The loop is &quot;less lichen meant less food for the reindeer&quot;. The delay is &quot;lichen grows back really slowly&quot;.</dd><dt>My next step</dt><dd>Use the loop to predict something, like what would happen if only ten reindeer had been released, and say how sure I am.</dd></dl></div></div>
+<!-- example:end -->
+    </section>
+
+    <!-- Evidensen: etiketter och påståenden byggs från JSON-filen och
+         etikettförklaringen från Thinking Moves. Ärligheten om trapporna
+         (honesty) ska stå här, ordagrant. -->
+    <section class="section section--alt" id="tp-evidence">
+      <div class="container">
+        <h2 class="section__title">How strong is the evidence?</h2>
+<!-- legend:start -->
+<ul class="tm-legend"><li><span class="tm-chip tm-chip--strong">Strong</span> Meta-analyses of classroom interventions show that teaching this kind of thinking improves it.</li><li><span class="tm-chip tm-chip--promising">Promising</span> Controlled studies show gains, but results are mixed, small in number or dependent on context.</li><li><span class="tm-chip tm-chip--framework">Framework</span> A useful structure for thinking, with no intervention studies behind it yet.</li></ul>
+<p class="tm-legend__note">Labels rate the research on teaching this kind of thinking regularly, not a single five-minute move. One move is one small piece of that practice.</p>
+<!-- legend:end -->
+<!-- evidence:start -->
+<ul class="tp-evidence"><li><span class="tm-chip tm-chip--strong">Strong</span> <strong>Metacognition and self-regulation.</strong> Teaching students to plan, monitor and evaluate their own learning adds +8 months of progress on average in the EEF Teaching and Learning Toolkit, based on 355 studies, with 4 of 5 padlocks for the strength of the evidence. The estimate rose from +7 months when the strand was updated in May 2025. <span class="tm-move__sources">Source: <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation">EEF Teaching and Learning Toolkit: Metacognition and self-regulation</a></span></li><li><span class="tm-chip tm-chip--promising">Promising</span> <strong>Self-assessment against concrete criteria.</strong> In a meta-analysis of classrooms from Grade 3 to Grade 12, students who graded their own work did better on later tests than students who did not (Sanchez et al. 2017, g = 0.34), though 12 of the 44 effects were negative. Students&#x27; own ratings agree only partly with other measures of their work, with correlations from about 0.2 to 0.8 (Brown &amp; Harris 2013). They agree more when the criteria are concrete and task-specific and students are trained to use them (Andrade 2019), which is why every step names something students can point to. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1037/edu0000190">Sanchez, Atkinson, Koenka, Moshontz &amp; Cooper 2017, Journal of Educational Psychology</a>, <a href="https://doi.org/10.4135/9781452218649.n21">Brown &amp; Harris 2013, SAGE Handbook of Research on Classroom Assessment</a>, <a href="https://doi.org/10.3389/feduc.2019.00087">Andrade 2019, Frontiers in Education</a></span></li><li><span class="tm-chip tm-chip--framework">Framework</span> <strong>The ladders.</strong> The ladders are Choosewise&#x27;s own, built on the logic of the SOLO taxonomy. They have not been tested in research. SOLO describes how the quality of an answer grows; it is not evidence that these ladders improve students&#x27; thinking. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1016/C2013-0-10375-3">Biggs &amp; Collis 1982, Evaluating the Quality of Learning: The SOLO Taxonomy</a></span></li></ul>
+<!-- evidence:end -->
+        <p class="tm-note tp-honesty"><strong><!-- honesty:start -->
+The ladders are Choosewise&#x27;s own, built on the logic of the SOLO taxonomy. They have not been tested in research.
+<!-- honesty:end --></strong></p>
+        <h3 class="tm-sources__title">Sources</h3>
+<!-- sources:start -->
+<ul class="tm-sources"><li><a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation">EEF Teaching and Learning Toolkit: Metacognition and self-regulation</a></li><li><a href="https://doi.org/10.1037/edu0000190">Sanchez, Atkinson, Koenka, Moshontz &amp; Cooper 2017, Journal of Educational Psychology</a></li><li><a href="https://doi.org/10.4135/9781452218649.n21">Brown &amp; Harris 2013, SAGE Handbook of Research on Classroom Assessment</a></li><li><a href="https://doi.org/10.3389/feduc.2019.00087">Andrade 2019, Frontiers in Education</a></li><li><a href="https://doi.org/10.1016/C2013-0-10375-3">Biggs &amp; Collis 1982, Evaluating the Quality of Learning: The SOLO Taxonomy</a></li></ul>
+<!-- sources:end -->
+        <p class="tm-note">These labels rate the research on practising a kind of thinking regularly and checking it against clear criteria, not a single use. For research on many other teaching strategies, see the <a href="/evidence/">Evidence Toolkit</a> on this site.</p>
+      </div>
+    </section>
+
+    <!-- AI-verktyg och åldersgränser. Reglerna hämtas från Thinking Moves
+         datafil så att sidorna aldrig visar olika regler. Global regel för
+         allt AI-innehåll: åldersgränser och läsarens eget ansvar. -->
+    <section class="section container" id="tp-age">
+      <h2 class="section__title">AI tools and age rules</h2>
+      <p class="section__lede">You use AI to plan the unit. Your students do not need to. If students use AI themselves in a task, these rules apply (October 2026):</p>
+<!-- age:start -->
+<ul class="tm-age"><li><strong>Copilot Chat:</strong> Students aged 13 and over, through the school&#x27;s own Microsoft 365 account. The school&#x27;s administrator must set each student&#x27;s age group and consent.</li><li><strong>Gemini for Education:</strong> Open to education users of all ages, with a stricter experience for under-18s. The school&#x27;s administrator must turn it on.</li><li><strong>ChatGPT:</strong> Ages 13 and over on personal accounts, with a parent&#x27;s or guardian&#x27;s permission under 18. ChatGPT for Teachers is for school staff only.</li><li><strong>Claude:</strong> Ages 18 and over. In a school, for teachers only.</li></ul>
+<!-- age:end -->
+      <p class="tm-note">Rules differ between countries and change often. Check your own national rules and your school policy before students use any AI tool.</p>
+    </section>
+
+    <!-- Nedladdningar bakom e-postgrinden. Knapparna är vanliga länkar till
+         PDF:en; mailerlite-gate.js gör om dem till e-postformuläret (samma
+         mönster som på /free/). PDF:erna byggs i en senare uppgift. -->
+    <section class="section section--alt" id="tp-download">
+      <div class="container">
+        <h2 class="section__title">Downloads</h2>
+        <p class="section__lede">The ladder deck has all six ladders on cards for the wall or the desk. The self-check sheets let students rate each task and write their next step, and show you the movement over the unit.</p>
+        <div class="tp-downloads">
+          <a class="btn btn--primary" href="/assets/pdfs/free/thinking-profile-deck-en.pdf" data-gate="thinking-profile-deck-en" data-gate-pdf="/assets/pdfs/free/thinking-profile-deck-en.pdf" data-gate-title="Get the ladder deck (PDF)">Download the ladder deck (PDF)</a>
+          <a class="btn btn--primary" href="/assets/pdfs/free/thinking-profile-sheets-en.pdf" data-gate="thinking-profile-sheets-en" data-gate-pdf="/assets/pdfs/free/thinking-profile-sheets-en.pdf" data-gate-title="Get the self-check sheets (PDF)">Download the self-check sheets (PDF)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknapparna (data-copy) och planeringsbyggaren. -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+  <script src="/assets/js/thinking-profile.js" defer></script>
+  <!-- E-postgrinden för nedladdningarna. -->
+  <script type="module" src="/assets/js/mailerlite-gate.js" defer></script>
+</body>
+</html>
