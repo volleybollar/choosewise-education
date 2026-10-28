@@ -227,6 +227,168 @@
       ]
     }
   ],
-  "example": {},
-  "evidence": []
+  "example": {
+    "subject": "Biology",
+    "grade": 8,
+    "weeks": 6,
+    "topic": "Ecosystems",
+    "cluster": "causes",
+    "thread": "One question runs through the unit: when one thing in an ecosystem changes, what else changes, and when? Each week students follow the effects a little further: a chain in week 1, a loop in week 2, a delayed side effect in week 3, and by week 6 a prediction they back with the loop.",
+    "plan": [
+      {
+        "week": 1,
+        "tool": "thinking-moves",
+        "task": "then-what",
+        "what": "Queensland, 1935: cane toads are released to eat the beetles that damage sugar cane. Students write the first consequence, the consequence of that, and one more.",
+        "step": 2,
+        "inputs": [
+          "Thinking move: Then what?",
+          "Subject: Biology",
+          "Grade: 8",
+          "What is the lesson about?: Food chains and what happens when a new species is introduced: the cane toads released in Queensland in 1935 to control cane beetles",
+          "What do students already know?: Producers, consumers and simple food chains"
+        ],
+        "url": "/thinking-moves/?move=then-what"
+      },
+      {
+        "week": 2,
+        "tool": "thinking-moves",
+        "task": "map-the-loop",
+        "what": "Students draw how snowshoe hares, lynx and the shrubs the hares eat affect each other, find one loop and say whether it grows or balances itself.",
+        "step": 3,
+        "inputs": [
+          "Thinking move: Map the loop",
+          "Subject: Biology",
+          "Grade: 8",
+          "What is the lesson about?: Predators and prey: snowshoe hares, lynx and the shrubs the hares eat in the Canadian forest, whose numbers rise and fall in a cycle of about ten years",
+          "What do students already know?: Food chains and food webs; the cane toad chain from week 1"
+        ],
+        "url": "/thinking-moves/?move=map-the-loop"
+      },
+      {
+        "week": 3,
+        "tool": "thinking-moves",
+        "task": "then-what",
+        "what": "Harder inputs: a farmer spreads extra fertiliser next to a lake. Students follow the chain into the water and find the delayed side effect: algae bloom, die and rot, and the fish run short of oxygen.",
+        "step": 3,
+        "inputs": [
+          "Thinking move: Then what?",
+          "Subject: Biology",
+          "Grade: 8",
+          "What is the lesson about?: Nutrients in a lake ecosystem: a farmer spreads extra fertiliser on a field next to a lake to grow more wheat",
+          "What do students already know?: Food webs, photosynthesis, and that decomposers break down dead material"
+        ],
+        "url": "/thinking-moves/?move=then-what"
+      },
+      {
+        "week": 4,
+        "tool": "thinking-moves",
+        "task": "best-explanation",
+        "what": "Borrowed from Explaining. 29 reindeer released on St. Matthew Island in 1944 grew to about 6,000 by 1963, then fell to 42 by 1966. Students propose explanations and say what evidence would tell them apart. Researchers still disagree: overgrazed lichen plus a hard winter, or the winter alone.",
+        "step": 3,
+        "inputs": [
+          "Thinking move: Best explanation",
+          "Subject: Biology",
+          "Grade: 8",
+          "What is the lesson about?: Population growth and crashes: the reindeer on St. Matthew Island, Alaska, which grew from 29 in 1944 to about 6,000 in 1963 and fell to 42 by 1966",
+          "What do students already know?: Food webs, predator and prey loops, and that a population needs enough food to survive the winter"
+        ],
+        "url": "/thinking-moves/?move=best-explanation"
+      },
+      {
+        "week": 5,
+        "tool": "side-by-side",
+        "task": "one-change",
+        "what": "Borrowed from Comparing. Two identical forests have too many deer, and both remove the same number every year. In A most of the deer removed are females, in B most are males. Students compare what happens, write the rule and predict a third forest.",
+        "step": 4,
+        "inputs": [
+          "Pair type: One thing changed",
+          "How hard should the difference be to see?: Easier to see",
+          "Subject: Biology",
+          "Grade: 8",
+          "What is the lesson about?: Managing a population: two forests with too many deer that remove the same number of deer each year, mostly females in one forest and mostly males in the other",
+          "What do students already know?: Birth and death rates, predator and prey loops, and the St. Matthew Island reindeer crash"
+        ],
+        "url": "/side-by-side/?pair=one-change"
+      },
+      {
+        "week": 6,
+        "tool": "thinking-moves",
+        "task": "map-the-loop",
+        "what": "Back to the hares, now with less support: a disease halves the lynx. Students use their loop to predict what happens to hares and shrubs over the next few years, and say how sure they are.",
+        "step": 4,
+        "inputs": [
+          "Thinking move: Map the loop",
+          "Subject: Biology",
+          "Grade: 8",
+          "What is the lesson about?: Predicting change in an ecosystem: a disease halves the lynx in a forest with snowshoe hares and the shrubs they eat. What happens to the hares and the shrubs over the next few years?",
+          "What do students already know?: The hare and lynx loop from week 2, delays and side effects from week 3, and the deer comparison from week 5"
+        ],
+        "url": "/thinking-moves/?move=map-the-loop"
+      }
+    ],
+    "tell_students": "For six weeks we practise one kind of thinking: causes and systems. After every task you check your answer against the same four-step ladder, point to the words that show your step, and write your next step. Nobody grades the ladder. It is there so you can see yourself climb.",
+    "students_note": "Fictional examples: two Grade 8 answers to the week 4 task, each with the student's own self-check.",
+    "students": [
+      {
+        "name": "Amira",
+        "task": "best-explanation",
+        "answer": "There were no wolves on the island, so nothing killed the reindeer and there got to be too many. They ate all the lichen, so there was no food left, so they starved. Maybe some of them also got a disease.",
+        "step": 2,
+        "shows": "No predators, then too many reindeer, then they ate the lichen, then they starved. That is four parts in a row.",
+        "next": "Find the arrow that goes back: what eating the lichen did to the reindeer the year after."
+      },
+      {
+        "name": "Theo",
+        "task": "best-explanation",
+        "answer": "More reindeer ate more lichen, and less lichen meant less food for the reindeer, so it is a loop. But lichen grows back really slowly, so the herd kept growing for years after the food started running out. Then one very bad winter with deep snow finished them off. If it was only the winter, they would have been fat and healthy in 1963. If it was the food, they would already be getting thinner. Weighing the reindeer from before the crash would tell us which.",
+        "step": 3,
+        "shows": "The loop is \"less lichen meant less food for the reindeer\". The delay is \"lichen grows back really slowly\".",
+        "next": "Use the loop to predict something, like what would happen if only ten reindeer had been released, and say how sure I am."
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "claim": "Metacognition and self-regulation",
+      "label": "strong",
+      "text": "Teaching students to plan, monitor and evaluate their own learning adds +8 months of progress on average in the EEF Teaching and Learning Toolkit, based on 355 studies, with 4 of 5 padlocks for the strength of the evidence. The estimate rose from +7 months when the strand was updated in May 2025.",
+      "sources": [
+        {
+          "text": "EEF Teaching and Learning Toolkit: Metacognition and self-regulation",
+          "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation"
+        }
+      ]
+    },
+    {
+      "claim": "Self-assessment against concrete criteria",
+      "label": "promising",
+      "text": "In a meta-analysis of classrooms from Grade 3 to Grade 12, students who graded their own work did better on later tests than students who did not (Sanchez et al. 2017, g = 0.34), though 12 of the 44 effects were negative. Students' own ratings agree only partly with other measures of their work, with correlations from about 0.2 to 0.8 (Brown & Harris 2013). They agree more when the criteria are concrete and task-specific and students are trained to use them (Andrade 2019), which is why every step names something students can point to.",
+      "sources": [
+        {
+          "text": "Sanchez, Atkinson, Koenka, Moshontz & Cooper 2017, Journal of Educational Psychology",
+          "url": "https://doi.org/10.1037/edu0000190"
+        },
+        {
+          "text": "Brown & Harris 2013, SAGE Handbook of Research on Classroom Assessment",
+          "url": "https://doi.org/10.4135/9781452218649.n21"
+        },
+        {
+          "text": "Andrade 2019, Frontiers in Education",
+          "url": "https://doi.org/10.3389/feduc.2019.00087"
+        }
+      ]
+    },
+    {
+      "claim": "The ladders",
+      "label": "framework",
+      "text": "The ladders are Choosewise's own, built on the logic of the SOLO taxonomy. They have not been tested in research. SOLO describes how the quality of an answer grows; it is not evidence that these ladders improve students' thinking.",
+      "sources": [
+        {
+          "text": "Biggs & Collis 1982, Evaluating the Quality of Learning: The SOLO Taxonomy",
+          "url": "https://doi.org/10.1016/C2013-0-10375-3"
+        }
+      ]
+    }
+  ]
 }

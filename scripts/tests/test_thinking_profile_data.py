@@ -136,3 +136,102 @@ def test_every_source_has_https_url():
     assert sources
     for s in sources:
         assert s["text"].strip() and s["url"].startswith("https://"), s
+
+
+# --- Genomarbetat exempel och evidens (Task 2) ---
+
+# Fälten i de riktiga byggarna (thinking-moves/index.html, side-by-side/index.html),
+# utan "(optional)". Exemplets inputs skrivs "Fält: värde".
+BUILDER_FIELDS = {
+    "thinking-moves": {"Thinking move", "Subject", "Grade", "What is the lesson about?",
+                       "What do students already know?"},
+    "side-by-side": {"Pair type", "How hard should the difference be to see?", "Subject",
+                     "Grade", "What is the lesson about?", "What do students already know?"},
+}
+BUILDER_GRADES = {"thinking-moves": {"8", "9", "10", "11", "12"},
+                  "side-by-side": {"7", "8", "9", "10", "11", "12"}}
+URL_PARAM = {"thinking-moves": "move", "flawed-answer": "flaw", "side-by-side": "pair"}
+
+
+def builder_url(tool, task_id):
+    # Samma härledning som i Task 1: /<verktyg>/?<param>=<id>.
+    return "/{}/?{}={}".format(tool, URL_PARAM[tool], task_id)
+
+
+def _causes_tasks():
+    causes = next(lad for lad in data()["ladders"] if lad["cluster"] == "causes")
+    return causes["tasks"]
+
+
+def test_example_obeys_task_rules():
+    ex = data()["example"]
+    assert (ex["subject"], ex["grade"], ex["weeks"], ex["topic"], ex["cluster"]) == (
+        "Biology", 8, 6, "Ecosystems", "causes")
+    assert ex["thread"].strip() and ex["tell_students"].strip()
+    plan = ex["plan"]
+    assert 4 <= len(plan) <= 6
+    weeks = [p["week"] for p in plan]
+    assert weeks == sorted(weeks) and all(1 <= w <= ex["weeks"] for w in weeks)
+    causes = _causes_tasks()
+    from_causes = [p for p in plan if {"tool": p["tool"], "id": p["task"]} in causes]
+    assert 2 * len(from_causes) >= len(plan)
+    by_week = {p["week"]: (p["tool"], p["task"]) for p in plan}
+    assert by_week.get(2) == ("thinking-moves", "map-the-loop")
+    assert by_week.get(4) == ("thinking-moves", "best-explanation")
+    assert by_week.get(5) == ("side-by-side", "one-change")
+    steps = [p["step"] for p in plan]
+    assert all(s in (1, 2, 3, 4) for s in steps)
+    assert steps == sorted(steps) and steps[-1] == 4
+    for p in plan:
+        assert p["what"].strip(), p
+        assert p["url"] == builder_url(p["tool"], p["task"]), p
+
+
+def test_example_inputs_fit_builder():
+    move_names = {m["id"]: m["name"] for m in moves()["moves"]}
+    pair_names = {p["id"]: p["name"] for p in pairs()["pairs"]}
+    level_names = {lv["name"] for lv in pairs()["levels"]}
+    ex = data()["example"]
+    for p in ex["plan"]:
+        fields = dict(i.split(": ", 1) for i in p["inputs"])
+        assert set(fields) <= BUILDER_FIELDS[p["tool"]], p["inputs"]
+        assert fields["Subject"] == ex["subject"]
+        assert fields["Grade"] == str(ex["grade"]) in BUILDER_GRADES[p["tool"]]
+        assert fields["What is the lesson about?"].strip()
+        assert len(fields["What is the lesson about?"]) <= 400
+        if p["tool"] == "thinking-moves":
+            assert fields["Thinking move"] == move_names[p["task"]], p
+        else:
+            assert fields["Pair type"] == pair_names[p["task"]], p
+            assert fields["How hard should the difference be to see?"] in level_names
+
+
+def test_example_students_differ_in_step():
+    ex = data()["example"]
+    students = ex["students"]
+    assert len(students) == 2
+    assert ex["students_note"].startswith("Fictional examples")
+    plan_tasks = {p["task"] for p in ex["plan"]}
+    for s in students:
+        for key in ("name", "answer", "shows", "next"):
+            assert s[key].strip(), (s["name"], key)
+        assert s["task"] in plan_tasks, s["task"]
+        assert s["step"] in (1, 2, 3, 4)
+    assert students[0]["name"] != students[1]["name"]
+    assert students[0]["step"] != students[1]["step"]
+
+
+def test_evidence_has_ladder_framework_entry():
+    entries = [e for e in data()["evidence"] if e["label"] == "framework"]
+    assert len(entries) == 1
+    assert HONESTY in entries[0]["text"]
+
+
+def test_no_solo_as_evidence():
+    # SOLO är grunden för trapporna, inte bevis för att de fungerar.
+    evidence = data()["evidence"]
+    assert evidence
+    for e in evidence:
+        if e["label"] in ("strong", "promising"):
+            blob = e["text"] + " ".join(s["text"] for s in e["sources"])
+            assert "Biggs" not in blob and "SOLO" not in blob, e["claim"]
