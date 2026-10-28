@@ -61,8 +61,8 @@
           "shows": "Point to your choice and the one reason."
         },
         {
-          "text": "I give several reasons, each backed by evidence or a criterion.",
-          "shows": "Point to each reason and the evidence or criterion beside it."
+          "text": "I give several reasons, each backed by a fact or a rule I can check.",
+          "shows": "Point to each reason and the fact or rule beside it."
         },
         {
           "text": "I weigh my reasons against each other and against the other side, and show which one decides it.",
@@ -207,8 +207,8 @@
           "shows": "Point to the strategy you name, such as \"I drew it\". \"I thought harder\" does not count."
         },
         {
-          "text": "I describe several steps in how I worked, and the moment I changed my approach or got stuck.",
-          "shows": "Point to each step and to the moment you changed your approach or got stuck."
+          "text": "I describe several steps in how I worked, and one moment that shaped how I worked, such as changing my approach or getting stuck.",
+          "shows": "Point to each step and to the moment that shaped how you worked."
         },
         {
           "text": "I explain what made me change my approach or moved me on, and why it helped.",
