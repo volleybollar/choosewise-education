@@ -41,10 +41,10 @@ PROMPT_PARTS = [
     "THE FLAW: quote the flawed sentence exactly, then say what is wrong in at most two sentences",
     "FIX: the corrected sentence or step",
     "WHY IT CONVINCES: the true-sounding idea or common misconception that makes the flaw believable",
-    "TEST IT: one way students could check this in class or at home",
+    "TEST IT: one quick way students could check this in class with no extra materials, or at home",
     "PROBE: one follow-up question that pushes past the first answer",
-    "THINK BACK: one sentence starter about how they thought, not what they found",
-    'CHECK: every fact, figure, date, general rule or source in ANSWER or THE FLAW that the teacher should verify, quoted or closely paraphrased as it appears there, one per line, starting with the claims you are least sure of. Do not add claims from FIX or TEST IT. Write "None" only if ANSWER contains no checkable claim.',
+    "THINK BACK: one short sentence starter with a single blank, about how they thought, not what they found",
+    'CHECK: only the facts, figures, dates or sources in ANSWER or THE FLAW that could be wrong, quoted or closely paraphrased as they appear there, most doubtful first, one per line, at most six lines. Skip definitions and general statements. Do not add claims from FIX or TEST IT. Write "None" if there are none.',
 ]
 
 KEY_PARTS = [("flaw", "The flaw"), ("fix", "Fix"), ("why_convincing", "Why it convinces"),
