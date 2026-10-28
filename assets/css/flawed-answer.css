@@ -15,6 +15,9 @@
 .fa-level__note:empty { display: none; }
 
 /* ───── Feltypskorten ───── */
+/* Kort i samma rad blir lika höga ("Use this flaw" hamnar längst ned i alla).
+   Thinking Moves delade rutnät lägger korten uppåt, så det skrivs över här. */
+#fa-flaws .tm-grid { align-items: stretch; }
 .fa-flaw__signs-title { margin: 0; font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); }
 .fa-flaw__signs { margin: 0; padding-left: var(--space-5); font-size: var(--fs-small); display: grid; gap: var(--space-1); }
 .fa-flaw__signs li { max-width: none; }

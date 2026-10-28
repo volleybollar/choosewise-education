@@ -193,3 +193,17 @@ def test_variant_copy_matches_student_prompt(site, browser):
     p.click("#fa-variant-copy")
     assert p.evaluate("navigator.clipboard.readText()") == data["variant"]["student_prompt"]
     ctx.close()
+
+
+def test_flaw_cards_side_by_side_are_equal_height(site, browser):
+    # Kort som står bredvid varandra i samma rad ska vara lika höga.
+    for width in (1280, 900):
+        p = browser.new_page(viewport={"width": width, "height": 900})
+        p.goto(f"{site}/flawed-answer/", wait_until="networkidle")
+        rows = {}
+        for box in (c.bounding_box() for c in p.locator("article.fa-flaw").all()):
+            rows.setdefault(round(box["y"]), []).append(box["height"])
+        assert any(len(h) > 1 for h in rows.values()), width
+        for heights in rows.values():
+            assert max(heights) - min(heights) < 1, (width, heights)
+        p.close()

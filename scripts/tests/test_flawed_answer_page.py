@@ -155,3 +155,22 @@ def test_hero_promise_and_back_link():
     hero = re.search(r'<section class="page-hero.*?</section>', html(), re.S).group(0)
     assert 'href="/think/"' in hero
     assert "About 5 minutes to prepare, 15 minutes in class, no student devices needed" in hero
+
+
+def test_level_texts_match_json_word_counts():
+    for level in data()["levels"]:
+        words = re.search(r"(\d+–\d+) words", level["instruction"]).group(1)
+        label = re.search(rf'value="{level["id"]}"[^>]*>\s*<span>(.*?)</span>', html(), re.S).group(1)
+        assert f"{words} words" in label, level["id"]
+
+
+def test_harder_radio_described_by_level_note():
+    assert re.search(r'value="harder"[^>]*aria-describedby="fa-level-note"', html())
+
+
+def test_hint_does_not_ask_to_choose_preselected_flaw():
+    hint = re.search(r'id="fa-hint"[^>]*>(.*?)</p>', html()).group(1)
+    js = (ROOT / "assets/js/flawed-answer.js").read_text(encoding="utf-8")
+    assert "Choose a flaw type" not in hint
+    assert "Choose a flaw type" not in js
+    assert hint in js
