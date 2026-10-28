@@ -133,3 +133,20 @@ def test_copied_toast_does_not_cover_the_button(site, browser):
     toast = p.locator(".tm-copy-row .copy-toast").bounding_box()
     assert toast["x"] >= btn["x"] + btn["width"], (btn, toast)
     p.close()
+
+
+def test_copy_toast_text_changes_so_screen_readers_hear_it(site, browser):
+    ctx = browser.new_context(permissions=["clipboard-read", "clipboard-write"])
+    p = ctx.new_page()
+    p.goto(f"{site}/thinking-moves/", wait_until="networkidle")
+    p.wait_for_function("document.querySelectorAll('#tm-move option').length === 12")
+    fill(p)
+    p.evaluate("""() => {
+        window.__toastChanges = 0;
+        new MutationObserver(m => { window.__toastChanges += m.length; })
+          .observe(document.querySelector('.tm-copy-row .copy-toast'), {childList: true, characterData: true, subtree: true});
+    }""")
+    p.click("#tm-copy")
+    p.wait_for_function("window.__toastChanges >= 2")
+    p.wait_for_function("document.querySelector('.tm-copy-row .copy-toast').textContent === 'Copied'")
+    ctx.close()

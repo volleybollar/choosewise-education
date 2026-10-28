@@ -115,3 +115,31 @@ def test_json_text_is_escaped():
 def test_every_card_carries_the_label_caveat():
     for card in cards():
         assert "not a single five-minute move" in card
+
+
+def test_move_field_points_to_the_cards():
+    builder = section("tm-builder")
+    assert "Read about all twelve thinking moves" in builder
+    assert 'href="#tm-moves"' in builder
+
+
+def test_use_links_name_their_move():
+    data = json.loads(DATA.read_text(encoding="utf-8"))
+    for move, card in zip(data["moves"], cards()):
+        assert f'aria-label="Use this move: {move["name"]}"' in card, move["id"]
+
+
+def test_copy_button_is_described_by_hint():
+    assert 'aria-describedby="tm-hint"' in re.search(r'<button[^>]*id="tm-copy"[^>]*>', html()).group(0)
+
+
+def test_evidence_section_lists_every_source():
+    data = json.loads(DATA.read_text(encoding="utf-8"))
+    evidence = section("tm-evidence")
+    for move in data["moves"]:
+        for s in move["sources"]:
+            assert s["url"] in evidence, s["url"]
+
+
+def test_form_onsubmit_is_commented():
+    assert re.search(r"<!--[^>]*Enter[^>]*-->\s*<form[^>]*onsubmit", html(), re.S)

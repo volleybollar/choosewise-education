@@ -6,6 +6,7 @@ Replaces the content between these marker pairs in thinking-moves/index.html:
   <!-- clusters:start --> / <!-- clusters:end -->  the six clusters
   <!-- legend:start -->   / <!-- legend:end -->    the evidence label legend
   <!-- age:start -->      / <!-- age:end -->       AI tools and age rules
+  <!-- sources:start -->  / <!-- sources:end -->   every source, with the moves that use it
 
 Running it twice gives the same file. The prompt builder reads the same JSON
 in the browser (assets/js/thinking-moves.js).
@@ -58,7 +59,8 @@ def render_move_card(move: dict, labels: dict) -> str:
         f'The label rates research on teaching this kind of thinking regularly, not a single five-minute move. '
         f'<span class="tm-move__sources">Source: {sources}</span></p>'
         f"</details>\n"
-        f'  <a class="tm-move__use" href="?move={mid}#tm-builder" data-use-move="{mid}">Use this move</a>\n'
+        f'  <a class="tm-move__use" href="?move={mid}#tm-builder" data-use-move="{mid}" '
+        f'aria-label="Use this move: {escape(move["name"])}">Use this move</a>\n'
         f"</article>"
     )
 
@@ -98,6 +100,21 @@ def render_age(rules: list) -> str:
     return f'<ul class="tm-age">{rows}</ul>'
 
 
+def render_sources(moves: list) -> str:
+    """Every source once, in first-use order, with the moves that cite it."""
+    cited = {}
+    for m in moves:
+        for s in m["sources"]:
+            cited.setdefault(s["url"], (s["text"], []))[1].append(m)
+    rows = "".join(
+        f'<li><a href="{escape(url)}">{escape(text)}</a> — '
+        + ", ".join(f'<a href="#{escape(m["id"])}">{escape(m["name"])}</a>' for m in ms)
+        + "</li>"
+        for url, (text, ms) in cited.items()
+    )
+    return f'<ul class="tm-sources">{rows}</ul>'
+
+
 def _inject(html: str, name: str, content: str) -> str:
     pattern = re.compile(rf"(<!--\s*{name}:start\s*-->)(.*?)(<!--\s*{name}:end\s*-->)", re.S)
     if not pattern.search(html):
@@ -113,6 +130,7 @@ def build(root: Path) -> None:
     html = _inject(html, "clusters", render_clusters(data["clusters"], data["moves"]))
     html = _inject(html, "legend", render_legend(data["labels"]))
     html = _inject(html, "age", render_age(data["age_rules"]))
+    html = _inject(html, "sources", render_sources(data["moves"]))
     page.write_text(html, encoding="utf-8")
     print(f"Built {len(data['moves'])} moves into {page.relative_to(root)}")
 
