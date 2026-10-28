@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flawed Answer — choosewise.education</title>
+  <meta name="description" content="A fifteen-minute task for Grades 8–12: students find the one reasoning error in an AI-written answer about your lesson topic. A free prompt builder for any AI tool, a student frame and a card deck.">
+  <meta property="og:title" content="Flawed Answer — choosewise.education">
+  <meta property="og:description" content="A fifteen-minute task for Grades 8–12: students find the one reasoning error in an AI-written answer about your lesson topic. A free prompt builder for any AI tool, a student frame and a card deck.">
+  <meta property="og:image" content="https://choosewise.education/assets/images/brand/og/flawedanswer-en.png">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Sidan lånar promptbyggarens och kortens stilar från Thinking Moves
+       (prefix tm-) utan att ändra dem. Det som är nytt här har prefix fa-. -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261027a">
+  <link rel="stylesheet" href="/assets/css/flawed-answer.css?v=20261028a">
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: vad verktyget är och löftet om tid. Löftet kommer från specen —
+         ändra det bara om upplägget ändras. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/think/">← Think + AI</a>
+      <span class="eyebrow">Free tool · Grades 8–12</span>
+      <h1>Flawed Answer</h1>
+      <p class="lede">Students get a fluent, confident AI-written answer about today's topic. It contains exactly one error of reasoning. In pairs, they find it, fix it, explain why it sounded right and say how they would test it.</p>
+      <p class="fa-promise">About 5 minutes to prepare, 15 minutes in class, no student devices needed.</p>
+      <ul class="tm-promises">
+        <li><strong>No personal data.</strong> You give a subject, a topic and a grade. Student names and work never go in.</li>
+        <li><strong>Any AI tool.</strong> The prompt works in Copilot, Gemini, ChatGPT and Claude.</li>
+        <li><strong>Open about the AI.</strong> Students are told an AI wrote the answer. Reading it as a claim, not a fact, is the skill.</li>
+      </ul>
+    </section>
+
+    <!-- Promptbyggaren. Allt sker i webbläsaren: inget sparas och inget
+         skickas någonstans. Logiken finns i assets/js/flawed-answer.js. -->
+    <section class="section section--alt" id="fa-builder">
+      <div class="container">
+        <h2 class="section__title">Build your answer</h2>
+        <p class="tm-privacy"><strong>Do not include student names or student work.</strong> The prompt only needs your subject, topic and grade.</p>
+        <!-- onsubmit="return false" hindrar att Enter i ett fält laddar om sidan:
+             prompten byggs medan man skriver, så formuläret ska aldrig skickas. -->
+        <form class="tm-form" id="fa-form" autocomplete="off" onsubmit="return false">
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">Flaw type</span>
+            <span class="tm-field__note">Choose one of the six flaw types.</span>
+            <select class="input" id="fa-flaw" required></select>
+            <span class="tm-field__note">Read about all six flaw types <a href="#fa-flaws">further down on this page</a>.</span>
+          </label>
+          <!-- Svårighetsgraden: två nivåer så att uppgiften passar både elever
+               med mindre och med mer förkunskaper. En feltyp som bara klarar
+               den lättare nivån gör "Harder to spot" grå (se flawed-answer.js). -->
+          <fieldset class="tm-field tm-field--wide fa-levels" id="fa-level">
+            <legend class="tm-field__label">How hard should the flaw be to spot?</legend>
+            <label class="fa-level"><input type="radio" name="fa-level" value="easier" checked> <span><strong>Easier to spot</strong> — contradicts something students know well, about 80 words.</span></label>
+            <label class="fa-level"><input type="radio" name="fa-level" value="harder"> <span><strong>Harder to spot</strong> — hidden in a plausible middle step, 120–150 words.</span></label>
+            <p class="tm-field__note fa-level__note" id="fa-level-note"></p>
+          </fieldset>
+          <label class="tm-field">
+            <span class="tm-field__label">Subject</span>
+            <input class="input" id="fa-subject" list="fa-subjects" maxlength="60" placeholder="e.g. Chemistry" required>
+            <datalist id="fa-subjects">
+              <option value="Art"><option value="Biology"><option value="Chemistry"><option value="Civics">
+              <option value="Economics"><option value="English"><option value="Geography"><option value="History">
+              <option value="Maths"><option value="Modern languages"><option value="Music"><option value="PE and health">
+              <option value="Physics"><option value="Religion and ethics"><option value="Social studies"><option value="Technology">
+            </datalist>
+          </label>
+          <label class="tm-field">
+            <span class="tm-field__label">Grade</span>
+            <select class="input" id="fa-grade">
+              <option value="8">Grade 8</option><option value="9" selected>Grade 9</option><option value="10">Grade 10</option>
+              <option value="11">Grade 11</option><option value="12">Grade 12</option>
+            </select>
+          </label>
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">What is the lesson about?</span>
+            <textarea class="input" id="fa-topic" rows="2" maxlength="400" placeholder="e.g. Why salt melts ice: freezing point and solutions" required></textarea>
+          </label>
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">What do students already know? (optional)</span>
+            <textarea class="input" id="fa-prior" rows="2" maxlength="400" placeholder="e.g. States of matter; melting and freezing points of pure water"></textarea>
+          </label>
+        </form>
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
+          <textarea class="input tm-prompt" id="fa-prompt" rows="14" readonly></textarea>
+        </label>
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--primary" id="fa-copy" data-copy="" aria-describedby="fa-hint" disabled>Copy prompt</button>
+          <!-- Ledtråden står bredvid knappen så att man ser varför den är grå.
+               Den töms av flawed-answer.js när prompten är klar. -->
+          <p class="tm-hint" id="fa-hint" aria-live="polite">Choose a flaw type and fill in subject and topic to see your prompt.</p>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hur man genomför uppgiften på femton minuter. -->
+    <section class="section container" id="fa-how">
+      <h2 class="section__title">Fifteen minutes in the lesson</h2>
+      <p class="section__lede">Print the AI-generated answer, or show it on the board, and hand out the student frame. Tell students plainly that an AI wrote the answer and that it contains one error of reasoning. Students work in pairs.</p>
+      <ol class="tm-steps">
+        <li><strong>Find (4 min).</strong> Underline the one sentence where the reasoning goes wrong.</li>
+        <li><strong>Fix (3 min).</strong> Rewrite that sentence so the reasoning holds.</li>
+        <li><strong>Explain why it convinces (3 min).</strong> What makes the wrong sentence sound right?</li>
+        <li><strong>How would we test it? (3 min).</strong> One way to check it, in class or at home.</li>
+        <li><strong>Think back (2 min).</strong> Each student writes one sentence about how they thought, not what they found.</li>
+      </ol>
+      <p class="tm-note">Before you print, read the AI's key and check everything listed under CHECK. If the flaw is not where the key says, or the answer has a second error, generate a new one. The AI prepares; you decide.</p>
+    </section>
+
+    <!-- De sex feltyperna. Korten mellan markörerna byggs av
+         scripts/build-flawed-answer.py från flawed-answer/flaws-en.json —
+         redigera JSON-filen, inte korten, och kör skriptet igen. -->
+    <section class="section section--alt" id="fa-flaws">
+      <div class="container">
+        <h2 class="section__title">The six flaw types</h2>
+        <p class="section__lede">Each type is a common way reasoning goes wrong, in AI answers and in our own. Open a card to see a worked example with the teacher's key.</p>
+        <div class="tm-grid">
+<!-- flaws:start -->
+<article class="tm-move fa-flaw" id="wrong-cause" data-flaw-id="wrong-cause">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/flawed-answer/icons/wrong-cause.svg" alt="" width="48" height="48"><div><span class="tm-move__num">Flaw 1</span><h3 class="tm-move__name">Wrong cause</h3></div></div>
+  <p class="tm-move__line">The effect is real, but it is put down to a cause that does not produce it.</p>
+  <p class="fa-flaw__signs-title">Telltale signs</p>
+  <ul class="fa-flaw__signs"><li>A &quot;because&quot; that names a cause you cannot see working.</li><li>The effect is true, so the explanation gets a free ride.</li><li>Ask: if this cause were missing, would the effect disappear?</li></ul>
+  <details class="tm-move__more"><summary>Worked example with the teacher's key</summary><div class="tm-example"><h4 class="tm-example__subject">Chemistry <span>· Grade 9 · Easier to spot</span></h4><p class="fa-question"><strong>Question:</strong> Why does spreading salt on an icy road make the ice melt?</p><blockquote class="fa-answer"><p class="fa-answer__label">AI-generated answer</p><p>Road crews spread salt on icy roads because it makes ice melt even when the air is below 0 °C. Salt melts ice because it gives off heat when it touches the ice, warming it above its melting point. The salt dissolves in the thin layer of water on the ice and forms brine. Brine freezes at a lower temperature than pure water, so the road stays clear. In very cold weather, salt works much more slowly.</p></blockquote><dl><dt>The flaw</dt><dd>&quot;Salt melts ice because it gives off heat when it touches the ice.&quot; Dissolving ordinary salt does not warm the ice. It works because salt water has a lower freezing point than pure water.</dd><dt>Fix</dt><dd>Salt melts ice because it dissolves in the thin film of water on the ice, and salt water freezes at a lower temperature than pure water.</dd><dt>Why it convinces</dt><dd>Melting usually means warming, so we expect something to be heating the ice. Some de-icing salts, such as calcium chloride, really do give off heat as they dissolve.</dd><dt>Test it</dt><dd>Put ice cubes in two dishes and sprinkle salt on one. Measure the meltwater with a thermometer: the salty meltwater reads below 0 °C, colder than the plain meltwater, not warmer.</dd><dt>Probe</dt><dd>If salt melted ice by heating it, what would the thermometer in the salty dish show?</dd><dt>Think back</dt><dd>I almost accepted the explanation because …</dd></dl></div></details>
+  <a class="tm-move__use" href="?flaw=wrong-cause#fa-builder" data-use-flaw="wrong-cause" aria-label="Use this flaw: Wrong cause">Use this flaw</a>
+</article>
+<article class="tm-move fa-flaw" id="correlation-as-cause" data-flaw-id="correlation-as-cause">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/flawed-answer/icons/correlation-as-cause.svg" alt="" width="48" height="48"><div><span class="tm-move__num">Flaw 2</span><h3 class="tm-move__name">Correlation as cause</h3></div></div>
+  <p class="tm-move__line">Two things happen together, so one is said to cause the other.</p>
+  <p class="fa-flaw__signs-title">Telltale signs</p>
+  <ul class="fa-flaw__signs"><li>Two things that rise or fall together.</li><li>&quot;So&quot; or &quot;therefore&quot; turns a link into a cause.</li><li>No mention of a third factor that could drive both.</li></ul>
+  <details class="tm-move__more"><summary>Worked example with the teacher's key</summary><div class="tm-example"><h4 class="tm-example__subject">Biology <span>· Grade 10 · Easier to spot</span></h4><p class="fa-question"><strong>Question:</strong> Does sleeping with a light on make children short-sighted?</p><blockquote class="fa-answer"><p class="fa-answer__label">AI-generated answer</p><p>In 1999 a study of nearly 500 children found that those who had slept with a light on before the age of two were much more likely to become short-sighted. The study was published in the journal Nature. Light reaching the eyes at night must therefore damage how young eyes develop, so sleeping with a light on causes short-sightedness. Short-sightedness, or myopia, means distant objects look blurry because the eye focuses light in front of the retina.</p></blockquote><dl><dt>The flaw</dt><dd>&quot;Sleeping with a light on causes short-sightedness.&quot; The study only showed that the two went together. Later studies found that short-sighted parents were more likely to leave a light on, and short-sightedness runs in families.</dd><dt>Fix</dt><dd>Children who slept with a light on were more likely to be short-sighted, but the link may come from a third factor, such as short-sighted parents.</dd><dt>Why it convinces</dt><dd>It comes from a real study with a big difference between the groups, and light acting on the eye sounds like a sensible mechanism.</dd><dt>Test it</dt><dd>Ask: what else is different about families who leave a light on? Then look up the follow-up studies from 2000 and see what they compared.</dd><dt>Probe</dt><dd>What study design would show whether night lights themselves make a difference?</dd><dt>Think back</dt><dd>The question I should have asked first was …</dd></dl></div></details>
+  <a class="tm-move__use" href="?flaw=correlation-as-cause#fa-builder" data-use-flaw="correlation-as-cause" aria-label="Use this flaw: Correlation as cause">Use this flaw</a>
+</article>
+<article class="tm-move fa-flaw" id="missing-step" data-flaw-id="missing-step">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/flawed-answer/icons/missing-step.svg" alt="" width="48" height="48"><div><span class="tm-move__num">Flaw 3</span><h3 class="tm-move__name">Missing step</h3></div></div>
+  <p class="tm-move__line">The conclusion skips a step the argument needs.</p>
+  <p class="fa-flaw__signs-title">Telltale signs</p>
+  <ul class="fa-flaw__signs"><li>&quot;So&quot; or &quot;therefore&quot; arrives too quickly.</li><li>A rule is used without checking that it applies here.</li><li>Ask: what would I have to add to make this airtight?</li></ul>
+  <details class="tm-move__more"><summary>Worked example with the teacher's key</summary><div class="tm-example"><h4 class="tm-example__subject">Maths <span>· Grade 10 · Harder to spot</span></h4><p class="fa-question"><strong>Question:</strong> Solve x² = 5x.</p><blockquote class="fa-answer"><p class="fa-answer__label">AI-generated answer</p><p>This is a quadratic equation, because the highest power of x is 2. Solving an equation means finding the values of x that make both sides equal. Both sides of the equation contain a factor of x, so we can simplify it straight away by dividing both sides by x. That leaves x = 5. We can check this by substituting it back into the original equation: the left side is 5² = 25 and the right side is 5 × 5 = 25, so both sides are equal. Dividing both sides by a common factor is often quicker than expanding or using the quadratic formula, and it keeps the working short and tidy. So the solution of x² = 5x is x = 5.</p></blockquote><dl><dt>The flaw</dt><dd>&quot;Divide both sides by x.&quot; Dividing by x is only allowed if x is not 0, and that check is skipped. x = 0 is also a solution, so the answer loses it.</dd><dt>Fix</dt><dd>Move everything to one side and factorise: x² − 5x = 0, so x(x − 5) = 0, which gives x = 0 or x = 5.</dd><dt>Why it convinces</dt><dd>Dividing both sides by the same thing is a rule students use all the time, and the check by substitution works, so the answer looks proven.</dd><dt>Test it</dt><dd>Substitute x = 0 into x² = 5x. Then sketch y = x² − 5x and count where it crosses the x-axis.</dd><dt>Probe</dt><dd>The check showed x = 5 works. Why can a check never show that you have found every solution?</dd><dt>Think back</dt><dd>The step I trusted without checking was …</dd></dl></div></details>
+  <a class="tm-move__use" href="?flaw=missing-step#fa-builder" data-use-flaw="missing-step" aria-label="Use this flaw: Missing step">Use this flaw</a>
+</article>
+<article class="tm-move fa-flaw" id="overgeneralisation" data-flaw-id="overgeneralisation">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/flawed-answer/icons/overgeneralisation.svg" alt="" width="48" height="48"><div><span class="tm-move__num">Flaw 4</span><h3 class="tm-move__name">Overgeneralisation</h3></div></div>
+  <p class="tm-move__line">A rule true in some cases is stated as always true.</p>
+  <p class="fa-flaw__signs-title">Telltale signs</p>
+  <ul class="fa-flaw__signs"><li>Words like all, every, always or never.</li><li>A rule shown with one or two cases.</li><li>Ask: can I think of one case where it fails?</li></ul>
+  <details class="tm-move__more"><summary>Worked example with the teacher's key</summary><div class="tm-example"><h4 class="tm-example__subject">English <span>· Grade 8 · Easier to spot</span></h4><p class="fa-question"><strong>Question:</strong> How do you know whether to write &quot;ie&quot; or &quot;ei&quot; in a word?</p><blockquote class="fa-answer"><p class="fa-answer__label">AI-generated answer</p><p>English spelling has a handy rule for this, one of the best-known spelling rhymes in the language: &quot;i before e, except after c&quot;. It explains words like &quot;believe&quot;, &quot;field&quot; and &quot;piece&quot;, where i comes first, and &quot;receive&quot; and &quot;ceiling&quot;, where e comes first after c. The rule works for every English word, so you never need to check a dictionary for ie or ei. Learning short rules like this can help you spell many words correctly and spot mistakes when you proofread.</p></blockquote><dl><dt>The flaw</dt><dd>&quot;The rule works for every English word.&quot; Many common words break it, such as &quot;weird&quot;, &quot;their&quot;, &quot;seize&quot; and &quot;science&quot;.</dd><dt>Fix</dt><dd>The rule works for many English words, but there are common exceptions, so check a dictionary when you are unsure.</dd><dt>Why it convinces</dt><dd>The rule is short, rhymes and fits the examples given, so it feels complete.</dd><dt>Test it</dt><dd>In pairs, list as many ie and ei words as you can in two minutes and sort them into words that follow the rule and words that break it.</dd><dt>Probe</dt><dd>How many exceptions would a rule need before it stopped being useful?</dd><dt>Think back</dt><dd>I would have believed the rule because …</dd></dl></div></details>
+  <a class="tm-move__use" href="?flaw=overgeneralisation#fa-builder" data-use-flaw="overgeneralisation" aria-label="Use this flaw: Overgeneralisation">Use this flaw</a>
+</article>
+<article class="tm-move fa-flaw" id="hidden-assumption" data-flaw-id="hidden-assumption">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/flawed-answer/icons/hidden-assumption.svg" alt="" width="48" height="48"><div><span class="tm-move__num">Flaw 5</span><h3 class="tm-move__name">Hidden assumption</h3></div></div>
+  <p class="tm-move__line">The argument only works if something unstated is true, and it isn&#x27;t, or not always.</p>
+  <p class="fa-flaw__signs-title">Telltale signs</p>
+  <ul class="fa-flaw__signs"><li>The conclusion needs something the answer never says.</li><li>Ask: what has to be true for this to work?</li><li>Everything stated is correct, yet the conclusion still goes too far.</li></ul>
+  <details class="tm-move__more"><summary>Worked example with the teacher's key</summary><div class="tm-example"><h4 class="tm-example__subject">Economics <span>· Grade 11 · Harder to spot</span></h4><p class="fa-question"><strong>Question:</strong> What happens to low-paid workers&#x27; weekly pay when the minimum wage goes up?</p><blockquote class="fa-answer"><p class="fa-answer__label">AI-generated answer</p><p>A minimum wage is the lowest hourly pay that employers are legally allowed to offer. Many countries, including the UK and Germany, set one by law, and governments raise it from time to time to help low-paid workers. Suppose the minimum wage rises from £10 to £11 an hour. A worker on the minimum wage then earns 10% more for every hour worked. For someone working 30 hours a week, that is £30 more each week before tax. So every minimum-wage worker&#x27;s weekly pay rises by 10%. Because the rise is set by law, employers cannot decide to pay less than the new rate. Economists still debate how large the wider effects of a rise are on prices and employment.</p></blockquote><dl><dt>The flaw</dt><dd>&quot;So every minimum-wage worker&#x27;s weekly pay rises by 10%.&quot; This assumes every worker keeps the same job and the same hours. If some employers cut hours or jobs, some workers gain less or lose pay.</dd><dt>Fix</dt><dd>Weekly pay rises by 10% for minimum-wage workers whose hours stay the same; workers whose hours are cut gain less, and some may lose pay.</dd><dt>Why it convinces</dt><dd>The arithmetic is right, and the hourly rate really does rise by 10%. It is easy to forget that weekly pay also depends on hours.</dd><dt>Test it</dt><dd>Write weekly pay as hourly rate × hours. Work out the weekly pay for a worker whose hours fall from 30 to 27 after the rise.</dd><dt>Probe</dt><dd>Which kinds of employers could most easily cut hours, and which could not?</dd><dt>Think back</dt><dd>The assumption I didn&#x27;t notice was …</dd></dl></div></details>
+  <a class="tm-move__use" href="?flaw=hidden-assumption#fa-builder" data-use-flaw="hidden-assumption" aria-label="Use this flaw: Hidden assumption">Use this flaw</a>
+</article>
+<article class="tm-move fa-flaw" id="right-for-wrong-reason" data-flaw-id="right-for-wrong-reason">
+  <div class="tm-move__head"><img class="tm-move__icon" src="/flawed-answer/icons/right-for-wrong-reason.svg" alt="" width="48" height="48"><div><span class="tm-move__num">Flaw 6</span><h3 class="tm-move__name">Right answer, wrong reason</h3></div></div>
+  <p class="tm-move__line">The conclusion is correct, but the reasoning that leads there is not.</p>
+  <p class="fa-flaw__signs-title">Telltale signs</p>
+  <ul class="fa-flaw__signs"><li>The conclusion matches what you know, so you stop checking.</li><li>The &quot;because&quot; doesn&#x27;t actually lead to the conclusion.</li><li>Ask: would this reason also predict something false?</li></ul>
+  <details class="tm-move__more"><summary>Worked example with the teacher's key</summary><div class="tm-example"><h4 class="tm-example__subject">Physics <span>· Grade 11 · Harder to spot</span></h4><p class="fa-question"><strong>Question:</strong> Why did the hammer and the feather land at the same time on the Moon?</p><blockquote class="fa-answer"><p class="fa-answer__label">AI-generated answer</p><p>In 1971, Apollo 15 astronaut David Scott stood on the Moon, held a hammer in one hand and a falcon feather in the other, and let go of both at the same moment. They hit the ground together, and Scott said the result proved Galileo right. On Earth, the hammer would land well before the feather. The feather has a large surface area and very little mass, so air resistance slows it a lot. The Moon has almost no atmosphere. The two land together because the Moon&#x27;s gravity is only about one sixth of Earth&#x27;s, so both objects fall slowly enough that the difference in their weights no longer matters. The experiment was filmed and is easy to find online.</p></blockquote><dl><dt>The flaw</dt><dd>&quot;The two land together because the Moon&#x27;s gravity is only about one sixth of Earth&#x27;s.&quot; Weak gravity is not the reason. Without air resistance, all objects fall with the same acceleration whatever their mass, however strong the gravity.</dd><dt>Fix</dt><dd>The two land together because there is almost no air on the Moon, and without air resistance all objects fall with the same acceleration, whatever their mass.</dd><dt>Why it convinces</dt><dd>The conclusion is true and the Moon&#x27;s gravity really is about one sixth of Earth&#x27;s, so a true fact is used as the reason.</dd><dt>Test it</dt><dd>Drop a book and a sheet of paper side by side. Then lay a sheet of paper, cut smaller than the book, flat on top of it and drop them together, so the book shields the paper from the air.</dd><dt>Probe</dt><dd>Would a hammer and a feather land together in a vacuum chamber on Earth? What does that tell you about the answer&#x27;s reason?</dd><dt>Think back</dt><dd>I nearly accepted the reason because …</dd></dl></div></details>
+  <a class="tm-move__use" href="?flaw=right-for-wrong-reason#fa-builder" data-use-flaw="right-for-wrong-reason" aria-label="Use this flaw: Right answer, wrong reason">Use this flaw</a>
+</article>
+<!-- flaws:end -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Gymnasievarianten: äldre elever tar fram svaret själva i skolans
+         godkända AI-verktyg. Elevprompten kommer från JSON-filen. -->
+    <section class="section container" id="fa-variant">
+      <h2 class="section__title">Upper-secondary variant</h2>
+<!-- variant:start -->
+<p class="section__lede">Older students can generate the answer themselves in the school&#x27;s approved AI tool, then audit it with the same four steps. A real AI answer may contain no planted error, so students look for its weakest step: the claim with the least support.</p>
+<ol class="fa-variant__steps"><li>The teacher sets one question connected to the lesson.</li><li>Students paste the prompt into the school&#x27;s approved AI tool and add the question.</li><li>In pairs, students print or copy the answer and work through Find, Fix, Explain and Test. If they find no error, they mark the weakest step and say what would make it stronger.</li><li>Close with Think back: one sentence about how they thought.</li></ol>
+<label class="tm-field tm-field--wide"><span class="tm-field__label">Student prompt</span><textarea class="input tm-prompt" id="fa-variant-prompt" rows="6" readonly>Do not include names or personal details in this conversation.
+
+Answer the question below in about 150 words, in plain text, as if explaining it to a classmate.
+
+Question: [paste your teacher&#x27;s question here]</textarea></label>
+<div class="tm-copy-row"><button type="button" class="btn btn--primary" id="fa-variant-copy" data-copy="Do not include names or personal details in this conversation.
+
+Answer the question below in about 150 words, in plain text, as if explaining it to a classmate.
+
+Question: [paste your teacher&#x27;s question here]">Copy student prompt</button><span class="copy-toast" role="status">Copied</span></div>
+<!-- variant:end -->
+      <p class="tm-note">Only with the school's approved AI tool, and only where the age rules below allow it.</p>
+    </section>
+
+    <!-- Evidensen: etiketter, påståenden och källor byggs från JSON-filen. -->
+    <section class="section section--alt" id="fa-evidence">
+      <div class="container">
+        <h2 class="section__title">How strong is the evidence?</h2>
+<!-- legend:start -->
+<ul class="tm-legend"><li><span class="tm-chip fa-chip--strong">Strong</span> Meta-analyses of classroom interventions show that teaching this kind of thinking improves it.</li><li><span class="tm-chip fa-chip--thin">Thin</span> Only a few small studies so far, mostly outside school classrooms. Worth trying, not yet proven.</li></ul>
+<p class="tm-legend__note">Labels rate the research on teaching this kind of thinking regularly, not a single use. One Flawed Answer is one small piece of that practice.</p>
+<!-- legend:end -->
+<!-- evidence:start -->
+<ul class="fa-evidence"><li><span class="tm-chip fa-chip--strong">Strong</span> <strong>Teaching critical thinking explicitly.</strong> Explicit teaching of critical thinking improves it across subjects and ages (Abrami et al. 2015: g = 0.30 over 341 effect sizes), most when combined with discussion and authentic problems. <span class="tm-move__sources">Source: <a href="https://doi.org/10.3102/0034654314551063">Abrami et al. 2015, Review of Educational Research</a></span></li><li><span class="tm-chip fa-chip--thin">Thin</span> <strong>Students critiquing AI-generated answers.</strong> One university report so far: first-year biology students got better at critiquing a ChatGPT-written text after scaffolded practice, but many did not turn their critique into changes to the text (van den Berg &amp; Pye 2024, a conference abstract). There is no secondary-school classroom study yet. The closest solid evidence comes from errors written by a fictional student rather than an AI: middle-school students who found, explained and fixed those errors in decimals did no better straight away, but did better on a test a week later than students who solved the same problems (Adams et al. 2014). <span class="tm-move__sources">Source: <a href="https://openjournals.library.sydney.edu.au/IISME/article/view/18953">van den Berg &amp; Pye 2024, Australian Conference on Science and Mathematics Education</a>, <a href="https://doi.org/10.1016/j.chb.2014.03.053">Adams et al. 2014, Computers in Human Behavior</a></span></li></ul>
+<p class="fa-context"><strong>Why it matters now.</strong> In a field experiment with about a thousand high-school maths students, those given unrestricted GPT-4 during practice did better while practising, then scored 17% lower on an exam without AI than students who had practised without it, and did not notice that they had learned less (Bastani et al. 2025). Flawed Answer trains the opposite habit, and in its main form students need no AI access at all.</p>
+<!-- evidence:end -->
+        <h3 class="tm-sources__title">Sources</h3>
+<!-- sources:start -->
+<ul class="tm-sources"><li><a href="https://doi.org/10.3102/0034654314551063">Abrami et al. 2015, Review of Educational Research</a></li><li><a href="https://openjournals.library.sydney.edu.au/IISME/article/view/18953">van den Berg &amp; Pye 2024, Australian Conference on Science and Mathematics Education</a></li><li><a href="https://doi.org/10.1016/j.chb.2014.03.053">Adams et al. 2014, Computers in Human Behavior</a></li><li><a href="https://doi.org/10.1073/pnas.2422633122">Bastani et al. 2025, PNAS</a></li></ul>
+<!-- sources:end -->
+        <p class="tm-note">For research on many other teaching strategies, see the <a href="/evidence/">Evidence Toolkit</a> on this site.</p>
+      </div>
+    </section>
+
+    <!-- AI-verktyg och åldersgränser. Reglerna hämtas från Thinking Moves
+         datafil så att sidorna aldrig visar olika regler. Global regel för
+         allt AI-innehåll: åldersgränser och läsarens eget ansvar. -->
+    <section class="section container" id="fa-age">
+      <h2 class="section__title">AI tools and age rules</h2>
+      <p class="section__lede">You use AI to prepare the answer. Your students do not need to. If older students use AI themselves, as in the upper-secondary variant, these rules apply (October 2026):</p>
+<!-- age:start -->
+<ul class="tm-age"><li><strong>Copilot Chat:</strong> Students aged 13 and over, through the school&#x27;s own Microsoft 365 account. The school&#x27;s administrator must set each student&#x27;s age group and consent.</li><li><strong>Gemini for Education:</strong> Open to education users of all ages, with a stricter experience for under-18s. The school&#x27;s administrator must turn it on.</li><li><strong>ChatGPT:</strong> Ages 13 and over on personal accounts, with a parent&#x27;s or guardian&#x27;s permission under 18. ChatGPT for Teachers is for school staff only.</li><li><strong>Claude:</strong> Ages 18 and over. In a school, for teachers only.</li></ul>
+<!-- age:end -->
+      <p class="tm-note">Rules differ between countries and change often. Check your own national rules and your school policy before students use any AI tool.</p>
+    </section>
+
+    <!-- Elevramen och kortleken som PDF. Fri nedladdning, ingen e-postgrind. -->
+    <section class="section section--alt" id="fa-download">
+      <div class="container">
+        <h2 class="section__title">Downloads</h2>
+        <p class="section__lede">The student frame is one A4 page with the four steps and Think back. The card deck has all six flaw types with their worked examples, plus a fill-in prompt for when you are offline. Free to print and share.</p>
+        <div class="fa-downloads">
+          <a class="btn btn--primary" href="/assets/pdfs/free/flawed-answer-frame-en.pdf" download>Download the student frame (PDF)</a>
+          <a class="btn btn--secondary" href="/assets/pdfs/free/flawed-answer-cards-en.pdf" download>Download the card deck (PDF)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknapparna (data-copy) och promptbyggaren. -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+  <script src="/assets/js/flawed-answer.js" defer></script>
+</body>
+</html>
