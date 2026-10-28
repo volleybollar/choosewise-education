@@ -635,6 +635,10 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/prompts/time-management/"/>
   </url>
   <url>
+    <loc>https://choosewise.education/side-by-side/</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
     <loc>https://choosewise.education/sv/ai-eller-manniska/</loc>
     <lastmod>2026-10-20</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/ai-or-human/"/>
@@ -1200,7 +1204,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/think/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/thinking-moves/</loc>

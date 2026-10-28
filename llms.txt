@@ -62,6 +62,10 @@ Twelve five-minute thinking tasks (such as Best explanation, Check the claim, Th
 
 A fifteen-minute task for Grades 8–12. The teacher uses any AI tool to write a confident answer about the lesson topic that contains exactly one error of reasoning, of one of six types (wrong cause, correlation as cause, missing step, overgeneralisation, hidden assumption, right answer for the wrong reason), at one of two difficulty levels. Students are told an AI wrote it and, in pairs, find the flaw, fix it, explain why it convinces and say how they would test it. Six worked examples with teacher keys, an upper-secondary variant, a one-page student frame and a PDF card deck.
 
+- [Side by Side — English](https://choosewise.education/side-by-side/)
+
+A fifteen-minute comparison task for Grades 7–12. The teacher uses any AI tool to build two items placed side by side, of one of five pair types (two ways to the same answer, right next to wrong, one thing changed, two concepts that are easily confused, two sources on the same event), at one of two difficulty levels. The AI reply has a block for students and a separate teacher key. Students sort what is only in A, in both and only in B, write the rule they found and try it on a new case C. Five worked examples shown as real pairs, evidence labels, an upper-secondary variant, a one-page student sheet and a PDF card deck.
+
 ## Presentation Skills
 
 - [Presentation Skills landing — English](https://choosewise.education/presentation-skills/)
