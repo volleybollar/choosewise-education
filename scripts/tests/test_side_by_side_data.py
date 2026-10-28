@@ -104,3 +104,22 @@ def test_five_icons_match_style():
         colours = {c.lower() for c in re.findall(r"#[0-9a-fA-F]{3,6}\b", svg)}
         assert colours <= allowed, (pid, colours)
         assert "#c2793a" in colours, pid
+
+
+def _example(pid):
+    return next(p for p in data()["pairs"] if p["id"] == pid)["example"]
+
+
+def test_one_change_case_c_turns_on_the_changed_variable():
+    # Regeln handlar om ljus, så fall C måste också handla om ljus — annars
+    # kan eleverna inte avgöra det med regeln de just skrev (spec, anti-mål).
+    case_c = _example("one-change")["case_c"].lower()
+    assert "dark" in case_c or "light" in case_c, case_c
+    assert "dry" not in case_c
+
+
+def test_two_sources_rule_covers_purpose_used_in_case_c():
+    # Svaret på fall C bygger på syftet (att övertyga), så regeln måste nämna det.
+    ex = _example("two-sources")
+    assert "persuade" in ex["case_c_answer"]
+    assert "persuade" in ex["rule"]

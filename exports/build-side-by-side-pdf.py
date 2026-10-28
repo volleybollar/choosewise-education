@@ -170,11 +170,13 @@ def _cover(data: dict) -> str:
         f'<p><span class="chip chip--{k}">{escape(labels[k]["name"])}</span> {escape(labels[k]["definition"])}</p>'
         for k in labels if k != "note"
     )
+    # Framsidan visar bara påståendena med etikett; studierna och källorna
+    # står på webbsidan (hela texterna fick inte plats på en A4).
     evidence = "".join(
         f'<p><span class="chip chip--{escape(e["label"])}">{escape(labels[e["label"]]["name"])}</span> '
-        f'<strong>{escape(e["claim"])}.</strong> {escape(e["text"])}</p>'
+        f'{escape(e["claim"])}</p>'
         for e in data["evidence"]
-    )
+    ) + f'<p>Findings, limits and sources for each claim: {URL}</p>'
     return (
         '<section class="page cover">'
         '<div class="kicker">Think + AI · Grades 7–12 · free card deck</div>'

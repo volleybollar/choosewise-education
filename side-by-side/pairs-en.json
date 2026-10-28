@@ -131,8 +131,8 @@
         "both": "Water, warmth, the same windowsill and the same seeds. Both dishes have sprouted.",
         "only_b": "Darkness under the box. The seedlings are tall and thin with pale yellow seed leaves.",
         "rule": "The cress seeds sprouted in both dishes, so cress seeds do not need light to sprout: the seed uses its own stored food. Light matters afterwards, for the green leaves that make new food.",
-        "case_c": "Dish C is set up like the uncovered dish, on the same windowsill, but the cotton wool is dry. What will it look like on Friday?",
-        "case_c_answer": "The seeds will not sprout. Sprouting needs water, even with light and warmth.",
+        "case_c": "Dish C is set up like the other two, with damp cotton wool, but it is left in a dark cupboard. Will the seeds sprout, and what will the seedlings look like on Friday?",
+        "case_c_answer": "Yes, they will sprout, because cress seeds do not need light to sprout. Without light the seedlings will be tall, thin and pale, like those in the covered dish.",
         "probe": "The two dishes look very different. Why is \"light makes seeds sprout\" still the wrong conclusion?",
         "think_back": "At first I looked at ___ instead of what both dishes had in common."
       }
@@ -194,7 +194,7 @@
         "only_a": "Written the same day, in a private diary. Small, plain details: the time, the rain, about two hundred people.",
         "both": "The same eyewitness and the same event: a crowd at the gate and the owner facing them.",
         "only_b": "Written 38 years later, for readers. Bigger numbers, sunshine and a heroic story.",
-        "rule": "Even the same eyewitness becomes less reliable on details when writing long after the event for an audience. For details, prefer accounts written close to the event; later accounts show how the event was remembered.",
+        "rule": "Even the same eyewitness becomes less reliable on details when writing long after the event for an audience. For details, prefer accounts written close to the event, and be more cautious with any account written to persuade; later accounts show how the event was remembered.",
         "case_c": "A union leaflet printed the next day, calling on other workers to join, says \"thousands stood firm at Hale's gate\". How far would you trust its number?",
         "case_c_answer": "Not far. It was written close to the event, but to persuade, so the number may be inflated. Check it against Source A.",
         "probe": "What can Source B tell us that Source A cannot?",

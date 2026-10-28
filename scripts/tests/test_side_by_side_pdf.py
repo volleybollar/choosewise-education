@@ -129,3 +129,18 @@ def test_pdf_fonts_allowed_weights(pdf):
     out = subprocess.run(["pdffonts", str(pdf)], capture_output=True, text=True, check=True).stdout
     assert "HankenGrotesk" in out
     assert not re.search(r"(SemiBold|Bold|Black|Heavy)", out, re.I), out
+
+
+@pytest.mark.parametrize("src", [SHEET_SRC, DECK_SRC], ids=lambda p: p.name)
+def test_no_page_overflows(src):
+    # .page har overflow:hidden, så innehåll som inte får plats klipps tyst
+    # (slutgranskningen: framsidans sidfot klipptes). Varje sida ska rymmas.
+    sync_playwright = pytest.importorskip("playwright.sync_api").sync_playwright
+    with sync_playwright() as pw:
+        b = pw.chromium.launch()
+        p = b.new_page()
+        p.goto(src.as_uri(), wait_until="networkidle")
+        p.emulate_media(media="print")
+        over = p.evaluate("[...document.querySelectorAll('.page')].map((el, i) => [i + 1, el.scrollHeight - el.clientHeight]).filter(x => x[1] > 0)")
+        b.close()
+    assert over == [], over
