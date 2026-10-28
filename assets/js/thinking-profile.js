@@ -19,7 +19,6 @@
   var SITE = 'https://choosewise.education';
   var HINT_EMPTY = 'Choose a thinking cluster, then fill in subject and topic.';
   var HINT_FAILED = "Couldn't load the ladders — reload the page.";
-  var REGULATING_EXTRA = ' Any task from any tool may be used, because every task ends with a Think back step.';
 
   /* Veckor: 3–8. Tomt eller inte ett tal ger 6. */
   function clampWeeks(raw) {
@@ -39,8 +38,10 @@
   function buildPrompt(input) {
     var cluster = input.cluster;
     var ladder = input.ladder;
+    /* Regulating har en egen regeluppsättning: Think back avslutar varje
+       uppgift, så de vanliga reglerna om föredragna uppgifter och om
+       stegen på uppgiftssvaret skulle motsäga den. */
     var rules = input.rules.join(' ');
-    if (cluster.id === 'regulating') rules += ' ' + input.regulatingRule + REGULATING_EXTRA;
     var lines = [
       'Do not include student names or student work in this conversation.',
       '',
@@ -58,7 +59,7 @@
     ladder.steps.forEach(function (s, i) { lines.push((i + 1) + '. ' + s.text); });
     lines.push(
       '',
-      'Each task below is made in its own free builder on choosewise.education; the teacher types in the inputs you give.',
+      'Each task below is made in its own free builder on choosewise.education; the teacher types in the inputs you give, and the builder makes the task sheet students answer on paper.',
       'Preferred tasks, because they train ' + cluster.name + ':'
     );
     input.preferred.forEach(function (t) { lines.push(taskLine(t)); });
@@ -135,7 +136,7 @@
     var others = data.tasks.filter(function (t) { return keys.indexOf(t.key) === -1; });
     var text = buildPrompt({
       cluster: cluster, ladder: ladder, preferred: preferred, others: others,
-      rules: data.rules, regulatingRule: data.regulatingRule,
+      rules: els.cluster.value === 'regulating' ? data.rulesRegulating : data.rules,
       subject: subject, grade: els.grade.value, weeks: clampWeeks(els.weeks.value),
       topic: topic, overview: value('overview')
     });
@@ -158,7 +159,7 @@
     data.ladders = {};
     ladders.ladders.forEach(function (l) { data.ladders[l.cluster] = l; });
     data.rules = ladders.rules;
-    data.regulatingRule = ladders.regulating_rule;
+    data.rulesRegulating = ladders.rules_regulating;
     data.tasks = assembleTasks(moves, flaws, pairs);
     data.tasksByKey = {};
     data.tasks.forEach(function (t) { data.tasksByKey[t.key] = t; });

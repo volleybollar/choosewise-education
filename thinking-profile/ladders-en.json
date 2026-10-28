@@ -21,6 +21,12 @@
     "Students rate every task on the followed cluster's ladder, whatever tool the task came from."
   ],
   "regulating_rule": "Students rate the ladder on the Think back part at the end of each task, not on the task answer.",
+  "rules_regulating": [
+    "Any task from any tool may be used, because every task ends with a Think back step.",
+    "Repeating the same task is intended when each round has harder inputs: more variables, less familiar content or less support.",
+    "Demand rises across the unit, so the later tasks give room to reach steps 3 and 4.",
+    "Students rate the ladder on the Think back part at the end of each task, not on the task answer."
+  ],
   "ladders": [
     {
       "cluster": "generating",

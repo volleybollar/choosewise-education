@@ -20,10 +20,6 @@ MOVES = json.loads((ROOT / "thinking-moves/moves-en.json").read_text(encoding="u
 READY = "document.getElementById('tp-hint').textContent.includes('Choose a thinking cluster')"
 PARTS = ["THE THINKING THREAD:", "PLAN:", "WEEK:", "TASK:", "WHAT STUDENTS DO:",
          "ROOM FOR STEP:", "BUILDER INPUTS:", "LINK:", "TELL STUDENTS:", "CHECK:"]
-REGULATING_ADDITION = (
-    LADDERS["regulating_rule"]
-    + " Any task from any tool may be used, because every task ends with a Think back step."
-)
 
 
 @pytest.fixture(scope="module")
@@ -116,14 +112,19 @@ def test_preferred_and_others_partition_all_tasks(page):
 
 
 def test_regulating_rule_only_for_regulating(page):
+    rr = LADDERS["rules_regulating"]
     fill(page, cluster="regulating")
-    assert REGULATING_ADDITION in prompt(page)
+    rules_line = next(l for l in prompt(page).splitlines() if l.startswith("Rules: "))
+    assert rules_line == "Rules: " + " ".join(rr) + " Do not invent studies or sources."
+    for i in (0, 1, 4):
+        assert LADDERS["rules"][i] not in rules_line, i
     for c in ("generating", "evaluating", "comparing", "explaining", "causes"):
         fill(page, cluster=c)
         text = prompt(page)
+        for rule in LADDERS["rules"]:
+            assert rule in text, (c, rule)
+        assert rr[0] not in text, c
         assert LADDERS["regulating_rule"] not in text, c
-        assert "Any task from any tool may be used" not in text, c
-        assert LADDERS["rules"][-1] + " Do not invent studies or sources." in text
 
 
 def test_overview_line_omitted_when_empty(page):

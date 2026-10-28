@@ -117,6 +117,14 @@ def test_fixed_sentences():
     assert d["self_check"]["questions"] == QUESTIONS
 
 
+def test_rules_regulating_match_rules():
+    d = data()
+    rr = d["rules_regulating"]
+    assert len(rr) == 4
+    assert rr[3] == d["regulating_rule"]
+    assert rr[1] in d["rules"] and rr[2] in d["rules"]
+
+
 def test_intro_and_rules_filled():
     d = data()
     for key in ("what", "why_unit", "retell"):
