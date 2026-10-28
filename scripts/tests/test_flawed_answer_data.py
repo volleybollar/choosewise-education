@@ -77,3 +77,13 @@ def test_grades_8_to_12():
 def test_four_steps_in_order():
     names = [s["name"] for s in data()["steps"]]
     assert names == ["Find", "Fix", "Explain why it convinces", "How would we test it?"]
+
+
+def test_six_icons_match_style():
+    allowed = {"#0b3a6f", "#c2793a", "#0c1a2e"}
+    for fid in ORDER:
+        svg = (ROOT / f"flawed-answer/icons/{fid}.svg").read_text(encoding="utf-8")
+        assert 'viewBox="0 0 48 48"' in svg, fid
+        colours = {c.lower() for c in re.findall(r"#[0-9a-fA-F]{3,6}\b", svg)}
+        assert colours <= allowed, (fid, colours)
+        assert "#c2793a" in colours, fid
