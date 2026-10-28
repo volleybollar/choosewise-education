@@ -34,11 +34,9 @@ EASIER_ONLY = "Easier to spot only: AI tools could not plant this flaw reliably 
 
 # Regelraden och de nio delarna, ordagrant som i assets/js/flawed-answer.js;
 # test_fill_in_matches_builder_word_for_word håller dem i takt.
-RULES = ("Rules: the answer contains exactly one error. It is an error of reasoning of the type above, "
-         "not a factual slip or a typo. Every other sentence is correct. Write in a confident, fluent style, "
-         "as an AI assistant would.")
+RULES = "Rules: the answer contains exactly one error. It is an error of reasoning of the type above, not a factual slip or a typo. The flawed sentence makes one claim only. Every other sentence is correct in general, not just in typical cases, and no other sentence states or hints at the correct reasoning. Use \"always\", \"never\" or \"all\" only if the flaw type is Overgeneralisation. Do not invent studies, measurements or sources. Write in a confident, fluent style, as an AI assistant would."
 PROMPT_PARTS = [
-    "QUESTION: the question the answer responds to, in one sentence",
+    "QUESTION: the question the answer responds to, in one sentence, without hinting at the flaw",
     'ANSWER: start with the line "AI-generated answer", then the answer',
     "THE FLAW: quote the flawed sentence exactly, then say what is wrong in at most two sentences",
     "FIX: the corrected sentence or step",
@@ -46,7 +44,7 @@ PROMPT_PARTS = [
     "TEST IT: one way students could check this in class or at home",
     "PROBE: one follow-up question that pushes past the first answer",
     "THINK BACK: one sentence starter about how they thought, not what they found",
-    'CHECK: every fact, figure, date or source in ANSWER or THE FLAW that the teacher should verify, one per line. Write "None" if there are none.',
+    'CHECK: every fact, figure, date, general rule or source in ANSWER or THE FLAW that the teacher should verify, quoted or closely paraphrased as it appears there, one per line, starting with the claims you are least sure of. Do not add claims from FIX or TEST IT. Write "None" only if ANSWER contains no checkable claim.',
 ]
 
 KEY_PARTS = [("flaw", "The flaw"), ("fix", "Fix"), ("why_convincing", "Why it convinces"),

@@ -14,12 +14,12 @@
     {
       "id": "easier",
       "name": "Easier to spot",
-      "instruction": "The flaw contradicts something students in this grade already know well, and the wrong step is stated openly in one sentence. The answer is about 80 words."
+      "instruction": "The flaw contradicts something students in this grade already know well, and the wrong step is stated openly in one sentence. The answer is 75–90 words."
     },
     {
       "id": "harder",
       "name": "Harder to spot",
-      "instruction": "The flaw sits in a plausible middle step, uses correct subject terms and is surrounded by correct statements. The answer is 120–150 words."
+      "instruction": "The flaw sits in a plausible middle step, uses correct subject terms and is surrounded by correct statements. The answer is 120–150 words. The wrong step must be a misconception students in this grade could genuinely hold, not an absurd mechanism."
     }
   ],
   "steps": [
@@ -51,7 +51,7 @@
         "The effect is true, so the explanation gets a free ride.",
         "Ask: if this cause were missing, would the effect disappear?"
       ],
-      "prompt_brief": "Describe a real effect from the lesson topic correctly, then explain it with a cause that sounds scientific or sensible but does not produce the effect. The true cause must be something students in this grade can reach.",
+      "prompt_brief": "Describe a real effect from the lesson topic correctly, then explain it with a cause that is a common misconception about this topic and sounds scientific or sensible, but does not produce the effect. Do not invent an extra effect for the cause to explain. The true cause must be something students in this grade can reach.",
       "harder_ok": true,
       "example": {
         "subject": "Chemistry",
@@ -77,7 +77,7 @@
         "\"So\" or \"therefore\" turns a link into a cause.",
         "No mention of a third factor that could drive both."
       ],
-      "prompt_brief": "Report a real link between two things connected to the lesson topic accurately, then conclude that one causes the other. Leave out the third factor or reverse cause that actually explains the link, so students have to supply it.",
+      "prompt_brief": "Report a real link between two things connected to the lesson topic accurately, then conclude that one causes the other. Leave out the third factor or reverse cause that actually explains the link, so students have to supply it. Choose a link where the claimed cause has little or no effect of its own, so the third factor or reverse cause clearly explains it. Both linked things must come from the lesson topic, so that spotting the error uses what students learn in this subject.",
       "harder_ok": true,
       "example": {
         "subject": "Biology",
@@ -155,7 +155,7 @@
         "Ask: what has to be true for this to work?",
         "Everything stated is correct, yet the conclusion still goes too far."
       ],
-      "prompt_brief": "Build an argument about the lesson topic from correct statements that reaches its conclusion only because of one unstated assumption. The assumption must be false or not always true, and students should be able to name it in one sentence.",
+      "prompt_brief": "Build an argument about the lesson topic from correct statements that reaches its conclusion only because of one unstated assumption. The assumption must be false or not always true, and students should be able to name it in one sentence. Never write the assumption as its own sentence. THE FLAW quotes the sentence whose conclusion depends on it; at the easier level that conclusion is stated openly while the assumption stays unstated.",
       "harder_ok": true,
       "example": {
         "subject": "Economics",
@@ -181,7 +181,7 @@
         "The \"because\" doesn't actually lead to the conclusion.",
         "Ask: would this reason also predict something false?"
       ],
-      "prompt_brief": "Give the correct answer to a question about the lesson topic, but support it with a reason that is wrong, sounds plausible and would predict something false in another case. Every other statement must be correct.",
+      "prompt_brief": "Give the correct answer to a question about the lesson topic, but support it with a reason that is wrong, sounds plausible and would predict something false in another case. Every other statement must be correct. The wrong reason must be the only reason the answer gives for the conclusion; do not also give the correct reason.",
       "harder_ok": true,
       "example": {
         "subject": "Physics",
