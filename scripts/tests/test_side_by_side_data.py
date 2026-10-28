@@ -4,6 +4,7 @@ Filen är enda källan för sidan, promptbyggaren och båda PDF:erna.
 Spec: docs/superpowers/specs/2026-10-28-side-by-side-design.md.
 """
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -93,3 +94,13 @@ def test_variant_prompt_starts_with_privacy_line_and_lists_types():
 def test_grades_7_to_12():
     for p in data()["pairs"]:
         assert 7 <= p["example"]["grade"] <= 12, p["id"]
+
+
+def test_five_icons_match_style():
+    allowed = {"#0b3a6f", "#c2793a", "#0c1a2e"}
+    for pid in ORDER:
+        svg = (ROOT / f"side-by-side/icons/{pid}.svg").read_text(encoding="utf-8")
+        assert 'viewBox="0 0 48 48"' in svg, pid
+        colours = {c.lower() for c in re.findall(r"#[0-9a-fA-F]{3,6}\b", svg)}
+        assert colours <= allowed, (pid, colours)
+        assert "#c2793a" in colours, pid
