@@ -1,0 +1,300 @@
+{
+  "labels": {
+    "strong": {
+      "name": "Strong",
+      "definition": "Meta-analyses or several classroom experiments show that learning by this kind of comparison works."
+    },
+    "promising": {
+      "name": "Promising",
+      "definition": "Comparison works in related research, but few school studies test this exact kind of pair."
+    },
+    "note": "Labels rate the research on teaching with comparisons regularly, not a single use. One Side by Side is one small piece of that practice."
+  },
+  "levels": [
+    {
+      "id": "easier",
+      "name": "Easier to see",
+      "instruction": "A and B differ in one difference students can spot at once. The work is to explain why that difference matters."
+    },
+    {
+      "id": "harder",
+      "name": "Harder to see",
+      "instruction": "The surface and the principle do not line up: A and B look almost the same but rest on different principles, or look different but share one principle. A first glance at the pair should suggest the wrong rule; only a closer comparison shows the right one."
+    }
+  ],
+  "steps": [
+    {
+      "name": "Compare",
+      "prompt": "Fill in the three columns: only in A, in both, only in B."
+    },
+    {
+      "name": "Write the rule",
+      "prompt": "In one or two sentences, say what the comparison shows."
+    },
+    {
+      "name": "Try it on case C",
+      "prompt": "Use your rule on the new case and explain your answer."
+    },
+    {
+      "name": "Think back",
+      "prompt": "Finish the sentence about how you thought, not what you found."
+    }
+  ],
+  "pairs": [
+    {
+      "id": "two-ways",
+      "number": 1,
+      "name": "Two ways to the same answer",
+      "label": "strong",
+      "harder_ok": true,
+      "one_liner": "Two correct methods reach the same answer by different routes.",
+      "look_for": [
+        "Where do the two methods first part ways?",
+        "What does each method save, and what does it cost?",
+        "When would you choose each one?"
+      ],
+      "prompt_brief": "Show two correct methods for the same task, each written as a fictional student's working. The methods differ in the first or main step and reach the same correct answer. Choose a case C where one method is clearly the better choice.",
+      "example": {
+        "subject": "Maths",
+        "grade": 8,
+        "level": "easier",
+        "task": "Solve 3(x + 2) = 15.",
+        "a_label": "Alex",
+        "a": "3x + 6 = 15\n3x = 9\nx = 3",
+        "b_label": "Sam",
+        "b": "x + 2 = 5\nx = 3",
+        "only_a": "Alex multiplies out the brackets first, then undoes the + 6 and the × 3. Three lines.",
+        "both": "The same answer, x = 3. Both do the same thing to both sides, so the equation stays balanced.",
+        "only_b": "Sam divides both sides by 3 first, because 15 divides exactly by 3. Two lines.",
+        "rule": "Dividing first is quicker when the number outside the brackets divides the other side exactly. Otherwise, multiplying out first avoids working with fractions early on.",
+        "case_c": "Solve 3(x + 4) = 20. Which method would you use, and why?",
+        "case_c_answer": "Multiply out first, because 20 does not divide exactly by 3: 3x + 12 = 20, 3x = 8, x = 8/3. Dividing first gives x + 4 = 20/3, and then you have to work out 20/3 − 4.",
+        "probe": "Change 3(x + 2) = 15 so that Sam's first step becomes the harder one. What did you change?",
+        "think_back": "Before today, my first step was always ___."
+      }
+    },
+    {
+      "id": "right-and-wrong",
+      "number": 2,
+      "name": "Right next to wrong",
+      "label": "promising",
+      "harder_ok": true,
+      "one_liner": "A correct and an incorrect solution to the same task, side by side.",
+      "look_for": [
+        "Find the first line where the two solutions differ.",
+        "Say which rule the wrong step breaks.",
+        "Check that the correct solution keeps that rule."
+      ],
+      "prompt_brief": "Show a correct and an incorrect solution to the same task, each written as a fictional student's working. The incorrect one rests on one common misconception, and its first line is \"This solution has an error.\" Apart from that, keep the two as alike as possible.",
+      "example": {
+        "subject": "Chemistry",
+        "grade": 9,
+        "level": "easier",
+        "task": "Balance the equation for hydrogen burning in oxygen to make water: H₂ + O₂ → H₂O.",
+        "a_label": "Mia",
+        "a": "2H₂ + O₂ → 2H₂O\nLeft: 4 H, 2 O. Right: 4 H, 2 O.",
+        "b_label": "Leo",
+        "b": "This solution has an error.\nH₂ + O₂ → H₂O₂\nLeft: 2 H, 2 O. Right: 2 H, 2 O.",
+        "only_a": "Mia changes the coefficients, the numbers in front of the formulas, and keeps the product as H₂O.",
+        "both": "Both start from the same reactants, and both end with the same number of each atom on each side.",
+        "only_b": "Leo changes a subscript, the small number inside the formula, so the product becomes H₂O₂, hydrogen peroxide, not water.",
+        "rule": "Balance an equation by changing the coefficients (the numbers in front of the formulas), never the subscripts (the small numbers inside them). Changing a subscript changes the substance.",
+        "case_c": "Balance the equation for magnesium burning in oxygen: Mg + O₂ → MgO.",
+        "case_c_answer": "2Mg + O₂ → 2MgO. Writing MgO₂ would balance the oxygen but describe a different substance.",
+        "probe": "Leo's equation is balanced. So why is it still wrong for this task?",
+        "think_back": "The difference I nearly missed was ___."
+      }
+    },
+    {
+      "id": "one-change",
+      "number": 3,
+      "name": "One thing changed",
+      "label": "promising",
+      "harder_ok": true,
+      "one_liner": "Two cases are identical except for one thing.",
+      "look_for": [
+        "Name the one thing that is different.",
+        "Compare what happened, not just what was done.",
+        "Ask what the difference in results tells you about that one thing."
+      ],
+      "prompt_brief": "Describe two cases, such as two experiments, places or situations, that are identical except for one variable, and say what happened in each. Keep everything else word for word the same, including who carried it out. Do not name the changed variable as the point of the task; it belongs in the teacher key. At the harder level, change something students are unlikely to suspect, and keep the thing they would suspect first the same in A and B.",
+      "example": {
+        "subject": "Biology",
+        "grade": 7,
+        "level": "harder",
+        "task": "Two dishes of cress seeds were set up on Monday. Compare them on Friday.",
+        "a_label": "Clear box",
+        "a": "Cress seeds on damp cotton wool, on a windowsill at room temperature, under a clear plastic box. On Friday the seeds have sprouted: short seedlings with green seed leaves.",
+        "b_label": "Light-proof box",
+        "b": "Cress seeds on damp cotton wool, on a windowsill at room temperature, under a light-proof box. On Friday the seeds have sprouted: tall, thin seedlings with pale yellow seed leaves.",
+        "only_a": "Light through the clear box. The seedlings are short with green seed leaves.",
+        "both": "Water, warmth, a box over the dish, the same windowsill and the same seeds. Both dishes have sprouted.",
+        "only_b": "Darkness under the light-proof box. The seedlings are tall and thin with pale yellow seed leaves.",
+        "rule": "The cress seeds sprouted in both dishes, so cress seeds do not need light to sprout: the seed uses its own stored food. Light matters afterwards, for the green leaves that make new food.",
+        "case_c": "Dish C is set up like the other two, with damp cotton wool, but it is left in a dark cupboard. Will the seeds sprout, and what will the seedlings look like on Friday?",
+        "case_c_answer": "Yes, they will sprout, because cress seeds do not need light to sprout. Without light the seedlings will be tall, thin and pale, like those under the light-proof box.",
+        "probe": "The two dishes look very different. Why is \"light makes seeds sprout\" still the wrong conclusion?",
+        "think_back": "At first I looked at ___ instead of what both dishes had in common."
+      }
+    },
+    {
+      "id": "confusable-concepts",
+      "number": 4,
+      "name": "Two concepts that are easily confused",
+      "label": "promising",
+      "harder_ok": true,
+      "one_liner": "Two related ideas that students often mix up, shown in the same context.",
+      "look_for": [
+        "List what each one has that the other does not.",
+        "Find what they share, so you know why they get mixed up.",
+        "Make a quick test you could use next time."
+      ],
+      "prompt_brief": "Show one clear example of each of two concepts students in this grade often confuse, both in the same context, and label each with its concept. Choose examples that differ in the feature that defines each concept.",
+      "example": {
+        "subject": "English",
+        "grade": 7,
+        "level": "easier",
+        "task": "Two sentences describe the same hot classroom.",
+        "a_label": "Simile",
+        "a": "The classroom was like an oven.",
+        "b_label": "Metaphor",
+        "b": "The classroom was an oven.",
+        "only_a": "The word \"like\". It says the classroom resembles an oven.",
+        "both": "Both compare the classroom to an oven to show how hot it was. Neither is meant literally.",
+        "only_b": "No comparing word. It says the classroom is an oven.",
+        "rule": "A simile compares two different things using \"like\" or \"as\". A metaphor says one thing is another. Both are comparisons, not literal statements.",
+        "case_c": "\"The test was a mountain to climb.\" Simile or metaphor?",
+        "case_c_answer": "A metaphor: there is no \"like\" or \"as\", and it says the test is a mountain.",
+        "probe": "Which sentence is stronger, and why might a writer still choose the simile?",
+        "think_back": "The test I will use next time is ___."
+      }
+    },
+    {
+      "id": "two-sources",
+      "number": 5,
+      "name": "Two sources on the same event",
+      "label": "promising",
+      "harder_ok": true,
+      "one_liner": "Two sources describe the same event but differ in when, by whom or why they were written, which changes how far we can trust them.",
+      "look_for": [
+        "Who wrote each source, when and why?",
+        "Which details agree, and which do not?",
+        "Which source would you trust for which question?"
+      ],
+      "prompt_brief": "Write two short sources about the same event, each with an author, a date and a purpose. Mark both \"(written for this task)\" unless you quote a real source word for word. The sources differ mainly in one thing that affects how far we can trust them, such as when, by whom or why they were written.",
+      "example": {
+        "subject": "History",
+        "grade": 9,
+        "level": "harder",
+        "task": "Two accounts of the first morning of a strike at a cotton mill in 1912. Both were written for this task.",
+        "a_label": "Diary, 1912",
+        "a": "Mary Dent, mill worker, private diary, 4 May 1912: \"Went to the gate at six. Perhaps two hundred of us. Mr Hale, the owner, came out and said the mill would close if we did not go in. Nobody moved. Rain all afternoon.\" (Written for this task.)",
+        "b_label": "Memoir, 1950",
+        "b": "Mary Dent, memoir published in 1950: \"I shall never forget the morning a thousand of us stood at the gates in brilliant sunshine, and the owner fled before our courage.\" (Written for this task.)",
+        "only_a": "Written the same day, in a private diary. Small, plain details: the time, the rain, about two hundred people.",
+        "both": "The same eyewitness and the same event: a crowd at the gate and the owner facing them.",
+        "only_b": "Written 38 years later, for readers. Bigger numbers, sunshine and a heroic story.",
+        "rule": "Even the same eyewitness becomes less reliable on details when writing long after the event for an audience. For details, prefer accounts written close to the event, and be more cautious with any account written to persuade; later accounts show how the event was remembered.",
+        "case_c": "A union leaflet printed the next day, calling on other workers to join, says \"thousands stood firm at Hale's gate\". How far would you trust its number?",
+        "case_c_answer": "Not far. It was written close to the event, but to persuade, so the number may be inflated. Check it against Source A.",
+        "probe": "What can Source B tell us that Source A cannot?",
+        "think_back": "I trusted ___ before I checked when and why it was written."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "Learning by comparing cases",
+      "label": "strong",
+      "text": "Comparing cases side by side improves learning more than other ways of studying the same material, such as studying cases one at a time (Alfieri et al. 2013, a meta-analysis of 57 experiments, d ≈ 0.50). Learning was greater when the principle was given after the comparison, which is why students write the rule before the teacher confirms it.",
+      "sources": [
+        {
+          "text": "Alfieri, Nokes-Malach & Schunn 2013, Educational Psychologist",
+          "url": "https://doi.org/10.1080/00461520.2013.775712"
+        }
+      ]
+    },
+    {
+      "claim": "Comparing solution methods",
+      "label": "strong",
+      "text": "In randomized classroom studies with Grade 7 and 8 algebra students, comparing two solution methods side by side built more flexible problem solving than studying the methods one at a time (Rittle-Johnson & Star 2007) or comparing problems solved the same way (2009). Gains in conceptual knowledge appeared in the second study but not the first.",
+      "sources": [
+        {
+          "text": "Rittle-Johnson & Star 2007, Journal of Educational Psychology",
+          "url": "https://doi.org/10.1037/0022-0663.99.3.561"
+        },
+        {
+          "text": "Rittle-Johnson & Star 2009, Journal of Educational Psychology",
+          "url": "https://doi.org/10.1037/a0014224"
+        }
+      ]
+    },
+    {
+      "claim": "Comparing correct and incorrect solutions",
+      "label": "promising",
+      "text": "Comparing a correct and an incorrect example helped primary students learn decimals and reduced misconceptions more than comparing two correct examples (Durkin & Rittle-Johnson 2012), and incorrect examples supported conceptual understanding in algebra classes (Booth et al. 2013). Results have not replicated consistently.",
+      "sources": [
+        {
+          "text": "Durkin & Rittle-Johnson 2012, Learning and Instruction",
+          "url": "https://doi.org/10.1016/j.learninstruc.2011.11.001"
+        },
+        {
+          "text": "Booth et al. 2013, Learning and Instruction",
+          "url": "https://doi.org/10.1016/j.learninstruc.2012.11.002"
+        }
+      ]
+    },
+    {
+      "claim": "Contrasting cases with one change",
+      "label": "promising",
+      "text": "Analysing contrasting cases before a lecture helped college students notice what matters and learn more from the explanation that followed (Schwartz & Bransford 1998).",
+      "sources": [
+        {
+          "text": "Schwartz & Bransford 1998, Cognition and Instruction",
+          "url": "https://doi.org/10.1207/s1532690xci1604_4"
+        }
+      ]
+    },
+    {
+      "claim": "Concepts that are easily confused",
+      "label": "promising",
+      "text": "Mixing examples from different categories (interleaving) helps learners tell them apart (Brunmair & Richter 2019, a meta-analysis of 59 studies, g = 0.42), especially when the categories are similar. Few studies have tested confusable concept pairs side by side in school.",
+      "sources": [
+        {
+          "text": "Brunmair & Richter 2019, Psychological Bulletin",
+          "url": "https://doi.org/10.1037/bul0000209"
+        }
+      ]
+    },
+    {
+      "claim": "Comparing sources",
+      "label": "promising",
+      "text": "In a six-month quasi-experiment in five urban high schools, Grade 11 students taught with document-based lessons, which involved reading and questioning several sources on the same event, outperformed control classes in historical thinking, factual knowledge and reading comprehension (Reisman 2012). The study tested the whole curriculum, not source comparison alone.",
+      "sources": [
+        {
+          "text": "Reisman 2012, Cognition and Instruction",
+          "url": "https://doi.org/10.1080/07370008.2011.634081"
+        }
+      ]
+    }
+  ],
+  "context": {
+    "text": "In a video study of eighth-grade maths lessons, teachers in Hong Kong and Japan used analogies as often as US teachers but supported them more, for example by keeping both cases visible at the same time and using gestures to show what to compare (Richland, Zur & Holyoak 2007). Side by Side builds those supports into the sheet.",
+    "sources": [
+      {
+        "text": "Richland, Zur & Holyoak 2007, Science",
+        "url": "https://doi.org/10.1126/science.1142103"
+      }
+    ]
+  },
+  "variant": {
+    "intro": "Older students can make a pair themselves in the school's approved AI tool, then swap with another group, who compare it with the same sheet. Making a pair with one difference that matters is itself a strong test of understanding.",
+    "student_prompt": "Do not include names or personal details in this conversation.\n\nHelp me make a comparison task for my classmates about this topic: [paste the topic].\n\nUse one of these pair types: Two ways to the same answer, Right next to wrong, One thing changed, Two concepts that are easily confused, Two sources on the same event.\n\nWrite a one-sentence task and two items, A and B, of at most 60 words each. A and B should differ in one main way that matters, and in exactly one way for One thing changed. For Right next to wrong, start the incorrect item with \"This solution has an error.\" Do not explain the difference and do not write a key: my classmates will work it out themselves.",
+    "steps": [
+      "Each group chooses a pair type and pastes the prompt into the school's approved AI tool, adding the lesson topic.",
+      "The group checks that the pair has the difference they intended, and writes their own key on a separate sheet.",
+      "Groups swap pairs and work through the sheet: the three columns, the rule and a case C they make up for each other.",
+      "Close with Think back: one sentence about how they thought."
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+/* Side by Side (/side-by-side/). Bygger på thinking-moves.css (tm-) och
+   lägger bara till det som är nytt här (sb-). Färger bara som var(--…). */
+
+/* Tidslöftet under ingressen. */
+.sb-promise { margin: var(--space-4) 0 0; font-weight: var(--weight-emphasis); color: var(--color-text); max-width: none; }
+
+/* ───── Svårighetsgraden i byggaren ───── */
+.sb-levels { border: 0; padding: 0; margin: 0; }
+.sb-levels legend { padding: 0; margin-bottom: var(--space-2); }
+.sb-level { display: flex; gap: var(--space-3); align-items: baseline; padding: var(--space-2) 0; cursor: pointer; }
+.sb-level input { flex: none; accent-color: var(--color-accent); }
+.sb-level strong { font-weight: var(--weight-emphasis); }
+/* En nivå som partypen inte klarar är grå och går inte att välja. */
+.sb-level:has(input:disabled) { opacity: .5; cursor: not-allowed; }
+.sb-level__note:empty { display: none; }
+
+/* ───── Parkorten ───── */
+.sb-pair__look-title { margin: 0; font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); }
+.sb-pair__look { margin: 0; padding-left: var(--space-5); font-size: var(--fs-small); display: grid; gap: var(--space-1); }
+.sb-pair__look li { max-width: none; }
+.sb-pair__only { margin: 0; font-size: var(--fs-small); color: var(--color-highlight-ink); max-width: none; }
+
+/* Parkorten står två och två, så att A och B i ett öppnat exempel får plats
+   bredvid varandra utan att kortet flyttar sig. Kort i samma rad är lika
+   höga (delade .tm-grid). */
+#sb-pairs .tm-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 24rem), 1fr)); }
+
+.sb-task { margin: 0 0 var(--space-3); font-size: var(--fs-small); max-width: none; }
+.sb-task strong { font-weight: var(--weight-emphasis); }
+
+/* Paret: A och B bredvid varandra, samtidigt — formen visar idén. */
+.sb-ab { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-bottom: var(--space-4); }
+.sb-item { min-width: 0; background: var(--color-bg); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); padding: var(--space-3) var(--space-4); font-size: var(--fs-small); }
+.sb-item p { margin: 0; max-width: none; }
+.sb-item__label { font-size: var(--fs-caption) !important; letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); margin-bottom: var(--space-2) !important; }
+
+/* Nyckeln i tre spalter: bara A, båda (tonad), bara B. */
+.sb-key__title { margin: 0 0 var(--space-2); font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-text-muted); max-width: none; }
+.sb-key { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); margin-bottom: var(--space-4); font-size: var(--fs-small); }
+.sb-col { min-width: 0; padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); }
+.sb-col h5 { margin: 0 0 var(--space-1); font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); }
+.sb-col p { margin: 0; max-width: none; }
+.sb-col:nth-child(2) { background: var(--color-bg); }
+.sb-example dl { grid-template-columns: 1fr; gap: var(--space-1); }
+.sb-example dd { margin-bottom: var(--space-2); }
+
+/* När korten blir smala staplas paret och nyckeln. */
+@media (max-width: 960px) {
+  .sb-ab, .sb-key { grid-template-columns: 1fr; }
+}
+
+/* ───── Gymnasievarianten ───── */
+.sb-variant__steps { padding-left: var(--space-5); display: grid; gap: var(--space-2); max-width: var(--content-text-max); margin-bottom: var(--space-5); }
+
+/* ───── Evidens ───── */
+.sb-evidence { list-style: none; padding: 0; margin: var(--space-6) 0 0; display: grid; gap: var(--space-4); max-width: var(--content-text-max); }
+.sb-evidence li { max-width: none; }
+.sb-evidence strong { font-weight: var(--weight-emphasis); }
+.sb-context { margin-top: var(--space-6); max-width: var(--content-text-max); color: var(--color-text-soft); }
+.sb-context strong { color: var(--color-text); font-weight: var(--weight-emphasis); }
+
+/* ───── Nedladdningar ───── */
+.sb-downloads { display: flex; flex-wrap: wrap; gap: var(--space-4); }

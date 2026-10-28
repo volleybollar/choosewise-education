@@ -59,6 +59,7 @@ PAGES = (
         "gap-tracer/",
         "thinking-moves/",
         "flawed-answer/",
+        "side-by-side/",
         "think/",
     ]
 )

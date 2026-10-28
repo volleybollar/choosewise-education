@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Side by Side — student sheet</title>
+<!-- Genererad av exports/build-side-by-side-pdf.py från side-by-side/pairs-en.json. Ändra i JSON-filen eller skriptet, inte här. -->
+<link rel="stylesheet" href="../../exports/_guide-print.css">
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--color-bg); }
+body { font-family: var(--font-body); color: var(--color-text-soft); font-size: 10pt; line-height: 1.42; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+strong, b { font-weight: 500; }
+.page { width: 210mm; height: 297mm; padding: 15mm 17mm 18mm; display: flex; flex-direction: column; gap: 4mm; page-break-after: always; overflow: hidden; }
+.page:last-child { page-break-after: auto; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; color: var(--color-text); }
+.kicker { font-size: 7.5pt; letter-spacing: .12em; text-transform: uppercase; color: var(--color-highlight-ink); font-weight: 500; }
+.top { display: grid; grid-template-columns: 20mm 1fr; gap: 6mm; align-items: center; border-bottom: 0.6mm solid var(--color-accent); padding-bottom: 4mm; }
+.top img { width: 20mm; height: 20mm; }
+.top h2 { font-size: 24pt; line-height: 1.05; letter-spacing: -.01em; margin-top: 1mm; }
+.oneliner { font-size: 12pt; color: var(--color-text); }
+.look { display: flex; flex-direction: column; gap: 1mm; padding-left: 5mm; font-size: 9.5pt; }
+.label { font-size: 8pt; letter-spacing: .08em; text-transform: uppercase; color: var(--color-accent); font-weight: 500; }
+.only { font-size: 9.5pt; color: var(--color-highlight-ink); }
+.chip { display: inline-block; border: 0.35mm solid var(--color-accent); color: var(--color-accent); border-radius: 1mm; padding: .3mm 2mm; font-weight: 500; font-size: 8pt; }
+.chip--strong { background: var(--color-accent); color: var(--color-bg); }
+.ex { border-left: 1mm solid var(--color-highlight); background: var(--color-bg-alt); padding: 4mm 5mm; display: flex; flex-direction: column; gap: 2.2mm; font-size: 9.6pt; }
+.ex h3 { font-size: 11pt; }
+.ex h3 span { font-weight: 400; color: var(--color-text-muted); }
+.ab { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+.item { border: 0.3mm solid var(--color-border); background: var(--color-bg); border-radius: 1mm; padding: 2.5mm 3.5mm; color: var(--color-text); }
+.item .label { display: block; margin-bottom: 1mm; }
+.cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+.cols div { padding: 2mm 2.5mm; border-radius: 1mm; }
+.cols div:nth-child(2) { background: var(--color-bg); }
+.cols .label { display: block; margin-bottom: .8mm; }
+.ex dl { display: grid; grid-template-columns: 28mm 1fr; gap: 1.1mm 4mm; }
+.ex dt { font-size: 8pt; letter-spacing: .08em; text-transform: uppercase; color: var(--color-accent); font-weight: 500; padding-top: .5mm; }
+.for-ai { font-size: 9.2pt; color: var(--color-text); }
+.evidence { font-size: 9pt; color: var(--color-text-muted); }
+.foot { margin-top: auto; font-size: 7.5pt; color: var(--color-text-muted); border-top: 0.3mm solid var(--color-border); padding-top: 2.5mm; display: flex; justify-content: space-between; }
+.cover h1, .sheet h1 { font-size: 34pt; font-weight: 300; letter-spacing: -.02em; line-height: 1.05; }
+.lede { font-size: 12pt; color: var(--color-text); max-width: 160mm; }
+.how { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; font-size: 9pt; }
+.how div { border-top: 0.5mm solid var(--color-highlight); padding-top: 2mm; }
+.levels { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm 8mm; font-size: 9pt; }
+.levels div { border-top: 0.5mm solid var(--color-accent); padding-top: 2mm; }
+.legend { display: flex; flex-direction: column; gap: 2mm; font-size: 9pt; }
+.note { font-size: 9.5pt; color: var(--color-text); font-weight: 500; }
+.prompt { border: 0.35mm dashed var(--color-accent); border-radius: 1.5mm; padding: 4.5mm 5.5mm; font-family: 'SF Mono', Menlo, monospace; font-size: 7.8pt; line-height: 1.55; color: var(--color-text); white-space: pre-wrap; }
+.blank { display: inline-block; border-bottom: 0.3mm solid var(--color-text); }
+.names { display: flex; gap: 8mm; font-size: 10pt; color: var(--color-text); }
+.names span { flex: 1; border-bottom: 0.3mm solid var(--color-border); padding-bottom: 1mm; }
+.task { font-size: 10pt; color: var(--color-text); border-bottom: 0.3mm solid var(--color-border); padding-bottom: 5mm; }
+.paste { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; flex: 0 0 52mm; }
+.paste div { border: 0.35mm dashed var(--color-border); border-radius: 1.5mm; padding: 3mm 4mm; color: var(--color-text-muted); font-size: 9pt; }
+.paste strong { display: block; font-size: 14pt; color: var(--color-text); }
+.compare { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; flex: 1; }
+.compare div { border: 0.35mm solid var(--color-border); border-top: 0.8mm solid var(--color-accent); border-radius: 1mm; padding: 3mm 4mm; }
+.compare div:nth-child(2) { background: var(--color-bg-alt); }
+.compare h3, .rule-box h3, .case h3 { font-size: 12pt; }
+.rule-box { border: 0.6mm solid var(--color-highlight); border-radius: 1.5mm; padding: 3mm 4mm; height: 30mm; }
+.case { border: 0.35mm solid var(--color-border); border-radius: 1mm; padding: 3mm 4mm; height: 30mm; }
+.case p, .rule-box p { font-size: 9pt; color: var(--color-text-muted); }
+.think { border-top: 0.6mm solid var(--color-highlight); padding-top: 2.5mm; font-size: 10pt; color: var(--color-text); }
+.think .line { display: block; border-bottom: 0.3mm solid var(--color-border); height: 9mm; }
+</style>
+</head>
+<body>
+<section class="page sheet"><div class="kicker">Student sheet</div><h1>Side by Side</h1><div class="names"><span>Names:</span><span>Date:</span></div><p class="task"><strong>Task:</strong></p><div class="paste"><div><strong>A</strong>Paste, staple or copy A here</div><div><strong>B</strong>Paste, staple or copy B here</div></div><div class="compare"><div><h3>Only A</h3></div><div><h3>Both</h3></div><div><h3>Only B</h3></div></div><div class="rule-box"><h3>The rule we found</h3><p>In one or two sentences: what does the comparison show?</p></div><div class="case"><h3>Try it on case C</h3><p>Use your rule on the new case. What is the answer, and why?</p></div><div class="think"><strong>Think back.</strong> One sentence about how you thought, not what you found.<span class="line"></span></div><div class="foot"><span>Side by Side · choosewise.education/side-by-side</span><span>Fill in the three columns before anyone explains the difference.</span></div></section>
+</body>
+</html>
