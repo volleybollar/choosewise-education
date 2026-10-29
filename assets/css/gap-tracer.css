@@ -56,8 +56,21 @@
 .gt-none, .gt-error { color: var(--color-text-soft); font-style: italic; }
 .gt-plan__made { font-size: var(--fs-small); color: var(--color-text-soft); max-width: var(--content-text-max); margin-block: var(--space-6) var(--space-4); }
 
-.gt-feedback { margin-top: var(--space-7); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
-.gt-feedback__buttons { display: flex; gap: var(--space-2); }
+/* Återkopplingen är en egen ruta med kopparfärgad kant, så att den syns när
+   man har läst klart planen. Frågan står i rubrikstil och knapparna är
+   fyllda: en otydlig fråga får få svar. */
+.gt-feedback {
+  margin-top: var(--space-7);
+  padding: var(--space-6);
+  background: var(--color-bg-alt);
+  border: 2px solid var(--color-highlight);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+.gt-feedback__question { font-family: var(--font-display); font-size: var(--fs-h3); line-height: var(--lh-snug); max-width: none; margin-bottom: var(--space-4); }
+.gt-feedback__buttons { display: flex; gap: var(--space-3); justify-content: center; }
+.gt-feedback__buttons .btn { min-width: 7rem; justify-content: center; }
+.gt-feedback__thanks { font-size: var(--fs-h3); max-width: none; margin: 0; }
 
 /* ───── Steg 1: exempel för föräldrar ───── */
 .gt-examples { padding-left: var(--space-5); margin-bottom: var(--space-4); display: grid; gap: var(--space-1); }

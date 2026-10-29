@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
   <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
   <!-- Sidans egna stilar: steg, svarsknappar, markeringar och utskrift. -->
-  <link rel="stylesheet" href="/assets/css/gap-tracer.css?v=20261024e">
+  <link rel="stylesheet" href="/assets/css/gap-tracer.css?v=20261029a">
 <!-- seo:start (build-seo-meta.py) -->
 <link rel="canonical" href="https://choosewise.education/gap-tracer/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -101,13 +101,14 @@
       <button type="button" class="btn btn--secondary" id="gt-print">Print / save as PDF</button>
 
       <!-- Återkoppling: bara ja eller nej. Ingen fritext, eftersom fritext kan
-           innehålla barnets namn. data-telemetry-url är tom tills Johan har
-           skapat sitt Google Sheet — tom adress betyder att inget skickas. -->
-      <div class="gt-feedback" id="gt-feedback" data-telemetry-url="">
+           innehålla barnets namn. data-telemetry-url pekar på Apps Script-
+           webbappen som lägger varje svar i Johans Google Sheet "Gap Tracer —
+           feedback". Tom adress betyder att inget skickas. -->
+      <div class="gt-feedback" id="gt-feedback" data-telemetry-url="https://script.google.com/macros/s/AKfycbwUfKDbKDm1QqHtEXtHBkOUdYcweiGzZ1ZgpOuq8KTwgjX1f7oifF5m22hDGCCoNJjWXQ/exec">
         <p class="gt-feedback__question">Did this help you know where to start?</p>
         <div class="gt-feedback__buttons">
-          <button type="button" class="btn btn--secondary" data-feedback="yes">Yes</button>
-          <button type="button" class="btn btn--secondary" data-feedback="no">No</button>
+          <button type="button" class="btn btn--primary" data-feedback="yes">Yes</button>
+          <button type="button" class="btn btn--primary" data-feedback="no">No</button>
         </div>
         <p class="gt-feedback__thanks" hidden>Thanks — that helps.</p>
       </div>

@@ -60,6 +60,8 @@ def page(site, browser):
     p.errors = []
     p.on("pageerror", lambda e: p.errors.append(str(e)))
     p.on("console", lambda m: m.type == "error" and p.errors.append(m.text))
+    # Sidan pekar på Johans riktiga Google Sheet. Ingen test får lägga rader där.
+    p.route("https://script.google.com/**", lambda route: route.fulfill(status=200))
     p.goto(f"{site}/gap-tracer/", wait_until="networkidle")
     yield p
     p.close()
@@ -236,6 +238,7 @@ def test_feedback_sends_only_the_four_fields(page):
 def test_feedback_without_url_makes_no_request(page):
     requests = []
     page.on("request", lambda r: r.method == "POST" and requests.append(r.url))
+    page.evaluate("document.getElementById('gt-feedback').dataset.telemetryUrl = ''")
     pick(page, "equivalent fractions", TARGET)
     page.click('#gt-feedback [data-feedback="no"]')
     page.wait_for_timeout(300)
