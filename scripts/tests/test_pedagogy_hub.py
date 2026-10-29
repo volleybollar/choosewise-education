@@ -10,19 +10,21 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 HUB = ROOT / "pedagogy/index.html"
 HEADER = ROOT / "assets/partials/header-en.html"
-UNANNOUNCED = ["Retrieval Rhythm", "Two-Minute Debrief", "Unit Studio", "Pedagogy Compass"]
+UNANNOUNCED = ["Two-Minute Debrief", "Unit Studio", "Pedagogy Compass"]
 
 
-def test_hub_has_one_card_to_lesson_lens():
+def test_hub_has_cards_to_lesson_lens_and_retrieval_rhythm():
     html = HUB.read_text(encoding="utf-8")
     assert "<h1>Pedagogy + AI</h1>" in html
-    assert re.findall(r'<a class="think-card"[^>]*href="([^"]+)"', html) == ["/lesson-lens/"]
+    assert re.findall(r'<a class="think-card"[^>]*href="([^"]+)"', html) == ["/lesson-lens/", "/retrieval-rhythm/"]
 
 
-def test_hub_card_icon_exists():
+def test_hub_card_icons_exist():
     html = HUB.read_text(encoding="utf-8")
-    src = re.search(r'<img class="think-card__icon" src="([^"]+)"', html).group(1)
-    assert (ROOT / src.lstrip("/")).exists(), src
+    srcs = re.findall(r'<img class="think-card__icon" src="([^"]+)"', html)
+    assert len(srcs) == 2
+    for src in srcs:
+        assert (ROOT / src.lstrip("/")).exists(), src
 
 
 def test_hub_names_no_unannounced_tools():
@@ -39,7 +41,8 @@ def test_menu_link_after_think():
 
 
 def test_og_images_absolute():
-    for page, png in (("pedagogy/index.html", "pedagogy-en.png"), ("lesson-lens/index.html", "lessonlens-en.png")):
+    for page, png in (("pedagogy/index.html", "pedagogy-en.png"), ("lesson-lens/index.html", "lessonlens-en.png"),
+                      ("retrieval-rhythm/index.html", "retrievalrhythm-en.png")):
         html = (ROOT / page).read_text(encoding="utf-8")
         m = re.search(r'<meta property="og:image" content="([^"]+)"', html)
         assert m and m.group(1) == f"https://choosewise.education/assets/images/brand/og/{png}", page
@@ -50,3 +53,4 @@ def test_llms_lists_both_pages():
     text = (ROOT / "llms.txt").read_text(encoding="utf-8")
     assert "https://choosewise.education/pedagogy/" in text
     assert "https://choosewise.education/lesson-lens/" in text
+    assert "https://choosewise.education/retrieval-rhythm/" in text
