@@ -60,6 +60,7 @@ PAGES = (
         "thinking-moves/",
         "flawed-answer/",
         "side-by-side/",
+        "thinking-profile/",
         "think/",
     ]
 )

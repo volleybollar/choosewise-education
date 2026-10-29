@@ -66,6 +66,10 @@ A fifteen-minute task for Grades 8–12. The teacher uses any AI tool to write a
 
 A fifteen-minute comparison task for Grades 7–12. The teacher uses any AI tool to build two items placed side by side, of one of five pair types (two ways to the same answer, right next to wrong, one thing changed, two concepts that are easily confused, two sources on the same event), at one of two difficulty levels. The AI reply has a block for students and a separate teacher key. Students sort what is only in A, in both and only in B, write the rule they found and try it on a new case C. Five worked examples shown as real pairs, evidence labels, an upper-secondary variant, a one-page student sheet and a PDF card deck.
 
+- [Thinking Profile — English](https://choosewise.education/thinking-profile/)
+
+A planning tool for a whole unit built around one kind of thinking, practised in four to six tasks. Six clusters of thinking (generating ideas, evaluating and choosing, comparing and transferring, explaining and reasoning from basics, causes and systems, regulating your own thinking), each with a four-step ladder students use to check their own progress. A planning prompt builds on Thinking Moves, Flawed Answer and Side by Side and returns a unit plan for any AI tool, plus free PDFs.
+
 ## Presentation Skills
 
 - [Presentation Skills landing — English](https://choosewise.education/presentation-skills/)

@@ -1,0 +1,50 @@
+/* Thinking Profile (/thinking-profile/). Bygger på thinking-moves.css (tm-)
+   och lägger bara till det som är nytt här (tp-). Färger bara som var(--…). */
+
+/* Tidslöftet under ingressen. */
+.tp-promise { margin: var(--space-4) 0 0; font-weight: var(--weight-emphasis); color: var(--color-text); max-width: none; }
+
+/* Citat: läraren som berättar, och texten läraren säger till eleverna. */
+.tp-tell { margin: var(--space-5) 0 0; padding: var(--space-3) var(--space-5); border-left: 3px solid var(--color-highlight); background: var(--color-bg-alt); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; max-width: var(--content-text-max); color: var(--color-text-soft); }
+
+/* ───── Trappkorten ───── */
+.tp-card__label { margin: 0; font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); }
+.tp-steps { margin: 0; padding-left: var(--space-5); font-size: var(--fs-small); display: grid; gap: var(--space-2); }
+.tp-steps li { max-width: none; }
+.tp-trained { margin: 0; font-size: var(--fs-small); color: var(--color-text-soft); max-width: none; }
+.tp-trained strong { font-weight: var(--weight-emphasis); color: var(--color-text); }
+
+/* ───── Nedladdningar ───── */
+.tp-downloads { display: flex; flex-wrap: wrap; gap: var(--space-4); }
+
+/* ───── Exemplet ───── */
+.tp-thread { margin: 0; font-size: var(--fs-small); max-width: none; }
+.tp-sub { margin: var(--space-7) 0 var(--space-3); font-size: 1.15rem; font-weight: var(--weight-emphasis); }
+.tp-note { margin: 0 0 var(--space-4); font-size: var(--fs-small); color: var(--color-text-muted); font-style: italic; max-width: none; }
+
+/* Veckoplanen: en numrerad lista där varje vecka har en rubrikrad. */
+.tp-plan { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-4); max-width: var(--content-text-max); }
+.tp-plan__item { max-width: none; border-left: 3px solid var(--color-border-strong); padding-left: var(--space-4); }
+.tp-plan__item p { margin: 0 0 var(--space-2); max-width: none; }
+.tp-plan__week { font-weight: var(--weight-emphasis); color: var(--color-text); }
+.tp-plan__week span { font-weight: var(--weight-body); color: var(--color-text-muted); }
+.tp-plan__inputs summary { cursor: pointer; font-size: var(--fs-small); color: var(--color-accent); }
+.tp-plan__inputs ul { margin: var(--space-3) 0; padding-left: var(--space-5); font-size: var(--fs-small); display: grid; gap: var(--space-1); overflow-wrap: anywhere; }
+.tp-plan__inputs ul li { max-width: none; }
+
+/* De två eleverna bredvid varandra på bred skärm, under varandra på mobil. */
+.tp-students { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+.tp-student { min-width: 0; overflow-wrap: anywhere; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-4) var(--space-5); }
+.tp-student h5 { margin: 0 0 var(--space-3); font-size: var(--fs-body); font-weight: var(--weight-emphasis); }
+.tp-student h5 span { font-weight: var(--weight-body); color: var(--color-text-muted); }
+.tp-student__answer { margin: 0 0 var(--space-3); font-size: var(--fs-small); max-width: none; }
+.tp-student dl { margin: 0; display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: var(--space-2) var(--space-3); font-size: var(--fs-small); }
+.tp-student dt { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); padding-top: 2px; }
+.tp-student dd { margin: 0; }
+@media (max-width: 480px) { .tp-student dl { grid-template-columns: 1fr; } .tp-student dd { margin-bottom: var(--space-2); } }
+
+/* ───── Evidensen ───── */
+.tp-evidence { list-style: none; padding: 0; margin: var(--space-6) 0 0; display: grid; gap: var(--space-4); max-width: var(--content-text-max); }
+.tp-evidence li { max-width: none; }
+.tp-evidence strong { font-weight: var(--weight-emphasis); }
+.tp-honesty { color: var(--color-text); }
