@@ -94,6 +94,7 @@ def render_why(intro: dict) -> str:
     return (
         f'<p class="section__lede">{escape(intro["what"])}</p>\n'
         f'<p class="tm-note">{escape(intro["why_unit"])}</p>\n'
+        f'<p class="tp-card__label">How you might retell it to a colleague:</p>\n'
         f'<blockquote class="tp-tell">{escape(intro["retell"])}</blockquote>'
     )
 
@@ -111,7 +112,9 @@ def render_example(example: dict, names: dict | None = None) -> str:
     cluster = names.get("clusters", {}).get(example["cluster"], example["cluster"])
 
     def task_label(tool: str, task: str) -> str:
-        return tasks.get(task) or TOOL_NAMES.get(tool) or task
+        name = tasks.get(task) or TOOL_NAMES.get(tool) or task
+        # Side by Side-uppgifter visas som "Side by Side: parnamn" så att läsaren ser verktyget.
+        return f"Side by Side: {name}" if tool == "side-by-side" and task in tasks else name
 
     plan = "".join(
         f'<li class="tp-plan__item">'

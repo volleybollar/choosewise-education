@@ -42,6 +42,16 @@ TOOL_NAMES = {"flawed-answer": "Flawed Answer", "side-by-side": "Side by Side"}
 PRIVACY = "Do not include student names or student work in this conversation."
 BUILDER_LINE = "Each task below is made in its own free builder on choosewise.education; the teacher types in the inputs you give, and the builder makes the task sheet students answer on paper."
 FIELDS_LINE = "Builder fields. All three: Subject, Grade, What is the lesson about? (at most 400 characters), What do students already know? (optional). Thinking Moves also has Thinking move (the task name); grades 8 to 12. Flawed Answer also has Flaw type and How hard should the flaw be to spot? (Easier to spot or Harder to spot); grades 8 to 12. Side by Side also has Pair type and How hard should the difference be to see? (Easier to see or Harder to see); grades 7 to 12. If the unit grade is not offered, use the nearest. The builder writes the task itself, so put the case, numbers or text for students into What is the lesson about?"
+# Promptkortets tre rader som i byggaren sätts ihop av variabler. Testet
+# jämför de fasta delarna (utanför {klammer}) med assets/js/thinking-profile.js.
+OPENING = (
+    "You are helping a Grade {grade} {subject} teacher plan a {weeks}-week unit so that students practise one kind of thinking "
+    "all the way through it, instead of handing their thinking to AI. Students do the tasks on paper, without AI. "
+    "After each task they mark which step of a four-step ladder their answer reached. "
+    "The ladder is for students' own self-check. It is never graded."
+)
+THINKING_LINE = "Thinking to follow: {cluster name}. {cluster description}"
+PREFERRED_LINE = "Preferred tasks, because they train {cluster name}:"
 PROMPT_PARTS = [
     "Reply in plain text, no tables, in this order:",
     "THE THINKING THREAD: one or two sentences on what kind of thinking this unit trains and why it fits the topic",
@@ -103,6 +113,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; color: var(
 .mini { display: flex; flex-direction: column; gap: 1.4mm; font-size: 9pt; color: var(--color-text); }
 .mini div { display: grid; grid-template-columns: 6mm 1fr; }
 .mini b { color: var(--color-accent); }
+.mini small { display: block; font-size: 7pt; line-height: 1.3; color: var(--color-text-soft); }
 .rule { border: 0.6mm solid var(--color-highlight); border-radius: 1.5mm; padding: 2mm 4mm; font-size: 9pt; color: var(--color-text); }
 .rows { display: flex; flex-direction: column; gap: 2.2mm; flex: 1; min-height: 0; }
 .row { border: 0.35mm solid var(--color-border); border-radius: 1mm; padding: 1.6mm 3.5mm 1.6mm; display: grid; grid-template-columns: 44mm 1fr 1fr; gap: 0 5mm; flex: 1; }
@@ -146,7 +157,7 @@ def _plan_task_name(w: dict, moves: dict) -> str:
     """Name of a plan week's task: a move name, or a pair name for Side by Side."""
     if w["tool"] == "side-by-side":
         pairs = json.loads(PAIRS.read_text(encoding="utf-8"))["pairs"]
-        return next(p["name"] for p in pairs if p["id"] == w["task"])
+        return "Side by Side: " + next(p["name"] for p in pairs if p["id"] == w["task"])
     return moves[w["task"]]["name"]
 
 
@@ -197,7 +208,6 @@ def _ladder_page(lad: dict, data: dict, page_no: int) -> str:
             k = moves[t["id"]]["label"]
             name += f' <span class="chip chip--{k}">{escape(labels[k]["name"])}</span>'
         trained.append(f"<li>{name}</li>")
-    ev = {e["claim"]: e for e in data["evidence"]}
     return (
         '<section class="page">'
         f'<div class="top"><img src="../..{escape(lad["icon"])}" alt=""><div>'
@@ -243,15 +253,12 @@ def _prompt_card(data: dict) -> str:
     prompt = "\n".join([
         PRIVACY,
         "",
-        "You are helping a Grade {grade} {subject} teacher plan a {weeks}-week unit so that students practise one kind of thinking "
-        "all the way through it, instead of handing their thinking to AI. Students do the tasks on paper, without AI. "
-        "After each task they mark which step of a four-step ladder their answer reached. "
-        "The ladder is for students' own self-check. It is never graded.",
+        OPENING,
         "",
         "Unit topic: {topic}",
         "Unit outline: {overview}   (optional)",
         "",
-        "Thinking to follow: {cluster name}. {cluster description}",
+        THINKING_LINE,
         "The ladder:",
         "1. {step 1}",
         "2. {step 2}",
@@ -260,10 +267,8 @@ def _prompt_card(data: dict) -> str:
         "",
         BUILDER_LINE,
         FIELDS_LINE,
-        "Preferred tasks, because they train {cluster name}:",
-        "- {task name} ({tool}): {one-line description} {link}",
-        "Other tasks you may borrow:",
-        "- {task name} ({tool}): {one-line description} {link}",
+        PREFERRED_LINE,
+        "List every task from the Trained by boxes on pages 2–7, preferred ones first.",
         "",
         "Rules: " + rules + " Do not invent studies or sources.",
         "",
@@ -298,7 +303,7 @@ def _sheet(lad: dict, data: dict, page_no: int) -> str:
     _, clusters, _ = _lookups()
     c = clusters[lad["cluster"]]
     q1, q2, q3 = (escape(q) for q in data["self_check"]["questions"])
-    ladder = "".join(f'<div><b>{i}</b><span>{escape(s["text"])}</span></div>' for i, s in enumerate(lad["steps"], start=1))
+    ladder = "".join(f'<div><b>{i}</b><span>{escape(s["text"])}<small>{escape(s["shows"])}</small></span></div>' for i, s in enumerate(lad["steps"], start=1))
     rule = f'<p class="rule">{escape(data["regulating_rule"])}</p>' if lad["cluster"] == "regulating" else ""
     stair = "".join(f"<span>{i}</span>" for i in range(1, 5))
     row = (

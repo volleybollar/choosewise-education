@@ -69,11 +69,20 @@ def test_each_sheet_has_its_ladder_six_rows_and_not_graded():
         page = text(SHEETS, i)
         assert has(names[lad["cluster"]], page), lad["cluster"]
         for s in lad["steps"]:
-            assert has(s["text"], page), (lad["cluster"], s["text"])
+            assert has(s["text"], page) and has(s["shows"], page), (lad["cluster"], s["text"])
         assert has(d["not_graded"], page), lad["cluster"]
         q = d["self_check"]["questions"]
         for question in q:
             assert page.count(re.sub(r"\s+", "", question).lower()) == 6, (lad["cluster"], question)
+
+
+def test_sheet_source_prints_every_steps_shows_text():
+    # Varje stegs "shows"-text står under steget i bladets stege.
+    from html import escape
+    src = SHEETS_SRC.read_text(encoding="utf-8")
+    for lad in data()["ladders"]:
+        for s in lad["steps"]:
+            assert escape(s["shows"]) in src, (lad["cluster"], s["shows"])
 
 
 def test_regulating_sheet_has_think_back_rule():
@@ -139,6 +148,24 @@ def test_prompt_card_matches_builder_word_for_word():
         assert has(line, last), line
     for rule in data()["rules"] + data()["rules_regulating"]:
         assert has(rule, last), rule
+
+
+def test_prompt_card_variable_lines_match_builder_pieces():
+    # Raderna där byggaren sätter in variabler: de fasta delarna (utanför
+    # {klammer}) ska stå i JS-filen i samma ordning som på promptkortet.
+    mod = load_build()
+    js = JS.read_text(encoding="utf-8").replace("\\'", "'")
+    for line in (mod.OPENING, mod.THINKING_LINE, mod.PREFERRED_LINE):
+        pos = -1
+        for piece in re.split(r"\{[^}]*\}", line):
+            if not piece:
+                continue
+            found = js.find(piece, pos + 1)
+            assert found > pos, piece
+            pos = found
+    last = text(DECK, 8)
+    for line in (mod.OPENING, mod.THINKING_LINE, mod.PREFERRED_LINE):
+        assert has(line, last), line
 
 
 def test_sources_are_generated_from_json():
@@ -209,6 +236,16 @@ def _segment(line, name):
     return common, line[start:end]
 
 
+def _names_in_line(common, own):
+    """Fältnamnen som fältraden räknar upp för en byggare, utan parenteser."""
+    def names(part):
+        part = re.sub(r"\([^)]*\)", "", part)
+        return [n.strip() for n in re.split(r",| and ", part) if n.strip()]
+    common_part = common.split("All three:")[1].strip().rstrip(".")
+    own_part = own.split(" also has ", 1)[1].split(";")[0]
+    return names(common_part), names(own_part)
+
+
 @pytest.mark.parametrize("name,tool,pre", BUILDERS, ids=[b[1] for b in BUILDERS])
 def test_fields_line_matches_builder_html(name, tool, pre):
     line = _fields_line_js()
@@ -217,16 +254,27 @@ def test_fields_line_matches_builder_html(name, tool, pre):
     form = _builder_form(tool)
     labels = re.findall(r'class="tm-field__label">([^<]+)<', form)
     assert len(labels) >= 5, labels
-    for label in labels:
-        label = label.replace(" (optional)", "").strip()
+    clean = [l.replace(" (optional)", "").strip() for l in labels]
+    # Åt ena hållet: varje fält i byggaren står i fältraden ...
+    for label in clean:
         assert label in common or label in own, (tool, label)
+    # ... och åt andra hållet: varje namn i fältraden finns i byggaren.
+    common_names, own_names = _names_in_line(common, own)
+    for n in common_names + own_names:
+        assert n in clean, (tool, n, clean)
     if "(optional)" in form:
         assert "What do students already know? (optional)" in common
-    grades = [int(g) for g in re.findall(r'<option value="(\d+)">Grade', form)]
+    grades = [int(g) for g in re.findall(r'<option value="(\d+)"[^>]*>Grade', form)]
     assert grades, tool
     assert "grades {} to {}".format(min(grades), max(grades)) in own, (tool, grades)
     levels = re.findall(r'name="{}-level"[^>]*> <span><strong>([^<]+)</strong>'.format(pre), form)
     for level in levels:
         assert level in own, (tool, level)
-    if levels:
-        assert len(levels) == 2, levels
+    if tool != "thinking-moves":
+        assert len(levels) == 2, (tool, levels)
+    # "at most 400 characters" gäller ämnesrutan What is the lesson about?
+    # (och förkunskapsrutan); båda ska ha maxlength 400 i byggaren.
+    claim = re.search(r"at most (\d+) characters", common)
+    assert claim, common
+    caps = re.findall(r'<textarea[^>]*id="{}-(?:topic|prior)"[^>]*maxlength="(\d+)"'.format(pre), form)
+    assert caps and set(caps) == {claim.group(1)}, (tool, caps, claim.group(1))

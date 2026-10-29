@@ -135,8 +135,14 @@ def test_overview_line_omitted_when_empty(page):
 
 
 def test_long_overview_kept_verbatim(page):
-    overview = ("Week 1: food chains.\nWeek 2: <b>loops</b> & \"cycles\". " + "x" * 1800)[:2000]
-    fill(page, overview=overview)
+    # 3 000 tecken skrivs in som en enda insättning (som vid inklistring) och
+    # ska nå prompten hela och oförändrade, utan någon avklippning.
+    overview = "Week 1: food chains.\nWeek 2: <b>loops</b> & \"cycles\". " + "x" * 2950
+    assert len(overview) >= 3000
+    fill(page)
+    page.focus("#tp-overview")
+    page.keyboard.insert_text(overview)
+    assert page.input_value("#tp-overview") == overview
     assert f"Unit outline: {overview}" in prompt(page)
     assert page.locator("main b").count() == 0
 

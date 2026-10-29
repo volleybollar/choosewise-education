@@ -245,3 +245,10 @@ def test_ladder_cards_side_by_side_are_equal_height(site, browser):
         for b in boxes:
             assert b["last"] and b["linkH"] < b["lh"] * 1.6, (width, b)
         p.close()
+
+
+def test_retell_quote_has_lead_in_and_week_five_names_its_tool():
+    html = PAGE.read_text(encoding="utf-8") if "PAGE" in globals() else (ROOT / "thinking-profile/index.html").read_text(encoding="utf-8")
+    lead = "How you might retell it to a colleague:"
+    assert lead + "</p>\n<blockquote class=\"tp-tell\">" + esc(data()["intro"]["retell"]) in html
+    assert "Week 5 · Side by Side: One thing changed" in html
