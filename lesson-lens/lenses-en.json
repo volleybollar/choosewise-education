@@ -25,13 +25,28 @@
       "name": "Retrieval practice",
       "one_liner": "Students pull what they have learned out of memory, instead of reading it again.",
       "label": "strong",
-      "evidence": "Practice testing is one of two strategies rated high utility in the best-known review of study techniques (Dunlosky et al. 2013), and classroom studies across ages and subjects confirm it (Agarwal, Nunes & Blunt 2021).",
+      "evidence": "Practice testing is one of two strategies rated high utility in the best-known review of study techniques (Dunlosky et al. 2013). A meta-analysis of classroom studies confirms it improves learning in school (Yang et al. 2021), across ages and subjects (Agarwal, Nunes & Blunt 2021).",
       "sources": [
-        {"text": "Dunlosky et al. 2013, Psychological Science in the Public Interest", "url": "https://doi.org/10.1177/1529100612453266"},
-        {"text": "Agarwal, Nunes & Blunt 2021, Educational Psychology Review", "url": "https://doi.org/10.1007/s10648-021-09595-9"}
+        {
+          "text": "Dunlosky et al. 2013, Psychological Science in the Public Interest",
+          "url": "https://doi.org/10.1177/1529100612453266"
+        },
+        {
+          "text": "Yang et al. 2021, Psychological Bulletin",
+          "url": "https://doi.org/10.1037/bul0000309"
+        },
+        {
+          "text": "Agarwal, Nunes & Blunt 2021, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-021-09595-9"
+        }
       ],
       "prompt_brief": "Look for moments where students re-read, copy or listen to a recap, and where they could instead recall from memory without notes: a quick quiz, a brain dump, a closed-book question. A good upgrade replaces one recap with low-stakes recall of this lesson's key content, or of earlier content it builds on.",
-      "toolkit": [{"href": "/evidence/memory/", "text": "Evidence Toolkit: Memory"}],
+      "toolkit": [
+        {
+          "href": "/evidence/memory/",
+          "text": "Evidence Toolkit: Memory"
+        }
+      ],
       "example": {
         "subject": "History",
         "grade": 9,
@@ -59,11 +74,22 @@
       "label": "strong",
       "evidence": "Distributed practice is the other strategy rated high utility by Dunlosky et al. 2013. A 2022 review of classroom and lab research finds that spacing and retrieval together give the most durable learning (Carpenter, Pan & Butler 2022).",
       "sources": [
-        {"text": "Dunlosky et al. 2013, Psychological Science in the Public Interest", "url": "https://doi.org/10.1177/1529100612453266"},
-        {"text": "Carpenter, Pan & Butler 2022, Nature Reviews Psychology", "url": "https://doi.org/10.1038/s44159-022-00089-1"}
+        {
+          "text": "Dunlosky et al. 2013, Psychological Science in the Public Interest",
+          "url": "https://doi.org/10.1177/1529100612453266"
+        },
+        {
+          "text": "Carpenter, Pan & Butler 2022, Nature Reviews Psychology",
+          "url": "https://doi.org/10.1038/s44159-022-00089-1"
+        }
       ],
       "prompt_brief": "Look at where this lesson sits in the unit. Check whether all practice of today's content happens today, and whether content from earlier weeks returns at all. A good upgrade moves some practice to later lessons, or brings back one or two items from weeks ago in a short mixed set.",
-      "toolkit": [{"href": "/evidence/memory/", "text": "Evidence Toolkit: Memory"}],
+      "toolkit": [
+        {
+          "href": "/evidence/memory/",
+          "text": "Evidence Toolkit: Memory"
+        }
+      ],
       "example": {
         "subject": "Maths",
         "grade": 7,
@@ -89,12 +115,24 @@
       "name": "Cognitive load & worked examples",
       "one_liner": "New material is shown in small steps with worked examples, so working memory is not overloaded.",
       "label": "strong",
-      "evidence": "Cognitive load theory rests on decades of replicated experiments. The worked-example effect is one of its most robust findings, and it fades as students gain expertise (Sweller, van Merriënboer & Paas 2019).",
+      "evidence": "Cognitive load theory rests on decades of replicated experiments. The worked-example effect is one of its most robust findings, confirmed in a 2023 meta-analysis, and it fades as students gain expertise (Sweller, van Merriënboer & Paas 2019; Barbieri et al. 2023).",
       "sources": [
-        {"text": "Sweller, van Merriënboer & Paas 2019, Educational Psychology Review", "url": "https://doi.org/10.1007/s10648-019-09465-5"}
+        {
+          "text": "Sweller, van Merriënboer & Paas 2019, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-019-09465-5"
+        },
+        {
+          "text": "Barbieri et al. 2023, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-023-09745-1"
+        }
       ],
       "prompt_brief": "Look for places where students meet a lot of new information at once: several new terms, busy slides, text and talk competing, or problems before any worked example. A good upgrade removes or splits one load point, or adds a worked example that fades into independent practice.",
-      "toolkit": [{"href": "/evidence/explicit-instruction/", "text": "Evidence Toolkit: Explicit instruction"}],
+      "toolkit": [
+        {
+          "href": "/evidence/explicit-instruction/",
+          "text": "Evidence Toolkit: Explicit instruction"
+        }
+      ],
       "example": {
         "subject": "Chemistry",
         "grade": 10,
@@ -121,10 +159,18 @@
       "label": "promising",
       "evidence": "An overview of meta-analyses on multimedia design finds reliable benefits from pairing words with relevant visuals and removing extras, mostly in short studies (Noetel et al. 2022). Long-term classroom evidence is thinner.",
       "sources": [
-        {"text": "Noetel et al. 2022, Review of Educational Research", "url": "https://doi.org/10.3102/00346543211052329"}
+        {
+          "text": "Noetel et al. 2022, Review of Educational Research",
+          "url": "https://doi.org/10.3102/00346543211052329"
+        }
       ],
       "prompt_brief": "Look at how slides, diagrams and talk work together. Check for text read aloud from slides, decorative images, or ideas that a simple diagram, timeline or map would make clearer. A good upgrade replaces one text-heavy part with a visual that students build or label while the teacher explains.",
-      "toolkit": [{"href": "/evidence/memory/", "text": "Evidence Toolkit: Memory"}],
+      "toolkit": [
+        {
+          "href": "/evidence/memory/",
+          "text": "Evidence Toolkit: Memory"
+        }
+      ],
       "example": {
         "subject": "Geography",
         "grade": 8,
@@ -150,15 +196,31 @@
       "name": "Formative check (hinge question, exit ticket)",
       "one_liner": "A quick check during or at the end of the lesson shows what students understood, so the next step is based on evidence.",
       "label": "strong",
-      "evidence": "Black & Wiliam's 1998 review made the case that formative assessment raises achievement, and feedback-centred practice is one of the best-supported approaches in the EEF Teaching and Learning Toolkit. A whole-school EEF trial found a real but more modest effect at scale.",
+      "evidence": "Black & Wiliam's 1998 review made the case that formative assessment raises achievement, and a 2024 meta-analysis of 118 K-12 studies confirms a positive, more modest average effect (Yao et al. 2024). A whole-school EEF trial found a similar, real effect at scale.",
       "sources": [
-        {"text": "Black & Wiliam 1998, Assessment in Education", "url": "https://doi.org/10.1080/0969595980050102"},
-        {"text": "EEF: Embedding Formative Assessment evaluation", "url": "https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/embedding-formative-assessment"}
+        {
+          "text": "Black & Wiliam 1998, Assessment in Education",
+          "url": "https://doi.org/10.1080/0969595980050102"
+        },
+        {
+          "text": "Yao et al. 2024, Educational Research and Evaluation",
+          "url": "https://doi.org/10.1080/13803611.2024.2363831"
+        },
+        {
+          "text": "EEF: Embedding Formative Assessment evaluation",
+          "url": "https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/embedding-formative-assessment"
+        }
       ],
       "prompt_brief": "Look for the point where the teacher moves on without knowing whether students understood. A good upgrade adds one hinge question at that point (multiple choice, with wrong options built on common misconceptions, answered by everyone at once) or a short exit ticket, and says what the teacher does with each result.",
       "toolkit": [
-        {"href": "/evidence/feedback/", "text": "Evidence Toolkit: Feedback"},
-        {"href": "/evidence/curriculum-assessment/", "text": "Evidence Toolkit: Curriculum and assessment"}
+        {
+          "href": "/evidence/feedback/",
+          "text": "Evidence Toolkit: Feedback"
+        },
+        {
+          "href": "/evidence/curriculum-assessment/",
+          "text": "Evidence Toolkit: Curriculum and assessment"
+        }
       ],
       "example": {
         "subject": "Science",
@@ -173,7 +235,7 @@
         "keep": "The demonstration before the worksheet works like a worked example: students see the process before they write about it.",
         "upgrade": [
           "Replace the three diagrams with one diagram you label live, naming carbon dioxide, water, light, glucose and oxygen as you go.",
-          "Before the worksheet, ask a hinge question: \"Where does most of a tree's mass come from? A soil, B water, C air, D sunlight.\" Everyone shows a letter at once. If more than a quarter answer A, re-teach before moving on."
+          "Before the worksheet, ask a hinge question: \"Where does most of a tree's dry mass (the wood, once the water is dried out) come from? A soil, B water, C air, D sunlight.\" Everyone shows a letter at once. If more than a quarter answer A, re-teach before moving on."
         ],
         "nudge": "Students end by summarising the chapter. Would three closed-book questions on the same content help them remember more?",
         "check": "How many answer C on the hinge question, and how many can explain the diagram without the slide."
@@ -185,13 +247,24 @@
       "name": "Feedback that moves learning",
       "one_liner": "Feedback tells students where they are going, how they are doing and what to do next, and they act on it.",
       "label": "strong",
-      "evidence": "Feedback is among the best-evidenced approaches in the EEF Teaching and Learning Toolkit. A 2020 meta-analysis confirms a strong average effect but large variation: feedback about the task and the process works better than praise or grades alone (Wisniewski, Zierer & Hattie 2020).",
+      "evidence": "Feedback is among the best-evidenced approaches in the EEF Teaching and Learning Toolkit. A 2020 meta-analysis finds a medium average effect with large variation: feedback that carries rich information about the task and how to improve works much better than praise, rewards or punishment (Wisniewski, Zierer & Hattie 2020).",
       "sources": [
-        {"text": "EEF Teaching and Learning Toolkit: Feedback", "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback"},
-        {"text": "Wisniewski, Zierer & Hattie 2020, Frontiers in Psychology", "url": "https://doi.org/10.3389/fpsyg.2019.03087"}
+        {
+          "text": "EEF Teaching and Learning Toolkit: Feedback",
+          "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback"
+        },
+        {
+          "text": "Wisniewski, Zierer & Hattie 2020, Frontiers in Psychology",
+          "url": "https://doi.org/10.3389/fpsyg.2019.03087"
+        }
       ],
       "prompt_brief": "Look at when and how students get feedback in this lesson, and whether they get time to use it. A good upgrade makes feedback specific to the task, points to the next step, and builds in time in class for students to act on it. It never adds more written comments for the teacher to write.",
-      "toolkit": [{"href": "/evidence/feedback/", "text": "Evidence Toolkit: Feedback"}],
+      "toolkit": [
+        {
+          "href": "/evidence/feedback/",
+          "text": "Evidence Toolkit: Feedback"
+        }
+      ],
       "example": {
         "subject": "English",
         "grade": 11,
@@ -216,13 +289,24 @@
       "name": "Explicit instruction (Rosenshine)",
       "one_liner": "The teacher models, guides practice and checks understanding before students work on their own.",
       "label": "strong",
-      "evidence": "A meta-analysis of 328 studies over half a century found consistently positive effects of explicit, structured instruction (Stockard et al. 2018). Rosenshine's principles summarise the same research for classroom use.",
+      "evidence": "A meta-analysis of 328 studies over half a century found consistently positive effects of Direct Instruction, a highly structured form of explicit teaching (Stockard et al. 2018). Rosenshine's principles summarise the wider research on explicit instruction for classroom use.",
       "sources": [
-        {"text": "Stockard et al. 2018, Review of Educational Research", "url": "https://doi.org/10.3102/0034654317751919"},
-        {"text": "Rosenshine 2012, American Educator", "url": "https://www.aft.org/sites/default/files/periodicals/Rosenshine.pdf"}
+        {
+          "text": "Stockard et al. 2018, Review of Educational Research",
+          "url": "https://doi.org/10.3102/0034654317751919"
+        },
+        {
+          "text": "Rosenshine 2012, American Educator",
+          "url": "https://www.aft.org/sites/default/files/Rosenshine.pdf"
+        }
       ],
       "prompt_brief": "Look at the sequence from new content to independent work: is there modelling, guided practice with checks, and a high success rate before students work alone? A good upgrade adds or strengthens one missing step, such as thinking aloud while modelling, or a short guided round with whiteboards before independent work.",
-      "toolkit": [{"href": "/evidence/explicit-instruction/", "text": "Evidence Toolkit: Explicit instruction"}],
+      "toolkit": [
+        {
+          "href": "/evidence/explicit-instruction/",
+          "text": "Evidence Toolkit: Explicit instruction"
+        }
+      ],
       "example": {
         "subject": "Maths",
         "grade": 6,
@@ -235,7 +319,7 @@
         ],
         "keep": "Walking around during practice lets you see who is stuck while there is still time to help.",
         "upgrade": [
-          "Before the formula, cut a rectangle in half along its diagonal and think aloud: why is the triangle half the rectangle? Then model two examples step by step.",
+          "Before the formula, cut a rectangle in half along its diagonal and think aloud: why is the triangle half the rectangle? Then draw a rectangle around a triangle that is not right-angled and show that it is still half. Model two examples step by step.",
           "Add a guided round: three triangles on mini whiteboards, everyone shows the answer, and move to the textbook only when most get them right."
         ],
         "nudge": "If students go from the formula straight to working alone, how do you know they are ready before half the lesson has gone?",
@@ -250,10 +334,18 @@
       "label": "strong",
       "evidence": "Metacognition and self-regulation is one of the highest-impact, best-evidenced approaches in the EEF Teaching and Learning Toolkit (+8 months, 4 padlocks), when it is taught explicitly inside subject content.",
       "sources": [
-        {"text": "EEF Teaching and Learning Toolkit: Metacognition and self-regulation", "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation"}
+        {
+          "text": "EEF Teaching and Learning Toolkit: Metacognition and self-regulation",
+          "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation"
+        }
       ],
       "prompt_brief": "Look for moments where students could plan how to tackle a task, check how it is going, or look back on what worked, and where the teacher could model that thinking aloud. A good upgrade adds one short planning or reflection step tied to this lesson's task, not a general reflection form.",
-      "toolkit": [{"href": "/evidence/self-regulated-learning/", "text": "Evidence Toolkit: Self-regulated learning"}],
+      "toolkit": [
+        {
+          "href": "/evidence/self-regulated-learning/",
+          "text": "Evidence Toolkit: Self-regulated learning"
+        }
+      ],
       "example": {
         "subject": "Spanish",
         "grade": 9,
@@ -278,13 +370,24 @@
       "name": "Dialogic discussion",
       "one_liner": "Students build on each other's ideas in discussion, and the teacher's questions push for reasons.",
       "label": "promising",
-      "evidence": "An EEF trial of Dialogic Teaching found positive effects in English, science and maths, and a large classroom study links participation and elaborated reasoning in whole-class talk to better outcomes (Howe et al. 2019). Results vary with how well it is done.",
+      "evidence": "An EEF trial of Dialogic Teaching found positive effects in English, science and maths, though a follow-up found no effect on later national tests. A large classroom study links participation and elaborated reasoning in whole-class talk to better outcomes (Howe et al. 2019). Results vary with how well it is done.",
       "sources": [
-        {"text": "EEF: Dialogic Teaching evaluation", "url": "https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/dialogic-teaching"},
-        {"text": "Howe et al. 2019, Journal of the Learning Sciences", "url": "https://doi.org/10.1080/10508406.2019.1573730"}
+        {
+          "text": "EEF: Dialogic Teaching evaluation",
+          "url": "https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/dialogic-teaching"
+        },
+        {
+          "text": "Howe et al. 2019, Journal of the Learning Sciences",
+          "url": "https://doi.org/10.1080/10508406.2019.1573730"
+        }
       ],
       "prompt_brief": "Look at the discussion parts of the lesson: who talks, what kind of questions are asked, and whether students respond to each other or only to the teacher. A good upgrade adds thinking time, an open question with more than one reasonable answer, or a move that makes students build on or challenge a classmate's point.",
-      "toolkit": [{"href": "/evidence/questioning-discussion/", "text": "Evidence Toolkit: Questioning and discussion"}],
+      "toolkit": [
+        {
+          "href": "/evidence/questioning-discussion/",
+          "text": "Evidence Toolkit: Questioning and discussion"
+        }
+      ],
       "example": {
         "subject": "Religion and ethics",
         "grade": 10,
@@ -309,13 +412,28 @@
       "name": "Belonging & safety to try",
       "one_liner": "Students feel they belong and that mistakes are part of learning, so they dare to try.",
       "label": "promising",
-      "evidence": "A meta-analytic review links school belonging to motivation, well-being and achievement in secondary school (Korpershoek et al. 2020), and brief belonging interventions have helped some groups of students (Walton & Cohen 2011). Effects depend on context.",
+      "evidence": "A meta-analytic review links school belonging to motivation, well-being and achievement in secondary school (Korpershoek et al. 2020). Brief belonging interventions have helped some students, but a 2023 study of almost 27,000 students found they worked only where the school gave students real chances to belong (Walton et al. 2023).",
       "sources": [
-        {"text": "Korpershoek et al. 2020, Research Papers in Education", "url": "https://doi.org/10.1080/02671522.2019.1615116"},
-        {"text": "Walton & Cohen 2011, Science", "url": "https://doi.org/10.1126/science.1198364"}
+        {
+          "text": "Korpershoek et al. 2020, Research Papers in Education",
+          "url": "https://doi.org/10.1080/02671522.2019.1615116"
+        },
+        {
+          "text": "Walton & Cohen 2011, Science",
+          "url": "https://doi.org/10.1126/science.1198364"
+        },
+        {
+          "text": "Walton et al. 2023, Science",
+          "url": "https://doi.org/10.1126/science.ade4420"
+        }
       ],
       "prompt_brief": "Look for moments where students risk looking wrong in front of others, are picked on the spot, or compare themselves publicly. A good upgrade lowers the social risk while keeping the challenge: thinking time, practice in pairs or small groups first, or treating a common mistake as useful for the whole class.",
-      "toolkit": [{"href": "/evidence/wellbeing-motivation-agency/", "text": "Evidence Toolkit: Well-being, motivation and agency"}],
+      "toolkit": [
+        {
+          "href": "/evidence/wellbeing-motivation-agency/",
+          "text": "Evidence Toolkit: Well-being, motivation and agency"
+        }
+      ],
       "example": {
         "subject": "PE and health",
         "grade": 7,
@@ -341,12 +459,24 @@
       "name": "Thinking depth (Bloom / SOLO)",
       "one_liner": "Questions and tasks move from recalling facts to explaining, applying and judging.",
       "label": "framework",
-      "evidence": "Bloom's revised taxonomy and SOLO are widely used to plan and judge the depth of questions and tasks (Krathwohl 2002). They are languages for planning, not methods tested in intervention studies.",
+      "evidence": "Bloom's revised taxonomy (Krathwohl 2002) and the SOLO taxonomy (Biggs & Collis 1982) are widely used to plan and judge the depth of questions and tasks. They are languages for planning, not methods tested in intervention studies.",
       "sources": [
-        {"text": "Krathwohl 2002, Theory Into Practice", "url": "https://doi.org/10.1207/s15430421tip4104_2"}
+        {
+          "text": "Krathwohl 2002, Theory Into Practice",
+          "url": "https://doi.org/10.1207/s15430421tip4104_2"
+        },
+        {
+          "text": "Biggs & Collis 1982, Evaluating the Quality of Learning: The SOLO Taxonomy",
+          "url": "https://doi.org/10.1016/C2013-0-10375-3"
+        }
       ],
       "prompt_brief": "Look at the questions and tasks in the lesson and what depth of thinking they ask for. Check whether students only recall and describe, or also explain, compare, apply and judge. A good upgrade turns one recall task into a deeper one on the same content, without adding a new activity.",
-      "toolkit": [{"href": "/evidence/curriculum-alignment/", "text": "Evidence Toolkit: Curriculum alignment"}],
+      "toolkit": [
+        {
+          "href": "/evidence/curriculum-alignment/",
+          "text": "Evidence Toolkit: Curriculum alignment"
+        }
+      ],
       "example": {
         "subject": "Social studies",
         "grade": 11,
@@ -358,7 +488,7 @@
         ],
         "keep": "The table gives students a clear structure for content they need before they can reason about it.",
         "upgrade": [
-          "Replace the matching quiz with one case: \"Parliament passes a law the courts find unconstitutional. What can each branch do next?\" Students answer in pairs.",
+          "Replace the matching quiz with one case: \"The legislature passes a law that the courts find unconstitutional. What can each branch do next?\" Students answer in pairs.",
           "Add a final question that asks for a judgement: \"Which branch do you think has the most power in our country, and what is your strongest reason?\""
         ],
         "nudge": "If every task asks students to recall who does what, when do they get to use it?",
@@ -373,12 +503,21 @@
       "label": "choosewise",
       "evidence": "This is Choosewise's own question, not a research finding. It draws on research showing that unrestricted AI help can raise practice scores while lowering learning once the help is removed (Bastani et al. 2025).",
       "sources": [
-        {"text": "Bastani et al. 2025, PNAS", "url": "https://doi.org/10.1073/pnas.2422633122"}
+        {
+          "text": "Bastani et al. 2025, PNAS",
+          "url": "https://doi.org/10.1073/pnas.2422633122"
+        }
       ],
       "prompt_brief": "Apply this lens even if the lesson has no AI in it. Find the part of the lesson or homework that students are most likely to hand over to AI on their own, name the thinking that part is meant to train, and say what students get worse at if AI does it. If AI is already planned, judge it the same way. A good upgrade protects that thinking, for example by moving it into class, making students' own process visible, or using AI only after students have tried.",
       "toolkit": [
-        {"href": "/evidence/ai-learning-science/", "text": "Evidence Toolkit: AI and learning science"},
-        {"href": "/wise/", "text": "The WISE Framework for Education"}
+        {
+          "href": "/evidence/ai-learning-science/",
+          "text": "Evidence Toolkit: AI and learning science"
+        },
+        {
+          "href": "/wise/",
+          "text": "The WISE Framework for Education"
+        }
       ],
       "example": {
         "subject": "English",
