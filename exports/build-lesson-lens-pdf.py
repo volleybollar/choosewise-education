@@ -148,15 +148,15 @@ def _fill_in() -> str:
         f"You are helping a Grade {blank(12)} {blank(45)} teacher improve a lesson they have already planned. "
         "Keep their lesson and their way of teaching. Do not rewrite the lesson.",
         "",
-        f"Lens: {blank(90)}",
-        f"How to apply it: {blank(40)} (copy the lens's name, one-line description and \"For the AI\" text from its card)",
+        f"Lens: {blank(70)} (the lens's name and one-line description from its card)",
+        f"How to apply it: {blank(60)} (the \"For the AI\" text from its card)",
         "",
         "The lesson as planned:",
         f"{blank(160)}",
         f"{blank(160)}",
         f"{blank(160)}",
         "",
-        f"Students already know (optional): {blank(70)}",
+        f"Students already know: {blank(90)}",
         "",
         "Reply in plain text, no tables, with exactly these four parts:",
         *[escape(p, quote=False) for p in PROMPT_PARTS],
@@ -166,6 +166,7 @@ def _fill_in() -> str:
         '<div class="kicker">Without the website</div>'
         '<h2 style="font-size:24pt">Your own prompt</h2>'
         '<p class="oneliner">Fill in the blanks, then type the prompt into any AI tool: Copilot, Gemini, ChatGPT or Claude. '
+        'Leave out the line "Students already know" if you have nothing to add. '
         'Check the suggestions before the lesson. The AI proposes; you decide.</p>'
         f'<div class="prompt">{prompt}</div>'
         '<p class="evidence">Faster online: the prompt builder at ' + URL + ' fills this in for you, '

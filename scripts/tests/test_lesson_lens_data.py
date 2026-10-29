@@ -124,3 +124,21 @@ def test_research_lenses_have_sources():
 def test_age_rules_match_thinking_moves():
     tm = json.loads(TM_DATA.read_text(encoding="utf-8"))
     assert data()["age_rules"] == tm["age_rules"]
+
+
+def test_formative_example_stays_on_its_lens():
+    # Exemplet visas överst på sidan, så det ska visa just Formative check
+    # och inte råd från andra linser (slutgranskningen 2026-10-29).
+    ex = next(l for l in lenses() if l["id"] == "formative-check")["example"]
+    upgrades = " ".join(ex["upgrade"]).lower()
+    assert "hinge question" in upgrades and "exit ticket" in upgrades
+    assert "anything other than c" in upgrades
+    for other_lens in ("closed-book", "worked example", "label live"):
+        assert other_lens not in (upgrades + ex["keep"] + ex["nudge"]).lower(), other_lens
+
+
+def test_civics_case_works_in_any_country():
+    # Domstolar kan inte underkänna lagar i alla länder (t.ex. Storbritannien).
+    ex = next(l for l in lenses() if l["id"] == "thinking-depth")["example"]
+    text = " ".join(ex["upgrade"]).lower()
+    assert "unconstitutional" not in text and "courts" not in text

@@ -232,13 +232,13 @@
           "Worksheet on the word equation.",
           "Students summarise the chapter."
         ],
-        "keep": "The demonstration before the worksheet works like a worked example: students see the process before they write about it.",
+        "keep": "The demonstration gives students something concrete to reason about before they write, and the worksheet on the word equation gives you evidence you can check.",
         "upgrade": [
-          "Replace the three diagrams with one diagram you label live, naming carbon dioxide, water, light, glucose and oxygen as you go.",
-          "Before the worksheet, ask a hinge question: \"Where does most of a tree's dry mass (the wood, once the water is dried out) come from? A soil, B water, C air, D sunlight.\" Everyone shows a letter at once. If more than a quarter answer A, re-teach before moving on."
+          "Before the worksheet, ask a hinge question: \"Where does most of a tree's dry mass (the wood, once the water is dried out) come from? A soil, B water, C air, D sunlight.\" Everyone shows a letter at once. If more than a quarter choose anything other than C, re-teach with the pondweed before moving on.",
+          "Replace the chapter summary with an exit ticket: write the word equation, and name one thing a plant takes in and one thing it gives off. Sort the tickets into three piles (secure, partly, not yet) and open tomorrow's lesson with the gap in the \"not yet\" pile."
         ],
-        "nudge": "Students end by summarising the chapter. Would three closed-book questions on the same content help them remember more?",
-        "check": "How many answer C on the hinge question, and how many can explain the diagram without the slide."
+        "nudge": "Right now the first time you see what students understood is the worksheet. Would you rather find out while there is still time to re-teach?",
+        "check": "How many choose C on the hinge question, and how many exit tickets end up in the \"not yet\" pile."
       }
     },
     {
@@ -488,7 +488,7 @@
         ],
         "keep": "The table gives students a clear structure for content they need before they can reason about it.",
         "upgrade": [
-          "Replace the matching quiz with one case: \"The legislature passes a law that the courts find unconstitutional. What can each branch do next?\" Students answer in pairs.",
+          "Replace the matching quiz with one case: \"The government proposes a new law, but a majority in parliament votes against it. What can each branch do next?\" Students answer in pairs.",
           "Add a final question that asks for a judgement: \"Which branch do you think has the most power in our country, and what is your strongest reason?\""
         ],
         "nudge": "If every task asks students to recall who does what, when do they get to use it?",

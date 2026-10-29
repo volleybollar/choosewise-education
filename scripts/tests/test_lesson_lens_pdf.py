@@ -77,7 +77,19 @@ def test_fill_in_matches_builder_prompt():
     assert has("Do not include student names or student work in this conversation.", last)
     for line in _builder_fixed_lines():
         assert has(line, last), line
-    assert has("Students already know (optional)", last)
+    assert has("Students already know:", last)
+
+
+def test_fill_in_prompt_box_is_copyable_as_is():
+    # Det läraren skriver av ska vara exakt prompten: hjälptexterna står
+    # utanför rutan eller på rätt rad, och "(optional)" hör inte till prompten.
+    src = SRC.read_text(encoding="utf-8")
+    box = re.search(r'<div class="prompt">(.*?)</div>', src, re.S).group(1)
+    assert "(optional)" not in box
+    lens_line = next(l for l in box.splitlines() if l.startswith("Lens:"))
+    how_line = next(l for l in box.splitlines() if l.startswith("How to apply it:"))
+    assert "name and one-line description" in lens_line
+    assert "For the AI" in how_line and "name" not in how_line
 
 
 def test_pdf_fonts_allowed_weights():
