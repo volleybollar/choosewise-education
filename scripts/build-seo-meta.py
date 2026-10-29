@@ -39,6 +39,7 @@ FAVICON_ONLY_PATHS = (
     "sv/blog/post.html",
     "ratt-modellen.html",
     "wise-framework.html",
+    "dl/index.html",
 )
 
 # Pages that exist on disk but should be hidden from search engines and the
@@ -172,6 +173,7 @@ EXCLUDE_FILES = {
     "wise-framework.html",
     "ratt-modellen.html",
     "404.html",
+    "dl/index.html",  # mellanstation för mejllänkar, har egen noindex
 }
 
 # FAVICON_ONLY_PATHS must be a subset of EXCLUDE_FILES: both lists agree by

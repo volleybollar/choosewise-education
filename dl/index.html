@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Mellanstation för länkar i mejl: ska aldrig synas i sökmotorer. -->
+  <meta name="robots" content="noindex">
+  <title>Download — choosewise.education</title>
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+<!-- favicon:start (build-seo-meta.py) -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- favicon:end -->
+</head>
+<body>
+  <!--
+    /dl/ — sidan som länkarna i leveransmejlen går via.
+    Exempel: /dl/?f=free/visual-codes-50-en.pdf
+         eller /dl/?f=https://choosewise.education/assets/pdfs/free/visual-codes-50-en.pdf
+    Sidan räknar nedladdningen anonymt i GoatCounter och skickar sedan
+    besökaren vidare till PDF:en. Allt som inte är en PDF under /assets/pdfs/
+    på den här sajten avvisas, så att ingen kan använda sidan för att skicka
+    folk till en främmande adress.
+  -->
+  <div data-include="/assets/partials/header-en.html"></div>
+  <main>
+    <section class="container" style="padding-block: var(--space-10); text-align: center;">
+
+      <!-- Visas medan sidan räknar och skickar vidare (oftast under en sekund). -->
+      <div id="dl-wait">
+        <h1>Your PDF is on its way</h1>
+        <p class="lede" style="margin-inline:auto;" lang="sv">Din PDF är på väg.</p>
+      </div>
+
+      <!-- Visas när länken inte pekar på en PDF hos oss. Dold från början. -->
+      <div id="dl-refused" hidden>
+        <h1>This link doesn't lead to a PDF</h1>
+        <p class="lede" style="margin-inline:auto;">You'll find all our free PDFs on the <a href="/free/">Free resources</a> page.</p>
+        <p class="lede" style="margin-inline:auto;" lang="sv">Länken leder inte till någon PDF. Alla våra kostnadsfria PDF:er finns på sidan <a href="/free/">Free resources</a>.</p>
+      </div>
+
+      <!-- Utan JavaScript kan sidan varken räkna eller skicka vidare. -->
+      <noscript>
+        <p class="lede" style="margin-inline:auto;">Please turn on JavaScript, or go to <a href="/free/">Free resources</a>.</p>
+      </noscript>
+    </section>
+  </main>
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <!-- include.js laddar sidhuvud, sidfot och GoatCounter. pdf-count.js ger window.cwCountPdf.
+       Båda laddas utan defer så att de finns när skriptet nedanför körs. -->
+  <script src="/assets/js/include.js"></script>
+  <script src="/assets/js/pdf-count.js"></script>
+  <script>
+    (function () {
+      // Godkänd form efter /assets/pdfs/: ett filnamn, eller en mapp + ett filnamn.
+      // Bara små bokstäver, siffror och bindestreck, och slutet måste vara .pdf.
+      // Punkter, procenttecken och snedstreck i början stoppas därmed, så
+      // varken ../, kodade varianter (%2e%2e) eller //annan-sajt kommer igenom.
+      const SAFE = /^(?:[a-z0-9-]+\/)?[a-z0-9-]+\.pdf$/;
+
+      // Prefix som får stå före sökvägen. MailerLite skickar hela adressen
+      // ({$pdf_url}), men en kort sökväg som "free/x.pdf" fungerar också.
+      const PREFIXES = [
+        'https://choosewise.education/assets/pdfs/',
+        location.origin + '/assets/pdfs/',  // samma sajt vid lokal förhandsvisning
+        '/assets/pdfs/',
+      ];
+
+      // Ger den säkra sökvägen ("/assets/pdfs/free/x.pdf") eller null.
+      function safePdfPath(f) {
+        if (!f) return null;
+        let rest = f;
+        for (const prefix of PREFIXES) {
+          if (f.startsWith(prefix)) { rest = f.slice(prefix.length); break; }
+        }
+        return SAFE.test(rest) ? '/assets/pdfs/' + rest : null;
+      }
+
+      // URLSearchParams avkodar en gång, så både kodade och okodade adresser fungerar.
+      const target = safePdfPath(new URLSearchParams(location.search).get('f'));
+
+      if (!target) {
+        // Okänd länk: ingen räkning, ingen omdirigering, bara texten med länk till /free/.
+        document.getElementById('dl-wait').hidden = true;
+        document.getElementById('dl-refused').hidden = false;
+        return;
+      }
+
+      // Räkna, vänta högst en sekund på att GoatCounter hinner ta emot anropet,
+      // och skicka sedan vidare. replace gör att bakåtknappen hoppar över /dl/.
+      window.cwCountPdf(target);
+      window.cwCountPdf.settled(1000).then(function () {
+        location.replace(target);
+      });
+    })();
+  </script>
+</body>
+</html>

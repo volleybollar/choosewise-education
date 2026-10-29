@@ -25,6 +25,14 @@
   document.head.appendChild(s);
 })();
 
+// Räknar klick på PDF-länkar som anonyma händelser i GoatCounter (se pdf-count.js).
+// Laddas härifrån av samma skäl som GoatCounter ovan: då gäller det hela sajten.
+(function loadPdfCount() {
+  const s = document.createElement('script');
+  s.src = '/assets/js/pdf-count.js';
+  document.head.appendChild(s);
+})();
+
 (async function includePartials() {
   const slots = document.querySelectorAll('[data-include]');
   await Promise.all([...slots].map(async (el) => {
