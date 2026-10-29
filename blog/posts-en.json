@@ -1,5 +1,14 @@
 [
   {
+    "slug": "a-lifetime-of-reading-in-an-afternoon",
+    "title": "A lifetime of reading in an afternoon. What could that do for teaching?",
+    "date": "2026-10-29",
+    "reading_time": "7 min read",
+    "cover_image": "/blog/posts/assets/a-lifetime-of-reading-in-an-afternoon.webp",
+    "og_image": "/blog/posts/assets/a-lifetime-of-reading-in-an-afternoon-og.jpg",
+    "excerpt": "A keen reader spends 18,250 hours on fifty years of novels. AI processes the same text in about four hours, and analyses every book in under two days. The real question is what that capacity could do for teaching."
+  },
+  {
     "slug": "the-house-that-cost-one-dollar",
     "title": "The house that cost one dollar",
     "date": "2026-10-15",
