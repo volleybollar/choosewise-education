@@ -28,11 +28,16 @@ GC = "**/gc.zgo.at/**"
 # som sidan redan satt, skickar en sidvisning vid laddning om inte no_onload
 # är satt, och låter en path-funktion skriva om sidvisningens sökväg.
 # Händelser (count med argument) går till __gcCount, sidvisningar till __gcPageview.
-STUB = """(function () {
+STUB = r"""(function () {
   var g = window.goatcounter = window.goatcounter || {};
   g.count = function (o) {
     if (o) { window.__gcCount(JSON.stringify(o)); return; }
-    var p = location.pathname + location.search;
+    // Som count.js get_path: canonical-länkens sökväg om den hör till samma
+    // värd, annars adressfältets — i båda fallen med frågedelen.
+    var loc = location, c = document.querySelector('link[rel="canonical"][href]');
+    if (c) { var a = document.createElement('a'); a.href = c.href;
+             if (a.hostname.replace(/^www\./, '') === location.hostname.replace(/^www\./, '')) loc = a; }
+    var p = (loc.pathname + loc.search) || '/';
     if (typeof g.path === 'function') p = g.path(p);
     window.__gcPageview(p);
   };
@@ -275,9 +280,42 @@ def test_dl_sends_only_the_pdf_event_no_pageview(page, site):
                            "title": "visual-codes-50-en.pdf", "event": True}]
 
 
-def test_pageview_path_has_no_query_string(page, site):
-    """Spårningsparametrar från mejllänkar får inte följa med in i statistiken."""
-    page.goto(f"{site}/free/?ml_subscriber=123&src=yt")
+def stored(path):
+    """Det GoatCounter-servern sparar för en sidvisning (hit.go, cleanPath):
+    "/" + sökvägen utan snedstreck i ändarna. Så ser de rader ut som
+    dashboardens innehållskarta i AI OS matchar mot, t.ex. '/wise' och '/'."""
+    return "/" + path.strip("/")
+
+
+@pytest.mark.parametrize("url, sent, saved", [
+    ("/free/?ml_subscriber=123&src=yt", "/free/", "/free"),
+    ("/?ml_subscriber=123", "/", "/"),
+    ("/visual-codes/video/?ml_subscriber=123", "/visual-codes/video/", "/visual-codes/video"),
+    ("/dl/?f=../x.pdf", "/dl/", "/dl"),  # sida utan canonical
+])
+def test_pageview_path_has_no_query_string(page, site, url, sent, saved):
+    """Spårningsparametrar från mejllänkar får inte följa med in i statistiken,
+    och sökvägen blir i övrigt exakt den GoatCounter själv hade skickat."""
+    if url.startswith("/dl/"):
+        # /dl/ stänger av sidvisningen; här prövas bara path-funktionen.
+        page.goto(f"{site}{url}")
+        got = page.evaluate("window.goatcounter.path(location.pathname + location.search)")
+        assert got == sent and stored(got) == saved
+        return
+    page.goto(f"{site}{url}")
+    assert wait_for(page, lambda: page.pageviews)
+    assert page.pageviews == [sent]
+    assert stored(page.pageviews[0]) == saved
+
+
+def test_pageview_path_follows_the_canonical_like_the_default(page, site):
+    """count.js föredrar canonical-länkens sökväg. På den riktiga sajten har den
+    samma värd som sidan; här pekas den om till testservern för att pröva det."""
+    page.route("**/free/", lambda r: r.fulfill(
+        status=200, headers={"content-type": "text/html"},
+        body=f'<link rel="canonical" href="{site}/free/">'
+             '<script src="/assets/js/include.js"></script>'))
+    page.goto(f"{site}/free/?ml_subscriber=123")
     assert wait_for(page, lambda: page.pageviews)
     assert page.pageviews == ["/free/"]
 
