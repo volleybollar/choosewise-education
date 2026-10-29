@@ -65,8 +65,8 @@
 
 /* ───── About this tool: rutnät över hela bredden ───── */
 .gt-about__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); margin-bottom: var(--space-6); }
-/* 600 är det fetaste typsnittet sajten laddar (fonts.css: 300–600). */
-.gt-about__grid h3 { font-size: var(--fs-body); font-weight: 600; margin-bottom: var(--space-2); }
+/* Halvfet som övriga rubriker: sajtens skala är 300/400/500. */
+.gt-about__grid h3 { font-size: var(--fs-body); font-weight: var(--weight-emphasis); margin-bottom: var(--space-2); }
 .gt-about__grid p { max-width: none; }
 .gt-notices { font-size: var(--fs-small); color: var(--color-text-soft); max-width: none; }
 

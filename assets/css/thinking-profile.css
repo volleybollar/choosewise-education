@@ -35,8 +35,8 @@
 /* De två eleverna bredvid varandra på bred skärm, under varandra på mobil. */
 .tp-students { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
 .tp-student { min-width: 0; overflow-wrap: anywhere; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-4) var(--space-5); }
-.tp-student h5 { margin: 0 0 var(--space-3); font-size: var(--fs-body); font-weight: var(--weight-emphasis); }
-.tp-student h5 span { font-weight: var(--weight-body); color: var(--color-text-muted); }
+.tp-student h4 { margin: 0 0 var(--space-3); font-size: var(--fs-body); font-weight: var(--weight-emphasis); }
+.tp-student h4 span { font-weight: var(--weight-body); color: var(--color-text-muted); }
 .tp-student__answer { margin: 0 0 var(--space-3); font-size: var(--fs-small); max-width: none; }
 .tp-student dl { margin: 0; display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: var(--space-2) var(--space-3); font-size: var(--fs-small); }
 .tp-student dt { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); padding-top: 2px; }

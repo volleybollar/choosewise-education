@@ -274,3 +274,11 @@ def test_self_assessment_sources_are_cited_directly():
         for src in ev["sources"]:
             author = src["text"].split(",")[0].split(" 20")[0].split(" ")[0]
             assert author in ev["text"], (ev["claim"], src["text"])
+
+
+def test_example_headings_and_step_label():
+    # Rubrikerna i exemplet följer på varandra (h3 → h4), och veckoraden säger
+    # "room for step" som prompten och lärarhäftet.
+    html = (ROOT / "thinking-profile/index.html").read_text(encoding="utf-8")
+    assert "<h5" not in html and html.count('<div class="tp-student"><h4>') == 2
+    assert "aim: step" not in html and html.count("· room for step ") == 6

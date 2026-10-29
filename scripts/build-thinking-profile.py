@@ -119,7 +119,7 @@ def render_example(example: dict, names: dict | None = None) -> str:
     plan = "".join(
         f'<li class="tp-plan__item">'
         f'<p class="tp-plan__week">Week {int(p["week"])} · {escape(task_label(p["tool"], p["task"]))} '
-        f'<span>· aim: step {int(p["step"])}</span></p>'
+        f'<span>· room for step {int(p["step"])}</span></p>'
         f'<p>{escape(p["what"])}</p>'
         f'<details class="tp-plan__inputs"><summary>What to enter in the builder</summary>'
         f'<ul>{"".join(f"<li>{escape(i)}</li>" for i in p["inputs"])}</ul>'
@@ -128,8 +128,8 @@ def render_example(example: dict, names: dict | None = None) -> str:
         for p in example["plan"]
     )
     students = "".join(
-        f'<div class="tp-student"><h5>{escape(s["name"])} <span>· {escape(task_label("", s["task"]))} · '
-        f'step {int(s["step"])}</span></h5>'
+        f'<div class="tp-student"><h4>{escape(s["name"])} <span>· {escape(task_label("", s["task"]))} · '
+        f'step {int(s["step"])}</span></h4>'
         f'<p class="tp-student__answer">{escape(s["answer"])}</p>'
         f'<dl><dt>What shows it</dt><dd>{escape(s["shows"])}</dd>'
         f'<dt>My next step</dt><dd>{escape(s["next"])}</dd></dl></div>'
