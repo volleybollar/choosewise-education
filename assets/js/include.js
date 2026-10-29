@@ -18,10 +18,27 @@
 // Added here because every page loads include.js, so one line covers the site.
 // GoatCounter itself skips localhost, so local previews are never counted.
 (function loadGoatCounter() {
+  // GoatCounter räknar fram sökvägen själv (canonical-länkens sökväg om den
+  // finns, annars adressfältets) och skickar den hit först. Vi tar bara bort
+  // frågedelen efter "?", så att t.ex. MailerLites spårningsparametrar från
+  // mejllänkar inte sparas. Allt annat blir exakt som förut, så statistiken
+  // fortsätter på samma rader (GoatCounter tar själv bort snedstreck på slutet).
+  // Inställningar som sidan redan satt (som /dl/:s no_onload) behålls.
+  window.goatcounter = window.goatcounter || {};
+  window.goatcounter.path = function (p) { return p.split('?')[0] || '/'; };
+
   const s = document.createElement('script');
   s.async = true;
   s.src = 'https://gc.zgo.at/count.js';
   s.dataset.goatcounter = 'https://choosewise.goatcounter.com/count';
+  document.head.appendChild(s);
+})();
+
+// Räknar klick på PDF-länkar som anonyma händelser i GoatCounter (se pdf-count.js).
+// Laddas härifrån av samma skäl som GoatCounter ovan: då gäller det hela sajten.
+(function loadPdfCount() {
+  const s = document.createElement('script');
+  s.src = '/assets/js/pdf-count.js';
   document.head.appendChild(s);
 })();
 

@@ -143,6 +143,10 @@ document.addEventListener('click', (e) => {
 
   // Already signed up in this browser: no second form, just the PDF.
   if (load('localStorage', SUBSCRIBED_KEY) === '1') {
+    // Räkna nedladdningen anonymt (pdf-count.js, laddas av include.js).
+    // Nya besökare räknas i stället när de klickar på länken i rutan:
+    // den är en vanlig PDF-länk, så pdf-count.js fångar klicket själv.
+    if (window.cwCountPdf) window.cwCountPdf(pdf);
     location.href = pdf;
     return;
   }

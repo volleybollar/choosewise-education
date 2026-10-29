@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PDF count fixture</title>
+</head>
+<body>
+  <!-- Testsida för test_pdf_count.py: PDF-länkar i olika former + en grind.
+       include.js laddar GoatCounter och pdf-count.js precis som på sajten. -->
+  <a id="rel" href="/assets/pdfs/free/visual-codes-50-en.pdf">Relativ med rotsnedstreck</a>
+  <a id="abs" href="https://choosewise.education/assets/pdfs/nlm-140-prompts-en.pdf">Absolut</a>
+  <a id="up" href="../../../assets/pdfs/prompts/biology-en.pdf">Relativ med ../</a>
+  <a id="outside" href="/docs/notes.pdf">Utanför assets/pdfs</a>
+  <a id="gate" href="/assets/pdfs/prompts/teachers-en.pdf" data-gate="prompts-teachers-en" data-gate-pdf="/assets/pdfs/prompts/teachers-en.pdf">Grind</a>
+  <script src="/assets/js/include.js"></script>
+  <script type="module" src="/assets/js/mailerlite-gate.js"></script>
+</body>
+</html>
