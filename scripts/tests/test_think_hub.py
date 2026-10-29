@@ -17,12 +17,19 @@ def test_hub_links_thinking_profile():
     cards = re.findall(r'<a class="think-card"[^>]*href="([^"]+)"', html)
     assert cards == ["/thinking-moves/", "/flawed-answer/", "/side-by-side/", "/thinking-profile/"]
     assert "a whole unit" in html
-    assert "More tools are on the way." in html
+    assert "More tools" not in html
 
 
-def test_hub_mentions_more_tools_without_names():
+def test_hub_groups_short_tasks_and_whole_units():
     html = HUB.read_text(encoding="utf-8")
-    assert "More tools" in html
+    groups = re.findall(r'<h3 class="think-group__title">([^<]+)</h3>\s*<div class="think-grid">(.*?)</div>\s*(?:<!--.*?-->\s*)?(?=<h3|</section>)', html, re.S)
+    assert [g[0] for g in groups] == ["Short tasks: part of a lesson", "Longer work: a whole unit"]
+    assert re.findall(r'href="([^"]+)"', groups[0][1]) == ["/thinking-moves/", "/flawed-answer/", "/side-by-side/"]
+    assert re.findall(r'href="([^"]+)"', groups[1][1]) == ["/thinking-profile/"]
+
+
+def test_hub_names_no_unannounced_tools():
+    html = HUB.read_text(encoding="utf-8")
     for name in UNANNOUNCED:
         assert name not in html, name
 

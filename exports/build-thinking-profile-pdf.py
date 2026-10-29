@@ -7,7 +7,7 @@ Pages 2–7  one page per cluster: the four-step ladder with what each step show
 Page 8     the worked example (Biology, Grade 8, Causes and systems), short form
 Page 9     the prompt card, word for word as the builder writes it
 
-Self-check sheets (A4, 6 pages): one per cluster, for students (Grades 7–12).
+Self-check sheets (A4, 6 pages): one per cluster, for students (Grades 8–12).
 The ladder on top, six task rows with a staircase to mark the step reached.
 
 Cluster names and descriptions come from thinking-moves/moves-en.json, move
@@ -180,7 +180,7 @@ def _ladder_cover(data: dict) -> str:
     )
     return (
         '<section class="page cover">'
-        '<div class="kicker">Think + AI · Grades 7–12 · free ladder deck</div>'
+        '<div class="kicker">Think + AI · Grades 8–12 · free ladder deck</div>'
         f"<h1>{TITLE}</h1>"
         f'<p class="lede">{escape(data["intro"]["what"])} '
         'Pick one kind of thinking for the unit, plan four to six tasks around it, and let students rate every answer on the same four-step ladder.</p>'

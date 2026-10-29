@@ -252,3 +252,25 @@ def test_retell_quote_has_lead_in_and_week_five_names_its_tool():
     lead = "How you might retell it to a colleague:"
     assert lead + "</p>\n<blockquote class=\"tp-tell\">" + esc(data()["intro"]["retell"]) in html
     assert "Week 5 · Side by Side: One thing changed" in html
+
+
+def test_grades_start_at_8():
+    # Johans beslut 2026-10-29: Thinking Profile gäller åk 8–12, som
+    # Thinking Moves och Flawed Answer.
+    html = (ROOT / "thinking-profile/index.html").read_text(encoding="utf-8")
+    grades = re.findall(r'<option value="(\d+)"[^>]*>Grade', html)
+    assert grades == ["8", "9", "10", "11", "12"]
+    assert "7–12" not in html and "Grades 8–12" in html
+    assert "7–12" not in (ROOT / "exports/build-thinking-profile-pdf.py").read_text(encoding="utf-8")
+
+
+def test_self_assessment_sources_are_cited_directly():
+    # Johans beslut 2026-10-29: en källa står bara i listan om texten hänvisar
+    # direkt till den (Brown & Harris togs bort när de bara citerades via Andrade).
+    data = json.loads((ROOT / "thinking-profile/ladders-en.json").read_text(encoding="utf-8"))
+    for ev in data["evidence"]:
+        if not ev["claim"].startswith("Self-assessment"):
+            continue
+        for src in ev["sources"]:
+            author = src["text"].split(",")[0].split(" 20")[0].split(" ")[0]
+            assert author in ev["text"], (ev["claim"], src["text"])
