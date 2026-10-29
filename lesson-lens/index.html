@@ -51,6 +51,61 @@
       <div class="container">
         <h2 class="section__title">Build your prompt</h2>
         <p class="tm-privacy"><strong>Do not include student names or student work.</strong> The prompt only needs your subject, grade and lesson outline.</p>
+        <!-- onsubmit="return false" hindrar att Enter i ett fält laddar om sidan:
+             prompten byggs medan man skriver, så formuläret ska aldrig skickas. -->
+        <form class="tm-form" id="ll-form" autocomplete="off" onsubmit="return false">
+          <label class="tm-field">
+            <span class="tm-field__label">Lens</span>
+            <!-- Startlinsen: Formative check är förvald så att den som tvekar
+                 inte behöver välja bland tolv (Johans beslut). -->
+            <span class="tm-field__note ll-start" id="ll-start"><strong>Not sure? Start here.</strong> Formative check fits almost any lesson: it shows you what students understood before you move on.</span>
+            <select class="input" id="ll-lens" required></select>
+            <span class="tm-field__note">Read about all twelve lenses <a href="#ll-lenses">further down on this page</a>.</span>
+          </label>
+          <label class="tm-field">
+            <span class="tm-field__label">Second lens (optional)</span>
+            <span class="tm-field__note">Still at most two upgrades in total.</span>
+            <select class="input" id="ll-lens2"><option value="">No second lens</option></select>
+          </label>
+          <label class="tm-field">
+            <span class="tm-field__label">Subject</span>
+            <input class="input" id="ll-subject" list="ll-subjects" maxlength="60" placeholder="e.g. Biology" required>
+            <datalist id="ll-subjects">
+              <option value="Art"><option value="Biology"><option value="Chemistry"><option value="Civics">
+              <option value="Economics"><option value="English"><option value="Geography"><option value="History">
+              <option value="Maths"><option value="Modern languages"><option value="Music"><option value="PE and health">
+              <option value="Physics"><option value="Religion and ethics"><option value="Science"><option value="Social studies"><option value="Technology">
+            </datalist>
+          </label>
+          <label class="tm-field">
+            <span class="tm-field__label">Grade</span>
+            <select class="input" id="ll-grade">
+              <option value="6">Grade 6</option><option value="7">Grade 7</option><option value="8" selected>Grade 8</option>
+              <option value="9">Grade 9</option><option value="10">Grade 10</option><option value="11">Grade 11</option>
+              <option value="12">Grade 12</option>
+            </select>
+          </label>
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">Your lesson as planned</span>
+            <span class="tm-field__note">A few lines are enough: what happens, in what order.</span>
+            <textarea class="input" id="ll-lesson" rows="6" maxlength="3000" placeholder="Starter: what do plants need to grow?&#10;Demonstration: pondweed under a lamp&#10;Slides with three diagrams&#10;Worksheet on the word equation&#10;Students summarise the chapter" required></textarea>
+          </label>
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">What do students already know? (optional)</span>
+            <textarea class="input" id="ll-prior" rows="2" maxlength="400" placeholder="e.g. Plants need light and water; they have not met the word equation"></textarea>
+          </label>
+        </form>
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
+          <textarea class="input tm-prompt" id="ll-prompt" rows="14" readonly></textarea>
+        </label>
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--primary" id="ll-copy" data-copy="" aria-describedby="ll-hint" disabled>Copy prompt</button>
+          <!-- Ledtråden står bredvid knappen så att man ser varför den är grå.
+               Den töms av lesson-lens.js när prompten är klar. -->
+          <p class="tm-hint" id="ll-hint" aria-live="polite">Fill in subject and your lesson to see your prompt.</p>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
       </div>
     </section>
 
@@ -201,5 +256,8 @@
   <div data-include="/assets/partials/footer-en.html"></div>
 
   <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknappen (data-copy) och promptbyggaren. -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+  <script src="/assets/js/lesson-lens.js" defer></script>
 </body>
 </html>
