@@ -30,7 +30,7 @@ TITLE = "Lesson Lens"
 PROMPT_PARTS = [
     "KEEP: one or two lines on what already works in this lesson and why.",
     "UPGRADE: at most two changes in total, numbered. Each must use this lesson's own content and be small enough to make this evening.",
-    'NUDGE: one question, only if the research behind the lens points to a clearly stronger option than what is planned. Otherwise write "None".',
+    'NUDGE: one question, only if the research behind the lens (or lenses) points to a clearly stronger option than what is planned. Otherwise write "None".',
     "CHECK: what the teacher should look for in class to see whether it worked.",
 ]
 

@@ -46,7 +46,7 @@
       'Reply in plain text, no tables, with exactly these four parts:',
       'KEEP: one or two lines on what already works in this lesson and why.',
       "UPGRADE: at most two changes in total, numbered. Each must use this lesson's own content and be small enough to make this evening.",
-      'NUDGE: one question, only if the research behind the lens points to a clearly stronger option than what is planned. Otherwise write "None".',
+      'NUDGE: one question, only if the research behind the lens (or lenses) points to a clearly stronger option than what is planned. Otherwise write "None".',
       'CHECK: what the teacher should look for in class to see whether it worked.'
     );
     return lines.join('\n');
@@ -55,14 +55,20 @@
   window.LessonLens = { buildPrompt: buildPrompt };
 
   var els = {};
-  var lensesById = {};
+  // Utan prototyp: ?lens=constructor ska inte hitta något.
+  var lensesById = Object.create(null);
 
   function value(id) { return els[id].value.trim(); }
 
   function update() {
     var first = lensesById[els.lens.value];
     var second = lensesById[els.lens2.value];
-    if (second === first) second = null;
+    /* Samma lins två gånger räknas som en, och den andra listan nollställs
+       så att läraren ser det. */
+    if (second && second === first) {
+      els.lens2.value = '';
+      second = null;
+    }
     var subject = value('subject');
     var lesson = value('lesson');
     if (!first || !subject || !lesson) {

@@ -390,7 +390,7 @@
       ],
       "example": {
         "subject": "Religion and ethics",
-        "grade": 10,
+        "grade": 12,
         "lesson": [
           "Introduce the question: is it ever right to break the law?",
           "Short text on civil disobedience.",
@@ -508,7 +508,7 @@
           "url": "https://doi.org/10.1073/pnas.2422633122"
         }
       ],
-      "prompt_brief": "Apply this lens even if the lesson has no AI in it. Find the part of the lesson or homework that students are most likely to hand over to AI on their own, name the thinking that part is meant to train, and say what students get worse at if AI does it. If AI is already planned, judge it the same way. A good upgrade protects that thinking, for example by moving it into class, making students' own process visible, or using AI only after students have tried.",
+      "prompt_brief": "Apply this lens even if the lesson has no AI in it. Find the part of the lesson or homework that students are most likely to hand over to AI on their own, name the thinking that part is meant to train, and say what students get worse at if AI does it. If AI is already planned, judge it the same way. A good upgrade protects that thinking, for example by moving it into class, making students' own process visible, or using AI only after students have tried. For NUDGE, ask whether the thinking you protect is still at risk anywhere else in the lesson or homework.",
       "toolkit": [
         {
           "href": "/evidence/ai-learning-science/",

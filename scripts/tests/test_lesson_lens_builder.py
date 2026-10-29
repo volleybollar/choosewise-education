@@ -160,3 +160,28 @@ def test_hint_is_shown_beside_disabled_copy_button(site, browser):
         assert p.is_disabled("#ll-copy")
         assert p.locator(".tm-copy-row #ll-hint").is_visible(), width
         p.close()
+
+
+def test_query_with_object_property_name_falls_back_to_default(site, browser):
+    # ?lens=constructor får inte tömma linsvalet (lensesById utan prototyp).
+    for name in ("constructor", "__proto__", "toString"):
+        p = open_page(site, browser, f"?lens={name}")
+        assert p.input_value("#ll-lens") == "formative-check", name
+        p.close()
+
+
+def test_second_lens_resets_when_it_equals_the_first(page):
+    fill(page, lens2="belonging")
+    page.click('#belonging summary')
+    page.click('#belonging a[data-use-lens="belonging"]')
+    assert page.input_value("#ll-lens") == "belonging"
+    assert page.input_value("#ll-lens2") == ""
+
+
+def test_lens_select_has_short_name_and_described_notes(page):
+    # Noterna läses upp som beskrivning, inte som fältets namn.
+    name = page.evaluate("() => document.getElementById('ll-lens').labels[0].textContent.trim()")
+    assert name == "Lens"
+    described = page.get_attribute("#ll-lens", "aria-describedby").split()
+    assert "ll-start" in described
+    assert "Not sure? Start here." in page.text_content("#ll-start")

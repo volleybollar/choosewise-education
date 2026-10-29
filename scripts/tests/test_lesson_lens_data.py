@@ -142,3 +142,13 @@ def test_civics_case_works_in_any_country():
     ex = next(l for l in lenses() if l["id"] == "thinking-depth")["example"]
     text = " ".join(ex["upgrade"]).lower()
     assert "unconstitutional" not in text and "courts" not in text
+
+
+def test_grades_span_six_to_twelve():
+    grades = {l["example"]["grade"] for l in lenses()}
+    assert min(grades) == 6 and max(grades) == 12
+
+
+def test_trade_off_brief_says_what_nudge_asks():
+    brief = next(l for l in lenses() if l["id"] == "trade-off")["prompt_brief"]
+    assert "For NUDGE" in brief

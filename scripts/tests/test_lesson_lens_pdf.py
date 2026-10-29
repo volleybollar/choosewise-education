@@ -103,3 +103,8 @@ def test_source_html_is_generated_from_json():
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     assert mod.render_deck_html(data()) == SRC.read_text(encoding="utf-8")
+
+
+def test_nudge_line_covers_two_lenses():
+    js = JS.read_text(encoding="utf-8")
+    assert "the research behind the lens (or lenses)" in js

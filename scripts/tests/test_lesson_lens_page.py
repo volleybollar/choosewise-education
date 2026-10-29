@@ -144,3 +144,19 @@ def test_json_text_is_escaped():
                         "upgrade": ["u"], "nudge": "None", "check": "c"}}
     out = mod.render_lens_card(lens, {"strong": {"name": "Strong"}})
     assert "<b>" not in out and "&lt;b&gt;" in out and "<i>l</i>" not in out
+
+
+def test_hero_example_heading_follows_h2():
+    m = re.search(r"<!-- hero-example:start -->(.*?)<!-- hero-example:end -->", html(), re.S)
+    assert '<h3 class="tm-example__subject">' in m.group(1)
+    for card in cards():
+        assert '<h4 class="tm-example__subject">' in card
+
+
+def test_lesson_placeholder_has_six_lines():
+    m = re.search(r'<textarea[^>]*id="ll-lesson"[^>]*placeholder="([^"]*)"', html())
+    assert m.group(1).count("&#10;") == 5
+
+
+def test_no_unused_ll_start_class():
+    assert 'class="tm-field__note ll-start"' not in html()

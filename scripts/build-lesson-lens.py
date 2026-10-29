@@ -24,14 +24,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def render_example(lens: dict) -> str:
-    """A lesson as planned and the four-part answer the prompt asks for."""
+def render_example(lens: dict, heading: str = "h4") -> str:
+    """A lesson as planned and the four-part answer the prompt asks for.
+
+    heading is h3 in the hero (under an h2) and h4 in the cards (under an h3)."""
     ex = lens["example"]
     lesson = "".join(f"<li>{escape(line)}</li>" for line in ex["lesson"])
     upgrade = "".join(f"<li>{escape(u)}</li>" for u in ex["upgrade"])
     return (
         f'<div class="tm-example ll-example">'
-        f'<h4 class="tm-example__subject">{escape(ex["subject"])} <span>· Grade {int(ex["grade"])} · {escape(lens["name"])}</span></h4>'
+        f'<{heading} class="tm-example__subject">{escape(ex["subject"])} <span>· Grade {int(ex["grade"])} · {escape(lens["name"])}</span></{heading}>'
         f"<dl>"
         f'<dt>Lesson</dt><dd><ol class="ll-example__lesson">{lesson}</ol></dd>'
         f'<dt>Keep</dt><dd>{escape(ex["keep"])}</dd>'
@@ -111,7 +113,7 @@ def build(root: Path) -> None:
     page = root / "lesson-lens/index.html"
     html = page.read_text(encoding="utf-8")
     default = next(l for l in data["lenses"] if l["id"] == data["default_lens"])
-    html = _inject(html, "hero-example", render_example(default))
+    html = _inject(html, "hero-example", render_example(default, heading="h3"))
     html = _inject(html, "lenses", "\n".join(render_lens_card(l, data["labels"]) for l in data["lenses"]))
     html = _inject(html, "legend", render_legend(data["labels"]))
     html = _inject(html, "sources", render_sources(data["lenses"]))
