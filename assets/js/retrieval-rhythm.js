@@ -31,12 +31,12 @@
     ];
     if (input.date) lines.push('First lesson: ' + input.date);
     lines.push(
-      'Questions per starter: ' + input.questions,
+      'Questions per starter: ' + input.questions + ' (for starter quizzes and multiple choice; the other formats follow their own description)',
       '',
       'Topic log (date, topic, key points):',
       input.log,
       '',
-      'For each lesson, mix content from different times in the log: about two fifths from the most recent lessons, two fifths from two to four weeks earlier, and one fifth from older entries. If the log is short, spread the questions across all of it. Mix the order so students cannot tell which week a question comes from.',
+      'For each lesson, mix content from different times in the log: about two fifths from the most recent lessons, two fifths from two to four weeks earlier, and one fifth from older entries. If the log is short, spread the questions across all of it. Mix the order so students cannot tell which week a question comes from, except in a retrieval grid, where the rows show it.',
       '',
       'Reply in plain text, no tables. For each lesson write:',
       'LESSON: the lesson number, the format, and the log entries it draws on, with their dates',

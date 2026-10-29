@@ -149,3 +149,13 @@ def test_hint_is_shown_beside_disabled_copy_button(site, browser):
         assert p.is_disabled("#rr-copy")
         assert p.locator(".tm-copy-row #rr-hint").is_visible(), width
         p.close()
+
+
+def test_prompt_lets_grid_and_open_formats_follow_their_own_shape(page):
+    # Testkörningarna 2026-10-30: "Questions per starter: 5" krockade med
+    # gridens nio frågor och brain dump, och "students cannot tell which week"
+    # krockade med gridens veckorader.
+    fill(page)
+    text = prompt(page)
+    assert "Questions per starter: 5 (for starter quizzes and multiple choice; the other formats follow their own description)" in text
+    assert "except in a retrieval grid, where the rows show it." in text

@@ -67,9 +67,11 @@ def _builder_fixed_lines():
     strings = re.findall(r"""^\s*(['"])((?:Reply in plain text|LESSON:|STARTER:|KEY:|Then once|CHECK:|Topic log|For each lesson, mix).*?)\1,?\s*$""", block, re.M)
     lines = [s for _, s in strings]
     assert len(lines) == 8, lines
-    fixed = "Use only content from the topic log below. Do not add new content."
-    assert fixed in block
-    return lines + [fixed]
+    fixed = ["Use only content from the topic log below. Do not add new content.",
+             "(for starter quizzes and multiple choice; the other formats follow their own description)"]
+    for f in fixed:
+        assert f in block, f
+    return lines + fixed
 
 
 def test_fill_in_matches_builder_prompt():
