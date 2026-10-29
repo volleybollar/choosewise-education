@@ -70,6 +70,16 @@ A fifteen-minute comparison task for Grades 7–12. The teacher uses any AI tool
 
 A planning tool for a whole unit built around one kind of thinking, practised in four to six tasks. Six clusters of thinking (generating ideas, evaluating and choosing, comparing and transferring, explaining and reasoning from basics, causes and systems, regulating your own thinking), each with a four-step ladder students use to check their own progress. A planning prompt builds on Thinking Moves, Flawed Answer and Side by Side and returns a unit plan for any AI tool, plus free PDFs.
 
+## Pedagogy + AI
+
+- [Pedagogy + AI — English](https://choosewise.education/pedagogy/)
+
+Free tools that bring learning research into the lessons teachers of Grades 6–12 already plan, with any AI tool. The teacher keeps their lesson and their way of teaching; the research works in the background.
+
+- [Lesson Lens — English](https://choosewise.education/lesson-lens/)
+
+The teacher pastes a lesson they have already planned and picks one or two of twelve research lenses (such as Retrieval practice, Cognitive load and worked examples, Formative check, Feedback, Explicit instruction, Metacognition and the trade-off question about AI use). Formative check is the suggested starting lens. A prompt builder returns a prompt for any AI tool, and the answer always comes in four parts: Keep (what already works), Upgrade (at most two concrete changes), Nudge (a question, only when research points to a stronger option) and Check (what to look for in class). Each lens has a worked example, an evidence label (Strong, Promising, Framework or Choosewise) and a link to the Evidence Toolkit. A free PDF card deck includes a fill-in prompt for offline use.
+
 ## Presentation Skills
 
 - [Presentation Skills landing — English](https://choosewise.education/presentation-skills/)

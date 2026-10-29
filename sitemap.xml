@@ -142,7 +142,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/gap-tracer/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/</loc>
@@ -159,11 +159,19 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/infographic-styles/"/>
   </url>
   <url>
+    <loc>https://choosewise.education/lesson-lens/</loc>
+    <lastmod>2026-10-29</lastmod>
+  </url>
+  <url>
     <loc>https://choosewise.education/notebooklm-styles/</loc>
     <lastmod>2026-10-07</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/notebooklm-styles/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/notebooklm-stilar/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/notebooklm-styles/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/pedagogy/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/presentation-skills/</loc>
@@ -222,7 +230,7 @@
   </url>
   <url>
     <loc>https://choosewise.education/privacy/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/prompts/after-school-care/</loc>

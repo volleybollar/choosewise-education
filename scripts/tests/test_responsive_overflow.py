@@ -62,6 +62,8 @@ PAGES = (
         "side-by-side/",
         "thinking-profile/",
         "think/",
+        "lesson-lens/",
+        "pedagogy/",
     ]
 )
 

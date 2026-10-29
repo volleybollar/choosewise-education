@@ -1,0 +1,18 @@
+/* Lesson Lens (/lesson-lens/). Bygger på thinking-moves.css (tm-) och
+   lägger bara till det som är nytt här (ll-). Färger bara som var(--…). */
+
+/* Exemplet i hero: samma ruta som korten, men alltid öppen. */
+.ll-hero-example { margin-top: var(--space-8); max-width: var(--content-max); }
+.ll-hero-example__title { margin: 0 0 var(--space-3); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+
+/* Exemplet har längre rader än Thinking Moves, så rubrik och text staplas. */
+.ll-example dl { grid-template-columns: 1fr; gap: var(--space-1); }
+.ll-example dd { margin-bottom: var(--space-2); }
+.ll-example ol { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-1); }
+.ll-example li { max-width: none; }
+
+.ll-lens__toolkit { margin-top: var(--space-2); }
+
+/* Etiketten Choosewise: Choosewises egen fråga, inte ett forskningsresultat.
+   Streckad ram i kopparfärg, så den inte förväxlas med forskningsetiketterna. */
+.tm-chip--choosewise { color: var(--color-highlight-ink); border-color: var(--color-highlight); border-style: dashed; }
