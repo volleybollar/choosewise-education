@@ -14,6 +14,17 @@
   try { sessionStorage.setItem('cw-src', src); } catch (e) { /* ignore */ }
 })();
 
+// Visitor statistics through GoatCounter: no cookies, no IP addresses stored.
+// Added here because every page loads include.js, so one line covers the site.
+// GoatCounter itself skips localhost, so local previews are never counted.
+(function loadGoatCounter() {
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://gc.zgo.at/count.js';
+  s.dataset.goatcounter = 'https://choosewise.goatcounter.com/count';
+  document.head.appendChild(s);
+})();
+
 (async function includePartials() {
   const slots = document.querySelectorAll('[data-include]');
   await Promise.all([...slots].map(async (el) => {
