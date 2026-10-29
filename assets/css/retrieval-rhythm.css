@@ -30,3 +30,7 @@
 .rr-approach p { margin: 0 0 var(--space-2); max-width: none; }
 
 .rr-downloads { display: flex; flex-wrap: wrap; gap: var(--space-4); }
+
+/* Promptbyggaren: årskurs, lektioner, frågor och datum på en rad på dator,
+   två och två på mobil. */
+.rr-numbers { grid-column: 1 / -1; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); }

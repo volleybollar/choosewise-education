@@ -75,6 +75,70 @@
       <div class="container">
         <h2 class="section__title">Build next week's prompt</h2>
         <p class="tm-privacy"><strong>Do not include student names or student results.</strong> The prompt only needs your subject, grade and topic log.</p>
+        <!-- onsubmit="return false" hindrar att Enter i ett fält laddar om sidan:
+             prompten byggs medan man skriver, så formuläret ska aldrig skickas. -->
+        <form class="tm-form rr-form" id="rr-form" autocomplete="off" onsubmit="return false">
+          <!-- Formatet. Mix är förvalt: ett nytt format varje lektion. Noten
+               kopplas med aria-describedby så att etiketten förblir kort. -->
+          <div class="tm-field">
+            <label class="tm-field__label" for="rr-format">Format</label>
+            <select class="input" id="rr-format" aria-describedby="rr-format-note" required></select>
+            <span class="tm-field__note" id="rr-format-note">Not sure? Mix gives a different format each lesson. Read about the five formats <a href="#rr-formats">further down</a>.</span>
+          </div>
+          <label class="tm-field">
+            <span class="tm-field__label">Subject</span>
+            <input class="input" id="rr-subject" list="rr-subjects" maxlength="60" placeholder="e.g. History" required>
+            <datalist id="rr-subjects">
+              <option value="Art"><option value="Biology"><option value="Chemistry"><option value="Civics">
+              <option value="Economics"><option value="English"><option value="Geography"><option value="History">
+              <option value="Maths"><option value="Modern languages"><option value="Music"><option value="PE and health">
+              <option value="Physics"><option value="Religion and ethics"><option value="Science"><option value="Social studies"><option value="Technology">
+            </datalist>
+          </label>
+          <!-- Tre små val på en rad: årskurs, antal lektioner och antal frågor. -->
+          <div class="rr-numbers">
+            <label class="tm-field">
+              <span class="tm-field__label">Grade</span>
+              <select class="input" id="rr-grade">
+                <option value="6">Grade 6</option><option value="7">Grade 7</option><option value="8" selected>Grade 8</option>
+                <option value="9">Grade 9</option><option value="10">Grade 10</option><option value="11">Grade 11</option>
+                <option value="12">Grade 12</option>
+              </select>
+            </label>
+            <label class="tm-field">
+              <span class="tm-field__label">Lessons next week</span>
+              <select class="input" id="rr-lessons">
+                <option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option>
+              </select>
+            </label>
+            <label class="tm-field">
+              <span class="tm-field__label">Questions per starter</span>
+              <select class="input" id="rr-questions">
+                <option>3</option><option>4</option><option selected>5</option><option>6</option>
+              </select>
+            </label>
+            <label class="tm-field">
+              <span class="tm-field__label">First lesson (optional)</span>
+              <input class="input" id="rr-date" type="date">
+            </label>
+          </div>
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">Your topic log</span>
+            <span class="tm-field__note">Copy the rows from your log and paste them here, or type one lesson per line: date, topic, key points.</span>
+            <textarea class="input" id="rr-log" rows="8" maxlength="8000" placeholder="2026-09-01  Long-term causes of the First World War  MAIN: militarism, alliances, imperialism, nationalism&#10;2026-09-08  The alliance system  Triple Entente and Triple Alliance&#10;2026-10-27  Propaganda and censorship  DORA 1914; recruitment posters" required></textarea>
+          </label>
+        </form>
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
+          <textarea class="input tm-prompt" id="rr-prompt" rows="14" readonly></textarea>
+        </label>
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--primary" id="rr-copy" data-copy="" aria-describedby="rr-hint" disabled>Copy prompt</button>
+          <!-- Ledtråden står bredvid knappen så att man ser varför den är grå.
+               Den töms av retrieval-rhythm.js när prompten är klar. -->
+          <p class="tm-hint" id="rr-hint" aria-live="polite">Fill in subject and paste your topic log to see your prompt.</p>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
       </div>
     </section>
 
@@ -195,5 +259,8 @@ D A peace plan to end the war by Christmas</dd><dt>Key</dt><dd class="rr-example
   <div data-include="/assets/partials/footer-en.html"></div>
 
   <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknappen (data-copy) och promptbyggaren. -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+  <script src="/assets/js/retrieval-rhythm.js" defer></script>
 </body>
 </html>
