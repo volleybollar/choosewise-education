@@ -18,6 +18,12 @@
 // Added here because every page loads include.js, so one line covers the site.
 // GoatCounter itself skips localhost, so local previews are never counted.
 (function loadGoatCounter() {
+  // Skicka bara sidans sökväg, utan frågedelen efter "?". Annars sparas t.ex.
+  // MailerLites spårningsparametrar från mejllänkar som en del av adressen.
+  // Inställningar som sidan redan satt (som /dl/:s no_onload) behålls.
+  window.goatcounter = window.goatcounter || {};
+  window.goatcounter.path = function () { return location.pathname; };
+
   const s = document.createElement('script');
   s.async = true;
   s.src = 'https://gc.zgo.at/count.js';

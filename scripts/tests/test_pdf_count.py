@@ -24,7 +24,20 @@ import pytest
 ROOT = Path(__file__).resolve().parents[2]
 FIXTURE = "/scripts/tests/fixtures/pdf-count.html"
 GC = "**/gc.zgo.at/**"
-STUB = "window.goatcounter = { count: function (o) { window.__gcCount(JSON.stringify(o)); } };"
+# Stubben härmar det count.js gör som spelar roll här: behåller inställningar
+# som sidan redan satt, skickar en sidvisning vid laddning om inte no_onload
+# är satt, och låter en path-funktion skriva om sidvisningens sökväg.
+# Händelser (count med argument) går till __gcCount, sidvisningar till __gcPageview.
+STUB = """(function () {
+  var g = window.goatcounter = window.goatcounter || {};
+  g.count = function (o) {
+    if (o) { window.__gcCount(JSON.stringify(o)); return; }
+    var p = location.pathname + location.search;
+    if (typeof g.path === 'function') p = g.path(p);
+    window.__gcPageview(p);
+  };
+  if (!g.no_onload) g.count();
+})();"""
 
 
 @pytest.fixture(scope="module")
@@ -54,10 +67,12 @@ def browser():
 def _make_page(browser, goatcounter="stub"):
     ctx = browser.new_context()
     p = ctx.new_page()
-    p.calls = []      # GoatCounter-anrop, som dict
+    p.calls = []      # GoatCounter-händelser, som dict
+    p.pageviews = []  # GoatCounter-sidvisningar, som sökväg
     p.pdf_hits = []   # PDF-adresser webbläsaren försökte öppna
     p.errors = []     # okastade JS-fel på sidan
     ctx.expose_function("__gcCount", lambda s: p.calls.append(json.loads(s)))
+    ctx.expose_function("__gcPageview", lambda s: p.pageviews.append(s))
     p.on("pageerror", lambda e: p.errors.append(str(e)))
 
     def on_pdf(route):
@@ -245,3 +260,43 @@ def test_dl_still_opens_the_pdf_when_goatcounter_is_blocked(blocked_page, site):
 def test_dl_is_noindex():
     html = (ROOT / "dl/index.html").read_text(encoding="utf-8")
     assert '<meta name="robots" content="noindex">' in html
+
+
+# ── Fixrunda 1 ──
+
+def test_dl_sends_only_the_pdf_event_no_pageview(page, site):
+    """/dl/ är ingen sida att räkna: bara PDF-händelsen ska nå GoatCounter."""
+    with page.expect_request("**/assets/pdfs/free/visual-codes-50-en.pdf"):
+        page.goto(f"{site}/dl/?f=free/visual-codes-50-en.pdf")
+    wait_for(page, lambda: page.calls)
+    page.wait_for_timeout(300)
+    assert page.pageviews == []
+    assert page.calls == [{"path": "pdf/free/visual-codes-50-en",
+                           "title": "visual-codes-50-en.pdf", "event": True}]
+
+
+def test_pageview_path_has_no_query_string(page, site):
+    """Spårningsparametrar från mejllänkar får inte följa med in i statistiken."""
+    page.goto(f"{site}/free/?ml_subscriber=123&src=yt")
+    assert wait_for(page, lambda: page.pageviews)
+    assert page.pageviews == ["/free/"]
+
+
+def test_dl_redirects_even_without_pdf_count(page, site):
+    """Blockeras pdf-count.js ska /dl/ ändå öppna PDF:en."""
+    page.route("**/assets/js/pdf-count.js", lambda r: r.abort())
+    # wait_until="commit": omdirigeringen sker då innan sidan hunnit ladda klart.
+    with page.expect_request("**/assets/pdfs/free/visual-codes-50-en.pdf"):
+        page.goto(f"{site}/dl/?f=free/visual-codes-50-en.pdf", wait_until="commit")
+    assert page.errors == []
+
+
+def test_dl_fallback_link_points_at_the_pdf(page, site):
+    """Reservlänken i väntetexten leder till samma PDF som omdirigeringen."""
+    page.route("**/assets/js/pdf-count.js", lambda r: r.fulfill(
+        status=200, body="window.cwCountPdf = function () {};"
+                         "window.cwCountPdf.settled = function () { return new Promise(function () {}); };",
+        headers={"content-type": "text/javascript"}))
+    page.goto(f"{site}/dl/?f=free/visual-codes-50-en.pdf")
+    assert page.get_attribute("#dl-link", "href") == "/assets/pdfs/free/visual-codes-50-en.pdf"
+    assert page.is_visible("#dl-link")

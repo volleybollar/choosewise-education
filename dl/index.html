@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
   <link rel="stylesheet" href="/assets/css/pages.css">
+  <!-- Ingen vanlig sidvisning för /dl/: bara PDF-händelsen ska räknas.
+       Måste stå före include.js, som laddar GoatCounter och behåller inställningen. -->
+  <script>window.goatcounter = { no_onload: true };</script>
 <!-- favicon:start (build-seo-meta.py) -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -35,6 +38,8 @@
       <div id="dl-wait">
         <h1>Your PDF is on its way</h1>
         <p class="lede" style="margin-inline:auto;" lang="sv">Din PDF är på väg.</p>
+        <!-- Reservlänk om vidarebefordran dröjer. Skriptet nedan sätter rätt adress. -->
+        <p style="margin-top:var(--space-6);"><a id="dl-link" class="btn btn--secondary" href="/free/">Open the PDF / Öppna PDF:en</a></p>
       </div>
 
       <!-- Visas när länken inte pekar på en PDF hos oss. Dold från början. -->
@@ -89,6 +94,15 @@
         // Okänd länk: ingen räkning, ingen omdirigering, bara texten med länk till /free/.
         document.getElementById('dl-wait').hidden = true;
         document.getElementById('dl-refused').hidden = false;
+        return;
+      }
+
+      // Reservlänken pekar nu på den riktiga PDF:en.
+      document.getElementById('dl-link').href = target;
+
+      // Gick pdf-count.js inte att ladda: skicka vidare direkt, utan räkning.
+      if (!window.cwCountPdf) {
+        location.replace(target);
         return;
       }
 
