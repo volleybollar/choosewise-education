@@ -1,0 +1,185 @@
+{
+  "labels": {
+    "strong": {
+      "name": "Strong",
+      "definition": "Meta-analyses of classroom studies show that teaching this way improves learning."
+    },
+    "promising": {
+      "name": "Promising",
+      "definition": "Controlled studies show gains, but results are mixed, small in number or dependent on context."
+    },
+    "framework": {
+      "name": "Framework",
+      "definition": "A useful structure for planning, with no intervention studies behind it as a method."
+    }
+  },
+  "default_format": "mix",
+  "formats": [
+    {
+      "id": "mix",
+      "name": "Mix",
+      "one_liner": "A different format each lesson, so the week does not feel the same every day.",
+      "minutes": 5,
+      "prompt_brief": "Use a different format for each lesson, chosen from: starter quiz, brain dump, retrieval grid, multiple choice with misconceptions, two things I remember.",
+      "steps": [
+        "Monday might be a quiz, Tuesday a brain dump, Thursday a grid.",
+        "Students meet the same content in different ways.",
+        "Not sure which format to use? Start with Mix."
+      ]
+    },
+    {
+      "id": "starter-quiz",
+      "name": "Starter quiz",
+      "one_liner": "Five short questions answered from memory before anything else happens.",
+      "minutes": 5,
+      "prompt_brief": "Short questions answered from memory in about five minutes. Each question has one clear answer: a word, a name or a sentence.",
+      "steps": [
+        "Questions on the board as students come in. No notes, no books.",
+        "Three minutes to answer, then students check and correct their own answers.",
+        "Ask who got each question right, and re-teach what most missed."
+      ],
+      "example": {
+        "lesson": 1,
+        "starter": "1. Name the three countries in the Triple Entente.\n2. What did DORA allow the British government to do?\n3. In which city was Archduke Franz Ferdinand assassinated?\n4. Why did the Schlieffen Plan bring Britain into the war?\n5. Name one way women contributed to the war effort at home.",
+        "key": "1. Britain, France and Russia.\n2. Censor newspapers and letters, and take over land, buildings and industry needed for the war.\n3. Sarajevo.\n4. The German army marched through neutral Belgium, and Britain had promised to protect Belgium's neutrality.\n5. Working in munitions factories (also accept: transport, farming, nursing)."
+      }
+    },
+    {
+      "id": "brain-dump",
+      "name": "Brain dump",
+      "one_liner": "Students write everything they remember about one earlier topic, then compare.",
+      "minutes": 5,
+      "prompt_brief": "Name one earlier topic from the log. Students write everything they remember about it for three minutes, then compare with a partner. The KEY lists the key points to look for.",
+      "steps": [
+        "Name the topic. Students write everything they remember for three minutes.",
+        "Pairs compare and add one thing they missed in a different colour.",
+        "Show the key points. Students tick what they had."
+      ],
+      "example": {
+        "lesson": 2,
+        "starter": "Write down everything you remember about trench warfare on the Western Front. You have three minutes. Then compare with a partner and add one thing you missed.",
+        "key": "Key points to look for: the war of movement ended in stalemate by the end of 1914; a line of trenches ran from the Channel coast to Switzerland; machine guns and artillery made attacks across no man's land very costly; front-line, support and reserve trenches."
+      }
+    },
+    {
+      "id": "retrieval-grid",
+      "name": "Retrieval grid",
+      "one_liner": "Nine questions from different weeks, worth more points the further back they go.",
+      "minutes": 7,
+      "prompt_brief": "A grid of nine questions in three rows: last week (1 point), two to four weeks ago (2 points) and older (3 points). Write it as three labelled lines, not as a table.",
+      "steps": [
+        "Students answer as many questions as they can, in any order.",
+        "Older content earns more points, so it is worth trying the hard row.",
+        "Go through the key. Note which row the class found hardest."
+      ],
+      "example": {
+        "lesson": 3,
+        "starter": "Last week (1 point each): When did conscription begin in Britain? | Name one food rationed in Britain in 1918. | What does DORA stand for?\n2–4 weeks ago (2 points each): What was one aim of the Battle of the Somme? | Why did the Western Front become a stalemate? | On what date did the Battle of the Somme begin?\nOlder (3 points each): What does MAIN stand for? | Which countries made up the Triple Alliance? | What did Austria-Hungary do after Serbia did not accept all of its ultimatum?",
+        "key": "Last week: 1916. Sugar, meat or butter. Defence of the Realm Act.\n2–4 weeks ago: to relieve pressure on the French at Verdun (or to break through the German lines). Machine guns and artillery made defending much easier than attacking. 1 July 1916.\nOlder: militarism, alliances, imperialism, nationalism. Germany, Austria-Hungary and Italy. It declared war on Serbia (28 July 1914)."
+      }
+    },
+    {
+      "id": "multiple-choice",
+      "name": "Multiple choice with misconceptions",
+      "one_liner": "Four options per question, where every wrong option is a common misunderstanding.",
+      "minutes": 5,
+      "prompt_brief": "Questions with four options, A to D. Every wrong option is built on a common misconception about this content. The KEY says which misconception each wrong option shows.",
+      "steps": [
+        "Everyone answers at once: fingers, cards or mini whiteboards.",
+        "Look at which wrong options are popular. Each one shows a misunderstanding.",
+        "Re-teach the most common misunderstanding before moving on."
+      ],
+      "example": {
+        "lesson": 4,
+        "starter": "1. Why did Britain declare war on Germany in August 1914?\nA Germany attacked Britain\nB Germany invaded neutral Belgium\nC Britain was in the Triple Alliance\nD Franz Ferdinand was British\n2. What was the Schlieffen Plan?\nA A plan to defend Germany's borders\nB A plan to defeat Russia first, then France\nC A plan to defeat France quickly through Belgium, then turn to Russia\nD A peace plan to end the war by Christmas",
+        "key": "1. B. A: Germany never invaded Britain. C mixes up the two alliances: Britain was in the Triple Entente. D confuses the trigger of the war with Britain's reason for joining.\n2. C. A misses that it was an attack plan. B reverses the order. D confuses the plan with the hope that the war would be over by Christmas."
+      }
+    },
+    {
+      "id": "two-things",
+      "name": "Two things I remember",
+      "one_liner": "Students name two things from one earlier lesson and one question they still have.",
+      "minutes": 3,
+      "prompt_brief": "Name one earlier lesson from the log by its date and topic. Students write two things they remember from it and one question they still have. The KEY lists what a full answer would mention.",
+      "steps": [
+        "Name the lesson. Students write two things they remember.",
+        "They add one question they still have about it.",
+        "Read the questions. They show you what to recap."
+      ],
+      "example": {
+        "lesson": 5,
+        "starter": "Think back to our lesson on 20 October about the home front. Write two things you remember from it, and one question you still have.",
+        "key": "A full answer could mention: conscription in Britain from 1916; women working in munitions factories; food rationing from 1918. Use the students' questions to plan a short recap."
+      }
+    }
+  ],
+  "approaches": [
+    {
+      "id": "retrieval-practice",
+      "name": "Retrieval practice",
+      "label": "strong",
+      "evidence": "Practice testing is one of two strategies rated high utility in the best-known review of study techniques (Dunlosky et al. 2013). A meta-analysis of classroom studies confirms it improves learning in school (Yang et al. 2021), across ages and subjects (Agarwal, Nunes & Blunt 2021).",
+      "sources": [
+        {"text": "Dunlosky et al. 2013, Psychological Science in the Public Interest", "url": "https://doi.org/10.1177/1529100612453266"},
+        {"text": "Yang et al. 2021, Psychological Bulletin", "url": "https://doi.org/10.1037/bul0000309"},
+        {"text": "Agarwal, Nunes & Blunt 2021, Educational Psychology Review", "url": "https://doi.org/10.1007/s10648-021-09595-9"}
+      ]
+    },
+    {
+      "id": "spacing",
+      "name": "Spacing",
+      "label": "strong",
+      "evidence": "Distributed practice is the other strategy rated high utility by Dunlosky et al. 2013. A 2022 review finds that spacing and retrieval together give the most durable learning (Carpenter, Pan & Butler 2022).",
+      "sources": [
+        {"text": "Dunlosky et al. 2013, Psychological Science in the Public Interest", "url": "https://doi.org/10.1177/1529100612453266"},
+        {"text": "Carpenter, Pan & Butler 2022, Nature Reviews Psychology", "url": "https://doi.org/10.1038/s44159-022-00089-1"}
+      ]
+    },
+    {
+      "id": "interleaving",
+      "name": "Interleaving",
+      "label": "promising",
+      "evidence": "A meta-analysis finds a moderate overall benefit from mixing topics in practice, clearest for visual categories such as paintings and for maths, and weaker or even negative for some other materials (Brunmair & Richter 2019). Mixing helps most when students must tell similar things apart.",
+      "sources": [
+        {"text": "Brunmair & Richter 2019, Psychological Bulletin", "url": "https://doi.org/10.1037/bul0000209"}
+      ]
+    },
+    {
+      "id": "misconception-options",
+      "name": "Misconception-based options",
+      "label": "promising",
+      "evidence": "Multiple-choice questions with plausible wrong options work as retrieval practice, not just as a test (Little et al. 2012). When the wrong options are built on common misconceptions, the answers also show the teacher what to re-teach, which is the idea behind hinge questions in formative assessment.",
+      "sources": [
+        {"text": "Little et al. 2012, Psychological Science", "url": "https://doi.org/10.1177/0956797612443370"}
+      ]
+    }
+  ],
+  "example_log": [
+    {"date": "2026-09-01", "topic": "Long-term causes of the First World War", "key_points": "MAIN: militarism, alliances, imperialism, nationalism"},
+    {"date": "2026-09-08", "topic": "The alliance system", "key_points": "Triple Entente: Britain, France, Russia. Triple Alliance: Germany, Austria-Hungary, Italy"},
+    {"date": "2026-09-15", "topic": "The July Crisis 1914", "key_points": "Franz Ferdinand assassinated in Sarajevo, 28 June 1914; Austria-Hungary's ultimatum to Serbia; declarations of war"},
+    {"date": "2026-09-22", "topic": "The Schlieffen Plan", "key_points": "Defeat France quickly through Belgium, then turn to Russia; Belgian neutrality brought Britain in"},
+    {"date": "2026-10-06", "topic": "Trench warfare on the Western Front", "key_points": "Stalemate by end of 1914; trenches from the Channel to Switzerland; machine guns and artillery"},
+    {"date": "2026-10-13", "topic": "The Battle of the Somme", "key_points": "Began 1 July 1916; aim to relieve Verdun and break through; very heavy British losses on the first day"},
+    {"date": "2026-10-20", "topic": "The home front", "key_points": "Conscription from 1916; women in munitions factories; rationing from 1918"},
+    {"date": "2026-10-27", "topic": "Propaganda and censorship", "key_points": "DORA (Defence of the Realm Act) 1914; recruitment posters; censored newspapers and letters"}
+  ],
+  "age_rules": [
+    {
+      "tool": "Copilot Chat",
+      "rule": "Students aged 13 and over, through the school's own Microsoft 365 account. The school's administrator must set each student's age group and consent."
+    },
+    {
+      "tool": "Gemini for Education",
+      "rule": "Open to education users of all ages, with a stricter experience for under-18s. The school's administrator must turn it on."
+    },
+    {
+      "tool": "ChatGPT",
+      "rule": "Ages 13 and over on personal accounts, with a parent's or guardian's permission under 18. ChatGPT for Teachers is for school staff only."
+    },
+    {
+      "tool": "Claude",
+      "rule": "Ages 18 and over. In a school, for teachers only."
+    }
+  ]
+}
