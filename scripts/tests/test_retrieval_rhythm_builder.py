@@ -164,3 +164,5 @@ def test_prompt_lets_grid_and_open_formats_follow_their_own_shape(page):
     assert "In starter quizzes and multiple choice, mix content from different times in the log" in text
     assert "The other formats follow their own description." in text
     assert "except in a retrieval grid" not in text
+    # Utan datum behöver modellen veta varifrån veckorna räknas.
+    assert "Count the weeks back from the newest entry in the log." in text
