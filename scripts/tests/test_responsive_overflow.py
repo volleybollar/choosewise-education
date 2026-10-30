@@ -64,6 +64,7 @@ PAGES = (
         "think/",
         "lesson-lens/",
         "retrieval-rhythm/",
+        "two-minute-debrief/",
         "pedagogy/",
     ]
 )
