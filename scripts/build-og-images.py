@@ -35,6 +35,7 @@ SECTIONS = [
     ("pedagogy-en",        "Pedagogy + AI",             "for your own lessons",   "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("lessonlens-en",      "Lesson Lens",               "for any lesson",         "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("retrievalrhythm-en", "Retrieval Rhythm",          "for any subject",        "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("twominutedebrief-en", "Two-Minute Debrief",       "for any subject",        "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("about-en",           "Johan Lindström",           "Education consultant",   "CHOOSEWISE.EDUCATION", "#C2793A"),
     ("free-en",            "Free resources",            "for educators",          "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("aiorhuman-free-en",  "AI or human?",              "Printable tests",        "CHOOSEWISE.EDUCATION", "#C2793A"),

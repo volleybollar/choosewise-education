@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Two-Minute Debrief — choosewise.education</title>
+  <meta name="description" content="For the lessons that didn't go as planned. Answer four questions (goal, evidence, surprise, next) and get likely causes, a concrete move for the next lesson and a check that shows whether more students understood. Free, for any AI tool. Grades 6–12.">
+  <meta property="og:title" content="Two-Minute Debrief — choosewise.education">
+  <meta property="og:description" content="For the lessons that didn't go as planned. Answer four questions (goal, evidence, surprise, next) and get likely causes, a concrete move for the next lesson and a check that shows whether more students understood. Free, for any AI tool. Grades 6–12.">
+  <meta property="og:image" content="https://choosewise.education/assets/images/brand/og/twominutedebrief-en.png">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (byggare, kort, etiketter, prefix tm-),
+       och sedan det som är nytt för Two-Minute Debrief (prefix td-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/two-minute-debrief.css?v=20261030a">
+<!-- seo:start (build-seo-meta.py) -->
+<link rel="canonical" href="https://choosewise.education/two-minute-debrief/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."}]}</script>
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: vad verktyget är, för vilka lektioner, de tre löftena och ett
+         färdigt exempel, så att läraren ser vad hen får innan hen skriver något. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/pedagogy/">← Pedagogy + AI</a>
+      <span class="eyebrow">Free tool · Grades 6–12</span>
+      <h1>Two-Minute Debrief</h1>
+      <p class="td-for">For the lessons that didn't go as planned.</p>
+      <p class="lede">You noticed that students didn't learn what you hoped. Answer four questions before the next lesson takes over: goal, evidence, surprise, next. Your AI tool replies with likely causes, one concrete move for the next lesson and a check that shows whether more students understood.</p>
+      <ul class="tm-promises">
+        <li><strong>No personal data.</strong> Counts and patterns only. Student names and individual results never go in.</li>
+        <li><strong>Any AI tool.</strong> The prompt works in Copilot, Gemini, ChatGPT and Claude.</li>
+        <li><strong>Before you meet the group again.</strong> Run it right after the lesson or at the end of the day.</li>
+      </ul>
+      <div class="td-hero-example">
+        <h2 class="td-hero-example__title">What you get back</h2>
+        <!-- Exemplet byggs av scripts/build-two-minute-debrief.py från
+             hero-exemplet i two-minute-debrief/debrief-en.json. -->
+<!-- hero-example:start -->
+<div class="tm-example td-example"><h3 class="tm-example__subject">8B maths <span>· Grade 8</span></h3><div class="td-example__cols"><div><p class="td-example__label">The teacher writes</p><dl><dt>Goal</dt><dd class="td-text">Solve two-step equations such as 3x + 5 = 20.</dd><dt>Evidence</dt><dd class="td-text">On question 2 of the exit ticket, 11 of 27 divided by 3 first but left the + 5 unchanged. Several wrote x + 5 = 20 ÷ 3.</dd><dt>Surprise</dt><dd class="td-text">Energy was low after lunch, and the new notation took longer than I planned.</dd><dt>Next</dt><dd class="td-text">Word problems with two-step equations, Thursday.</dd></dl></div><div><p class="td-example__label">The AI replies</p><dl><dt>Likely causes</dt><dd class="td-text">1. Students are not secure in how inverse operations work on the whole equation: they divide by 3 first, which is allowed, and forget that the + 5 must then be divided too. If this is the cause, the same error shows up on every equation where they divide first.
+2. Too much new at once: the notation and the two-step method arrived in the same lesson, so working memory ran out. If this is the cause, students get one-step equations right but slip as soon as both steps are needed.</dd><dt>Next lesson</dt><dd class="td-text">Open with one worked example of 3x + 5 = 20, saying each step aloud, then one half-finished example where students do the last step, then two to try on their own (8 min).</dd><dt>Check first</dt><dd class="td-text">Solve 4x + 3 = 19. Show both steps.
+Move on to word problems if about 4 in 5 get x = 4 and every step keeps the equation balanced.</dd><dt>One question</dt><dd class="td-text">What will you do on Thursday with the students who still divide first?</dd></dl></div></div></div>
+<!-- hero-example:end -->
+      </div>
+    </section>
+
+    <!-- Hur det fungerar: tre steg, och loopen där kontrollen blir nästa
+         debriefs belägg. Det är så läraren ser att ändringen fungerade. -->
+    <section class="section section--alt" id="td-how">
+      <div class="container">
+        <h2 class="section__title">How it works</h2>
+        <ol class="tm-steps">
+          <li><strong>Notice.</strong> A lesson didn't land: students didn't learn or understand what you hoped. Use the debrief on those lessons, not on every lesson.</li>
+          <li><strong>Four questions (two minutes).</strong> Goal, evidence, surprise, next. A feeling is fine as evidence. Numbers from an exit ticket are better.</li>
+          <li><strong>Change and check.</strong> Try the next-lesson move, and use the check before you move on.</li>
+        </ol>
+        <p class="tm-note td-loop"><strong>The loop closes itself.</strong> The result of the check becomes the evidence in your next debrief for that group, for example "Check: 20 of 27 right, up from 16." That is how you see that the change worked. Over time, the four questions may become a habit for other lessons too.</p>
+      </div>
+    </section>
+
+    <!-- Debriefen. Allt sker i webbläsaren och inget skickas någonstans.
+         "Save for later" sparar bara i den här webbläsaren (localStorage),
+         så att läraren kan köra analysen i slutet av dagen.
+         Logiken finns i assets/js/two-minute-debrief.js. -->
+    <section class="section" id="td-builder">
+      <div class="container">
+        <h2 class="section__title">Your debrief</h2>
+        <p class="tm-privacy"><strong>Do not include student names or student results.</strong> Describe what the group showed in counts and patterns.</p>
+        <p class="tm-note">On a phone, use the microphone key on the keyboard to answer by voice.</p>
+        <!-- onsubmit="return false" hindrar att Enter i ett fält laddar om sidan:
+             prompten byggs medan man skriver, så formuläret ska aldrig skickas. -->
+        <form class="tm-form td-form" id="td-form" autocomplete="off" onsubmit="return false">
+          <!-- Grupp och årskurs på en rad. Gruppen pekar ut klassen, aldrig en elev. -->
+          <div class="td-pair">
+            <label class="tm-field">
+              <span class="tm-field__label">Group and subject</span>
+              <input class="input" id="td-group" maxlength="60" placeholder="e.g. 8B maths" required>
+            </label>
+            <label class="tm-field">
+              <span class="tm-field__label">Grade</span>
+              <select class="input" id="td-grade">
+                <option value="6">Grade 6</option><option value="7">Grade 7</option><option value="8" selected>Grade 8</option>
+                <option value="9">Grade 9</option><option value="10">Grade 10</option><option value="11">Grade 11</option>
+                <option value="12">Grade 12</option>
+              </select>
+            </label>
+          </div>
+          <!-- De fyra frågorna. Noterna kopplas med aria-describedby så att
+               etiketterna förblir korta. -->
+          <div class="tm-field tm-field--wide">
+            <label class="tm-field__label" for="td-goal">Goal</label>
+            <span class="tm-field__note" id="td-goal-note">What should students have learned?</span>
+            <textarea class="input" id="td-goal" rows="2" maxlength="2000" aria-describedby="td-goal-note" placeholder="Solve two-step equations such as 3x + 5 = 20." required></textarea>
+          </div>
+          <div class="tm-field tm-field--wide">
+            <label class="tm-field__label" for="td-evidence">Evidence</label>
+            <!-- Uppföljningsnoten fylls av JS när gruppen matchar en sparad debrief. -->
+            <p class="td-followup" id="td-followup" hidden></p>
+            <span class="tm-field__note" id="td-evidence-note">What did they show? A feeling is fine. Patterns from student work or exit ticket numbers are better, for example "about half forgot the units" or "11 of 27 forgot to divide the + 5". No names, no individual results.</span>
+            <textarea class="input" id="td-evidence" rows="3" maxlength="2000" aria-describedby="td-followup td-evidence-note" placeholder="On the exit ticket, 11 of 27 forgot to divide the + 5." required></textarea>
+          </div>
+          <div class="tm-field tm-field--wide">
+            <label class="tm-field__label" for="td-surprise">Surprise (optional)</label>
+            <span class="tm-field__note" id="td-surprise-note">What turned out differently from the plan?</span>
+            <textarea class="input" id="td-surprise" rows="2" maxlength="2000" aria-describedby="td-surprise-note" placeholder="Energy was low after lunch, and the new notation took longer than planned."></textarea>
+          </div>
+          <div class="tm-field tm-field--wide">
+            <label class="tm-field__label" for="td-next">Next</label>
+            <span class="tm-field__note" id="td-next-note">What comes next with this group, and when?</span>
+            <textarea class="input" id="td-next" rows="2" maxlength="2000" aria-describedby="td-next-note" placeholder="Word problems, Thursday." required></textarea>
+          </div>
+        </form>
+
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
+          <textarea class="input tm-prompt" id="td-prompt" rows="12" readonly></textarea>
+        </label>
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--primary" id="td-copy" data-copy="" aria-describedby="td-hint" disabled>Copy prompt</button>
+          <button type="button" class="btn btn--secondary" id="td-save" disabled>Save for later</button>
+          <!-- Ledtråden står bredvid knapparna så att man ser varför de är grå. -->
+          <p class="tm-hint" id="td-hint" aria-live="polite">Fill in group, goal, evidence and next to see your prompt.</p>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
+        <p class="td-when"><strong>Run it before you meet the group again.</strong> Right after the lesson, copy the prompt now. Short on time? Save it and run all of today's debriefs at the end of the day.</p>
+
+        <!-- Sparade debriefer. Visas bara om webbläsaren tillåter lagring;
+             annars visas noten nedanför i stället. -->
+        <div class="td-saved-area" id="td-saved-area">
+          <h3 class="td-subtitle">Saved debriefs</h3>
+          <p class="tm-note">Saved only in this browser on this device. Nothing is sent. Saved debriefs are removed after 14 days, and you can clear them any time.</p>
+          <ul class="td-saved" id="td-saved"></ul>
+          <h3 class="td-subtitle">End of day</h3>
+          <p class="tm-note">One prompt for all of today's saved debriefs that you haven't run yet. Run it before you meet the groups again.</p>
+          <textarea class="input tm-prompt" id="td-batch-prompt" rows="6" readonly aria-label="Prompt for today's saved debriefs"></textarea>
+          <div class="tm-copy-row">
+            <button type="button" class="btn btn--primary" id="td-batch-copy" data-copy="" aria-describedby="td-batch-hint" disabled>Copy prompt for all saved</button>
+            <button type="button" class="btn btn--secondary" id="td-delete-all">Delete all</button>
+            <p class="tm-hint" id="td-batch-hint" aria-live="polite">No unanalysed debriefs saved today.</p>
+            <span class="copy-toast" role="status">Copied</span>
+          </div>
+        </div>
+        <p class="tm-note td-storage-note" id="td-storage-note" hidden>This browser doesn't allow saving, for example in a private window. Copy the prompt now, or keep your answers in a notes app and paste them in later.</p>
+      </div>
+    </section>
+
+    <!-- Veckosammanställningen: mönster som en enskild lektion inte visar. -->
+    <section class="section section--alt" id="td-rollup">
+      <div class="container">
+        <h2 class="section__title">Weekly roll-up</h2>
+        <p class="section__lede">Once a week, look across your debriefs for patterns one lesson wouldn't show, such as the third week in a row where practice time ran out.</p>
+        <p class="tm-privacy"><strong>Do not include student names or student results.</strong></p>
+        <fieldset class="td-rollup-pick">
+          <legend class="tm-field__label">Saved debriefs from the last 7 days</legend>
+          <ul class="td-saved" id="td-rollup-list"></ul>
+        </fieldset>
+        <div class="tm-field tm-field--wide">
+          <label class="tm-field__label" for="td-rollup-paste">Or paste rows from your unit journal</label>
+          <textarea class="input" id="td-rollup-paste" rows="4" maxlength="20000" placeholder="2026-10-26  Grade 8 · 8B maths  Solve two-step equations  11 of 27 forgot to divide the + 5  …"></textarea>
+        </div>
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label">Your roll-up prompt</span>
+          <textarea class="input tm-prompt" id="td-rollup-prompt" rows="8" readonly></textarea>
+        </label>
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--primary" id="td-rollup-copy" data-copy="" aria-describedby="td-rollup-hint" disabled>Copy roll-up prompt</button>
+          <p class="tm-hint" id="td-rollup-hint" aria-live="polite">Tick saved debriefs or paste rows from your unit journal.</p>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
+        <details class="tm-move__more td-more"><summary>An example roll-up</summary>
+<!-- rollup-example:start -->
+<div class="tm-example td-example"><h3 class="tm-example__subject">A week of debriefs <span>· four lessons</span></h3><ul class="td-list"><li><span class="td-date">2026-10-26</span> <strong>8B maths</strong> <span class="td-small">Goal: Solve two-step equations. Evidence: 11 of 27 forgot to divide the + 5. Surprise: Practice started with 8 minutes left. Next: Worked examples, Tuesday.</span></li><li><span class="td-date">2026-10-27</span> <strong>8B maths</strong> <span class="td-small">Goal: Solve two-step equations. Evidence: Check: 20 of 27 right, up from 16. Surprise: None. Next: Word problems, Thursday.</span></li><li><span class="td-date">2026-10-28</span> <strong>9D science</strong> <span class="td-small">Goal: Balance simple chemical equations. Evidence: A feeling: many guessed numbers instead of counting atoms. Surprise: The practice task was cut to five minutes because the demonstration overran. Next: Same topic, Friday.</span></li><li><span class="td-date">2026-10-30</span> <strong>10B English</strong> <span class="td-small">Goal: Explain the effect of a quotation. Evidence: 9 of 26 explained the effect; 12 retold what happens. Surprise: The exit ticket sentence was written in the last two minutes. Next: Paragraphs, Wednesday.</span></li></ul><p class="td-example__label">The AI replies</p><dl><dt>Patterns</dt><dd class="td-text">1. Time ran out at the end of three of four lessons: practice or the exit ticket was squeezed into the last minutes (26 Oct 8B maths, 28 Oct 9D science, 30 Oct 10B English).
+2. The one lesson with no timing problem had the strongest check (27 Oct 8B maths: 20 of 27 right).</dd><dt>What worked</dt><dd class="td-text">Opening 8B maths with worked examples: the check rose from 16 to 20 of 27 right (26 and 27 Oct).</dd><dt>One change for next week</dt><dd class="td-text">Set a timer for the end of your explanation and protect the last 15 minutes for practice, even if the demonstration is not finished.</dd><dt>One question</dt><dd class="td-text">Which part of your explanations could students read or watch instead, so that practice starts earlier?</dd></dl></div>
+<!-- rollup-example:end -->
+        </details>
+      </div>
+    </section>
+
+    <!-- Exit tickets: fyra mallar som ger siffror till Evidence. Kort och mallar
+         byggs av scripts/build-two-minute-debrief.py från JSON-filen. -->
+    <section class="section" id="td-tickets">
+      <div class="container">
+        <h2 class="section__title">Exit tickets</h2>
+        <p class="section__lede">An exit ticket turns a feeling into numbers. Digital tickets in Microsoft Forms or Google Forms count the answers for you; paper works too.</p>
+        <div class="tm-grid">
+<!-- exit-tickets:start -->
+<article class="tm-move td-ticket" id="ticket-one-question">
+  <h3 class="tm-move__name">One-question check</h3>
+  <p class="tm-move__line">When the goal has one right answer, such as a calculation, a date or a definition.</p>
+  <p class="td-ticket__text td-text">Exit ticket
+[One question on today&#x27;s goal, with one right answer]
+Example: Solve 4x + 3 = 19.</p>
+  <details class="tm-move__more"><summary>Set it up in Microsoft Forms</summary><ol class="td-steps"><li>Go to forms.office.com and choose New Quiz.</li><li>Add a Text question for a written answer, or a Choice question if you give options.</li><li>In Settings, untick “Record name”.</li><li>Share the link or show the QR code at the end of the lesson.</li><li>Open the Responses tab to count right and wrong answers.</li></ol></details>
+  <details class="tm-move__more"><summary>Set it up in Google Forms</summary><ol class="td-steps"><li>Go to forms.google.com and start a blank quiz.</li><li>Add a Short answer question and set the correct answer in the answer key.</li><li>In Settings, set “Collect email addresses” to “Do not collect”.</li><li>Send the link, or show it as a QR code.</li><li>Open the Responses tab to see how many got it right.</li></ol></details>
+  <p class="tm-note">On paper: a slip with no name line. Sort into two piles, right and not yet, before you leave the room.</p>
+</article>
+<article class="tm-move td-ticket" id="ticket-hinge">
+  <h3 class="tm-move__name">Hinge question</h3>
+  <p class="tm-move__line">When you know the mistakes students tend to make. Each wrong option shows one of them.</p>
+  <p class="td-ticket__text td-text">Exit ticket
+[One question] A … B … C … D …
+Example: Where does most of the mass of a dry log come from?
+A the soil  B water  C the air  D sunlight</p>
+  <details class="tm-move__more"><summary>Set it up in Microsoft Forms</summary><ol class="td-steps"><li>Go to forms.office.com and choose New Quiz, so Forms can mark the right answer.</li><li>Add a Choice question and paste the question and options. Tick the correct option.</li><li>In Settings, untick “Record name”.</li><li>Share the link or show the QR code at the end of the lesson.</li><li>Open the Responses tab: it shows how many chose each option.</li></ol></details>
+  <details class="tm-move__more"><summary>Set it up in Google Forms</summary><ol class="td-steps"><li>Go to forms.google.com and start a blank quiz.</li><li>Add a Multiple choice question, paste the question and options, and set the answer key.</li><li>In Settings, set “Collect email addresses” to “Do not collect”.</li><li>Send the link, or show it as a QR code.</li><li>Open the Responses tab: the chart shows the counts for each option.</li></ol></details>
+  <p class="tm-note">Without forms: students hold up A, B, C or D on fingers or cards at the same time, and you count.</p>
+</article>
+<article class="tm-move td-ticket" id="ticket-confidence">
+  <h3 class="tm-move__name">Confidence + one question</h3>
+  <p class="tm-move__line">When you want to find students who are sure but wrong. They need a different follow-up from those who know they are unsure.</p>
+  <p class="td-ticket__text td-text">Exit ticket
+1. How sure are you that you can [today&#x27;s goal]? 1 not sure, 2 a little sure, 3 quite sure, 4 very sure
+2. [One check question]</p>
+  <details class="tm-move__more"><summary>Set it up in Microsoft Forms</summary><ol class="td-steps"><li>Go to forms.office.com and choose New Quiz.</li><li>Add a Rating question from 1 to 4 for how sure students are.</li><li>Add a Choice or Text question for the check, and mark the right answer.</li><li>In Settings, untick “Record name”.</li><li>Open the Responses tab and compare how sure they were with how many got it right.</li></ol></details>
+  <details class="tm-move__more"><summary>Set it up in Google Forms</summary><ol class="td-steps"><li>Go to forms.google.com and start a blank quiz.</li><li>Add a Linear scale question from 1 to 4 for how sure students are.</li><li>Add the check question and set the answer key.</li><li>In Settings, set “Collect email addresses” to “Do not collect”.</li><li>Open the Responses tab and compare the two charts.</li></ol></details>
+  <p class="tm-note">On paper: students write the number and the answer on one slip. Make four piles by number, then check the answers in piles 3 and 4 first.</p>
+</article>
+<article class="tm-move td-ticket" id="ticket-one-sentence">
+  <h3 class="tm-move__name">Explain it in one sentence</h3>
+  <p class="tm-move__line">When the goal is understanding rather than recall. Sort the answers into three piles: got it, partly, not yet.</p>
+  <p class="td-ticket__text td-text">Exit ticket
+In one sentence, explain [today&#x27;s key idea].
+Example: In one sentence, explain why we have day and night.</p>
+  <details class="tm-move__more"><summary>Set it up in Microsoft Forms</summary><ol class="td-steps"><li>Go to forms.office.com and choose New Form.</li><li>Add a Text question and paste the question.</li><li>In Settings, untick “Record name”.</li><li>Share the link or show the QR code at the end of the lesson.</li><li>Open the Responses tab, read the answers and count got it, partly and not yet.</li></ol></details>
+  <details class="tm-move__more"><summary>Set it up in Google Forms</summary><ol class="td-steps"><li>Go to forms.google.com and start a blank form.</li><li>Add a Paragraph question and paste the question.</li><li>In Settings, set “Collect email addresses” to “Do not collect”.</li><li>Send the link, or show it as a QR code.</li><li>Open the Responses tab, read the answers and count got it, partly and not yet.</li></ol></details>
+  <p class="tm-note">On paper: a slip with no name line. Three piles on your desk while students pack up.</p>
+</article>
+<!-- exit-tickets:end -->
+        </div>
+        <!-- En liten prompt som skriver en hinge-fråga för lärarens eget mål.
+             Den använder grupp, årskurs och mål från debriefen ovan. -->
+        <h3 class="td-subtitle">Let AI write a hinge question</h3>
+        <p class="tm-note">Fill in group and goal in the debrief above, then copy this prompt.</p>
+        <textarea class="input tm-prompt" id="td-hinge-prompt" rows="6" readonly aria-label="Prompt for a hinge question"></textarea>
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--secondary" id="td-hinge-copy" data-copy="" disabled>Copy hinge question prompt</button>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fyra genomarbetade exempel: en känsla, siffror från en exit ticket,
+         förståelse snarare än fakta, och en uppföljning där belägget är förra
+         kontrollens resultat. -->
+    <section class="section section--alt" id="td-examples">
+      <div class="container">
+        <h2 class="section__title">Four worked debriefs</h2>
+        <p class="section__lede">From a feeling to exit ticket numbers, and a follow-up where the evidence is the last check.</p>
+<!-- examples:start -->
+<details class="tm-move__more td-more"><summary>Two-step equations <span class="td-more__meta">· 8B maths, Grade 8</span></summary><div class="tm-example td-example"><h4 class="tm-example__subject">8B maths <span>· Grade 8</span></h4><div class="td-example__cols"><div><p class="td-example__label">The teacher writes</p><dl><dt>Goal</dt><dd class="td-text">Solve two-step equations such as 3x + 5 = 20.</dd><dt>Evidence</dt><dd class="td-text">On question 2 of the exit ticket, 11 of 27 divided by 3 first but left the + 5 unchanged. Several wrote x + 5 = 20 ÷ 3.</dd><dt>Surprise</dt><dd class="td-text">Energy was low after lunch, and the new notation took longer than I planned.</dd><dt>Next</dt><dd class="td-text">Word problems with two-step equations, Thursday.</dd></dl></div><div><p class="td-example__label">The AI replies</p><dl><dt>Likely causes</dt><dd class="td-text">1. Students are not secure in how inverse operations work on the whole equation: they divide by 3 first, which is allowed, and forget that the + 5 must then be divided too. If this is the cause, the same error shows up on every equation where they divide first.
+2. Too much new at once: the notation and the two-step method arrived in the same lesson, so working memory ran out. If this is the cause, students get one-step equations right but slip as soon as both steps are needed.</dd><dt>Next lesson</dt><dd class="td-text">Open with one worked example of 3x + 5 = 20, saying each step aloud, then one half-finished example where students do the last step, then two to try on their own (8 min).</dd><dt>Check first</dt><dd class="td-text">Solve 4x + 3 = 19. Show both steps.
+Move on to word problems if about 4 in 5 get x = 4 and every step keeps the equation balanced.</dd><dt>One question</dt><dd class="td-text">What will you do on Thursday with the students who still divide first?</dd></dl></div></div></div></details>
+<details class="tm-move__more td-more"><summary>Day and night <span class="td-more__meta">· 6C science, Grade 6</span></summary><div class="tm-example td-example"><h4 class="tm-example__subject">6C science <span>· Grade 6</span></h4><div class="td-example__cols"><div><p class="td-example__label">The teacher writes</p><dl><dt>Goal</dt><dd class="td-text">Explain why we have day and night: the Earth turns on its axis.</dd><dt>Evidence</dt><dd class="td-text">Only a feeling. When I asked, many said the Sun goes round the Earth, and the nods looked unsure.</dd><dt>Surprise</dt><dd class="td-text">The globe-and-torch demonstration took longer than planned, so there was no time for students to explain it back.</dd><dt>Next</dt><dd class="td-text">The seasons, Monday.</dd></dl></div><div><p class="td-example__label">The AI replies</p><dl><dt>Likely causes</dt><dd class="td-text">1. A common misconception: everyday experience says the Sun moves across the sky, and one demonstration is not enough to replace that idea. If this is the cause, students say “the Sun moves” even right after the demonstration.
+2. Students watched but never had to explain: the demonstration ran out of time, so nobody put the idea into their own words. If this is the cause, students can repeat “the Earth spins” but cannot use it to explain why it is night in another country.</dd><dt>Next lesson</dt><dd class="td-text">Before the seasons, pairs use a torch and a ball to show day and night to each other, and each pair writes one sentence that starts “It is night when…” (7 min).</dd><dt>Check first</dt><dd class="td-text">On your mini whiteboard: When it is day here, it is night in Australia. Why?
+Move on if about 4 in 5 mention the Earth turning, not the Sun moving. To turn your feeling into evidence, count how many boards say the Sun goes away.</dd><dt>One question</dt><dd class="td-text">Which part of the seasons lesson depends on students already picturing the Earth turning?</dd></dl></div></div></div></details>
+<details class="tm-move__more td-more"><summary>Explaining the effect of a quotation <span class="td-more__meta">· 10A English, Grade 10</span></summary><div class="tm-example td-example"><h4 class="tm-example__subject">10A English <span>· Grade 10</span></h4><div class="td-example__cols"><div><p class="td-example__label">The teacher writes</p><dl><dt>Goal</dt><dd class="td-text">Explain how the writer creates tension in the opening of the short story, using one quotation.</dd><dt>Evidence</dt><dd class="td-text">One-sentence exit ticket: 9 of 26 explained the effect of a quotation, 12 only retold what happens, and 5 named a technique without saying what it does.</dd><dt>Surprise</dt><dd class="td-text">Students who talked well in pairs wrote much weaker sentences.</dd><dt>Next</dt><dd class="td-text">Paragraph writing on the same story, Wednesday.</dd></dl></div><div><p class="td-example__label">The AI replies</p><dl><dt>Likely causes</dt><dd class="td-text">1. Students do not yet know what “explain the effect” looks like on paper: retelling and naming a technique feel like analysis to them. If this is the cause, a model sentence will change the answers quickly.
+2. The talk did not carry over into writing: in pairs they analysed, but nobody turned the talk into a written sentence before the exit ticket. If this is the cause, students can say the effect aloud but still write a retelling.</dd><dt>Next lesson</dt><dd class="td-text">Show three sentences about the same quotation: one that retells, one that names a technique and one that explains the effect. Students rank them and say why, then rewrite their own exit ticket sentence (10 min).</dd><dt>Check first</dt><dd class="td-text">“The door creaked open, slowly.” In one sentence, explain how this line builds tension.
+Move on to paragraphs if about 4 in 5 say what the reader feels or expects, not only what happens.</dd><dt>One question</dt><dd class="td-text">What do your strongest pair talkers do differently when they write?</dd></dl></div></div></div></details>
+<details class="tm-move__more td-more"><summary>A follow-up: the Treaty of Versailles <span class="td-more__meta">· 11 History, Grade 11</span></summary><div class="tm-example td-example"><h4 class="tm-example__subject">11 History <span>· Grade 11</span></h4><div class="td-example__cols"><div><p class="td-example__label">The teacher writes</p><dl><dt>Goal</dt><dd class="td-text">Explain why the Treaty of Versailles caused resentment in Germany, using two causes.</dd><dt>Evidence</dt><dd class="td-text">Check: 19 of 25 gave two causes, up from 11 last lesson. Most still describe the terms rather than explain why they caused resentment.</dd><dt>Surprise</dt><dd class="td-text">The six who missed the check had all been absent from the first lesson on the Treaty.</dd><dt>Next</dt><dd class="td-text">Source analysis on the Treaty, Friday.</dd></dl></div><div><p class="td-example__label">The AI replies</p><dl><dt>Likely causes</dt><dd class="td-text">1. Students know the terms but not the link to resentment: they list war guilt, reparations and lost land without saying why Germans felt humiliated. If this is the cause, answers improve once students practise adding “because” after each term.
+2. Missing prior knowledge for the six who were absent: they never met the terms, so they cannot explain them. If this is the cause, those six will also struggle with the sources on Friday.</dd><dt>Next lesson</dt><dd class="td-text">Give everyone a “term, because, so” frame for two terms, and give the six who were absent a short summary card of the terms to read first (8 min).</dd><dt>Check first</dt><dd class="td-text">Complete the sentence: The war guilt clause caused resentment in Germany because … so …
+Move on to the sources if about 4 in 5 explain why, not only what.</dd><dt>One question</dt><dd class="td-text">How will you know on Friday whether the six who were absent have caught up?</dd></dl></div></div></div></details>
+<!-- examples:end -->
+      </div>
+    </section>
+
+    <!-- Evidensen: etikettförklaringen och de idéer verktyget bygger på. -->
+    <section class="section container" id="td-why">
+      <h2 class="section__title">Why it works</h2>
+<!-- legend:start -->
+<ul class="tm-legend"><li><span class="tm-chip tm-chip--strong">Strong</span> Meta-analyses of classroom studies show that teaching this way improves learning.</li><li><span class="tm-chip tm-chip--promising">Promising</span> Controlled studies show gains, but results are mixed, small in number or dependent on context.</li><li><span class="tm-chip tm-chip--framework">Framework</span> A useful structure for planning, with no intervention studies behind it as a method.</li></ul>
+<!-- legend:end -->
+      <div class="td-approaches">
+<!-- sources:start -->
+<div class="td-approach"><h3>Formative assessment: acting on what students show <span class="tm-chip tm-chip--strong">Strong</span></h3><p>Black &amp; Wiliam&#x27;s 1998 review made the case that formative assessment raises achievement, and a 2024 meta-analysis of 118 K-12 studies confirms a positive, more modest average effect (Yao et al. 2024). A whole-school EEF trial found a similar, real effect at scale.</p><p class="tm-move__sources">Source: <a href="https://doi.org/10.1080/0969595980050102">Black &amp; Wiliam 1998, Assessment in Education</a>, <a href="https://doi.org/10.1080/13803611.2024.2363831">Yao et al. 2024, Educational Research and Evaluation</a>, <a href="https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/embedding-formative-assessment">EEF: Embedding Formative Assessment evaluation</a></p></div>
+<div class="td-approach"><h3>Feedback that moves learning <span class="tm-chip tm-chip--strong">Strong</span></h3><p>Feedback is among the best-evidenced approaches in the EEF Teaching and Learning Toolkit. A 2020 meta-analysis finds a medium average effect with large variation: feedback that carries rich information about the task and how to improve works much better than praise, rewards or punishment (Wisniewski, Zierer &amp; Hattie 2020).</p><p class="tm-move__sources">Source: <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback">EEF Teaching and Learning Toolkit: Feedback</a>, <a href="https://doi.org/10.3389/fpsyg.2019.03087">Wisniewski, Zierer &amp; Hattie 2020, Frontiers in Psychology</a></p></div>
+<div class="td-approach"><h3>Worked examples and cognitive load <span class="tm-chip tm-chip--strong">Strong</span></h3><p>Cognitive load theory rests on decades of replicated experiments. The worked-example effect is one of its most robust findings, confirmed in a 2023 meta-analysis, and it fades as students gain expertise (Sweller, van Merriënboer &amp; Paas 2019; Barbieri et al. 2023).</p><p class="tm-move__sources">Source: <a href="https://doi.org/10.1007/s10648-019-09465-5">Sweller, van Merriënboer &amp; Paas 2019, Educational Psychology Review</a>, <a href="https://doi.org/10.1007/s10648-023-09745-1">Barbieri et al. 2023, Educational Psychology Review</a></p></div>
+<div class="td-approach"><h3>Hinge questions <span class="tm-chip tm-chip--framework">Framework</span></h3><p>A hinge question is one multiple-choice question at a key point in the lesson, where each wrong option shows a known misconception, so the teacher can decide in a minute whether to move on. It builds on the all-student responses Wiliam (2011) describes, such as letter cards everyone holds up at once. Lab studies with university students show that multiple-choice items with plausible wrong options make students retrieve as well as open questions do (Little et al. 2012). The hinge question itself has had little direct testing in classrooms.</p><p class="tm-move__sources">Source: <a href="https://doi.org/10.1016/j.stueduc.2011.03.001">Wiliam 2011, Studies in Educational Evaluation</a>, <a href="https://doi.org/10.1177/0956797612443370">Little, Bjork, Bjork &amp; Angello 2012, Psychological Science</a></p></div>
+<div class="td-approach"><h3>Structured teacher reflection <span class="tm-chip tm-chip--framework">Framework</span></h3><p>Reflecting on a lesson in a set structure is widely recommended in teacher education, but no meta-analysis shows that it improves student learning as a method on its own. What makes a difference is what reflection leads to: teachers acting on evidence of what their students learned (Timperley et al. 2007). That is why every debrief starts from the goal and the evidence.</p><p class="tm-move__sources">Source: <a href="https://www.educationcounts.govt.nz/publications/series/2515/15341">Timperley, Wilson, Barrar &amp; Fung 2007, Teacher Professional Learning and Development (Best Evidence Synthesis)</a></p></div>
+<!-- sources:end -->
+      </div>
+      <p class="tm-note">For research on many other teaching strategies, see the <a href="/evidence/">Evidence Toolkit</a> on this site.</p>
+    </section>
+
+    <!-- AI-verktyg och åldersgränser. Global regel för allt AI-innehåll på
+         sajten: åldersgränser och läsarens eget ansvar för nationella regler. -->
+    <section class="section section--alt" id="td-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age rules</h2>
+        <p class="section__lede">You use AI to think through your lesson. Your students do not need to. If students use AI themselves, these rules apply (October 2026):</p>
+<!-- age:start -->
+<ul class="tm-age"><li><strong>Copilot Chat:</strong> Students aged 13 and over, through the school&#x27;s own Microsoft 365 account. The school&#x27;s administrator must set each student&#x27;s age group and consent.</li><li><strong>Gemini for Education:</strong> Open to education users of all ages, with a stricter experience for under-18s. The school&#x27;s administrator must turn it on.</li><li><strong>ChatGPT:</strong> Ages 13 and over on personal accounts, with a parent&#x27;s or guardian&#x27;s permission under 18. ChatGPT for Teachers is for school staff only.</li><li><strong>Claude:</strong> Ages 18 and over. In a school, for teachers only.</li></ul>
+<!-- age:end -->
+        <p class="tm-note">Rules differ between countries and change often. Check your own national rules and your school policy before students use any AI tool.</p>
+      </div>
+    </section>
+
+    <!-- Nedladdningar: enhetsjournalen (Excel) och utskriftspaketet.
+         Fritt, ingen e-postgrind. -->
+    <section class="section container" id="td-download">
+      <h2 class="section__title">Downloads</h2>
+      <p class="section__lede">A unit journal that grows into a record of your teaching, and a printable pack with the debrief card, the exit tickets and fill-in prompts for when you are offline.</p>
+      <div class="td-downloads">
+        <a class="btn btn--primary" href="/assets/downloads/two-minute-debrief-journal.xlsx" download>Download the unit journal (Excel)</a>
+        <a class="btn btn--secondary" href="/assets/pdfs/free/two-minute-debrief-pack-en.pdf" download>Download the printable pack (PDF)</a>
+      </div>
+      <p class="tm-note">Each saved debrief has a "Copy journal row" button: paste the row into the journal, and fill in what you changed and what the check showed. The journal opens in Excel. In Google Sheets, choose File → Import and upload it.</p>
+      <h3 class="td-subtitle">An example journal: Grade 10 English</h3>
+<!-- journal:start -->
+<ul class="td-list"><li><span class="td-date">2026-10-12</span> <strong>Explain the effect of a quotation.</strong> <span class="td-small">Change: Ranked three model sentences. · Check: 9 of 26 explained the effect</span></li><li><span class="td-date">2026-10-14</span> <strong>Explain the effect of a quotation.</strong> <span class="td-small">Change: Used a new quotation with the same frame. · Check: 15 of 26 explained the effect</span></li><li><span class="td-date">2026-10-19</span> <strong>Write a paragraph on how tension is built.</strong> <span class="td-small">Change: Gave a point, quotation, effect frame. · Check: 17 of 26 kept the quotation and explained it</span></li><li><span class="td-date">2026-10-21</span> <strong>Write a paragraph on how tension is built.</strong> <span class="td-small">Change: Removed the frame for those who scored well. · Check: 20 of 26 wrote a full paragraph</span></li><li><span class="td-date">2026-10-26</span> <strong>Compare two moments of tension.</strong> <span class="td-small">Change: Added three comparison starters. · Check: 22 of 26 compared the two moments</span></li></ul>
+<!-- journal:end -->
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknapparna (data-copy) och debriefens logik. -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+  <script src="/assets/js/two-minute-debrief.js" defer></script>
+</body>
+</html>

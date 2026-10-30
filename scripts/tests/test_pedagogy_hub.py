@@ -10,19 +10,19 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 HUB = ROOT / "pedagogy/index.html"
 HEADER = ROOT / "assets/partials/header-en.html"
-UNANNOUNCED = ["Two-Minute Debrief", "Unit Studio", "Pedagogy Compass"]
+UNANNOUNCED = ["Unit Studio", "Pedagogy Compass"]
 
 
-def test_hub_has_cards_to_lesson_lens_and_retrieval_rhythm():
+def test_hub_has_cards_to_the_three_tools():
     html = HUB.read_text(encoding="utf-8")
     assert "<h1>Pedagogy + AI</h1>" in html
-    assert re.findall(r'<a class="think-card"[^>]*href="([^"]+)"', html) == ["/lesson-lens/", "/retrieval-rhythm/"]
+    assert re.findall(r'<a class="think-card"[^>]*href="([^"]+)"', html) == ["/lesson-lens/", "/retrieval-rhythm/", "/two-minute-debrief/"]
 
 
 def test_hub_card_icons_exist():
     html = HUB.read_text(encoding="utf-8")
     srcs = re.findall(r'<img class="think-card__icon" src="([^"]+)"', html)
-    assert len(srcs) == 2
+    assert len(srcs) == 3
     for src in srcs:
         assert (ROOT / src.lstrip("/")).exists(), src
 
@@ -42,7 +42,8 @@ def test_menu_link_after_think():
 
 def test_og_images_absolute():
     for page, png in (("pedagogy/index.html", "pedagogy-en.png"), ("lesson-lens/index.html", "lessonlens-en.png"),
-                      ("retrieval-rhythm/index.html", "retrievalrhythm-en.png")):
+                      ("retrieval-rhythm/index.html", "retrievalrhythm-en.png"),
+                      ("two-minute-debrief/index.html", "twominutedebrief-en.png")):
         html = (ROOT / page).read_text(encoding="utf-8")
         m = re.search(r'<meta property="og:image" content="([^"]+)"', html)
         assert m and m.group(1) == f"https://choosewise.education/assets/images/brand/og/{png}", page
@@ -54,3 +55,6 @@ def test_llms_lists_both_pages():
     assert "https://choosewise.education/pedagogy/" in text
     assert "https://choosewise.education/lesson-lens/" in text
     assert "https://choosewise.education/retrieval-rhythm/" in text
+    assert "https://choosewise.education/two-minute-debrief/" in text
+    # Retrieval Rhythm räknar veckorna från loggens senaste rad: en till tre veckor före.
+    assert "one to three weeks before it" in text and "two to four weeks back" not in text
