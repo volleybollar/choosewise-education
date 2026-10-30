@@ -1,0 +1,363 @@
+{
+  "labels": {
+    "strong": {
+      "name": "Strong",
+      "definition": "Meta-analyses of classroom studies show that teaching this way improves learning."
+    },
+    "promising": {
+      "name": "Promising",
+      "definition": "Controlled studies show gains, but results are mixed, small in number or dependent on context."
+    },
+    "framework": {
+      "name": "Framework",
+      "definition": "A useful structure for planning, with no intervention studies behind it as a method."
+    }
+  },
+  "hero_example": "maths-equations",
+  "examples": [
+    {
+      "id": "maths-equations",
+      "title": "Two-step equations",
+      "group": "8B maths",
+      "grade": 8,
+      "goal": "Solve two-step equations such as 3x + 5 = 20.",
+      "evidence": "On question 2 of the exit ticket, 11 of 27 divided before subtracting. Several wrote x + 5 = 20 ÷ 3.",
+      "surprise": "Energy was low after lunch, and the new notation took longer than I planned.",
+      "next": "Word problems with two-step equations, Thursday.",
+      "reply": {
+        "likely_causes": "1. The order of inverse operations is not secure: students undo the multiplication first because dividing feels like the main step. If this is the cause, the same error shows up on every equation, even easy ones.\n2. Too much new at once: the notation and the two-step method arrived in the same lesson, so working memory ran out. If this is the cause, students get one-step equations right but slip as soon as both steps are needed.",
+        "next_lesson": "Open with one worked example of 3x + 5 = 20, saying each step aloud, then one half-finished example where students do the last step, then two to try on their own (8 min).",
+        "check_first": "Solve 4x + 3 = 19. Show both steps.\nMove on to word problems if about 4 in 5 subtract first and get x = 4.",
+        "one_question": "What will you do on Thursday with the students who still divide first?"
+      }
+    },
+    {
+      "id": "science-day-night",
+      "title": "Day and night",
+      "group": "6C science",
+      "grade": 6,
+      "goal": "Explain why we have day and night: the Earth turns on its axis.",
+      "evidence": "Only a feeling. When I asked, many said the Sun goes round the Earth, and the nods looked unsure.",
+      "surprise": "The globe-and-torch demonstration took longer than planned, so there was no time for students to explain it back.",
+      "next": "The seasons, Monday.",
+      "reply": {
+        "likely_causes": "1. A common misconception: everyday experience says the Sun moves across the sky, and one demonstration is not enough to replace that idea. If this is the cause, students say “the Sun moves” even right after the demonstration.\n2. Students watched but never had to explain: the demonstration ran out of time, so nobody put the idea into their own words. If this is the cause, students can repeat “the Earth spins” but cannot use it to explain why it is night in another country.",
+        "next_lesson": "Before the seasons, pairs use a torch and a ball to show day and night to each other, and each pair writes one sentence that starts “It is night when…” (7 min).",
+        "check_first": "On your mini whiteboard: It is night in the UK right now. Why?\nMove on if about 4 in 5 mention the Earth turning, not the Sun moving. To turn your feeling into evidence, count how many boards say the Sun goes away.",
+        "one_question": "Which part of the seasons lesson depends on students already picturing the Earth turning?"
+      }
+    },
+    {
+      "id": "english-tension",
+      "title": "Explaining the effect of a quotation",
+      "group": "10A English",
+      "grade": 10,
+      "goal": "Explain how the writer creates tension in the opening of the short story, using one quotation.",
+      "evidence": "One-sentence exit ticket: 9 of 26 explained the effect of a quotation, 12 only retold what happens, and 5 named a technique without saying what it does.",
+      "surprise": "Students who talked well in pairs wrote much weaker sentences.",
+      "next": "Paragraph writing on the same story, Wednesday.",
+      "reply": {
+        "likely_causes": "1. Students do not yet know what “explain the effect” looks like on paper: retelling and naming a technique feel like analysis to them. If this is the cause, a model sentence will change the answers quickly.\n2. The talk did not carry over into writing: in pairs they analysed, but nobody turned the talk into a written sentence before the exit ticket. If this is the cause, students can say the effect aloud but still write a retelling.",
+        "next_lesson": "Show three sentences about the same quotation: one that retells, one that names a technique and one that explains the effect. Students rank them and say why, then rewrite their own exit ticket sentence (10 min).",
+        "check_first": "“The door creaked open, slowly.” In one sentence, explain how this line builds tension.\nMove on to paragraphs if about 4 in 5 say what the reader feels or expects, not only what happens.",
+        "one_question": "What do your strongest pair talkers do differently when they write?"
+      }
+    },
+    {
+      "id": "history-versailles",
+      "title": "A follow-up: the Treaty of Versailles",
+      "group": "11 History",
+      "grade": 11,
+      "goal": "Explain why the Treaty of Versailles caused resentment in Germany, using two causes.",
+      "evidence": "Check: 19 of 25 gave two causes, up from 11 last lesson. Most still describe the terms rather than explain why they caused resentment.",
+      "surprise": "The six who missed the check had all been absent from the first lesson on the Treaty.",
+      "next": "Source analysis on the Treaty, Friday.",
+      "reply": {
+        "likely_causes": "1. Students know the terms but not the link to resentment: they list war guilt, reparations and lost land without saying why Germans felt humiliated. If this is the cause, answers improve once students practise adding “because” after each term.\n2. Missing prior knowledge for the six who were absent: they never met the terms, so they cannot explain them. If this is the cause, those six will also struggle with the sources on Friday.",
+        "next_lesson": "Give everyone a “term, because, so” frame for two terms, and give the six who were absent a short summary card of the terms to read first (8 min).",
+        "check_first": "Complete the sentence: The war guilt clause caused resentment in Germany because … so …\nMove on to the sources if about 4 in 5 explain why, not only what.",
+        "one_question": "How will you know on Friday whether the six who were absent have caught up?"
+      }
+    }
+  ],
+  "rollup_example": {
+    "debriefs": [
+      {
+        "date": "2026-10-26",
+        "group": "8B maths",
+        "goal": "Solve two-step equations.",
+        "evidence": "11 of 27 divided before subtracting.",
+        "surprise": "Practice started with 8 minutes left.",
+        "next": "Worked examples, Tuesday."
+      },
+      {
+        "date": "2026-10-27",
+        "group": "8B maths",
+        "goal": "Solve two-step equations.",
+        "evidence": "Check: 20 of 27 right, up from 11.",
+        "surprise": "None.",
+        "next": "Word problems, Thursday."
+      },
+      {
+        "date": "2026-10-28",
+        "group": "9D science",
+        "goal": "Balance simple chemical equations.",
+        "evidence": "A feeling: many guessed numbers instead of counting atoms.",
+        "surprise": "The practice task was cut to five minutes because the demonstration overran.",
+        "next": "Same topic, Friday."
+      },
+      {
+        "date": "2026-10-30",
+        "group": "10A English",
+        "goal": "Explain the effect of a quotation.",
+        "evidence": "9 of 26 explained the effect; 12 retold what happens.",
+        "surprise": "The exit ticket sentence was written in the last two minutes.",
+        "next": "Paragraphs, Wednesday."
+      }
+    ],
+    "reply": {
+      "patterns": "1. Practice time ran out in three of four debriefs: the explanation or demonstration overran and students practised in the last minutes (26 Oct 8B maths, 28 Oct 9D science, 30 Oct 10A English).\n2. When students got enough practice, the check improved quickly (27 Oct 8B maths).",
+      "what_worked": "Opening 8B maths with worked examples: the check rose from 11 to 20 of 27 (26 and 27 Oct).",
+      "one_change": "Set a timer for the end of your explanation and protect the last 15 minutes for practice, even if the demonstration is not finished.",
+      "one_question": "Which part of your explanations could students read or watch instead, so that practice starts earlier?"
+    }
+  },
+  "exit_tickets": [
+    {
+      "id": "one-question",
+      "name": "One-question check",
+      "when": "When the goal has one right answer, such as a calculation, a date or a definition.",
+      "student_text": "Exit ticket\n[One question on today's goal, with one right answer]\nExample: Solve 4x + 3 = 19.",
+      "forms_steps": [
+        "Go to forms.office.com and choose New Quiz.",
+        "Add a Text question for a written answer, or a Choice question if you give options.",
+        "In Settings, untick “Record name”.",
+        "Share the link or show the QR code at the end of the lesson.",
+        "Open the Responses tab to count right and wrong answers."
+      ],
+      "google_steps": [
+        "Go to forms.google.com and start a blank quiz.",
+        "Add a Short answer question and set the correct answer in the answer key.",
+        "In Settings, set “Collect email addresses” to “Do not collect”.",
+        "Send the link, or show it as a QR code.",
+        "Open the Responses tab to see how many got it right."
+      ],
+      "paper_note": "On paper: a slip with no name line. Sort into two piles, right and not yet, before you leave the room."
+    },
+    {
+      "id": "hinge",
+      "name": "Hinge question",
+      "when": "When you know the mistakes students tend to make. Each wrong option shows one of them.",
+      "student_text": "Exit ticket\n[One question] A … B … C … D …\nExample: Where does most of the mass of a tree come from?\nA the soil  B water  C the air  D sunlight",
+      "forms_steps": [
+        "Go to forms.office.com and choose New Quiz, so Forms can mark the right answer.",
+        "Add a Choice question and paste the question and options. Tick the correct option.",
+        "In Settings, untick “Record name”.",
+        "Share the link or show the QR code at the end of the lesson.",
+        "Open the Responses tab: it shows how many chose each option."
+      ],
+      "google_steps": [
+        "Go to forms.google.com and start a blank quiz.",
+        "Add a Multiple choice question, paste the question and options, and set the answer key.",
+        "In Settings, set “Collect email addresses” to “Do not collect”.",
+        "Send the link, or show it as a QR code.",
+        "Open the Responses tab: the chart shows the counts for each option."
+      ],
+      "paper_note": "Without forms: students hold up A, B, C or D on fingers or cards at the same time, and you count."
+    },
+    {
+      "id": "confidence",
+      "name": "Confidence + one question",
+      "when": "When you want to find students who are sure but wrong. They need a different follow-up from those who know they are unsure.",
+      "student_text": "Exit ticket\n1. How sure are you that you can [today's goal]? 1 not sure, 2 a little sure, 3 quite sure, 4 very sure\n2. [One check question]",
+      "forms_steps": [
+        "Go to forms.office.com and choose New Quiz.",
+        "Add a Rating question from 1 to 4 for how sure students are.",
+        "Add a Choice or Text question for the check, and mark the right answer.",
+        "In Settings, untick “Record name”.",
+        "Open the Responses tab and compare how sure they were with how many got it right."
+      ],
+      "google_steps": [
+        "Go to forms.google.com and start a blank quiz.",
+        "Add a Linear scale question from 1 to 4 for how sure students are.",
+        "Add the check question and set the answer key.",
+        "In Settings, set “Collect email addresses” to “Do not collect”.",
+        "Open the Responses tab and compare the two charts."
+      ],
+      "paper_note": "On paper: students write the number and the answer on one slip. Make four piles by number, then check the answers in piles 3 and 4 first."
+    },
+    {
+      "id": "one-sentence",
+      "name": "Explain it in one sentence",
+      "when": "When the goal is understanding rather than recall. Sort the answers into three piles: got it, partly, not yet.",
+      "student_text": "Exit ticket\nIn one sentence, explain [today's key idea].\nExample: In one sentence, explain why we have day and night.",
+      "forms_steps": [
+        "Go to forms.office.com and choose New Form.",
+        "Add a Text question and paste the question.",
+        "In Settings, untick “Record name”.",
+        "Share the link or show the QR code at the end of the lesson.",
+        "Open the Responses tab, read the answers and count got it, partly and not yet."
+      ],
+      "google_steps": [
+        "Go to forms.google.com and start a blank form.",
+        "Add a Paragraph question and paste the question.",
+        "In Settings, set “Collect email addresses” to “Do not collect”.",
+        "Send the link, or show it as a QR code.",
+        "Open the Responses tab, read the answers and count got it, partly and not yet."
+      ],
+      "paper_note": "On paper: a slip with no name line. Three piles on your desk while students pack up."
+    }
+  ],
+  "approaches": [
+    {
+      "id": "formative-assessment",
+      "name": "Formative assessment: acting on what students show",
+      "label": "strong",
+      "evidence": "Black & Wiliam's 1998 review made the case that formative assessment raises achievement, and a 2024 meta-analysis of 118 K-12 studies confirms a positive, more modest average effect (Yao et al. 2024). A whole-school EEF trial found a similar, real effect at scale.",
+      "sources": [
+        {
+          "text": "Black & Wiliam 1998, Assessment in Education",
+          "url": "https://doi.org/10.1080/0969595980050102"
+        },
+        {
+          "text": "Yao et al. 2024, Educational Research and Evaluation",
+          "url": "https://doi.org/10.1080/13803611.2024.2363831"
+        },
+        {
+          "text": "EEF: Embedding Formative Assessment evaluation",
+          "url": "https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/embedding-formative-assessment"
+        }
+      ]
+    },
+    {
+      "id": "feedback",
+      "name": "Feedback that moves learning",
+      "label": "strong",
+      "evidence": "Feedback is among the best-evidenced approaches in the EEF Teaching and Learning Toolkit. A 2020 meta-analysis finds a medium average effect with large variation: feedback that carries rich information about the task and how to improve works much better than praise, rewards or punishment (Wisniewski, Zierer & Hattie 2020).",
+      "sources": [
+        {
+          "text": "EEF Teaching and Learning Toolkit: Feedback",
+          "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback"
+        },
+        {
+          "text": "Wisniewski, Zierer & Hattie 2020, Frontiers in Psychology",
+          "url": "https://doi.org/10.3389/fpsyg.2019.03087"
+        }
+      ]
+    },
+    {
+      "id": "worked-examples",
+      "name": "Worked examples and cognitive load",
+      "label": "strong",
+      "evidence": "Cognitive load theory rests on decades of replicated experiments. The worked-example effect is one of its most robust findings, confirmed in a 2023 meta-analysis, and it fades as students gain expertise (Sweller, van Merriënboer & Paas 2019; Barbieri et al. 2023).",
+      "sources": [
+        {
+          "text": "Sweller, van Merriënboer & Paas 2019, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-019-09465-5"
+        },
+        {
+          "text": "Barbieri et al. 2023, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-023-09745-1"
+        }
+      ]
+    },
+    {
+      "id": "hinge-questions",
+      "name": "Hinge questions",
+      "label": "promising",
+      "evidence": "A hinge question is one multiple-choice question at a key point in the lesson, where each wrong option shows a known misconception, so the teacher can decide in a minute whether to move on (Wiliam 2011). Lab studies show that multiple-choice items with plausible wrong options make students retrieve as well as open questions do (Little et al. 2012). The hinge question itself has had little direct testing in classrooms.",
+      "sources": [
+        {
+          "text": "Wiliam 2011, Studies in Educational Evaluation",
+          "url": "https://doi.org/10.1016/j.stueduc.2011.03.001"
+        },
+        {
+          "text": "Little, Bjork, Bjork & Angello 2012, Psychological Science",
+          "url": "https://doi.org/10.1177/0956797612443370"
+        }
+      ]
+    },
+    {
+      "id": "teacher-reflection",
+      "name": "Structured teacher reflection",
+      "label": "framework",
+      "evidence": "Reflecting on a lesson in a set structure is widely recommended in teacher education, but it has no independent meta-analysis behind it as a method. What makes a difference is what reflection leads to: teachers acting on evidence of what their students learned (Timperley et al. 2007). That is why every debrief starts from the goal and the evidence.",
+      "sources": [
+        {
+          "text": "Timperley, Wilson, Barrar & Fung 2007, Teacher Professional Learning and Development (Best Evidence Synthesis)",
+          "url": "https://www.educationcounts.govt.nz/publications/series/2515/15341"
+        }
+      ]
+    }
+  ],
+  "journal_example": [
+    {
+      "date": "2026-10-12",
+      "group": "Grade 10 · 10A English",
+      "goal": "Explain the effect of a quotation.",
+      "evidence": "A feeling: many retold the plot.",
+      "surprise": "Pair talk was strong.",
+      "next": "Model sentences, Wednesday.",
+      "change": "Ranked three model sentences.",
+      "check": "9 of 26 explained the effect"
+    },
+    {
+      "date": "2026-10-14",
+      "group": "Grade 10 · 10A English",
+      "goal": "Explain the effect of a quotation.",
+      "evidence": "Check: 9 of 26 explained the effect.",
+      "surprise": "Students copied the model too closely.",
+      "next": "New quotation, Monday.",
+      "change": "Used a new quotation with the same frame.",
+      "check": "15 of 26 explained the effect"
+    },
+    {
+      "date": "2026-10-19",
+      "group": "Grade 10 · 10A English",
+      "goal": "Write a paragraph on how tension is built.",
+      "evidence": "Check: 15 of 26 explained the effect.",
+      "surprise": "Paragraphs lost the quotation.",
+      "next": "Paragraph frame, Wednesday.",
+      "change": "Gave a point, quotation, effect frame.",
+      "check": "17 of 26 kept the quotation and explained it"
+    },
+    {
+      "date": "2026-10-21",
+      "group": "Grade 10 · 10A English",
+      "goal": "Write a paragraph on how tension is built.",
+      "evidence": "Check: 17 of 26 kept the quotation.",
+      "surprise": "None.",
+      "next": "Second paragraph, Monday.",
+      "change": "Removed the frame for those who scored well.",
+      "check": "20 of 26 wrote a full paragraph"
+    },
+    {
+      "date": "2026-10-26",
+      "group": "Grade 10 · 10A English",
+      "goal": "Compare two moments of tension.",
+      "evidence": "Check: 20 of 26 wrote a full paragraph.",
+      "surprise": "Comparison words were missing.",
+      "next": "Comparison starters, Wednesday.",
+      "change": "Added three comparison starters.",
+      "check": "22 of 26 compared the two moments"
+    }
+  ],
+  "age_rules": [
+    {
+      "tool": "Copilot Chat",
+      "rule": "Students aged 13 and over, through the school's own Microsoft 365 account. The school's administrator must set each student's age group and consent."
+    },
+    {
+      "tool": "Gemini for Education",
+      "rule": "Open to education users of all ages, with a stricter experience for under-18s. The school's administrator must turn it on."
+    },
+    {
+      "tool": "ChatGPT",
+      "rule": "Ages 13 and over on personal accounts, with a parent's or guardian's permission under 18. ChatGPT for Teachers is for school staff only."
+    },
+    {
+      "tool": "Claude",
+      "rule": "Ages 18 and over. In a school, for teachers only."
+    }
+  ]
+}
