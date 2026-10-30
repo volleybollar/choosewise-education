@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedagogy Compass — choosewise.education</title>
+  <meta name="description" content="For Choosewise members. Start from a problem in your classroom and find the teaching models that address it, ranked by evidence, with what they look like on an ordinary Tuesday and where AI helps or gets in the way.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (prefix tm-), och sedan det som är
+       nytt för Pedagogy Compass (prefix pc-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/pedagogy-compass.css?v=20261030a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten. -->
+<!-- seo:start (build-seo-meta.py) -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: vad kompassen är och hur den används. -->
+    <section class="page-hero container">
+      <span class="eyebrow">For Choosewise members · Grades 6–12</span>
+      <h1>Pedagogy Compass</h1>
+      <p class="lede">Start from what is going wrong in your classroom, not from a list of theories. Pick a problem and see the teaching models that address it, strongest evidence first, with what each looks like on an ordinary Tuesday and where AI helps or gets in the way.</p>
+      <ul class="tm-promises">
+        <li><strong>Problem first.</strong> Ten common problems lead you to the models that help.</li>
+        <li><strong>Honest labels.</strong> About fifty models, each with what the evidence actually says.</li>
+        <li><strong>Any AI tool.</strong> Turn the models into a plan for your next lesson.</li>
+      </ul>
+    </section>
+
+    <!-- De tio problemen. Varje kort listar modellerna, starkast evidens först,
+         och har en länk som tar problemet till promptbyggaren. -->
+    <section class="section section--alt" id="pc-problems">
+      <div class="container">
+        <h2 class="section__title">What is going wrong?</h2>
+        <p class="section__lede">Choose the problem that sounds most like your class. Click a model to read its card further down.</p>
+        <div class="tm-grid">
+<!-- problems:start -->
+<article class="tm-move pc-problem" id="problem-they-forget">
+  <h3 class="tm-move__name">They forget everything by the test</h3>
+  <p class="tm-move__line">Students seemed to understand in the lesson, but two weeks later it has gone, and the test shows it.</p>
+  <p class="pc-label">What helps, strongest evidence first</p><ol class="pc-models"><li><a href="#model-retrieval-practice">Retrieval practice</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-spaced-practice">Spaced practice</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-interleaving">Interleaving</a> <span class="tm-chip tm-chip--promising">Promising</span></li><li><a href="#model-elaboration">Elaboration</a> <span class="tm-chip tm-chip--promising">Promising</span></li></ol>
+  <a class="tm-move__use" href="?problem=they-forget#pc-builder" data-use-problem="they-forget" aria-label="Use in the prompt: They forget everything by the test">Use in the prompt</a>
+</article>
+<article class="tm-move pc-problem" id="problem-dont-start">
+  <h3 class="tm-move__name">They don&#x27;t get started</h3>
+  <p class="tm-move__line">The task is set, and half the class sits looking at it, asks what to do or waits for help.</p>
+  <p class="pc-label">What helps, strongest evidence first</p><ol class="pc-models"><li><a href="#model-cognitive-load">Cognitive load and worked examples</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-explicit-instruction">Explicit instruction</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-metacognition">Metacognition and self-regulation</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-motivation-theories">Motivation theories</a> <span class="tm-chip tm-chip--framework">Framework</span></li></ol>
+  <a class="tm-move__use" href="?problem=dont-start#pc-builder" data-use-problem="dont-start" aria-label="Use in the prompt: They don&#x27;t get started">Use in the prompt</a>
+</article>
+<article class="tm-move pc-problem" id="problem-discussions-die">
+  <h3 class="tm-move__name">Discussions die</h3>
+  <p class="tm-move__line">You ask a good question, the same three students answer, and the rest wait for it to be over.</p>
+  <p class="pc-label">What helps, strongest evidence first</p><ol class="pc-models"><li><a href="#model-collaborative-learning">Collaborative learning</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-reciprocal-teaching">Reciprocal teaching</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-dialogic-teaching">Dialogic teaching</a> <span class="tm-chip tm-chip--promising">Promising</span></li><li><a href="#model-icap">ICAP</a> <span class="tm-chip tm-chip--framework">Framework</span></li></ol>
+  <a class="tm-move__use" href="?problem=discussions-die#pc-builder" data-use-problem="discussions-die" aria-label="Use in the prompt: Discussions die">Use in the prompt</a>
+</article>
+<article class="tm-move pc-problem" id="problem-mixed-levels">
+  <h3 class="tm-move__name">Mixed levels in one class</h3>
+  <p class="tm-move__line">Some students are finished in five minutes, others have not understood the first step.</p>
+  <p class="pc-label">What helps, strongest evidence first</p><ol class="pc-models"><li><a href="#model-mastery-learning">Mastery learning</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-formative-assessment">Formative assessment</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-udl">Universal Design for Learning</a> <span class="tm-chip tm-chip--promising">Promising</span></li><li><a href="#model-gradual-release">Gradual release of responsibility</a> <span class="tm-chip tm-chip--framework">Framework</span></li></ol>
+  <a class="tm-move__use" href="?problem=mixed-levels#pc-builder" data-use-problem="mixed-levels" aria-label="Use in the prompt: Mixed levels in one class">Use in the prompt</a>
+</article>
+<article class="tm-move pc-problem" id="problem-copy-ai">
+  <h3 class="tm-move__name">They copy AI answers</h3>
+  <p class="tm-move__line">Homework is fluent and correct, but students cannot explain it, and tests do not match it.</p>
+  <p class="pc-label">What helps, strongest evidence first</p><ol class="pc-models"><li><a href="#model-retrieval-practice">Retrieval practice</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-metacognition">Metacognition and self-regulation</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-generative-learning">Generative learning</a> <span class="tm-chip tm-chip--promising">Promising</span></li><li><a href="#model-desirable-difficulties">Desirable difficulties</a> <span class="tm-chip tm-chip--framework">Framework</span></li></ol>
+  <a class="tm-move__use" href="?problem=copy-ai#pc-builder" data-use-problem="copy-ai" aria-label="Use in the prompt: They copy AI answers">Use in the prompt</a>
+</article>
+<article class="tm-move pc-problem" id="problem-overload">
+  <h3 class="tm-move__name">My lessons overload them</h3>
+  <p class="tm-move__line">Slides full of text, many new terms at once, and blank faces halfway through.</p>
+  <p class="pc-label">What helps, strongest evidence first</p><ol class="pc-models"><li><a href="#model-cognitive-load">Cognitive load and worked examples</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-explicit-instruction">Explicit instruction</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-dual-coding">Dual coding and multimedia principles</a> <span class="tm-chip tm-chip--promising">Promising</span></li><li><a href="#model-information-processing">Information processing model</a> <span class="tm-chip tm-chip--framework">Framework</span></li></ol>
+  <a class="tm-move__use" href="?problem=overload#pc-builder" data-use-problem="overload" aria-label="Use in the prompt: My lessons overload them">Use in the prompt</a>
+</article>
+<article class="tm-move pc-problem" id="problem-not-alone">
+  <h3 class="tm-move__name">They can do it with me, but not alone</h3>
+  <p class="tm-move__line">With you at their side it goes well. On their own, or in a new task, it falls apart.</p>
+  <p class="pc-label">What helps, strongest evidence first</p><ol class="pc-models"><li><a href="#model-explicit-instruction">Explicit instruction</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-metacognition">Metacognition and self-regulation</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-concrete-examples">Concrete examples</a> <span class="tm-chip tm-chip--promising">Promising</span></li><li><a href="#model-gradual-release">Gradual release of responsibility</a> <span class="tm-chip tm-chip--framework">Framework</span></li></ol>
+  <a class="tm-move__use" href="?problem=not-alone#pc-builder" data-use-problem="not-alone" aria-label="Use in the prompt: They can do it with me, but not alone">Use in the prompt</a>
+</article>
+<article class="tm-move pc-problem" id="problem-dont-know-good">
+  <h3 class="tm-move__name">They don&#x27;t know what good work looks like</h3>
+  <p class="tm-move__line">Students hand in work that misses the point and are surprised by the grade.</p>
+  <p class="pc-label">What helps, strongest evidence first</p><ol class="pc-models"><li><a href="#model-feedback">Feedback</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-formative-assessment">Formative assessment</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-solo-alignment">SOLO and constructive alignment</a> <span class="tm-chip tm-chip--framework">Framework</span></li></ol>
+  <a class="tm-move__use" href="?problem=dont-know-good#pc-builder" data-use-problem="dont-know-good" aria-label="Use in the prompt: They don&#x27;t know what good work looks like">Use in the prompt</a>
+</article>
+<article class="tm-move pc-problem" id="problem-stopped-trying">
+  <h3 class="tm-move__name">Some students have stopped trying</h3>
+  <p class="tm-move__line">A few students have decided the subject is not for them and no longer try.</p>
+  <p class="pc-label">What helps, strongest evidence first</p><ol class="pc-models"><li><a href="#model-feedback">Feedback</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-growth-mindset">Growth mindset</a> <span class="tm-chip tm-chip--promising">Promising</span></li><li><a href="#model-motivation-theories">Motivation theories</a> <span class="tm-chip tm-chip--framework">Framework</span></li></ol>
+  <a class="tm-move__use" href="?problem=stopped-trying#pc-builder" data-use-problem="stopped-trying" aria-label="Use in the prompt: Some students have stopped trying">Use in the prompt</a>
+</article>
+<article class="tm-move pc-problem" id="problem-cant-tell">
+  <h3 class="tm-move__name">I can&#x27;t tell who has understood until the test</h3>
+  <p class="tm-move__line">The lesson felt fine, nods all round, and then the test shows that many did not get it.</p>
+  <p class="pc-label">What helps, strongest evidence first</p><ol class="pc-models"><li><a href="#model-formative-assessment">Formative assessment</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-retrieval-practice">Retrieval practice</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-solo-alignment">SOLO and constructive alignment</a> <span class="tm-chip tm-chip--framework">Framework</span></li></ol>
+  <a class="tm-move__use" href="?problem=cant-tell#pc-builder" data-use-problem="cant-tell" aria-label="Use in the prompt: I can&#x27;t tell who has understood until the test">Use in the prompt</a>
+</article>
+<!-- problems:end -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Promptbyggaren. Allt sker i webbläsaren och inget skickas någonstans.
+         Logiken finns i assets/js/pedagogy-compass.js; problemen och
+         modellerna läses från JSON-blocket nedan, som byggskriptet skriver. -->
+    <section class="section" id="pc-builder">
+      <div class="container">
+        <h2 class="section__title">Turn it into a plan</h2>
+        <p class="tm-privacy"><strong>Do not include student names or student results.</strong> Describe what you see in the class as a whole.</p>
+<!-- data:start -->
+<script type="application/json" id="pc-data">{"problems": [{"id": "they-forget", "name": "They forget everything by the test", "model_ids": ["retrieval-practice", "spaced-practice", "interleaving", "elaboration"]}, {"id": "dont-start", "name": "They don't get started", "model_ids": ["cognitive-load", "explicit-instruction", "metacognition", "motivation-theories"]}, {"id": "discussions-die", "name": "Discussions die", "model_ids": ["collaborative-learning", "reciprocal-teaching", "dialogic-teaching", "icap"]}, {"id": "mixed-levels", "name": "Mixed levels in one class", "model_ids": ["mastery-learning", "formative-assessment", "udl", "gradual-release"]}, {"id": "copy-ai", "name": "They copy AI answers", "model_ids": ["retrieval-practice", "metacognition", "generative-learning", "desirable-difficulties"]}, {"id": "overload", "name": "My lessons overload them", "model_ids": ["cognitive-load", "explicit-instruction", "dual-coding", "information-processing"]}, {"id": "not-alone", "name": "They can do it with me, but not alone", "model_ids": ["explicit-instruction", "metacognition", "concrete-examples", "gradual-release"]}, {"id": "dont-know-good", "name": "They don't know what good work looks like", "model_ids": ["feedback", "formative-assessment", "solo-alignment"]}, {"id": "stopped-trying", "name": "Some students have stopped trying", "model_ids": ["feedback", "growth-mindset", "motivation-theories"]}, {"id": "cant-tell", "name": "I can't tell who has understood until the test", "model_ids": ["formative-assessment", "retrieval-practice", "solo-alignment"]}], "models": [{"id": "retrieval-practice", "name": "Retrieval practice", "label": "Strong", "one_liner": ""}, {"id": "spaced-practice", "name": "Spaced practice", "label": "Strong", "one_liner": ""}, {"id": "cognitive-load", "name": "Cognitive load and worked examples", "label": "Strong", "one_liner": ""}, {"id": "explicit-instruction", "name": "Explicit instruction", "label": "Strong", "one_liner": ""}, {"id": "feedback", "name": "Feedback", "label": "Strong", "one_liner": ""}, {"id": "metacognition", "name": "Metacognition and self-regulation", "label": "Strong", "one_liner": ""}, {"id": "mastery-learning", "name": "Mastery learning", "label": "Strong", "one_liner": ""}, {"id": "collaborative-learning", "name": "Collaborative learning", "label": "Strong", "one_liner": ""}, {"id": "reciprocal-teaching", "name": "Reciprocal teaching", "label": "Strong", "one_liner": ""}, {"id": "formative-assessment", "name": "Formative assessment", "label": "Strong", "one_liner": ""}, {"id": "interleaving", "name": "Interleaving", "label": "Promising", "one_liner": ""}, {"id": "elaboration", "name": "Elaboration", "label": "Promising", "one_liner": ""}, {"id": "concrete-examples", "name": "Concrete examples", "label": "Promising", "one_liner": ""}, {"id": "dual-coding", "name": "Dual coding and multimedia principles", "label": "Promising", "one_liner": ""}, {"id": "flipped-classroom", "name": "Flipped classroom", "label": "Promising", "one_liner": ""}, {"id": "growth-mindset", "name": "Growth mindset", "label": "Promising", "one_liner": ""}, {"id": "productive-failure", "name": "Productive failure", "label": "Promising", "one_liner": ""}, {"id": "dialogic-teaching", "name": "Dialogic teaching", "label": "Promising", "one_liner": ""}, {"id": "udl", "name": "Universal Design for Learning", "label": "Promising", "one_liner": ""}, {"id": "generative-learning", "name": "Generative learning", "label": "Promising", "one_liner": ""}, {"id": "prior-knowledge", "name": "Prior knowledge and advance organisers", "label": "Framework", "one_liner": ""}, {"id": "blooms-taxonomy", "name": "Bloom's taxonomy", "label": "Framework", "one_liner": ""}, {"id": "solo-alignment", "name": "SOLO and constructive alignment", "label": "Framework", "one_liner": ""}, {"id": "backward-design", "name": "Backward design", "label": "Framework", "one_liner": ""}, {"id": "gradual-release", "name": "Gradual release of responsibility", "label": "Framework", "one_liner": ""}, {"id": "rosenshine", "name": "Rosenshine's principles of instruction", "label": "Framework", "one_liner": ""}, {"id": "desirable-difficulties", "name": "Desirable difficulties", "label": "Framework", "one_liner": ""}, {"id": "icap", "name": "ICAP", "label": "Framework", "one_liner": ""}, {"id": "variation-theory", "name": "Variation theory", "label": "Framework", "one_liner": ""}, {"id": "motivation-theories", "name": "Motivation theories", "label": "Framework", "one_liner": ""}, {"id": "visible-learning", "name": "Visible Learning", "label": "Framework", "one_liner": ""}, {"id": "kolb", "name": "Kolb's learning cycle", "label": "Framework", "one_liner": ""}, {"id": "information-processing", "name": "Information processing model", "label": "Framework", "one_liner": ""}, {"id": "executive-functions", "name": "Executive functions", "label": "Framework", "one_liner": ""}, {"id": "neuroplasticity", "name": "Neuroplasticity", "label": "Framework", "one_liner": ""}, {"id": "social-brain", "name": "The social brain", "label": "Framework", "one_liner": ""}, {"id": "behaviorism", "name": "Behaviorism", "label": "Theory", "one_liner": ""}, {"id": "cognitivism", "name": "Cognitivism", "label": "Theory", "one_liner": ""}, {"id": "constructivism", "name": "Constructivism", "label": "Theory", "one_liner": ""}, {"id": "sociocultural", "name": "Sociocultural theory", "label": "Theory", "one_liner": ""}, {"id": "progressivism", "name": "Progressivism", "label": "Theory", "one_liner": ""}, {"id": "critical-pedagogy", "name": "Critical pedagogy", "label": "Theory", "one_liner": ""}, {"id": "humanistic", "name": "Humanistic perspective", "label": "Theory", "one_liner": ""}, {"id": "montessori", "name": "Montessori", "label": "School model", "one_liner": ""}, {"id": "waldorf", "name": "Waldorf (Steiner) education", "label": "School model", "one_liner": ""}, {"id": "reggio-emilia", "name": "Reggio Emilia", "label": "School model", "one_liner": ""}, {"id": "freinet", "name": "Freinet", "label": "School model", "one_liner": ""}, {"id": "learning-styles", "name": "Learning styles (VAK)", "label": "Contested", "one_liner": ""}, {"id": "multiple-intelligences", "name": "Multiple intelligences as a teaching method", "label": "Contested", "one_liner": ""}, {"id": "brain-training", "name": "Brain and working-memory training", "label": "Contested", "one_liner": ""}]}</script>
+<!-- data:end -->
+        <!-- onsubmit="return false" hindrar att Enter laddar om sidan. -->
+        <form class="tm-form pc-form" id="pc-form" autocomplete="off" onsubmit="return false">
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">The problem</span>
+            <select class="input" id="pc-problem"></select>
+          </label>
+          <!-- Fältet för ett eget problem visas bara när läraren väljer "My own problem". -->
+          <label class="tm-field tm-field--wide pc-own" id="pc-own-field" hidden>
+            <span class="tm-field__label">Your problem in one sentence</span>
+            <input class="input" id="pc-own" maxlength="300" placeholder="e.g. They rush through tasks without checking their work">
+          </label>
+          <div class="pc-pair">
+            <label class="tm-field">
+              <span class="tm-field__label">Subject</span>
+              <input class="input" id="pc-subject" maxlength="60" placeholder="e.g. Science" required>
+            </label>
+            <label class="tm-field">
+              <span class="tm-field__label">Grade</span>
+              <select class="input" id="pc-grade">
+                <option value="6">Grade 6</option><option value="7">Grade 7</option><option value="8" selected>Grade 8</option>
+                <option value="9">Grade 9</option><option value="10">Grade 10</option><option value="11">Grade 11</option>
+                <option value="12">Grade 12</option>
+              </select>
+            </label>
+          </div>
+          <div class="tm-field tm-field--wide">
+            <label class="tm-field__label" for="pc-situation">What you see (optional)</label>
+            <span class="tm-field__note" id="pc-situation-note">A few lines about the class: when it happens, what you have tried.</span>
+            <textarea class="input" id="pc-situation" rows="4" maxlength="4000" aria-describedby="pc-situation-note"></textarea>
+          </div>
+          <!-- Modellerna för valt problem, alla ikryssade. JS ritar om listan
+               när problemet byts. -->
+          <fieldset class="tm-field tm-field--wide pc-pick">
+            <legend class="tm-field__label">Approaches to include</legend>
+            <ul class="pc-checks" id="pc-models"></ul>
+          </fieldset>
+        </form>
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
+          <textarea class="input tm-prompt" id="pc-prompt" rows="12" readonly></textarea>
+        </label>
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--primary" id="pc-copy" data-copy="" aria-describedby="pc-hint" disabled>Copy prompt</button>
+          <p class="tm-hint" id="pc-hint" aria-live="polite">Choose a problem and fill in your subject to see your prompt.</p>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modellkartan: kategorierna A–E med korten. Byggs från JSON-filen. -->
+    <section class="section section--alt" id="pc-map">
+      <div class="container">
+        <h2 class="section__title">The model map</h2>
+        <p class="section__lede">About fifty models in six categories. The categories answer different questions: does it work in classrooms, does it help you plan, how does it explain learning, what kind of school is it, and should teachers stop believing it.</p>
+<!-- legend:start -->
+<ul class="tm-legend"><li><span class="tm-chip tm-chip--strong">Strong</span> Meta-analyses of classroom studies show that teaching this way improves learning.</li><li><span class="tm-chip tm-chip--promising">Promising</span> Controlled studies show gains, but results are mixed, small in number or dependent on context.</li><li><span class="tm-chip tm-chip--framework">Framework</span> A useful structure for planning, with no intervention studies behind it as a method.</li><li><span class="tm-chip tm-chip--theory">Theory</span> A way of explaining how learning happens. It shapes values and choices, but cannot be tested as a single intervention.</li><li><span class="tm-chip tm-chip--school">School model</span> A whole-school movement with its own philosophy and practice.</li><li><span class="tm-chip tm-chip--contested">Contested</span> The research does not support using it as a teaching method, even though many teachers believe in it.</li></ul>
+<!-- legend:end -->
+<!-- map:start -->
+<div class="pc-category" id="category-strong"><h3 class="pc-category__title"><span class="pc-letter">A</span> Strong <span class="tm-chip tm-chip--strong">Strong</span></h3><p class="pc-category__q">Does it work in classrooms? Yes: replicated, backed by meta-analyses.</p><div class="pc-cards">
+<details class="pc-card" id="model-retrieval-practice"><summary><span class="pc-card__name">Retrieval practice</span> <span class="tm-chip tm-chip--strong">Strong</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">The Learning Scientists; Roediger &amp; Karpicke</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-spaced-practice"><summary><span class="pc-card__name">Spaced practice</span> <span class="tm-chip tm-chip--strong">Strong</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">The Learning Scientists; Cepeda et al.</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-cognitive-load"><summary><span class="pc-card__name">Cognitive load and worked examples</span> <span class="tm-chip tm-chip--strong">Strong</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Sweller; Kalyuga</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-explicit-instruction"><summary><span class="pc-card__name">Explicit instruction</span> <span class="tm-chip tm-chip--strong">Strong</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Stockard et al.; Rosenshine</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-feedback"><summary><span class="pc-card__name">Feedback</span> <span class="tm-chip tm-chip--strong">Strong</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Hattie &amp; Timperley</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-metacognition"><summary><span class="pc-card__name">Metacognition and self-regulation</span> <span class="tm-chip tm-chip--strong">Strong</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">EEF guidance report</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-mastery-learning"><summary><span class="pc-card__name">Mastery learning</span> <span class="tm-chip tm-chip--strong">Strong</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Bloom; Guskey</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-collaborative-learning"><summary><span class="pc-card__name">Collaborative learning</span> <span class="tm-chip tm-chip--strong">Strong</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Johnson &amp; Johnson</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-reciprocal-teaching"><summary><span class="pc-card__name">Reciprocal teaching</span> <span class="tm-chip tm-chip--strong">Strong</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Palincsar &amp; Brown</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-formative-assessment"><summary><span class="pc-card__name">Formative assessment</span> <span class="tm-chip tm-chip--strong">Strong</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Black &amp; Wiliam; Wiliam</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+</div></div>
+<div class="pc-category" id="category-promising"><h3 class="pc-category__title"><span class="pc-letter">B</span> Promising <span class="tm-chip tm-chip--promising">Promising</span></h3><p class="pc-category__q">Does it work in classrooms? Supported, but mixed, short-term or dependent on context.</p><div class="pc-cards">
+<details class="pc-card" id="model-interleaving"><summary><span class="pc-card__name">Interleaving</span> <span class="tm-chip tm-chip--promising">Promising</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Rohrer; Brunmair &amp; Richter</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-elaboration"><summary><span class="pc-card__name">Elaboration</span> <span class="tm-chip tm-chip--promising">Promising</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Dunlosky et al.</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-concrete-examples"><summary><span class="pc-card__name">Concrete examples</span> <span class="tm-chip tm-chip--promising">Promising</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">The Learning Scientists</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-dual-coding"><summary><span class="pc-card__name">Dual coding and multimedia principles</span> <span class="tm-chip tm-chip--promising">Promising</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Paivio; Mayer</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-flipped-classroom"><summary><span class="pc-card__name">Flipped classroom</span> <span class="tm-chip tm-chip--promising">Promising</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Bergmann &amp; Sams</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-growth-mindset"><summary><span class="pc-card__name">Growth mindset</span> <span class="tm-chip tm-chip--promising">Promising</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Dweck</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-productive-failure"><summary><span class="pc-card__name">Productive failure</span> <span class="tm-chip tm-chip--promising">Promising</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Kapur</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-dialogic-teaching"><summary><span class="pc-card__name">Dialogic teaching</span> <span class="tm-chip tm-chip--promising">Promising</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Alexander</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-udl"><summary><span class="pc-card__name">Universal Design for Learning</span> <span class="tm-chip tm-chip--promising">Promising</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">CAST</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-generative-learning"><summary><span class="pc-card__name">Generative learning</span> <span class="tm-chip tm-chip--promising">Promising</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Fiorella &amp; Mayer</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+</div></div>
+<div class="pc-category" id="category-framework"><h3 class="pc-category__title"><span class="pc-letter">C</span> Framework <span class="tm-chip tm-chip--framework">Framework</span></h3><p class="pc-category__q">Does it help you think and plan? Useful, but not testable as an intervention.</p><div class="pc-cards">
+<details class="pc-card" id="model-prior-knowledge"><summary><span class="pc-card__name">Prior knowledge and advance organisers</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Ausubel</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-blooms-taxonomy"><summary><span class="pc-card__name">Bloom&#x27;s taxonomy</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Bloom; Anderson &amp; Krathwohl</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-solo-alignment"><summary><span class="pc-card__name">SOLO and constructive alignment</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Biggs</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-backward-design"><summary><span class="pc-card__name">Backward design</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Wiggins &amp; McTighe</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-gradual-release"><summary><span class="pc-card__name">Gradual release of responsibility</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Pearson &amp; Gallagher</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-rosenshine"><summary><span class="pc-card__name">Rosenshine&#x27;s principles of instruction</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Rosenshine</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-desirable-difficulties"><summary><span class="pc-card__name">Desirable difficulties</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Bjork</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-icap"><summary><span class="pc-card__name">ICAP</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Chi &amp; Wylie</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-variation-theory"><summary><span class="pc-card__name">Variation theory</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Marton</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-motivation-theories"><summary><span class="pc-card__name">Motivation theories</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Ryan &amp; Deci; Eccles</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-visible-learning"><summary><span class="pc-card__name">Visible Learning</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Hattie</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-kolb"><summary><span class="pc-card__name">Kolb&#x27;s learning cycle</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Kolb</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-information-processing"><summary><span class="pc-card__name">Information processing model</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Atkinson &amp; Shiffrin; Baddeley</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-executive-functions"><summary><span class="pc-card__name">Executive functions</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Diamond</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-neuroplasticity"><summary><span class="pc-card__name">Neuroplasticity</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Neuroscience</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-social-brain"><summary><span class="pc-card__name">The social brain</span> <span class="tm-chip tm-chip--framework">Framework</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Cozolino; Lieberman</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+</div></div>
+<div class="pc-category" id="category-theory"><h3 class="pc-category__title"><span class="pc-letter">D</span> Theory <span class="tm-chip tm-chip--theory">Theory</span></h3><p class="pc-category__q">How does it explain learning? Theories and philosophies that shape values and choices.</p><div class="pc-cards">
+<details class="pc-card" id="model-behaviorism"><summary><span class="pc-card__name">Behaviorism</span> <span class="tm-chip tm-chip--theory">Theory</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Skinner; Watson</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-cognitivism"><summary><span class="pc-card__name">Cognitivism</span> <span class="tm-chip tm-chip--theory">Theory</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Piaget; Miller</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-constructivism"><summary><span class="pc-card__name">Constructivism</span> <span class="tm-chip tm-chip--theory">Theory</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Piaget; Dewey</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-sociocultural"><summary><span class="pc-card__name">Sociocultural theory</span> <span class="tm-chip tm-chip--theory">Theory</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Vygotsky</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-progressivism"><summary><span class="pc-card__name">Progressivism</span> <span class="tm-chip tm-chip--theory">Theory</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Dewey</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-critical-pedagogy"><summary><span class="pc-card__name">Critical pedagogy</span> <span class="tm-chip tm-chip--theory">Theory</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Freire</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-humanistic"><summary><span class="pc-card__name">Humanistic perspective</span> <span class="tm-chip tm-chip--theory">Theory</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Rogers; Maslow</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+</div></div>
+<div class="pc-category" id="category-school"><h3 class="pc-category__title"><span class="pc-letter">E</span> School model <span class="tm-chip tm-chip--school">School model</span></h3><p class="pc-category__q">What kind of school is it? Whole-school movements.</p><div class="pc-cards">
+<details class="pc-card" id="model-montessori"><summary><span class="pc-card__name">Montessori</span> <span class="tm-chip tm-chip--school">School model</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Maria Montessori</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-waldorf"><summary><span class="pc-card__name">Waldorf (Steiner) education</span> <span class="tm-chip tm-chip--school">School model</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Rudolf Steiner</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-reggio-emilia"><summary><span class="pc-card__name">Reggio Emilia</span> <span class="tm-chip tm-chip--school">School model</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Loris Malaguzzi</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-freinet"><summary><span class="pc-card__name">Freinet</span> <span class="tm-chip tm-chip--school">School model</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Célestin Freinet</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+</div></div>
+<!-- map:end -->
+      </div>
+    </section>
+
+    <!-- Kombinationsrecept: tre lektionstyper som kombinerar starka modeller. -->
+    <section class="section" id="pc-recipes">
+      <div class="container">
+        <h2 class="section__title">Combination recipes</h2>
+        <p class="section__lede">Models work best together. Three lesson shapes that combine strong evidence.</p>
+        <div class="tm-grid">
+<!-- recipes:start -->
+<article class="tm-move pc-recipe" id="recipe-knowledge-lesson"><h3 class="tm-move__name">The knowledge lesson</h3><ul class="pc-models pc-models--inline"><li><a href="#model-retrieval-practice">Retrieval practice</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-explicit-instruction">Explicit instruction</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-cognitive-load">Cognitive load and worked examples</a> <span class="tm-chip tm-chip--strong">Strong</span></li></ul><ol class="pc-steps"><li>Open with three retrieval questions from earlier lessons (5 min).</li><li>Explain and model the new idea in small steps, with one worked example (15 min).</li><li>Guided practice with a half-finished example, checking as you go (10 min).</li><li>Independent practice, then one exit question on today&#x27;s goal (15 min).</li></ol></article>
+<article class="tm-move pc-recipe" id="recipe-discussion-lesson"><h3 class="tm-move__name">The discussion lesson</h3><ul class="pc-models pc-models--inline"><li><a href="#model-formative-assessment">Formative assessment</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-collaborative-learning">Collaborative learning</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-dialogic-teaching">Dialogic teaching</a> <span class="tm-chip tm-chip--promising">Promising</span></li></ul><ol class="pc-steps"><li>One open question that has more than one good answer.</li><li>Think alone first (2 min), then talk in pairs (5 min).</li><li>Whole-class discussion where students build on each other&#x27;s answers (15 min).</li><li>A hinge question at the end shows whether the key idea has landed (5 min).</li></ol></article>
+<article class="tm-move pc-recipe" id="recipe-practice-lesson"><h3 class="tm-move__name">The practice lesson</h3><ul class="pc-models pc-models--inline"><li><a href="#model-retrieval-practice">Retrieval practice</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-feedback">Feedback</a> <span class="tm-chip tm-chip--strong">Strong</span></li><li><a href="#model-interleaving">Interleaving</a> <span class="tm-chip tm-chip--promising">Promising</span></li></ul><ol class="pc-steps"><li>A short quiz from memory, mixing this week and earlier weeks (8 min).</li><li>Students check their own answers against a key and mark what they missed (5 min).</li><li>Mixed practice where students must choose the method, not just apply it (20 min).</li><li>Feedback on one thing to do differently next time (10 min).</li></ol></article>
+<!-- recipes:end -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Mytkollen: kategori F, det forskningen inte stöder. -->
+    <section class="section section--alt" id="pc-myths">
+      <div class="container">
+        <h2 class="section__title"><span class="pc-letter">F</span> Myth check</h2>
+        <p class="section__lede">Ideas many teachers believe in, which the research does not support as teaching methods. Each card says what to do instead.</p>
+        <div class="pc-cards">
+<!-- myths:start -->
+<details class="pc-card" id="model-learning-styles"><summary><span class="pc-card__name">Learning styles (VAK)</span> <span class="tm-chip tm-chip--contested">Contested</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Various</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-multiple-intelligences"><summary><span class="pc-card__name">Multiple intelligences as a teaching method</span> <span class="tm-chip tm-chip--contested">Contested</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Gardner</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<details class="pc-card" id="model-brain-training"><summary><span class="pc-card__name">Brain and working-memory training</span> <span class="tm-chip tm-chip--contested">Contested</span><span class="pc-card__line"></span></summary><p class="pc-card__origin">Various commercial programmes</p><dl class="pc-card__body"><dt>On an ordinary Tuesday</dt><dd></dd><dt>Where AI helps</dt><dd></dd><dt>Where AI gets in the way</dt><dd></dd><dt>The evidence</dt><dd></dd></dl><p class="tm-move__sources">Source: </p></details>
+<!-- myths:end -->
+        </div>
+      </div>
+    </section>
+
+    <!-- AI-verktyg och åldersgränser (global regel för AI-innehåll på sajten). -->
+    <section class="section" id="pc-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age rules</h2>
+        <p class="section__lede">You use AI to plan. If students use AI, these rules apply (October 2026):</p>
+<!-- age:start -->
+<ul class="tm-age"><li><strong>Copilot Chat:</strong> Students aged 13 and over, through the school&#x27;s own Microsoft 365 account. The school&#x27;s administrator must set each student&#x27;s age group and consent.</li><li><strong>Gemini for Education:</strong> Open to education users of all ages, with a stricter experience for under-18s. The school&#x27;s administrator must turn it on.</li><li><strong>ChatGPT:</strong> Ages 13 and over on personal accounts, with a parent&#x27;s or guardian&#x27;s permission under 18. ChatGPT for Teachers is for school staff only.</li><li><strong>Claude:</strong> Ages 18 and over. In a school, for teachers only.</li></ul>
+<!-- age:end -->
+        <p class="tm-note">Rules differ between countries and change often. Check your own national rules and your school policy before students use any AI tool.</p>
+      </div>
+    </section>
+
+    <!-- Affischen: problemen och modellkartan på två A4-sidor. -->
+    <section class="section section--alt" id="pc-download">
+      <div class="container">
+        <h2 class="section__title">The poster</h2>
+        <p class="section__lede">The ten problems and the model map on two pages, for the staff room or your planning folder.</p>
+        <a class="btn btn--primary" href="/pedagogy-compass-59ecb8db/pedagogy-compass-poster-en.pdf" download>Download the poster (PDF)</a>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknappen (data-copy) och promptbyggaren. -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+  <script src="/assets/js/pedagogy-compass.js" defer></script>
+</body>
+</html>
