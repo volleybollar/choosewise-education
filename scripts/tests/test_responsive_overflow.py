@@ -66,6 +66,7 @@ PAGES = (
         "retrieval-rhythm/",
         "two-minute-debrief/",
         "unit-studio-541ebd12/",
+        "pedagogy-compass-59ecb8db/",
         "pedagogy/",
     ]
 )

@@ -1,0 +1,44 @@
+/* Pedagogy Compass (dold sida för Skool-medlemmar). Bygger på thinking-moves.css (tm-)
+   och lägger bara till det som är nytt här (pc-). Färger bara som var(--…). */
+
+/* Etiketterna. Strong, Promising och Framework finns i thinking-moves.css;
+   de tre nya kategorierna får egna, lugnare varianter. */
+.tm-chip--theory { color: var(--color-text-muted); border-color: var(--color-border-strong); border-style: dashed; }
+.tm-chip--school { color: var(--color-highlight-ink); border-color: var(--color-highlight); }
+.tm-chip--contested { color: var(--color-highlight-ink); border-color: var(--color-highlight-ink); border-style: dotted; }
+
+/* Problemkorten: modellerna som en numrerad lista, starkast först. */
+.pc-label { margin: var(--space-2) 0 0; font-size: var(--fs-small); text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-muted); }
+.pc-models { margin: var(--space-1) 0 0; padding-left: var(--space-5); font-size: var(--fs-small); display: grid; gap: var(--space-1); }
+.pc-models li { max-width: none; }
+.pc-models--inline { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); }
+.pc-steps { margin: var(--space-3) 0 0; padding-left: var(--space-5); font-size: var(--fs-small); display: grid; gap: var(--space-1); }
+.pc-steps li { max-width: none; }
+
+/* Formuläret. JS döljer fältet för eget problem; .input sätter display,
+   så hidden måste vinna uttryckligen. */
+#pc-builder [hidden] { display: none !important; }
+.pc-pair { grid-column: 1 / -1; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }
+.pc-pick { border: 0; padding: 0; margin: 0; }
+.pc-checks { list-style: none; padding: 0; margin: var(--space-2) 0 0; display: grid; gap: var(--space-2); }
+.pc-checks li { max-width: none; }
+
+/* Modellkartan: en kategori i taget, korten som hopfällbara rader. */
+.pc-category { margin-top: var(--space-8); }
+.pc-category__title { margin: 0; font-size: var(--fs-h3); font-weight: var(--weight-emphasis); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+.pc-category__q { margin: var(--space-1) 0 var(--space-3); color: var(--color-text-soft); max-width: var(--content-text-max); }
+.pc-letter { display: inline-grid; place-items: center; width: 1.8em; height: 1.8em; border-radius: 50%; border: 1px solid var(--color-accent); color: var(--color-accent); font-size: .8em; }
+.pc-cards { display: grid; gap: var(--space-2); max-width: var(--content-max); }
+/* scroll-margin-top: ett kort som länkas till hamnar under den fasta menyn, inte bakom den. */
+.pc-card { border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-bg); padding: var(--space-3) var(--space-4); scroll-margin-top: calc(var(--nav-height, 4.5rem) + var(--space-4)); }
+.pc-card summary { cursor: pointer; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-2); list-style: none; position: relative; padding-right: var(--space-6); }
+.pc-card summary::-webkit-details-marker { display: none; }
+/* Plus och minus visar att kortet går att öppna (samma idé som FAQ-listorna). */
+.pc-card summary::after { content: "+"; position: absolute; right: 0; top: 0; font-size: 1.25rem; line-height: 1; color: var(--color-accent); }
+.pc-card[open] summary::after { content: "\2212"; }
+.pc-card__name { font-weight: var(--weight-emphasis); color: var(--color-text); }
+.pc-card__line { flex-basis: 100%; font-size: var(--fs-small); color: var(--color-text-soft); }
+.pc-card__origin { margin: var(--space-2) 0 0; font-size: var(--fs-small); color: var(--color-text-muted); }
+.pc-card__body { display: grid; grid-template-columns: 1fr; gap: var(--space-1); margin: var(--space-2) 0; }
+.pc-card__body dt { font-size: var(--fs-small); text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-muted); margin-top: var(--space-2); }
+.pc-card__body dd { margin: 0; max-width: var(--content-text-max); overflow-wrap: anywhere; }
