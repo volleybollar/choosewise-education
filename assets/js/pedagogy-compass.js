@@ -28,7 +28,9 @@
     'AI: one way AI could help the teacher with this, and one way students\' use of AI could make the problem worse',
     'HONEST NOTE: what the evidence label means for this approach, in one or two lines'
   ];
-  var NO_MODELS = 'The teacher has not chosen any approaches yet. Suggest two or three research-based approaches that fit this problem, strongest evidence first.';
+  /* Utan valda modeller hittade AI:n på egna etiketter i testkörningen, så
+     prompten ger den sajtens tre. */
+  var NO_MODELS = 'The teacher has not chosen any approaches yet. Suggest two or three research-based approaches that fit this problem, strongest evidence first, and give each one of these labels: Strong (meta-analyses of classroom studies), Promising (controlled studies, but mixed or dependent on context) or Framework (useful for planning, not tested as a method).';
 
   /* Bygger prompten. Ren funktion: samma indata ger alltid samma text.
      models: [{name, label, one_liner}], starkast evidens först. */

@@ -117,7 +117,9 @@ def test_no_models_ticked_asks_ai_to_suggest(page):
         boxes.nth(i).uncheck()
     text = page.input_value("#pc-prompt")
     assert ("The teacher has not chosen any approaches yet. Suggest two or three research-based approaches "
-            "that fit this problem, strongest evidence first.") in text
+            "that fit this problem, strongest evidence first, and give each one of these labels: Strong (meta-analyses "
+            "of classroom studies), Promising (controlled studies, but mixed or dependent on context) or Framework "
+            "(useful for planning, not tested as a method).") in text
     assert "strongest evidence first:\n-" not in text
 
 
