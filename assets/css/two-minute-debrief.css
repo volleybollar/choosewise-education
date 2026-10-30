@@ -20,7 +20,7 @@
 
 /* Knappar och rutor som JS döljer (till exempel Save när webbläsaren inte
    tillåter lagring). .btn sätter display, så hidden måste vinna uttryckligen. */
-#td-builder [hidden] { display: none !important; }
+#td-builder [hidden], #td-rollup [hidden] { display: none !important; }
 
 /* Formuläret: grupp och årskurs på en rad. */
 .td-pair { grid-column: 1 / -1; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }

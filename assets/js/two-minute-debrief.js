@@ -121,6 +121,8 @@
   var KEEP_MS = 14 * 24 * 3600 * 1000;
   var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   var HINT_NO_BATCH = 'No unanalysed debriefs saved today.';
+  var HINT_ROLLUP_EMPTY = 'Tick saved debriefs or paste rows from your unit journal.';
+  var WEEK_MS = 7 * 24 * 3600 * 1000;
   var EVIDENCE_PLACEHOLDER = 'On the exit ticket, 11 of 27 divided before subtracting.';
   var FOLLOWUP_PLACEHOLDER = 'Check: 20 of 27 right, up from 11. Most now subtract first.';
 
@@ -187,6 +189,13 @@
     }
   }
 
+  /* En rad per debrief till veckosammanställningen. */
+  function rollupLines(list) {
+    return list.map(function (s) {
+      return [s.date, s.group + ', Grade ' + s.grade].concat(answers(s)).map(cell).join(' | ');
+    }).join('\n');
+  }
+
   window.TwoMinuteDebrief = {
     buildDebriefPrompt: buildDebriefPrompt,
     buildBatchPrompt: buildBatchPrompt,
@@ -196,7 +205,8 @@
     normalizeGroup: normalizeGroup,
     localDate: localDate,
     prune: prune,
-    lastForGroup: lastForGroup
+    lastForGroup: lastForGroup,
+    rollupLines: rollupLines
   };
 
   var els = {};
@@ -291,8 +301,50 @@
       : HINT_NO_BATCH;
   }
 
+  /* Kryssrutorna i veckosammanställningen: sparade debriefer från de senaste
+     7 dagarna, nyast först. Urvalet bevaras när listan ritas om. */
+  var unticked = {};
+
+  function renderRollupList() {
+    els['rollup-list'].textContent = '';
+    var now = Date.now();
+    saved.filter(function (s) { return now - s.savedAt <= WEEK_MS; })
+      .sort(function (a, b) { return b.savedAt - a.savedAt; })
+      .forEach(function (s) {
+        var li = document.createElement('li');
+        var label = document.createElement('label');
+        var box = document.createElement('input');
+        box.type = 'checkbox';
+        box.checked = !unticked[s.id];
+        box.addEventListener('change', function () {
+          unticked[s.id] = !box.checked;
+          updateRollup();
+        });
+        var text = document.createElement('span');
+        text.textContent = ' ' + shortDate(s.date) + ' · ' + s.group;
+        label.append(box, text);
+        li.appendChild(label);
+        els['rollup-list'].appendChild(li);
+      });
+  }
+
+  function updateRollup() {
+    var now = Date.now();
+    var picked = canSave ? saved.filter(function (s) { return now - s.savedAt <= WEEK_MS && !unticked[s.id]; })
+      .sort(function (a, b) { return a.savedAt - b.savedAt; }) : [];
+    var parts = [];
+    if (picked.length) parts.push(rollupLines(picked));
+    var pasted = els['rollup-paste'].value.trim();
+    if (pasted) parts.push(pasted);
+    var text = parts.length ? buildRollupPrompt(parts.join('\n')) : '';
+    setPrompt(els['rollup-prompt'], els['rollup-copy'], text);
+    els['rollup-hint'].textContent = text ? HINT_READY : HINT_ROLLUP_EMPTY;
+  }
+
   function renderAll() {
     renderSaved();
+    renderRollupList();
+    updateRollup();
     updateFollowup();
   }
 
@@ -315,7 +367,8 @@
   document.addEventListener('DOMContentLoaded', function () {
     ['group', 'grade', 'goal', 'evidence', 'surprise', 'next', 'prompt', 'copy', 'hint', 'save',
      'followup', 'saved-area', 'saved', 'storage-note', 'batch-prompt', 'batch-copy', 'batch-hint',
-     'delete-all', 'hinge-prompt', 'hinge-copy'].forEach(function (id) {
+     'delete-all', 'hinge-prompt', 'hinge-copy', 'rollup-list', 'rollup-paste', 'rollup-prompt',
+     'rollup-copy', 'rollup-hint'].forEach(function (id) {
       els[id] = document.getElementById('td-' + id);
     });
     ['group', 'grade', 'goal', 'evidence', 'surprise', 'next'].forEach(function (id) {
@@ -348,7 +401,10 @@
       els.save.hidden = true;
       els['saved-area'].hidden = true;
       els['storage-note'].hidden = false;
+      els['rollup-list'].parentElement.hidden = true;
     }
+    els['rollup-paste'].addEventListener('input', updateRollup);
+    updateRollup();
     update();
   });
 })();
