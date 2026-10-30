@@ -98,3 +98,10 @@ def test_grid_counts_back_from_the_newest_entry():
 def test_starter_quiz_does_not_promise_five_questions():
     quiz = next(x for x in formats() if x["id"] == "starter-quiz")
     assert "Five" not in quiz["one_liner"]
+
+
+def test_multiple_choice_options_are_the_same_length():
+    # Johans provkörning 2026-10-30: det rätta svaret var ofta det längsta.
+    f = {x["id"]: x for x in formats()}
+    assert "Make the four options about the same length." in f["multiple-choice"]["prompt_brief"]
+    assert "options A to D of about the same length" in f["mix"]["prompt_brief"]

@@ -20,7 +20,7 @@
       "name": "Mix",
       "one_liner": "A different format each lesson, so the week does not feel the same every day.",
       "minutes": 5,
-      "prompt_brief": "Use a different format for each lesson, chosen from these five: starter quiz (short questions from memory, each with one clear answer); brain dump (students write everything they remember about one earlier topic for three minutes; the KEY lists the key points); retrieval grid (nine questions in three labelled lines, counting back from the newest entry: the newest week 1 point, one to three weeks before it 2 points, older 3 points); multiple choice with misconceptions (options A to D, where every wrong option is a common misconception; the KEY names it); two things I remember (students write two things from one named earlier lesson and one question they still have).",
+      "prompt_brief": "Use a different format for each lesson, chosen from these five: starter quiz (short questions from memory, each with one clear answer); brain dump (students write everything they remember about one earlier topic for three minutes; the KEY lists the key points); retrieval grid (nine questions in three labelled lines, counting back from the newest entry: the newest week 1 point, one to three weeks before it 2 points, older 3 points); multiple choice with misconceptions (options A to D of about the same length, where every wrong option is a common misconception; the KEY names it); two things I remember (students write two things from one named earlier lesson and one question they still have).",
       "steps": [
         "Monday might be a quiz, Tuesday a brain dump, Thursday a grid.",
         "Students meet the same content in different ways.",
@@ -83,7 +83,7 @@
       "name": "Multiple choice with misconceptions",
       "one_liner": "Four options per question, where every wrong option is a common misunderstanding.",
       "minutes": 5,
-      "prompt_brief": "Questions with four options, A to D. Every wrong option is built on a common misconception about this content. The KEY says which misconception each wrong option shows.",
+      "prompt_brief": "Questions with four options, A to D. Every wrong option is built on a common misconception about this content. The KEY says which misconception each wrong option shows. Make the four options about the same length.",
       "steps": [
         "Everyone answers at once: fingers, cards or mini whiteboards.",
         "Look at which wrong options are popular. Each one shows a misunderstanding.",

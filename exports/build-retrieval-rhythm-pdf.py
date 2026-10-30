@@ -30,12 +30,12 @@ PAGES = 8
 # Svarsdelen, ordagrant som i assets/js/retrieval-rhythm.js;
 # test_fill_in_matches_builder_prompt håller dem i takt.
 PROMPT_TAIL = [
-    "In starter quizzes and multiple choice, mix content from different times in the log: about two fifths from the newest week in the log, two fifths from one to three weeks before it, and one fifth from older entries. Count back from the newest entry in the log. If the log is short, spread the questions across all of it. Mix the order so students cannot tell which week a question comes from. The other formats follow their own description.",
+    "In starter quizzes and multiple choice, mix content from different times in the log: about two fifths from the newest week in the log, two fifths from one to three weeks before it, and one fifth from older entries. Count back from the newest entry in the log. If the log is short, spread the questions across all of it. Mix the order so students cannot tell which week a question comes from. The other formats follow their own description. Across the week, do not repeat a question, spread the log entries across the lessons, and name no lesson in a question.",
     "",
     "Reply in plain text, no tables. For each lesson write:",
     "LESSON: the lesson number (with its date, if a first lesson is given), the format, and the log entries it draws on, with their dates",
     "STARTER: the starter exactly as students will see it",
-    "KEY: the answer to every question, or the key points for brain dump and two things I remember",
+    "KEY: the answer to every question, numbered Q1:, Q2: and so on, or the key points for brain dump and two things I remember",
     "Then once, at the very end:",
     'CHECK: every answer you are not fully sure of, one per line, so the teacher can verify it. Write "None" if there are none.',
 ]

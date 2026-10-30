@@ -176,8 +176,16 @@ def test_prompt_rules_match_the_examples_and_open_formats(page):
     text = prompt(page)
     assert "Ask only about content in the topic log below. The KEY may add a short explanation." in text
     assert "Do not add new content." not in text
-    assert "KEY: the answer to every question, or the key points for brain dump and two things I remember" in text
+    assert "KEY: the answer to every question, numbered Q1:, Q2: and so on, or the key points for brain dump and two things I remember" in text
     assert "LESSON: the lesson number (with its date, if a first lesson is given)" in text
+
+
+def test_prompt_varies_questions_across_the_week(page):
+    # Johans provkörning 2026-10-30: samma fråga kom tre dagar i rad, och en
+    # fråga avslöjade vilken lektion den kom från.
+    fill(page)
+    assert ("Across the week, do not repeat a question, spread the log entries across the lessons, "
+            "and name no lesson in a question.") in prompt(page)
 
 
 def test_long_log_is_not_cut(page):
