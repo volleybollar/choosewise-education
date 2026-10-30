@@ -18,13 +18,15 @@
   var PRIVACY = 'Do not include student names or student results in this conversation.';
   var LABEL_IMPROVE = 'The unit as you have planned it';
   var LABEL_NEW = 'The topic and goals of the new unit';
+  var MAX_UNIT = 40000;
+  var HINT_LIMIT = 'Your unit is at the 40,000-character limit, so the end may be cut off. Paste one part at a time.';
 
   /* Texten är fastställd i planen — ändra den bara tillsammans med
      metodkortets luckprompt (exports/build-unit-studio-pdf.py). */
   var STEP_FORMAT = [
     'Reply in plain text, no tables, in exactly this format:',
     'KEEP: what already works for this step, in one or two lines. For a new unit, what in the topic and goals is already clear.',
-    'SUGGEST: at most three changes for this step, numbered, each tied to this unit\'s content, each with one line on why it helps students learn.',
+    'SUGGEST: at most three changes or additions for this step, numbered, each tied to this unit\'s content, each with one line on why it helps students learn.',
     'QUESTION: one question back to the teacher before the next step.',
     'AI CAN ALSO: one other way an AI tool could help with this step, written as a short prompt the teacher can copy.'
   ];
@@ -56,7 +58,8 @@
     return [
       PRIVACY,
       '',
-      'You are helping a Grade ' + d.grade + ' ' + d.subject + ' teacher improve ' + about(d) +
+      'You are helping a Grade ' + d.grade + ' ' + d.subject + ' teacher ' +
+        (d.mode === 'new' ? 'plan ' : 'improve ') + about(d) +
         '. We work through five steps, one at a time. This is step ' + d.step.num + ' of 5: ' + d.step.name + '.',
       '',
       unitBlock(d),
@@ -73,12 +76,13 @@
     return [
       PRIVACY,
       '',
-      'You are helping a Grade ' + d.grade + ' ' + d.subject + ' teacher write the improved plan for ' + about(d) +
+      'You are helping a Grade ' + d.grade + ' ' + d.subject + ' teacher write the ' +
+        (d.mode === 'new' ? 'plan for ' : 'improved plan for ') + about(d) +
         '. Use the unit and the decisions below. Where the teacher has not decided something, choose what the research behind the five steps supports, and say so.',
       '',
       unitBlock(d),
       '',
-      'Decisions from the five steps: ' + (d.decisions || 'See the earlier steps in this conversation.'),
+      'Decisions from the five steps: ' + (d.decisions || 'See the earlier steps in this conversation. If there are none, plan from the unit as written.'),
       ''
     ].concat(FINAL_FORMAT).join('\n');
   }
@@ -109,7 +113,7 @@
     els.prompt.value = text;
     els.copy.disabled = !text;
     els.copy.setAttribute('data-copy', text);
-    els.hint.textContent = text ? HINT_READY : HINT_EMPTY;
+    els.hint.textContent = !text ? HINT_EMPTY : (els.unit.value.length >= MAX_UNIT ? HINT_LIMIT : HINT_READY);
   }
 
   document.addEventListener('DOMContentLoaded', function () {

@@ -20,7 +20,7 @@ UNIT = "Week 1: Forces.\nWeek 2: Weight and mass."
 
 STEP_FORMAT = """Reply in plain text, no tables, in exactly this format:
 KEEP: what already works for this step, in one or two lines. For a new unit, what in the topic and goals is already clear.
-SUGGEST: at most three changes for this step, numbered, each tied to this unit's content, each with one line on why it helps students learn.
+SUGGEST: at most three changes or additions for this step, numbered, each tied to this unit's content, each with one line on why it helps students learn.
 QUESTION: one question back to the teacher before the next step.
 AI CAN ALSO: one other way an AI tool could help with this step, written as a short prompt the teacher can copy."""
 
@@ -123,7 +123,7 @@ def test_final_prompt_is_exact(page):
 
 def test_final_prompt_decisions_fallback(page):
     fill(page, step="final")
-    assert "Decisions from the five steps: See the earlier steps in this conversation." in page.input_value("#us-prompt")
+    assert "Decisions from the five steps: See the earlier steps in this conversation. If there are none, plan from the unit as written." in page.input_value("#us-prompt")
 
 
 def test_required_fields(page):
@@ -180,3 +180,19 @@ def test_user_text_is_never_html(page):
     fill(page, unit='<img src=x onerror="window.pwned=1">')
     assert '<img src=x onerror="window.pwned=1">' in page.input_value("#us-prompt")
     assert page.evaluate("window.pwned === undefined")
+
+
+def test_new_unit_mode_says_plan_not_improve(page):
+    # Slutgranskningen: en ny enhet ska planeras, inte förbättras.
+    page.check("#us-mode-new")
+    fill(page, unit="Ratio. Goals: simplify ratios.")
+    step = page.input_value("#us-prompt")
+    assert "teacher plan a unit of 4 weeks" in step and "improve" not in step.split("\n")[2]
+    page.select_option("#us-step", "final")
+    final = page.input_value("#us-prompt")
+    assert "teacher write the plan for a unit of 4 weeks" in final and "improved plan" not in final
+
+
+def test_warns_at_the_length_limit(page):
+    fill(page, unit="x" * 40000)
+    assert "40,000-character limit" in page.inner_text("#us-hint")

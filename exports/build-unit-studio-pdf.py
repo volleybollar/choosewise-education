@@ -33,7 +33,7 @@ PRIVACY = "Do not include student names or student results in this conversation.
 STEP_FORMAT = [
     "Reply in plain text, no tables, in exactly this format:",
     "KEEP: what already works for this step, in one or two lines. For a new unit, what in the topic and goals is already clear.",
-    "SUGGEST: at most three changes for this step, numbered, each tied to this unit's content, each with one line on why it helps students learn.",
+    "SUGGEST: at most three changes or additions for this step, numbered, each tied to this unit's content, each with one line on why it helps students learn.",
     "QUESTION: one question back to the teacher before the next step.",
     "AI CAN ALSO: one other way an AI tool could help with this step, written as a short prompt the teacher can copy.",
 ]
@@ -114,7 +114,7 @@ def _prompt_page() -> str:
     step_prompt = "\n".join([
         PRIVACY,
         "",
-        f"You are helping a Grade {_blank(10)} {_blank(30)} teacher improve a unit of {_blank(10)} weeks with {_blank(10)} "
+        f"You are helping a Grade {_blank(10)} {_blank(30)} teacher improve (or plan) a unit of {_blank(10)} weeks with {_blank(10)} "
         f"lessons a week. We work through five steps, one at a time. This is step {_blank(8)} of 5: {_blank(45)}.",
         "",
         "The unit as the teacher has planned it:",
