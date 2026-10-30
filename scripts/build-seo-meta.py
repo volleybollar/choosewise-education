@@ -58,6 +58,8 @@ HIDDEN_PATHS = {
     "/sv/guider/gemini-notebooklm/",
     "/sv/guider/apple-intelligence/",
     "/sv/guider/ai-for-elever/",
+    # Unit Studio: bara för Skool-medlemmar via en dold länk (Johans beslut 2026-10-30).
+    "/unit-studio-541ebd12/",
 }
 
 # -- Pair map: EN canonical-path -> SV canonical-path

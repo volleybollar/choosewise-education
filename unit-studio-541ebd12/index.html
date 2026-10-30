@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit Studio — choosewise.education</title>
+  <meta name="description" content="For Choosewise members. Take a unit you have planned, or are about to plan, through five research steps with any AI tool, and get an improved plan and a method you can use again.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (prefix tm-), och sedan det som är
+       nytt för Unit Studio (prefix us-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/unit-studio.css?v=20261030a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten. -->
+<!-- seo:start (build-seo-meta.py) -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: vad verktyget är och ett färdigt exempel, så att läraren ser
+         vad hen får innan hen klistrar in något. -->
+    <section class="page-hero container">
+      <span class="eyebrow">For Choosewise members · Grades 6–12</span>
+      <h1>Unit Studio</h1>
+      <p class="lede">Take a unit you have already planned, or one you are about to plan, through five research steps with your own AI tool. You end up with an improved plan, and with a method you can use on every unit after this one.</p>
+      <ul class="tm-promises">
+        <li><strong>No personal data.</strong> The prompts hold your unit, never student names or results.</li>
+        <li><strong>Any AI tool.</strong> Copilot, Gemini, ChatGPT or Claude.</li>
+        <li><strong>At your own pace.</strong> One step at a time, today or next week.</li>
+      </ul>
+      <div class="us-hero-example">
+        <h2 class="us-hero-example__title">What a step looks like</h2>
+        <!-- Exemplet byggs av scripts/build-unit-studio.py från studio-en.json. -->
+<!-- hero-example:start -->
+<div class="tm-example us-example"><h3 class="tm-example__subject">Forces and motion <span>· Grade 8 science, 4 weeks</span></h3><div class="us-example__cols"><div><p class="us-example__label">The unit as planned</p><p class="us-text">Week 1: What is a force? Pushes and pulls, contact and non-contact forces. Video and notes. Worksheet.
+Week 2: Measuring forces with newtonmeters (practical). Weight and mass. Notes.
+Week 3: Balanced and unbalanced forces. Textbook reading and questions. Group poster.
+Week 4: Speed = distance ÷ time, practical with toy cars. Revision lesson. End-of-unit test.</p></div><div><p class="us-example__label">Step 4: retrieval and checkpoints</p><dl><dt>Keep</dt><dd class="us-text">The practicals in weeks 2 and 4 give students something real to measure, and the end-of-unit test gives you evidence of what they learned.</dd><dt>Suggest</dt><dd class="us-text">1. Start every lesson from week 2 with three retrieval questions from earlier weeks, for example: Is gravity a contact or a non-contact force? What is the difference between mass and weight? Why this helps: recalling content again over several weeks makes it last longer than reading the notes again.
+2. Add a hinge question at the end of week 3, before speed: “A car moves at a steady speed in a straight line. Are the forces on it balanced or unbalanced?” The common wrong answer is unbalanced, because it is moving. Move on if about 4 in 5 answer balanced. Why this helps: it shows whether the class has the key idea before you build on it.
+3. Replace the revision lesson with a retrieval lesson: a mixed quiz from all four weeks, marked by the students, followed by re-teaching of the two most-missed questions. Why this helps: testing yourself helps memory more than re-reading.</dd><dt>Question</dt><dd class="us-text">Which idea from week 1 or 2 have students most often forgotten by the end-of-unit test?</dd><dt>AI can also</dt><dd class="us-text">Write ten short retrieval questions on forces and motion for Grade 8: two each on contact and non-contact forces, weight and mass, balanced forces, speed, and measuring with a newtonmeter. Give the answers separately.</dd></dl></div></div></div>
+<!-- hero-example:end -->
+      </div>
+    </section>
+
+    <!-- Arbetsgången: fem steg och ett slutsteg, i egen takt. -->
+    <section class="section section--alt" id="us-how">
+      <div class="container">
+        <h2 class="section__title">How it works</h2>
+        <ol class="tm-steps">
+          <li><strong>Start.</strong> Paste a unit you have planned, or describe the topic and goals of a new one.</li>
+          <li><strong>Five steps.</strong> Each step gives you a prompt. The AI looks at your unit through that step and suggests at most three changes, each with why it helps students learn. You decide what to keep.</li>
+          <li><strong>The improved plan.</strong> The last prompt asks the AI to write the whole plan with your decisions. You review it before you teach it.</li>
+        </ol>
+        <p class="tm-note us-note">Work through the steps in one AI conversation if you can: the AI then remembers your unit. Every prompt also works on its own, so you can stop and come back another day. Paste what you have decided so far into "Decisions so far".</p>
+      </div>
+    </section>
+
+    <!-- Promptbyggaren. Allt sker i webbläsaren och inget skickas någonstans.
+         Logiken finns i assets/js/unit-studio.js; stegen läses från
+         JSON-blocket nedan, som byggskriptet skriver. -->
+    <section class="section" id="us-builder">
+      <div class="container">
+        <h2 class="section__title">Build your prompt</h2>
+        <p class="tm-privacy"><strong>Do not include student names or student results.</strong> The prompt only needs your subject, grade and unit.</p>
+<!-- data:start -->
+<script type="application/json" id="us-data">{"steps": [{"num": 1, "id": "goal-evidence", "name": "Goal and evidence", "brief": "Look at what students should be able to do by the end of the unit, and how the teacher will see that they can. Check that the goals are concrete, that each goal has evidence in a task or assessment, and that the activities lead to that evidence."}, {"num": 2, "id": "prior-knowledge", "name": "Prior knowledge", "brief": "Look at what students must already know or be able to do for this unit to work, which of it is likely to be missing or mixed up, and how the teacher can check it early, before building on it."}, {"num": 3, "id": "sequence-load", "name": "Sequence and load", "brief": "Look at the order of the lessons and how much new content each one brings. Check that new ideas are explained clearly and modelled with worked examples before students practise alone, and that support fades as students become more confident."}, {"num": 4, "id": "retrieval-checkpoints", "name": "Retrieval and checkpoints", "brief": "Plan short retrieval practice that brings back earlier content of the unit, spread over the weeks, and a few checkpoints at key moments where the teacher checks the understanding of the whole class before moving on."}, {"num": 5, "id": "motivation-ai", "name": "Motivation and AI decisions", "brief": "Look at what gives students a reason to care and a sense that they can succeed, where they talk and think together, and where in the unit AI could help or harm their learning. For every planned or likely use of AI, ask the trade-off question: what would students get worse at if AI did this part?"}]}</script>
+<!-- data:end -->
+        <!-- onsubmit="return false" hindrar att Enter laddar om sidan. -->
+        <form class="tm-form us-form" id="us-form" autocomplete="off" onsubmit="return false">
+          <!-- Förbättra en befintlig enhet, eller planera en ny. -->
+          <fieldset class="us-mode">
+            <legend class="tm-field__label">Your unit</legend>
+            <label><input type="radio" name="us-mode" id="us-mode-improve" value="improve" checked> Improve a unit I have planned</label>
+            <label><input type="radio" name="us-mode" id="us-mode-new" value="new"> Plan a new unit</label>
+          </fieldset>
+          <!-- Ämne, årskurs, veckor och lektioner per vecka på en rad. -->
+          <div class="us-numbers">
+            <label class="tm-field">
+              <span class="tm-field__label">Subject</span>
+              <input class="input" id="us-subject" maxlength="60" placeholder="e.g. Science" required>
+            </label>
+            <label class="tm-field">
+              <span class="tm-field__label">Grade</span>
+              <select class="input" id="us-grade">
+                <option value="6">Grade 6</option><option value="7">Grade 7</option><option value="8" selected>Grade 8</option>
+                <option value="9">Grade 9</option><option value="10">Grade 10</option><option value="11">Grade 11</option>
+                <option value="12">Grade 12</option>
+              </select>
+            </label>
+            <label class="tm-field">
+              <span class="tm-field__label">Weeks</span>
+              <select class="input" id="us-weeks">
+                <option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              </select>
+            </label>
+            <label class="tm-field">
+              <span class="tm-field__label">Lessons a week</span>
+              <select class="input" id="us-lessons">
+                <option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option>
+              </select>
+            </label>
+          </div>
+          <!-- Enheten. Etiketten byts av JS när läraren väljer "Plan a new unit".
+               Gränsen är hög med flit: en hel enhetsplanering ska få plats. -->
+          <div class="tm-field tm-field--wide">
+            <label class="tm-field__label" for="us-unit" id="us-unit-label">The unit as you have planned it</label>
+            <textarea class="input" id="us-unit" rows="8" maxlength="40000" placeholder="Week 1: What is a force? Pushes and pulls, contact and non-contact forces. Video and notes.&#10;Week 2: Measuring forces with newtonmeters (practical). Weight and mass.&#10;…" required></textarea>
+          </div>
+          <div class="us-pair">
+            <label class="tm-field">
+              <span class="tm-field__label">Step</span>
+              <select class="input" id="us-step">
+                <option value="1">1 · Goal and evidence</option><option value="2">2 · Prior knowledge</option>
+                <option value="3">3 · Sequence and load</option><option value="4">4 · Retrieval and checkpoints</option>
+                <option value="5">5 · Motivation and AI decisions</option><option value="final">Final · Write the improved plan</option>
+              </select>
+            </label>
+          </div>
+          <div class="tm-field tm-field--wide">
+            <label class="tm-field__label" for="us-decisions">Decisions so far (optional)</label>
+            <span class="tm-field__note" id="us-decisions-note">What you have kept from earlier steps. Leave it empty if the earlier steps are in the same AI conversation.</span>
+            <textarea class="input" id="us-decisions" rows="3" maxlength="20000" aria-describedby="us-decisions-note"></textarea>
+          </div>
+        </form>
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
+          <textarea class="input tm-prompt" id="us-prompt" rows="14" readonly></textarea>
+        </label>
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--primary" id="us-copy" data-copy="" aria-describedby="us-hint" disabled>Copy prompt</button>
+          <p class="tm-hint" id="us-hint" aria-live="polite">Fill in subject and your unit to see your prompt.</p>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- De fem stegen som kort: vad man tittar efter, varför och evidensen.
+         Byggs från JSON-filen — redigera den, inte korten. -->
+    <section class="section section--alt" id="us-steps">
+      <div class="container">
+        <h2 class="section__title">The five steps</h2>
+        <p class="section__lede">This is the method. After a few units you will find yourself asking these questions without the tool.</p>
+        <div class="tm-grid">
+<!-- steps:start -->
+<article class="tm-move us-step" id="step-goal-evidence">
+  <div class="tm-move__head"><div><span class="tm-move__num">Step 1</span><h3 class="tm-move__name">Goal and evidence</h3></div></div>
+  <p class="tm-move__line">Plans often start from activities. Starting from the goal and the evidence keeps every lesson pointing the same way.</p>
+  <p class="us-step__label">Look for</p><ul class="us-look"><li>What should students be able to do by the end of the unit?</li><li>Where will you see that they can do it?</li><li>Does every activity lead towards that evidence?</li></ul>
+  <p class="us-step__evidence"><strong>Backward design and constructive alignment</strong> <span class="tm-chip tm-chip--framework">Framework</span></p>
+  <a class="tm-move__use" href="?step=1#us-builder" data-use-step="1" aria-label="Use step 1: Goal and evidence">Use this step</a>
+</article>
+<article class="tm-move us-step" id="step-prior-knowledge">
+  <div class="tm-move__head"><div><span class="tm-move__num">Step 2</span><h3 class="tm-move__name">Prior knowledge</h3></div></div>
+  <p class="tm-move__line">New learning builds on what students already know. A gap found in the first lesson can be fixed in minutes; found in the test, it is too late for this unit.</p>
+  <p class="us-step__label">Look for</p><ul class="us-look"><li>What must students already know for this unit to work?</li><li>Which of it is likely to be missing or mixed up?</li><li>How will you check it before you build on it?</li></ul>
+  <p class="us-step__evidence"><strong>Prior knowledge</strong> <span class="tm-chip tm-chip--framework">Framework</span></p>
+  <a class="tm-move__use" href="?step=2#us-builder" data-use-step="2" aria-label="Use step 2: Prior knowledge">Use this step</a>
+</article>
+<article class="tm-move us-step" id="step-sequence-load">
+  <div class="tm-move__head"><div><span class="tm-move__num">Step 3</span><h3 class="tm-move__name">Sequence and load</h3></div></div>
+  <p class="tm-move__line">Working memory is small. New ideas land better when they are explained, modelled and practised in small steps.</p>
+  <p class="us-step__label">Look for</p><ul class="us-look"><li>How much new does each lesson bring?</li><li>Are new ideas modelled with worked examples before students practise alone?</li><li>Where does support fade as students get more confident?</li></ul>
+  <p class="us-step__evidence"><strong>Explicit instruction and worked examples</strong> <span class="tm-chip tm-chip--strong">Strong</span></p>
+  <a class="tm-move__use" href="?step=3#us-builder" data-use-step="3" aria-label="Use step 3: Sequence and load">Use this step</a>
+</article>
+<article class="tm-move us-step" id="step-retrieval-checkpoints">
+  <div class="tm-move__head"><div><span class="tm-move__num">Step 4</span><h3 class="tm-move__name">Retrieval and checkpoints</h3></div></div>
+  <p class="tm-move__line">Content that is recalled again over several weeks is remembered better. Content covered once is often forgotten by the test.</p>
+  <p class="us-step__label">Look for</p><ul class="us-look"><li>Where does earlier content come back later in the unit?</li><li>Where will you check the whole class before moving on?</li><li>What will you do if fewer than about 4 in 5 get it?</li></ul>
+  <p class="us-step__evidence"><strong>Retrieval practice and spacing</strong> <span class="tm-chip tm-chip--strong">Strong</span></p><p class="us-step__evidence"><strong>Checkpoints (formative assessment)</strong> <span class="tm-chip tm-chip--strong">Strong</span></p>
+  <a class="tm-move__use" href="?step=4#us-builder" data-use-step="4" aria-label="Use step 4: Retrieval and checkpoints">Use this step</a>
+</article>
+<article class="tm-move us-step" id="step-motivation-ai">
+  <div class="tm-move__head"><div><span class="tm-move__num">Step 5</span><h3 class="tm-move__name">Motivation and AI decisions</h3></div></div>
+  <p class="tm-move__line">Students who feel they belong and can succeed tend to be more motivated and do better. Decisions about AI belong in the plan, not left to chance.</p>
+  <p class="us-step__label">Look for</p><ul class="us-look"><li>What gives students a reason to care, and a sense that they can succeed?</li><li>Where do students talk and think together?</li><li>Where could AI help or harm their learning, and what would they get worse at if AI did that part?</li></ul>
+  <p class="us-step__evidence"><strong>Belonging and motivation</strong> <span class="tm-chip tm-chip--promising">Promising</span></p><p class="us-step__evidence"><strong>The trade-off question</strong> <span class="tm-chip tm-chip--choosewise">Choosewise</span></p>
+  <a class="tm-move__use" href="?step=5#us-builder" data-use-step="5" aria-label="Use step 5: Motivation and AI decisions">Use this step</a>
+</article>
+<!-- steps:end -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Ett färdigt slutsteg: den förbättrade planen för exempelenheten. -->
+    <section class="section" id="us-final">
+      <div class="container">
+        <h2 class="section__title">What the final step gives you</h2>
+        <p class="section__lede">The same unit after all five steps. Review it before you teach it: the AI writes, you decide.</p>
+<!-- final-example:start -->
+<div class="tm-example us-example"><h3 class="tm-example__subject">The improved plan <span>· Forces and motion</span></h3><dl><dt>Goal and evidence</dt><dd class="us-text">By the end, students can explain forces as pushes and pulls and name contact and non-contact forces, measure forces in newtons and tell weight from mass, predict motion from balanced and unbalanced forces, and calculate speed from distance and time. Evidence: the exit ticket in lesson 3, the hinge questions in lessons 6 and 9, and the end-of-unit test, which asks students to explain as well as calculate.</dd><dt>Prior knowledge</dt><dd class="us-text">Students need to read a scale, divide with decimals and know that a dropped object falls because of gravity. Check it in lesson 1 with three quick questions: read a scale, work out 12 ÷ 4.8, and explain why a dropped ball falls.</dd><dt>Lessons</dt><dd class="us-text">1. Prior knowledge check (5 min); worked examples of contact and non-contact forces, then sorting cards in pairs (50 min)
+2. Retrieval (5 min); force arrows modelled on the board, then students draw arrows for everyday situations (50 min)
+3. Retrieval (5 min); mixed practice and an exit ticket on contact and non-contact forces (50 min)
+4. Retrieval (5 min); a worked example with a newtonmeter, then the measuring practical (50 min)
+5. Retrieval (5 min); weight and mass: a worked example of weight = mass × 10 N/kg, then guided practice (50 min)
+6. Retrieval (5 min); mixed practice on weight and mass, ending with a hinge question (50 min)
+7. Retrieval (5 min); balanced and unbalanced forces: demonstration and worked examples with force arrows (50 min)
+8. Retrieval (5 min); textbook reading with three guiding questions, then a group poster explaining one situation (50 min)
+9. Retrieval (5 min); hinge question on steady speed, re-teaching if needed, then practice (50 min)
+10. Retrieval (5 min); speed = distance ÷ time: worked examples, then the toy car practical (50 min)
+11. A mixed retrieval quiz from all four weeks, marked by students, then re-teaching of the two most-missed questions and speed practice from half-finished examples (55 min)
+12. End-of-unit test (55 min)</dd><dt>Retrieval</dt><dd class="us-text">Lessons 2 to 10 open with three questions from earlier lessons. Once the unit is far enough along, one comes from the last lesson, one from one to two weeks back and one older. Lesson 11 is a mixed quiz from all four weeks.</dd><dt>Checkpoints</dt><dd class="us-text">Lesson 3: exit ticket on contact and non-contact forces. Lesson 6: hinge question on mass and weight. Lesson 9: hinge question on steady speed. If fewer than about 4 in 5 get it, re-teach with a new worked example, in the same lesson or at the start of the next, before moving on.</dd><dt>AI use</dt><dd class="us-text">Students do not use AI for the practicals, the force arrows or the calculations: they would get worse at explaining and measuring forces themselves. The teacher uses AI to write the retrieval questions and hinge questions. In lesson 8, students may ask an AI tool to point out one physics mistake in their poster explanation after writing it themselves, if the school allows students to use AI.</dd><dt>Changes</dt><dd class="us-text">The video and notes in week 1 are replaced by worked examples and sorting.
+Retrieval questions open lessons 2 to 10.
+An exit ticket in lesson 3 and hinge questions in lessons 6 and 9 are added.
+The revision lesson becomes a mixed retrieval quiz.
+Speed calculations fade from worked examples to half-finished examples, then to the test.</dd><dt>Check</dt><dd class="us-text">Which value of g your syllabus uses (10 N/kg or 9.8 N/kg).
+Whether the toy car practical fits one lesson with your equipment.</dd></dl></div>
+<!-- final-example:end -->
+      </div>
+    </section>
+
+    <!-- Evidensen: etikettförklaringen och idéerna bakom stegen. -->
+    <section class="section section--alt" id="us-evidence">
+      <div class="container">
+        <h2 class="section__title">Why it works</h2>
+<!-- legend:start -->
+<ul class="tm-legend"><li><span class="tm-chip tm-chip--strong">Strong</span> Meta-analyses of classroom studies show that teaching this way improves learning.</li><li><span class="tm-chip tm-chip--promising">Promising</span> Controlled studies show gains, but results are mixed, small in number or dependent on context.</li><li><span class="tm-chip tm-chip--framework">Framework</span> A useful structure for planning, with no intervention studies behind it as a method.</li><li><span class="tm-chip tm-chip--choosewise">Choosewise</span> Choosewise&#x27;s own question, not a research finding.</li></ul>
+<!-- legend:end -->
+        <div class="us-approaches">
+<!-- sources:start -->
+<div class="us-approach"><h3>Backward design and constructive alignment <span class="tm-chip tm-chip--framework">Framework</span></h3><p>Backward design starts from what students should be able to do and how that will show, and plans the activities last (Wiggins &amp; McTighe 2005). Constructive alignment makes the same point: goals, activities and assessment should match (Biggs 1996). Both are frameworks for planning, not methods tested in intervention studies.</p><p class="tm-move__sources">Source: <a href="https://www.ascd.org/books/understanding-by-design-expanded-2nd-edition">Wiggins &amp; McTighe 2005, Understanding by Design (ASCD)</a>, <a href="https://doi.org/10.1007/BF00138871">Biggs 1996, Higher Education</a></p></div>
+<div class="us-approach"><h3>Prior knowledge <span class="tm-chip tm-chip--framework">Framework</span></h3><p>What students know before a unit strongly predicts what they know after it. But a meta-analysis of 8,776 effect sizes found that, on average, prior knowledge does not predict how much students gain, and that this varies widely between studies (Simonsmeier et al. 2022). Checking prior knowledge early is a planning step, not a tested method: it shows the teacher where the gaps are before building on them.</p><p class="tm-move__sources">Source: <a href="https://doi.org/10.1080/00461520.2021.1939700">Simonsmeier, Flaig, Deiglmayr, Schalk &amp; Schneider 2022, Educational Psychologist</a></p></div>
+<div class="us-approach"><h3>Explicit instruction and worked examples <span class="tm-chip tm-chip--strong">Strong</span></h3><p>A meta-analysis of 328 studies over half a century found consistently positive effects of Direct Instruction, a highly structured form of explicit teaching (Stockard et al. 2018). Rosenshine&#x27;s principles summarise the wider research on explicit instruction for classroom use. Cognitive load theory rests on decades of replicated experiments. The worked-example effect is one of its most robust findings, confirmed in a 2023 meta-analysis, and it fades as students gain expertise (Sweller, van Merriënboer &amp; Paas 2019; Barbieri et al. 2023).</p><p class="tm-move__sources">Source: <a href="https://doi.org/10.3102/0034654317751919">Stockard et al. 2018, Review of Educational Research</a>, <a href="https://www.aft.org/sites/default/files/Rosenshine.pdf">Rosenshine 2012, American Educator</a>, <a href="https://doi.org/10.1007/s10648-019-09465-5">Sweller, van Merriënboer &amp; Paas 2019, Educational Psychology Review</a>, <a href="https://doi.org/10.1007/s10648-023-09745-1">Barbieri et al. 2023, Educational Psychology Review</a></p></div>
+<div class="us-approach"><h3>Retrieval practice and spacing <span class="tm-chip tm-chip--strong">Strong</span></h3><p>Practice testing and distributed practice are the two strategies rated high utility in the best-known review of study techniques (Dunlosky et al. 2013). Meta-analyses of classroom studies confirm that retrieval practice improves learning in school (Yang et al. 2021; Ruitenburg et al. 2026). The 2026 meta-analysis also finds a small but reliable benefit from spacing practice out.</p><p class="tm-move__sources">Source: <a href="https://doi.org/10.1177/1529100612453266">Dunlosky et al. 2013, Psychological Science in the Public Interest</a>, <a href="https://doi.org/10.1037/bul0000309">Yang et al. 2021, Psychological Bulletin</a>, <a href="https://doi.org/10.1007/s10648-026-10225-5">Ruitenburg et al. 2026, Educational Psychology Review</a></p></div>
+<div class="us-approach"><h3>Checkpoints (formative assessment) <span class="tm-chip tm-chip--strong">Strong</span></h3><p>Black &amp; Wiliam&#x27;s 1998 review made the case that formative assessment raises achievement, and a 2024 meta-analysis of 118 K-12 studies confirms a positive, more modest average effect (Yao et al. 2024). A whole-school EEF trial found a similar, real effect at scale.</p><p class="tm-move__sources">Source: <a href="https://doi.org/10.1080/0969595980050102">Black &amp; Wiliam 1998, Assessment in Education</a>, <a href="https://doi.org/10.1080/13803611.2024.2363831">Yao et al. 2024, Educational Research and Evaluation</a>, <a href="https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/embedding-formative-assessment">EEF: Embedding Formative Assessment evaluation</a></p></div>
+<div class="us-approach"><h3>Belonging and motivation <span class="tm-chip tm-chip--promising">Promising</span></h3><p>A meta-analytic review links school belonging to motivation, well-being and achievement in secondary school (Korpershoek et al. 2020). Brief belonging interventions have helped some students, but a 2023 study of almost 27,000 students found they worked only where the school gave students real chances to belong (Walton et al. 2023).</p><p class="tm-move__sources">Source: <a href="https://doi.org/10.1080/02671522.2019.1615116">Korpershoek et al. 2020, Research Papers in Education</a>, <a href="https://doi.org/10.1126/science.1198364">Walton &amp; Cohen 2011, Science</a>, <a href="https://doi.org/10.1126/science.ade4420">Walton et al. 2023, Science</a></p></div>
+<div class="us-approach"><h3>The trade-off question <span class="tm-chip tm-chip--choosewise">Choosewise</span></h3><p>This is Choosewise&#x27;s own question, not a research finding. It draws on research showing that unrestricted AI help can raise practice scores while lowering learning once the help is removed (Bastani et al. 2025).</p><p class="tm-move__sources">Source: <a href="https://doi.org/10.1073/pnas.2422633122">Bastani et al. 2025, PNAS</a></p></div>
+<!-- sources:end -->
+        </div>
+      </div>
+    </section>
+
+    <!-- AI-verktyg och åldersgränser (global regel för AI-innehåll på sajten). -->
+    <section class="section" id="us-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age rules</h2>
+        <p class="section__lede">You use AI to plan. If students use AI in the unit, these rules apply (October 2026):</p>
+<!-- age:start -->
+<ul class="tm-age"><li><strong>Copilot Chat:</strong> Students aged 13 and over, through the school&#x27;s own Microsoft 365 account. The school&#x27;s administrator must set each student&#x27;s age group and consent.</li><li><strong>Gemini for Education:</strong> Open to education users of all ages, with a stricter experience for under-18s. The school&#x27;s administrator must turn it on.</li><li><strong>ChatGPT:</strong> Ages 13 and over on personal accounts, with a parent&#x27;s or guardian&#x27;s permission under 18. ChatGPT for Teachers is for school staff only.</li><li><strong>Claude:</strong> Ages 18 and over. In a school, for teachers only.</li></ul>
+<!-- age:end -->
+        <p class="tm-note">Rules differ between countries and change often. Check your own national rules and your school policy before students use any AI tool.</p>
+      </div>
+    </section>
+
+    <!-- Metodkortet: de fem stegen på en sida, att ha vid nästa planering. -->
+    <section class="section section--alt" id="us-download">
+      <div class="container">
+        <h2 class="section__title">The method card</h2>
+        <p class="section__lede">The five steps and their questions on one page, and a fill-in prompt for when you plan without the website.</p>
+        <a class="btn btn--primary" href="/unit-studio-541ebd12/unit-studio-method-card-en.pdf" download>Download the method card (PDF)</a>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknappen (data-copy) och promptbyggaren. -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+  <script src="/assets/js/unit-studio.js" defer></script>
+</body>
+</html>

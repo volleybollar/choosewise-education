@@ -1,0 +1,33 @@
+/* Unit Studio (dold sida för Skool-medlemmar). Bygger på thinking-moves.css (tm-)
+   och lägger bara till det som är nytt här (us-). Färger bara som var(--…). */
+
+/* Exemplet i hero: enheten bredvid AI:ns svar på dator, under varandra på mobil. */
+.us-hero-example { margin-top: var(--space-8); max-width: var(--content-max); }
+.us-hero-example__title { margin: 0 0 var(--space-3); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+.us-example__cols { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+.us-example dl { grid-template-columns: 1fr; gap: var(--space-1); }
+.us-example dd { margin-bottom: var(--space-2); }
+.us-example__label { margin: 0 0 var(--space-2); font-size: var(--fs-small); text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-muted); }
+/* Radbrytningarna i JSON-texten ska synas, men långa rader får brytas. */
+.us-text { white-space: pre-line; overflow-wrap: anywhere; }
+.us-note { max-width: var(--content-text-max); }
+
+/* Formuläret: läget, och ämne/årskurs/veckor/lektioner på en rad. */
+.us-mode { grid-column: 1 / -1; border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); }
+.us-mode legend { width: 100%; margin-bottom: var(--space-2); }
+.us-numbers, .us-pair { grid-column: 1 / -1; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); }
+
+/* Stegkorten: frågorna att titta efter och evidensen. */
+.us-step__label { margin: var(--space-2) 0 0; font-size: var(--fs-small); text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-muted); }
+.us-look { margin: var(--space-1) 0 0; padding-left: var(--space-5); font-size: var(--fs-small); display: grid; gap: var(--space-1); }
+.us-look li { max-width: none; }
+.us-step__evidence { margin: var(--space-2) 0 0; font-size: var(--fs-small); display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+.us-step__evidence strong { font-weight: var(--weight-emphasis); }
+
+/* Etiketten Choosewise (trade-off-frågan), samma stil som i lesson-lens.css. */
+.tm-chip--choosewise { color: var(--color-highlight-ink); border-color: var(--color-highlight); border-style: dashed; }
+
+/* Idéerna under "Why it works". */
+.us-approaches { display: grid; gap: var(--space-5); margin-top: var(--space-6); max-width: var(--content-text-max); }
+.us-approach h3 { margin: 0 0 var(--space-2); font-size: 1.15rem; font-weight: var(--weight-emphasis); display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+.us-approach p { margin: 0 0 var(--space-2); max-width: none; }
