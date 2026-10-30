@@ -116,7 +116,7 @@ def test_no_models_ticked_asks_ai_to_suggest(page):
     for i in range(boxes.count()):
         boxes.nth(i).uncheck()
     text = page.input_value("#pc-prompt")
-    assert ("The teacher has not chosen any approaches yet. Suggest two or three research-based approaches "
+    assert ("No approaches are listed yet. Suggest two or three research-based approaches "
             "that fit this problem, strongest evidence first, and give each one of these labels: Strong (meta-analyses "
             "of classroom studies), Promising (controlled studies, but mixed or dependent on context) or Framework "
             "(useful for planning, not tested as a method).") in text
@@ -131,7 +131,8 @@ def test_own_problem(page):
     page.fill("#pc-own", "They rush through tasks.")
     text = page.input_value("#pc-prompt")
     assert "with a problem in class: They rush through tasks." in text
-    assert "The teacher has not chosen any approaches yet." in text
+    assert "No approaches are listed yet." in text
+    assert page.is_hidden("#pc-models")
 
 
 def test_required_fields(page):
@@ -167,3 +168,12 @@ def test_user_text_is_never_html(page):
     page.fill("#pc-subject", '<img src=x onerror="window.pwned=1">')
     assert '<img src=x onerror="window.pwned=1">' in page.input_value("#pc-prompt")
     assert page.evaluate("window.pwned === undefined")
+
+
+def test_model_link_opens_its_card(page):
+    # Slutgranskningen: länken från ett problem ska öppna kortet, inte landa på ett stängt kort.
+    mid = FIRST["model_ids"][0]
+    card = page.locator(f"#model-{mid}")
+    assert card.get_attribute("open") is None
+    page.click(f'#problem-{FIRST["id"]} a[href="#model-{mid}"]')
+    assert card.get_attribute("open") is not None

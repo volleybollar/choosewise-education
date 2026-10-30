@@ -55,6 +55,11 @@ def test_problems_list_strongest_evidence_first():
         assert ranks == sorted(ranks), p["id"]
 
 
+def test_no_problem_is_called_own():
+    # "own" är builderns värde för "My own problem".
+    assert "own" not in {p["id"] for p in data()["problems"]}
+
+
 def test_recipes_reference_existing_models():
     rs = data()["recipes"]
     assert len(rs) == 3

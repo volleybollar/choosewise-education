@@ -30,7 +30,7 @@
   ];
   /* Utan valda modeller hittade AI:n på egna etiketter i testkörningen, så
      prompten ger den sajtens tre. */
-  var NO_MODELS = 'The teacher has not chosen any approaches yet. Suggest two or three research-based approaches that fit this problem, strongest evidence first, and give each one of these labels: Strong (meta-analyses of classroom studies), Promising (controlled studies, but mixed or dependent on context) or Framework (useful for planning, not tested as a method).';
+  var NO_MODELS = 'No approaches are listed yet. Suggest two or three research-based approaches that fit this problem, strongest evidence first, and give each one of these labels: Strong (meta-analyses of classroom studies), Promising (controlled studies, but mixed or dependent on context) or Framework (useful for planning, not tested as a method).';
 
   /* Bygger prompten. Ren funktion: samma indata ger alltid samma text.
      models: [{name, label, one_liner}], starkast evidens först. */
@@ -63,7 +63,11 @@
   function renderModels() {
     els.models.textContent = '';
     var p = problems[els.problem.value];
-    (p ? p.model_ids : []).forEach(function (id) {
+    var ids = p ? p.model_ids : [];
+    /* Ett eget problem har inga modeller att kryssa i, så rutan döljs. */
+    els.models.hidden = !ids.length;
+    els.models.parentElement.hidden = !ids.length;
+    ids.forEach(function (id) {
       var m = models[id];
       var li = document.createElement('li');
       var label = document.createElement('label');
@@ -131,6 +135,19 @@
     ['own', 'subject', 'grade', 'situation'].forEach(function (id) {
       els[id].addEventListener('input', update);
       els[id].addEventListener('change', update);
+    });
+
+    /* En länk till ett modellkort (från problemkorten eller i adressen)
+       öppnar kortet, så att texten syns direkt. */
+    function openCard(hash) {
+      var card = hash && document.getElementById(hash.slice(1));
+      if (card && card.tagName === 'DETAILS') card.open = true;
+    }
+    openCard(window.location.hash);
+    window.addEventListener('hashchange', function () { openCard(window.location.hash); });
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href^="#model-"]');
+      if (a) openCard(a.getAttribute('href'));
     });
 
     /* "Use in the prompt" på problemkorten väljer problemet utan omladdning. */

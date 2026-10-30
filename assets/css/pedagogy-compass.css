@@ -29,8 +29,13 @@
 .pc-category__q { margin: var(--space-1) 0 var(--space-3); color: var(--color-text-soft); max-width: var(--content-text-max); }
 .pc-letter { display: inline-grid; place-items: center; width: 1.8em; height: 1.8em; border-radius: 50%; border: 1px solid var(--color-accent); color: var(--color-accent); font-size: .8em; }
 .pc-cards { display: grid; gap: var(--space-2); max-width: var(--content-max); }
-.pc-card { border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-bg); padding: var(--space-3) var(--space-4); }
-.pc-card summary { cursor: pointer; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-2); }
+/* scroll-margin-top: ett kort som länkas till hamnar under den fasta menyn, inte bakom den. */
+.pc-card { border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-bg); padding: var(--space-3) var(--space-4); scroll-margin-top: calc(var(--nav-height, 4.5rem) + var(--space-4)); }
+.pc-card summary { cursor: pointer; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-2); list-style: none; position: relative; padding-right: var(--space-6); }
+.pc-card summary::-webkit-details-marker { display: none; }
+/* Plus och minus visar att kortet går att öppna (samma idé som FAQ-listorna). */
+.pc-card summary::after { content: "+"; position: absolute; right: 0; top: 0; font-size: 1.25rem; line-height: 1; color: var(--color-accent); }
+.pc-card[open] summary::after { content: "\2212"; }
 .pc-card__name { font-weight: var(--weight-emphasis); color: var(--color-text); }
 .pc-card__line { flex-basis: 100%; font-size: var(--fs-small); color: var(--color-text-soft); }
 .pc-card__origin { margin: var(--space-2) 0 0; font-size: var(--fs-small); color: var(--color-text-muted); }

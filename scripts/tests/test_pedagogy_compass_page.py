@@ -144,3 +144,9 @@ def test_json_text_is_escaped():
          "ai_helps": "h", "ai_harms": "a", "evidence": "e & f", "sources": [{"text": "s", "url": "https://x"}]}
     out = mod.render_model_card(m, data()["labels"])
     assert "<b>" not in out and "&lt;b&gt;" in out and "<i>1</i>" not in out
+
+
+def test_cards_show_that_they_open_and_clear_the_header():
+    css = (ROOT / "assets/css/pedagogy-compass.css").read_text(encoding="utf-8")
+    assert re.search(r"\.pc-card\s*\{[^}]*scroll-margin-top", css)
+    assert ".pc-card summary::after" in css
