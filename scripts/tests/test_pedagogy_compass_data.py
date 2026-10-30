@@ -120,3 +120,10 @@ def test_fact_check_corrections_2026_10_30():
     recipes = {r["id"]: r for r in data()["recipes"]}
     assert recipes["discussion-lesson"]["steps"][3].startswith("An exit question at the end")
     assert "two worked examples" in recipes["knowledge-lesson"]["steps"][1]
+
+
+def test_johans_review_2026_10_30():
+    # Johan: mastery learning är Promising; Freinet-källan ska vara öppen, inte bakom betalvägg.
+    ms = models()
+    assert ms["mastery-learning"]["category"] == "promising"
+    assert ms["freinet"]["sources"][0]["url"].startswith("https://webarchive.unesco.org/")

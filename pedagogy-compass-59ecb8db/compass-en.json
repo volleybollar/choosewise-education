@@ -108,8 +108,8 @@
       "name": "Mixed levels in one class",
       "what_it_looks_like": "Some students are finished in five minutes, others have not understood the first step.",
       "model_ids": [
-        "mastery-learning",
         "formative-assessment",
+        "mastery-learning",
         "udl",
         "gradual-release"
       ]
@@ -357,27 +357,6 @@
       ]
     },
     {
-      "id": "mastery-learning",
-      "name": "Mastery learning",
-      "origin": "Bloom; Guskey",
-      "category": "strong",
-      "one_liner": "Content is split into units, and students show they have mastered one before moving to the next, with extra help if needed.",
-      "tuesday": "At the end of a unit, students take a short check. Those who reach the bar get an extension task, and those who do not get targeted re-teaching and a second check. The class still moves on together.",
-      "ai_helps": "AI can produce parallel versions of a unit check and short re-teaching tasks for each common gap, so a second attempt is not the same test again.",
-      "ai_harms": "AI-driven platforms can let every student move at their own pace with no teacher in the loop, which is the version of mastery learning that tends to work less well.",
-      "evidence": "Mastery learning has a long research record: a meta-analysis of mastery programs found positive effects on achievement (Kulik, Kulik & Bangert-Drowns 1990). The EEF Teaching and Learning Toolkit rates it at about +5 months, based on limited evidence, and notes it works less well when students work entirely at their own pace.",
-      "sources": [
-        {
-          "text": "EEF Teaching and Learning Toolkit: Mastery learning",
-          "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/mastery-learning"
-        },
-        {
-          "text": "Kulik, Kulik & Bangert-Drowns 1990, Review of Educational Research",
-          "url": "https://doi.org/10.3102/00346543060002265"
-        }
-      ]
-    },
-    {
       "id": "collaborative-learning",
       "name": "Collaborative learning",
       "origin": "Johnson & Johnson",
@@ -445,6 +424,27 @@
         {
           "text": "EEF: Embedding Formative Assessment evaluation",
           "url": "https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/embedding-formative-assessment"
+        }
+      ]
+    },
+    {
+      "id": "mastery-learning",
+      "name": "Mastery learning",
+      "origin": "Bloom; Guskey",
+      "category": "promising",
+      "one_liner": "Content is split into units, and students show they have mastered one before moving to the next, with extra help if needed.",
+      "tuesday": "At the end of a unit, students take a short check. Those who reach the bar get an extension task, and those who do not get targeted re-teaching and a second check. The class still moves on together.",
+      "ai_helps": "AI can produce parallel versions of a unit check and short re-teaching tasks for each common gap, so a second attempt is not the same test again.",
+      "ai_harms": "AI-driven platforms can let every student move at their own pace with no teacher in the loop, which is the version of mastery learning that tends to work less well.",
+      "evidence": "Mastery learning has a long research record: a meta-analysis of mastery programs found positive effects on achievement (Kulik, Kulik & Bangert-Drowns 1990). The EEF Teaching and Learning Toolkit rates it at about +5 months, based on limited evidence, and notes it works less well when students work entirely at their own pace.",
+      "sources": [
+        {
+          "text": "EEF Teaching and Learning Toolkit: Mastery learning",
+          "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/mastery-learning"
+        },
+        {
+          "text": "Kulik, Kulik & Bangert-Drowns 1990, Review of Educational Research",
+          "url": "https://doi.org/10.3102/00346543060002265"
         }
       ]
     },
@@ -1208,8 +1208,8 @@
       "evidence": "We found little controlled evidence on Freinet pedagogy as a whole (Legrand 1993 gives an overview). Its idea of a real audience for student work lives on in many classrooms.",
       "sources": [
         {
-          "text": "Legrand 1993, Prospects",
-          "url": "https://doi.org/10.1007/bf02195047"
+          "text": "Legrand 1993, Célestin Freinet, Prospects (UNESCO International Bureau of Education, open copy)",
+          "url": "https://webarchive.unesco.org/web/20191121002118/http://www.ibe.unesco.org/sites/default/files/freinete.pdf"
         }
       ]
     },
