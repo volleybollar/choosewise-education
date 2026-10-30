@@ -13,7 +13,7 @@ DATA = ROOT / "unit-studio-541ebd12/studio-en.json"
 LL_DATA = ROOT / "lesson-lens/lenses-en.json"
 
 STEPS = ["goal-evidence", "prior-knowledge", "sequence-load", "retrieval-checkpoints", "motivation-ai"]
-APPROACHES = {"backward-design": "framework", "prior-knowledge": "promising", "explicit-instruction": "strong",
+APPROACHES = {"backward-design": "framework", "prior-knowledge": "framework", "explicit-instruction": "strong",
               "retrieval-spacing": "strong", "formative-checkpoints": "strong", "belonging": "promising",
               "trade-off": "choosewise"}
 FINAL_PARTS = ["goal_and_evidence", "prior_knowledge", "lessons", "retrieval", "checkpoints", "ai_use", "changes", "check"]
@@ -68,6 +68,25 @@ def test_example_final_plan_has_every_part_and_one_line_per_lesson():
         assert ex["step4_reply"][key].strip(), key
     assert ex["step4_reply"]["question"].strip().endswith("?")
     assert len(re.findall(r"^\d\.", ex["step4_reply"]["suggest"], re.M)) <= 3
+
+
+def test_fact_check_corrections_2026_10_30():
+    # Faktagranskningen: förkunskaper förutsäger slutresultatet men inte hur mycket
+    # eleverna lär sig; lektionerna ska gå jämnt upp; repetitionen startar inte förrän
+    # det finns tidigare innehåll att hämta.
+    d = data()
+    a = {x["id"]: x for x in d["approaches"]}
+    assert "does not predict how much students gain" in a["prior-knowledge"]["evidence"]
+    assert "The 2026 meta-analysis also finds a small but reliable benefit from spacing practice out." in a["retrieval-spacing"]["evidence"]
+    fp = d["example"]["final_plan"]
+    assert "(55 min)" not in "\n".join(l for l in fp["lessons"].splitlines() if l.startswith(("4.", "10.")))
+    assert fp["retrieval"].startswith("Lessons 2 to 10 open with three questions from earlier lessons.")
+    assert "in the same lesson or at the start of the next" in fp["checkpoints"]
+    assert "lessons 2 to 10" in fp["changes"].lower()
+    assert "far longer" not in d["example"]["step4_reply"]["suggest"]
+    steps = {s["id"]: s for s in d["steps"]}
+    assert "it is too late for this unit" in steps["prior-knowledge"]["why"]
+    assert steps["motivation-ai"]["why"].startswith("Students who feel they belong and can succeed tend to be more motivated")
 
 
 def test_age_rules_match_lesson_lens():

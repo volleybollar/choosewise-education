@@ -42,7 +42,7 @@
         "Which of it is likely to be missing or mixed up?",
         "How will you check it before you build on it?"
       ],
-      "why": "New learning builds on what students already know. A gap found in the first lesson costs five minutes; found in the test, it costs the unit.",
+      "why": "New learning builds on what students already know. A gap found in the first lesson can be fixed in minutes; found in the test, it is too late for this unit.",
       "brief": "Look at what students must already know or be able to do for this unit to work, which of it is likely to be missing or mixed up, and how the teacher can check it early, before building on it.",
       "approach_ids": [
         "prior-knowledge"
@@ -72,7 +72,7 @@
         "Where will you check the whole class before moving on?",
         "What will you do if fewer than about 4 in 5 get it?"
       ],
-      "why": "Content that is recalled again over several weeks is remembered. Content covered once is often forgotten by the test.",
+      "why": "Content that is recalled again over several weeks is remembered better. Content covered once is often forgotten by the test.",
       "brief": "Plan short retrieval practice that brings back earlier content of the unit, spread over the weeks, and a few checkpoints at key moments where the teacher checks the understanding of the whole class before moving on.",
       "approach_ids": [
         "retrieval-spacing",
@@ -88,7 +88,7 @@
         "Where do students talk and think together?",
         "Where could AI help or harm their learning, and what would they get worse at if AI did that part?"
       ],
-      "why": "Students learn more when they feel they belong and can succeed. Decisions about AI belong in the plan, not left to chance.",
+      "why": "Students who feel they belong and can succeed tend to be more motivated and do better. Decisions about AI belong in the plan, not left to chance.",
       "brief": "Look at what gives students a reason to care and a sense that they can succeed, where they talk and think together, and where in the unit AI could help or harm their learning. For every planned or likely use of AI, ask the trade-off question: what would students get worse at if AI did this part?",
       "approach_ids": [
         "belonging",
@@ -116,8 +116,8 @@
     {
       "id": "prior-knowledge",
       "name": "Prior knowledge",
-      "label": "promising",
-      "evidence": "What students already know is one of the strongest predictors of how well they do later. A meta-analysis finds that prior knowledge strongly predicts later performance, but explains much less of how much students gain (Simonsmeier et al. 2022). Checking prior knowledge early lets the teacher fill gaps before building on them.",
+      "label": "framework",
+      "evidence": "What students know before a unit strongly predicts what they know after it. But a meta-analysis of 8,776 effect sizes found that, on average, prior knowledge does not predict how much students gain, and that this varies widely between studies (Simonsmeier et al. 2022). Checking prior knowledge early is a planning step, not a tested method: it shows the teacher where the gaps are before building on them.",
       "sources": [
         {
           "text": "Simonsmeier, Flaig, Deiglmayr, Schalk & Schneider 2022, Educational Psychologist",
@@ -153,7 +153,7 @@
       "id": "retrieval-spacing",
       "name": "Retrieval practice and spacing",
       "label": "strong",
-      "evidence": "Practice testing and distributed practice are the two strategies rated high utility in the best-known review of study techniques (Dunlosky et al. 2013). Meta-analyses of classroom studies confirm that retrieval practice improves learning in school (Yang et al. 2021; Ruitenburg et al. 2026), and find a small but reliable benefit from spacing practice out (Ruitenburg et al. 2026).",
+      "evidence": "Practice testing and distributed practice are the two strategies rated high utility in the best-known review of study techniques (Dunlosky et al. 2013). Meta-analyses of classroom studies confirm that retrieval practice improves learning in school (Yang et al. 2021; Ruitenburg et al. 2026). The 2026 meta-analysis also finds a small but reliable benefit from spacing practice out.",
       "sources": [
         {
           "text": "Dunlosky et al. 2013, Psychological Science in the Public Interest",
@@ -231,18 +231,18 @@
     "unit_text": "Week 1: What is a force? Pushes and pulls, contact and non-contact forces. Video and notes. Worksheet.\nWeek 2: Measuring forces with newtonmeters (practical). Weight and mass. Notes.\nWeek 3: Balanced and unbalanced forces. Textbook reading and questions. Group poster.\nWeek 4: Speed = distance ÷ time, practical with toy cars. Revision lesson. End-of-unit test.",
     "step4_reply": {
       "keep": "The practicals in weeks 2 and 4 give students something real to measure, and the end-of-unit test gives you evidence of what they learned.",
-      "suggest": "1. Start every lesson from week 2 with three retrieval questions from earlier weeks, for example: Is gravity a contact or a non-contact force? What is the difference between mass and weight? Why this helps: recalling content again over several weeks makes it last far longer than reading the notes again.\n2. Add a hinge question at the end of week 3, before speed: “A car moves at a steady speed in a straight line. Are the forces on it balanced or unbalanced?” The common wrong answer is unbalanced, because it is moving. Move on if about 4 in 5 answer balanced. Why this helps: it shows whether the class has the key idea before you build on it.\n3. Replace the revision lesson with a retrieval lesson: a mixed quiz from all four weeks, marked by the students, followed by re-teaching of the two most-missed questions. Why this helps: testing yourself helps memory more than re-reading.",
+      "suggest": "1. Start every lesson from week 2 with three retrieval questions from earlier weeks, for example: Is gravity a contact or a non-contact force? What is the difference between mass and weight? Why this helps: recalling content again over several weeks makes it last longer than reading the notes again.\n2. Add a hinge question at the end of week 3, before speed: “A car moves at a steady speed in a straight line. Are the forces on it balanced or unbalanced?” The common wrong answer is unbalanced, because it is moving. Move on if about 4 in 5 answer balanced. Why this helps: it shows whether the class has the key idea before you build on it.\n3. Replace the revision lesson with a retrieval lesson: a mixed quiz from all four weeks, marked by the students, followed by re-teaching of the two most-missed questions. Why this helps: testing yourself helps memory more than re-reading.",
       "question": "Which idea from week 1 or 2 have students most often forgotten by the end-of-unit test?",
       "ai_can_also": "Write ten short retrieval questions on forces and motion for Grade 8: two each on contact and non-contact forces, weight and mass, balanced forces, speed, and measuring with a newtonmeter. Give the answers separately."
     },
     "final_plan": {
       "goal_and_evidence": "By the end, students can explain forces as pushes and pulls and name contact and non-contact forces, measure forces in newtons and tell weight from mass, predict motion from balanced and unbalanced forces, and calculate speed from distance and time. Evidence: the exit ticket in lesson 3, the hinge questions in lessons 6 and 9, and the end-of-unit test, which asks students to explain as well as calculate.",
       "prior_knowledge": "Students need to read a scale, divide with decimals and know that a dropped object falls because of gravity. Check it in lesson 1 with three quick questions: read a scale, work out 12 ÷ 4.8, and explain why a dropped ball falls.",
-      "lessons": "1. Prior knowledge check (5 min); worked examples of contact and non-contact forces, then sorting cards in pairs (50 min)\n2. Retrieval (5 min); force arrows modelled on the board, then students draw arrows for everyday situations (50 min)\n3. Retrieval (5 min); mixed practice and an exit ticket on contact and non-contact forces (50 min)\n4. Retrieval (5 min); a worked example with a newtonmeter, then the measuring practical (55 min)\n5. Retrieval (5 min); weight and mass: a worked example of weight = mass × 10 N/kg, then guided practice (50 min)\n6. Retrieval (5 min); mixed practice on weight and mass, ending with a hinge question (50 min)\n7. Retrieval (5 min); balanced and unbalanced forces: demonstration and worked examples with force arrows (50 min)\n8. Retrieval (5 min); textbook reading with three guiding questions, then a group poster explaining one situation (50 min)\n9. Retrieval (5 min); hinge question on steady speed, re-teaching if needed, then practice (50 min)\n10. Retrieval (5 min); speed = distance ÷ time: worked examples, then the toy car practical (55 min)\n11. A mixed retrieval quiz from all four weeks, marked by students, then re-teaching of the two most-missed questions and speed practice from half-finished examples (55 min)\n12. End-of-unit test (55 min)",
-      "retrieval": "Lessons 2 to 11 open with three questions: one from the last lesson, one from one to two weeks back and one older. Lesson 11 is a mixed quiz from all four weeks.",
-      "checkpoints": "Lesson 3: exit ticket on contact and non-contact forces. Lesson 6: hinge question on mass and weight. Lesson 9: hinge question on steady speed. If fewer than about 4 in 5 get it, re-teach with a new worked example at the start of the next lesson before moving on.",
+      "lessons": "1. Prior knowledge check (5 min); worked examples of contact and non-contact forces, then sorting cards in pairs (50 min)\n2. Retrieval (5 min); force arrows modelled on the board, then students draw arrows for everyday situations (50 min)\n3. Retrieval (5 min); mixed practice and an exit ticket on contact and non-contact forces (50 min)\n4. Retrieval (5 min); a worked example with a newtonmeter, then the measuring practical (50 min)\n5. Retrieval (5 min); weight and mass: a worked example of weight = mass × 10 N/kg, then guided practice (50 min)\n6. Retrieval (5 min); mixed practice on weight and mass, ending with a hinge question (50 min)\n7. Retrieval (5 min); balanced and unbalanced forces: demonstration and worked examples with force arrows (50 min)\n8. Retrieval (5 min); textbook reading with three guiding questions, then a group poster explaining one situation (50 min)\n9. Retrieval (5 min); hinge question on steady speed, re-teaching if needed, then practice (50 min)\n10. Retrieval (5 min); speed = distance ÷ time: worked examples, then the toy car practical (50 min)\n11. A mixed retrieval quiz from all four weeks, marked by students, then re-teaching of the two most-missed questions and speed practice from half-finished examples (55 min)\n12. End-of-unit test (55 min)",
+      "retrieval": "Lessons 2 to 10 open with three questions from earlier lessons. Once the unit is far enough along, one comes from the last lesson, one from one to two weeks back and one older. Lesson 11 is a mixed quiz from all four weeks.",
+      "checkpoints": "Lesson 3: exit ticket on contact and non-contact forces. Lesson 6: hinge question on mass and weight. Lesson 9: hinge question on steady speed. If fewer than about 4 in 5 get it, re-teach with a new worked example, in the same lesson or at the start of the next, before moving on.",
       "ai_use": "Students do not use AI for the practicals, the force arrows or the calculations: they would get worse at explaining and measuring forces themselves. The teacher uses AI to write the retrieval questions and hinge questions. In lesson 8, students may ask an AI tool to point out one physics mistake in their poster explanation after writing it themselves, if the school allows students to use AI.",
-      "changes": "The video and notes in week 1 are replaced by worked examples and sorting.\nRetrieval questions open lessons 2 to 11.\nAn exit ticket in lesson 3 and hinge questions in lessons 6 and 9 are added.\nThe revision lesson becomes a mixed retrieval quiz.\nSpeed calculations fade from worked examples to independent work.",
+      "changes": "The video and notes in week 1 are replaced by worked examples and sorting.\nRetrieval questions open lessons 2 to 10.\nAn exit ticket in lesson 3 and hinge questions in lessons 6 and 9 are added.\nThe revision lesson becomes a mixed retrieval quiz.\nSpeed calculations fade from worked examples to half-finished examples, then to the test.",
       "check": "Which value of g your syllabus uses (10 N/kg or 9.8 N/kg).\nWhether the toy car practical fits one lesson with your equipment."
     }
   },
