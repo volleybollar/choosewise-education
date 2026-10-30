@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from conftest_debrief import browser, fill, page, site  # noqa: E402,F401
 
 D = {"group": "8B maths", "grade": "8", "goal": "Solve two-step equations.",
-     "evidence": "11 of 27 divided before subtracting.", "surprise": "", "next": "Word problems, Thursday."}
+     "evidence": "11 of 27 forgot to divide the + 5.", "surprise": "", "next": "Word problems, Thursday."}
 
 DEBRIEF_FORMAT = """Reply in plain text, no tables, in exactly this format:
 LIKELY CAUSES: two possible explanations, numbered 1 and 2, each tied to this lesson's content, and what would tell them apart. Look beyond the first explanation: missing prior knowledge, too much new at once, a common misconception, a task that did not make students think about the goal, or too little practice.
@@ -25,7 +25,7 @@ EXPECTED_DEBRIEF = """Do not include student names or student results in this co
 You are helping a Grade 8 teacher think through a lesson with 8B maths that did not go as planned. Base everything on what the teacher writes below, and tie every point to this lesson's content.
 
 Goal: Solve two-step equations.
-Evidence: 11 of 27 divided before subtracting.
+Evidence: 11 of 27 forgot to divide the + 5.
 Surprise: None given
 Next: Word problems, Thursday.
 

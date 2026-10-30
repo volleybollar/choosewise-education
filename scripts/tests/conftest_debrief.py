@@ -57,7 +57,7 @@ def page(site, browser):
 
 
 def fill(page, group="8B maths", grade="8", goal="Solve two-step equations.",
-         evidence="11 of 27 divided before subtracting.", surprise="", next_="Word problems, Thursday."):
+         evidence="11 of 27 forgot to divide the + 5.", surprise="", next_="Word problems, Thursday."):
     page.fill("#td-group", group)
     page.select_option("#td-grade", grade)
     page.fill("#td-goal", goal)

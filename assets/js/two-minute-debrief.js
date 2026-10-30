@@ -123,8 +123,8 @@
   var HINT_NO_BATCH = 'No unanalysed debriefs saved today.';
   var HINT_ROLLUP_EMPTY = 'Tick saved debriefs or paste rows from your unit journal.';
   var WEEK_MS = 7 * 24 * 3600 * 1000;
-  var EVIDENCE_PLACEHOLDER = 'On the exit ticket, 11 of 27 divided before subtracting.';
-  var FOLLOWUP_PLACEHOLDER = 'Check: 20 of 27 right, up from 11. Most now subtract first.';
+  var EVIDENCE_PLACEHOLDER = 'On the exit ticket, 11 of 27 forgot to divide the + 5.';
+  var FOLLOWUP_PLACEHOLDER = 'Check: 20 of 27 right, up from 16. Most now divide the whole side.';
 
   /* Besökarens lokala datum. toISOString() ger UTC och skulle göra en
      debrief sparad sent på kvällen till fel dag. */

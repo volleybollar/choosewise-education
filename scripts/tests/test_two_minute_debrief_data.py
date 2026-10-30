@@ -14,7 +14,7 @@ DATA = ROOT / "two-minute-debrief/debrief-en.json"
 LL_DATA = ROOT / "lesson-lens/lenses-en.json"
 
 APPROACHES = {"formative-assessment": "strong", "feedback": "strong", "worked-examples": "strong",
-              "hinge-questions": "promising", "teacher-reflection": "framework"}
+              "hinge-questions": "framework", "teacher-reflection": "framework"}
 TICKETS = ["one-question", "hinge", "confidence", "one-sentence"]
 NAMES = ["Emma", "Liam", "Noah", "Olivia", "Ali", "Sara"]
 
@@ -95,6 +95,24 @@ def test_journal_example_shows_improvement():
     first = int(re.search(r"\d+", rows[0]["check"]).group())
     last = int(re.search(r"\d+", rows[-1]["check"]).group())
     assert last > first
+
+
+def test_fact_check_corrections_2026_10_30():
+    # Faktagranskningen: att dividera först är giltigt — felet är att +5 inte divideras;
+    # 11 var antalet fel, så utgångsläget var 16 rätt; dagtid är det inte natt i Storbritannien.
+    exs = {e["id"]: e for e in examples()}
+    assert "divided by 3 first but left the + 5 unchanged" in exs["maths-equations"]["evidence"]
+    assert "the + 5 must then be divided too" in exs["maths-equations"]["reply"]["likely_causes"]
+    assert "night in Australia" in exs["science-day-night"]["reply"]["check_first"]
+    rx = data()["rollup_example"]
+    assert rx["debriefs"][1]["evidence"] == "Check: 20 of 27 right, up from 16."
+    assert "from 16 to 20 of 27 right" in rx["reply"]["what_worked"]
+    assert rx["debriefs"][3]["group"] == "10B English"
+    hinge = next(t for t in data()["exit_tickets"] if t["id"] == "hinge")
+    assert "a dry log" in hinge["student_text"]
+    approaches = {a["id"]: a for a in data()["approaches"]}
+    assert "letter cards everyone holds up at once" in approaches["hinge-questions"]["evidence"]
+    assert "no meta-analysis shows that it improves student learning" in approaches["teacher-reflection"]["evidence"]
 
 
 def test_age_rules_match_lesson_lens():

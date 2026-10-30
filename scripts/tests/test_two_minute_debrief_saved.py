@@ -111,10 +111,10 @@ def test_follow_up_note_shows_last_next(site, browser):
     p.fill("#td-group", "8B maths")
     assert p.is_visible("#td-followup")
     assert p.inner_text("#td-followup") == "Last time (28 Oct): Word problems, Thursday. What did your check show?"
-    assert p.get_attribute("#td-evidence", "placeholder").startswith("Check: 20 of 27 right, up from 11.")
+    assert p.get_attribute("#td-evidence", "placeholder").startswith("Check: 20 of 27 right, up from 16.")
     p.fill("#td-group", "9D science")
     assert p.is_hidden("#td-followup")
-    assert p.get_attribute("#td-evidence", "placeholder") == "On the exit ticket, 11 of 27 divided before subtracting."
+    assert p.get_attribute("#td-evidence", "placeholder") == "On the exit ticket, 11 of 27 forgot to divide the + 5."
     p.context.close()
 
 

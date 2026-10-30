@@ -120,7 +120,7 @@ def test_lessons_that_did_not_go_as_planned_line_in_hero():
 
 def test_evidence_hint_asks_for_patterns_not_names():
     builder = section("td-builder")
-    assert "11 of 27 divided before subtracting" in builder
+    assert "11 of 27 forgot to divide the + 5" in builder
     assert "No names, no individual results." in builder
 
 
