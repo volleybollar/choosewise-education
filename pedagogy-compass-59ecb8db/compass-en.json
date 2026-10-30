@@ -1,0 +1,548 @@
+{
+  "labels": {
+    "strong": {
+      "name": "Strong",
+      "definition": "Meta-analyses of classroom studies show that teaching this way improves learning."
+    },
+    "promising": {
+      "name": "Promising",
+      "definition": "Controlled studies show gains, but results are mixed, small in number or dependent on context."
+    },
+    "framework": {
+      "name": "Framework",
+      "definition": "A useful structure for planning, with no intervention studies behind it as a method."
+    },
+    "theory": {
+      "name": "Theory",
+      "definition": "A way of explaining how learning happens. It shapes values and choices, but cannot be tested as a single intervention."
+    },
+    "school": {
+      "name": "School model",
+      "definition": "A whole-school movement with its own philosophy and practice."
+    },
+    "contested": {
+      "name": "Contested",
+      "definition": "The research does not support using it as a teaching method, even though many teachers believe in it."
+    }
+  },
+  "categories": [
+    {
+      "id": "strong",
+      "letter": "A",
+      "label": "strong",
+      "name": "Strong",
+      "question": "Does it work in classrooms? Yes: replicated, backed by meta-analyses."
+    },
+    {
+      "id": "promising",
+      "letter": "B",
+      "label": "promising",
+      "name": "Promising",
+      "question": "Does it work in classrooms? Supported, but mixed, short-term or dependent on context."
+    },
+    {
+      "id": "framework",
+      "letter": "C",
+      "label": "framework",
+      "name": "Framework",
+      "question": "Does it help you think and plan? Useful, but not testable as an intervention."
+    },
+    {
+      "id": "theory",
+      "letter": "D",
+      "label": "theory",
+      "name": "Theory",
+      "question": "How does it explain learning? Theories and philosophies that shape values and choices."
+    },
+    {
+      "id": "school",
+      "letter": "E",
+      "label": "school",
+      "name": "School model",
+      "question": "What kind of school is it? Whole-school movements."
+    },
+    {
+      "id": "contested",
+      "letter": "F",
+      "label": "contested",
+      "name": "Contested or myth",
+      "question": "Should teachers stop believing it? What the evidence does not support."
+    }
+  ],
+  "problems": [
+    {
+      "id": "they-forget",
+      "name": "They forget everything by the test",
+      "what_it_looks_like": "Students seemed to understand in the lesson, but two weeks later it has gone, and the test shows it.",
+      "model_ids": [
+        "retrieval-practice",
+        "spaced-practice",
+        "interleaving",
+        "elaboration"
+      ]
+    },
+    {
+      "id": "dont-start",
+      "name": "They don't get started",
+      "what_it_looks_like": "The task is set, and half the class sits looking at it, asks what to do or waits for help.",
+      "model_ids": [
+        "cognitive-load",
+        "explicit-instruction",
+        "metacognition",
+        "motivation-theories"
+      ]
+    },
+    {
+      "id": "discussions-die",
+      "name": "Discussions die",
+      "what_it_looks_like": "You ask a good question, the same three students answer, and the rest wait for it to be over.",
+      "model_ids": [
+        "collaborative-learning",
+        "reciprocal-teaching",
+        "dialogic-teaching",
+        "icap"
+      ]
+    },
+    {
+      "id": "mixed-levels",
+      "name": "Mixed levels in one class",
+      "what_it_looks_like": "Some students are finished in five minutes, others have not understood the first step.",
+      "model_ids": [
+        "mastery-learning",
+        "formative-assessment",
+        "udl",
+        "gradual-release"
+      ]
+    },
+    {
+      "id": "copy-ai",
+      "name": "They copy AI answers",
+      "what_it_looks_like": "Homework is fluent and correct, but students cannot explain it, and tests do not match it.",
+      "model_ids": [
+        "retrieval-practice",
+        "metacognition",
+        "generative-learning",
+        "desirable-difficulties"
+      ]
+    },
+    {
+      "id": "overload",
+      "name": "My lessons overload them",
+      "what_it_looks_like": "Slides full of text, many new terms at once, and blank faces halfway through.",
+      "model_ids": [
+        "cognitive-load",
+        "explicit-instruction",
+        "dual-coding",
+        "information-processing"
+      ]
+    },
+    {
+      "id": "not-alone",
+      "name": "They can do it with me, but not alone",
+      "what_it_looks_like": "With you at their side it goes well. On their own, or in a new task, it falls apart.",
+      "model_ids": [
+        "explicit-instruction",
+        "metacognition",
+        "concrete-examples",
+        "gradual-release"
+      ]
+    },
+    {
+      "id": "dont-know-good",
+      "name": "They don't know what good work looks like",
+      "what_it_looks_like": "Students hand in work that misses the point and are surprised by the grade.",
+      "model_ids": [
+        "feedback",
+        "formative-assessment",
+        "solo-alignment"
+      ]
+    },
+    {
+      "id": "stopped-trying",
+      "name": "Some students have stopped trying",
+      "what_it_looks_like": "A few students have decided the subject is not for them and no longer try.",
+      "model_ids": [
+        "feedback",
+        "growth-mindset",
+        "motivation-theories"
+      ]
+    },
+    {
+      "id": "cant-tell",
+      "name": "I can't tell who has understood until the test",
+      "what_it_looks_like": "The lesson felt fine, nods all round, and then the test shows that many did not get it.",
+      "model_ids": [
+        "formative-assessment",
+        "retrieval-practice",
+        "solo-alignment"
+      ]
+    }
+  ],
+  "recipes": [
+    {
+      "id": "knowledge-lesson",
+      "name": "The knowledge lesson",
+      "model_ids": [
+        "retrieval-practice",
+        "explicit-instruction",
+        "cognitive-load"
+      ],
+      "steps": [
+        "Open with three retrieval questions from earlier lessons (5 min).",
+        "Explain and model the new idea in small steps, with one worked example (15 min).",
+        "Guided practice with a half-finished example, checking as you go (10 min).",
+        "Independent practice, then one exit question on today's goal (15 min)."
+      ]
+    },
+    {
+      "id": "discussion-lesson",
+      "name": "The discussion lesson",
+      "model_ids": [
+        "formative-assessment",
+        "collaborative-learning",
+        "dialogic-teaching"
+      ],
+      "steps": [
+        "One open question that has more than one good answer.",
+        "Think alone first (2 min), then talk in pairs (5 min).",
+        "Whole-class discussion where students build on each other's answers (15 min).",
+        "A hinge question at the end shows whether the key idea has landed (5 min)."
+      ]
+    },
+    {
+      "id": "practice-lesson",
+      "name": "The practice lesson",
+      "model_ids": [
+        "retrieval-practice",
+        "feedback",
+        "interleaving"
+      ],
+      "steps": [
+        "A short quiz from memory, mixing this week and earlier weeks (8 min).",
+        "Students check their own answers against a key and mark what they missed (5 min).",
+        "Mixed practice where students must choose the method, not just apply it (20 min).",
+        "Feedback on one thing to do differently next time (10 min)."
+      ]
+    }
+  ],
+  "models": [
+    {
+      "id": "retrieval-practice",
+      "name": "Retrieval practice",
+      "origin": "The Learning Scientists; Roediger & Karpicke",
+      "category": "strong"
+    },
+    {
+      "id": "spaced-practice",
+      "name": "Spaced practice",
+      "origin": "The Learning Scientists; Cepeda et al.",
+      "category": "strong"
+    },
+    {
+      "id": "cognitive-load",
+      "name": "Cognitive load and worked examples",
+      "origin": "Sweller; Kalyuga",
+      "category": "strong"
+    },
+    {
+      "id": "explicit-instruction",
+      "name": "Explicit instruction",
+      "origin": "Stockard et al.; Rosenshine",
+      "category": "strong"
+    },
+    {
+      "id": "feedback",
+      "name": "Feedback",
+      "origin": "Hattie & Timperley",
+      "category": "strong"
+    },
+    {
+      "id": "metacognition",
+      "name": "Metacognition and self-regulation",
+      "origin": "EEF guidance report",
+      "category": "strong"
+    },
+    {
+      "id": "mastery-learning",
+      "name": "Mastery learning",
+      "origin": "Bloom; Guskey",
+      "category": "strong"
+    },
+    {
+      "id": "collaborative-learning",
+      "name": "Collaborative learning",
+      "origin": "Johnson & Johnson",
+      "category": "strong"
+    },
+    {
+      "id": "reciprocal-teaching",
+      "name": "Reciprocal teaching",
+      "origin": "Palincsar & Brown",
+      "category": "strong"
+    },
+    {
+      "id": "formative-assessment",
+      "name": "Formative assessment",
+      "origin": "Black & Wiliam; Wiliam",
+      "category": "strong"
+    },
+    {
+      "id": "interleaving",
+      "name": "Interleaving",
+      "origin": "Rohrer; Brunmair & Richter",
+      "category": "promising"
+    },
+    {
+      "id": "elaboration",
+      "name": "Elaboration",
+      "origin": "Dunlosky et al.",
+      "category": "promising"
+    },
+    {
+      "id": "concrete-examples",
+      "name": "Concrete examples",
+      "origin": "The Learning Scientists",
+      "category": "promising"
+    },
+    {
+      "id": "dual-coding",
+      "name": "Dual coding and multimedia principles",
+      "origin": "Paivio; Mayer",
+      "category": "promising"
+    },
+    {
+      "id": "flipped-classroom",
+      "name": "Flipped classroom",
+      "origin": "Bergmann & Sams",
+      "category": "promising"
+    },
+    {
+      "id": "growth-mindset",
+      "name": "Growth mindset",
+      "origin": "Dweck",
+      "category": "promising"
+    },
+    {
+      "id": "productive-failure",
+      "name": "Productive failure",
+      "origin": "Kapur",
+      "category": "promising"
+    },
+    {
+      "id": "dialogic-teaching",
+      "name": "Dialogic teaching",
+      "origin": "Alexander",
+      "category": "promising"
+    },
+    {
+      "id": "udl",
+      "name": "Universal Design for Learning",
+      "origin": "CAST",
+      "category": "promising"
+    },
+    {
+      "id": "generative-learning",
+      "name": "Generative learning",
+      "origin": "Fiorella & Mayer",
+      "category": "promising"
+    },
+    {
+      "id": "prior-knowledge",
+      "name": "Prior knowledge and advance organisers",
+      "origin": "Ausubel",
+      "category": "framework"
+    },
+    {
+      "id": "blooms-taxonomy",
+      "name": "Bloom's taxonomy",
+      "origin": "Bloom; Anderson & Krathwohl",
+      "category": "framework"
+    },
+    {
+      "id": "solo-alignment",
+      "name": "SOLO and constructive alignment",
+      "origin": "Biggs",
+      "category": "framework"
+    },
+    {
+      "id": "backward-design",
+      "name": "Backward design",
+      "origin": "Wiggins & McTighe",
+      "category": "framework"
+    },
+    {
+      "id": "gradual-release",
+      "name": "Gradual release of responsibility",
+      "origin": "Pearson & Gallagher",
+      "category": "framework"
+    },
+    {
+      "id": "rosenshine",
+      "name": "Rosenshine's principles of instruction",
+      "origin": "Rosenshine",
+      "category": "framework"
+    },
+    {
+      "id": "desirable-difficulties",
+      "name": "Desirable difficulties",
+      "origin": "Bjork",
+      "category": "framework"
+    },
+    {
+      "id": "icap",
+      "name": "ICAP",
+      "origin": "Chi & Wylie",
+      "category": "framework"
+    },
+    {
+      "id": "variation-theory",
+      "name": "Variation theory",
+      "origin": "Marton",
+      "category": "framework"
+    },
+    {
+      "id": "motivation-theories",
+      "name": "Motivation theories",
+      "origin": "Ryan & Deci; Eccles",
+      "category": "framework"
+    },
+    {
+      "id": "visible-learning",
+      "name": "Visible Learning",
+      "origin": "Hattie",
+      "category": "framework"
+    },
+    {
+      "id": "kolb",
+      "name": "Kolb's learning cycle",
+      "origin": "Kolb",
+      "category": "framework"
+    },
+    {
+      "id": "information-processing",
+      "name": "Information processing model",
+      "origin": "Atkinson & Shiffrin; Baddeley",
+      "category": "framework"
+    },
+    {
+      "id": "executive-functions",
+      "name": "Executive functions",
+      "origin": "Diamond",
+      "category": "framework"
+    },
+    {
+      "id": "neuroplasticity",
+      "name": "Neuroplasticity",
+      "origin": "Neuroscience",
+      "category": "framework"
+    },
+    {
+      "id": "social-brain",
+      "name": "The social brain",
+      "origin": "Cozolino; Lieberman",
+      "category": "framework"
+    },
+    {
+      "id": "behaviorism",
+      "name": "Behaviorism",
+      "origin": "Skinner; Watson",
+      "category": "theory"
+    },
+    {
+      "id": "cognitivism",
+      "name": "Cognitivism",
+      "origin": "Piaget; Miller",
+      "category": "theory"
+    },
+    {
+      "id": "constructivism",
+      "name": "Constructivism",
+      "origin": "Piaget; Dewey",
+      "category": "theory"
+    },
+    {
+      "id": "sociocultural",
+      "name": "Sociocultural theory",
+      "origin": "Vygotsky",
+      "category": "theory"
+    },
+    {
+      "id": "progressivism",
+      "name": "Progressivism",
+      "origin": "Dewey",
+      "category": "theory"
+    },
+    {
+      "id": "critical-pedagogy",
+      "name": "Critical pedagogy",
+      "origin": "Freire",
+      "category": "theory"
+    },
+    {
+      "id": "humanistic",
+      "name": "Humanistic perspective",
+      "origin": "Rogers; Maslow",
+      "category": "theory"
+    },
+    {
+      "id": "montessori",
+      "name": "Montessori",
+      "origin": "Maria Montessori",
+      "category": "school"
+    },
+    {
+      "id": "waldorf",
+      "name": "Waldorf (Steiner) education",
+      "origin": "Rudolf Steiner",
+      "category": "school"
+    },
+    {
+      "id": "reggio-emilia",
+      "name": "Reggio Emilia",
+      "origin": "Loris Malaguzzi",
+      "category": "school"
+    },
+    {
+      "id": "freinet",
+      "name": "Freinet",
+      "origin": "Célestin Freinet",
+      "category": "school"
+    },
+    {
+      "id": "learning-styles",
+      "name": "Learning styles (VAK)",
+      "origin": "Various",
+      "category": "contested"
+    },
+    {
+      "id": "multiple-intelligences",
+      "name": "Multiple intelligences as a teaching method",
+      "origin": "Gardner",
+      "category": "contested"
+    },
+    {
+      "id": "brain-training",
+      "name": "Brain and working-memory training",
+      "origin": "Various commercial programmes",
+      "category": "contested"
+    }
+  ],
+  "age_rules": [
+    {
+      "tool": "Copilot Chat",
+      "rule": "Students aged 13 and over, through the school's own Microsoft 365 account. The school's administrator must set each student's age group and consent."
+    },
+    {
+      "tool": "Gemini for Education",
+      "rule": "Open to education users of all ages, with a stricter experience for under-18s. The school's administrator must turn it on."
+    },
+    {
+      "tool": "ChatGPT",
+      "rule": "Ages 13 and over on personal accounts, with a parent's or guardian's permission under 18. ChatGPT for Teachers is for school staff only."
+    },
+    {
+      "tool": "Claude",
+      "rule": "Ages 18 and over. In a school, for teachers only."
+    }
+  ]
+}
