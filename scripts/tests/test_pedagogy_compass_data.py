@@ -72,3 +72,24 @@ def test_labels():
 def test_age_rules_match_lesson_lens():
     ll = json.loads(LL_DATA.read_text(encoding="utf-8"))
     assert data()["age_rules"] == ll["age_rules"]
+
+
+CARD_FIELDS = ["one_liner", "tuesday", "ai_helps", "ai_harms", "evidence"]
+
+
+def test_every_card_is_complete():
+    for m in data()["models"]:
+        for f in CARD_FIELDS:
+            assert m.get(f, "").strip(), (m["id"], f)
+        assert len(m["one_liner"]) <= 140, m["id"]
+        assert 1 <= len(m["sources"]) <= 3, m["id"]
+        for s in m["sources"]:
+            assert s["text"] and s["url"].startswith("https://"), m["id"]
+
+
+def test_corrections_to_johans_document_are_in_the_cards():
+    ms = models()
+    assert "axon" in ms["neuroplasticity"]["evidence"].lower() + ms["neuroplasticity"]["tuesday"].lower()
+    assert "metaphor" in ms["cognitivism"]["evidence"].lower() + ms["cognitivism"]["one_liner"].lower()
+    assert "contested" in ms["visible-learning"]["evidence"].lower()
+    assert all("Waldorff" not in json.dumps(m) for m in data()["models"])
