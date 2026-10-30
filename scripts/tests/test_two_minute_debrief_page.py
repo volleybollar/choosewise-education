@@ -166,3 +166,11 @@ def test_json_text_is_escaped():
           "reply": {"likely_causes": "<u>1.</u>", "next_lesson": "n", "check_first": "c", "one_question": "q?"}}
     out = mod.render_example(ex)
     assert "<b>" not in out and "&lt;b&gt;" in out and "<i>g</i>" not in out and "<u>1.</u>" not in out
+
+
+def test_check_comes_before_moving_on():
+    # Johans provkörning 2026-10-30: AI:n lägger kontrollen efter nästa-lektion-draget,
+    # före gruppen går vidare. Sidan ska säga samma sak.
+    how = section("td-how")
+    assert "use the check before you move on" in how
+    assert "open the lesson with the check" not in how
