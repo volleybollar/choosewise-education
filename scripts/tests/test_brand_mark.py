@@ -192,7 +192,7 @@ def test_the_page_count_is_what_we_think():
     i efterhand av elevguiderundans leveranssteg, som upptäckte att main var
     rött innan den mergade. Fällan har alltså slagit till två gånger på tre
     sidor: det är inte slarv, det är att vakten bara kan se spårade filer."""
-    assert len(PAGES) == 221, len(PAGES)
+    assert len(PAGES) == 222, len(PAGES)
 
 
 @pytest.mark.parametrize("path", PAGES, ids=lambda p: str(p.relative_to(ROOT)))
