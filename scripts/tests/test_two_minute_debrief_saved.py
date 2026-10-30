@@ -65,6 +65,7 @@ def test_delete_one_and_delete_all(site, browser):
     assert p.locator("#td-saved li").count() == 2
     p.locator("#td-saved li").filter(has_text="10A English").get_by_role("button", name="Delete").click()
     assert [i["id"] for i in stored(p)] == ["a"]
+    p.once("dialog", lambda d: d.accept())  # "Delete all" frågar först
     p.click("#td-delete-all")
     assert stored(p) == []
     assert p.locator("#td-saved li").count() == 0

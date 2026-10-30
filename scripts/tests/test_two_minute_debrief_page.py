@@ -17,7 +17,7 @@ PAGE = ROOT / "two-minute-debrief/index.html"
 DATA = ROOT / "two-minute-debrief/debrief-en.json"
 BUILD = ROOT / "scripts/build-two-minute-debrief.py"
 
-SECTIONS = ["td-how", "td-builder", "td-rollup", "td-tickets", "td-examples", "td-evidence", "td-age", "td-download"]
+SECTIONS = ["td-how", "td-builder", "td-rollup", "td-tickets", "td-examples", "td-why", "td-age", "td-download"]
 
 
 def html():
@@ -86,7 +86,7 @@ def test_four_exit_tickets_with_both_setups():
 
 
 def test_evidence_shows_every_source_and_label_names():
-    evidence = section("td-evidence")
+    evidence = section("td-why")
     for a in data()["approaches"]:
         assert escape(a["name"]) in evidence, a["id"]
         for s in a["sources"]:

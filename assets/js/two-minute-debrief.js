@@ -56,8 +56,8 @@
     var lines = [
       PRIVACY,
       '',
-      'You are helping a teacher think through ' + list.length +
-        ' lessons from today that did not go as planned. Treat each debrief on its own. Base everything on what the teacher writes, and tie every point to that lesson\'s content.',
+      'You are helping a teacher think through ' + list.length + (list.length === 1 ? ' lesson' : ' lessons') +
+        ' from today that did not go as planned. Treat each debrief on its own. Base everything on what the teacher writes, and tie every point to that lesson\'s content.',
       ''
     ];
     list.forEach(function (d, i) {
@@ -102,8 +102,13 @@
   }
 
   /* En flik eller radbrytning i ett svar skulle dela raden i fel kolumner
-     när den klistras in i journalen, så de blir mellanslag. */
-  function cell(s) { return String(s || '').replace(/[\t\r\n]+/g, ' ').trim(); }
+     när den klistras in i journalen, så de blir mellanslag. En cell som börjar
+     med = + - @ eller " läser Excel som formel eller citat, så den får ett
+     mellanslag först. */
+  function cell(s) {
+    var t = String(s || '').replace(/[\t\r\n]+/g, ' ').trim();
+    return /^[=+\-@"]/.test(t) ? ' ' + t : t;
+  }
 
   /* En rad till enhetsjournalen: åtta kolumner, de två sista tomma
      (Change I made och Check result fyller läraren i själv). */
@@ -121,6 +126,8 @@
   var KEEP_MS = 14 * 24 * 3600 * 1000;
   var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   var HINT_NO_BATCH = 'No unanalysed debriefs saved today.';
+  var HINT_SAVE_FAILED = "Couldn't save in this browser. Copy the prompt now instead.";
+  var CONFIRM_DELETE_ALL = 'Delete all saved debriefs from this browser?';
   var HINT_ROLLUP_EMPTY = 'Tick saved debriefs or paste rows from your unit journal.';
   var WEEK_MS = 7 * 24 * 3600 * 1000;
   var EVIDENCE_PLACEHOLDER = 'On the exit ticket, 11 of 27 forgot to divide the + 5.';
@@ -156,8 +163,10 @@
   /* Bara poster som ser ut som en sparad debrief räknas; annat i lagringen
      (trasig JSON, något annat program) behandlas som tomt. */
   function isSaved(s) {
-    return !!s && typeof s === 'object' && typeof s.group === 'string' && typeof s.date === 'string' &&
-      /^\d{4}-\d{2}-\d{2}$/.test(s.date) && typeof s.savedAt === 'number';
+    return !!s && typeof s === 'object' && typeof s.id === 'string' && typeof s.savedAt === 'number' &&
+      typeof s.date === 'string' && /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/.test(s.date) &&
+      ['group', 'goal', 'evidence', 'next'].every(function (k) { return typeof s[k] === 'string'; }) &&
+      (typeof s.grade === 'string' || typeof s.grade === 'number');
   }
 
   /* Provar att skriva och ta bort en post. Kastar webbläsaren (privat
@@ -181,11 +190,14 @@
     }
   }
 
+  /* Sparar listan. Svarar false om webbläsaren vägrar (till exempel full lagring). */
   function store(list) {
     try {
       window.localStorage.setItem(KEY, JSON.stringify(list));
+      return true;
     } catch (e) {
       console.error('[two-minute-debrief] could not save:', e);
+      return false;
     }
   }
 
@@ -236,9 +248,13 @@
   /* Visar förra debriefen för samma grupp ovanför Evidence, om det finns en.
      Inget fylls i automatiskt: läraren kan strunta i noten. */
   function updateFollowup() {
-    var last = canSave ? lastForGroup(saved, value('group')) : null;
+    /* Dagens debriefer räknas inte: noten ska inte peka på den man nyss sparade. */
+    var today = localDate(new Date());
+    var earlier = saved.filter(function (s) { return s.date !== today; });
+    var last = canSave ? lastForGroup(earlier, value('group')) : null;
     if (last) {
-      els.followup.textContent = 'Last time (' + shortDate(last.date) + '): ' + last.next + ' What did your check show?';
+      var next = /[.!?]$/.test(last.next) ? last.next : last.next + '.';
+      els.followup.textContent = 'Last time (' + shortDate(last.date) + '): ' + next + ' What did your check show?';
       els.followup.hidden = false;
       els.evidence.placeholder = FOLLOWUP_PLACEHOLDER;
     } else {
@@ -272,16 +288,36 @@
     return b;
   }
 
+  /* Id:n för debrieferna i den kvällsprompt som visas just nu. Kopieringen
+     markerar exakt dem, även om klockan hunnit passera midnatt. */
+  var batchIds = [];
+
   /* Listan över sparade debriefer, nyast först, och kvällsprompten. */
   function renderSaved() {
     els.saved.textContent = '';
     saved.slice().sort(function (a, b) { return b.savedAt - a.savedAt; }).forEach(function (s) {
       var li = document.createElement('li');
+      var name = shortDate(s.date) + ', ' + s.group;
       var label = document.createElement('span');
       label.textContent = shortDate(s.date) + ' · ' + s.group + (s.analysed ? ' (run)' : '');
+      li.appendChild(label);
+      /* En körd debrief kan läggas tillbaka i kvällsprompten, till exempel om
+         kopieringen misslyckades eller hamnade fel. */
+      if (s.analysed) {
+        var again = button('Run again', 'btn--secondary');
+        again.setAttribute('aria-label', 'Run again, ' + name);
+        again.addEventListener('click', function () {
+          s.analysed = false;
+          store(saved);
+          renderAll();
+        });
+        li.appendChild(again);
+      }
       var copyRow = button('Copy journal row', 'btn--secondary');
+      copyRow.setAttribute('aria-label', 'Copy journal row, ' + name);
       copyRow.setAttribute('data-copy', journalRow(s));
       var del = button('Delete', 'btn--secondary');
+      del.setAttribute('aria-label', 'Delete, ' + name);
       del.addEventListener('click', function () {
         saved = saved.filter(function (x) { return x.id !== s.id; });
         store(saved);
@@ -291,10 +327,11 @@
       toast.className = 'copy-toast';
       toast.setAttribute('role', 'status');
       toast.textContent = 'Copied';
-      li.append(label, copyRow, del, toast);
+      li.append(copyRow, del, toast);
       els.saved.appendChild(li);
     });
     var open = todaysOpen();
+    batchIds = open.map(function (s) { return s.id; });
     setPrompt(els['batch-prompt'], els['batch-copy'], open.length ? buildBatchPrompt(open) : '');
     els['batch-hint'].textContent = open.length
       ? open.length + (open.length === 1 ? ' debrief' : ' debriefs') + ' from today in this prompt.'
@@ -357,7 +394,12 @@
       group: d.group, grade: d.grade, goal: d.goal, evidence: d.evidence, surprise: d.surprise,
       next: d.next, analysed: false
     });
-    store(saved);
+    /* Gick det inte att spara står svaren kvar, så att läraren kan kopiera prompten. */
+    if (!store(saved)) {
+      saved.pop();
+      els.hint.textContent = HINT_SAVE_FAILED;
+      return;
+    }
     /* Gruppen och årskursen står kvar: nästa debrief är ofta samma klass. */
     ['goal', 'evidence', 'surprise', 'next'].forEach(function (id) { els[id].value = ''; });
     renderAll();
@@ -384,7 +426,7 @@
       /* Markeringen väntar ett varv, så att copy-to-clipboard.js hinner läsa
          data-copy innan prompten töms. */
       els['batch-copy'].addEventListener('click', function () {
-        var ids = todaysOpen().map(function (s) { return s.id; });
+        var ids = batchIds.slice();
         setTimeout(function () {
           saved.forEach(function (s) { if (ids.indexOf(s.id) !== -1) s.analysed = true; });
           store(saved);
@@ -392,6 +434,7 @@
         }, 0);
       });
       els['delete-all'].addEventListener('click', function () {
+        if (!window.confirm(CONFIRM_DELETE_ALL)) return;
         saved = [];
         store(saved);
         renderAll();
