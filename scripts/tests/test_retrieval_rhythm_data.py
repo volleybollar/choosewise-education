@@ -86,3 +86,15 @@ def test_example_log_spans_eight_weeks_in_order():
 def test_age_rules_match_lesson_lens():
     ll = json.loads(LL_DATA.read_text(encoding="utf-8"))
     assert data()["age_rules"] == ll["age_rules"]
+
+
+def test_grid_counts_back_from_the_newest_entry():
+    f = {x["id"]: x for x in formats()}
+    assert "counting back from the newest entry" in f["retrieval-grid"]["prompt_brief"]
+    assert "Newest week (1 point each)" in f["retrieval-grid"]["example"]["starter"]
+    assert "one to three weeks before" in f["mix"]["prompt_brief"]
+
+
+def test_starter_quiz_does_not_promise_five_questions():
+    quiz = next(x for x in formats() if x["id"] == "starter-quiz")
+    assert "Five" not in quiz["one_liner"]

@@ -84,12 +84,17 @@ def test_example_log_rendered():
         assert escape(row["topic"]) in log and row["date"] in log
 
 
-def test_build_is_idempotent():
+def test_committed_page_matches_a_fresh_build(tmp_path):
+    # Bygger på en kopia, så att testet fångar en JSON-ändring som inte
+    # byggts in, i stället för att tyst bygga om den riktiga sidan.
+    import shutil
+    shutil.copytree(ROOT / "retrieval-rhythm", tmp_path / "retrieval-rhythm")
     mod = load_build()
-    mod.build(ROOT)
-    first = PAGE.read_bytes()
-    mod.build(ROOT)
-    assert PAGE.read_bytes() == first
+    mod.build(tmp_path)
+    once = (tmp_path / "retrieval-rhythm/index.html").read_bytes()
+    assert once == PAGE.read_bytes()
+    mod.build(tmp_path)
+    assert (tmp_path / "retrieval-rhythm/index.html").read_bytes() == once
     assert len(cards()) == 5
 
 

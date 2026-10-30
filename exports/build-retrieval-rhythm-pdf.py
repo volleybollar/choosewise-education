@@ -30,12 +30,12 @@ PAGES = 8
 # Svarsdelen, ordagrant som i assets/js/retrieval-rhythm.js;
 # test_fill_in_matches_builder_prompt håller dem i takt.
 PROMPT_TAIL = [
-    "In starter quizzes and multiple choice, mix content from different times in the log: about two fifths from the most recent lessons, two fifths from two to four weeks earlier, and one fifth from older entries. Count the weeks back from the newest entry in the log. If the log is short, spread the questions across all of it. Mix the order so students cannot tell which week a question comes from. The other formats follow their own description.",
+    "In starter quizzes and multiple choice, mix content from different times in the log: about two fifths from the newest week in the log, two fifths from one to three weeks before it, and one fifth from older entries. Count back from the newest entry in the log. If the log is short, spread the questions across all of it. Mix the order so students cannot tell which week a question comes from. The other formats follow their own description.",
     "",
     "Reply in plain text, no tables. For each lesson write:",
-    "LESSON: the lesson number, the format, and the log entries it draws on, with their dates",
+    "LESSON: the lesson number (with its date, if a first lesson is given), the format, and the log entries it draws on, with their dates",
     "STARTER: the starter exactly as students will see it",
-    "KEY: the answer to every question",
+    "KEY: the answer to every question, or the key points for brain dump and two things I remember",
     "Then once, at the very end:",
     'CHECK: every answer you are not fully sure of, one per line, so the teacher can verify it. Write "None" if there are none.',
 ]
@@ -76,9 +76,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; color: var(--co
 .mcq .opts span::before { content: ""; display: inline-block; width: 4mm; height: 4mm; border: 0.3mm solid var(--color-text); border-radius: 50%; margin-right: 2mm; vertical-align: -0.6mm; }
 .explain { font-size: 11pt; color: var(--color-text); display: flex; flex-direction: column; gap: 4mm; max-width: 165mm; }
 .explain h3 { font-size: 13pt; margin-top: 2mm; }
-.prompt { border: 0.35mm dashed var(--color-accent); border-radius: 1.5mm; padding: 5.5mm 7mm; font-family: 'SF Mono', Menlo, monospace; font-size: 8.4pt; line-height: 1.6; color: var(--color-text); white-space: pre-wrap; }
+.prompt { border: 0.35mm dashed var(--color-accent); border-radius: 1.5mm; padding: 5.5mm 7mm; font-family: 'SF Mono', Menlo, monospace; font-size: 8pt; line-height: 1.5; color: var(--color-text); white-space: pre-wrap; }
 .blank { display: inline-block; border-bottom: 0.3mm solid var(--color-text); }
-.note { font-size: 9pt; color: var(--color-text-muted); }
+.note { font-size: 8.6pt; color: var(--color-text-muted); }
 .foot { margin-top: auto; font-size: 7.5pt; color: var(--color-text-muted); border-top: 0.3mm solid var(--color-border); padding-top: 2.5mm; display: flex; justify-content: space-between; }
 """
 
@@ -120,7 +120,7 @@ def _frame(fid: str) -> str:
                 '<p class="note">Write everything you remember. Then add what you missed in a different colour.</p>'
                 '<div class="box"></div>')
     if fid == "retrieval-grid":
-        rows = [("Last week", "1 point"), ("2–4 weeks ago", "2 points"), ("Older", "3 points")]
+        rows = [("Newest week", "1 point"), ("1–3 weeks before", "2 points"), ("Older", "3 points")]
         cells = "".join(
             f'<div class="label">{name}<br>{points}</div><div class="cell"></div><div class="cell"></div><div class="cell"></div>'
             for name, points in rows
@@ -144,7 +144,7 @@ def _format_page(fmt: dict, page_no: int) -> str:
         f'<div class="top"><div class="kicker">Starter format · {int(fmt["minutes"])} min</div>'
         f'<h2>{escape(fmt["name"])}</h2></div>'
         f'<p class="oneliner">{escape(fmt["one_liner"])}</p>'
-        f'<ol class="steps">{steps}</ol>'
+        f'<p class="note">For the teacher</p><ol class="steps">{steps}</ol>'
         '<div class="sheet"><div class="sheet-head"><span>Name</span><span>Date</span></div>'
         f"{_frame(fmt['id'])}</div>"
         f"{_foot(page_no)}</section>"
@@ -187,7 +187,7 @@ def _fill_in(data: dict) -> str:
         "Do not include student names or student results in this conversation.",
         "",
         f"You are helping a Grade {blank(12)} {blank(45)} teacher plan retrieval practice starters for next week. "
-        "Use only content from the topic log below. Do not add new content.",
+        "Ask only about content in the topic log below. The KEY may add a short explanation.",
         "",
         f"Format: {blank(60)} (the format's name, and its line from the list below)",
         f"Number of lessons: {blank(12)}",

@@ -15,6 +15,8 @@
   var DATA_URL = '/retrieval-rhythm/rhythm-en.json';
   var HINT_EMPTY = 'Fill in subject and paste your topic log to see your prompt.';
   var HINT_FAILED = "Couldn't load the formats — reload the page.";
+  // Läses upp av skärmläsare (aria-live) när prompten är klar.
+  var HINT_READY = 'Your prompt is ready.';
 
   /* Bygger prompten. Ren funktion: samma indata ger alltid samma text.
      Texten är fastställd i planen — ändra den bara tillsammans med
@@ -24,7 +26,7 @@
       'Do not include student names or student results in this conversation.',
       '',
       'You are helping a Grade ' + input.grade + ' ' + input.subject +
-        ' teacher plan retrieval practice starters for next week. Use only content from the topic log below. Do not add new content.',
+        ' teacher plan retrieval practice starters for next week. Ask only about content in the topic log below. The KEY may add a short explanation.',
       '',
       'Format: ' + input.format.name + '. ' + input.format.prompt_brief,
       'Number of lessons: ' + input.lessons
@@ -36,12 +38,12 @@
       'Topic log (date, topic, key points):',
       input.log,
       '',
-      'In starter quizzes and multiple choice, mix content from different times in the log: about two fifths from the most recent lessons, two fifths from two to four weeks earlier, and one fifth from older entries. Count the weeks back from the newest entry in the log. If the log is short, spread the questions across all of it. Mix the order so students cannot tell which week a question comes from. The other formats follow their own description.',
+      'In starter quizzes and multiple choice, mix content from different times in the log: about two fifths from the newest week in the log, two fifths from one to three weeks before it, and one fifth from older entries. Count back from the newest entry in the log. If the log is short, spread the questions across all of it. Mix the order so students cannot tell which week a question comes from. The other formats follow their own description.',
       '',
       'Reply in plain text, no tables. For each lesson write:',
-      'LESSON: the lesson number, the format, and the log entries it draws on, with their dates',
+      'LESSON: the lesson number (with its date, if a first lesson is given), the format, and the log entries it draws on, with their dates',
       'STARTER: the starter exactly as students will see it',
-      'KEY: the answer to every question',
+      'KEY: the answer to every question, or the key points for brain dump and two things I remember',
       'Then once, at the very end:',
       'CHECK: every answer you are not fully sure of, one per line, so the teacher can verify it. Write "None" if there are none.'
     );
@@ -75,7 +77,7 @@
     els.prompt.value = text;
     els.copy.disabled = false;
     els.copy.setAttribute('data-copy', text);
-    els.hint.textContent = '';
+    els.hint.textContent = HINT_READY;
   }
 
   function init(data) {

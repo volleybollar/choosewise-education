@@ -20,7 +20,7 @@
       "name": "Mix",
       "one_liner": "A different format each lesson, so the week does not feel the same every day.",
       "minutes": 5,
-      "prompt_brief": "Use a different format for each lesson, chosen from these five: starter quiz (short questions from memory, each with one clear answer); brain dump (students write everything they remember about one earlier topic for three minutes; the KEY lists the key points); retrieval grid (nine questions in three labelled lines: last week 1 point, two to four weeks ago 2 points, older 3 points); multiple choice with misconceptions (options A to D, where every wrong option is a common misconception; the KEY names it); two things I remember (students write two things from one named earlier lesson and one question they still have).",
+      "prompt_brief": "Use a different format for each lesson, chosen from these five: starter quiz (short questions from memory, each with one clear answer); brain dump (students write everything they remember about one earlier topic for three minutes; the KEY lists the key points); retrieval grid (nine questions in three labelled lines, counting back from the newest entry: the newest week 1 point, one to three weeks before it 2 points, older 3 points); multiple choice with misconceptions (options A to D, where every wrong option is a common misconception; the KEY names it); two things I remember (students write two things from one named earlier lesson and one question they still have).",
       "steps": [
         "Monday might be a quiz, Tuesday a brain dump, Thursday a grid.",
         "Students meet the same content in different ways.",
@@ -30,7 +30,7 @@
     {
       "id": "starter-quiz",
       "name": "Starter quiz",
-      "one_liner": "Five short questions answered from memory before anything else happens.",
+      "one_liner": "A few short questions answered from memory before anything else happens.",
       "minutes": 5,
       "prompt_brief": "Short questions answered from memory in about five minutes. Each question has one clear answer: a word, a name or a sentence.",
       "steps": [
@@ -66,7 +66,7 @@
       "name": "Retrieval grid",
       "one_liner": "Nine questions from different weeks, worth more points the further back they go.",
       "minutes": 7,
-      "prompt_brief": "A grid of nine questions in three rows: last week (1 point), two to four weeks ago (2 points) and older (3 points). Write it as three labelled lines, not as a table.",
+      "prompt_brief": "A grid of nine questions in three labelled lines, counting back from the newest entry in the log: the newest week (1 point), one to three weeks before it (2 points) and older (3 points). Write it as three labelled lines, not as a table.",
       "steps": [
         "Students answer as many questions as they can, in any order.",
         "Older content earns more points, so it is worth trying the hard row.",
@@ -74,8 +74,8 @@
       ],
       "example": {
         "lesson": 3,
-        "starter": "Last week (1 point each): What does DORA stand for? | Name one thing DORA allowed the government to censor. | What were recruitment posters meant to do?\n2–4 weeks ago (2 points each): When did conscription begin in Britain? | What was one aim of the Battle of the Somme? | Why did the Western Front become a stalemate?\nOlder (3 points each): What does MAIN stand for? | Which countries made up the Triple Alliance? | What did Austria-Hungary do after Serbia did not accept all of its ultimatum?",
-        "key": "Last week: Defence of the Realm Act. Newspapers or letters. Persuade men to volunteer for the army.\n2–4 weeks ago: 1916. To relieve pressure on the French at Verdun (or to break through the German lines). Machine guns and artillery made defending much easier than attacking.\nOlder: militarism, alliances, imperialism, nationalism. Germany, Austria-Hungary and Italy. It declared war on Serbia (28 July 1914)."
+        "starter": "Newest week (1 point each): What does DORA stand for? | Name one thing DORA allowed the government to censor. | What were recruitment posters meant to do?\n1–3 weeks before (2 points each): When did conscription begin in Britain? | What was one aim of the Battle of the Somme? | Why did the Western Front become a stalemate?\nOlder (3 points each): What does MAIN stand for? | Which countries made up the Triple Alliance? | What did Austria-Hungary do after Serbia did not accept all of its ultimatum?",
+        "key": "Newest week: Defence of the Realm Act. Newspapers or letters. Persuade men to volunteer for the army.\n1–3 weeks before: 1916. To relieve pressure on the French at Verdun (or to break through the German lines). Machine guns and artillery made defending much easier than attacking.\nOlder: militarism, alliances, imperialism, nationalism. Germany, Austria-Hungary and Italy. It declared war on Serbia (28 July 1914)."
       }
     },
     {

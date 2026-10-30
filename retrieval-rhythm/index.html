@@ -64,7 +64,7 @@
       <div class="container">
         <h2 class="section__title">Your weekly rhythm</h2>
         <ol class="tm-steps">
-          <li><strong>After each lesson (1 min).</strong> Add a row to your log: the date, the topic and two or three key points.</li>
+          <li><strong>After each lesson (1 min).</strong> Add a row to your log: the date, the topic and two or three key points. Keep notes about students out of it.</li>
           <li><strong>On Friday (5 min).</strong> Paste the log into the prompt below and copy it into your AI tool.</li>
           <li><strong>Before Monday (3 min).</strong> Check the answer key, especially anything under CHECK, and put the starters on your slides.</li>
         </ol>
@@ -129,11 +129,13 @@
               <input class="input" id="rr-date" type="date">
             </label>
           </div>
-          <label class="tm-field tm-field--wide">
-            <span class="tm-field__label">Your topic log</span>
-            <span class="tm-field__note">Copy the rows from your log and paste them here, or type one lesson per line: date, topic, key points.</span>
-            <textarea class="input" id="rr-log" rows="8" maxlength="8000" placeholder="2026-09-01  Long-term causes of the First World War  MAIN: militarism, alliances, imperialism, nationalism&#10;2026-09-08  The alliance system  Triple Entente and Triple Alliance&#10;2026-10-27  Propaganda and censorship  DORA 1914; recruitment posters" required></textarea>
-          </label>
+          <!-- Loggen. Etiketten är kort; noten kopplas med aria-describedby.
+               Gränsen är hög med flit: en logg för ett helt läsår får plats. -->
+          <div class="tm-field tm-field--wide">
+            <label class="tm-field__label" for="rr-log">Your topic log</label>
+            <span class="tm-field__note" id="rr-log-note">Copy columns A to C from your log and paste them here, or type one lesson per line: date, topic, key points.</span>
+            <textarea class="input" id="rr-log" rows="8" maxlength="40000" aria-describedby="rr-log-note" placeholder="2026-09-01  Long-term causes of the First World War  MAIN: militarism, alliances, imperialism, nationalism&#10;2026-09-08  The alliance system  Triple Entente and Triple Alliance&#10;2026-10-27  Propaganda and censorship  DORA 1914; recruitment posters" required></textarea>
+          </div>
         </form>
         <label class="tm-field tm-field--wide">
           <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
@@ -160,7 +162,7 @@
 <!-- formats:start -->
 <article class="tm-move rr-format" id="starter-quiz" data-format-id="starter-quiz">
   <div class="tm-move__head"><div><span class="tm-move__num">5 min</span><h3 class="tm-move__name">Starter quiz</h3></div></div>
-  <p class="tm-move__line">Five short questions answered from memory before anything else happens.</p>
+  <p class="tm-move__line">A few short questions answered from memory before anything else happens.</p>
   <ol class="rr-steps"><li>Questions on the board as students come in. No notes, no books.</li><li>Three minutes to answer, then students check and correct their own answers.</li><li>Ask who got each question right, and re-teach what most missed.</li></ol>
   <details class="tm-move__more"><summary>An example from the History log</summary><div class="tm-example rr-example"><h4 class="tm-example__subject">Lesson 1 <span>· Starter quiz</span></h4><dl><dt>Starter</dt><dd class="rr-example__text">1. Name the three countries in the Triple Entente.
 2. What did DORA allow the British government to do?
@@ -184,10 +186,10 @@
   <div class="tm-move__head"><div><span class="tm-move__num">7 min</span><h3 class="tm-move__name">Retrieval grid</h3></div></div>
   <p class="tm-move__line">Nine questions from different weeks, worth more points the further back they go.</p>
   <ol class="rr-steps"><li>Students answer as many questions as they can, in any order.</li><li>Older content earns more points, so it is worth trying the hard row.</li><li>Go through the key. Note which row the class found hardest.</li></ol>
-  <details class="tm-move__more"><summary>An example from the History log</summary><div class="tm-example rr-example"><h4 class="tm-example__subject">Lesson 3 <span>· Retrieval grid</span></h4><dl><dt>Starter</dt><dd class="rr-example__text">Last week (1 point each): What does DORA stand for? | Name one thing DORA allowed the government to censor. | What were recruitment posters meant to do?
-2–4 weeks ago (2 points each): When did conscription begin in Britain? | What was one aim of the Battle of the Somme? | Why did the Western Front become a stalemate?
-Older (3 points each): What does MAIN stand for? | Which countries made up the Triple Alliance? | What did Austria-Hungary do after Serbia did not accept all of its ultimatum?</dd><dt>Key</dt><dd class="rr-example__text">Last week: Defence of the Realm Act. Newspapers or letters. Persuade men to volunteer for the army.
-2–4 weeks ago: 1916. To relieve pressure on the French at Verdun (or to break through the German lines). Machine guns and artillery made defending much easier than attacking.
+  <details class="tm-move__more"><summary>An example from the History log</summary><div class="tm-example rr-example"><h4 class="tm-example__subject">Lesson 3 <span>· Retrieval grid</span></h4><dl><dt>Starter</dt><dd class="rr-example__text">Newest week (1 point each): What does DORA stand for? | Name one thing DORA allowed the government to censor. | What were recruitment posters meant to do?
+1–3 weeks before (2 points each): When did conscription begin in Britain? | What was one aim of the Battle of the Somme? | Why did the Western Front become a stalemate?
+Older (3 points each): What does MAIN stand for? | Which countries made up the Triple Alliance? | What did Austria-Hungary do after Serbia did not accept all of its ultimatum?</dd><dt>Key</dt><dd class="rr-example__text">Newest week: Defence of the Realm Act. Newspapers or letters. Persuade men to volunteer for the army.
+1–3 weeks before: 1916. To relieve pressure on the French at Verdun (or to break through the German lines). Machine guns and artillery made defending much easier than attacking.
 Older: militarism, alliances, imperialism, nationalism. Germany, Austria-Hungary and Italy. It declared war on Serbia (28 July 1914).</dd></dl></div></details>
   <a class="tm-move__use" href="?format=retrieval-grid#rr-builder" data-use-format="retrieval-grid" aria-label="Use this format: Retrieval grid">Use this format</a>
 </article>

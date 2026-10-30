@@ -53,6 +53,7 @@ def test_each_format_on_its_own_page():
         assert has(f"{f['minutes']} min", page), f["id"]
         assert has(f["steps"][-1], page), f["id"]
         assert has("Name", page), f["id"]
+        assert has("For the teacher", page), f["id"]
 
 
 def test_student_and_parent_page():
@@ -67,7 +68,7 @@ def _builder_fixed_lines():
     strings = re.findall(r"""^\s*(['"])((?:Reply in plain text|LESSON:|STARTER:|KEY:|Then once|CHECK:|Topic log|In starter quizzes and multiple choice, mix).*?)\1,?\s*$""", block, re.M)
     lines = [s for _, s in strings]
     assert len(lines) == 8, lines
-    fixed = ["Use only content from the topic log below. Do not add new content.",
+    fixed = ["Ask only about content in the topic log below. The KEY may add a short explanation.",
              "(for starter quizzes and multiple choice)"]
     for f in fixed:
         assert f in block, f

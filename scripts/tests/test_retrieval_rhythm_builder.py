@@ -165,4 +165,28 @@ def test_prompt_lets_grid_and_open_formats_follow_their_own_shape(page):
     assert "The other formats follow their own description." in text
     assert "except in a retrieval grid" not in text
     # Utan datum behöver modellen veta varifrån veckorna räknas.
-    assert "Count the weeks back from the newest entry in the log." in text
+    assert "Count back from the newest entry in the log." in text
+    assert "two fifths from one to three weeks before it" in text
+
+
+def test_prompt_rules_match_the_examples_and_open_formats(page):
+    # Slutgranskningen 2026-10-30: exemplens nycklar förklarar mer än loggen,
+    # KEY ska passa format utan frågor, och datumet ska användas.
+    fill(page, date="2026-11-02")
+    text = prompt(page)
+    assert "Ask only about content in the topic log below. The KEY may add a short explanation." in text
+    assert "Do not add new content." not in text
+    assert "KEY: the answer to every question, or the key points for brain dump and two things I remember" in text
+    assert "LESSON: the lesson number (with its date, if a first lesson is given)" in text
+
+
+def test_long_log_is_not_cut(page):
+    assert int(page.get_attribute("#rr-log", "maxlength")) >= 40000
+
+
+def test_log_field_has_short_name_and_ready_message(page):
+    name = page.evaluate("() => document.getElementById('rr-log').labels[0].textContent.trim()")
+    assert name == "Your topic log"
+    assert "rr-log-note" in page.get_attribute("#rr-log", "aria-describedby")
+    fill(page)
+    assert page.text_content("#rr-hint").strip() == "Your prompt is ready."

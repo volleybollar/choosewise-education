@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[2]
 XLSX = ROOT / "assets/downloads/retrieval-rhythm-log.xlsx"
 DATA = ROOT / "retrieval-rhythm/rhythm-en.json"
 BUILD = ROOT / "exports/build-retrieval-rhythm-log.py"
-HEADERS = ["Date", "Topic", "Key points", "Notes"]
+HEADERS = ["Date", "Topic", "Key points", "Notes (not for the prompt)"]
 
 
 def rows():
@@ -23,13 +23,19 @@ def rows():
 
 def test_workbook_has_both_sheets():
     wb = load_workbook(XLSX)
-    assert wb.sheetnames == ["Log", "How to use"]
+    assert wb.sheetnames == ["Log", "Example", "How to use"]
 
 
-def test_log_header_and_example_rows():
+def test_log_sheet_is_empty_for_the_teacher():
     ws = load_workbook(XLSX)["Log"]
     assert [c.value for c in ws[1]] == HEADERS
     assert ws.freeze_panes == "A2"
+    assert all(c.value is None for c in ws[2])
+
+
+def test_example_sheet_has_the_example_rows():
+    ws = load_workbook(XLSX)["Example"]
+    assert [c.value for c in ws[1]] == HEADERS
     first = rows()[0]
     assert [ws.cell(2, i).value for i in (1, 2, 3)] == [first["date"], first["topic"], first["key_points"]]
     assert ws.cell(1 + len(rows()), 2).value == rows()[-1]["topic"]
@@ -48,6 +54,7 @@ def test_how_to_use_mentions_the_prompt_and_privacy():
     text = " ".join(str(c.value) for row in ws.iter_rows() for c in row if c.value)
     assert "choosewise.education/retrieval-rhythm" in text
     assert "student names" in text
+    assert "columns A to C" in text
 
 
 def test_build_function_uses_the_json():
@@ -55,4 +62,4 @@ def test_build_function_uses_the_json():
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     wb = mod.build_workbook(rows())
-    assert wb["Log"].cell(2, 2).value == rows()[0]["topic"]
+    assert wb["Example"].cell(2, 2).value == rows()[0]["topic"]
