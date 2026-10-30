@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retrieval Rhythm — choosewise.education</title>
+  <meta name="description" content="A week of retrieval practice starters in about ten minutes. Keep a simple log of what you teach, paste it into one prompt, and get starters that mix last lesson, last month and last term. Free, for any AI tool. Grades 6–12.">
+  <meta property="og:title" content="Retrieval Rhythm — choosewise.education">
+  <meta property="og:description" content="A week of retrieval practice starters in about ten minutes. Keep a simple log of what you teach, paste it into one prompt, and get starters that mix last lesson, last month and last term. Free, for any AI tool. Grades 6–12.">
+  <meta property="og:image" content="https://choosewise.education/assets/images/brand/og/retrievalrhythm-en.png">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (byggare, kort, etiketter, prefix tm-),
+       och sedan det som är nytt för Retrieval Rhythm (prefix rr-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/retrieval-rhythm.css?v=20261030a">
+<!-- seo:start (build-seo-meta.py) -->
+<link rel="canonical" href="https://choosewise.education/retrieval-rhythm/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."}]}</script>
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: vad verktyget är, de tre löftena och ett färdigt exempel,
+         så att läraren ser vad hen får innan hen gör något. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/pedagogy/">← Pedagogy + AI</a>
+      <span class="eyebrow">Free tool · Grades 6–12</span>
+      <h1>Retrieval Rhythm</h1>
+      <p class="lede">Start every lesson with students answering from memory, mixing last lesson, last month and last term. Keep a simple log of what you teach, paste it into one prompt on Friday, and get next week's starters with answer keys.</p>
+      <ul class="tm-promises">
+        <li><strong>No personal data.</strong> The log holds dates and topics. Student names and results never go in.</li>
+        <li><strong>Any AI tool.</strong> The prompt works in Copilot, Gemini, ChatGPT and Claude.</li>
+        <li><strong>About ten minutes a week.</strong> Add to the log, run the prompt, check the key.</li>
+      </ul>
+      <div class="rr-hero-example">
+        <h2 class="rr-hero-example__title">What you get back</h2>
+        <!-- Exemplet byggs av scripts/build-retrieval-rhythm.py från
+             startquizens exempel i retrieval-rhythm/rhythm-en.json. -->
+<!-- hero-example:start -->
+<div class="tm-example rr-example"><h3 class="tm-example__subject">Lesson 1 <span>· Starter quiz</span></h3><dl><dt>Starter</dt><dd class="rr-example__text">1. Name the three countries in the Triple Entente.
+2. What did DORA allow the British government to do?
+3. In which city was Archduke Franz Ferdinand assassinated?
+4. Why did the Schlieffen Plan bring Britain into the war?
+5. Name one way women contributed to the war effort at home.</dd><dt>Key</dt><dd class="rr-example__text">1. Britain, France and Russia.
+2. Censor newspapers and letters, and take over land, buildings and industry needed for the war.
+3. Sarajevo.
+4. The German army marched through neutral Belgium, and Britain had promised to protect Belgium&#x27;s neutrality.
+5. Working in munitions factories (also accept: transport, farming, nursing).</dd></dl></div>
+<!-- hero-example:end -->
+      </div>
+    </section>
+
+    <!-- Veckorytmen i tre steg, med exempelloggen som alla exempel bygger på. -->
+    <section class="section section--alt" id="rr-rhythm">
+      <div class="container">
+        <h2 class="section__title">Your weekly rhythm</h2>
+        <ol class="tm-steps">
+          <li><strong>After each lesson (1 min).</strong> Add a row to your log: the date, the topic and two or three key points. Keep notes about students out of it.</li>
+          <li><strong>On Friday (5 min).</strong> Paste the log into the prompt below and copy it into your AI tool.</li>
+          <li><strong>Before Monday (3 min).</strong> Check the answer key, especially anything under CHECK, and put the starters on your slides.</li>
+        </ol>
+        <h3 class="rr-log__title">An example log: Grade 9 History</h3>
+        <p class="tm-note rr-log__note">Every example on this page is built from this log. Download an empty log further down.</p>
+<!-- log:start -->
+<ul class="rr-log"><li><span class="rr-log__date">2026-09-01</span> <strong>Long-term causes of the First World War</strong> <span class="rr-log__points">MAIN: militarism, alliances, imperialism, nationalism</span></li><li><span class="rr-log__date">2026-09-08</span> <strong>The alliance system</strong> <span class="rr-log__points">Triple Entente: Britain, France, Russia. Triple Alliance: Germany, Austria-Hungary, Italy</span></li><li><span class="rr-log__date">2026-09-15</span> <strong>The July Crisis 1914</strong> <span class="rr-log__points">Franz Ferdinand assassinated in Sarajevo, 28 June 1914; Austria-Hungary&#x27;s ultimatum to Serbia; declarations of war</span></li><li><span class="rr-log__date">2026-09-22</span> <strong>The Schlieffen Plan</strong> <span class="rr-log__points">Defeat France quickly through Belgium, then turn to Russia; Belgian neutrality brought Britain in</span></li><li><span class="rr-log__date">2026-10-06</span> <strong>Trench warfare on the Western Front</strong> <span class="rr-log__points">Stalemate by end of 1914; trenches from the Channel to Switzerland; machine guns and artillery</span></li><li><span class="rr-log__date">2026-10-13</span> <strong>The Battle of the Somme</strong> <span class="rr-log__points">Began 1 July 1916; aim to relieve Verdun and break through; very heavy British losses on the first day</span></li><li><span class="rr-log__date">2026-10-20</span> <strong>The home front</strong> <span class="rr-log__points">Conscription from 1916; women in munitions factories; rationing from 1918</span></li><li><span class="rr-log__date">2026-10-27</span> <strong>Propaganda and censorship</strong> <span class="rr-log__points">DORA (Defence of the Realm Act) 1914; recruitment posters; censored newspapers and letters</span></li></ul>
+<!-- log:end -->
+      </div>
+    </section>
+
+    <!-- Promptbyggaren. Allt sker i webbläsaren: inget sparas och inget
+         skickas någonstans. Logiken finns i assets/js/retrieval-rhythm.js. -->
+    <section class="section" id="rr-builder">
+      <div class="container">
+        <h2 class="section__title">Build next week's prompt</h2>
+        <p class="tm-privacy"><strong>Do not include student names or student results.</strong> The prompt only needs your subject, grade and topic log.</p>
+        <!-- onsubmit="return false" hindrar att Enter i ett fält laddar om sidan:
+             prompten byggs medan man skriver, så formuläret ska aldrig skickas. -->
+        <form class="tm-form rr-form" id="rr-form" autocomplete="off" onsubmit="return false">
+          <!-- Formatet. Mix är förvalt: ett nytt format varje lektion. Noten
+               kopplas med aria-describedby så att etiketten förblir kort. -->
+          <div class="tm-field">
+            <label class="tm-field__label" for="rr-format">Format</label>
+            <select class="input" id="rr-format" aria-describedby="rr-format-note" required></select>
+            <span class="tm-field__note" id="rr-format-note">Not sure? Mix gives a different format each lesson. Read about the five formats <a href="#rr-formats">further down</a>.</span>
+          </div>
+          <label class="tm-field">
+            <span class="tm-field__label">Subject</span>
+            <input class="input" id="rr-subject" list="rr-subjects" maxlength="60" placeholder="e.g. History" required>
+            <datalist id="rr-subjects">
+              <option value="Art"><option value="Biology"><option value="Chemistry"><option value="Civics">
+              <option value="Economics"><option value="English"><option value="Geography"><option value="History">
+              <option value="Maths"><option value="Modern languages"><option value="Music"><option value="PE and health">
+              <option value="Physics"><option value="Religion and ethics"><option value="Science"><option value="Social studies"><option value="Technology">
+            </datalist>
+          </label>
+          <!-- Tre små val på en rad: årskurs, antal lektioner och antal frågor. -->
+          <div class="rr-numbers">
+            <label class="tm-field">
+              <span class="tm-field__label">Grade</span>
+              <select class="input" id="rr-grade">
+                <option value="6">Grade 6</option><option value="7">Grade 7</option><option value="8" selected>Grade 8</option>
+                <option value="9">Grade 9</option><option value="10">Grade 10</option><option value="11">Grade 11</option>
+                <option value="12">Grade 12</option>
+              </select>
+            </label>
+            <label class="tm-field">
+              <span class="tm-field__label">Lessons next week</span>
+              <select class="input" id="rr-lessons">
+                <option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option>
+              </select>
+            </label>
+            <label class="tm-field">
+              <span class="tm-field__label">Questions per starter</span>
+              <select class="input" id="rr-questions">
+                <option>3</option><option>4</option><option selected>5</option><option>6</option>
+              </select>
+            </label>
+            <label class="tm-field">
+              <span class="tm-field__label">First lesson (optional)</span>
+              <input class="input" id="rr-date" type="date">
+            </label>
+          </div>
+          <!-- Loggen. Etiketten är kort; noten kopplas med aria-describedby.
+               Gränsen är hög med flit: en logg för ett helt läsår får plats. -->
+          <div class="tm-field tm-field--wide">
+            <label class="tm-field__label" for="rr-log">Your topic log</label>
+            <span class="tm-field__note" id="rr-log-note">Copy columns A to C from your log and paste them here, or type one lesson per line: date, topic, key points.</span>
+            <textarea class="input" id="rr-log" rows="8" maxlength="40000" aria-describedby="rr-log-note" placeholder="2026-09-01  Long-term causes of the First World War  MAIN: militarism, alliances, imperialism, nationalism&#10;2026-09-08  The alliance system  Triple Entente and Triple Alliance&#10;2026-10-27  Propaganda and censorship  DORA 1914; recruitment posters" required></textarea>
+          </div>
+        </form>
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
+          <textarea class="input tm-prompt" id="rr-prompt" rows="14" readonly></textarea>
+        </label>
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--primary" id="rr-copy" data-copy="" aria-describedby="rr-hint" disabled>Copy prompt</button>
+          <!-- Ledtråden står bredvid knappen så att man ser varför den är grå.
+               Den töms av retrieval-rhythm.js när prompten är klar. -->
+          <p class="tm-hint" id="rr-hint" aria-live="polite">Fill in subject and paste your topic log to see your prompt.</p>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- De fem formaten. Korten mellan markörerna byggs av
+         scripts/build-retrieval-rhythm.py från retrieval-rhythm/rhythm-en.json —
+         redigera JSON-filen, inte korten, och kör skriptet igen. -->
+    <section class="section section--alt" id="rr-formats">
+      <div class="container">
+        <h2 class="section__title">Five starter formats</h2>
+        <p class="section__lede">Each format makes students pull earlier content out of memory in a different way. Choose one for the week, or Mix to vary them.</p>
+        <div class="tm-grid">
+<!-- formats:start -->
+<article class="tm-move rr-format" id="starter-quiz" data-format-id="starter-quiz">
+  <div class="tm-move__head"><div><span class="tm-move__num">5 min</span><h3 class="tm-move__name">Starter quiz</h3></div></div>
+  <p class="tm-move__line">A few short questions answered from memory before anything else happens.</p>
+  <ol class="rr-steps"><li>Questions on the board as students come in. No notes, no books.</li><li>Three minutes to answer, then students check and correct their own answers.</li><li>Ask who got each question right, and re-teach what most missed.</li></ol>
+  <details class="tm-move__more"><summary>An example from the History log</summary><div class="tm-example rr-example"><h4 class="tm-example__subject">Lesson 1 <span>· Starter quiz</span></h4><dl><dt>Starter</dt><dd class="rr-example__text">1. Name the three countries in the Triple Entente.
+2. What did DORA allow the British government to do?
+3. In which city was Archduke Franz Ferdinand assassinated?
+4. Why did the Schlieffen Plan bring Britain into the war?
+5. Name one way women contributed to the war effort at home.</dd><dt>Key</dt><dd class="rr-example__text">1. Britain, France and Russia.
+2. Censor newspapers and letters, and take over land, buildings and industry needed for the war.
+3. Sarajevo.
+4. The German army marched through neutral Belgium, and Britain had promised to protect Belgium&#x27;s neutrality.
+5. Working in munitions factories (also accept: transport, farming, nursing).</dd></dl></div></details>
+  <a class="tm-move__use" href="?format=starter-quiz#rr-builder" data-use-format="starter-quiz" aria-label="Use this format: Starter quiz">Use this format</a>
+</article>
+<article class="tm-move rr-format" id="brain-dump" data-format-id="brain-dump">
+  <div class="tm-move__head"><div><span class="tm-move__num">5 min</span><h3 class="tm-move__name">Brain dump</h3></div></div>
+  <p class="tm-move__line">Students write everything they remember about one earlier topic, then compare.</p>
+  <ol class="rr-steps"><li>Name the topic. Students write everything they remember for three minutes.</li><li>Pairs compare and add one thing they missed in a different colour.</li><li>Show the key points. Students tick what they had.</li></ol>
+  <details class="tm-move__more"><summary>An example from the History log</summary><div class="tm-example rr-example"><h4 class="tm-example__subject">Lesson 2 <span>· Brain dump</span></h4><dl><dt>Starter</dt><dd class="rr-example__text">Write down everything you remember about trench warfare on the Western Front. You have three minutes. Then compare with a partner and add one thing you missed.</dd><dt>Key</dt><dd class="rr-example__text">Key points to look for: the war of movement ended in stalemate by the end of 1914; a line of trenches ran from the Channel coast to Switzerland; machine guns and artillery made attacks across no man&#x27;s land very costly; front-line, support and reserve trenches.</dd></dl></div></details>
+  <a class="tm-move__use" href="?format=brain-dump#rr-builder" data-use-format="brain-dump" aria-label="Use this format: Brain dump">Use this format</a>
+</article>
+<article class="tm-move rr-format" id="retrieval-grid" data-format-id="retrieval-grid">
+  <div class="tm-move__head"><div><span class="tm-move__num">7 min</span><h3 class="tm-move__name">Retrieval grid</h3></div></div>
+  <p class="tm-move__line">Nine questions from different weeks, worth more points the further back they go.</p>
+  <ol class="rr-steps"><li>Students answer as many questions as they can, in any order.</li><li>Older content earns more points, so it is worth trying the hard row.</li><li>Go through the key. Note which row the class found hardest.</li></ol>
+  <details class="tm-move__more"><summary>An example from the History log</summary><div class="tm-example rr-example"><h4 class="tm-example__subject">Lesson 3 <span>· Retrieval grid</span></h4><dl><dt>Starter</dt><dd class="rr-example__text">Newest week (1 point each): What does DORA stand for? | Name one thing DORA allowed the government to censor. | What were recruitment posters meant to do?
+1–3 weeks before (2 points each): When did conscription begin in Britain? | What was one aim of the Battle of the Somme? | Why did the Western Front become a stalemate?
+Older (3 points each): What does MAIN stand for? | Which countries made up the Triple Alliance? | What did Austria-Hungary do after Serbia did not accept all of its ultimatum?</dd><dt>Key</dt><dd class="rr-example__text">Newest week: Defence of the Realm Act. Newspapers or letters. Persuade men to volunteer for the army.
+1–3 weeks before: 1916. To relieve pressure on the French at Verdun (or to break through the German lines). Machine guns and artillery made defending much easier than attacking.
+Older: militarism, alliances, imperialism, nationalism. Germany, Austria-Hungary and Italy. It declared war on Serbia (28 July 1914).</dd></dl></div></details>
+  <a class="tm-move__use" href="?format=retrieval-grid#rr-builder" data-use-format="retrieval-grid" aria-label="Use this format: Retrieval grid">Use this format</a>
+</article>
+<article class="tm-move rr-format" id="multiple-choice" data-format-id="multiple-choice">
+  <div class="tm-move__head"><div><span class="tm-move__num">5 min</span><h3 class="tm-move__name">Multiple choice with misconceptions</h3></div></div>
+  <p class="tm-move__line">Four options per question, where every wrong option is a common misunderstanding.</p>
+  <ol class="rr-steps"><li>Everyone answers at once: fingers, cards or mini whiteboards.</li><li>Look at which wrong options are popular. Each one shows a misunderstanding.</li><li>Re-teach the most common misunderstanding before moving on.</li></ol>
+  <details class="tm-move__more"><summary>An example from the History log</summary><div class="tm-example rr-example"><h4 class="tm-example__subject">Lesson 4 <span>· Multiple choice with misconceptions</span></h4><dl><dt>Starter</dt><dd class="rr-example__text">1. Why did Britain declare war on Germany in August 1914?
+A Germany attacked Britain
+B Germany invaded neutral Belgium
+C Britain was in the Triple Alliance
+D Franz Ferdinand was British
+2. What was the Schlieffen Plan?
+A A plan to defend Germany&#x27;s borders
+B A plan to defeat Russia first, then France
+C A plan to defeat France quickly through Belgium, then turn to Russia
+D A peace plan to end the war by Christmas</dd><dt>Key</dt><dd class="rr-example__text">1. B. A: Germany had not attacked Britain when Britain declared war; Britain joined because of Belgium. C mixes up the two alliances: Britain was in the Triple Entente. D confuses the trigger of the war with Britain&#x27;s reason for joining.
+2. C. A misses that it was an attack plan. B reverses the order. D confuses the plan with the hope that the war would be over by Christmas.</dd></dl></div></details>
+  <a class="tm-move__use" href="?format=multiple-choice#rr-builder" data-use-format="multiple-choice" aria-label="Use this format: Multiple choice with misconceptions">Use this format</a>
+</article>
+<article class="tm-move rr-format" id="two-things" data-format-id="two-things">
+  <div class="tm-move__head"><div><span class="tm-move__num">3 min</span><h3 class="tm-move__name">Two things I remember</h3></div></div>
+  <p class="tm-move__line">Students name two things from one earlier lesson and one question they still have.</p>
+  <ol class="rr-steps"><li>Name the lesson. Students write two things they remember.</li><li>They add one question they still have about it.</li><li>Read the questions. They show you what to recap.</li></ol>
+  <details class="tm-move__more"><summary>An example from the History log</summary><div class="tm-example rr-example"><h4 class="tm-example__subject">Lesson 5 <span>· Two things I remember</span></h4><dl><dt>Starter</dt><dd class="rr-example__text">Think back to our lesson on 20 October about the home front. Write two things you remember from it, and one question you still have.</dd><dt>Key</dt><dd class="rr-example__text">A full answer could mention: conscription in Britain from 1916; women working in munitions factories; food rationing from 1918. Use the students&#x27; questions to plan a short recap.</dd></dl></div></details>
+  <a class="tm-move__use" href="?format=two-things#rr-builder" data-use-format="two-things" aria-label="Use this format: Two things I remember">Use this format</a>
+</article>
+<!-- formats:end -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Evidensen: etikettförklaringen och de fyra idéerna verktyget bygger på. -->
+    <section class="section container" id="rr-evidence">
+      <h2 class="section__title">Why it works</h2>
+<!-- legend:start -->
+<ul class="tm-legend"><li><span class="tm-chip tm-chip--strong">Strong</span> Meta-analyses of classroom studies show that teaching this way improves learning.</li><li><span class="tm-chip tm-chip--promising">Promising</span> Controlled studies show gains, but results are mixed, small in number or dependent on context.</li><li><span class="tm-chip tm-chip--framework">Framework</span> A useful structure for planning, with no intervention studies behind it as a method.</li></ul>
+<!-- legend:end -->
+      <div class="rr-approaches">
+<!-- sources:start -->
+<div class="rr-approach"><h3>Retrieval practice <span class="tm-chip tm-chip--strong">Strong</span></h3><p>Practice testing is one of two strategies rated high utility in the best-known review of study techniques (Dunlosky et al. 2013). Meta-analyses of classroom studies confirm it improves learning in school (Yang et al. 2021; Ruitenburg et al. 2026), across ages and subjects (Agarwal, Nunes &amp; Blunt 2021).</p><p class="tm-move__sources">Source: <a href="https://doi.org/10.1177/1529100612453266">Dunlosky et al. 2013, Psychological Science in the Public Interest</a>, <a href="https://doi.org/10.1037/bul0000309">Yang et al. 2021, Psychological Bulletin</a>, <a href="https://doi.org/10.1007/s10648-026-10225-5">Ruitenburg et al. 2026, Educational Psychology Review</a>, <a href="https://doi.org/10.1007/s10648-021-09595-9">Agarwal, Nunes &amp; Blunt 2021, Educational Psychology Review</a></p></div>
+<div class="rr-approach"><h3>Spacing <span class="tm-chip tm-chip--strong">Strong</span></h3><p>Distributed practice is the other strategy rated high utility by Dunlosky et al. 2013. A 2026 meta-analysis of studies in real school classrooms finds a small but reliable benefit from spacing practice out (Ruitenburg et al. 2026), and a 2022 review finds that spacing and retrieval together give the most durable learning (Carpenter, Pan &amp; Butler 2022).</p><p class="tm-move__sources">Source: <a href="https://doi.org/10.1177/1529100612453266">Dunlosky et al. 2013, Psychological Science in the Public Interest</a>, <a href="https://doi.org/10.1007/s10648-026-10225-5">Ruitenburg et al. 2026, Educational Psychology Review</a>, <a href="https://doi.org/10.1038/s44159-022-00089-1">Carpenter, Pan &amp; Butler 2022, Nature Reviews Psychology</a></p></div>
+<div class="rr-approach"><h3>Interleaving <span class="tm-chip tm-chip--promising">Promising</span></h3><p>A meta-analysis finds a moderate overall benefit from mixing categories during practice. The benefit is strongest for paintings and other visual material, small for maths and unclear for texts, and blocking actually worked better for learning words (Brunmair &amp; Richter 2019). A 2026 meta-analysis of school classroom studies finds a similar average benefit (Ruitenburg et al. 2026). Mixing helps most when students must tell similar things apart.</p><p class="tm-move__sources">Source: <a href="https://doi.org/10.1037/bul0000209">Brunmair &amp; Richter 2019, Psychological Bulletin</a>, <a href="https://doi.org/10.1007/s10648-026-10225-5">Ruitenburg et al. 2026, Educational Psychology Review</a></p></div>
+<div class="rr-approach"><h3>Misconception-based options <span class="tm-chip tm-chip--promising">Promising</span></h3><p>Multiple-choice questions with plausible wrong options work as retrieval practice, not just as a test (Little et al. 2012). When the wrong options are built on common misconceptions, the answers also show the teacher what to re-teach, which is the idea behind hinge questions in formative assessment.</p><p class="tm-move__sources">Source: <a href="https://doi.org/10.1177/0956797612443370">Little et al. 2012, Psychological Science</a></p></div>
+<!-- sources:end -->
+      </div>
+      <p class="tm-note">The quiz feels harder than a recap, and that effort is what makes it stick. For research on many other teaching strategies, see the <a href="/evidence/">Evidence Toolkit</a> on this site.</p>
+    </section>
+
+    <!-- AI-verktyg och åldersgränser. Global regel för allt AI-innehåll på
+         sajten: åldersgränser och läsarens eget ansvar för nationella regler. -->
+    <section class="section section--alt" id="rr-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age rules</h2>
+        <p class="section__lede">You use AI to write the starters. Your students do not need to. If students use AI themselves, these rules apply (October 2026):</p>
+<!-- age:start -->
+<ul class="tm-age"><li><strong>Copilot Chat:</strong> Students aged 13 and over, through the school&#x27;s own Microsoft 365 account. The school&#x27;s administrator must set each student&#x27;s age group and consent.</li><li><strong>Gemini for Education:</strong> Open to education users of all ages, with a stricter experience for under-18s. The school&#x27;s administrator must turn it on.</li><li><strong>ChatGPT:</strong> Ages 13 and over on personal accounts, with a parent&#x27;s or guardian&#x27;s permission under 18. ChatGPT for Teachers is for school staff only.</li><li><strong>Claude:</strong> Ages 18 and over. In a school, for teachers only.</li></ul>
+<!-- age:end -->
+        <p class="tm-note">Rules differ between countries and change often. Check your own national rules and your school policy before students use any AI tool.</p>
+      </div>
+    </section>
+
+    <!-- Nedladdningar: loggmallen (Excel, går att öppna i Google Sheets) och
+         utskriftspaketet. Fritt, ingen e-postgrind. -->
+    <section class="section container" id="rr-download">
+      <h2 class="section__title">Downloads</h2>
+      <p class="section__lede">An empty topic log to keep after each lesson, and a printable pack with the five formats, a page for students and parents, and a fill-in prompt for when you are offline.</p>
+      <div class="rr-downloads">
+        <a class="btn btn--primary" href="/assets/downloads/retrieval-rhythm-log.xlsx" download>Download the topic log (Excel)</a>
+        <a class="btn btn--secondary" href="/assets/pdfs/free/retrieval-rhythm-pack-en.pdf" download>Download the printable pack (PDF)</a>
+      </div>
+      <p class="tm-note">The log opens in Excel. In Google Sheets, choose File → Import and upload it.</p>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknappen (data-copy) och promptbyggaren. -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+  <script src="/assets/js/retrieval-rhythm.js" defer></script>
+</body>
+</html>

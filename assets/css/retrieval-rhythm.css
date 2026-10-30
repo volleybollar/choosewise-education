@@ -1,0 +1,36 @@
+/* Retrieval Rhythm (/retrieval-rhythm/). Bygger på thinking-moves.css (tm-) och
+   lägger bara till det som är nytt här (rr-). Färger bara som var(--…). */
+
+/* Exemplet i hero: samma ruta som korten, men alltid öppen. */
+.rr-hero-example { margin-top: var(--space-8); max-width: var(--content-max); }
+.rr-hero-example__title { margin: 0 0 var(--space-3); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+
+/* Startern och nyckeln: radbrytningarna i JSON-texten ska synas, men långa
+   rader får brytas så att inget sticker ut på mobilen. */
+.rr-example dl { grid-template-columns: 1fr; gap: var(--space-1); }
+.rr-example dd { margin-bottom: var(--space-2); }
+.rr-example__text { white-space: pre-line; overflow-wrap: anywhere; }
+
+/* Stegen på formatkorten. */
+.rr-steps { margin: 0; padding-left: var(--space-5); font-size: var(--fs-small); display: grid; gap: var(--space-1); }
+.rr-steps li { max-width: none; }
+
+/* Exempelloggen: en rad per lektion, datum först. */
+.rr-log__title { margin: var(--space-8) 0 var(--space-2); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+.rr-log__note { margin-top: 0; }
+.rr-log { list-style: none; padding: 0; margin: var(--space-4) 0 0; display: grid; gap: var(--space-2); max-width: var(--content-text-max); }
+.rr-log li { max-width: none; border-bottom: 1px solid var(--color-border); padding-bottom: var(--space-2); overflow-wrap: anywhere; }
+.rr-log strong { font-weight: var(--weight-emphasis); color: var(--color-text); }
+.rr-log__date { font-family: var(--font-mono); font-size: var(--fs-small); color: var(--color-text-muted); margin-right: var(--space-2); }
+.rr-log__points { display: block; font-size: var(--fs-small); color: var(--color-text-soft); }
+
+/* De fyra idéerna under "Why it works". */
+.rr-approaches { display: grid; gap: var(--space-5); margin-top: var(--space-6); max-width: var(--content-text-max); }
+.rr-approach h3 { margin: 0 0 var(--space-2); font-size: 1.15rem; font-weight: var(--weight-emphasis); display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+.rr-approach p { margin: 0 0 var(--space-2); max-width: none; }
+
+.rr-downloads { display: flex; flex-wrap: wrap; gap: var(--space-4); }
+
+/* Promptbyggaren: årskurs, lektioner, frågor och datum på en rad på dator,
+   två och två på mobil. */
+.rr-numbers { grid-column: 1 / -1; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); }
