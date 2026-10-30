@@ -189,7 +189,7 @@
       ],
       "steps": [
         "Open with three retrieval questions from earlier lessons (5 min).",
-        "Explain and model the new idea in small steps, with one worked example (15 min).",
+        "Explain and model the new idea in small steps, with two worked examples (15 min).",
         "Guided practice with a half-finished example, checking as you go (10 min).",
         "Independent practice, then one exit question on today's goal (15 min)."
       ]
@@ -206,7 +206,7 @@
         "One open question that has more than one good answer.",
         "Think alone first (2 min), then talk in pairs (5 min).",
         "Whole-class discussion where students build on each other's answers (15 min).",
-        "A hinge question at the end shows whether the key idea has landed (5 min)."
+        "An exit question at the end shows whether the key idea has landed (5 min)."
       ]
     },
     {
@@ -285,7 +285,7 @@
       "tuesday": "The teacher introduces one new idea at a time and shows two fully worked examples. Students then finish a half-done example before they start on their own, beginning with the easiest problems. As students get better, the support is taken away.",
       "ai_helps": "AI can quickly produce worked examples and half-finished versions of the same problem, so you can build a fading sequence without writing every step yourself.",
       "ai_harms": "AI tools often answer with long, dense text and many new terms at once, which overloads novices. Students who get full solutions on demand also skip the step where they do the work themselves.",
-      "evidence": "Cognitive load theory rests on decades of replicated experiments. The worked-example effect is one of its most robust findings, confirmed in a 2023 meta-analysis, and it fades as students gain expertise (Sweller, van Merriënboer & Paas 2019; Barbieri et al. 2023).",
+      "evidence": "Cognitive load theory rests on decades of replicated experiments. The worked-example effect is one of its most robust findings, confirmed for mathematics in a 2023 meta-analysis, and it fades as students gain expertise (Sweller, van Merriënboer & Paas 2019; Barbieri et al. 2023).",
       "sources": [
         {
           "text": "Sweller, van Merriënboer & Paas 2019, Educational Psychology Review",
@@ -365,7 +365,7 @@
       "tuesday": "At the end of a unit, students take a short check. Those who reach the bar get an extension task, and those who do not get targeted re-teaching and a second check. The class still moves on together.",
       "ai_helps": "AI can produce parallel versions of a unit check and short re-teaching tasks for each common gap, so a second attempt is not the same test again.",
       "ai_harms": "AI-driven platforms can let every student move at their own pace with no teacher in the loop, which is the version of mastery learning that tends to work less well.",
-      "evidence": "Mastery learning has a long research record: a meta-analysis of mastery programs found positive effects on achievement (Kulik, Kulik & Bangert-Drowns 1990). The EEF Teaching and Learning Toolkit rates it at about +5 months, and notes it works less well when students work entirely at their own pace.",
+      "evidence": "Mastery learning has a long research record: a meta-analysis of mastery programs found positive effects on achievement (Kulik, Kulik & Bangert-Drowns 1990). The EEF Teaching and Learning Toolkit rates it at about +5 months, based on limited evidence, and notes it works less well when students work entirely at their own pace.",
       "sources": [
         {
           "text": "EEF Teaching and Learning Toolkit: Mastery learning",
@@ -386,7 +386,7 @@
       "tuesday": "Groups of three get a problem with clear roles, and every student must be able to explain the group's answer. The teacher calls on any member at random, so no one can coast.",
       "ai_helps": "AI can help you design group tasks with distinct roles and a shared goal, and draft prompts that make each student's contribution visible.",
       "ai_harms": "If one student asks AI for the answer, the group stops thinking together. The discussion the task was built around never happens.",
-      "evidence": "The EEF Teaching and Learning Toolkit rates collaborative learning at about +5 months, with structured tasks and individual accountability working best. A meta-analysis of face-to-face cooperative learning confirms positive effects on achievement (Kyndt et al. 2013).",
+      "evidence": "The EEF Teaching and Learning Toolkit rates collaborative learning at about +5 months, based on limited evidence, with structured tasks and shared goals working best. A meta-analysis of face-to-face cooperative learning confirms positive effects on achievement (Kyndt et al. 2013).",
       "sources": [
         {
           "text": "EEF Teaching and Learning Toolkit: Collaborative learning approaches",
@@ -432,7 +432,7 @@
       "tuesday": "Before moving on, the teacher asks one multiple-choice hinge question and everyone shows a letter at once. If too many choose a wrong option, the teacher re-teaches before the worksheet. An exit ticket decides how tomorrow starts.",
       "ai_helps": "AI can draft hinge questions where each wrong option matches a common misconception, and sort exit tickets into secure, partly and not yet.",
       "ai_harms": "If students use AI to answer checks or homework, what you see is the tool's understanding, not theirs, and your next step is built on the wrong evidence.",
-      "evidence": "Black & Wiliam's 1998 review made the case that formative assessment raises achievement, and a 2024 meta-analysis of 118 K-12 studies confirms a positive, more modest average effect (Yao et al. 2024). A whole-school EEF trial found a similar, real effect at scale.",
+      "evidence": "Black & Wiliam's 1998 review made the case that formative assessment raises achievement, and a 2024 meta-analysis of 118 K-12 studies confirms a positive, more modest average effect (Yao et al. 2024). A whole-school EEF trial in 140 secondary schools found a smaller but real effect at scale (about +2 months on GCSE results).",
       "sources": [
         {
           "text": "Black & Wiliam 1998, Assessment in Education",
@@ -499,7 +499,7 @@
       "tuesday": "To teach opportunity cost, the teacher gives three examples from different settings and asks what they have in common. Students then judge a new case: is this opportunity cost or not?",
       "ai_helps": "AI can generate many varied examples and near-misses for a concept quickly, so you can choose the ones that best show the shared idea.",
       "ai_harms": "AI examples can be wrong, generic or all from the same setting, which teaches the surface instead of the principle. Check them before use.",
-      "evidence": "Experiments show that several varied examples help students learn abstract concepts, especially when they compare them (Rawson, Thomas & Jacoby 2015). The Learning Scientists include concrete examples among six strategies from cognitive science (Weinstein, Madan & Sumeracki 2018), but classroom evidence is still limited.",
+      "evidence": "Experiments with college students show that studying several illustrative examples, rather than re-reading definitions, helps them recognise new cases of a concept (Rawson, Thomas & Jacoby 2015). The Learning Scientists include concrete examples among six strategies from cognitive science (Weinstein, Madan & Sumeracki 2018), but classroom evidence is still limited.",
       "sources": [
         {
           "text": "Rawson, Thomas & Jacoby 2015, Educational Psychology Review",
@@ -613,8 +613,12 @@
       "tuesday": "Borrow the core idea: remove barriers that have nothing to do with the goal. Give the text with audio as an option, a glossary on the board, and let students show the same goal in writing, a diagram or orally.",
       "ai_helps": "AI can quickly make an easier-to-read version, an audio version or a glossary of a text, so access does not depend on your evening hours.",
       "ai_harms": "AI makes it easy to produce many versions of everything, which spreads your time thin and can lower the demand for some students instead of removing barriers.",
-      "evidence": "Studies of UDL report mostly positive results, but they apply and describe UDL in very different ways, which makes them hard to compare (Rao, Ok & Bryant 2014). A 2024 review of the studies CAST cites for its guidelines found little direct evidence for them (Boysen 2024).",
+      "evidence": "A meta-analysis of 20 studies found a moderate benefit of UDL-based instruction, but very few of the studies were in K-12 classrooms (King-Sears et al. 2023). Earlier studies apply and describe universal design in very different ways, which makes them hard to compare (Rao, Ok & Bryant 2014). A 2024 review of the studies CAST cites for its guidelines found little direct evidence for them (Boysen 2024).",
       "sources": [
+        {
+          "text": "King-Sears et al. 2023, Teaching and Teacher Education",
+          "url": "https://doi.org/10.1016/j.tate.2022.103956"
+        },
         {
           "text": "Rao, Ok & Bryant 2014, Remedial and Special Education",
           "url": "https://doi.org/10.1177/0741932513518980"
@@ -735,7 +739,7 @@
       "tuesday": "Model one example while thinking aloud, solve the next one together, then let pairs try one before students work alone. Move on when most succeed, not when the clock says so.",
       "ai_helps": "AI can produce a series of examples that go from fully worked to half-finished to blank, so the release of support is built into the material.",
       "ai_harms": "If students can ask AI at the \"you do\" stage, they never really take over the work, and the last step of the release does not happen.",
-      "evidence": "Pearson & Gallagher (1983) described the gradual release of responsibility in reading comprehension. It is a framework, not a tested package. Its steps line up with strong evidence on worked examples that fade as students gain expertise (Barbieri et al. 2023).",
+      "evidence": "Pearson & Gallagher (1983) described the gradual release of responsibility in reading comprehension. It is a framework, not a tested package. Its steps line up with strong evidence on worked examples (Barbieri et al. 2023) and on fading that support as students gain expertise (Sweller, van Merriënboer & Paas 2019).",
       "sources": [
         {
           "text": "Pearson & Gallagher 1983, Contemporary Educational Psychology",
@@ -744,6 +748,10 @@
         {
           "text": "Barbieri et al. 2023, Educational Psychology Review",
           "url": "https://doi.org/10.1007/s10648-023-09745-1"
+        },
+        {
+          "text": "Sweller, van Merriënboer & Paas 2019, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-019-09465-5"
         }
       ]
     },
@@ -859,7 +867,7 @@
       "category": "framework",
       "one_liner": "Hattie's synthesis of hundreds of meta-analyses, ranking what affects achievement. A useful map with contested rankings.",
       "tuesday": "Use it as a map of what research has looked at, then check the strand you care about in a careful source such as the EEF Toolkit. Never pick a method because of its place in a ranking.",
-      "ai_helps": "AI can help you trace a Visible Learning effect size back to the studies behind it, so you can see what was actually measured and with whom.",
+      "ai_helps": "AI can help you find which meta-analyses sit behind a Visible Learning effect size, but check every study it names yourself, because AI tools often invent or mix up citations.",
       "ai_harms": "AI tools often repeat effect-size league tables as settled fact, which makes a contested ranking sound more certain than it is.",
       "evidence": "Visible Learning brings together a large body of meta-analyses (Hattie 2008). It is a useful map, but its effect-size rankings are contested: effect sizes from different kinds of studies cannot be compared or ranked in this way (Simpson 2018). The EEF Teaching and Learning Toolkit is a safer anchor.",
       "sources": [
@@ -948,8 +956,8 @@
       "one_liner": "The brain changes with learning: practice strengthens the networks used, and unused connections weaken.",
       "tuesday": "Borrow the message, not a method: ability grows with practice, so build in repeated, spaced practice and tell students why it works. Practice strengthens the networks involved, partly through more connections and possibly more myelination of the pathways used.",
       "ai_helps": "AI can generate the many varied practice questions that repeated, spaced practice needs.",
-      "ai_harms": "The brain changes through what students do themselves, so practice that AI does for them builds nothing.",
-      "evidence": "Brain imaging shows learning changes both grey and white matter (Zatorre, Fields & Johansen-Berg 2012). A correction: myelin wraps axons, not synapses, so repetition does not \"myelinate synapses\". Neuroscience gives no direct classroom prescription, and many brain claims in education are myths (Howard-Jones 2014).",
+      "ai_harms": "The brain changes through what students do themselves, so practice that AI does for them builds little in their own brains.",
+      "evidence": "Brain imaging shows learning changes both grey and white matter (Zatorre, Fields & Johansen-Berg 2012). White-matter changes involve myelin, which wraps axons (the brain's connecting fibres), not synapses. Neuroscience gives no direct classroom prescription, and many brain claims in education are myths (Howard-Jones 2014).",
       "sources": [
         {
           "text": "Zatorre, Fields & Johansen-Berg 2012, Nature Neuroscience",
@@ -995,7 +1003,7 @@
       "tuesday": "Borrow the clear parts: say exactly what students should be able to do, break it into small steps, and give quick feedback on each attempt. Praise specific effort and progress, and keep routines predictable so students know what success looks like.",
       "ai_helps": "AI can turn one learning goal into a ladder of short practice items with instant, specific feedback, so every student gets more correct repetitions in a lesson.",
       "ai_harms": "Points, streaks and badges in AI apps can make students chase the reward instead of the understanding. When the reward stops, so does the effort.",
-      "evidence": "Behaviorism is a theory of learning, not one method, so it cannot be tested as a single intervention (Skinner 1958). Its legacy lives on in methods that have been tested, such as highly structured explicit teaching with frequent practice and feedback (Stockard et al. 2018).",
+      "evidence": "Behaviorism is a theory of learning, not one method, so it cannot be tested as a single intervention. Skinner turned it into teaching with small steps and immediate feedback (Skinner 1958). That legacy lives on in methods that have been tested, such as highly structured explicit teaching with frequent practice and feedback (Stockard et al. 2018).",
       "sources": [
         {
           "text": "Skinner 1958, Science",
@@ -1058,7 +1066,7 @@
       "tuesday": "Borrow scaffolding: aim tasks just beyond what students can do alone, support them with talk, models and prompts, then remove the support step by step. Plan structured talk so students explain their thinking to each other.",
       "ai_helps": "AI can help you write three levels of support for the same task, from full sentence starters to a single hint, so you can fade the scaffold as students grow.",
       "ai_harms": "AI can become a scaffold that never comes down. If a student always works with the chatbot's help, the task never moves into what they can do alone.",
-      "evidence": "Sociocultural theory explains learning; it is not a single intervention (Vygotsky 1978). Scaffolding, the classroom idea that grew from it (Wood, Bruner & Ross 1976), is widely described, but a review of a decade of research found its effects are hard to isolate and seldom measured (van de Pol, Volman & Beishuizen 2010).",
+      "evidence": "Sociocultural theory explains learning; it is not a single intervention (Vygotsky 1978). Scaffolding, a classroom idea later linked to it (Wood, Bruner & Ross 1976), is widely used. A review of a decade of research found only a small number of studies that measured its effect. Those studies suggest scaffolding works, but measuring it remains the main challenge (van de Pol, Volman & Beishuizen 2010).",
       "sources": [
         {
           "text": "Vygotsky 1978, Mind in Society, Harvard University Press",
@@ -1107,8 +1115,8 @@
       "evidence": "Critical pedagogy is a philosophy about the purpose of education, not a method with outcome studies (Freire 1970). It shapes values and choices, but there is no controlled evidence on it as a single intervention.",
       "sources": [
         {
-          "text": "Freire 1970, Pedagogy of the Oppressed (excerpt), Rowman & Littlefield 2008",
-          "url": "https://doi.org/10.5040/9798216384205.ch-009"
+          "text": "Freire 1970, Pedagogy of the Oppressed, 50th anniversary edition, Bloomsbury Academic 2018",
+          "url": "https://www.bloomsbury.com/us/pedagogy-of-the-oppressed-9781501314131/"
         }
       ]
     },
@@ -1142,7 +1150,7 @@
       "tuesday": "Borrow the prepared environment: clear stations or task cards, materials students can use without asking, and routines that let them work on their own. Keep the teacher's role active: observe, then step in with the next challenge.",
       "ai_helps": "AI can help you write clear self-check cards for independent tasks, so students know when they are done and what to do next.",
       "ai_harms": "Working at one's own pace with AI can turn into working alone with a chatbot. Montessori depends on an adult who observes and steps in; AI does not replace that.",
-      "evidence": "Lottery-based studies, where families applied and places were drawn at random, show positive results for public Montessori preschool (Lillard et al. 2017; Lillard et al. 2025, 588 children). This evidence covers preschool only; we found no controlled evidence for Grades 6–12.",
+      "evidence": "Lottery-based studies, where families applied and places were drawn at random, show positive results for public Montessori preschool (ages 3–6). The largest, with 588 children at 24 schools, found no clear differences during the preschool years but higher reading, memory, executive function and social-understanding scores at the end of kindergarten (Lillard et al. 2017; Lillard et al. 2025). This evidence covers ages 3–6 only; we found no controlled evidence for Grades 6–12.",
       "sources": [
         {
           "text": "Lillard et al. 2017, Frontiers in Psychology",
@@ -1163,10 +1171,10 @@
       "tuesday": "Borrow the balance: let students draw, build, tell or perform as a way into academic content, not as decoration. Oral storytelling can open a topic before students read about it.",
       "ai_helps": "AI can suggest practical or artistic tasks that fit a specific learning goal, which you then judge for whether they lead to the content.",
       "ai_harms": "AI-generated images and texts can replace the handwork and craft that this tradition values. A student who prompts a picture has not practiced drawing.",
-      "evidence": "We found no rigorous controlled studies of Waldorf outcomes. Stehlik 2019 reviews the research literature on Steiner Waldorf education.",
+      "evidence": "We found no randomized or well-controlled studies of Waldorf outcomes; existing comparisons are observational, and families choose these schools themselves. Stehlik 2019 reviews the research literature on Steiner Waldorf education.",
       "sources": [
         {
-          "text": "Stehlik 2019, Waldorf Schools and the History of Steiner Education, Springer",
+          "text": "Stehlik 2019, Waldorf Schools and the History of Steiner Education, Palgrave Macmillan",
           "url": "https://doi.org/10.1007/978-3-030-31631-0_5"
         }
       ]
@@ -1180,7 +1188,7 @@
       "tuesday": "Borrow documentation: collect photos, quotes and drafts from a project and put them in front of students to discuss how their thinking changed. Use their questions to shape the next step.",
       "ai_helps": "AI can help you sort and summarize notes from a project, so you spot patterns in students' thinking faster.",
       "ai_harms": "AI summaries can flatten what students actually said. Documentation only works when the teacher looks closely at the real work.",
-      "evidence": "Reggio Emilia is a preschool approach with little controlled evidence. A quasi-experimental evaluation found long-run benefits compared with no formal childcare, but small and insignificant differences compared with other formal childcare (Biroli et al. 2018).",
+      "evidence": "Reggio Emilia is a preschool approach with little controlled evidence. A non-experimental evaluation in three Italian cities found long-run benefits compared with no formal childcare, but no clear advantage over other formal childcare (Biroli et al. 2018).",
       "sources": [
         {
           "text": "Biroli et al. 2018, Research in Economics",
@@ -1252,7 +1260,7 @@
       "tuesday": "Instead of training working memory in isolation, reduce the load in your lessons: smaller steps, worked examples, and clear written instructions students can look back at. Practice the actual subject skills you want to improve.",
       "ai_helps": "AI can help you rewrite long instructions as a short numbered checklist, which takes pressure off working memory during the task.",
       "ai_harms": "AI-powered \"brain games\" are easy to find and look scientific. Time spent on them is time not spent practicing subject content.",
-      "evidence": "A meta-analysis found that working-memory training improves performance on tasks like the ones trained, but does not transfer to intelligence or school skills such as reading and arithmetic (Melby-Lervåg, Redick & Hulme 2016).",
+      "evidence": "A meta-analysis found that working-memory training improves performance on tasks like the ones trained in the short term, but does not transfer to intelligence or school skills such as reading and arithmetic (Melby-Lervåg, Redick & Hulme 2016).",
       "sources": [
         {
           "text": "Melby-Lervåg, Redick & Hulme 2016, Perspectives on Psychological Science",

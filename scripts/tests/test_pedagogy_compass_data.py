@@ -93,3 +93,25 @@ def test_corrections_to_johans_document_are_in_the_cards():
     assert "metaphor" in ms["cognitivism"]["evidence"].lower() + ms["cognitivism"]["one_liner"].lower()
     assert "contested" in ms["visible-learning"]["evidence"].lower()
     assert all("Waldorff" not in json.dumps(m) for m in data()["models"])
+
+
+def test_fact_check_corrections_2026_10_30():
+    # Faktagranskningen i två halvor (A–C och D–F) samt recepten.
+    ms = models()
+    assert "college students" in ms["concrete-examples"]["evidence"]
+    assert "King-Sears" in ms["udl"]["evidence"]
+    assert "smaller but real effect at scale" in ms["formative-assessment"]["evidence"]
+    assert "Sweller, van Merriënboer & Paas 2019" in ms["gradual-release"]["evidence"]
+    assert "confirmed for mathematics in a 2023 meta-analysis" in ms["cognitive-load"]["evidence"]
+    assert "based on limited evidence" in ms["collaborative-learning"]["evidence"]
+    assert "based on limited evidence" in ms["mastery-learning"]["evidence"]
+    assert "which wraps axons" in ms["neuroplasticity"]["evidence"]
+    assert "invent or mix up citations" in ms["visible-learning"]["ai_helps"]
+    assert "a small number of studies" in ms["sociocultural"]["evidence"]
+    assert "end of kindergarten" in ms["montessori"]["evidence"]
+    assert "bloomsbury.com" in ms["critical-pedagogy"]["sources"][0]["url"]
+    assert "Skinner turned it into teaching" in ms["behaviorism"]["evidence"]
+    assert "non-experimental" in ms["reggio-emilia"]["evidence"]
+    recipes = {r["id"]: r for r in data()["recipes"]}
+    assert recipes["discussion-lesson"]["steps"][3].startswith("An exit question at the end")
+    assert "two worked examples" in recipes["knowledge-lesson"]["steps"][1]
