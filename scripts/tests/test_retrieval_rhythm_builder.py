@@ -78,6 +78,9 @@ def test_prompt_contains_inputs_and_parts(page):
     assert text.startswith("Do not include student names or student results")
     assert "Grade 9 History teacher" in text
     assert "Format: Mix." in text
+    # Mix beskriver alla fem formaten, så att modellen inte gissar.
+    for fragment in ("brain dump (", "retrieval grid (", "two things I remember ("):
+        assert fragment in text, fragment
     assert "Number of lessons: 3" in text
     assert "Questions per starter: 5" in text
     assert "First lesson: 2026-11-02" in text
@@ -157,5 +160,7 @@ def test_prompt_lets_grid_and_open_formats_follow_their_own_shape(page):
     # krockade med gridens veckorader.
     fill(page)
     text = prompt(page)
-    assert "Questions per starter: 5 (for starter quizzes and multiple choice; the other formats follow their own description)" in text
-    assert "except in a retrieval grid, where the rows show it." in text
+    assert "Questions per starter: 5 (for starter quizzes and multiple choice)" in text
+    assert "In starter quizzes and multiple choice, mix content from different times in the log" in text
+    assert "The other formats follow their own description." in text
+    assert "except in a retrieval grid" not in text

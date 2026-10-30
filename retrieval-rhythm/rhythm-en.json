@@ -20,7 +20,7 @@
       "name": "Mix",
       "one_liner": "A different format each lesson, so the week does not feel the same every day.",
       "minutes": 5,
-      "prompt_brief": "Use a different format for each lesson, chosen from: starter quiz, brain dump, retrieval grid, multiple choice with misconceptions, two things I remember.",
+      "prompt_brief": "Use a different format for each lesson, chosen from these five: starter quiz (short questions from memory, each with one clear answer); brain dump (students write everything they remember about one earlier topic for three minutes; the KEY lists the key points); retrieval grid (nine questions in three labelled lines: last week 1 point, two to four weeks ago 2 points, older 3 points); multiple choice with misconceptions (options A to D, where every wrong option is a common misconception; the KEY names it); two things I remember (students write two things from one named earlier lesson and one question they still have).",
       "steps": [
         "Monday might be a quiz, Tuesday a brain dump, Thursday a grid.",
         "Students meet the same content in different ways.",

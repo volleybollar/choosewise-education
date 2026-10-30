@@ -64,11 +64,11 @@ def test_student_and_parent_page():
 def _builder_fixed_lines():
     js = JS.read_text(encoding="utf-8")
     block = js[js.index("function buildPrompt"):js.index("return lines.join")]
-    strings = re.findall(r"""^\s*(['"])((?:Reply in plain text|LESSON:|STARTER:|KEY:|Then once|CHECK:|Topic log|For each lesson, mix).*?)\1,?\s*$""", block, re.M)
+    strings = re.findall(r"""^\s*(['"])((?:Reply in plain text|LESSON:|STARTER:|KEY:|Then once|CHECK:|Topic log|In starter quizzes and multiple choice, mix).*?)\1,?\s*$""", block, re.M)
     lines = [s for _, s in strings]
     assert len(lines) == 8, lines
     fixed = ["Use only content from the topic log below. Do not add new content.",
-             "(for starter quizzes and multiple choice; the other formats follow their own description)"]
+             "(for starter quizzes and multiple choice)"]
     for f in fixed:
         assert f in block, f
     return lines + fixed
@@ -98,3 +98,9 @@ def test_source_html_is_generated_from_json():
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     assert mod.render_pack_html(data()) == SRC.read_text(encoding="utf-8")
+
+
+def test_fill_in_page_is_not_clipped():
+    # Formatlistan står sist på sidan: syns slutet har inget klippts bort.
+    last = text(7)
+    assert has(data()["formats"][-1]["prompt_brief"][-50:], last)

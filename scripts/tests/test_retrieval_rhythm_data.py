@@ -52,7 +52,7 @@ def test_every_real_format_has_an_example():
 def test_mix_brief_names_all_five_formats():
     brief = next(f for f in formats() if f["id"] == "mix")["prompt_brief"].lower()
     for f in formats()[1:]:
-        assert f["name"].lower() in brief, f["name"]
+        assert f["name"].lower() + " (" in brief, f["name"]
 
 
 def test_multiple_choice_example_has_four_options():
