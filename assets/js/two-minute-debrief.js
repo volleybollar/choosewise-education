@@ -115,16 +115,93 @@
   /* Gruppnamn jämförs utan hänsyn till versaler och extra mellanslag. */
   function normalizeGroup(s) { return String(s || '').toLowerCase().replace(/\s+/g, ' ').trim(); }
 
+  /* ---------- Sparade debriefer ----------
+     Bara i den här webbläsaren (localStorage). Tas bort efter 14 dagar. */
+  var KEY = 'choosewise.debrief.v1';
+  var KEEP_MS = 14 * 24 * 3600 * 1000;
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var HINT_NO_BATCH = 'No unanalysed debriefs saved today.';
+  var EVIDENCE_PLACEHOLDER = 'On the exit ticket, 11 of 27 divided before subtracting.';
+  var FOLLOWUP_PLACEHOLDER = 'Check: 20 of 27 right, up from 11. Most now subtract first.';
+
+  /* Besökarens lokala datum. toISOString() ger UTC och skulle göra en
+     debrief sparad sent på kvällen till fel dag. */
+  function localDate(d) {
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  }
+
+  /* "2026-10-28" blir "28 Oct". */
+  function shortDate(iso) {
+    var parts = iso.split('-');
+    return parseInt(parts[2], 10) + ' ' + MONTHS[parseInt(parts[1], 10) - 1];
+  }
+
+  function prune(list, nowMs) {
+    return list.filter(function (s) { return nowMs - s.savedAt <= KEEP_MS; });
+  }
+
+  /* Den senast sparade debriefen för samma grupp, eller null. */
+  function lastForGroup(list, group) {
+    var wanted = normalizeGroup(group);
+    var best = null;
+    list.forEach(function (s) {
+      if (wanted && normalizeGroup(s.group) === wanted && (!best || s.savedAt > best.savedAt)) best = s;
+    });
+    return best;
+  }
+
+  /* Bara poster som ser ut som en sparad debrief räknas; annat i lagringen
+     (trasig JSON, något annat program) behandlas som tomt. */
+  function isSaved(s) {
+    return !!s && typeof s === 'object' && typeof s.group === 'string' && typeof s.date === 'string' &&
+      /^\d{4}-\d{2}-\d{2}$/.test(s.date) && typeof s.savedAt === 'number';
+  }
+
+  /* Provar att skriva och ta bort en post. Kastar webbläsaren (privat
+     fönster, blockerad lagring) finns ingen lagring. */
+  function storageWorks() {
+    try {
+      window.localStorage.setItem(KEY + '.test', '1');
+      window.localStorage.removeItem(KEY + '.test');
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function load() {
+    try {
+      var list = JSON.parse(window.localStorage.getItem(KEY) || '[]');
+      return Array.isArray(list) ? list.filter(isSaved) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function store(list) {
+    try {
+      window.localStorage.setItem(KEY, JSON.stringify(list));
+    } catch (e) {
+      console.error('[two-minute-debrief] could not save:', e);
+    }
+  }
+
   window.TwoMinuteDebrief = {
     buildDebriefPrompt: buildDebriefPrompt,
     buildBatchPrompt: buildBatchPrompt,
     buildRollupPrompt: buildRollupPrompt,
     buildHingePrompt: buildHingePrompt,
     journalRow: journalRow,
-    normalizeGroup: normalizeGroup
+    normalizeGroup: normalizeGroup,
+    localDate: localDate,
+    prune: prune,
+    lastForGroup: lastForGroup
   };
 
   var els = {};
+  var canSave = false;
+  var saved = [];
 
   function value(id) { return els[id].value.trim(); }
 
@@ -146,23 +223,132 @@
     button.setAttribute('data-copy', text);
   }
 
+  /* Visar förra debriefen för samma grupp ovanför Evidence, om det finns en.
+     Inget fylls i automatiskt: läraren kan strunta i noten. */
+  function updateFollowup() {
+    var last = canSave ? lastForGroup(saved, value('group')) : null;
+    if (last) {
+      els.followup.textContent = 'Last time (' + shortDate(last.date) + '): ' + last.next + ' What did your check show?';
+      els.followup.hidden = false;
+      els.evidence.placeholder = FOLLOWUP_PLACEHOLDER;
+    } else {
+      els.followup.textContent = '';
+      els.followup.hidden = true;
+      els.evidence.placeholder = EVIDENCE_PLACEHOLDER;
+    }
+  }
+
   function update() {
     var d = current();
     var ready = complete(d);
     setPrompt(els.prompt, els.copy, ready ? buildDebriefPrompt(d) : '');
     els.hint.textContent = ready ? HINT_READY : HINT_EMPTY;
+    els.save.disabled = !ready;
     setPrompt(els['hinge-prompt'], els['hinge-copy'], d.group && d.goal ? buildHingePrompt(d) : '');
+    updateFollowup();
+  }
+
+  /* Dagens sparade debriefer som inte körts än. */
+  function todaysOpen() {
+    var today = localDate(new Date());
+    return saved.filter(function (s) { return s.date === today && !s.analysed; });
+  }
+
+  function button(label, cls) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'btn ' + cls;
+    b.textContent = label;
+    return b;
+  }
+
+  /* Listan över sparade debriefer, nyast först, och kvällsprompten. */
+  function renderSaved() {
+    els.saved.textContent = '';
+    saved.slice().sort(function (a, b) { return b.savedAt - a.savedAt; }).forEach(function (s) {
+      var li = document.createElement('li');
+      var label = document.createElement('span');
+      label.textContent = shortDate(s.date) + ' · ' + s.group + (s.analysed ? ' (run)' : '');
+      var copyRow = button('Copy journal row', 'btn--secondary');
+      copyRow.setAttribute('data-copy', journalRow(s));
+      var del = button('Delete', 'btn--secondary');
+      del.addEventListener('click', function () {
+        saved = saved.filter(function (x) { return x.id !== s.id; });
+        store(saved);
+        renderAll();
+      });
+      var toast = document.createElement('span');
+      toast.className = 'copy-toast';
+      toast.setAttribute('role', 'status');
+      toast.textContent = 'Copied';
+      li.append(label, copyRow, del, toast);
+      els.saved.appendChild(li);
+    });
+    var open = todaysOpen();
+    setPrompt(els['batch-prompt'], els['batch-copy'], open.length ? buildBatchPrompt(open) : '');
+    els['batch-hint'].textContent = open.length
+      ? open.length + (open.length === 1 ? ' debrief' : ' debriefs') + ' from today in this prompt.'
+      : HINT_NO_BATCH;
+  }
+
+  function renderAll() {
+    renderSaved();
+    updateFollowup();
+  }
+
+  function save() {
+    var d = current();
+    if (!complete(d)) return;
+    var now = Date.now();
+    saved.push({
+      id: String(now) + '-' + saved.length, date: localDate(new Date(now)), savedAt: now,
+      group: d.group, grade: d.grade, goal: d.goal, evidence: d.evidence, surprise: d.surprise,
+      next: d.next, analysed: false
+    });
+    store(saved);
+    /* Gruppen och årskursen står kvar: nästa debrief är ofta samma klass. */
+    ['goal', 'evidence', 'surprise', 'next'].forEach(function (id) { els[id].value = ''; });
+    renderAll();
+    update();
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['group', 'grade', 'goal', 'evidence', 'surprise', 'next', 'prompt', 'copy', 'hint',
-     'hinge-prompt', 'hinge-copy'].forEach(function (id) {
+    ['group', 'grade', 'goal', 'evidence', 'surprise', 'next', 'prompt', 'copy', 'hint', 'save',
+     'followup', 'saved-area', 'saved', 'storage-note', 'batch-prompt', 'batch-copy', 'batch-hint',
+     'delete-all', 'hinge-prompt', 'hinge-copy'].forEach(function (id) {
       els[id] = document.getElementById('td-' + id);
     });
     ['group', 'grade', 'goal', 'evidence', 'surprise', 'next'].forEach(function (id) {
       els[id].addEventListener('input', update);
       els[id].addEventListener('change', update);
     });
+
+    canSave = storageWorks();
+    if (canSave) {
+      saved = prune(load(), Date.now());
+      store(saved);
+      els.save.addEventListener('click', save);
+      /* Markeringen väntar ett varv, så att copy-to-clipboard.js hinner läsa
+         data-copy innan prompten töms. */
+      els['batch-copy'].addEventListener('click', function () {
+        var ids = todaysOpen().map(function (s) { return s.id; });
+        setTimeout(function () {
+          saved.forEach(function (s) { if (ids.indexOf(s.id) !== -1) s.analysed = true; });
+          store(saved);
+          renderAll();
+        }, 0);
+      });
+      els['delete-all'].addEventListener('click', function () {
+        saved = [];
+        store(saved);
+        renderAll();
+      });
+      renderAll();
+    } else {
+      els.save.hidden = true;
+      els['saved-area'].hidden = true;
+      els['storage-note'].hidden = false;
+    }
     update();
   });
 })();

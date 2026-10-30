@@ -18,6 +18,10 @@
 .td-more { margin-top: var(--space-3); }
 .td-more__meta { color: var(--color-text-muted); font-weight: var(--weight-body); }
 
+/* Knappar och rutor som JS döljer (till exempel Save när webbläsaren inte
+   tillåter lagring). .btn sätter display, så hidden måste vinna uttryckligen. */
+#td-builder [hidden] { display: none !important; }
+
 /* Formuläret: grupp och årskurs på en rad. */
 .td-pair { grid-column: 1 / -1; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }
 .td-followup { margin: 0 0 var(--space-2); padding: var(--space-2) var(--space-3); border-left: 3px solid var(--color-accent); background: var(--color-bg-alt); font-size: var(--fs-small); color: var(--color-text); }
