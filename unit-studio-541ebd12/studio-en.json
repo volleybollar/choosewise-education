@@ -1,0 +1,267 @@
+{
+  "labels": {
+    "strong": {
+      "name": "Strong",
+      "definition": "Meta-analyses of classroom studies show that teaching this way improves learning."
+    },
+    "promising": {
+      "name": "Promising",
+      "definition": "Controlled studies show gains, but results are mixed, small in number or dependent on context."
+    },
+    "framework": {
+      "name": "Framework",
+      "definition": "A useful structure for planning, with no intervention studies behind it as a method."
+    },
+    "choosewise": {
+      "name": "Choosewise",
+      "definition": "Choosewise's own question, not a research finding."
+    }
+  },
+  "steps": [
+    {
+      "id": "goal-evidence",
+      "num": 1,
+      "name": "Goal and evidence",
+      "look_for": [
+        "What should students be able to do by the end of the unit?",
+        "Where will you see that they can do it?",
+        "Does every activity lead towards that evidence?"
+      ],
+      "why": "Plans often start from activities. Starting from the goal and the evidence keeps every lesson pointing the same way.",
+      "brief": "Look at what students should be able to do by the end of the unit, and how the teacher will see that they can. Check that the goals are concrete, that each goal has evidence in a task or assessment, and that the activities lead to that evidence.",
+      "approach_ids": [
+        "backward-design"
+      ]
+    },
+    {
+      "id": "prior-knowledge",
+      "num": 2,
+      "name": "Prior knowledge",
+      "look_for": [
+        "What must students already know for this unit to work?",
+        "Which of it is likely to be missing or mixed up?",
+        "How will you check it before you build on it?"
+      ],
+      "why": "New learning builds on what students already know. A gap found in the first lesson costs five minutes; found in the test, it costs the unit.",
+      "brief": "Look at what students must already know or be able to do for this unit to work, which of it is likely to be missing or mixed up, and how the teacher can check it early, before building on it.",
+      "approach_ids": [
+        "prior-knowledge"
+      ]
+    },
+    {
+      "id": "sequence-load",
+      "num": 3,
+      "name": "Sequence and load",
+      "look_for": [
+        "How much new does each lesson bring?",
+        "Are new ideas modelled with worked examples before students practise alone?",
+        "Where does support fade as students get more confident?"
+      ],
+      "why": "Working memory is small. New ideas land better when they are explained, modelled and practised in small steps.",
+      "brief": "Look at the order of the lessons and how much new content each one brings. Check that new ideas are explained clearly and modelled with worked examples before students practise alone, and that support fades as students become more confident.",
+      "approach_ids": [
+        "explicit-instruction"
+      ]
+    },
+    {
+      "id": "retrieval-checkpoints",
+      "num": 4,
+      "name": "Retrieval and checkpoints",
+      "look_for": [
+        "Where does earlier content come back later in the unit?",
+        "Where will you check the whole class before moving on?",
+        "What will you do if fewer than about 4 in 5 get it?"
+      ],
+      "why": "Content that is recalled again over several weeks is remembered. Content covered once is often forgotten by the test.",
+      "brief": "Plan short retrieval practice that brings back earlier content of the unit, spread over the weeks, and a few checkpoints at key moments where the teacher checks the understanding of the whole class before moving on.",
+      "approach_ids": [
+        "retrieval-spacing",
+        "formative-checkpoints"
+      ]
+    },
+    {
+      "id": "motivation-ai",
+      "num": 5,
+      "name": "Motivation and AI decisions",
+      "look_for": [
+        "What gives students a reason to care, and a sense that they can succeed?",
+        "Where do students talk and think together?",
+        "Where could AI help or harm their learning, and what would they get worse at if AI did that part?"
+      ],
+      "why": "Students learn more when they feel they belong and can succeed. Decisions about AI belong in the plan, not left to chance.",
+      "brief": "Look at what gives students a reason to care and a sense that they can succeed, where they talk and think together, and where in the unit AI could help or harm their learning. For every planned or likely use of AI, ask the trade-off question: what would students get worse at if AI did this part?",
+      "approach_ids": [
+        "belonging",
+        "trade-off"
+      ]
+    }
+  ],
+  "approaches": [
+    {
+      "id": "backward-design",
+      "name": "Backward design and constructive alignment",
+      "label": "framework",
+      "evidence": "Backward design starts from what students should be able to do and how that will show, and plans the activities last (Wiggins & McTighe 2005). Constructive alignment makes the same point: goals, activities and assessment should match (Biggs 1996). Both are frameworks for planning, not methods tested in intervention studies.",
+      "sources": [
+        {
+          "text": "Wiggins & McTighe 2005, Understanding by Design (ASCD)",
+          "url": "https://www.ascd.org/books/understanding-by-design-expanded-2nd-edition"
+        },
+        {
+          "text": "Biggs 1996, Higher Education",
+          "url": "https://doi.org/10.1007/BF00138871"
+        }
+      ]
+    },
+    {
+      "id": "prior-knowledge",
+      "name": "Prior knowledge",
+      "label": "promising",
+      "evidence": "What students already know is one of the strongest predictors of how well they do later. A meta-analysis finds that prior knowledge strongly predicts later performance, but explains much less of how much students gain (Simonsmeier et al. 2022). Checking prior knowledge early lets the teacher fill gaps before building on them.",
+      "sources": [
+        {
+          "text": "Simonsmeier, Flaig, Deiglmayr, Schalk & Schneider 2022, Educational Psychologist",
+          "url": "https://doi.org/10.1080/00461520.2021.1939700"
+        }
+      ]
+    },
+    {
+      "id": "explicit-instruction",
+      "name": "Explicit instruction and worked examples",
+      "label": "strong",
+      "evidence": "A meta-analysis of 328 studies over half a century found consistently positive effects of Direct Instruction, a highly structured form of explicit teaching (Stockard et al. 2018). Rosenshine's principles summarise the wider research on explicit instruction for classroom use. Cognitive load theory rests on decades of replicated experiments. The worked-example effect is one of its most robust findings, confirmed in a 2023 meta-analysis, and it fades as students gain expertise (Sweller, van Merriënboer & Paas 2019; Barbieri et al. 2023).",
+      "sources": [
+        {
+          "text": "Stockard et al. 2018, Review of Educational Research",
+          "url": "https://doi.org/10.3102/0034654317751919"
+        },
+        {
+          "text": "Rosenshine 2012, American Educator",
+          "url": "https://www.aft.org/sites/default/files/Rosenshine.pdf"
+        },
+        {
+          "text": "Sweller, van Merriënboer & Paas 2019, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-019-09465-5"
+        },
+        {
+          "text": "Barbieri et al. 2023, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-023-09745-1"
+        }
+      ]
+    },
+    {
+      "id": "retrieval-spacing",
+      "name": "Retrieval practice and spacing",
+      "label": "strong",
+      "evidence": "Practice testing and distributed practice are the two strategies rated high utility in the best-known review of study techniques (Dunlosky et al. 2013). Meta-analyses of classroom studies confirm that retrieval practice improves learning in school (Yang et al. 2021; Ruitenburg et al. 2026), and find a small but reliable benefit from spacing practice out (Ruitenburg et al. 2026).",
+      "sources": [
+        {
+          "text": "Dunlosky et al. 2013, Psychological Science in the Public Interest",
+          "url": "https://doi.org/10.1177/1529100612453266"
+        },
+        {
+          "text": "Yang et al. 2021, Psychological Bulletin",
+          "url": "https://doi.org/10.1037/bul0000309"
+        },
+        {
+          "text": "Ruitenburg et al. 2026, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-026-10225-5"
+        }
+      ]
+    },
+    {
+      "id": "formative-checkpoints",
+      "name": "Checkpoints (formative assessment)",
+      "label": "strong",
+      "evidence": "Black & Wiliam's 1998 review made the case that formative assessment raises achievement, and a 2024 meta-analysis of 118 K-12 studies confirms a positive, more modest average effect (Yao et al. 2024). A whole-school EEF trial found a similar, real effect at scale.",
+      "sources": [
+        {
+          "text": "Black & Wiliam 1998, Assessment in Education",
+          "url": "https://doi.org/10.1080/0969595980050102"
+        },
+        {
+          "text": "Yao et al. 2024, Educational Research and Evaluation",
+          "url": "https://doi.org/10.1080/13803611.2024.2363831"
+        },
+        {
+          "text": "EEF: Embedding Formative Assessment evaluation",
+          "url": "https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/embedding-formative-assessment"
+        }
+      ]
+    },
+    {
+      "id": "belonging",
+      "name": "Belonging and motivation",
+      "label": "promising",
+      "evidence": "A meta-analytic review links school belonging to motivation, well-being and achievement in secondary school (Korpershoek et al. 2020). Brief belonging interventions have helped some students, but a 2023 study of almost 27,000 students found they worked only where the school gave students real chances to belong (Walton et al. 2023).",
+      "sources": [
+        {
+          "text": "Korpershoek et al. 2020, Research Papers in Education",
+          "url": "https://doi.org/10.1080/02671522.2019.1615116"
+        },
+        {
+          "text": "Walton & Cohen 2011, Science",
+          "url": "https://doi.org/10.1126/science.1198364"
+        },
+        {
+          "text": "Walton et al. 2023, Science",
+          "url": "https://doi.org/10.1126/science.ade4420"
+        }
+      ]
+    },
+    {
+      "id": "trade-off",
+      "name": "The trade-off question",
+      "label": "choosewise",
+      "evidence": "This is Choosewise's own question, not a research finding. It draws on research showing that unrestricted AI help can raise practice scores while lowering learning once the help is removed (Bastani et al. 2025).",
+      "sources": [
+        {
+          "text": "Bastani et al. 2025, PNAS",
+          "url": "https://doi.org/10.1073/pnas.2422633122"
+        }
+      ]
+    }
+  ],
+  "example": {
+    "subject": "Science",
+    "grade": 8,
+    "weeks": 4,
+    "lessons": 3,
+    "title": "Forces and motion",
+    "unit_text": "Week 1: What is a force? Pushes and pulls, contact and non-contact forces. Video and notes. Worksheet.\nWeek 2: Measuring forces with newtonmeters (practical). Weight and mass. Notes.\nWeek 3: Balanced and unbalanced forces. Textbook reading and questions. Group poster.\nWeek 4: Speed = distance ÷ time, practical with toy cars. Revision lesson. End-of-unit test.",
+    "step4_reply": {
+      "keep": "The practicals in weeks 2 and 4 give students something real to measure, and the end-of-unit test gives you evidence of what they learned.",
+      "suggest": "1. Start every lesson from week 2 with three retrieval questions from earlier weeks, for example: Is gravity a contact or a non-contact force? What is the difference between mass and weight? Why this helps: recalling content again over several weeks makes it last far longer than reading the notes again.\n2. Add a hinge question at the end of week 3, before speed: “A car moves at a steady speed in a straight line. Are the forces on it balanced or unbalanced?” The common wrong answer is unbalanced, because it is moving. Move on if about 4 in 5 answer balanced. Why this helps: it shows whether the class has the key idea before you build on it.\n3. Replace the revision lesson with a retrieval lesson: a mixed quiz from all four weeks, marked by the students, followed by re-teaching of the two most-missed questions. Why this helps: testing yourself helps memory more than re-reading.",
+      "question": "Which idea from week 1 or 2 have students most often forgotten by the end-of-unit test?",
+      "ai_can_also": "Write ten short retrieval questions on forces and motion for Grade 8: two each on contact and non-contact forces, weight and mass, balanced forces, speed, and measuring with a newtonmeter. Give the answers separately."
+    },
+    "final_plan": {
+      "goal_and_evidence": "By the end, students can explain forces as pushes and pulls and name contact and non-contact forces, measure forces in newtons and tell weight from mass, predict motion from balanced and unbalanced forces, and calculate speed from distance and time. Evidence: the exit ticket in lesson 3, the hinge questions in lessons 6 and 9, and the end-of-unit test, which asks students to explain as well as calculate.",
+      "prior_knowledge": "Students need to read a scale, divide with decimals and know that a dropped object falls because of gravity. Check it in lesson 1 with three quick questions: read a scale, work out 12 ÷ 4.8, and explain why a dropped ball falls.",
+      "lessons": "1. Prior knowledge check (5 min); worked examples of contact and non-contact forces, then sorting cards in pairs (50 min)\n2. Retrieval (5 min); force arrows modelled on the board, then students draw arrows for everyday situations (50 min)\n3. Retrieval (5 min); mixed practice and an exit ticket on contact and non-contact forces (50 min)\n4. Retrieval (5 min); a worked example with a newtonmeter, then the measuring practical (55 min)\n5. Retrieval (5 min); weight and mass: a worked example of weight = mass × 10 N/kg, then guided practice (50 min)\n6. Retrieval (5 min); mixed practice on weight and mass, ending with a hinge question (50 min)\n7. Retrieval (5 min); balanced and unbalanced forces: demonstration and worked examples with force arrows (50 min)\n8. Retrieval (5 min); textbook reading with three guiding questions, then a group poster explaining one situation (50 min)\n9. Retrieval (5 min); hinge question on steady speed, re-teaching if needed, then practice (50 min)\n10. Retrieval (5 min); speed = distance ÷ time: worked examples, then the toy car practical (55 min)\n11. A mixed retrieval quiz from all four weeks, marked by students, then re-teaching of the two most-missed questions and speed practice from half-finished examples (55 min)\n12. End-of-unit test (55 min)",
+      "retrieval": "Lessons 2 to 11 open with three questions: one from the last lesson, one from one to two weeks back and one older. Lesson 11 is a mixed quiz from all four weeks.",
+      "checkpoints": "Lesson 3: exit ticket on contact and non-contact forces. Lesson 6: hinge question on mass and weight. Lesson 9: hinge question on steady speed. If fewer than about 4 in 5 get it, re-teach with a new worked example at the start of the next lesson before moving on.",
+      "ai_use": "Students do not use AI for the practicals, the force arrows or the calculations: they would get worse at explaining and measuring forces themselves. The teacher uses AI to write the retrieval questions and hinge questions. In lesson 8, students may ask an AI tool to point out one physics mistake in their poster explanation after writing it themselves, if the school allows students to use AI.",
+      "changes": "The video and notes in week 1 are replaced by worked examples and sorting.\nRetrieval questions open lessons 2 to 11.\nAn exit ticket in lesson 3 and hinge questions in lessons 6 and 9 are added.\nThe revision lesson becomes a mixed retrieval quiz.\nSpeed calculations fade from worked examples to independent work.",
+      "check": "Which value of g your syllabus uses (10 N/kg or 9.8 N/kg).\nWhether the toy car practical fits one lesson with your equipment."
+    }
+  },
+  "age_rules": [
+    {
+      "tool": "Copilot Chat",
+      "rule": "Students aged 13 and over, through the school's own Microsoft 365 account. The school's administrator must set each student's age group and consent."
+    },
+    {
+      "tool": "Gemini for Education",
+      "rule": "Open to education users of all ages, with a stricter experience for under-18s. The school's administrator must turn it on."
+    },
+    {
+      "tool": "ChatGPT",
+      "rule": "Ages 13 and over on personal accounts, with a parent's or guardian's permission under 18. ChatGPT for Teachers is for school staff only."
+    },
+    {
+      "tool": "Claude",
+      "rule": "Ages 18 and over. In a school, for teachers only."
+    }
+  ]
+}
