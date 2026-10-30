@@ -82,7 +82,7 @@ The teacher pastes a lesson they have already planned and picks one or two of tw
 
 - [Retrieval Rhythm — English](https://choosewise.education/retrieval-rhythm/)
 
-A weekly routine for retrieval practice and spacing. The teacher keeps a simple topic log (date, topic, key points; an Excel template is provided) and once a week pastes it into a prompt builder. Any AI tool then returns one starter per lesson that mixes content from the last lessons, two to four weeks back and older entries, in one of five formats (starter quiz, brain dump, retrieval grid, multiple choice with misconceptions, two things I remember) or a mix, with an answer key and a list of answers to verify. Evidence labels for retrieval practice and spacing (Strong) and interleaving and misconception-based options (Promising). A free printable pack has the five formats, a page for students and parents and a fill-in prompt.
+A weekly routine for retrieval practice and spacing. The teacher keeps a simple topic log (date, topic, key points; an Excel template is provided) and once a week pastes it into a prompt builder. Any AI tool then returns one starter per lesson that mixes content from the newest week in the log, one to three weeks before it and older entries, in one of five formats (starter quiz, brain dump, retrieval grid, multiple choice with misconceptions, two things I remember) or a mix, with an answer key and a list of answers to verify. Evidence labels for retrieval practice and spacing (Strong) and interleaving and misconception-based options (Promising). A free printable pack has the five formats, a page for students and parents and a fill-in prompt.
 
 - [Two-Minute Debrief — English](https://choosewise.education/two-minute-debrief/)
 

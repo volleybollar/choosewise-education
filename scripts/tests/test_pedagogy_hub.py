@@ -56,3 +56,5 @@ def test_llms_lists_both_pages():
     assert "https://choosewise.education/lesson-lens/" in text
     assert "https://choosewise.education/retrieval-rhythm/" in text
     assert "https://choosewise.education/two-minute-debrief/" in text
+    # Retrieval Rhythm räknar veckorna från loggens senaste rad: en till tre veckor före.
+    assert "one to three weeks before it" in text and "two to four weeks back" not in text
