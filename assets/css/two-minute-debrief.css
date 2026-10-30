@@ -1,0 +1,52 @@
+/* Two-Minute Debrief (/two-minute-debrief/). Bygger på thinking-moves.css (tm-) och
+   lägger bara till det som är nytt här (td-). Färger bara som var(--…). */
+
+/* Raden under rubriken: för vilka lektioner verktyget är tänkt. */
+.td-for { margin: 0 0 var(--space-3); font-size: var(--fs-h3); color: var(--color-highlight-ink); font-weight: var(--weight-emphasis); }
+
+/* Exemplet i hero: samma ruta som korten, men alltid öppen. */
+.td-hero-example { margin-top: var(--space-8); max-width: var(--content-max); }
+.td-hero-example__title { margin: 0 0 var(--space-3); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+
+/* Ett exempel: lärarens fyra svar bredvid AI:ns svar på dator, under varandra på mobil. */
+.td-example__cols { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+.td-example dl { grid-template-columns: 1fr; gap: var(--space-1); }
+.td-example dd { margin-bottom: var(--space-2); }
+.td-example__label { margin: 0 0 var(--space-2); font-size: var(--fs-small); text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-muted); }
+/* Radbrytningarna i JSON-texten ska synas, men långa rader får brytas. */
+.td-text { white-space: pre-line; overflow-wrap: anywhere; }
+.td-more { margin-top: var(--space-3); }
+.td-more__meta { color: var(--color-text-muted); font-weight: var(--weight-body); }
+
+/* Formuläret: grupp och årskurs på en rad. */
+.td-pair { grid-column: 1 / -1; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }
+.td-followup { margin: 0 0 var(--space-2); padding: var(--space-2) var(--space-3); border-left: 3px solid var(--color-accent); background: var(--color-bg-alt); font-size: var(--fs-small); color: var(--color-text); }
+.td-when { margin-top: var(--space-4); max-width: var(--content-text-max); }
+.td-loop { max-width: var(--content-text-max); }
+
+/* Sparade debriefer och listan i veckosammanställningen. */
+.td-subtitle { margin: var(--space-8) 0 var(--space-2); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+.td-saved { list-style: none; padding: 0; margin: var(--space-3) 0; display: grid; gap: var(--space-2); max-width: var(--content-text-max); }
+.td-saved li { max-width: none; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); border-bottom: 1px solid var(--color-border); padding-bottom: var(--space-2); overflow-wrap: anywhere; }
+.td-saved li span { flex: 1 1 12rem; }
+.td-saved button { font-size: var(--fs-small); }
+.td-rollup-pick { border: 0; padding: 0; margin: 0 0 var(--space-4); }
+
+/* Exempellistor (sammanställning och journal): en rad per post, datum först. */
+.td-list { list-style: none; padding: 0; margin: var(--space-3) 0; display: grid; gap: var(--space-2); max-width: var(--content-text-max); }
+.td-list li { max-width: none; border-bottom: 1px solid var(--color-border); padding-bottom: var(--space-2); overflow-wrap: anywhere; }
+.td-list strong { font-weight: var(--weight-emphasis); color: var(--color-text); }
+.td-date { font-family: var(--font-mono); font-size: var(--fs-small); color: var(--color-text-muted); margin-right: var(--space-2); }
+.td-small { display: block; font-size: var(--fs-small); color: var(--color-text-soft); }
+
+/* Exit tickets: elevtexten i en egen ruta, stegen som numrerad lista. */
+.td-ticket__text { margin: var(--space-2) 0; padding: var(--space-3); border: 1px dashed var(--color-border); border-radius: var(--radius-sm, 4px); font-size: var(--fs-small); }
+.td-steps { margin: var(--space-2) 0 0; padding-left: var(--space-5); font-size: var(--fs-small); display: grid; gap: var(--space-1); }
+.td-steps li { max-width: none; }
+
+/* Idéerna under "Why it works". */
+.td-approaches { display: grid; gap: var(--space-5); margin-top: var(--space-6); max-width: var(--content-text-max); }
+.td-approach h3 { margin: 0 0 var(--space-2); font-size: 1.15rem; font-weight: var(--weight-emphasis); display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+.td-approach p { margin: 0 0 var(--space-2); max-width: none; }
+
+.td-downloads { display: flex; flex-wrap: wrap; gap: var(--space-4); }
