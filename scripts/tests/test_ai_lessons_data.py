@@ -216,3 +216,19 @@ def test_student_pdf_has_one_to_four_pages_of_known_blocks():
             assert page["title"] and page["instruction"], (lesson["id"], page.get("title"))
             for block in page["blocks"]:
                 assert block["kind"] in BLOCK_KINDS, (lesson["id"], block["kind"])
+
+
+# ───── Lektionsspecifika vakter (planen 2026-11-11-ai-lessons-9-12) ─────
+
+def _lesson(lid):
+    return json.loads((ROOT / SLUG / lid / "lesson-en.json").read_text(encoding="utf-8"))
+
+
+def _blocks(lesson, kind):
+    return [b for p in lesson["student_pdf"]["pages"] for b in p["blocks"] if b["kind"] == kind]
+
+
+def test_ai_or_not_sorts_sixteen_cards_on_three_columns():
+    lesson = _lesson("ai-or-not")
+    assert sum(len(b["cards"]) for b in _blocks(lesson, "cards")) == 16
+    assert [b["headings"] for b in _blocks(lesson, "mat")] == [["Always does the same", "Finds patterns and guesses", "Not sure"]]

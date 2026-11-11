@@ -29,6 +29,7 @@
     {"id": "9-12", "ages": "Ages 9–12", "line": "The main focus of the track, for students who can read a short text and work in pairs on their own."}
   ],
   "lessons": [
+    {"id": "ai-or-not", "band": "9-12", "number": 1},
     {"id": "word-guessing-machine", "band": "9-12", "number": 4}
   ],
   "how_it_works": [

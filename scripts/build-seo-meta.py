@@ -67,6 +67,7 @@ HIDDEN_PATHS = {
     # AI-lektioner för elever: bara för Skool-medlemmar via dolda länkar (Johans beslut 2026-11-11).
     "/ai-lessons-younger-3c514a93/",
     "/ai-lessons-younger-3c514a93/word-guessing-machine/",
+    "/ai-lessons-younger-3c514a93/ai-or-not/",
 }
 
 # -- Pair map: EN canonical-path -> SV canonical-path
