@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--
+  Säljbild för Choosewise-communityt på Skool, 1920 × 1080.
+
+  En källfil, två versioner:
+    ?v=web    mörkblå, till choosewise.education
+    ?v=about  ljus, till About-sidan i Skool
+
+  Byggs till PNG med:  /usr/bin/python3 scripts/build-skool-promo.py
+  Förhandsgranska via en lokal server (file:// laddar inte typsnitten), t.ex.
+    python3 -m http.server 8765   och öppna
+    http://localhost:8765/exports/skool-community-1920x1080.html?v=about
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Choosewise community promo</title>
+<!-- Sajtens egna typsnitt (Hanken Grotesk + Instrument Serif), inte Google Fonts -->
+<link rel="stylesheet" href="../assets/css/fonts.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; }
+  body { position: relative; font-family: 'Hanken Grotesk', -apple-system, sans-serif; }
+
+  /* Bara den version som valts i adressen visas */
+  .version { display: none; position: absolute; inset: 0; }
+  body.web .web, body.about .about { display: block; }
+
+  /* ===== GUIDEOMSLAGEN =====
+     Tre framsidor som solfjäder. Bilderna renderas ur PDF:erna av
+     byggskriptet. Placering och vinkel står direkt på varje omslag. */
+  .cover { position: absolute; width: 240px; aspect-ratio: 636 / 900; border-radius: 5px;
+           background-size: cover; box-shadow: 0 12px 31px rgba(7, 40, 77, .28); }
+  .cover.gemini   { background-image: url(../assets/images/brand/skool/covers/gemini-notebook-guide-en.png); }
+  .cover.codes    { background-image: url(../assets/images/brand/skool/covers/visual-codes-200-en.png); }
+  .cover.students { background-image: url(../assets/images/brand/skool/covers/ai-for-students-en.png); }
+
+  /* ===== LAPTOPEN =====
+     Ritad i CSS: en skärm med svart ram och en underdel. Underdelen är
+     bara 4 % bredare än skärmen. Framkanten är närmast betraktaren och
+     ser därför något bredare ut, men lock och underdel är lika breda. */
+  .laptop { position: absolute; width: 518px; }
+  .laptop .screen { background: #15181c; border-radius: 17px 17px 0 0; padding: 14px; }
+  .laptop .screen img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  .laptop .base { height: 21px; width: 104%; margin-left: -2%;
+                  background: linear-gradient(#e3e6ea, #a9b0b8); border-radius: 0 0 23px 23px;
+                  box-shadow: 0 15px 31px rgba(7, 40, 77, .25); }
+
+  /* ===== VERSION 1: HEMSIDAN (mörkblå) ===== */
+  .web { background: #07284D; color: #EFF2F6; text-align: center; }
+  .web .eyebrow { position: absolute; top: 81px; left: 0; right: 0; font-size: 22px;
+                  letter-spacing: .32em; text-transform: uppercase; color: #E8C9A8; }
+  .web h1 { position: absolute; top: 127px; left: 0; right: 0; font-family: 'Instrument Serif', Georgia, serif;
+            font-weight: 400; font-size: 88px; color: #fff; }
+  /* De blå omslagen får en hårfin ljus kant så att de inte smälter in i bakgrunden */
+  .web .cover { box-shadow: 0 0 0 2px rgba(239, 242, 246, .38), inset 0 3px 0 rgba(255, 255, 255, .18),
+                            0 12px 35px rgba(0, 0, 0, .5); }
+  .web .cover.codes { box-shadow: 0 12px 35px rgba(0, 0, 0, .35); }  /* det ljusa omslaget behöver ingen kant */
+  .web .laptop .base { box-shadow: 0 15px 35px rgba(0, 0, 0, .4); }
+  /* Fyra värden i en rad längst ner, var och en med en kopparlinje ovanför */
+  .web .values { position: absolute; left: 134px; right: 134px; bottom: 86px; display: grid;
+                 grid-template-columns: repeat(4, 1fr); gap: 46px; text-align: left; }
+  .web .values div { border-top: 4px solid #C2793A; padding-top: 19px; }
+  .web .values b { display: block; font-size: 31px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+  .web .values span { font-size: 24px; line-height: 1.4; color: #C3CFDC; }
+
+  /* ===== VERSION 2: SKOOL ABOUT (ljus) ===== */
+  .about { background: #FBFAF8; color: #0C1A2E; }
+  .about .text { position: absolute; left: 134px; top: 173px; width: 845px; }
+  .about .brand { display: flex; align-items: center; gap: 19px; font-size: 29px; font-weight: 500; color: #4E5A68; }
+  .about .brand img { width: 61px; border-radius: 12px; }
+  .about h1 { font-size: 75px; font-weight: 600; line-height: 1.1; margin: 42px 0 19px; }
+  /* text-wrap: balance delar undertiteln jämnt, så inget ord hamnar ensamt på sista raden */
+  .about .sub { font-size: 30px; line-height: 1.45; color: #4E5A68; margin-bottom: 46px; text-wrap: balance; }
+  .about ul { list-style: none; }
+  .about li { font-size: 29px; line-height: 1.4; margin-bottom: 21px; display: flex; gap: 19px; align-items: baseline; }
+  /* Bocken är en kopparfärgad rund bricka före varje punkt */
+  .about li::before { content: "✓"; flex: none; width: 36px; height: 36px; border-radius: 50%;
+                      background: #C2793A; color: #fff; font-size: 21px; display: grid; place-items: center;
+                      transform: translateY(5px); }
+  .about .tag { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 48px;
+                color: #9C5A24; margin-top: 42px; }
+</style>
+</head>
+<body>
+
+<!-- ===== VERSION 1: HEMSIDAN ===== -->
+<div class="version web">
+  <div class="eyebrow">The Choosewise Community on Skool</div>
+  <h1>For educators, by educators.</h1>
+
+  <div class="cover gemini"   style="left: 499px; top: 307px; transform: rotate(-6deg)"></div>
+  <div class="cover codes"    style="left: 614px; top: 269px; transform: rotate(-1deg)"></div>
+  <div class="cover students" style="left: 739px; top: 298px; transform: rotate(4deg)"></div>
+  <div class="laptop" style="left: 883px; top: 384px">
+    <div class="screen"><img src="../assets/images/brand/skool/cover.png" alt=""></div>
+    <div class="base"></div>
+  </div>
+
+  <div class="values">
+    <div><b>Course</b><span>AI in teaching &amp; learning, film by film</span></div>
+    <div><b>Guides</b><span>Claude, Copilot, Gemini &amp; more</span></div>
+    <div><b>Prompts</b><span>Built for the classroom</span></div>
+    <div><b>Network</b><span>Educators worldwide, live Q&amp;A</span></div>
+  </div>
+</div>
+
+<!-- ===== VERSION 2: SKOOL ABOUT ===== -->
+<div class="version about">
+  <div class="text">
+    <div class="brand"><img src="../assets/images/brand/skool/logo.png" alt="">Choosewise on Skool</div>
+    <h1>The Choosewise Community</h1>
+    <p class="sub">Quality-checked AI material made for educators, all in one place.</p>
+    <ul>
+      <li>A full course on AI in teaching &amp; learning</li>
+      <li>Guides to Claude, Copilot, Gemini &amp; more</li>
+      <li>Prompts built for the classroom</li>
+      <li>A network of educators, and live Q&amp;A with Johan</li>
+    </ul>
+    <div class="tag">For educators, by educators.</div>
+  </div>
+
+  <div class="cover gemini"   style="left: 1056px; top: 326px; transform: rotate(-6deg)"></div>
+  <div class="cover codes"    style="left: 1171px; top: 278px; transform: rotate(-1deg)"></div>
+  <div class="cover students" style="left: 1296px; top: 307px; transform: rotate(4deg)"></div>
+  <div class="laptop" style="left: 1210px; top: 576px">
+    <div class="screen"><img src="../assets/images/brand/skool/cover.png" alt=""></div>
+    <div class="base"></div>
+  </div>
+</div>
+
+<!-- Väljer version utifrån ?v= i adressen (standard: web) -->
+<script>
+  document.body.className = new URLSearchParams(location.search).get('v') || 'web';
+</script>
+</body>
+</html>
