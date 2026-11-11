@@ -69,6 +69,8 @@ PAGES = (
         "pedagogy-compass-59ecb8db/",
         "pedagogy/",
         "community/",
+        "ai-lessons-younger-3c514a93/",
+        "ai-lessons-younger-3c514a93/word-guessing-machine/",
     ]
 )
 

@@ -64,6 +64,9 @@ HIDDEN_PATHS = {
     "/pedagogy-compass-59ecb8db/",
     # Community: dold tills Skool öppnar för alla (Johans beslut 2026-11-11).
     "/community/",
+    # AI-lektioner för elever: bara för Skool-medlemmar via dolda länkar (Johans beslut 2026-11-11).
+    "/ai-lessons-younger-3c514a93/",
+    "/ai-lessons-younger-3c514a93/word-guessing-machine/",
 }
 
 # -- Pair map: EN canonical-path -> SV canonical-path

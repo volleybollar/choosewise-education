@@ -1,0 +1,95 @@
+/* AI-lektioner för elever (dolda sidor för Skool-medlemmar). Bygger på
+   thinking-moves.css (tm-) och lägger bara till det som är nytt här (al-).
+   Färger bara som var(--…): hex bor i tokens.css. */
+
+/* ───── Översiktssidan ───── */
+
+/* Taggarna under ingressen. */
+.al-chips { list-style: none; padding: 0; margin: var(--space-5) 0 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.al-chips li { max-width: none; font-size: var(--fs-small); color: var(--color-text-soft); border: 1px solid var(--color-border-strong); border-radius: var(--radius-pill); padding: var(--space-1) var(--space-3); }
+
+/* Nyckeltalen: fem rutor på dator, två per rad på mobil. */
+.al-stats { list-style: none; padding: 0; margin: var(--space-6) 0 0; display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); }
+.al-stat { max-width: none; min-width: 0; display: flex; flex-direction: column; gap: var(--space-1); border: 1px solid var(--color-border); border-top: 3px solid var(--color-highlight); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); background: var(--color-bg); }
+.al-stat__label { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-text-muted); }
+.al-stat__value { font-size: 1.15rem; font-weight: var(--weight-emphasis); color: var(--color-text); }
+
+/* Åldersband och lektionskort. */
+.al-band__title { margin: var(--space-6) 0 var(--space-1); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+.al-band__line { margin: 0 0 var(--space-4); color: var(--color-text-soft); max-width: var(--content-text-max); }
+.al-card .tm-move__name a { color: inherit; text-decoration: none; }
+.al-card .tm-move__name a:hover { color: var(--color-accent); }
+.al-card__links { margin: auto 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); max-width: none; }
+.al-card__pdf { font-size: var(--fs-small); font-weight: var(--weight-emphasis); color: var(--color-accent); }
+
+/* ───── Gemensamt för båda sidorna ───── */
+
+.al-sub { margin: var(--space-6) 0 var(--space-3); font-size: 1.15rem; font-weight: var(--weight-emphasis); }
+.al-text { max-width: var(--content-text-max); }
+.al-text + .al-text { margin-top: var(--space-3); }
+.al-label { margin: var(--space-3) 0 var(--space-1); font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-text-muted); }
+.al-list { padding-left: var(--space-5); display: grid; gap: var(--space-2); max-width: var(--content-text-max); }
+.al-text + .al-list, .al-text + .al-gather { margin-top: var(--space-4); }
+.al-download { margin-top: var(--space-6); }
+.al-rights { margin-top: var(--space-6); max-width: var(--content-text-max); font-size: var(--fs-small); color: var(--color-text-soft); border-top: 1px solid var(--color-border); padding-top: var(--space-4); }
+
+/* Åldersgränserna som tabell. Fast layout och radbrytning i stället för
+   sidledsscroll på smala skärmar. */
+.al-table { width: 100%; max-width: var(--content-max); border-collapse: collapse; table-layout: fixed; font-size: var(--fs-small); }
+.al-table th, .al-table td { text-align: left; vertical-align: top; padding: var(--space-2) var(--space-3) var(--space-2) 0; border-bottom: 1px solid var(--color-border); overflow-wrap: anywhere; }
+.al-table thead th { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-text-muted); font-weight: var(--weight-body); }
+.al-table tbody th { font-weight: var(--weight-emphasis); }
+.al-checked { margin-top: var(--space-2); font-size: var(--fs-small); color: var(--color-text-muted); }
+
+/* ───── Lärarsidan ───── */
+
+/* Lektionen i korthet. */
+.al-glance { display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); margin: 0 0 var(--space-5); }
+.al-glance div { border-left: 3px solid var(--color-highlight); padding-left: var(--space-3); min-width: 0; }
+.al-glance dt { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-text-muted); }
+.al-glance dd { margin: 0; font-weight: var(--weight-emphasis); }
+
+/* Nyckelorden. */
+.al-words { display: grid; grid-template-columns: minmax(6rem, auto) minmax(0, 1fr); gap: var(--space-2) var(--space-4); max-width: var(--content-text-max); margin: 0; }
+.al-words dt { font-weight: var(--weight-emphasis); }
+.al-words dd { margin: 0; color: var(--color-text-soft); }
+
+/* Tidslinjen: en lodrät linje, varje steg med minuter och arbetsform. */
+.al-steps { list-style: none; padding: 0; margin: 0; max-width: var(--content-text-max); }
+.al-step { position: relative; max-width: none; padding: 0 0 var(--space-6) var(--space-6); border-left: 2px solid var(--color-border); }
+.al-step:last-child { padding-bottom: 0; }
+.al-step::before { content: ""; position: absolute; left: -7px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--color-bg); border: 2px solid var(--color-accent); }
+.al-step__head { margin: 0; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3); align-items: center; }
+.al-step__num { font-size: var(--fs-small); font-weight: var(--weight-emphasis); color: var(--color-text); }
+.al-step__time { font-size: var(--fs-small); color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+.al-step__title { margin: var(--space-1) 0 var(--space-2); font-size: 1.2rem; font-weight: var(--weight-emphasis); }
+.al-step__do { margin: 0; }
+
+/* Arbetsformen: ord och ram, inte bara färg. */
+.al-mode { display: inline-block; font-size: var(--fs-caption); font-weight: var(--weight-emphasis); letter-spacing: .03em; border: 1px solid var(--color-accent); border-radius: var(--radius-sm); padding: 0 var(--space-2); color: var(--color-accent); }
+.al-mode--pairs { border-style: dashed; }
+.al-mode--all { background: var(--color-accent); color: var(--color-bg); }
+
+/* Repliker läraren kan säga, satta tydligt åt sidan. */
+.al-say { margin: var(--space-3) 0 0; border-left: 3px solid var(--color-highlight); background: var(--color-bg-alt); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: var(--space-3) var(--space-4); }
+.al-say__label { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-highlight-ink); font-weight: var(--weight-emphasis); margin-right: var(--space-2); }
+
+/* Lärardemon: promptförslag och vad läraren gör om chatboten svarar rätt. */
+.al-step--demo::before { background: var(--color-accent); }
+.al-prompts { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-2); }
+.al-prompts li { max-width: none; font-family: var(--font-mono); font-size: var(--fs-small); border: 1px dashed var(--color-border-strong); border-radius: var(--radius-sm); padding: var(--space-2) var(--space-3); overflow-wrap: anywhere; }
+.al-fallback { margin: var(--space-4) 0 0; border-left: 3px dashed var(--color-accent); padding: var(--space-1) 0 var(--space-1) var(--space-4); }
+
+/* Uppsamlingen. */
+.al-gather { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-5); max-width: var(--content-text-max); }
+.al-gather li { max-width: none; }
+.al-gather__q { margin: 0; font-weight: var(--weight-emphasis); }
+.al-said { margin: 0; padding-left: var(--space-5); color: var(--color-text-soft); display: grid; gap: var(--space-1); }
+
+/* Enklare och svårare sida vid sida på dator. */
+.al-adapt { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+.al-adapt .al-sub { margin-top: 0; }
+
+/* Den avslutande frågan och exempeltexten. */
+.al-closing { font-size: 1.35rem; max-width: var(--content-text-max); color: var(--color-text); }
+.al-example { margin: 0 0 var(--space-3); max-width: var(--content-text-max); border-left: 3px solid var(--color-highlight); padding: var(--space-2) var(--space-4); color: var(--color-text); }
