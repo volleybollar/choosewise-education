@@ -138,7 +138,7 @@
         "instruction": "What comes next? Write the word. Make a mark | each time.",
         "blocks": [
           {"kind": "text", "body": "Our word: ____________________"},
-          {"kind": "text", "body": "Example: I like red. I like cake. → after \"like\": red |   cake |"},
+          {"kind": "text", "body": "Example: I like red. I like cake. After \"like\": red |  cake |"},
           {"kind": "table", "columns": ["Next word", "Marks", "Total"], "rows": 9}
         ]
       },
@@ -147,6 +147,7 @@
         "instruction": "One slip for each mark. Fold it. Put it in your cup.",
         "blocks": [
           {"kind": "text", "body": "Our word: ____________________"},
+          {"kind": "text", "body": "A full stop gets its own slip: draw a big dot."},
           {"kind": "slips", "count": 16, "label": "next word"}
         ]
       },
