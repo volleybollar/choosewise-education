@@ -3,3 +3,89 @@
    Sidan återanvänder sajtens komponenter (page-hero, section,
    btn); här ligger bara det som är unikt för communitysidan.
    ───────────────────────────────────────────────────────── */
+
+/* Centrerad text: rubriken överst och gapet under den. */
+.cm-hero,
+.cm-center { text-align: center; }
+.cm-hero h1 { max-width: 44rem; margin-inline: auto; }
+
+/* Källraden under rubriken: liten och dämpad, men alltid synlig. */
+.cm-source {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  max-width: var(--content-text-max);
+  margin: 0 auto var(--space-6);
+}
+
+/* Gapet: tre siffror i rad, som staplas på smala skärmar. */
+.cm-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: var(--space-5);
+  max-width: var(--content-text-max);
+  margin: var(--space-6) auto;
+}
+.cm-stat { margin: 0; color: var(--color-text-soft); font-size: var(--fs-small); }
+.cm-stat__figure {
+  display: block;
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  line-height: var(--lh-tight);
+  color: var(--color-accent);
+  margin-bottom: var(--space-2);
+}
+.cm-text { color: var(--color-text-soft); margin-inline: auto; }
+
+/* Punkterna: Johans tre skäl och de fyra delarna i communityt.
+   Kopparlinjen överst är en yta, aldrig textfärg. */
+.cm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+.cm-grid--two { grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); }
+.cm-item { border-top: 2px solid var(--color-highlight); padding-top: var(--space-4); }
+.cm-item h3 { font-size: var(--fs-h3); margin-bottom: var(--space-2); }
+.cm-item p { color: var(--color-text-soft); margin: 0; }
+
+/* Vem som driver communityt: porträttet beskärs till en cirkel
+   från överkanten, så att hårfästet syns. */
+.cm-who {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-6);
+  margin-top: var(--space-5);
+}
+.cm-who p { flex: 1 1 18rem; color: var(--color-text-soft); margin: 0; }
+.cm-portrait img {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Avslutningen: mörkblått band med säljbilden och knappen igen. */
+.cm-close {
+  background: var(--color-deep);
+  padding-block: var(--space-9);
+  text-align: center;
+}
+.cm-promo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-7);
+}
+/* Ljus knapp på mörk botten: vit text på koppar blir för svårläst. */
+.cm-btn--light {
+  background: var(--color-bg);
+  color: var(--color-accent);
+}
+.cm-btn--light:hover {
+  background: var(--color-bg-alt);
+  color: var(--color-accent-hover);
+}
