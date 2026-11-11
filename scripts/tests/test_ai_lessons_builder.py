@@ -109,3 +109,18 @@ def test_overview_shows_the_tracks_ai_use_note():
         assert escape(t["ai_use_note"]) in section(mod.render_overview(t), "al-resources"), slug
     older = mod.render_overview(mod.load_track(ROOT, OLDER))
     assert "never use AI" not in section(older, "al-resources")
+
+
+def test_demo_prompts_in_order_are_numbered():
+    """Lektioner som hänvisar till prompt 1, 2, 3 visar dem numrerade; andra
+    behåller "pick one" (spår 1 oförändrat)."""
+    t = track()
+    lesson = copy.deepcopy(next(x for x in t["lesson_data"] if x["ai_use"] == "teacher-demo"))
+    demo = next(s for s in lesson["steps"] if s.get("demo"))
+    demo.pop("prompts_in_order", None)
+    assert "Prompts to try (pick one)" in section(build_mod().render_lesson(t, lesson), "al-steps")
+    demo["prompts_in_order"] = True
+    steps = section(build_mod().render_lesson(t, lesson), "al-steps")
+    assert "pick one" not in steps and "Prompts, in order" in steps
+    for n in range(1, len(demo["prompts"]) + 1):
+        assert f"Prompt {n}" in steps, n

@@ -244,7 +244,10 @@ def _step(step: dict, start: int, n: int) -> str:
     ]
     if step.get("say"):
         parts.append(f'<p class="al-say"><span class="al-say__label">Say</span> {escape(step["say"])}</p>')
-    if step.get("prompts"):
+    if step.get("prompts_in_order"):  # stegen hänvisar till prompt 1, 2 …, så de numreras
+        parts.append('<p class="al-label">Prompts, in order</p><ol class="al-prompts">' + "".join(
+            f"<li><strong>Prompt {n}:</strong> {escape(p)}</li>" for n, p in enumerate(step["prompts"], start=1)) + "</ol>")
+    elif step.get("prompts"):
         parts.append('<p class="al-label">Prompts to try (pick one)</p>'
                      + _list(step["prompts"], "al-prompts"))
     if step.get("fallback"):

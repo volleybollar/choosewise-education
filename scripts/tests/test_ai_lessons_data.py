@@ -29,7 +29,7 @@ ANTHRO = re.compile(
     r"(thinks?|understands?|knows?|wants?|feels?|believes?)\b", re.I)
 # Ord som ger maskinen ett inre liv även utan subjekt framför ("train them to
 # admit when they are unsure"). Granskningen 2026-11-11 hittade dem.
-MENTAL = re.compile(r"\b(admits?|unsure|decides?|pretends?)\b", re.I)
+MENTAL = re.compile(r"\b(admits?|unsure|decides?|pretends?|tries)\b", re.I)  # "tries": slutgranskningen 13–15
 TOKENS = re.compile(r"[a-z']+|\.")
 
 
@@ -143,6 +143,7 @@ def test_demo_step_has_fallback():
 def test_no_anthropomorphic_wording():
     assert ANTHRO.search("The chatbot knows the answer.")  # vakten själv biter
     assert MENTAL.search("They train them to admit when they are unsure.")
+    assert MENTAL.search("Keeps you chatting: it tries to stop Mika from leaving.")
     for lesson in lessons():
         for text in teacher_text(lesson):
             for sentence in statements(text):
@@ -426,3 +427,26 @@ def test_my_data_trail_asks_for_app_types_and_keeps_sheets_with_students():
     for product in ("tiktok", "instagram", "snapchat", "youtube", "spotify", "roblox", "fortnite"):
         assert product not in apps, product
     assert any("stay with" in line for line in lesson["before"])
+
+
+# ───── Slutgranskningen av 13–15 ─────
+
+def test_lessons_that_name_prompt_numbers_show_them_in_order():
+    """Steg som säger "prompt 2" kräver numrerade prompter, inte "pick one"."""
+    for lesson in lessons():
+        if any(re.search(r"\bprompt [123]\b", text, re.I) for text in teacher_text(lesson)):
+            demo = next(s for s in lesson["steps"] if s.get("demo"))
+            assert demo.get("prompts_in_order") is True, lesson["id"]
+
+
+def test_older_ai_or_human_gives_a_usual_sort_and_warns_about_spoofing():
+    """Telefonnumret är inget säkert bevis: läraren behöver facit och fakta."""
+    text = " ".join(teacher_text(_lesson("ai-or-human", OLDER)))
+    assert "A usual sort" in text and "spoof" in text.lower()
+
+
+def test_older_ai_or_human_checklist_never_passes_on_the_code():
+    steps = _lesson("ai-or-human", OLDER)["steps"]
+    checklist = next(s for s in steps if s["title"] == "Our checklist")["do"]
+    assert "never pass on the code" in checklist.lower()
+    assert "anything yet" not in checklist and "hang up" not in checklist.lower()

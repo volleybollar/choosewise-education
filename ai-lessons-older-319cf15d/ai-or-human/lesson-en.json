@@ -75,13 +75,14 @@
         "Is this text AI-generated? Give a score from 0 to 100. [paste the same paragraph]",
         "How could anyone be sure whether a person or an AI wrote this text?"
       ],
-      "fallback": "If the chatbot says it can't tell, that is the more accurate answer: point out that studies of detection tools found them neither accurate nor reliable (see Background). If the tool is blocked, read out the answer you saved before the lesson."
+      "fallback": "If the chatbot says it can't tell, that is the more accurate answer: point out that studies of detection tools found them neither accurate nor reliable (see Background). If the tool is blocked, read out the answer you saved before the lesson.",
+      "prompts_in_order": true
     },
     {
       "minutes": 10,
       "mode": "Pairs",
       "title": "Easy or hard to fake?",
-      "do": "Pairs cut out the eight evidence cards on page 2 and place them on the mat on page 3: Easy to fake, Takes some work, Hard to fake. Each card is a sign that a message really comes from your parent. Compare with the next pair. Pairs often disagree about the phone number and the video call; the reasons matter more than the columns.",
+      "do": "Pairs cut out the eight evidence cards on page 2 and place them on the mat on page 3: Easy to fake, Takes some work, Hard to fake. Each card is a sign that a message really comes from your parent. Compare with the next pair. A usual sort: the voice, a photo, the nickname and the dog's name are easy to fake, since a short clip and a few posts are enough. The phone number and the video call take some work but can be faked: scammers can make any number show up on caller ID (spoofing), and criminals use AI video in real-time video calls. The family code word and calling back on a saved number are hard to fake. Pairs often disagree; the reasons matter more than the columns.",
       "say": "Ask yourselves: could someone with an AI tool and a few posts from social media fake this?"
     },
     {
@@ -94,7 +95,7 @@
       "minutes": 3,
       "mode": "All",
       "title": "Our checklist",
-      "do": "Collect steps on the board into a class checklist. Make sure it includes: don't send anything yet; hang up and call back on the number you already have saved; ask something only they would know, or a family code word; tell an adult."
+      "do": "Collect steps on the board into a class checklist. Make sure it includes: never pass on the code, whoever asks; don't reply to the message; call your parent on the number you already have saved; ask something only they would know, or your family's code word; tell an adult."
     },
     {
       "minutes": 3,
@@ -145,7 +146,7 @@
   "background": [
     "AI tools can now make pictures, texts, voices and videos that are very hard to tell from human-made ones. In one study, people could not reliably tell AI-made face photos from real ones, and even rated the AI-made faces as slightly more trustworthy (Nightingale and Farid, 2022). The tools have improved a lot since then. Clues still help with weaker pictures, but a clue is not proof: a real photo can look strange, and an AI picture can look perfect.",
     "Tools that claim to detect AI-written text are unreliable. A 2023 test of 14 detection tools, two of them commercial, found them neither accurate nor reliable: they leaned towards labelling texts as human-written, and rewording a text made them worse (Weber-Wulff et al.). Asking a chatbot is not a detector at all: it produces a likely-sounding verdict, and the same text can get different verdicts in two chats, as the demo shows. Don't use either to judge students' work.",
-    "Copying a voice takes only a short clip, which can come from a video posted online. The US Federal Trade Commission's advice for a call from a loved one asking for money: don't trust the voice; call the person back on a number you know is theirs; if you can't reach them, contact them through another family member or friends (FTC, 2023). Some families agree on a code word in advance, and students often suggest it themselves.",
+    "Copying a voice takes only a short clip, which can come from a video posted online, and the FBI warns that criminals also use AI video in real-time video calls. A phone number on the screen proves little: scammers can make any name or number show up on caller ID, which is called spoofing (FTC). The US Federal Trade Commission's advice for a call from a loved one asking for money: don't trust the voice; call the person back on a number you know is theirs; if you can't reach them, contact them through another family member or friends (FTC, 2023). The FBI also suggests a secret word or phrase that the family agrees on in advance.",
     "The voice message in the lesson asks for a code sent by text. Teach the simple rule: never pass on a code you received by text, whoever asks for it.",
     "The picture grid and the video test come from Choosewise's own AI or human? test, which adults find hard too. Expect the class to get several wrong: that is part of the lesson."
   ],
@@ -183,6 +184,14 @@
     {
       "title": "US Federal Trade Commission (2023): Scammers use AI to enhance their family emergency schemes",
       "url": "https://consumer.ftc.gov/consumer-alerts/2023/03/scammers-use-ai-enhance-their-family-emergency-schemes"
+    },
+    {
+      "title": "FBI Internet Crime Complaint Center (2024): Criminals use generative artificial intelligence to facilitate financial fraud",
+      "url": "https://www.ic3.gov/PSA/2024/PSA241203"
+    },
+    {
+      "title": "US Federal Trade Commission: Phone scams (caller ID spoofing)",
+      "url": "https://consumer.ftc.gov/articles/phone-scams"
     },
     {
       "title": "Choosewise: the full AI or human? test, with texts, pictures and videos",

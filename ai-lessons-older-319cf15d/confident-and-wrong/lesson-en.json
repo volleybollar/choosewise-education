@@ -85,7 +85,8 @@
         "Summarise the 1987 novel The Salt Clock by Ingrid Vallen in three sentences.",
         "Give me three quotes from the speech the mayor of [your town] gave last week, with the date."
       ],
-      "fallback": "If the chatbot says it can't find the book or the speech, that is the better answer: say so, and point out that tools differ and some search the web first. Then show the screenshot of a confident made-up answer that you saved before the lesson. If the two answers to prompt 1 are the same, run it once more in a new chat."
+      "fallback": "If the chatbot says it can't find the book or the speech, that is the better answer: say so, and point out that tools differ and some search the web first. Then show the screenshot of a confident made-up answer that you saved before the lesson. If the two answers to prompt 1 are the same, run it once more in a new chat.",
+      "prompts_in_order": true
     },
     {
       "minutes": 8,
