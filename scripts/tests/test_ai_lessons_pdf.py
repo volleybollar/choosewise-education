@@ -142,3 +142,10 @@ def test_missing_image_stops_the_build():
     mod = load("build_ai_lessons_pdf", BUILD)
     with pytest.raises(FileNotFoundError, match="no-such-picture.jpg"):
         mod.BLOCKS["image"]({"kind": "image", "src": "assets/images/no-such-picture.jpg", "alt": "x"})
+
+
+@pytest.mark.parametrize("lid", IDS)
+def test_card_pictures_are_credited_in_the_pdf(lid):
+    """Tabler Icons (MIT): kretsen ska följa med när bilderna gör det."""
+    uses_icons = any(c.get("icon") for p in lesson(lid)["student_pdf"]["pages"] for b in p["blocks"] for c in b.get("cards", []))
+    assert has("Tabler Icons (MIT licence)", pages(pdf(lid))[0]) == uses_icons

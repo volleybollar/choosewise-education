@@ -249,7 +249,8 @@ def test_who_does_it_fail_has_ten_training_and_eight_visitor_cards():
     training = [c for b in blocks if b.get("heading", "").startswith("Training") for c in b["cards"]]
     visitors = [c for b in blocks if b.get("heading", "").startswith("Visitors") for c in b["cards"]]
     assert len(training) == 10 and len(visitors) == 8
-    assert any(c.get("icon") == "wheelchair" for c in visitors)
+    assert any(c.get("icon") == "disabled" for c in visitors)  # en person i rullstol, inte bara stolen
+    assert all(c.get("icon") != "user" for c in training)  # bysten saknar kropp
 
 
 def test_ai_or_human_uses_the_picture_grid_and_gives_the_answers():
@@ -275,3 +276,25 @@ def test_no_tool_age_note_adds_something():
     for lesson in lessons():
         if not lesson["tools"]:
             assert "don't use any AI tool" not in lesson["age_note"], lesson["id"]
+
+
+def test_learning_from_examples_keeps_the_new_cards_apart():
+    """De nya korten, och tåget som saknas med flit, får inte ligga på ett ark
+    som eleverna klipper innan steg 5."""
+    pages = _lesson("learning-from-examples")["student_pdf"]["pages"]
+    new_page = next(p for p in pages if any(b.get("heading", "").startswith("New cards") for b in p["blocks"]))
+    assert sum(b["kind"] == "cards" for b in new_page["blocks"]) == 1
+    others = [c["word"] for p in pages if p is not new_page for b in p["blocks"] if b["kind"] == "cards" for c in b["cards"]]
+    assert "train" not in others
+
+
+def test_lessons_with_a_photo_say_how_to_print_it():
+    for lesson in lessons():
+        if _blocks(lesson, "image"):
+            assert any("colour" in line for line in lesson["before"]), lesson["id"]
+
+
+def test_who_decides_tricky_messages_come_from_a_child():
+    lesson = _lesson("who-decides")
+    tricky = [c for b in _blocks(lesson, "cards") for c in b["cards"]]
+    assert tricky and all(c["word"].startswith("A child types:") for c in tricky)

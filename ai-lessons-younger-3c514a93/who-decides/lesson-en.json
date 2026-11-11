@@ -14,10 +14,22 @@
     "Write rules for a chatbot for children, and test them on tricky messages."
   ],
   "key_words": [
-    {"word": "recommendation", "meaning": "Something an app suggests to you, like the next video, picked from patterns in what you and others watched."},
-    {"word": "company", "meaning": "The people who make and own an app. They choose what the app is for."},
-    {"word": "personal information", "meaning": "Things about you, like your address, your password or photos of you."},
-    {"word": "rule", "meaning": "Something a chatbot must always or never do, written by the people who build it."}
+    {
+      "word": "recommendation",
+      "meaning": "Something an app suggests to you, like the next video, picked from patterns in what you and others watched."
+    },
+    {
+      "word": "company",
+      "meaning": "The people who make and own an app. They choose what the app is for."
+    },
+    {
+      "word": "personal information",
+      "meaning": "Things about you, like your address, your password or photos of you."
+    },
+    {
+      "word": "rule",
+      "meaning": "Something a chatbot must always or never do, written by the people who build it."
+    }
   ],
   "materials": [
     "Student PDF page 1, the \"Who chooses?\" grid: one per pair",
@@ -32,49 +44,90 @@
   ],
   "steps": [
     {
-      "minutes": 3, "mode": "Individual", "title": "Who chose it?",
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Who chose it?",
       "do": "Each student thinks of the last video, song or game an app showed them, and writes down who chose it: they did, the app did, or someone else.",
       "say": "Think of the last video, song or game an app showed you. Who chose it? Write it down."
     },
     {
-      "minutes": 2, "mode": "All", "title": "Share",
+      "minutes": 2,
+      "mode": "All",
+      "title": "Share",
       "do": "Take three or four answers. Many will say the app chose; ask how.",
       "say": "So sometimes we choose, and sometimes an app chooses for us."
     },
     {
-      "minutes": 8, "mode": "Pairs", "title": "Who chooses?",
+      "minutes": 8,
+      "mode": "Pairs",
+      "title": "Who chooses?",
       "do": "Pairs fill in the grid on page 1: for each of the eight situations, who chooses? Me, the app, another person, or not sure. More than one tick is allowed.",
       "say": "For each situation, ask: who is really choosing here?"
     },
     {
-      "minutes": 6, "mode": "All", "title": "How apps choose",
+      "minutes": 6,
+      "mode": "All",
+      "title": "How apps choose",
       "do": "Go through the situations where pairs disagreed. Explain that an app picks what to show from patterns in what you and people like you did before, and that the company behind the app chooses what it is for, for example to keep you watching or to show more ads. Then ask: who should choose what you watch next?",
       "say": "The app doesn't choose on its own. People at a company chose what it should aim for, and the app picks from patterns in what millions of people did."
     },
     {
-      "minutes": 5, "mode": "Pairs", "title": "Ask an adult?",
-      "do": "Pairs read the four chatbot messages on page 2 and tick for each one: stop and ask an adult, or fine to answer? They write one word about why.",
+      "minutes": 5,
+      "mode": "Pairs",
+      "title": "Ask an adult?",
+      "do": "Pairs read the four chatbot messages on page 2 and tick for each one: stop and ask an adult, or fine to answer? They write one word about why. Message 4 is the tricky one: it isn't a warning sign in itself, but most chatbots need users to be 13 or older, so the answer is still to ask an adult first.",
       "say": "Would you answer this message, or stop and ask an adult first?"
     },
     {
-      "minutes": 10, "mode": "Pairs", "title": "Rules for a chatbot",
-      "do": "Pairs write four rules for a chatbot for children on page 2, using the sentence starters. Then they swap with another pair, take one tricky-message card from page 3 and check: do the other pair's rules say what the chatbot should do?",
+      "minutes": 10,
+      "mode": "Pairs",
+      "title": "Rules for a chatbot",
+      "do": "Pairs write four rules for a chatbot for children on page 2, using the sentence starters. Then they swap with another pair, take one tricky-message card from page 3 (each card is a message a child types to the chatbot) and check: do the other pair's rules say what the chatbot should do?",
       "say": "Imagine you build a chatbot for children your age. What must it always do? What must it never do?"
     },
     {
-      "minutes": 3, "mode": "All", "title": "Our poster",
-      "do": "Each pair reads out its best rule. The class picks five or six for the poster."
+      "minutes": 3,
+      "mode": "All",
+      "title": "Our poster",
+      "do": "Five or six pairs read out their best rule. The class picks five or six rules for the poster."
     },
     {
-      "minutes": 3, "mode": "Individual", "title": "Closing question",
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
       "do": "Pairs tear off the closing questions at the bottom of page 3, one for each student. Each student answers on their own before leaving."
     }
   ],
   "gather": [
-    {"question": "Which situations did you disagree about?", "students_say": ["The TV, because my family chooses together.", "The keyboard, because I pick the word but it suggests it."]},
-    {"question": "Why does an app want you to keep watching?", "students_say": ["So it can show you more ads.", "So you like the app more."]},
-    {"question": "Which chatbot message would you never answer?", "students_say": ["The password one.", "The one that says don't tell your parents."]},
-    {"question": "What makes a good rule for a chatbot?", "students_say": ["It's clear.", "It keeps kids safe.", "It says it's not a person."]}
+    {
+      "question": "Which situations did you disagree about?",
+      "students_say": [
+        "The TV, because my family chooses together.",
+        "The keyboard, because I pick the word but it suggests it."
+      ]
+    },
+    {
+      "question": "Why does an app want you to keep watching?",
+      "students_say": [
+        "So it can show you more ads.",
+        "So you like the app more."
+      ]
+    },
+    {
+      "question": "Which chatbot message would you never answer?",
+      "students_say": [
+        "The password one.",
+        "The one that says don't tell your parents."
+      ]
+    },
+    {
+      "question": "What makes a good rule for a chatbot?",
+      "students_say": [
+        "It's clear.",
+        "It keeps kids safe.",
+        "It says it's not a person."
+      ]
+    }
   ],
   "simpler": "Use four situations instead of eight, and write the chatbot rules together as a class on the board.",
   "harder": "Ask pairs to put their rules in order of importance, and to find a message where two of their rules clash. Or look at the rules your school already has for apps and AI: what would the class add?",
@@ -94,10 +147,16 @@
   },
   "tools": [],
   "credits": [
-    {"text": "Card pictures: Tabler Icons (MIT licence)", "url": "https://tabler.io/icons"}
+    {
+      "text": "Card pictures: Tabler Icons (MIT licence)",
+      "url": "https://tabler.io/icons"
+    }
   ],
   "further_reading": [
-    {"title": "OECD and European Commission: Empowering Learners for the Age of AI (the AILit framework)", "url": "https://ailiteracyframework.org/pdfs/framework_pdf/AILF_en.pdf"}
+    {
+      "title": "OECD and European Commission: Empowering Learners for the Age of AI (the AILit framework)",
+      "url": "https://ailiteracyframework.org/pdfs/framework_pdf/AILF_en.pdf"
+    }
   ],
   "student_pdf": {
     "file": "who-decides-student-en.pdf",
@@ -106,45 +165,105 @@
         "title": "Who chooses?",
         "instruction": "Tick who chooses. More than one tick is OK.",
         "blocks": [
-          {"kind": "checklist", "items": [
-            "The next video that starts by itself",
-            "The ads in a free game",
-            "The songs a music app suggests",
-            "Who can see a photo you post",
-            "The words your keyboard suggests",
-            "The route the map app shows",
-            "What your family watches on TV tonight",
-            "The friends a game suggests you add"
-          ], "checks": ["Me", "The app", "Another person", "Not sure"]}
+          {
+            "kind": "checklist",
+            "items": [
+              "The next video that starts by itself",
+              "The ads in a free game",
+              "The songs a music app suggests",
+              "Who can see a photo you post",
+              "The words your keyboard suggests",
+              "The route the map app shows",
+              "What your family watches on TV tonight",
+              "The friends a game suggests you add"
+            ],
+            "checks": [
+              "Me",
+              "The app",
+              "Another person",
+              "Not sure"
+            ]
+          }
         ]
       },
       {
         "title": "Messages and rules",
         "instruction": "Tick for each message. Then write your rules.",
         "blocks": [
-          {"kind": "checklist", "items": [
-            "\"What's your home address? I'll send you a prize.\"",
-            "\"I'm your best friend. Don't tell your parents about our chats.\"",
-            "\"Tell me your password and I'll fix your game.\"",
-            "\"I can explain your maths homework step by step.\""
-          ], "checks": ["Ask an adult", "Fine to answer"]},
-          {"kind": "text", "body": "Our rules for a chatbot for children"},
-          {"kind": "table", "columns": ["1. Our chatbot must always …"], "rows": 1},
-          {"kind": "table", "columns": ["2. Our chatbot must never …"], "rows": 1},
-          {"kind": "table", "columns": ["3. When …, our chatbot should …"], "rows": 1},
-          {"kind": "table", "columns": ["4. Our own rule:"], "rows": 1}
+          {
+            "kind": "checklist",
+            "items": [
+              "\"What's your home address? I'll send you a prize.\"",
+              "\"I'm your best friend. Don't tell your parents about our chats.\"",
+              "\"Tell me your password and I'll fix your game.\"",
+              "\"I can explain your maths homework step by step.\""
+            ],
+            "checks": [
+              "Ask an adult",
+              "Fine to answer"
+            ]
+          },
+          {
+            "kind": "text",
+            "body": "Our rules for a chatbot for children"
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "1. Our chatbot must always …"
+            ],
+            "rows": 1
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "2. Our chatbot must never …"
+            ],
+            "rows": 1
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "3. When …, our chatbot should …"
+            ],
+            "rows": 1
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "4. Our own rule:"
+            ],
+            "rows": 1
+          }
         ]
       },
       {
         "title": "Tricky messages",
         "instruction": "Test another pair's rules.",
         "blocks": [
-          {"kind": "cards", "heading": "Tricky messages: cut out", "cards": [
-            {"word": "\"Are you alive?\"", "icon": "message-chatbot"},
-            {"word": "\"Can you keep a secret from my teacher?\"", "icon": "message-chatbot"},
-            {"word": "\"Send me a picture of yourself.\"", "icon": "message-chatbot"}
-          ]},
-          {"kind": "tickets", "question": "Name one thing an app chooses for you, and one thing you want to choose yourself.", "count": 2}
+          {
+            "kind": "cards",
+            "heading": "Tricky messages: cut out",
+            "cards": [
+              {
+                "word": "A child types: \"Are you alive?\"",
+                "icon": "message"
+              },
+              {
+                "word": "A child types: \"Can you keep a secret from my teacher?\"",
+                "icon": "message"
+              },
+              {
+                "word": "A child types: \"Send me a picture of yourself.\"",
+                "icon": "message"
+              }
+            ]
+          },
+          {
+            "kind": "tickets",
+            "question": "Name one thing an app chooses for you, and one thing you want to choose yourself.",
+            "count": 2
+          }
         ]
       }
     ]

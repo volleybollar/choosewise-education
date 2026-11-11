@@ -93,7 +93,7 @@ h1 { font-family: var(--font-display); font-size: 22pt; font-weight: 500; line-h
 /* Sorteringsmatta: en kolumn per rubrik, fyller resten av sidan. */
 .mat { flex: 1; min-height: 60mm; display: grid; border: 0.4mm solid var(--color-text); border-radius: 2mm; }
 .mat__col + .mat__col { border-left: 0.4mm solid var(--color-text); }
-.mat__head { min-height: 18mm; display: flex; align-items: center; justify-content: center; font-size: 15pt; font-weight: 500; text-align: center; padding: 3mm; border-bottom: 0.3mm solid var(--color-text-muted); }
+.mat__head { min-height: 22mm; display: flex; align-items: center; justify-content: center; font-size: 15pt; font-weight: 500; text-align: center; padding: 3mm; border-bottom: 0.3mm solid var(--color-text-muted); }
 .image { display: block; max-width: 100%; max-height: 150mm; margin: 0 auto; object-fit: contain; }
 /* Sidfot på varje sida; användningsraden på sidan 1. */
 .foot { margin-top: auto; font-size: 8pt; color: var(--color-text-muted); border-top: 0.3mm solid var(--color-border); padding-top: 2mm; }
@@ -208,9 +208,16 @@ BLOCKS = {"text": _text, "table": _table, "slips": _slips, "checklist": _checkli
           "cards": _cards, "mat": _mat, "image": _image}
 
 
+def _uses_icons(lesson: dict) -> bool:
+    return any(c.get("icon") for p in lesson["student_pdf"]["pages"] for b in p["blocks"] for c in b.get("cards", []))
+
+
 def _page(lesson: dict, page: dict, n: int, total: int, rights: str) -> str:
     blocks = "".join(BLOCKS[b["kind"]](b) for b in page["blocks"])
-    rights_line = f'<p class="rights">{escape(rights)}</p>' if n == 1 else ""
+    rights_line = ""
+    if n == 1:  # användningsraden, och krediten för kortbilderna (MIT) när PDF:en har sådana
+        credit = " Card pictures: Tabler Icons (MIT licence)." if _uses_icons(lesson) else ""
+        rights_line = f'<p class="rights">{escape(rights)}{credit}</p>'
     return (
         f'<section class="page">'
         f'<header class="head"><span class="num">{n}</span><div><h1>{escape(page["title"])}</h1>'

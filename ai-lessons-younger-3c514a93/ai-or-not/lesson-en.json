@@ -7,17 +7,29 @@
   "minutes": 40,
   "groups": "Pairs, then the whole class",
   "ai_use": "none",
-  "prep_minutes": 15,
+  "prep_minutes": 20,
   "goals": [
     "Tell the difference between a machine that follows fixed rules and an AI system that finds patterns in examples and makes guesses.",
     "Give two examples of AI in everyday life and say how they can tell.",
     "Describe what a voice assistant does in precise words, without making it sound like a person."
   ],
   "key_words": [
-    {"word": "rule", "meaning": "An exact instruction written by a person: \"If the button is pressed, turn on the light.\""},
-    {"word": "pattern", "meaning": "Something that happens again and again, which a computer can find in lots of examples."},
-    {"word": "AI (artificial intelligence)", "meaning": "Computer programs that find patterns in lots of examples and use them to guess, sort or suggest things."},
-    {"word": "voice assistant", "meaning": "A computer program you talk to, on a phone or a smart speaker. It turns your voice into words and picks a reply."}
+    {
+      "word": "rule",
+      "meaning": "An exact instruction written by a person: \"If the button is pressed, turn on the light.\""
+    },
+    {
+      "word": "pattern",
+      "meaning": "Something that happens again and again, which a computer can find in lots of examples."
+    },
+    {
+      "word": "AI (artificial intelligence)",
+      "meaning": "Computer programs that find patterns in lots of examples and use them to guess, sort or suggest things."
+    },
+    {
+      "word": "voice assistant",
+      "meaning": "A computer program you talk to, on a phone or a smart speaker. It turns your voice into words and picks a reply."
+    }
   ],
   "materials": [
     "Student PDF page 1, the 16 picture cards: one set per pair, cut out",
@@ -26,51 +38,90 @@
     "Scrap paper or sticky notes, and the board"
   ],
   "before": [
-    "Print the student PDF and cut out the cards, one set per pair, or let pairs cut them in the first minute. An envelope per set keeps them together.",
+    "Print the student PDF and cut out the cards before the lesson, one set per pair, with an envelope per set. A paper trimmer helps; cutting in class takes pairs five minutes or more. Keep the sets for your next class.",
     "Write the two test questions on the board: \"Do the same thing twice: is the result always the same?\" and \"Did people write every rule, or did it find patterns in lots of examples?\"",
     "Read the background below, especially the part about the two tricky cards, the robot vacuum and the heating."
   ],
   "steps": [
     {
-      "minutes": 3, "mode": "Individual", "title": "What counts as AI?",
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "What counts as AI?",
       "do": "Each student writes two things on scrap paper: one thing they think uses AI, and one thing they think doesn't.",
       "say": "Write one thing you think uses AI and one thing you think doesn't. There are no wrong answers yet."
     },
     {
-      "minutes": 2, "mode": "All", "title": "Two lists",
+      "minutes": 2,
+      "mode": "All",
+      "title": "Two lists",
       "do": "Take four or five answers and write them in two lists on the board: AI and not AI. Don't correct anything yet; the lists are checked in step 6.",
       "say": "Let's keep these. We will check them against what we find out."
     },
     {
-      "minutes": 11, "mode": "Pairs", "title": "Same every time, or a guess?",
+      "minutes": 11,
+      "mode": "Pairs",
+      "title": "Same every time, or a guess?",
       "do": "Give each pair a set of cards and the sorting mat. Pairs place each card in one of three columns: Always does the same, Finds patterns and guesses, or Not sure. Point at the two test questions on the board. Pairs who finish early pick the card they argued about most.",
       "say": "Look at each card and ask the two questions on the board. If you can't agree, put the card under Not sure."
     },
     {
-      "minutes": 8, "mode": "All", "title": "Where we disagree",
+      "minutes": 8,
+      "mode": "All",
+      "title": "Where we disagree",
       "do": "Pairs compare their mat with the pair next to them. Then take the cards that ended up in different columns around the room, and let pairs explain their choice. Settle each one with the test questions. The robot vacuum and the heating may stay under Not sure: some models find patterns, others only follow rules.",
       "say": "A calculator gives the same answer every time, because people wrote every rule. A music app suggests different songs to different people, because it finds patterns in what millions of people listen to."
     },
     {
-      "minutes": 5, "mode": "Pairs", "title": "Does it have feelings?",
+      "minutes": 5,
+      "mode": "Pairs",
+      "title": "Does it have feelings?",
       "do": "Read the exchange below aloud twice, then let pairs talk about the two questions. If a pair says the voice assistant feels sorry, ask: what in the machine could do the feeling? What happened instead?",
       "say": "A child says: \"I'm sad today.\" The voice assistant answers: \"I'm sorry to hear that. Would you like to hear a joke?\" Does it feel sorry? What happened instead?"
     },
     {
-      "minutes": 8, "mode": "All", "title": "Our definition",
+      "minutes": 8,
+      "mode": "All",
+      "title": "Our definition",
       "do": "Build the class's definition with the frame on page 3: \"AI is a … that … from … and …\". Collect words for each gap, vote, and write the result on the board; pairs copy it onto page 3. Then go back to the two lists from step 2: does anything need to move?",
       "say": "Choose words we can check, like patterns, examples and guess, and not words that make it sound like a person."
     },
     {
-      "minutes": 3, "mode": "Individual", "title": "Closing question",
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
       "do": "Pairs tear off the two closing questions at the bottom of page 3, one for each student. Each student answers on their own before leaving."
     }
   ],
   "gather": [
-    {"question": "Which card was hardest to place, and why?", "students_say": ["The robot vacuum, because some just bump around and some learn the room.", "The traffic light, because some change when cars come."]},
-    {"question": "Did the voice assistant feel sorry?", "students_say": ["No, it just says what it was made to say.", "It sounds like it cares.", "Maybe a little bit?"]},
-    {"question": "Is everything that is called smart AI?", "students_say": ["No, a smart lamp just turns on from your phone.", "If it learns, it's AI."]},
-    {"question": "What would you move in the two lists from the start of the lesson?", "students_say": ["The calculator isn't AI.", "The spam filter is AI."]}
+    {
+      "question": "Which card was hardest to place, and why?",
+      "students_say": [
+        "The robot vacuum, because some just bump around and some learn the room.",
+        "The traffic light, because some change when cars come."
+      ]
+    },
+    {
+      "question": "Did the voice assistant feel sorry?",
+      "students_say": [
+        "No, it just says what it was made to say.",
+        "It sounds like it cares.",
+        "Maybe a little bit?"
+      ]
+    },
+    {
+      "question": "Is everything that is called smart AI?",
+      "students_say": [
+        "No, a smart lamp just turns on from your phone.",
+        "If it learns, it's AI."
+      ]
+    },
+    {
+      "question": "What would you move in the two lists from the start of the lesson?",
+      "students_say": [
+        "The calculator isn't AI.",
+        "The spam filter is AI."
+      ]
+    }
   ],
   "simpler": "Use eight cards, four clear examples from each side, and leave out the Not sure column. Write the definition together on the board instead of on page 3.",
   "harder": "Add a fourth column: Finds patterns, but a person has the final say. Ask pairs which card belongs there (for example, a spam filter that puts mail in a folder you can check). Or let each pair invent a card for something in the classroom and place it.",
@@ -90,11 +141,20 @@
   },
   "tools": [],
   "credits": [
-    {"text": "Card pictures: Tabler Icons (MIT licence)", "url": "https://tabler.io/icons"}
+    {
+      "text": "Card pictures: Tabler Icons (MIT licence)",
+      "url": "https://tabler.io/icons"
+    }
   ],
   "further_reading": [
-    {"title": "OECD.AI: the updated OECD definition of an AI system (2023)", "url": "https://oecd.ai/en/wonk/ai-system-definition-update"},
-    {"title": "Andries and Robertson (2023): \"Alexa doesn't have that many feelings\", children's understanding of AI through smart speakers", "url": "https://www.research.ed.ac.uk/en/publications/alexa-doesnt-have-that-many-feelings-childrens-understanding-of-a-2/"}
+    {
+      "title": "OECD.AI: the updated OECD definition of an AI system (2023)",
+      "url": "https://oecd.ai/en/wonk/ai-system-definition-update"
+    },
+    {
+      "title": "Andries and Robertson (2023): \"Alexa doesn't have that many feelings\", children's understanding of AI through smart speakers",
+      "url": "https://www.research.ed.ac.uk/en/publications/alexa-doesnt-have-that-many-feelings-childrens-understanding-of-a-2/"
+    }
   ],
   "student_pdf": {
     "file": "ai-or-not-student-en.pdf",
@@ -103,39 +163,105 @@
         "title": "Picture cards",
         "instruction": "Cut out the 16 cards.",
         "blocks": [
-          {"kind": "cards", "cards": [
-            {"word": "calculator", "icon": "calculator"},
-            {"word": "voice assistant", "icon": "device-speaker"},
-            {"word": "light switch", "icon": "bulb"},
-            {"word": "music app that suggests songs", "icon": "music"},
-            {"word": "traffic light", "icon": "traffic-lights"},
-            {"word": "spam filter for email", "icon": "mail-x"},
-            {"word": "robot vacuum", "icon": "vacuum-cleaner"},
-            {"word": "lift (elevator) button", "icon": "elevator"},
-            {"word": "phone that unlocks with your face", "icon": "face-id"},
-            {"word": "microwave timer", "icon": "microwave"},
-            {"word": "map app that avoids traffic", "icon": "route"},
-            {"word": "alarm clock", "icon": "alarm"},
-            {"word": "translation app", "icon": "language"},
-            {"word": "heating that learns when you're home", "icon": "temperature"},
-            {"word": "door lock", "icon": "lock"},
-            {"word": "keyboard that suggests words", "icon": "keyboard"}
-          ]}
+          {
+            "kind": "cards",
+            "cards": [
+              {
+                "word": "calculator",
+                "icon": "calculator"
+              },
+              {
+                "word": "voice assistant",
+                "icon": "device-speaker"
+              },
+              {
+                "word": "light switch",
+                "icon": "bulb"
+              },
+              {
+                "word": "music app that suggests songs",
+                "icon": "music"
+              },
+              {
+                "word": "traffic light",
+                "icon": "traffic-lights"
+              },
+              {
+                "word": "spam filter for email",
+                "icon": "mail-x"
+              },
+              {
+                "word": "robot vacuum",
+                "icon": "vacuum-cleaner"
+              },
+              {
+                "word": "lift (elevator) button",
+                "icon": "elevator"
+              },
+              {
+                "word": "phone that unlocks with your face",
+                "icon": "face-id"
+              },
+              {
+                "word": "microwave timer",
+                "icon": "microwave"
+              },
+              {
+                "word": "map app that avoids traffic",
+                "icon": "route"
+              },
+              {
+                "word": "alarm clock",
+                "icon": "alarm"
+              },
+              {
+                "word": "translation app",
+                "icon": "language"
+              },
+              {
+                "word": "heating that learns when you're home",
+                "icon": "temperature"
+              },
+              {
+                "word": "door lock",
+                "icon": "lock"
+              },
+              {
+                "word": "keyboard that suggests words",
+                "icon": "keyboard"
+              }
+            ]
+          }
         ]
       },
       {
         "title": "Sort the cards",
         "instruction": "Put each card in one column.",
         "blocks": [
-          {"kind": "mat", "headings": ["Always does the same", "Finds patterns and guesses", "Not sure"]}
+          {
+            "kind": "mat",
+            "headings": [
+              "Always does the same",
+              "Finds patterns and guesses",
+              "Not sure"
+            ]
+          }
         ]
       },
       {
         "title": "Our definition of AI",
         "instruction": "Fill in the gaps together.",
         "blocks": [
-          {"kind": "text", "big": true, "body": "AI is a ______________ that ______________ from ______________ and ______________."},
-          {"kind": "tickets", "question": "Name one thing at home or at school that uses AI. How can you tell?", "count": 2}
+          {
+            "kind": "text",
+            "big": true,
+            "body": "AI is a ______________ that ______________ from ______________ and ______________."
+          },
+          {
+            "kind": "tickets",
+            "question": "Name one thing at home or at school that uses AI. How can you tell?",
+            "count": 2
+          }
         ]
       }
     ]

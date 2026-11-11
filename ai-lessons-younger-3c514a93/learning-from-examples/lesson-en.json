@@ -7,75 +7,125 @@
   "minutes": 40,
   "groups": "Pairs, then the whole class",
   "ai_use": "none",
-  "prep_minutes": 15,
+  "prep_minutes": 25,
   "goals": [
     "Explain that many AI systems are built from a dataset: examples that people collect, check and label.",
     "Spot a dataset that is missing examples, or has examples that don't belong.",
     "Show how a rule found in examples can fail on a new case, and what people do about it."
   ],
   "key_words": [
-    {"word": "dataset", "meaning": "A collection of examples, like our 20 picture cards."},
-    {"word": "label", "meaning": "A name we give each example, like land, water or air."},
-    {"word": "rule", "meaning": "A way to tell which group something belongs to, like \"it has wheels\"."},
-    {"word": "biased", "meaning": "When a dataset leaves out important examples, or has far more of one kind, so the results come out lopsided or wrong."},
-    {"word": "test", "meaning": "To try a rule on examples it was not made from."}
+    {
+      "word": "dataset",
+      "meaning": "A collection of examples, like our 20 picture cards."
+    },
+    {
+      "word": "label",
+      "meaning": "A name we give each example, like land, water or air."
+    },
+    {
+      "word": "rule",
+      "meaning": "A way to tell which group something belongs to, like \"it has wheels\"."
+    },
+    {
+      "word": "biased",
+      "meaning": "When a dataset leaves out important examples, or has far more of one kind, so the results come out lopsided or wrong."
+    },
+    {
+      "word": "test",
+      "meaning": "To try a rule on examples it was not made from."
+    }
   ],
   "materials": [
-    "Student PDF page 1 and the top of page 2, the 20 dataset cards and two blank cards: one set per pair, cut out",
-    "The bottom of page 2, six new cards: one set per pair, kept apart in an envelope",
-    "Page 3, the sorting mat, the rule and the closing questions: one per pair",
+    "Student PDF pages 1 and 2, the 20 dataset cards and two blank cards: one set per pair, cut out",
+    "Page 3, the six new cards: one set per pair, cut out by you and kept in an envelope",
+    "Page 4, the sorting mat, the rule and the closing questions: one per pair",
     "The board"
   ],
   "before": [
-    "Print the student PDF. Cut out the cards, or let pairs cut them in the first minute. Put each pair's six new cards in an envelope, so they stay face down until step 5.",
-    "Notice what is there on purpose: there is no train among the 20 cards, and three cards don't belong (a banana, an armchair and a cloud).",
+    "Print the student PDF and cut out the cards on pages 1 and 2 before the lesson, one set per pair. A paper trimmer helps; cutting in class takes pairs five minutes or more. Keep the sets for your next class.",
+    "Cut out page 3 yourself and put each pair's six new cards in an envelope, so students don't see them until step 5. The train is among them on purpose.",
+    "Notice what is there on purpose: there is no train among the 20 dataset cards, and three cards don't belong (a banana, an armchair and a cloud).",
     "Draw three columns on the board: Land, Water, Air."
   ],
   "steps": [
     {
-      "minutes": 3, "mode": "Pairs", "title": "What is this dataset?",
+      "minutes": 3,
+      "mode": "Pairs",
+      "title": "What is this dataset?",
       "do": "Pairs spread out their 20 cards and agree on what most of them show. Then they put aside the cards that don't belong.",
       "say": "Look at all your cards. What do most of them show? Are there any that don't belong?"
     },
     {
-      "minutes": 3, "mode": "All", "title": "A dataset",
+      "minutes": 3,
+      "mode": "All",
+      "title": "A dataset",
       "do": "Collect the answer (ways to travel) and the cards that don't belong. Explain that a set of examples like this is called a dataset, and that people build it and check it.",
       "say": "A computer that is built from these cards would count the banana as a way to travel, unless a person takes it out. Nothing in the computer checks that by itself."
     },
     {
-      "minutes": 8, "mode": "Pairs", "title": "Land, water or air?",
-      "do": "Pairs sort their cards on the mat (page 3) into Land, Water and Air. Then they look for a way to travel that is missing and draw it on one of the blank cards.",
+      "minutes": 8,
+      "mode": "Pairs",
+      "title": "Land, water or air?",
+      "do": "Pairs sort their cards on the mat (page 4) into Land, Water and Air. Then they look for a way to travel that is missing and draw it on one of the blank cards.",
       "say": "Is anything missing? If a way to travel isn't in our cards, a machine built from them has no example of it."
     },
     {
-      "minutes": 4, "mode": "All", "title": "What was missing?",
+      "minutes": 4,
+      "mode": "All",
+      "title": "What was missing?",
       "do": "Collect the missing ways to travel; usually someone spots that there is no train. Introduce the word biased: a dataset that leaves out important examples gives a lopsided picture.",
       "say": "A machine built from our cards would have no example of a train. Its guesses can only be as good as its examples."
     },
     {
-      "minutes": 10, "mode": "Pairs", "title": "Write a rule",
-      "do": "Each pair writes a rule for Land on page 3 (many write \"it has wheels\") and tests it on all their cards: does the rule put every card in the right group? Then they open the envelope and sort the six new cards using only their rule.",
+      "minutes": 10,
+      "mode": "Pairs",
+      "title": "Write a rule",
+      "do": "Each pair writes a rule for Land on page 4 (many write \"it has wheels\") and tests it on all their cards: does the rule put every card in the right group? Then hand out the envelopes; pairs open them and sort the six new cards using only their rule.",
       "say": "A machine can only use the rule it found in its examples. Use only your rule, even if you know better."
     },
     {
-      "minutes": 9, "mode": "All", "title": "Fix the rule",
+      "minutes": 9,
+      "mode": "All",
+      "title": "Fix the rule",
       "do": "Which new cards did the rules get wrong? The sleigh and the skis have no wheels but travel on land, the plane has wheels but flies, and the hovercraft travels on land and on water. Improve one rule together on the board and test it again. Then connect it to AI: systems find rules in examples and can fail on cases unlike their examples; people test them on new examples and add more varied ones.",
       "say": "The people who build AI systems do this too: they test with new examples, find the mistakes, and add the examples that were missing."
     },
     {
-      "minutes": 3, "mode": "Individual", "title": "Closing question",
-      "do": "Pairs tear off the closing questions at the bottom of page 3, one for each student. Each student answers on their own before leaving."
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
+      "do": "Pairs tear off the closing questions at the bottom of page 4, one for each student. Each student answers on their own before leaving."
     }
   ],
   "gather": [
-    {"question": "Why did we take out the banana, the armchair and the cloud?", "students_say": ["They aren't ways to travel.", "The machine would learn the wrong thing."]},
-    {"question": "Many rules said \"it has wheels\". Which cards did that rule get wrong?", "students_say": ["The sleigh, it has no wheels.", "The plane has wheels, but it flies.", "The hovercraft goes on water too."]},
-    {"question": "What should the people who build a machine like this do?", "students_say": ["Add more examples.", "Test it on new things.", "Ask other people what's missing."]}
+    {
+      "question": "Why did we take out the banana, the armchair and the cloud?",
+      "students_say": [
+        "They aren't ways to travel.",
+        "The machine would learn the wrong thing."
+      ]
+    },
+    {
+      "question": "Many rules said \"it has wheels\". Which cards did that rule get wrong?",
+      "students_say": [
+        "The sleigh, it has no wheels.",
+        "The plane has wheels, but it flies.",
+        "The hovercraft goes on water too."
+      ]
+    },
+    {
+      "question": "What should the people who build a machine like this do?",
+      "students_say": [
+        "Add more examples.",
+        "Test it on new things.",
+        "Ask other people what's missing."
+      ]
+    }
   ],
   "simpler": "Use only the land and water cards, and give pairs the rule \"it has wheels\" instead of writing their own. Then test it on the new cards together.",
   "harder": "Let pairs write rules for all three groups, swap rules with another pair, and test them on the new cards: which rule breaks first? Or ask: if a real AI system learned from photos of vehicles from only one country, which vehicles might it get wrong?",
   "closing_question": "Why does a machine that learns from examples need many different examples? Use one card from today.",
-  "language_swap": "Each card has one English word under a picture. Say the words in your class's language as you hand out pages 1 and 2, or write the translations on the cards before you cut them. On page 3, write Land, Water and Air and the rule frame in your class's language, and say the closing question aloud or write it on the board.",
+  "language_swap": "Each card has one English word under a picture. Say the words in your class's language as you hand out pages 1 and 2, or write the translations on the cards before you cut them; do the same for the new cards on page 3. On page 4, write Land, Water and Air and the rule frame in your class's language, and say the closing question aloud or write it on the board.",
   "age_note": "If students mention apps or chatbots they use at home, most of them have a minimum age of 13 on a personal account.",
   "background": [
     "Many AI systems are built from examples rather than from rules people write. To build a system that recognises vehicles in photos, people collect thousands of photos, label each one (car, boat, plane) and let a computer find patterns that separate the labels. The collection is called a dataset. The patterns work like the system's rules, although nobody writes them down.",
@@ -90,12 +140,24 @@
   },
   "tools": [],
   "credits": [
-    {"text": "Adapted from ISTE, Hands-On AI Projects for the Classroom: A Guide for Elementary Teachers (2020), by Nancye Blair Black and Susan Brooks-Young, Project 2 \"Training Data and Machine Learning\", Activities 2–4. Licensed under CC BY 4.0. Changes: shortened to one 40-minute lesson, with our own cards, a missing train, six new test cards and our own wording.", "url": "https://cdn.iste.org/www-root/Libraries/Documents%20%26%20Files/Artificial%20Intelligence/AIGDK5_1120.pdf"},
-    {"text": "Licence of the original: Creative Commons Attribution 4.0 International (CC BY 4.0)", "url": "https://creativecommons.org/licenses/by/4.0/"},
-    {"text": "Card pictures: Tabler Icons (MIT licence)", "url": "https://tabler.io/icons"}
+    {
+      "text": "Adapted from ISTE, Hands-On AI Projects for the Classroom: A Guide for Elementary Teachers (2020), by Nancye Blair Black and Susan Brooks-Young, Project 2 \"Training Data and Machine Learning\", Activities 2–4. Licensed under CC BY 4.0. Changes: shortened to one 40-minute lesson, with our own cards, a missing train, six new test cards and our own wording.",
+      "url": "https://cdn.iste.org/www-root/Libraries/Documents%20%26%20Files/Artificial%20Intelligence/AIGDK5_1120.pdf"
+    },
+    {
+      "text": "Licence of the original: Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "text": "Card pictures: Tabler Icons (MIT licence)",
+      "url": "https://tabler.io/icons"
+    }
   ],
   "further_reading": [
-    {"title": "AI4K12: grade-band progression charts for the Five Big Ideas", "url": "https://ai4k12.org/gradeband-progression-charts/"}
+    {
+      "title": "AI4K12: grade-band progression charts for the Five Big Ideas",
+      "url": "https://ai4k12.org/gradeband-progression-charts/"
+    }
   ],
   "student_pdf": {
     "file": "learning-from-examples-student-en.pdf",
@@ -104,55 +166,165 @@
         "title": "Dataset cards",
         "instruction": "Cut out the cards.",
         "blocks": [
-          {"kind": "cards", "cards": [
-            {"word": "car", "icon": "car"},
-            {"word": "ship", "icon": "ship"},
-            {"word": "banana", "icon": "banana"},
-            {"word": "plane", "icon": "plane"},
-            {"word": "bus", "icon": "bus"},
-            {"word": "kayak", "icon": "kayak"},
-            {"word": "bike", "icon": "bike"},
-            {"word": "helicopter", "icon": "helicopter"},
-            {"word": "truck", "icon": "truck"},
-            {"word": "armchair", "icon": "armchair"},
-            {"word": "sailing boat", "icon": "sailboat"},
-            {"word": "scooter", "icon": "scooter"},
-            {"word": "rocket", "icon": "rocket"},
-            {"word": "motorbike", "icon": "motorbike"},
-            {"word": "cloud", "icon": "cloud"},
-            {"word": "submarine", "icon": "submarine"}
-          ]}
+          {
+            "kind": "cards",
+            "cards": [
+              {
+                "word": "car",
+                "icon": "car"
+              },
+              {
+                "word": "ship",
+                "icon": "ship"
+              },
+              {
+                "word": "banana",
+                "icon": "banana"
+              },
+              {
+                "word": "plane",
+                "icon": "plane"
+              },
+              {
+                "word": "bus",
+                "icon": "bus"
+              },
+              {
+                "word": "kayak",
+                "icon": "kayak"
+              },
+              {
+                "word": "bike",
+                "icon": "bike"
+              },
+              {
+                "word": "helicopter",
+                "icon": "helicopter"
+              },
+              {
+                "word": "truck",
+                "icon": "truck"
+              },
+              {
+                "word": "armchair",
+                "icon": "armchair"
+              },
+              {
+                "word": "sailing boat",
+                "icon": "sailboat"
+              },
+              {
+                "word": "scooter",
+                "icon": "scooter"
+              },
+              {
+                "word": "rocket",
+                "icon": "rocket"
+              },
+              {
+                "word": "motorbike",
+                "icon": "motorbike"
+              },
+              {
+                "word": "cloud",
+                "icon": "cloud"
+              },
+              {
+                "word": "submarine",
+                "icon": "submarine"
+              }
+            ]
+          }
         ]
       },
       {
         "title": "More cards",
-        "instruction": "Cut out the cards. Keep the new cards apart.",
+        "instruction": "Cut out the cards.",
         "blocks": [
-          {"kind": "cards", "cards": [
-            {"word": "tractor", "icon": "tractor"},
-            {"word": "hot-air balloon", "icon": "air-balloon"},
-            {"word": "ambulance", "icon": "ambulance"},
-            {"word": "skateboard", "icon": "skateboard"},
-            {"word": "______________"},
-            {"word": "______________"}
-          ]},
-          {"kind": "cards", "heading": "New cards: keep these face down until step 5", "cards": [
-            {"word": "sleigh", "icon": "sleigh"},
-            {"word": "train", "icon": "train"},
-            {"word": "horse", "icon": "horse"},
-            {"word": "wheelchair", "icon": "wheelchair"},
-            {"word": "skis", "icon": "ski-jumping"},
-            {"word": "hovercraft"}
-          ]}
+          {
+            "kind": "cards",
+            "cards": [
+              {
+                "word": "tractor",
+                "icon": "tractor"
+              },
+              {
+                "word": "hot-air balloon",
+                "icon": "air-balloon"
+              },
+              {
+                "word": "ambulance",
+                "icon": "ambulance"
+              },
+              {
+                "word": "skateboard",
+                "icon": "skateboard"
+              },
+              {
+                "word": "______________"
+              },
+              {
+                "word": "______________"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "New cards (for the teacher)",
+        "instruction": "Cut these out before the lesson.",
+        "blocks": [
+          {
+            "kind": "cards",
+            "heading": "New cards: one set per pair, in an envelope",
+            "cards": [
+              {
+                "word": "sleigh",
+                "icon": "sleigh"
+              },
+              {
+                "word": "train",
+                "icon": "train"
+              },
+              {
+                "word": "horse",
+                "icon": "horse"
+              },
+              {
+                "word": "wheelchair",
+                "icon": "wheelchair"
+              },
+              {
+                "word": "skis"
+              },
+              {
+                "word": "hovercraft"
+              }
+            ]
+          }
         ]
       },
       {
         "title": "Sort and test",
-        "instruction": "Sort the cards. Then write your rule.",
+        "instruction": "Sort the cards into piles. Then write your rule.",
         "blocks": [
-          {"kind": "mat", "headings": ["Land", "Water", "Air"]},
-          {"kind": "text", "body": "Our rule for Land: a way to travel belongs to Land if ____________________________"},
-          {"kind": "tickets", "question": "Why does a machine that learns from examples need many different examples? Use one card from today.", "count": 2}
+          {
+            "kind": "mat",
+            "headings": [
+              "Land",
+              "Water",
+              "Air"
+            ]
+          },
+          {
+            "kind": "text",
+            "body": "Our rule for Land: a way to travel belongs to Land if ____________________________"
+          },
+          {
+            "kind": "tickets",
+            "question": "Why does a machine that learns from examples need many different examples? Use one card from today.",
+            "count": 2
+          }
         ]
       }
     ]
