@@ -180,7 +180,7 @@ def test_the_page_count_is_what_we_think():
     (PR #46), och från 201 till 202 med den engelska the-house-that-cost-one-
     dollar.html (PR #48), och från 202 till 205 med free/, free/ai-or-human/
     och free/prompts/ (gratismaterialet 2026-10-20), och till 206 med
-    free/visual-codes/, och till 207 med visual-codes/video/ (2026-10-23), och till 208 med gap-tracer/ (2026-10-24), och till 209 med visual-codes/study/ (2026-10-26), och till 210 med free/study-codes/ (2026-10-26), och till 212 med think/ och thinking-moves/ (2026-10-27), och till 213 med flawed-answer/ (2026-10-28), och till 214 med side-by-side/ (2026-10-28), och till 215 med thinking-profile/ (2026-10-28), och till 216 med blogginlägget a-lifetime-of-reading-in-an-afternoon.html (PR #76, bumpades i efterhand), och till 217 med dl/ (PR #78, samma fälla), och till 219 med pedagogy/ och lesson-lens/ (2026-10-29), och till 220 med retrieval-rhythm/ (2026-10-30), och till 224 med community/ (2026-11-11), och till 226 med de dolda AI-lektionssidorna ai-lessons-younger-3c514a93/ och dess word-guessing-machine/ (2026-11-11), och till 227 med AI-lektionen ai-or-not/ (2026-11-11), och till 228 med AI-lektionen learning-from-examples/ (2026-11-11). Räkna upp det med flit när en sida tillkommer — det
+    free/visual-codes/, och till 207 med visual-codes/video/ (2026-10-23), och till 208 med gap-tracer/ (2026-10-24), och till 209 med visual-codes/study/ (2026-10-26), och till 210 med free/study-codes/ (2026-10-26), och till 212 med think/ och thinking-moves/ (2026-10-27), och till 213 med flawed-answer/ (2026-10-28), och till 214 med side-by-side/ (2026-10-28), och till 215 med thinking-profile/ (2026-10-28), och till 216 med blogginlägget a-lifetime-of-reading-in-an-afternoon.html (PR #76, bumpades i efterhand), och till 217 med dl/ (PR #78, samma fälla), och till 219 med pedagogy/ och lesson-lens/ (2026-10-29), och till 220 med retrieval-rhythm/ (2026-10-30), och till 224 med community/ (2026-11-11), och till 226 med de dolda AI-lektionssidorna ai-lessons-younger-3c514a93/ och dess word-guessing-machine/ (2026-11-11), och till 227 med AI-lektionen ai-or-not/ (2026-11-11), och till 228 med AI-lektionen learning-from-examples/ (2026-11-11), och till 229 med AI-lektionen who-does-it-fail/ (2026-11-11). Räkna upp det med flit när en sida tillkommer — det
     är vaktens hela poäng att det ska kräva ett medvetet handgrepp.
 
     Obs: published_files() läser `git ls-files`, så vakten ser en ny sida
@@ -192,7 +192,7 @@ def test_the_page_count_is_what_we_think():
     i efterhand av elevguiderundans leveranssteg, som upptäckte att main var
     rött innan den mergade. Fällan har alltså slagit till två gånger på tre
     sidor: det är inte slarv, det är att vakten bara kan se spårade filer."""
-    assert len(PAGES) == 228, len(PAGES)
+    assert len(PAGES) == 229, len(PAGES)
 
 
 @pytest.mark.parametrize("path", PAGES, ids=lambda p: str(p.relative_to(ROOT)))

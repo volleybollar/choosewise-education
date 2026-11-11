@@ -239,3 +239,12 @@ def test_learning_from_examples_credits_iste_and_has_a_card_to_draw():
     assert any("ISTE" in c["text"] and "CC BY 4.0" in c["text"] for c in lesson["credits"])
     new = [b for b in _blocks(lesson, "cards") if b.get("heading", "").startswith("New cards")]
     assert new and any(not c.get("icon") for c in new[0]["cards"])
+
+
+def test_who_does_it_fail_has_ten_training_and_eight_visitor_cards():
+    lesson = _lesson("who-does-it-fail")
+    blocks = _blocks(lesson, "cards")
+    training = [c for b in blocks if b.get("heading", "").startswith("Training") for c in b["cards"]]
+    visitors = [c for b in blocks if b.get("heading", "").startswith("Visitors") for c in b["cards"]]
+    assert len(training) == 10 and len(visitors) == 8
+    assert any(c.get("icon") == "wheelchair" for c in visitors)

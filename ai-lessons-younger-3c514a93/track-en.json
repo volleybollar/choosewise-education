@@ -31,6 +31,7 @@
   "lessons": [
     {"id": "ai-or-not", "band": "9-12", "number": 1},
     {"id": "learning-from-examples", "band": "9-12", "number": 2},
+    {"id": "who-does-it-fail", "band": "9-12", "number": 3},
     {"id": "word-guessing-machine", "band": "9-12", "number": 4}
   ],
   "how_it_works": [
