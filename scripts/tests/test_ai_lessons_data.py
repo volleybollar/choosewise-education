@@ -232,3 +232,10 @@ def test_ai_or_not_sorts_sixteen_cards_on_three_columns():
     lesson = _lesson("ai-or-not")
     assert sum(len(b["cards"]) for b in _blocks(lesson, "cards")) == 16
     assert [b["headings"] for b in _blocks(lesson, "mat")] == [["Always does the same", "Finds patterns and guesses", "Not sure"]]
+
+
+def test_learning_from_examples_credits_iste_and_has_a_card_to_draw():
+    lesson = _lesson("learning-from-examples")
+    assert any("ISTE" in c["text"] and "CC BY 4.0" in c["text"] for c in lesson["credits"])
+    new = [b for b in _blocks(lesson, "cards") if b.get("heading", "").startswith("New cards")]
+    assert new and any(not c.get("icon") for c in new[0]["cards"])
