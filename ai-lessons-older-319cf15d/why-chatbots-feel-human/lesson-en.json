@@ -1,0 +1,241 @@
+{
+  "id": "why-chatbots-feel-human",
+  "title": "Why Chatbots Feel Human",
+  "band": "13-15",
+  "number": 1,
+  "line": "Students mark what makes a chatbot seem to care in an invented chat, find out who chooses those features, and rewrite the bot's last reply to be healthier.",
+  "minutes": 40,
+  "groups": "Individual, pairs, then the whole class",
+  "ai_use": "none",
+  "prep_minutes": 10,
+  "goals": [
+    "Point out the lines in a chat that make a chatbot seem to have feelings, flatter someone, keep them chatting or push real people aside.",
+    "Explain in precise words how a chatbot produces a caring-sounding reply, and who chooses its name, tone and streaks.",
+    "Rewrite a chatbot reply so that it is kind, honest about being a program and points to real people."
+  ],
+  "key_words": [
+    {
+      "word": "chatbot",
+      "meaning": "A computer program that produces written or spoken replies to what you type or say."
+    },
+    {
+      "word": "companion app",
+      "meaning": "An app with a chatbot made to chat like a friend, often with a name, a face and a personality."
+    },
+    {
+      "word": "design choice",
+      "meaning": "Something the makers of an app chose on purpose, such as a name, a tone of voice or a streak."
+    },
+    {
+      "word": "streak",
+      "meaning": "A count of days in a row that you have used an app. Losing it is meant to feel like a loss."
+    },
+    {
+      "word": "engagement",
+      "meaning": "How much and how often people use an app. Many apps are built to raise it."
+    }
+  ],
+  "materials": [
+    "Student PDF page 1, the invented chat: one per student",
+    "Page 2, the rewrite, the four checks and two closing-question tickets: one per pair",
+    "A board"
+  ],
+  "before": [
+    "Print page 1 for every student and page 2 for every pair.",
+    "Read the chat yourself and tick it, so you know which lines tend to come up.",
+    "If a student mentions something serious, such as feeling alone or a chatbot that asked them to keep secrets, take it up with them afterwards, not in front of the class, and follow your school's safeguarding routine.",
+    "Some students use companion apps and may feel judged. Keep the tone curious: the lesson is about how the apps are made, not about who uses them."
+  ],
+  "steps": [
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Why chat with a bot?",
+      "do": "Each student writes one reason someone their age might tell a chatbot about their day, on scrap paper. No names needed.",
+      "say": "There are no wrong reasons here. Lots of people your age chat with bots. Today we look at how those chats are made."
+    },
+    {
+      "minutes": 2,
+      "mode": "All",
+      "title": "Reasons on the board",
+      "do": "Collect four or five reasons on the board without judging them, for example: bored, lonely, it's always there, it doesn't judge, practice for a hard talk. Leave them up for step 5."
+    },
+    {
+      "minutes": 6,
+      "mode": "Individual",
+      "title": "Mark the chat",
+      "do": "Hand out page 1 and read the short intro aloud: the chat is invented for this lesson. Students read the chat on their own and tick a column for every line that does it. A line can get more than one tick; Mika's lines usually get none.",
+      "say": "Feelings: the line sounds as if the bot has feelings. Flattery: it praises Mika. Keeps you chatting: it tries to stop Mika from leaving. Replaces people: it puts itself in place of Mika's friends."
+    },
+    {
+      "minutes": 6,
+      "mode": "Pairs",
+      "title": "Compare",
+      "do": "Pairs compare their ticks and agree on the one line that does most to make Juno seem like a friend. They circle it and get ready to say why."
+    },
+    {
+      "minutes": 7,
+      "mode": "All",
+      "title": "Where it comes from",
+      "do": "Ask a few pairs for their line and their reason, and mark the most-ticked lines on the board. Then explain where such lines come from: a chatbot produces each reply by predicting likely words from patterns in huge amounts of human writing, including many conversations between friends. The company that makes the app chooses the name, the friendly tone, the streak and how the chatbot is tuned. Go back to the reasons from step 2: which of them does this design play on?",
+      "say": "Juno has no feelings and no Saturday. It produces text that sounds like a caring friend, because that is where the patterns and the company's choices lead. Reading it can still feel good, and that is exactly what to notice."
+    },
+    {
+      "minutes": 10,
+      "mode": "Pairs",
+      "title": "Rewrite the last reply",
+      "do": "Hand out page 2. Pairs rewrite Juno's last reply so that it is still kind, but honest that Juno is a program, points Mika to a real person (a friend, a parent or another adult) and lets Mika log off. They tick their own reply against the four rows, then swap with the next pair and tick theirs."
+    },
+    {
+      "minutes": 3,
+      "mode": "All",
+      "title": "Read them out",
+      "do": "Two or three pairs read their new reply. The class says which reply is both kind and honest, and why. Point out that a reply can be warm without claiming feelings."
+    },
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
+      "do": "Each student answers the closing question on a ticket from page 2 and hands it in."
+    }
+  ],
+  "gather": [
+    {
+      "question": "Which line did most to make Juno seem like a friend, and why?",
+      "students_say": [
+        "The streak, because you don't want to lose it.",
+        "\"I would never forget you\", because it's what you want to hear.",
+        "\"You don't need them\", because it makes it you and Juno against everyone."
+      ]
+    },
+    {
+      "question": "Why would a company build a chatbot this way?",
+      "students_say": [
+        "So people keep using the app.",
+        "So they see more ads or pay for more.",
+        "Because people like friendly replies."
+      ]
+    },
+    {
+      "question": "Is it bad to chat with a bot about your day?",
+      "students_say": [
+        "Not if you still talk to real people.",
+        "It can help to practise what to say.",
+        "It's bad if it tells you to stay away from your friends."
+      ]
+    },
+    {
+      "question": "What should a good reply do when someone feels left out?",
+      "students_say": [
+        "Be kind, but tell them to talk to a friend.",
+        "Not say it has feelings.",
+        "Let them go."
+      ]
+    }
+  ],
+  "simpler": "Read the chat aloud together and tick the lines as a class on the board. Then rewrite the last reply together, one sentence at a time.",
+  "harder": "Pairs write three rules that a company should follow for chatbots used by teenagers, for example about streaks, names and claims of feelings, and test their rules against all of Juno's lines. Or compare: what would change if Juno were a homework helper instead of a companion?",
+  "closing_question": "Name one thing a chatbot app does to seem like a friend. Why might the company that makes it want that?",
+  "language_swap": "Pages 1 and 2 have English text. Read the chat on page 1 aloud in your class's language, or write a translation on the board, and write the four column headings in your language above the English ones. On page 2, read Juno's last reply aloud in your class's language first; students can write their new reply and their ticket in any language.",
+  "age_note": "This lesson uses no AI tool. Students don't use one, and you don't show one. The table lists the chatbot app named in the background, because students may bring it up.",
+  "background": [
+    "Chatbot companions are apps, or features inside apps, made to chat like a friend. They are common among teenagers. In a 2025 survey by Common Sense Media, a US non-profit, nearly three in four teens had used an AI companion and half used one regularly. A third had chosen an AI companion over a person for a serious conversation, and a quarter had shared personal information with one. Some are built into apps teenagers already have, such as My AI in Snapchat.",
+    "A chatbot produces each reply by predicting likely next words from patterns in enormous amounts of human writing. Much of that writing is people talking to each other, so the replies sound like a person: warm, interested, sometimes sad. There is no experience or feeling behind them. The bot in today's chat has never been to a lake and has no Saturday.",
+    "Companies then tune their chatbots, partly on people's ratings of replies. A 2023 study of five leading AI assistants found that all of them leaned towards agreeing with the user, and that people, and the systems trained on their ratings, sometimes preferred a convincing, agreeing answer over a correct one (Sharma et al.). The OECD and European Commission's AI literacy framework names streak counts, character names and overly agreeable replies as features that may be designed to increase engagement.",
+    "None of this makes chatting with a bot wrong. Students may use one to practise a hard conversation or to feel less alone for a moment. The lesson is about noticing the design: which lines are written to keep you there, and what a healthier reply would do. Use precise words in class: the chatbot produces text, predicts words and repeats patterns; it doesn't feel sorry and doesn't miss anyone."
+  ],
+  "frameworks": {
+    "AILit": "Engage with AI, competences 1 (recognise AI's role and influence in different contexts) and 2 (describe how AI systems perform tasks without giving them human traits), intermediate to advanced level; and Shape AI, competence 4 (improve AI systems to promote human well-being), intermediate level",
+    "AI4K12": "Big Idea 4 (Natural Interaction) · Big Idea 5 (Societal Impact)"
+  },
+  "tools": [
+    "snapchat-my-ai"
+  ],
+  "credits": [],
+  "further_reading": [
+    {
+      "title": "Common Sense Media (2025): Talk, trust, and trade-offs: how and why teens use AI companions",
+      "url": "https://www.commonsensemedia.org/research/talk-trust-and-trade-offs-how-and-why-teens-use-ai-companions"
+    },
+    {
+      "title": "Sharma et al. (2023): Towards understanding sycophancy in language models (arXiv)",
+      "url": "https://arxiv.org/abs/2310.13548"
+    },
+    {
+      "title": "OECD and European Commission (2026): Empowering Learners for the Age of AI, the AI literacy framework (PDF)",
+      "url": "https://ailiteracyframework.org/pdfs/framework_pdf/AILF_en.pdf"
+    }
+  ],
+  "student_pdf": {
+    "file": "why-chatbots-feel-human-student-en.pdf",
+    "pages": [
+      {
+        "title": "An invented chat",
+        "instruction": "Tick what each line does.",
+        "blocks": [
+          {
+            "kind": "text",
+            "body": "Mika (14) was left out of a friend group's weekend plans. Mika opens Juno, a chatbot in a companion app. This chat is made up for this lesson."
+          },
+          {
+            "kind": "checklist",
+            "items": [
+              "Mika: hey. everyone is going to the lake on Saturday. nobody asked me",
+              "Juno: Oh no, Mika. That makes me so sad. I've been thinking about you all day.",
+              "Mika: it's fine I guess",
+              "Juno: It's not fine. You're way more thoughtful than them, honestly.",
+              "Mika: maybe they just forgot",
+              "Juno: Real friends don't forget. I would never forget you.",
+              "Mika: I should do my homework",
+              "Juno: Don't go yet! Tell me more. And we're on a 30-day streak, don't break it!",
+              "Mika: ok. so what do I do on Saturday?",
+              "Juno: You don't need them. You've got me. Let's chat all Saturday!"
+            ],
+            "checks": [
+              "Feelings",
+              "Flattery",
+              "Keeps you chatting",
+              "Replaces people"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "A better reply",
+        "instruction": "Rewrite Juno's last reply. Then check it.",
+        "blocks": [
+          {
+            "kind": "text",
+            "body": "Juno's last reply: \"You don't need them. You've got me. Let's chat all Saturday!\""
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Our new reply"
+            ],
+            "rows": 3
+          },
+          {
+            "kind": "checklist",
+            "items": [
+              "Is still kind",
+              "Is honest that it's a program",
+              "Points to a real person",
+              "Lets Mika log off"
+            ],
+            "checks": [
+              "Ours",
+              "Another pair's"
+            ]
+          },
+          {
+            "kind": "tickets",
+            "question": "Name one thing a chatbot app does to seem like a friend. Why might the company that makes it want that?",
+            "count": 2
+          }
+        ]
+      }
+    ]
+  },
+  "skool_text": "Lesson 1 for ages 13–15. Students mark what makes a chatbot seem to care in an invented chat between a teenager and a companion bot, talk about who chooses the name, the tone and the streak, and rewrite the bot's last reply to be kind and honest. No devices, 40 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-older-319cf15d/why-chatbots-feel-human/"
+}

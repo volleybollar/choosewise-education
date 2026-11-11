@@ -339,3 +339,19 @@ def test_who_decides_tricky_messages_come_from_a_child():
     lesson = _lesson("who-decides")
     tricky = [c for b in _blocks(lesson, "cards") for c in b["cards"]]
     assert tricky and all(c["word"].startswith("A child types:") for c in tricky)
+
+
+# ───── Lektionsspecifika vakter, 13–15 (planen 2026-11-11-ai-lessons-13-15) ─────
+
+def test_why_chatbots_feel_human_marks_the_chat_in_our_own_columns():
+    lesson = _lesson("why-chatbots-feel-human", OLDER)
+    chats = [b for b in _blocks(lesson, "checklist")
+             if b["checks"] == ["Feelings", "Flattery", "Keeps you chatting", "Replaces people"]]
+    assert len(chats) == 1 and 8 <= len(chats[0]["items"]) <= 12
+    words = " ".join(c for b in _blocks(lesson, "checklist") for c in b["checks"] + list(b["items"])).lower()
+    for word in ("sycophancy", "simulated", "authority", "social presence"):  # Common Sense: bara inspiration
+        assert word not in words, word
+
+
+def test_why_chatbots_feel_human_names_the_safeguarding_routine():
+    assert any("safeguarding" in line for line in _lesson("why-chatbots-feel-human", OLDER)["before"])

@@ -77,6 +77,7 @@ PAGES = (
         "ai-lessons-younger-3c514a93/learning-from-examples/",
         "ai-lessons-younger-3c514a93/ai-or-not/",
         "ai-lessons-older-319cf15d/",
+        "ai-lessons-older-319cf15d/why-chatbots-feel-human/",
     ]
 )
 
