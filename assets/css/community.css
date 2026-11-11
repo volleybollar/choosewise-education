@@ -17,10 +17,11 @@
   margin: 0 auto var(--space-6);
 }
 
-/* Gapet: tre siffror i rad, som staplas på smala skärmar. */
+/* Gapet: tre siffror i rad, som staplas på smala skärmar. Aldrig två plus
+   en, där den sista siffran hamnar ensam. */
 .cm-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-5);
   max-width: var(--content-text-max);
   margin: var(--space-6) auto;
@@ -44,7 +45,8 @@
   gap: var(--space-6);
   margin-top: var(--space-6);
 }
-.cm-grid--two { grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); }
+/* Fyra delar blir två gånger två på bred skärm, aldrig tre plus en. */
+.cm-grid--two { grid-template-columns: repeat(2, 1fr); }
 .cm-item { border-top: 2px solid var(--color-highlight); padding-top: var(--space-4); }
 .cm-item h3 { font-size: var(--fs-h3); margin-bottom: var(--space-2); }
 .cm-item p { color: var(--color-text-soft); margin: 0; }
@@ -88,4 +90,16 @@
 .cm-btn--light:hover {
   background: var(--color-bg-alt);
   color: var(--color-accent-hover);
+}
+/* Sidfoten har luft ovanför sig på hela sajten. Här slutar sidan med ett
+   mörkt band, och luften blev en ljus remsa mellan två blå ytor. Den här
+   filen laddas bara på communitysidan, så regeln påverkar inget annat. */
+.footer { margin-top: 0; }
+
+/* Smala skärmar: siffrorna och de fyra delarna staplas. */
+@media (max-width: 768px) {
+  .cm-grid--two { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .cm-stats { grid-template-columns: 1fr; }
 }
