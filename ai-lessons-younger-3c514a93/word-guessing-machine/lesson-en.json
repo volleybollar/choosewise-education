@@ -1,0 +1,164 @@
+{
+  "id": "word-guessing-machine",
+  "title": "The Word-Guessing Machine",
+  "band": "9-12",
+  "number": 4,
+  "line": "The class builds a paper machine that writes sentences from word pairs, and finds out why a sentence can sound right and still be false.",
+  "minutes": 40,
+  "groups": "Pairs, then the whole class",
+  "ai_use": "teacher-demo",
+  "prep_minutes": 15,
+  "goals": [
+    "Explain that a chatbot builds its answer by picking likely next words, based on patterns in the text it was built from.",
+    "Show with an example that a sentence can sound right and still be false.",
+    "Name one way to check something a chatbot wrote."
+  ],
+  "key_words": [
+    {"word": "pattern", "meaning": "Something that happens again and again, like \"is\" often coming after \"dog\"."},
+    {"word": "predict", "meaning": "To guess what comes next, from what has happened before."},
+    {"word": "training text", "meaning": "The text a machine's patterns come from. Our paper machine has one short text; a chatbot is built from billions of pages."},
+    {"word": "chatbot", "meaning": "A computer program that writes answers to the messages you type."},
+    {"word": "check", "meaning": "To find out whether something is true, for example in a book you trust or by asking a person who knows."}
+  ],
+  "materials": [
+    "Student PDF page 1, the training text: one per pair, or show it on the projector",
+    "Page 2, the tally sheet, and page 3, the word slips: one of each per pair",
+    "Page 4, the sentence check and the closing question: one per pair",
+    "One cup, envelope or folded sheet per pair, to hold the word slips",
+    "Ten starting words, each on a scrap of paper",
+    "A board, and a projector for the demo"
+  ],
+  "before": [
+    "Print the student PDF. Page 3 needs no scissors: pairs fold and tear along the dashed lines.",
+    "Write the ten starting words on scraps of paper: the, my, is, can, in, dog, cat, sun, sea, bird. With more than ten pairs, give some words to two pairs; they can compare their counts. With fewer than ten pairs, some pairs take two words.",
+    "Draw the class chart on the board: one row for each starting word, with room for its next words and tally marks.",
+    "Choose a chatbot your school allows teachers to use, and try the demo prompts in step 9 on your own account. Search for the book title first to make sure no such book exists. Save a screenshot of any made-up answer you get, as a backup.",
+    "If your class does not read English well, write your own training text first (see Teaching in another language)."
+  ],
+  "steps": [
+    {
+      "minutes": 2, "mode": "Individual", "title": "Your phone guesses too",
+      "do": "Write on the board: \"See you after …\". Ask how a phone keyboard decides which words to suggest next. Each student writes one guess, in one sentence, on scrap paper.",
+      "say": "When you type a message, the phone suggests the next word. How does it choose? Write down your best guess. We will come back to it at the end."
+    },
+    {
+      "minutes": 2, "mode": "All", "title": "Share the guesses",
+      "do": "Take three or four guesses and write a keyword from each in a corner of the board. Don't say which is right; leave the question open.",
+      "say": "Let's keep these. By the end of the lesson you can test them."
+    },
+    {
+      "minutes": 9, "mode": "Pairs", "title": "Count the next words",
+      "do": "Give each pair page 1, page 2 and a starting word. Pairs find their word every time it appears in the training text, write the word that comes right after it on the tally sheet, and make a tally mark each time. A full stop counts as a word. \"The\" and \"the\" are the same word. Pairs who finish early count again from the start, to check.",
+      "say": "Your pair is one part of the machine's memory. Find your word every time it appears. What comes right after it? Make a mark each time. If a full stop comes next, that counts too."
+    },
+    {
+      "minutes": 6, "mode": "All", "title": "Our machine's memory",
+      "do": "Each pair reads out its row, and you write it in the class chart, for example: dog → is ||, can ||. Ask which word comes most often after \"the\", and which next word would be picked most often if we drew one at random.",
+      "say": "This chart is everything our machine has. There are no real dogs or suns in it, only which word came after which."
+    },
+    {
+      "minutes": 3, "mode": "Pairs", "title": "Fill your cup",
+      "do": "Pairs tear page 3 into slips and write one slip for each tally mark: two marks for \"is\" means two slips that say \"is\". A full stop gets its own slip with a big dot. Pairs fold the slips, put them in their cup and write their starting word on the cup.",
+      "say": "One slip for every mark. Words that came often get more slips, so they get picked more often."
+    },
+    {
+      "minutes": 5, "mode": "All", "title": "Run the machine",
+      "do": "The class is now the machine. Say a first word: \"The\" or \"My\". The pair with that cup draws one slip without looking, reads it aloud and puts it back. The pair whose cup holds that word draws next. Stop at a full stop, or at a word that has no cup. A volunteer writes the sentence on the board. Make three sentences and number them 1 to 3.",
+      "say": "Draw without looking, read it out, put it back. Listen for your word!"
+    },
+    {
+      "minutes": 2, "mode": "Pairs", "title": "Check the sentences",
+      "do": "On page 4, pairs tick for each sentence on the board: was it in the training text, or is it new? Is it true, false, or can't we tell?"
+    },
+    {
+      "minutes": 3, "mode": "All", "title": "Sounds right, but is it true?",
+      "do": "Go through the three sentences. Which are new? Which sound right? Which are false, like \"My cat can fly\"? Ask where the words came from, and whether anything in the cups was about real cats, dogs or the sun. If students say the machine \"knows\" something, ask what we put in the cups.",
+      "say": "Our machine picked words that often came next in the text. Nothing in it checked whether a sentence is true."
+    },
+    {
+      "minutes": 5, "mode": "All", "title": "A real chatbot", "demo": true,
+      "do": "Open the chatbot on the projector, on your own account; students don't type. Ask the class to predict what will happen, then type one of the prompts below. Read the answer aloud and ask: does it sound sure? Is it true? How could we check? Never type students' names or other personal details.",
+      "say": "A chatbot does what our machine did, with far more text: it picks likely next words, one after another. It can sound very sure and still be wrong.",
+      "prompts": [
+        "Who wrote the children's book Seven Socks for Mr Pebble, and how does it end?",
+        "Why is [the name of your town] famous for its purple sheep?",
+        "Tell me two facts about [a small street or park near the school], with the year each thing happened."
+      ],
+      "fallback": "If the chatbot says it can't find anything, or answers correctly, say so: the people who build chatbots train them to admit when they are unsure, and that doesn't always work. Then ask the same thing twice, each time in a new chat: \"Write one sentence about a dog in the sea.\" The two answers will differ, just like drawing from our cups. Ask the class: if the same question can get different answers, which one should we trust? Or show the screenshot you saved when you tried the prompts."
+    },
+    {
+      "minutes": 3, "mode": "Individual", "title": "Closing question",
+      "do": "Pairs tear off the closing questions at the bottom of page 4, one for each student. Each student answers on their own before leaving. Read the answers afterwards: who can explain why a sentence that sounds sure can still be false?"
+    }
+  ],
+  "gather": [
+    {"question": "Which of our sentences were already in the training text, and which were new?", "students_say": ["Most of them were new.", "\"The sun is hot\" was in the text."]},
+    {"question": "Our machine made a sentence that is false. Why did that happen?", "students_say": ["Because \"can\" came before \"fly\" in the text.", "It just took a slip from the cup.", "It doesn't know that cats can't fly."]},
+    {"question": "What is the same about our paper machine and a chatbot? What is different?", "students_say": ["Both pick the next word.", "The chatbot has much more text.", "The chatbot sounds cleverer, but it can still be wrong."]},
+    {"question": "Look at the guesses from the start of the lesson. Which ones were close?", "students_say": ["It looks at what you usually write.", "It guesses from lots of other people's messages."]}
+  ],
+  "simpler": "Skip the counting. Fill in the class chart before the lesson and give each pair a ready cup of slips, then start at Run the machine. Use the time you save to make more sentences and check them together.",
+  "harder": "Swap the cups for a die: share out its six faces by how often each next word came (for \"dog\": three faces \"is\", three faces \"can\"). Or look two words back: tally what comes after pairs of words, such as \"the dog\", run the machine again and compare. Do the sentences sound better? Are they true more often?",
+  "closing_question": "A chatbot writes an answer that sounds very sure. Does that mean it is true? Why or why not?",
+  "uses_text": true,
+  "language_swap": "The training text is in simple English, but the lesson works in any language. Write 60 to 120 words in your class's language, like the example: short sentences about a few animals and places (\"The dog is in the park.\"), using the same small words again and again. Pick about ten starting words that each appear at least twice, with different words after them, and check that no starting word appears more than 16 times, so that one page of slips is enough. Everything else in the lesson stays the same.",
+  "starting_words": ["the", "my", "is", "can", "in", "dog", "cat", "sun", "sea", "bird"],
+  "training_text": "My dog is big. My cat is small. My dog can run in the park. My cat can sleep in my bed. The bird can fly in the sky. The sun is hot. The sea is cold. The sea is blue. My dog can swim in the sea. The sun is in the sky. A bird is in the tree. My cat is in the sun. A fish can swim in the sea. My dog is in the park. My bird can fly.",
+  "age_note": "In this lesson only you use a chatbot, on your own account, and students watch. Students aged 9–12 are under the minimum age for most of these tools on a personal account.",
+  "background": [
+    "Chatbots run on large language models. A large language model is a computer program built from enormous amounts of text: books, websites and articles. During training, a computer measures which pieces of text tend to follow which, across billions of examples. The result is a huge set of numbers that holds those patterns.",
+    "When you type a question, the model produces its answer one small piece of text at a time. Each time, it calculates which pieces are likely to come next, given everything written so far, and picks one, with some chance built in. That is why the same question can get different answers.",
+    "The paper machine does the same thing in miniature. It looks one word back, and its memory is one short text. A real model looks thousands of words back and is built from far more text than a person could read in many lifetimes. After the first training, people tune it further by rating its answers, so that they come out helpful and polite.",
+    "Why fluent text can be false: nothing in this process compares a sentence with the real world. The model is built to produce text that looks like the text it came from, and confident, well-formed sentences are common in that text. So an answer can sound certain and be invented, such as a book that doesn't exist or a wrong date. Some people call these hallucinations; with students, \"made-up answers\" is clearer and doesn't make the machine sound like a person.",
+    "Many chatbots now search the web or say when they are unsure, and that helps. It does not guarantee a true answer, so the habit to teach stays the same: if it matters, check it with a source you trust or a person who knows."
+  ],
+  "frameworks": {
+    "AILit": "Engage with AI, competence 2 (describe how AI systems perform tasks, clearing up common misconceptions) and competence 3 (evaluate whether AI outputs should be accepted, revised or rejected), basic level",
+    "AI4K12": "Big Idea 3 (Learning) · Big Idea 4 (Natural Interaction)"
+  },
+  "tools": ["chatgpt", "gemini", "gemini-education", "copilot", "copilot-education", "claude"],
+  "credits": [],
+  "further_reading": [
+    {"title": "3Blue1Brown: Large Language Models explained briefly (video, about 8 minutes)", "url": "https://www.youtube.com/watch?v=LPZh9BOjkQs"},
+    {"title": "OECD and European Commission: Empowering Learners for the Age of AI (the AILit framework)", "url": "https://ailiteracyframework.org/pdfs/framework_pdf/AILF_en.pdf"}
+  ],
+  "student_pdf": {
+    "file": "word-guessing-machine-student-en.pdf",
+    "pages": [
+      {
+        "title": "The training text",
+        "instruction": "Find your word. Every time.",
+        "blocks": [
+          {"kind": "text", "big": true, "body": "My dog is big. My cat is small. My dog can run in the park. My cat can sleep in my bed. The bird can fly in the sky. The sun is hot. The sea is cold. The sea is blue. My dog can swim in the sea. The sun is in the sky. A bird is in the tree. My cat is in the sun. A fish can swim in the sea. My dog is in the park. My bird can fly."},
+          {"kind": "text", "body": "Starting words: the · my · is · can · in · dog · cat · sun · sea · bird"}
+        ]
+      },
+      {
+        "title": "Tally sheet",
+        "instruction": "What comes next? Write the word. Make a mark | each time.",
+        "blocks": [
+          {"kind": "text", "body": "Our word: ____________________"},
+          {"kind": "text", "body": "Example: I like red. I like cake. → after \"like\": red |   cake |"},
+          {"kind": "table", "columns": ["Next word", "Marks", "Total"], "rows": 9}
+        ]
+      },
+      {
+        "title": "Word slips",
+        "instruction": "One slip for each mark. Fold it. Put it in your cup.",
+        "blocks": [
+          {"kind": "text", "body": "Our word: ____________________"},
+          {"kind": "slips", "count": 16, "label": "next word"}
+        ]
+      },
+      {
+        "title": "Our machine's sentences",
+        "instruction": "Look at the board. Tick for each sentence.",
+        "blocks": [
+          {"kind": "checklist", "items": 3, "checks": ["In the text", "New", "True", "False", "Can't tell"]},
+          {"kind": "tickets", "question": "A chatbot writes an answer that sounds very sure. Does that mean it is true? Why or why not?", "count": 2}
+        ]
+      }
+    ]
+  },
+  "skool_text": "Lesson 4 for ages 9–12. Students count word pairs in a short text, turn the class into a sentence-making machine with slips in cups, and find out that a sentence can sound right and still be false. Then you show a real chatbot on the projector. No devices for students, 40 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-younger-3c514a93/word-guessing-machine/"
+}
