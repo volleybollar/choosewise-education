@@ -44,9 +44,9 @@ PORT = 8803
 # En titel som når in i ringen stoppar bygget — dela den då på två rader.
 COURSES = [
     ("01", "Start Here", "", ""),
-    ("02", "AI in Teaching", "& Learning", "Basic"),
-    ("03", "AI in Teaching", "& Learning", "Intermediate"),
-    ("04", "AI in Teaching", "& Learning", "Advanced"),
+    ("02", "Understanding", "AI", "For everyone"),
+    ("03", "AI in Teaching", "& Learning", "Basics"),
+    ("04", "AI in Teaching", "& Learning", "Intermediate"),
     ("05", "AI lessons", "for students", "Younger students"),
     ("06", "AI lessons", "for students", "Older students"),
     ("07", "Resource", "Library", ""),
