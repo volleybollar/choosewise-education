@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Word-Guessing Machine — choosewise.education</title>
+  <meta name="description" content="The class builds a paper machine that writes sentences from word pairs, and finds out why a sentence can sound right and still be false.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (prefix tm-), och sedan det som är
+       nytt för AI-lektionerna (prefix al-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/ai-lessons.css?v=20261111a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten.
+       Sidan byggs av scripts/build-ai-lessons.py: ändra JSON-filen, inte HTML:en. -->
+<!-- seo:start (build-seo-meta.py) -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: tillbaka till översikten, lektionens namn och en rad om vad eleverna gör. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/ai-lessons-younger-3c514a93/">← AI Lessons for Younger Students</a>
+      <span class="eyebrow">Ages 9–12 · Lesson 4</span>
+      <h1>The Word-Guessing Machine</h1>
+      <p class="lede">The class builds a paper machine that writes sentences from word pairs, and finds out why a sentence can sound right and still be false.</p>
+    </section>
+
+    <!-- Lektionen i korthet, och elev-PDF:en. -->
+    <section class="section section--alt" id="al-glance">
+      <div class="container">
+        <h2 class="section__title">At a glance</h2>
+        <dl class="al-glance">
+          <div><dt>Ages</dt><dd>9–12</dd></div>
+          <div><dt>Time</dt><dd>40 min</dd></div>
+          <div><dt>Groups</dt><dd>Pairs, then the whole class</dd></div>
+          <div><dt>AI use</dt><dd>Teacher demo</dd></div>
+          <div><dt>Preparation</dt><dd>15 min</dd></div>
+        </dl>
+        <a class="btn btn--primary" href="/ai-lessons-younger-3c514a93/word-guessing-machine/word-guessing-machine-student-en.pdf" download>Download the student PDF</a>
+      </div>
+    </section>
+
+    <!-- Lärandemål och nyckelord med elevvänliga förklaringar. -->
+    <section class="section" id="al-goals">
+      <div class="container">
+        <h2 class="section__title">Learning goals</h2>
+        <p class="al-text">By the end of the lesson, students can:</p>
+        <ul class="al-list"><li>Explain that a chatbot builds its answer by picking likely next words, based on patterns in the text it was built from.</li><li>Show with an example that a sentence can sound right and still be false.</li><li>Name one way to check something a chatbot wrote.</li></ul>
+        <h3 class="al-sub">Key words</h3>
+        <dl class="al-words"><dt>pattern</dt><dd>Something that happens again and again, like &quot;is&quot; often coming after &quot;dog&quot;.</dd><dt>predict</dt><dd>To guess what comes next, from what has happened before.</dd><dt>training text</dt><dd>The text a machine&#x27;s patterns come from. Our paper machine has one short text; a chatbot is built from billions of pages.</dd><dt>chatbot</dt><dd>A computer program that writes answers to the messages you type.</dd><dt>check</dt><dd>To find out whether something is true, for example in a book you trust or by asking a person who knows.</dd></dl>
+      </div>
+    </section>
+
+    <!-- Material och förberedelser. -->
+    <section class="section section--alt" id="al-before">
+      <div class="container">
+        <h2 class="section__title">Before the lesson</h2>
+        <h3 class="al-sub">Materials</h3>
+        <ul class="al-list"><li>Student PDF page 1, the training text: one per pair, or show it on the projector</li><li>Page 2, the tally sheet, and page 3, the word slips: one of each per pair</li><li>Page 4, the sentence check and the closing question: one per pair</li><li>One cup, envelope or folded sheet per pair, to hold the word slips</li><li>Ten starting words, each on a scrap of paper</li><li>A board, and a projector for the demo</li></ul>
+        <h3 class="al-sub">Preparation, about 15 minutes</h3>
+        <ul class="al-list"><li>Print the student PDF. Page 3 needs no scissors: pairs fold and tear along the dashed lines.</li><li>Write the ten starting words on scraps of paper: the, my, is, can, in, dog, cat, sun, sea, bird. With more than ten pairs, give some words to two pairs; they can compare their counts. With fewer than ten pairs, some pairs take two words.</li><li>Draw the class chart on the board: one row for each starting word, with room for its next words and tally marks.</li><li>Choose a chatbot your school allows teachers to use, and try the demo prompts in step 9 on your own account. Search for the book title first to make sure no such book exists. Save a screenshot of any made-up answer you get, as a backup.</li><li>If your class does not read English well, write your own training text first (see Teaching in another language).</li></ul>
+      </div>
+    </section>
+
+    <!-- Steg för steg: minut för minut, varje steg enskilt, i par eller alla. -->
+    <section class="section" id="al-steps">
+      <div class="container">
+        <h2 class="section__title">Step by step</h2>
+        <ol class="al-steps"><li class="al-step"><p class="al-step__head"><span class="al-step__time">0–2 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">Your phone guesses too</h3><p class="al-step__do">Write on the board: &quot;See you after …&quot;. Ask how a phone keyboard decides which words to suggest next. Each student writes one guess, in one sentence, on scrap paper.</p><p class="al-say"><span class="al-say__label">Say</span> When you type a message, the phone suggests the next word. How does it choose? Write down your best guess. We will come back to it at the end.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__time">2–4 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Share the guesses</h3><p class="al-step__do">Take three or four guesses and write a keyword from each in a corner of the board. Don&#x27;t say which is right; leave the question open.</p><p class="al-say"><span class="al-say__label">Say</span> Let&#x27;s keep these. By the end of the lesson you can test them.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__time">4–13 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Count the next words</h3><p class="al-step__do">Give each pair page 1, page 2 and a starting word. Pairs find their word every time it appears in the training text, write the word that comes right after it on the tally sheet, and make a tally mark each time. A full stop counts as a word. &quot;The&quot; and &quot;the&quot; are the same word. Pairs who finish early count again from the start, to check.</p><p class="al-say"><span class="al-say__label">Say</span> Your pair is one part of the machine&#x27;s memory. Find your word every time it appears. What comes right after it? Make a mark each time. If a full stop comes next, that counts too.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__time">13–19 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Our machine&#x27;s memory</h3><p class="al-step__do">Each pair reads out its row, and you write it in the class chart, for example: dog → is ||, can ||. Ask which word comes most often after &quot;the&quot;, and which next word would be picked most often if we drew one at random.</p><p class="al-say"><span class="al-say__label">Say</span> This chart is everything our machine has. There are no real dogs or suns in it, only which word came after which.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__time">19–22 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Fill your cup</h3><p class="al-step__do">Pairs tear page 3 into slips and write one slip for each tally mark: two marks for &quot;is&quot; means two slips that say &quot;is&quot;. A full stop gets its own slip with a big dot. Pairs fold the slips, put them in their cup and write their starting word on the cup.</p><p class="al-say"><span class="al-say__label">Say</span> One slip for every mark. Words that came often get more slips, so they get picked more often.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__time">22–27 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Run the machine</h3><p class="al-step__do">The class is now the machine. Say a first word: &quot;The&quot; or &quot;My&quot;. The pair with that cup draws one slip without looking, reads it aloud and puts it back. The pair whose cup holds that word draws next. Stop at a full stop, or at a word that has no cup. A volunteer writes the sentence on the board. Make three sentences and number them 1 to 3.</p><p class="al-say"><span class="al-say__label">Say</span> Draw without looking, read it out, put it back. Listen for your word!</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__time">27–29 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Check the sentences</h3><p class="al-step__do">On page 4, pairs tick for each sentence on the board: was it in the training text, or is it new? Is it true, false, or can&#x27;t we tell?</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__time">29–32 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Sounds right, but is it true?</h3><p class="al-step__do">Go through the three sentences. Which are new? Which sound right? Which are false, like &quot;My cat can fly&quot;? Ask where the words came from, and whether anything in the cups was about real cats, dogs or the sun. If students say the machine &quot;knows&quot; something, ask what we put in the cups.</p><p class="al-say"><span class="al-say__label">Say</span> Our machine picked words that often came next in the text. Nothing in it checked whether a sentence is true.</p></li><li class="al-step al-step--demo"><p class="al-step__head"><span class="al-step__time">32–37 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">A real chatbot</h3><p class="al-step__do">Open the chatbot on the projector, on your own account; students don&#x27;t type. Ask the class to predict what will happen, then type one of the prompts below. Read the answer aloud and ask: does it sound sure? Is it true? How could we check? Never type students&#x27; names or other personal details.</p><p class="al-say"><span class="al-say__label">Say</span> A chatbot does what our machine did, with far more text: it picks likely next words, one after another. It can sound very sure and still be wrong.</p><p class="al-label">Prompts to try (pick one)</p><ul class="al-prompts"><li>Who wrote the children&#x27;s book Seven Socks for Mr Pebble, and how does it end?</li><li>Why is [the name of your town] famous for its purple sheep?</li><li>Tell me two facts about [a small street or park near the school], with the year each thing happened.</li></ul><p class="al-fallback"><strong>If it refuses or gets it right:</strong> If the chatbot says it can&#x27;t find anything, or answers correctly, say so: the people who build chatbots train them to admit when they are unsure, and that doesn&#x27;t always work. Then ask the same thing twice, each time in a new chat: &quot;Write one sentence about a dog in the sea.&quot; The two answers will differ, just like drawing from our cups. Ask the class: if the same question can get different answers, which one should we trust? Or show the screenshot you saved when you tried the prompts.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__time">37–40 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">Closing question</h3><p class="al-step__do">Pairs tear off the closing questions at the bottom of page 4, one for each student. Each student answers on their own before leaving. Read the answers afterwards: who can explain why a sentence that sounds sure can still be false?</p></li></ol>
+      </div>
+    </section>
+
+    <!-- Uppsamling i helklass: frågor och vad elever brukar svara. -->
+    <section class="section section--alt" id="al-gather">
+      <div class="container">
+        <h2 class="section__title">Gather it up</h2>
+        <p class="al-text">Questions for the whole-class talk, with answers students often give.</p>
+        <ul class="al-gather"><li><p class="al-gather__q">Which of our sentences were already in the training text, and which were new?</p><p class="al-label">Students often say</p><ul class="al-said"><li>Most of them were new.</li><li>&quot;The sun is hot&quot; was in the text.</li></ul></li><li><p class="al-gather__q">Our machine made a sentence that is false. Why did that happen?</p><p class="al-label">Students often say</p><ul class="al-said"><li>Because &quot;can&quot; came before &quot;fly&quot; in the text.</li><li>It just took a slip from the cup.</li><li>It doesn&#x27;t know that cats can&#x27;t fly.</li></ul></li><li><p class="al-gather__q">What is the same about our paper machine and a chatbot? What is different?</p><p class="al-label">Students often say</p><ul class="al-said"><li>Both pick the next word.</li><li>The chatbot has much more text.</li><li>The chatbot sounds cleverer, but it can still be wrong.</li></ul></li><li><p class="al-gather__q">Look at the guesses from the start of the lesson. Which ones were close?</p><p class="al-label">Students often say</p><ul class="al-said"><li>It looks at what you usually write.</li><li>It guesses from lots of other people&#x27;s messages.</li></ul></li></ul>
+      </div>
+    </section>
+
+    <!-- Enklare och svårare varianter. -->
+    <section class="section" id="al-adapt">
+      <div class="container">
+        <h2 class="section__title">Make it simpler, make it harder</h2>
+        <div class="al-adapt">
+          <div><h3 class="al-sub">Simpler</h3><p class="al-text">Skip the counting. Fill in the class chart before the lesson and give each pair a ready cup of slips, then start at Run the machine. Use the time you save to make more sentences and check them together.</p></div>
+          <div><h3 class="al-sub">Harder</h3><p class="al-text">Swap the cups for a die: share out its six faces by how often each next word came (for &quot;dog&quot;: three faces &quot;is&quot;, three faces &quot;can&quot;). Or look two words back: tally what comes after pairs of words, such as &quot;the dog&quot;, run the machine again and compare. Do the sentences sound better? Are they true more often?</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avslutande fråga (exit ticket) som varje elev svarar på. -->
+    <section class="section section--alt" id="al-closing">
+      <div class="container">
+        <h2 class="section__title">Closing question</h2>
+        <p class="al-closing">A chatbot writes an answer that sounds very sure. Does that mean it is true? Why or why not?</p>
+      </div>
+    </section>
+
+    <!-- Byta språk: hur läraren skriver en egen träningstext på klassens språk. -->
+    <section class="section section--alt" id="al-language">
+      <div class="container">
+        <h2 class="section__title">Teaching in another language</h2>
+        <p class="al-text">The training text is in simple English, but the lesson works in any language. Write 60 to 120 words in your class&#x27;s language, like the example: short sentences about a few animals and places (&quot;The dog is in the park.&quot;), using the same small words again and again. Pick about ten starting words that each appear at least twice, with different words after them, and check that no starting word appears more than 16 times, so that one page of slips is enough. Everything else in the lesson stays the same.</p>
+        <p class="al-label">The English example (page 1 of the PDF)</p>
+        <blockquote class="al-example">My dog is big. My cat is small. My dog can run in the park. My cat can sleep in my bed. The bird can fly in the sky. The sun is hot. The sea is cold. The sea is blue. My dog can swim in the sea. The sun is in the sky. A bird is in the tree. My cat is in the sun. A fish can swim in the sea. My dog is in the park. My bird can fly.</blockquote>
+        <p class="al-text"><strong>Starting words:</strong> the, my, is, can, in, dog, cat, sun, sea, bird</p>
+      </div>
+    </section>
+
+    <!-- Bakgrund för läraren: två minuters läsning. -->
+    <section class="section" id="al-background">
+      <div class="container">
+        <h2 class="section__title">Background for you</h2>
+        <p class="al-text">Chatbots run on large language models. A large language model is a computer program built from enormous amounts of text: books, websites and articles. During training, a computer measures which pieces of text tend to follow which, across billions of examples. The result is a huge set of numbers that holds those patterns.</p><p class="al-text">When you type a question, the model produces its answer one small piece of text at a time. Each time, it calculates which pieces are likely to come next, given everything written so far, and picks one, with some chance built in. That is why the same question can get different answers.</p><p class="al-text">The paper machine does the same thing in miniature. It looks one word back, and its memory is one short text. A real model looks thousands of words back and is built from far more text than a person could read in many lifetimes. After the first training, people tune it further by rating its answers, so that they come out helpful and polite.</p><p class="al-text">Why fluent text can be false: nothing in this process compares a sentence with the real world. The model is built to produce text that looks like the text it came from, and confident, well-formed sentences are common in that text. So an answer can sound certain and be invented, such as a book that doesn&#x27;t exist or a wrong date. Some people call these hallucinations; with students, &quot;made-up answers&quot; is clearer and doesn&#x27;t make the machine sound like a person.</p><p class="al-text">Many chatbots now search the web or say when they are unsure, and that helps. It does not guarantee a true answer, so the habit to teach stays the same: if it matters, check it with a source you trust or a person who knows.</p>
+      </div>
+    </section>
+
+    <!-- Koppling till ramverken AILit och AI4K12. -->
+    <section class="section section--alt" id="al-frameworks">
+      <div class="container">
+        <h2 class="section__title">Framework links</h2>
+        <p class="al-text"><strong>AILit:</strong> Engage with AI, competence 2 (describe how AI systems perform tasks, clearing up common misconceptions) and competence 3 (evaluate whether AI outputs should be accepted, revised or rejected), basic level</p>
+        <p class="al-text"><strong>AI4K12:</strong> Big Idea 3 (Learning) · Big Idea 4 (Natural Interaction)</p>
+      </div>
+    </section>
+
+    <!-- Åldersgränser för verktygen lektionen nämner, och läsarnoten (globala regler). -->
+    <section class="section" id="al-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age limits</h2>
+        <p class="al-text">In this lesson only you use a chatbot, on your own account, and students watch. Students aged 9–12 are under the minimum age for most of these tools on a personal account.</p>
+        <table class="al-table"><thead><tr><th scope="col">Tool</th><th scope="col">Minimum age</th><th scope="col">Notes</th></tr></thead><tbody><tr><th scope="row">ChatGPT</th><td>13, or the minimum age in your country</td><td>Under 18 only with a parent&#x27;s or guardian&#x27;s permission. Under-18 accounts get a teen version automatically.</td></tr><tr><th scope="row">Gemini, personal account</th><td>13</td><td>Under 13 only through a Family Link account, switched on by a parent.</td></tr><tr><th scope="row">Gemini, Google Workspace for Education</th><td>Any age, if the school&#x27;s administrator switches it on</td><td>Stricter content rules for under-18 accounts.</td></tr><tr><th scope="row">Microsoft Copilot, personal account</th><td>13, higher in some countries</td><td></td></tr><tr><th scope="row">Microsoft 365 Copilot Chat, school account</th><td>13</td><td>Blocked for students under 13 on school accounts.</td></tr><tr><th scope="row">Claude</th><td>18</td><td>No exception with a parent&#x27;s permission. In a school, for teachers only.</td></tr></tbody></table><p class="al-checked">Checked 2026-11-11. Age rules change often.</p>
+        <p class="tm-note">Readers outside Sweden should verify their own national regulations. AI in education is evolving quickly and country rules differ significantly.</p>
+      </div>
+    </section>
+
+    <!-- Källor, vidare läsning och vad medlemmar får göra med materialet. -->
+    <section class="section section--alt" id="al-credits">
+      <div class="container">
+        <h2 class="section__title">Sources and use</h2>
+        
+        <h3 class="al-sub">Further reading</h3>
+        <ul class="tm-sources"><li><a href="https://www.youtube.com/watch?v=LPZh9BOjkQs">3Blue1Brown: Large Language Models explained briefly (video, about 8 minutes)</a></li><li><a href="https://ailiteracyframework.org/pdfs/framework_pdf/AILF_en.pdf">OECD and European Commission: Empowering Learners for the Age of AI (the AILit framework)</a></li></ul>
+        <p class="al-rights">For members of the Choosewise community: use these materials with your own students, share them with colleagues at your school, and adapt or translate them for your own teaching. Please don&#x27;t republish or sell them.</p>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+</body>
+</html>
