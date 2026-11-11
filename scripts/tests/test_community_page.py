@@ -124,3 +124,11 @@ def test_no_price_and_no_serif():
 
 def test_portrait_crop_anchored_to_top():
     assert "object-position: center top" in css()
+
+
+def test_og_card_exists_and_is_referenced():
+    # Länken delas till founding members innan sidan lanseras.
+    assert '<meta property="og:image" content="https://choosewise.education/assets/images/brand/og/community-en.png">' in html()
+    assert '<meta property="og:title"' in html() and '<meta property="og:description"' in html()
+    for ext in ("svg", "png"):
+        assert (ROOT / f"assets/images/brand/og/community-en.{ext}").exists(), ext

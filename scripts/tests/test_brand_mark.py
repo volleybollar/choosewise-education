@@ -224,8 +224,8 @@ ALL_OG_CARDS = OG_SVGS + [OG_DEFAULT]
 
 
 def test_there_are_sixteen_og_cards():
-    # 16 → 18 med think-en och thinkingmoves-en (2026-10-27), 19 med flawedanswer-en (2026-10-28), 20 med sidebyside-en (2026-10-28), 21 med thinkingprofile-en (2026-10-28), 23 med pedagogy-en och lessonlens-en (2026-10-29), 24 med retrievalrhythm-en (2026-10-30).
-    assert len(OG_SVGS) == 25, [p.name for p in OG_SVGS]
+    # 16 → 18 med think-en och thinkingmoves-en (2026-10-27), 19 med flawedanswer-en (2026-10-28), 20 med sidebyside-en (2026-10-28), 21 med thinkingprofile-en (2026-10-28), 23 med pedagogy-en och lessonlens-en (2026-10-29), 24 med retrievalrhythm-en (2026-10-30), 26 med community-en (2026-11-11).
+    assert len(OG_SVGS) == 26, [p.name for p in OG_SVGS]
 
 
 @pytest.mark.parametrize("svg", ALL_OG_CARDS, ids=lambda p: p.name)
