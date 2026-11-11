@@ -53,7 +53,9 @@ def teacher_text(lesson):
 
 def statements(text):
     """Meningar som inte är frågor. Frågor till eleverna får provocera fram
-    "maskinen vet" med flit; det vi själva påstår får det inte."""
+    "maskinen vet" med flit; det vi själva påstår får det inte. Webbadresser
+    är inga formuleringar och tas bort (lektionen who-decides heter så)."""
+    text = re.sub(r"https?://\S+", "", text)
     for sentence in re.split(r"(?<=[.!?])[\"'”’)]*\s+", text):
         if not sentence.rstrip(" \"'”’)").endswith("?"):
             yield sentence
@@ -255,3 +257,13 @@ def test_ai_or_human_uses_the_picture_grid_and_gives_the_answers():
     assert [b["src"] for b in _blocks(lesson, "image")] == ["assets/images/ai-or-human/photo-grid.jpg"]
     assert any("1, 6 and 8 are not AI" in text for text in teacher_text(lesson))
     assert any("video 2" in text for text in teacher_text(lesson))
+
+
+def test_who_decides_has_the_grid_and_its_own_rule_starters():
+    lesson = _lesson("who-decides")
+    grids = [b for b in _blocks(lesson, "checklist") if isinstance(b["items"], list) and len(b["items"]) == 8]
+    assert grids and grids[0]["checks"] == ["Me", "The app", "Another person", "Not sure"]
+    student_words = " ".join([b["body"] for b in _blocks(lesson, "text")]
+                             + [c for b in _blocks(lesson, "table") for c in b["columns"]]).lower()
+    for word in ("unsure", "honest", "get help", "private"):  # IDEAL Thinkers kategorier: bara inspiration
+        assert word not in student_words, word

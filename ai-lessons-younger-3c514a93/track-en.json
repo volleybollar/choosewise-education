@@ -33,7 +33,8 @@
     {"id": "learning-from-examples", "band": "9-12", "number": 2},
     {"id": "who-does-it-fail", "band": "9-12", "number": 3},
     {"id": "word-guessing-machine", "band": "9-12", "number": 4},
-    {"id": "ai-or-human", "band": "9-12", "number": 5}
+    {"id": "ai-or-human", "band": "9-12", "number": 5},
+    {"id": "who-decides", "band": "9-12", "number": 6}
   ],
   "how_it_works": [
     "Every lesson has a teacher page you can read in about ten minutes, and a student PDF to print.",
