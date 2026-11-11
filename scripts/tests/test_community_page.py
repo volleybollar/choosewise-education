@@ -187,3 +187,15 @@ def test_close_band_meets_the_footer(site, browser):
                      " - document.querySelector('#cm-close').getBoundingClientRect().bottom")
     ctx.close()
     assert abs(gap) < 1, gap
+
+
+GUIDES = ("Claude, Microsoft Copilot, Google Gemini &amp; NotebookLM, Apple Intelligence, "
+          "AI for students, Visual Codes and more")
+
+
+def test_guide_list_is_the_same_everywhere():
+    # Johan 2026-11-11: samma guider i listan, i säljbilden och i dess alt-text.
+    assert GUIDES in section("cm-inside")
+    assert GUIDES in img_alt("community-web")
+    promo = (ROOT / "exports/skool-community-1920x1080.html").read_text(encoding="utf-8")
+    assert f"<b>Guides</b><span>{GUIDES}</span>" in promo
