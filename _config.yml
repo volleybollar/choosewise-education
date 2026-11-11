@@ -1,0 +1,6 @@
+# GitHub Pages bygger sajten med Jekyll. Jekyll gör om varje Markdown-fil
+# till en webbsida, även interna anteckningar. Det som står här publiceras
+# inte. Se scripts/tests/test_unpublished_markdown.py.
+exclude:
+  - docs
+  - exports/prompts/BATCH-README.md
