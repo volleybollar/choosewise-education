@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+  Översiktsbild för About i Skool, 1920 × 1080: alla kursomslag i Classroom.
+
+  Omslagen hämtas ur assets/images/brand/skool/courses/, i den ordning som
+  courses.json i samma mapp anger. Båda skrivs av byggskriptet, som också
+  gör den här bilden till PNG:
+    /usr/bin/python3 scripts/build-skool-course-covers.py
+  Förhandsgranska via en lokal server (file:// laddar inte typsnitten), t.ex.
+    python3 -m http.server 8765   och öppna
+    http://localhost:8765/exports/skool-classroom-1920x1080.html
+
+  Samma ljusa stil som säljbilden till About (skool-community-1920x1080.html?v=about).
+  Rutnätet rymmer nio omslag (3 × 3); fler stoppar bygget.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Choosewise Classroom overview</title>
+<!-- Sajtens egna typsnitt (Hanken Grotesk + Instrument Serif) -->
+<link rel="stylesheet" href="../assets/css/fonts.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; }
+  body { position: relative; background: #FBFAF8; color: #0C1A2E;
+         font-family: 'Hanken Grotesk', -apple-system, sans-serif; }
+
+  /* ===== RUBRIKRADEN =====
+     Logga och rubrik till vänster, taglinen till höger. Raden har samma
+     bredd som rutnätet, så kanterna linjerar. */
+  .head { position: absolute; left: 152px; right: 152px; top: 60px; height: 64px;
+          display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 20px; font-size: 52px; font-weight: 600;
+           letter-spacing: -0.5px; }
+  .brand img { width: 64px; border-radius: 13px; }
+  .tag { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 44px; color: #9C5A24; }
+
+  /* ===== OMSLAGEN =====
+     Tre i bredd, i kursernas ordning. 520 px breda i Skools proportion
+     1460 × 752, med rundade hörn och skugga som korten i Classroom. */
+  .grid { position: absolute; left: 152px; top: 164px; display: grid;
+          grid-template-columns: repeat(3, 520px); gap: 28px; }
+  .grid img { display: block; width: 520px; aspect-ratio: 1460 / 752; border-radius: 14px;
+              box-shadow: 0 10px 28px rgba(7, 40, 77, .22); }
+</style>
+</head>
+<body>
+
+<div class="head">
+  <div class="brand"><img src="../assets/images/brand/skool/logo.png" alt="">The Choosewise Classroom</div>
+  <div class="tag">For educators, by educators.</div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<script>
+  // Lägg in omslagen i den ordning byggskriptet skrev dem
+  const dir = "../assets/images/brand/skool/courses/";
+  fetch(dir + "courses.json").then(r => r.json()).then(files => {
+    const grid = document.getElementById("grid");
+    const imgs = files.map(name => {
+      const img = new Image();
+      img.src = dir + name;
+      img.alt = "";
+      grid.appendChild(img);
+      return img.decode();
+    });
+    return Promise.all(imgs);
+  }).then(() => document.fonts.ready).then(() => {
+    document.body.dataset.ready = "1";   // byggskriptet väntar på den här flaggan
+  });
+</script>
+</body>
+</html>
