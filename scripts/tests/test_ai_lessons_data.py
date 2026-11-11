@@ -6,14 +6,15 @@ minuter, varje steg enskilt/par/alla, ingen förmänskligande formulering från
 oss, daterade åldersgränser, läsarnoten och användningsraden ordagrant.
 Spec: docs/superpowers/specs/2026-11-11-ai-lessons-for-students-design.md.
 """
+import importlib.util
 import json
 import re
 from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-SLUG = "ai-lessons-younger-3c514a93"
-TRACK = ROOT / SLUG / "track-en.json"
+YOUNGER = "ai-lessons-younger-3c514a93"
+OLDER = "ai-lessons-older-319cf15d"
 
 MODES = {"Individual", "Pairs", "All"}
 AI_USES = {"none", "teacher-demo", "students"}
@@ -32,13 +33,24 @@ MENTAL = re.compile(r"\b(admits?|unsure|decides?|pretends?)\b", re.I)
 TOKENS = re.compile(r"[a-z']+|\.")
 
 
-def track():
-    return json.loads(TRACK.read_text(encoding="utf-8"))
+def _tracks():
+    spec = importlib.util.spec_from_file_location("build_ai_lessons", ROOT / "scripts/build-ai-lessons.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.TRACKS
 
 
-def lessons():
-    return [json.loads((ROOT / SLUG / entry["id"] / "lesson-en.json").read_text(encoding="utf-8"))
-            for entry in track()["lessons"]]
+TRACKS = _tracks()
+
+
+def track(slug):
+    return json.loads((ROOT / slug / "track-en.json").read_text(encoding="utf-8"))
+
+
+def lessons(slug=None):
+    """Lektionerna i ett spår, eller i alla spår."""
+    return [json.loads((ROOT / s / entry["id"] / "lesson-en.json").read_text(encoding="utf-8"))
+            for s in ([slug] if slug else TRACKS) for entry in track(s)["lessons"]]
 
 
 def teacher_text(lesson):
@@ -61,19 +73,44 @@ def statements(text):
             yield sentence
 
 
-def test_lesson_ids_and_numbers_are_unique():
-    entries = track()["lessons"]
-    assert len({e["id"] for e in entries}) == len(entries)
-    for band in {e["band"] for e in entries}:
-        numbers = [e["number"] for e in entries if e["band"] == band]
-        assert len(set(numbers)) == len(numbers), band
+def test_both_tracks_are_built():
+    assert TRACKS == [YOUNGER, OLDER]
+    for slug in TRACKS:
+        assert (ROOT / slug / "track-en.json").exists(), slug
+
+
+def test_lesson_ids_unique_within_each_track():
+    """Inom ett spår blir id:t en adress. Samma id i två spår är tillåtet
+    (ai-or-human finns i 9–12 och 13–15)."""
+    for slug in TRACKS:
+        entries = track(slug)["lessons"]
+        assert len({e["id"] for e in entries}) == len(entries), slug
+        for band in {e["band"] for e in entries}:
+            numbers = [e["number"] for e in entries if e["band"] == band]
+            assert len(set(numbers)) == len(numbers), (slug, band)
 
 
 def test_track_lists_existing_lessons():
-    bands = {b["id"] for b in track()["bands"]}
-    for entry, lesson in zip(track()["lessons"], lessons()):
-        assert entry["band"] in bands, entry["id"]
-        assert (lesson["id"], lesson["band"], lesson["number"]) == (entry["id"], entry["band"], entry["number"])
+    for slug in TRACKS:
+        bands = {b["id"] for b in track(slug)["bands"]}
+        for entry, lesson in zip(track(slug)["lessons"], lessons(slug)):
+            assert entry["band"] in bands, entry["id"]
+            assert (lesson["id"], lesson["band"], lesson["number"]) == (entry["id"], entry["band"], entry["number"])
+
+
+def test_every_track_has_an_ai_use_note():
+    for slug in TRACKS:
+        assert track(slug)["ai_use_note"].strip(), slug
+
+
+def test_shared_age_rows_match_across_tracks():
+    """Spår 2 har spår 1:s rader ordagrant. Ändras en åldersgräns i det ena
+    spåret måste den ändras i det andra."""
+    young, old = track(YOUNGER)["age_limits"], track(OLDER)["age_limits"]
+    assert young["checked"] == old["checked"]
+    assert set(young["tools"]) <= set(old["tools"])
+    for tid in young["tools"]:
+        assert young["tools"][tid] == old["tools"][tid], tid
 
 
 def test_minutes_add_up_and_stay_within_40():
@@ -184,30 +221,34 @@ def test_training_text_is_short():
 
 
 def test_tools_have_dated_age_limits():
-    limits = track()["age_limits"]
-    assert limits["checked"] == "2026-11-11"
-    assert {"chatgpt", "gemini", "copilot", "claude"} <= set(limits["tools"])
-    for tid, tool in limits["tools"].items():
-        assert tool["name"] and tool["min_age"] and "note" in tool, tid
-    for lesson in lessons():
-        assert set(lesson["tools"]) <= set(limits["tools"]), lesson["id"]
+    for slug in TRACKS:
+        limits = track(slug)["age_limits"]
+        assert limits["checked"] == "2026-11-11"
+        assert {"chatgpt", "gemini", "copilot", "claude"} <= set(limits["tools"])
+        for tid, tool in limits["tools"].items():
+            assert tool["name"] and tool["min_age"] and "note" in tool, tid
+        for lesson in lessons(slug):
+            assert set(lesson["tools"]) <= set(limits["tools"]), lesson["id"]
 
 
 def test_reader_note_and_use_rights_verbatim():
-    assert track()["reader_note"] == READER_NOTE
-    assert track()["use_rights"] == USE_RIGHTS
+    for slug in TRACKS:
+        assert track(slug)["reader_note"] == READER_NOTE
+        assert track(slug)["use_rights"] == USE_RIGHTS
 
 
 def test_frameworks_name_both():
-    assert [f["name"] for f in track()["frameworks"]] == ["AILit", "AI4K12"]
+    for slug in TRACKS:
+        assert [f["name"] for f in track(slug)["frameworks"]] == ["AILit", "AI4K12"]
     for lesson in lessons():
         assert set(lesson["frameworks"]) == {"AILit", "AI4K12"}, lesson["id"]
 
 
 def test_skool_text_links_the_lesson():
-    for lesson in lessons():
-        url = f"https://choosewise.education/{SLUG}/{lesson['id']}/"
-        assert url in lesson["skool_text"], lesson["id"]
+    for slug in TRACKS:
+        for lesson in lessons(slug):
+            url = f"https://choosewise.education/{slug}/{lesson['id']}/"
+            assert url in lesson["skool_text"], lesson["id"]
 
 
 def test_student_pdf_has_one_to_four_pages_of_known_blocks():
@@ -222,8 +263,8 @@ def test_student_pdf_has_one_to_four_pages_of_known_blocks():
 
 # ───── Lektionsspecifika vakter (planen 2026-11-11-ai-lessons-9-12) ─────
 
-def _lesson(lid):
-    return json.loads((ROOT / SLUG / lid / "lesson-en.json").read_text(encoding="utf-8"))
+def _lesson(lid, slug=YOUNGER):
+    return json.loads((ROOT / slug / lid / "lesson-en.json").read_text(encoding="utf-8"))
 
 
 def _blocks(lesson, kind):

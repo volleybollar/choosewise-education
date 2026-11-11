@@ -72,6 +72,7 @@ HIDDEN_PATHS = {
     "/ai-lessons-younger-3c514a93/who-does-it-fail/",
     "/ai-lessons-younger-3c514a93/learning-from-examples/",
     "/ai-lessons-younger-3c514a93/ai-or-not/",
+    "/ai-lessons-older-319cf15d/",
 }
 
 # -- Pair map: EN canonical-path -> SV canonical-path

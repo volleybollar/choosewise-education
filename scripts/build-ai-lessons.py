@@ -25,7 +25,7 @@ from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-TRACKS = ["ai-lessons-younger-3c514a93"]
+TRACKS = ["ai-lessons-younger-3c514a93", "ai-lessons-older-319cf15d"]
 SEO_BLOCK = re.compile(r"<!-- seo:start \(build-seo-meta\.py\) -->.*?<!-- seo:end -->", re.S)
 AI_USE = {"none": "No AI", "teacher-demo": "Teacher demo", "students": "Students use AI"}
 
@@ -219,7 +219,7 @@ def render_overview(track: dict) -> str:
         <h3 class="al-sub">Further reading</h3>
         {_further_reading(list(reading.values()))}
         <h3 class="al-sub">AI tools and age limits</h3>
-        <p class="al-text">Students in this track never use AI themselves. If you show a tool in a teacher demo, use your own account.</p>
+        <p class="al-text">{escape(track["ai_use_note"])}</p>
         {_age_table(track, list(track["age_limits"]["tools"]))}
         <p class="tm-note">{escape(track["reader_note"])}</p>
         <p class="al-rights">{escape(track["use_rights"])}</p>
