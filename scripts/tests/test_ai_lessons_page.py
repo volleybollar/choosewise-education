@@ -72,6 +72,19 @@ def test_lesson_page_links_back_and_to_pdf():
     assert f'href="{PDF_URL}"' in section(html, "al-glance")
 
 
+def test_materials_are_at_a_glance():
+    """Specen: lektionen i korthet visar material; förberedelserna står under Before the lesson."""
+    glance = section(read(PAGE), "al-glance")
+    for m in lesson()["materials"]:
+        assert escape(m) in glance, m
+
+
+def test_framework_line_links_both_frameworks():
+    block = section(read(PAGE), "al-frameworks")
+    for f in track()["frameworks"]:
+        assert f'href="{escape(f["url"])}"' in block, f["name"]
+
+
 def test_every_step_with_mode_and_minutes():
     steps = section(read(PAGE), "al-steps")
     for s in lesson()["steps"]:

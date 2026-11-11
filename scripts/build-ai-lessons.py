@@ -133,7 +133,7 @@ def _lesson_card(track: dict, lesson: dict) -> str:
         f'<p class="tm-move__meta"><span>{lesson["minutes"]} min</span><span>{escape(AI_USE[lesson["ai_use"]])}</span></p>'
         '<p class="al-card__links">'
         f'<a class="btn btn--primary" href="{lesson_url(track, lesson)}">Teacher guide</a>'
-        f'<a class="btn btn--secondary" href="{pdf_url(track, lesson)}" download>Student PDF</a>'
+        f'<a class="al-card__pdf" href="{pdf_url(track, lesson)}" download>Student PDF</a>'
         "</p></article>"
     )
 
@@ -264,6 +264,8 @@ def render_lesson(track: dict, lesson: dict) -> str:
         for g in lesson["gather"]
     )
     background = "".join(f'<p class="al-text">{escape(p)}</p>' for p in lesson["background"])
+    frameworks = "".join(f'<p class="al-text"><a href="{escape(f["url"])}"><strong>{escape(f["name"])}</strong></a>: '
+                         f'{escape(lesson["frameworks"][f["name"]])}</p>' for f in track["frameworks"])
     language = ""
     if lesson["uses_text"]:
         language = f"""
@@ -291,7 +293,7 @@ def render_lesson(track: dict, lesson: dict) -> str:
       <p class="lede">{escape(lesson["line"])}</p>
     </section>
 
-    <!-- Lektionen i korthet, och elev-PDF:en. -->
+    <!-- Lektionen i korthet, materialet och elev-PDF:en. -->
     <section class="section section--alt" id="al-glance">
       <div class="container">
         <h2 class="section__title">At a glance</h2>
@@ -302,7 +304,9 @@ def render_lesson(track: dict, lesson: dict) -> str:
           <div><dt>AI use</dt><dd>{escape(AI_USE[lesson["ai_use"]])}</dd></div>
           <div><dt>Preparation</dt><dd>{lesson["prep_minutes"]} min</dd></div>
         </dl>
-        <a class="btn btn--primary" href="{pdf_url(track, lesson)}" download>Download the student PDF</a>
+        <h3 class="al-sub">Materials</h3>
+        {_list(lesson["materials"], "al-list")}
+        <a class="btn btn--primary al-download" href="{pdf_url(track, lesson)}" download>Download the student PDF</a>
       </div>
     </section>
 
@@ -317,13 +321,11 @@ def render_lesson(track: dict, lesson: dict) -> str:
       </div>
     </section>
 
-    <!-- Material och förberedelser. -->
+    <!-- Förberedelser: vad läraren skriver ut, skriver och provar före lektionen. -->
     <section class="section section--alt" id="al-before">
       <div class="container">
         <h2 class="section__title">Before the lesson</h2>
-        <h3 class="al-sub">Materials</h3>
-        {_list(lesson["materials"], "al-list")}
-        <h3 class="al-sub">Preparation, about {lesson["prep_minutes"]} minutes</h3>
+        <p class="al-text">About {lesson["prep_minutes"]} minutes.</p>
         {_list(lesson["before"], "al-list")}
       </div>
     </section>
@@ -376,8 +378,7 @@ def render_lesson(track: dict, lesson: dict) -> str:
     <section class="section section--alt" id="al-frameworks">
       <div class="container">
         <h2 class="section__title">Framework links</h2>
-        <p class="al-text"><strong>AILit:</strong> {escape(lesson["frameworks"]["AILit"])}</p>
-        <p class="al-text"><strong>AI4K12:</strong> {escape(lesson["frameworks"]["AI4K12"])}</p>
+        {frameworks}
       </div>
     </section>
 
