@@ -248,3 +248,10 @@ def test_who_does_it_fail_has_ten_training_and_eight_visitor_cards():
     visitors = [c for b in blocks if b.get("heading", "").startswith("Visitors") for c in b["cards"]]
     assert len(training) == 10 and len(visitors) == 8
     assert any(c.get("icon") == "wheelchair" for c in visitors)
+
+
+def test_ai_or_human_uses_the_picture_grid_and_gives_the_answers():
+    lesson = _lesson("ai-or-human")
+    assert [b["src"] for b in _blocks(lesson, "image")] == ["assets/images/ai-or-human/photo-grid.jpg"]
+    assert any("1, 6 and 8 are not AI" in text for text in teacher_text(lesson))
+    assert any("video 2" in text for text in teacher_text(lesson))

@@ -1,0 +1,151 @@
+{
+  "id": "ai-or-human",
+  "title": "AI or Human?",
+  "band": "9-12",
+  "number": 5,
+  "line": "Students guess which pictures, texts and videos were made with AI, look for clues, and talk about when it matters who made something.",
+  "minutes": 40,
+  "groups": "Pairs, then the whole class",
+  "ai_use": "teacher-demo",
+  "prep_minutes": 15,
+  "goals": [
+    "Use clues to judge whether a picture or a text was made with AI, and explain why a clue is not proof.",
+    "Explain why it can matter who or what made a picture, a text or a voice message.",
+    "Name what to do when it matters: check where it came from, or ask an adult."
+  ],
+  "key_words": [
+    {"word": "AI-made", "meaning": "Made with an AI tool, for example a picture made from a typed description."},
+    {"word": "clue", "meaning": "A sign that might show how something was made. A clue is not proof."},
+    {"word": "fake", "meaning": "Something made to look real, or to look as if someone said or did something they didn't."},
+    {"word": "source", "meaning": "Where something comes from: who made it and where it was first shared."}
+  ],
+  "materials": [
+    "Student PDF page 1, the picture grid and the clues: one per pair",
+    "Page 2, my sentences and the four scenario cards: one per pair, cards cut out",
+    "Page 3, the \"Does it matter?\" line and the closing questions: one per pair",
+    "A projector with internet for the video test, and a chatbot your school allows teachers to use, on your own account"
+  ],
+  "before": [
+    "Print the student PDF and cut out the four scenario cards on page 2, one set per pair.",
+    "Choose a chatbot your school allows teachers to use. Try the prompts in step 5 on your own account, and save one answer you like as a backup.",
+    "Open the Choosewise video test (https://choosewise.education/ai-or-human/#test-video) and check that the videos play in your classroom.",
+    "The answers: in the picture grid, 1, 6 and 8 are not AI and the other six are; in the video test, video 2 is AI."
+  ],
+  "steps": [
+    {
+      "minutes": 3, "mode": "Individual", "title": "Person or machine?",
+      "do": "Students look at the picture grid on page 1 and circle the numbers they think were made with AI.",
+      "say": "Some of these nine pictures were made with AI, and some were not. Circle the ones you think are AI-made."
+    },
+    {
+      "minutes": 4, "mode": "Pairs", "title": "Clues",
+      "do": "Pairs compare their answers and agree on two clues they used. They write them on page 1.",
+      "say": "What made you think a picture was AI-made? Write down two clues."
+    },
+    {
+      "minutes": 5, "mode": "All", "title": "Reveal",
+      "do": "Reveal the answers: 1, 6 and 8 are not AI; the other six are. Collect the clues that worked and the ones that didn't.",
+      "say": "Six of the nine were made with AI. Clues help, but they are not proof, and AI pictures get harder to spot every year."
+    },
+    {
+      "minutes": 4, "mode": "Individual", "title": "Your own words",
+      "do": "Each student writes three sentences on page 2 about a day they will remember, with no names in them.",
+      "say": "Write three sentences about a day you will remember. Don't write anyone's name."
+    },
+    {
+      "minutes": 7, "mode": "All", "title": "The chatbot writes too", "demo": true,
+      "do": "Open the chatbot on the projector, on your own account; students don't type. Type one of the prompts below and keep two of the answers. Ask two volunteers to read their sentences aloud, and read the two chatbot texts in between. For each text the class votes: person or AI? Then reveal.",
+      "say": "The chatbot was never ten years old and has no day to remember. It produced text that looks like what children write.",
+      "prompts": [
+        "Write three sentences about a day you will remember, the way a 10-year-old would write them. Use simple words.",
+        "Write three short sentences about the best day of your summer, the way a child aged 10 would.",
+        "Write three sentences about a day at school you will never forget, in the style of an 11-year-old."
+      ],
+      "fallback": "If the chatbot's texts are easy to spot, ask what gave them away: often they are too neat, too general or too cheerful. Then ask for the same thing in a new chat, adding \"Make it sound like a real child, with one small spelling mistake.\" If the chatbot refuses, or the school's tool is blocked, read the backup answer you saved."
+    },
+    {
+      "minutes": 4, "mode": "All", "title": "The video test",
+      "do": "Show the Choosewise video test on the projector (Test 3 on the AI or human? page). The class votes on which of the three videos is AI, then reveal: video 2."
+    },
+    {
+      "minutes": 6, "mode": "Pairs", "title": "Does it matter?",
+      "do": "Pairs place the four scenario cards from page 2 on the line on page 3: Doesn't matter much, Matters a bit, or Matters a lot.",
+      "say": "For each card, ask: what could go wrong if this was made with AI and nobody knew?"
+    },
+    {
+      "minutes": 4, "mode": "All", "title": "When it matters",
+      "do": "Two or three pairs explain their order. Talk about what to do when it matters: check where it came from, ask the person who supposedly sent it, or ask an adult. End with the voice message from \"Grandma\": call her back on the number you already know.",
+      "say": "When it matters who made something, check where it came from before you believe it or share it."
+    },
+    {
+      "minutes": 3, "mode": "Individual", "title": "Closing question",
+      "do": "Pairs tear off the closing questions at the bottom of page 3, one for each student. Each student answers on their own before leaving."
+    }
+  ],
+  "gather": [
+    {"question": "Which clues helped you spot the AI pictures?", "students_say": ["The hands looked strange.", "It was too perfect.", "The writing in the background was weird."]},
+    {"question": "How could you tell which texts were written by a person?", "students_say": ["It had a small mistake.", "It was about something real, like a place I know.", "The AI one sounded like a story book."]},
+    {"question": "Which scenario card matters most, and why?", "students_say": ["The voice message, because Grandma could lose money.", "The picture of a classmate, because it could hurt them."]},
+    {"question": "What can you do when you can't tell?", "students_say": ["Ask an adult.", "Check who posted it first.", "Call the person back."]}
+  ],
+  "simpler": "Skip the texts and the video test. Use the picture grid and the four scenario cards, with more time to talk about each card.",
+  "harder": "Ask pairs to write their own scenario card where it matters a lot who made something, and swap it with another pair. Or compare two chatbot answers to the same prompt: what is the same in both, and why?",
+  "closing_question": "Why does it matter whether a person or an AI made a picture or a text? Give one example.",
+  "language_swap": "The picture grid on page 1 needs no words; write the clue heading in your class's language. In step 5, type the prompt in your class's language: the chatbot answers in it, and students write their own sentences on page 2 in it too. Say the four scenario cards on page 2 aloud in your class's language, or translate them on the board. On page 3, say the three headings and the closing question aloud, or write them on the board.",
+  "age_note": "Only you use a chatbot in this lesson, on your own account, and students watch. Students aged 9–12 are under the minimum age for most of these tools on a personal account.",
+  "background": [
+    "AI tools can now make pictures, texts, voices and videos that are very hard to tell from human-made ones. In one study, people could not reliably tell AI-made face photos from real ones, and even rated the AI-made faces as slightly more trustworthy (Nightingale and Farid, 2022). The tools have improved a lot since then.",
+    "Clues still help with weaker pictures: odd hands, writing that makes no sense, objects that melt into each other, light that doesn't add up. But a clue is not proof. A real photo can look strange, and an AI picture can look perfect. The habit to teach is to look for the source: who made it, where was it first shared, and does anyone trustworthy confirm it?",
+    "Chatbot texts written \"as a child\" are often too smooth, too general and too cheerful, but not always. The point of step 5 is not to win the guessing game. It is that the chatbot produced its text from patterns in what children write, with no real day behind it.",
+    "Whether it matters depends on what the thing is for. A funny AI picture of a cat in a hat harms no one. A fake news photo can mislead many people, a copied voice can be used to ask a grandparent for money, and a fake picture of a classmate can hurt them and can break school rules and the law. Checking the source, and asking an adult when it matters, are habits that last as the tools change.",
+    "The picture grid and the video test come from Choosewise's own AI or human? test, which adults find hard too. Expect the class to get several wrong: that is part of the lesson."
+  ],
+  "frameworks": {
+    "AILit": "Engage with AI, competence 3 (evaluate whether AI outputs should be accepted, revised or rejected), and Create with AI, competence 4 (analyse how AI can safeguard or violate content authenticity), basic level",
+    "AI4K12": "Big Idea 5 (Societal Impact)"
+  },
+  "tools": ["chatgpt", "gemini", "gemini-education", "copilot", "copilot-education", "claude"],
+  "credits": [
+    {"text": "Picture grid and video test: Choosewise, AI or human?", "url": "https://choosewise.education/ai-or-human/"},
+    {"text": "Card pictures: Tabler Icons (MIT licence)", "url": "https://tabler.io/icons"}
+  ],
+  "further_reading": [
+    {"title": "Nightingale and Farid (2022): AI-synthesized faces are indistinguishable from real faces and more trustworthy (PNAS)", "url": "https://www.pnas.org/doi/10.1073/pnas.2120481119"},
+    {"title": "Choosewise: the full AI or human? test, with texts, pictures and videos", "url": "https://choosewise.education/ai-or-human/"}
+  ],
+  "student_pdf": {
+    "file": "ai-or-human-student-en.pdf",
+    "pages": [
+      {
+        "title": "Person or machine?",
+        "instruction": "Circle the numbers you think are AI-made.",
+        "blocks": [
+          {"kind": "image", "src": "assets/images/ai-or-human/photo-grid.jpg", "alt": "Nine numbered photographs in a 3 × 3 grid; some made with AI, some not."},
+          {"kind": "table", "columns": ["Our two clues"], "rows": 2}
+        ]
+      },
+      {
+        "title": "Words and cards",
+        "instruction": "Write your sentences. Cut out the cards.",
+        "blocks": [
+          {"kind": "table", "columns": ["My three sentences about a day I will remember"], "rows": 4},
+          {"kind": "cards", "heading": "Scenario cards", "cards": [
+            {"word": "A funny picture of a cat in a hat", "icon": "cat"},
+            {"word": "A news photo of a big storm", "icon": "cloud-storm"},
+            {"word": "A voice message from \"Grandma\" asking for money", "icon": "microphone"},
+            {"word": "A picture of a classmate doing something they never did", "icon": "photo"}
+          ]}
+        ]
+      },
+      {
+        "title": "Does it matter?",
+        "instruction": "Put each card where it belongs.",
+        "blocks": [
+          {"kind": "mat", "headings": ["Doesn't matter much", "Matters a bit", "Matters a lot"]},
+          {"kind": "tickets", "question": "Why does it matter whether a person or an AI made a picture or a text? Give one example.", "count": 2}
+        ]
+      }
+    ]
+  },
+  "skool_text": "Lesson 5 for ages 9–12. Students guess which of nine pictures are AI-made and look for clues, mix their own sentences with a chatbot's on the projector, try the Choosewise video test, and sort four cards by how much it matters who made something. Teacher demo only, 40 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-younger-3c514a93/ai-or-human/"
+}
