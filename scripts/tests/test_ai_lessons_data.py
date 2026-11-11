@@ -478,8 +478,7 @@ def test_older_ai_or_human_runs_the_same_prompt_in_both_chats():
 
 
 def test_scrap_paper_in_a_step_is_in_the_materials():
-    """Gäller 13–15. Pilotlektionen i 9–12 har samma glapp; den är live och ändras inte här."""
-    for lesson in lessons(OLDER):
+    for lesson in lessons():
         if any("scrap paper" in s["do"].lower() for s in lesson["steps"]):
             assert any("scrap paper" in m.lower() for m in lesson["materials"]), lesson["id"]
 
