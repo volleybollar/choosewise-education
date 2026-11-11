@@ -68,6 +68,7 @@ PAGES = (
         "unit-studio-541ebd12/",
         "pedagogy-compass-59ecb8db/",
         "pedagogy/",
+        "community/",
     ]
 )
 
