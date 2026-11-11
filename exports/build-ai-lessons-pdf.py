@@ -69,6 +69,9 @@ h1 { font-family: var(--font-display); font-size: 22pt; font-weight: 500; line-h
 .grid--fill th:first-child, .grid--fill td:first-child { width: 35%; }
 .grid--fill th:last-child, .grid--fill td:last-child { width: 15%; }
 .grid .row-num { width: 14mm; font-weight: 500; text-align: center; }
+/* Förtryckta tabeller: luft i cellerna, och första kolumnen så bred som texten kräver. */
+.grid--data td { padding: 0 2mm; }
+.grid--data th:first-child, .grid--data td:first-child { width: auto; }
 .box { display: inline-block; width: 7mm; height: 7mm; border: 0.4mm solid var(--color-text); border-radius: 1mm; }
 .grid .tick { text-align: center; }
 .slips { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 0.4mm dashed var(--color-text); border-left: 0.4mm dashed var(--color-text); }
@@ -135,11 +138,13 @@ def _text(block: dict) -> str:
 
 def _table(block: dict) -> str:
     head = "".join(f"<th>{escape(c)}</th>" for c in block["columns"])
+    cls = "grid grid--fill"
     if isinstance(block["rows"], list):  # förtryckta rader; tom text = en ruta att fylla i
+        cls += " grid--data"
         body = "".join("<tr>" + "".join(f"<td>{escape(c)}</td>" for c in row) + "</tr>" for row in block["rows"])
     else:
         body = ("<tr>" + "<td></td>" * len(block["columns"]) + "</tr>") * block["rows"]
-    return f'<table class="grid grid--fill"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table>'
+    return f'<table class="{cls}"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table>'
 
 
 def _slips(block: dict) -> str:

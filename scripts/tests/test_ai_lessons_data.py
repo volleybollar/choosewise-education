@@ -369,3 +369,30 @@ def test_confident_and_wrong_sorts_eight_cards_on_three_columns():
     lesson = _lesson("confident-and-wrong", OLDER)
     assert [b["headings"] for b in _blocks(lesson, "mat")] == [["Probably fine", "Check it first", "Often made up"]]
     assert sum(len(b["cards"]) for b in _blocks(lesson, "cards")) == 8
+
+
+def test_bias_in_bias_out_credits_iste():
+    credits = _lesson("bias-in-bias-out", OLDER)["credits"]
+    assert any("ISTE" in c["text"] and "Project 4" in c["text"] and "CC BY 4.0" in c["text"] for c in credits)
+
+
+def test_bias_in_bias_out_rule_leaves_out_the_best_applicants():
+    """Klassens anställningar blir träningsdata, och regeln ger en poäng per
+    värde som de anställda delar. De meriterade sökande från Southside måste
+    hamna under topp två, annars faller lektionens poäng."""
+    tables = [b for b in _blocks(_lesson("bias-in-bias-out", OLDER), "table") if b["columns"][0] == "Applicant"]
+    assert len(tables) == 2
+    features = ["Worked before", "Reference", "Lives in", "Hobby"]
+    first, second = ([dict(zip(t["columns"], row)) for row in t["rows"]] for t in tables)
+    hires = [a for a in first if a["Worked before"] == "Yes" and a["Reference"] == "Yes"]
+    assert len(hires) == 3
+    common = {f: Counter(a[f] for a in hires).most_common(1)[0][0] for f in features}
+    assert all(a["Lives in"] == common["Lives in"] and a["Hobby"] == common["Hobby"] for a in hires)
+
+    def points(a):
+        return sum(a[f] == common[f] for f in features)
+
+    best = [a for a in second if a["Worked before"] == "Yes" and a["Reference"] == "Yes"]
+    top_two = sorted((points(a) for a in second), reverse=True)[:2]
+    assert best and all(a["Lives in"] != common["Lives in"] for a in best)
+    assert all(points(a) < min(top_two) for a in best)

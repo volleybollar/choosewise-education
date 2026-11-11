@@ -78,6 +78,11 @@
       "id": "confident-and-wrong",
       "band": "13-15",
       "number": 2
+    },
+    {
+      "id": "bias-in-bias-out",
+      "band": "13-15",
+      "number": 3
     }
   ],
   "how_it_works": [

@@ -153,6 +153,16 @@ def test_table_takes_prefilled_rows():
     assert "cat" in body and "1, 2, 3" in body
 
 
+def test_prefilled_tables_give_their_cells_room():
+    """Förtryckta celler behöver luft och en första kolumn efter innehållet;
+    annars flyter "Northside" och "Football" ihop i lektion 3."""
+    mod = load("build_ai_lessons_pdf", BUILD)
+    out = mod.BLOCKS["table"]({"kind": "table", "columns": ["A", "B"], "rows": [["x", ""]]})
+    assert 'class="grid grid--fill grid--data"' in out
+    assert re.search(r"\.grid--data td\s*\{[^}]*padding", mod.STYLE)
+    assert "grid--data" not in mod.BLOCKS["table"]({"kind": "table", "columns": ["A"], "rows": 2})
+
+
 def test_missing_image_stops_the_build():
     mod = load("build_ai_lessons_pdf", BUILD)
     with pytest.raises(FileNotFoundError, match="no-such-picture.jpg"):
