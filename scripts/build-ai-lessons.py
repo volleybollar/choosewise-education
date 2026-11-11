@@ -232,12 +232,12 @@ def render_overview(track: dict) -> str:
 
 # ───── Lärarsidan ─────
 
-def _step(step: dict, start: int) -> str:
-    """Ett steg i tidslinjen: minuter, arbetsform, vad läraren gör och vad hen kan säga."""
+def _step(step: dict, start: int, n: int) -> str:
+    """Ett steg i tidslinjen: nummer, minuter, arbetsform, vad läraren gör och vad hen kan säga."""
     end = start + step["minutes"]
     parts = [
         f'<li class="al-step{" al-step--demo" if step.get("demo") else ""}">',
-        f'<p class="al-step__head"><span class="al-step__time">{start}–{end} min</span>'
+        f'<p class="al-step__head"><span class="al-step__num">Step {n}</span><span class="al-step__time">{start}–{end} min</span>'
         f'<span class="al-mode al-mode--{step["mode"].lower()}">{escape(step["mode"])}</span></p>',
         f'<h3 class="al-step__title">{escape(step["title"])}</h3>',
         f'<p class="al-step__do">{escape(step["do"])}</p>',
@@ -256,7 +256,7 @@ def _step(step: dict, start: int) -> str:
 def render_lesson(track: dict, lesson: dict) -> str:
     band = _band(track, lesson["band"])
     starts = [sum(s["minutes"] for s in lesson["steps"][:i]) for i in range(len(lesson["steps"]))]
-    steps = "".join(_step(s, t) for s, t in zip(lesson["steps"], starts))
+    steps = "".join(_step(s, t, n) for n, (s, t) in enumerate(zip(lesson["steps"], starts), start=1))
     words = "".join(f"<dt>{escape(k['word'])}</dt><dd>{escape(k['meaning'])}</dd>" for k in lesson["key_words"])
     gather = "".join(
         f'<li><p class="al-gather__q">{escape(g["question"])}</p>'

@@ -60,6 +60,7 @@
 .al-step:last-child { padding-bottom: 0; }
 .al-step::before { content: ""; position: absolute; left: -7px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--color-bg); border: 2px solid var(--color-accent); }
 .al-step__head { margin: 0; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3); align-items: center; }
+.al-step__num { font-size: var(--fs-small); font-weight: var(--weight-emphasis); color: var(--color-text); }
 .al-step__time { font-size: var(--fs-small); color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
 .al-step__title { margin: var(--space-1) 0 var(--space-2); font-size: 1.2rem; font-weight: var(--weight-emphasis); }
 .al-step__do { margin: 0; }

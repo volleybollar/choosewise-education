@@ -26,6 +26,9 @@ USE_RIGHTS = ("For members of the Choosewise community: use these materials with
 ANTHRO = re.compile(
     r"\b(AI|it|the (chat)?bot|the machine|the model|chatbots?|machines?|models?)\s+"
     r"(thinks?|understands?|knows?|wants?|feels?|believes?)\b", re.I)
+# Ord som ger maskinen ett inre liv även utan subjekt framför ("train them to
+# admit when they are unsure"). Granskningen 2026-11-11 hittade dem.
+MENTAL = re.compile(r"\b(admits?|unsure|decides?|pretends?)\b", re.I)
 TOKENS = re.compile(r"[a-z']+|\.")
 
 
@@ -41,10 +44,10 @@ def lessons():
 def teacher_text(lesson):
     """Allt vi själva skriver till läraren (inte elevernas typiska svar)."""
     out = list(lesson["goals"]) + [k["meaning"] for k in lesson["key_words"]]
-    out += list(lesson["before"]) + [lesson["simpler"], lesson["harder"], lesson["language_swap"]]
-    out += list(lesson["background"])
+    out += list(lesson["before"]) + list(lesson["materials"]) + [lesson["simpler"], lesson["harder"], lesson["language_swap"]]
+    out += list(lesson["background"]) + [lesson["line"], lesson["age_note"], lesson["skool_text"]]
     for s in lesson["steps"]:
-        out += [s["do"], s.get("say", ""), s.get("fallback", "")]
+        out += [s["do"], s.get("say", ""), s.get("fallback", "")] + list(s.get("prompts", []))
     return out
 
 
@@ -92,16 +95,47 @@ def test_demo_step_has_fallback():
 
 def test_no_anthropomorphic_wording():
     assert ANTHRO.search("The chatbot knows the answer.")  # vakten själv biter
+    assert MENTAL.search("They train them to admit when they are unsure.")
     for lesson in lessons():
         for text in teacher_text(lesson):
             for sentence in statements(text):
                 assert not ANTHRO.search(sentence), (lesson["id"], sentence)
+                assert not MENTAL.search(sentence), (lesson["id"], sentence)
+
+
+def test_promise_to_come_back_is_kept():
+    """Steg 1 lovar eleverna att gissningarna tas upp igen. Det ska ske i ett
+    tidsatt steg, inte bara i en fråga som kanske aldrig ställs."""
+    for lesson in lessons():
+        steps = lesson["steps"]
+        for i, s in enumerate(steps):
+            if "come back to it" in s.get("say", ""):
+                later = " ".join(t["do"] + " " + t.get("say", "") for t in steps[i + 2:])
+                assert "guesses" in later.lower(), lesson["id"]
 
 
 def test_text_lessons_explain_language_swap():
     for lesson in lessons():
         if lesson["uses_text"]:
             assert lesson["language_swap"].strip(), lesson["id"]
+
+
+def test_language_swap_covers_every_student_page():
+    """Varje elevsida har engelska ord. Språkbytet ska säga vad läraren gör
+    med var och en, inte bara med träningstexten."""
+    for lesson in lessons():
+        if not lesson["uses_text"]:
+            continue
+        named = set()
+        for m in re.finditer(r"\bpages?\s+((?:\d+(?:,\s*|\s+and\s+)?)+)", lesson["language_swap"], re.I):
+            named.update(int(n) for n in re.findall(r"\d+", m.group(1)))
+        assert set(range(1, len(lesson["student_pdf"]["pages"]) + 1)) <= named, (lesson["id"], named)
+
+
+def test_tickets_ask_the_closing_question():
+    for lesson in lessons():
+        tickets = [b for p in lesson["student_pdf"]["pages"] for b in p["blocks"] if b["kind"] == "tickets"]
+        assert tickets and all(t["question"] == lesson["closing_question"] for t in tickets), lesson["id"]
 
 
 def _next_words(lesson):

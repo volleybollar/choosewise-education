@@ -12,8 +12,9 @@ Each page in student_pdf.pages has a title, a short instruction and blocks:
   checklist  {items, checks}        one row per item, one tick box per check
   tickets    {question, count}      closing-question tickets to cut off
 
-The PDF is A4. Every page is a box of 210 × 279 mm with the content inside
-190 × 265 mm, so nothing is clipped when a teacher prints on US Letter.
+The PDF is A4. Every page is a box of 210 × 279 mm, centred on the A4 page,
+with the content inside 190 × 265 mm, so nothing is clipped when a teacher
+prints it at 100 % on US Letter.
 Black-and-white friendly: no meaning carried by colour alone.
 
 Usage:
@@ -30,12 +31,14 @@ SRC_DIR = ROOT / "_unpublished/exports/ai-lessons"
 
 # Samma typsnitt och färger som de andra paketen (exports/_guide-print.css, Hanken Grotesk 300–500).
 STYLE = """
-@page { size: A4; margin: 0; }
+/* Sidrutan står mitt på A4 (9 mm marginal upptill och nedtill). Skrivs A4 ut i
+   100 % på US Letter försvinner just de 9 mm, och ingenting klipps. */
+@page { size: A4; margin: 9mm 0; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { background: white; }
 body { font-family: var(--font-body); color: var(--color-text); font-size: 12pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 strong, b { font-weight: 500; }
-/* Sidrutan: ryms på både A4 och US Letter. */
+/* Sidrutan: 210 × 279 mm, innehållet högst 190 × 265 mm. */
 .page { width: 210mm; height: 279mm; margin: 0 auto; padding: 7mm 10mm; display: flex; flex-direction: column; gap: 5mm; page-break-after: always; overflow: hidden; }
 .page:last-child { page-break-after: auto; }
 /* Sidhuvud: sidnummer i en ring, rubrik och en kort instruktion med symbol. */

@@ -92,6 +92,14 @@ def test_every_step_with_mode_and_minutes():
     assert len(re.findall(r'class="al-mode', steps)) == len(lesson()["steps"])
 
 
+def test_steps_are_numbered():
+    """Lärarsidan hänvisar till "step 9"; stegen måste alltså synas numrerade."""
+    items = re.findall(r'<li class="al-step.*?</li>', section(read(PAGE), "al-steps"), re.S)
+    assert len(items) == len(lesson()["steps"])
+    for n, item in enumerate(items, start=1):
+        assert f">Step {n}<" in item, n
+
+
 def test_pages_are_hidden():
     hidden = load("build_seo_meta", "scripts/build-seo-meta.py").HIDDEN_PATHS
     assert f"/{SLUG}/" in hidden and LESSON_URL in hidden
