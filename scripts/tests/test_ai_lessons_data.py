@@ -267,3 +267,11 @@ def test_who_decides_has_the_grid_and_its_own_rule_starters():
                              + [c for b in _blocks(lesson, "table") for c in b["columns"]]).lower()
     for word in ("unsure", "honest", "get help", "private"):  # IDEAL Thinkers kategorier: bara inspiration
         assert word not in student_words, word
+
+
+def test_no_tool_age_note_adds_something():
+    """Sidan säger redan att lektionen inte använder något AI-verktyg; åldersraden
+    ska tillföra något, inte upprepa det."""
+    for lesson in lessons():
+        if not lesson["tools"]:
+            assert "don't use any AI tool" not in lesson["age_note"], lesson["id"]

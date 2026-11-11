@@ -248,7 +248,7 @@ def _step(step: dict, start: int, n: int) -> str:
         parts.append('<p class="al-label">Prompts to try (pick one)</p>'
                      + _list(step["prompts"], "al-prompts"))
     if step.get("fallback"):
-        parts.append(f'<p class="al-fallback"><strong>If it refuses or gets it right:</strong> {escape(step["fallback"])}</p>')
+        parts.append(f'<p class="al-fallback"><strong>If the demo does not go as planned:</strong> {escape(step["fallback"])}</p>')
     parts.append("</li>")
     return "".join(parts)
 
@@ -286,9 +286,10 @@ def render_lesson(track: dict, lesson: dict) -> str:
         credits = '<h3 class="al-sub">Credits</h3><ul class="tm-sources">' + "".join(
             f'<li><a href="{escape(c["url"])}">{escape(c["text"])}</a></li>' for c in lesson["credits"]) + "</ul>"
     if lesson["tools"]:
-        age = _age_table(track, lesson["tools"])
+        age = f'<p class="al-text">{escape(lesson["age_note"])}</p>\n        ' + _age_table(track, lesson["tools"])
     else:  # ingen tom tabell när lektionen inte använder något AI-verktyg
-        age = '<p class="al-text">This lesson uses no AI tool.</p>'
+        age = ('<p class="al-text">This lesson uses no AI tool. Students don\'t use one, and you don\'t show one.</p>\n'
+               f'        <p class="al-text">{escape(lesson["age_note"])}</p>')
     return (
         HEAD.format(title=escape(lesson["title"]), description=escape(lesson["line"]))
         + f"""    <!-- Hero: tillbaka till översikten, lektionens namn och en rad om vad eleverna gör. -->
@@ -392,7 +393,6 @@ def render_lesson(track: dict, lesson: dict) -> str:
     <section class="section" id="al-age">
       <div class="container">
         <h2 class="section__title">AI tools and age limits</h2>
-        <p class="al-text">{escape(lesson["age_note"])}</p>
         {age}
         <p class="tm-note">{escape(track["reader_note"])}</p>
       </div>

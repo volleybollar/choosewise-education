@@ -88,5 +88,6 @@ def test_demo_fallback_rendered():
     steps = section(build_mod().render_lesson(t, lesson), "al-steps")
     demo = next(s for s in lesson["steps"] if s.get("demo"))
     assert escape(demo["fallback"]) in steps
+    assert "If the demo does not go as planned:" in steps  # etiketten passar alla lektioners demo
     for prompt in demo["prompts"]:
         assert escape(prompt) in steps

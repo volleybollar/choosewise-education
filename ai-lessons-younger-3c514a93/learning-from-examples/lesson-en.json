@@ -76,7 +76,7 @@
   "harder": "Let pairs write rules for all three groups, swap rules with another pair, and test them on the new cards: which rule breaks first? Or ask: if a real AI system learned from photos of vehicles from only one country, which vehicles might it get wrong?",
   "closing_question": "Why does a machine that learns from examples need many different examples? Use one card from today.",
   "language_swap": "Each card has one English word under a picture. Say the words in your class's language as you hand out pages 1 and 2, or write the translations on the cards before you cut them. On page 3, write Land, Water and Air and the rule frame in your class's language, and say the closing question aloud or write it on the board.",
-  "age_note": "Students don't use any AI tool in this lesson, and you don't show one.",
+  "age_note": "If students mention apps or chatbots they use at home, most of them have a minimum age of 13 on a personal account.",
   "background": [
     "Many AI systems are built from examples rather than from rules people write. To build a system that recognises vehicles in photos, people collect thousands of photos, label each one (car, boat, plane) and let a computer find patterns that separate the labels. The collection is called a dataset. The patterns work like the system's rules, although nobody writes them down.",
     "What the system can do depends on the dataset. If trains are missing, the system has no train examples and will put a train in some other group. If a banana is labelled as a vehicle, that mistake becomes part of the patterns too. Checking a dataset for gaps and errors is ordinary work in AI, and people do it: nothing in the computer can tell that a label is wrong.",
