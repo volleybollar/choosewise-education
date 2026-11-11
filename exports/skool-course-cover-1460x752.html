@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+  Kursomslag till Skool-communityts Classroom, 1460 × 752 (Skools mått).
+
+  En mall för alla kurser. Nummer och titel kommer från adressen:
+    ?n=01&t1=Start Here
+    ?n=02&t1=AI in Teaching&t2=%26 Learning&lv=Basic
+      t2 = titelns andra rad, valfri
+      lv = nivån ovanför titeln, valfri; skiljer kurser med samma titel åt
+
+  Kurslistan står i byggskriptet, som gör alla omslag till PNG:
+    /usr/bin/python3 scripts/build-skool-course-covers.py
+  Förhandsgranska via en lokal server (file:// laddar inte typsnitten), t.ex.
+    python3 -m http.server 8765   och öppna
+    http://localhost:8765/exports/skool-course-cover-1460x752.html?n=01&t1=Start%20Here
+
+  Två andra stilar från första omgången ligger sparade i
+  exports/skool-course-cover-alternativ/.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Skool course cover</title>
+<!-- Titeln: sajtens egna typsnitt -->
+<link rel="stylesheet" href="../assets/css/fonts.css">
+<style>
+  /* Numret: Hanken Grotesk Light med kortare flagga på ettan.
+     Filen görs av byggskriptet ur sajtens Hanken Grotesk. */
+  @font-face {
+    font-family: 'Cover Digits';
+    src: url('../assets/fonts/cover-digits/CoverDigits-Light.woff2') format('woff2');
+    font-weight: 300;
+  }
+  * { margin: 0; padding: 0; }
+  html, body { width: 1460px; height: 752px; overflow: hidden; }
+  svg { display: block; font-family: 'Hanken Grotesk', sans-serif; }
+</style>
+</head>
+<body>
+<svg id="cover" width="1460" height="752" viewBox="0 0 1460 752" xmlns="http://www.w3.org/2000/svg">
+  <!-- Varumärkesblå botten -->
+  <rect width="1460" height="752" fill="#0B3A6F"/>
+
+  <!-- Märket: signaturen, litet, uppe till vänster -->
+  <image href="../assets/images/brand/mark-on-dark.svg" x="84" y="72" width="128" height="128"/>
+
+  <!-- Titeln nere till vänster. En rad står på den nedre baslinjen;
+       med två rader flyttas den första upp en rad. -->
+  <g font-size="112" font-weight="300" fill="#FBFAF8" letter-spacing="-2">
+    <text id="t1" x="112" y="640"></text>
+    <text id="t2" x="112" y="640"></text>
+  </g>
+  <!-- Nivån, en rad ovanför titeln, i koppar för text på blått -->
+  <text id="lv" x="114" y="640" font-size="56" font-weight="500" fill="#E8C9A8"></text>
+
+  <!-- Ringen ekar ringen i märket. Den är likadan på alla omslag: inga
+       delar att räkna, så den ändras aldrig med antalet kurser.
+       Kopparbågen står i norr, som nålens kopparspets. -->
+  <circle cx="1100" cy="376" r="250" fill="none" stroke="#C3CFDC" stroke-opacity="0.3" stroke-width="16"/>
+  <!-- Kopparbågen: 44 grader kring norr. Omkretsen är 1570,8, så bågen är
+       192 lång. rotate(-112) börjar den 22 grader före norr. -->
+  <circle cx="1100" cy="376" r="250" fill="none" stroke="#C2793A" stroke-width="16"
+          stroke-dasharray="192 1378.8" transform="rotate(-112 1100 376)"/>
+
+  <!-- Numret, alltid två siffror, centrerat i ringen av skriptet nedan -->
+  <text id="num" font-family="Cover Digits" font-size="280" font-weight="300" fill="#FBFAF8"></text>
+</svg>
+
+<script>
+  // Nummer och titel från adressen
+  const q = new URLSearchParams(location.search);
+  const num = document.getElementById("num");
+  const t1 = document.getElementById("t1"), t2 = document.getElementById("t2");
+  const lv = document.getElementById("lv");
+  num.textContent = q.get("n") || "01";
+  t1.textContent = q.get("t1") || "Start Here";
+  t2.textContent = q.get("t2") || "";
+  lv.textContent = q.get("lv") || "";
+  if (t2.textContent) t1.setAttribute("y", 640 - 124);   // två rader: rad 1 flyttas upp
+  lv.setAttribute("y", Number(t1.getAttribute("y")) - 124); // nivån en rad ovanför titeln
+
+  // Centrera numret på siffrornas bläck, inte på deras rutor: i "01" och
+  // "10" sitter bläcket på olika ställen. Typsnittet laddas uttryckligen
+  // först, annars mäts en reservfont och numret hamnar snett.
+  const FONT = '300 280px "Cover Digits"';
+  document.fonts.load(FONT, num.textContent).then(() => document.fonts.ready).then(() => {
+    const ctx = document.createElement("canvas").getContext("2d");
+    ctx.font = FONT;
+    const m = ctx.measureText(num.textContent);
+    num.setAttribute("x", 1100 - (m.actualBoundingBoxRight - m.actualBoundingBoxLeft) / 2);
+    num.setAttribute("y", 376 + (m.actualBoundingBoxAscent - m.actualBoundingBoxDescent) / 2);
+    document.body.dataset.ready = "1";   // byggskriptet väntar på den här flaggan
+  });
+</script>
+</body>
+</html>

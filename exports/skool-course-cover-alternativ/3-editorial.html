@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+  SPARAD ALTERNATIV STIL — kursomslag till Skool, 1460 × 752.
+  Stil 3 från första omgången (2026-11-11): ljus, redaktionell, "01" i blått
+  och "here" i kopparkursiv som "wise" i ordmärket. Bilden: 3-editorial.png.
+
+  Används inte i dag. Gällande mall: exports/skool-course-cover-1460x752.html.
+
+  Om stilen tas i bruk:
+  - Byt numrets typsnitt till 'Cover Digits' (kortare flagga på ettan,
+    se scripts/build-skool-course-covers.py) — Hankens egen etta ratades.
+  - Instrument Serif utanför citat går emot Blueprint-specens §2; det
+    beslutet är öppet hos Johan.
+  - Ljus botten fick ram för att inte flyta ihop med Skools vita sida.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Skool course cover, editorial</title>
+<link rel="stylesheet" href="../../assets/css/fonts.css">
+<style>
+  /* Numret är i vikt 200. Sajtens fonts.css tillåter bara 300–600, så
+     numret får en egen face ur samma typsnittsfil. */
+  @font-face {
+    font-family: 'Hanken Grotesk Thin';
+    src: url('../../assets/fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2') format('woff2');
+    font-weight: 100 900;
+  }
+  * { margin: 0; padding: 0; }
+  html, body { width: 1460px; height: 752px; overflow: hidden; }
+  svg { display: block; font-family: 'Hanken Grotesk', sans-serif; }
+</style>
+</head>
+<body>
+<svg width="1460" height="752" viewBox="0 0 1460 752" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pappersbotten med tunn ram -->
+  <rect width="1460" height="752" fill="#FBFAF8"/>
+  <rect x="1" y="1" width="1458" height="750" fill="none" stroke="#DCE3EB" stroke-width="2"/>
+  <!-- Numret -->
+  <text x="64" y="628" font-family="Hanken Grotesk Thin" font-size="600" font-weight="200" fill="#0B3A6F" letter-spacing="-70">01</text>
+  <!-- Varumärkesnamnet som överrubrik, koppar för text på ljust -->
+  <text x="830" y="318" font-size="30" font-weight="600" fill="#9C5A24" letter-spacing="7">CHOOSEWISE</text>
+  <!-- Titeln: Hanken Grotesk + Instrument Serif kursiv, som i ordmärket -->
+  <text x="826" y="470" font-size="124" font-weight="300" fill="#0B3A6F" letter-spacing="-2">Start <tspan font-family="Instrument Serif, serif" font-style="italic" font-size="146" fill="#9C5A24" letter-spacing="0">here</tspan></text>
+  <!-- Kopparlinjen under titeln, som på guidomslagen -->
+  <rect x="830" y="522" width="104" height="5" fill="#C2793A"/>
+</svg>
+</body>
+</html>
