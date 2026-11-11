@@ -355,3 +355,17 @@ def test_why_chatbots_feel_human_marks_the_chat_in_our_own_columns():
 
 def test_why_chatbots_feel_human_names_the_safeguarding_routine():
     assert any("safeguarding" in line for line in _lesson("why-chatbots-feel-human", OLDER)["before"])
+
+
+def test_confident_and_wrong_dice_cover_each_face_once():
+    dice = [b for b in _blocks(_lesson("confident-and-wrong", OLDER), "table") if b["columns"][0] == "Die"]
+    assert len(dice) == 1
+    faces = [int(n) for row in dice[0]["rows"] for n in re.findall(r"\d", row[0])]
+    assert sorted(faces) == [1, 2, 3, 4, 5, 6]
+    assert all(all(cell.strip() for cell in row) for row in dice[0]["rows"])  # varje ord ifyllt
+
+
+def test_confident_and_wrong_sorts_eight_cards_on_three_columns():
+    lesson = _lesson("confident-and-wrong", OLDER)
+    assert [b["headings"] for b in _blocks(lesson, "mat")] == [["Probably fine", "Check it first", "Often made up"]]
+    assert sum(len(b["cards"]) for b in _blocks(lesson, "cards")) == 8

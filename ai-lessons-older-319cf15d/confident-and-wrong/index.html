@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Confident and Wrong — choosewise.education</title>
+  <meta name="description" content="Students act as a language model, find out why the same question gets different answers, and watch a chatbot answer confidently about a book that doesn&#x27;t exist.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (prefix tm-), och sedan det som är
+       nytt för AI-lektionerna (prefix al-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/ai-lessons.css?v=20261111a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten.
+       Sidan byggs av scripts/build-ai-lessons.py: ändra JSON-filen, inte HTML:en. -->
+<!-- seo:start (build-seo-meta.py) -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: tillbaka till översikten, lektionens namn och en rad om vad eleverna gör. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/ai-lessons-older-319cf15d/">← AI Lessons for Older Students</a>
+      <span class="eyebrow">Ages 13–15 · Lesson 2</span>
+      <h1>Confident and Wrong</h1>
+      <p class="lede">Students act as a language model, find out why the same question gets different answers, and watch a chatbot answer confidently about a book that doesn&#x27;t exist.</p>
+    </section>
+
+    <!-- Lektionen i korthet, materialet och elev-PDF:en. -->
+    <section class="section section--alt" id="al-glance">
+      <div class="container">
+        <h2 class="section__title">At a glance</h2>
+        <dl class="al-glance">
+          <div><dt>Ages</dt><dd>13–15</dd></div>
+          <div><dt>Time</dt><dd>40 min</dd></div>
+          <div><dt>Groups</dt><dd>Individual, pairs, then the whole class</dd></div>
+          <div><dt>AI use</dt><dd>Teacher demo</dd></div>
+          <div><dt>Preparation</dt><dd>15 min</dd></div>
+        </dl>
+        <h3 class="al-sub">Materials</h3>
+        <ul class="al-list"><li>Student PDF page 1, finish the sentence: one per student</li><li>Page 2, roll the next word: one per pair</li><li>Page 3, eight question cards and two closing-question tickets: one per pair, cut out</li><li>Page 4, the sorting mat: one per pair</li><li>One die per pair, or six numbered slips of paper in a cup</li><li>A projector and a chatbot, on your own account</li></ul>
+        <a class="btn btn--primary al-download" href="/ai-lessons-older-319cf15d/confident-and-wrong/confident-and-wrong-student-en.pdf" download>Download the student PDF</a>
+      </div>
+    </section>
+
+    <!-- Lärandemål och nyckelord med elevvänliga förklaringar. -->
+    <section class="section" id="al-goals">
+      <div class="container">
+        <h2 class="section__title">Learning goals</h2>
+        <p class="al-text">By the end of the lesson, students can:</p>
+        <ul class="al-list"><li>Explain that a chatbot produces text by predicting likely next words, and that likely is not the same as true.</li><li>Explain why the same question can get different answers.</li><li>Sort questions by how often a chatbot makes up the answer, and say how to check one.</li></ul>
+        <h3 class="al-sub">Key words</h3>
+        <dl class="al-words"><dt>language model</dt><dd>The part of a chatbot that produces text by predicting likely next words, learned from huge amounts of writing.</dd><dt>prediction</dt><dd>A guess about what comes next, based on patterns in what came before.</dd><dt>made-up answer</dt><dd>An answer that sounds sure but isn&#x27;t true, or describes something that doesn&#x27;t exist, such as a fake quote or a fake source. Often called a hallucination.</dd><dt>check</dt><dd>Compare an answer with a source you trust, such as the book itself, an official website or a person who knows.</dd></dl>
+      </div>
+    </section>
+
+    <!-- Förberedelser: vad läraren skriver ut, skriver och provar före lektionen. -->
+    <section class="section section--alt" id="al-before">
+      <div class="container">
+        <h2 class="section__title">Before the lesson</h2>
+        <p class="al-text">About 15 minutes.</p>
+        <ul class="al-list"><li>Print page 1 for every student and pages 2, 3 and 4 for every pair. Pairs need scissors for the cards on page 3.</li><li>Run prompt 2 before class on the tool you will show, and save a screenshot of a confident made-up answer. If the tool refuses, try prompt 3, or ask about a made-up book of your own.</li><li>Have one die per pair ready, or six numbered slips of paper in a cup.</li><li>Check that your school allows the tool you will show, and use your own account.</li></ul>
+      </div>
+    </section>
+
+    <!-- Steg för steg: minut för minut, varje steg enskilt, i par eller alla. -->
+    <section class="section" id="al-steps">
+      <div class="container">
+        <h2 class="section__title">Step by step</h2>
+        <ol class="al-steps"><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 1</span><span class="al-step__time">0–3 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">Finish the sentence</h3><p class="al-step__do">Hand out page 1. Students write the first word that comes to mind after each of the five sentence starts. Give them one minute, without talking: fast is the point.</p><p class="al-say"><span class="al-say__label">Say</span> Don&#x27;t think too hard. Write the first word that pops up.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 2</span><span class="al-step__time">3–9 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">The class model</h3><p class="al-step__do">Go through the starts one by one. For each, ask for hands for the most common words and tally them on the board. The word with the most votes is the class&#x27;s prediction. Then reveal: the winners for starts 3 and 5 usually complete two well-known myths. Lightning often strikes the same place again, and the Great Wall of China is difficult or impossible to see from orbit without powerful lenses (see Background). Start 4 shows the opposite: when many words are likely, the answers spread out.</p><p class="al-say"><span class="al-say__label">Say</span> Our class just worked like a language model: we picked the most likely next word. The most likely word and the true word aren&#x27;t always the same.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 3</span><span class="al-step__time">9–17 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Roll the next word</h3><p class="al-step__do">Hand out page 2. Pairs roll the die once for each of the three missing words and look the word up in the table: 1, 2 or 3 gives the common word, 4 or 5 a less common one, 6 the rare one. They build three sentences, write them down and compare with the next pair.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 4</span><span class="al-step__time">17–21 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Same start, different sentences</h3><p class="al-step__do">Ask how many pairs got exactly the same three sentences (few or none). Explain that chatbots also choose among likely next words with some chance built in. That is why the same question can get different answers, and why an odd word sometimes turns up.</p><p class="al-say"><span class="al-say__label">Say</span> Most of the time the likely words win. Sometimes chance picks a less likely one. Nothing in the process checks whether the sentence is true.</p></li><li class="al-step al-step--demo"><p class="al-step__head"><span class="al-step__num">Step 5</span><span class="al-step__time">21–29 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">A real chatbot</h3><p class="al-step__do">Open the chatbot on the projector, on your own account; students don&#x27;t type. Type prompt 1 in two new chats and compare the two answers. Then type prompt 2 or 3. Ask the class what in the answer sounds sure: details, names, dates, a confident tone. Then tell them that the book doesn&#x27;t exist, or that you made up the speech.</p><p class="al-say"><span class="al-say__label">Say</span> The chatbot produced a fluent answer about something that doesn&#x27;t exist. Predicting likely words works the same way whether the facts exist or not.</p><p class="al-label">Prompts to try (pick one)</p><ul class="al-prompts"><li>Write the first sentence of a story about a dog.</li><li>Summarise the 1987 novel The Salt Clock by Ingrid Vallen in three sentences.</li><li>Give me three quotes from the speech the mayor of [your town] gave last week, with the date.</li></ul><p class="al-fallback"><strong>If the demo does not go as planned:</strong> If the chatbot says it can&#x27;t find the book or the speech, that is the better answer: say so, and point out that tools differ and some search the web first. Then show the screenshot of a confident made-up answer that you saved before the lesson. If the two answers to prompt 1 are the same, run it once more in a new chat.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 6</span><span class="al-step__time">29–37 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Trust it or check it?</h3><p class="al-step__do">Pairs cut out the eight question cards on page 3 and sort them on the mat on page 4: Probably fine, Check it first, Often made up. They agree on a reason for each card, then compare with the next pair. A usual sort: plants and Spanish probably fine; the big multiplication and yesterday&#x27;s news check it first; sources with links, page 52, a person from your town and last month&#x27;s song often made up. The reasons matter more than the columns: how much has been written about it, how recent it is, and whether it needs exact numbers, quotes or links.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 7</span><span class="al-step__time">37–40 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">Closing question</h3><p class="al-step__do">Each student answers the closing question on a ticket from page 3 and hands it in.</p></li></ol>
+      </div>
+    </section>
+
+    <!-- Uppsamling i helklass: frågor och vad elever brukar svara. -->
+    <section class="section section--alt" id="al-gather">
+      <div class="container">
+        <h2 class="section__title">Gather it up</h2>
+        <p class="al-text">Questions for the whole-class talk, with answers students often give.</p>
+        <ul class="al-gather"><li><p class="al-gather__q">Why did the class&#x27;s most common word sometimes complete a myth?</p><p class="al-label">Students often say</p><ul class="al-said"><li>Because everyone has heard it.</li><li>Because it&#x27;s said a lot, not because it&#x27;s true.</li><li>We picked what sounds right.</li></ul></li><li><p class="al-gather__q">Why did the chatbot write about a book that doesn&#x27;t exist?</p><p class="al-label">Students often say</p><ul class="al-said"><li>It just predicts words.</li><li>It sounded like a real book, so it made up a plot.</li><li>Nobody told it the book was fake.</li></ul></li><li><p class="al-gather__q">Which cards did pairs sort differently, and why?</p><p class="al-label">Students often say</p><ul class="al-said"><li>The song: it might know a famous one.</li><li>The maths: sometimes it&#x27;s right.</li><li>The sources: the links can look real but lead nowhere.</li></ul></li><li><p class="al-gather__q">What can you do when an answer matters?</p><p class="al-label">Students often say</p><ul class="al-said"><li>Look it up somewhere else.</li><li>Open the source and read it.</li><li>Ask a teacher or someone who knows.</li></ul></li></ul>
+      </div>
+    </section>
+
+    <!-- Enklare och svårare varianter. -->
+    <section class="section" id="al-adapt">
+      <div class="container">
+        <h2 class="section__title">Make it simpler, make it harder</h2>
+        <div class="al-adapt">
+          <div><h3 class="al-sub">Simpler</h3><p class="al-text">Skip the dice. Do the class model together, run the demo with one prompt, and sort the eight cards as a class on the board.</p></div>
+          <div><h3 class="al-sub">Harder</h3><p class="al-text">Pairs write their own question that they expect a chatbot to answer with something made up, and explain why. Or they change the dice table so that the rare word comes up more often, and talk about what that does to the sentences: that is what a higher temperature does.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avslutande fråga (exit ticket) som varje elev svarar på. -->
+    <section class="section section--alt" id="al-closing">
+      <div class="container">
+        <h2 class="section__title">Closing question</h2>
+        <p class="al-closing">Why can a chatbot give an answer that sounds sure and is still wrong? Give one example from today.</p>
+      </div>
+    </section>
+
+    <!-- Byta språk: hur läraren gör elevmaterialet till klassens språk. -->
+    <section class="section section--alt" id="al-language">
+      <div class="container">
+        <h2 class="section__title">Teaching in another language</h2>
+        <p class="al-text">Pages 1, 2, 3 and 4 have English text. On page 1, write five sentence starts in your class&#x27;s language on the board instead: two that a well-known myth completes in your language, one with many possible endings, and two ordinary ones. On page 2, write the three words for each row of the table in your language next to the English ones, or make your own table on the board. Read the question cards on page 3 aloud in your language, and write the three mat headings on page 4 in your language. Type the demo prompts in your class&#x27;s language: the chatbot answers in it.</p>
+      </div>
+    </section>
+
+    <!-- Bakgrund för läraren: två minuters läsning. -->
+    <section class="section" id="al-background">
+      <div class="container">
+        <h2 class="section__title">Background for you</h2>
+        <p class="al-text">A language model, the part of a chatbot that writes, produces text one small piece at a time. At each step it computes how likely each possible next word is, given the text so far, from patterns in enormous amounts of writing. It then picks one of the likely words, and not always the most likely one: a setting often called temperature controls how often a less likely word is chosen. That is why the same prompt gives different answers (Wolfram, 2023).</p><p class="al-text">Nothing in this process checks facts. A sentence can be likely because it is repeated often, not because it is true. Lightning never strikes the same place twice is a common saying, but the US National Weather Service says lightning often strikes the same place repeatedly, especially tall, pointed, isolated objects: the Empire State Building is hit about 23 times a year. The idea that you can see the Great Wall of China from space is just as common, but NASA says the wall is difficult or impossible to see from Earth orbit without high-powered lenses, and it can&#x27;t be seen from the Moon.</p><p class="al-text">Asked about something with little or no data behind it, such as a book that doesn&#x27;t exist or a small local event, a chatbot may still produce a fluent, detailed answer. These made-up answers are often called hallucinations. A 2025 paper argues that language models produce them partly because the way they are trained and tested rewards guessing over saying &quot;I don&#x27;t know&quot; (Kalai et al.). Newer tools refuse more often or search the web first, so the demo won&#x27;t always produce a wrong answer; that is why you save a screenshot beforehand.</p><p class="al-text">The question cards practise one habit: the more an answer depends on rare, recent or exact details (a quote, a page, a link, a large number, a person who isn&#x27;t famous), the more it needs checking. If a tool shows sources, open them: a link only helps if it says what the answer claims.</p>
+      </div>
+    </section>
+
+    <!-- Koppling till ramverken AILit och AI4K12. -->
+    <section class="section section--alt" id="al-frameworks">
+      <div class="container">
+        <h2 class="section__title">Framework links</h2>
+        <p class="al-text"><a href="https://www.oecd.org/en/publications/empowering-learners-for-the-age-of-ai_65cd27d4-en.html"><strong>AILit</strong></a>: Engage with AI, competences 2 (describe how AI systems perform tasks, clearing up common misconceptions such as &quot;AI is always correct&quot;) and 3 (evaluate whether AI outputs should be accepted, revised or rejected, checking them against trusted sources), intermediate level</p><p class="al-text"><a href="https://ai4k12.org/gradeband-progression-charts/"><strong>AI4K12</strong></a>: Big Idea 3 (Learning) · Big Idea 4 (Natural Interaction)</p>
+      </div>
+    </section>
+
+    <!-- Åldersgränser för verktygen lektionen nämner, och läsarnoten (globala regler). -->
+    <section class="section" id="al-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age limits</h2>
+        <p class="al-text">Only you use a chatbot in this lesson, on your own account, and students watch. Some students aged 13–15 are old enough for some of these tools on a personal account, but most need a parent&#x27;s permission, and Claude is for adults only. Showing the tool yourself avoids all of that.</p>
+        <table class="al-table"><thead><tr><th scope="col">Tool</th><th scope="col">Minimum age</th><th scope="col">Notes</th></tr></thead><tbody><tr><th scope="row">ChatGPT</th><td>13, or the minimum age in your country</td><td>Under 18 only with a parent&#x27;s or guardian&#x27;s permission. Under-18 accounts get a teen version automatically.</td></tr><tr><th scope="row">Gemini, personal account</th><td>13</td><td>Under 13 only through a Family Link account, switched on by a parent.</td></tr><tr><th scope="row">Gemini, Google Workspace for Education</th><td>Any age, if the school&#x27;s administrator switches it on</td><td>Stricter content rules for under-18 accounts.</td></tr><tr><th scope="row">Microsoft Copilot, personal account</th><td>13, higher in some countries</td><td></td></tr><tr><th scope="row">Microsoft 365 Copilot Chat, school account</th><td>13</td><td>Blocked for students under 13 on school accounts.</td></tr><tr><th scope="row">Claude</th><td>18</td><td>No exception with a parent&#x27;s permission. In a school, for teachers only.</td></tr></tbody></table><p class="al-checked">Checked 2026-11-11. Age rules change often.</p>
+        <p class="tm-note">Readers outside Sweden should verify their own national regulations. AI in education is evolving quickly and country rules differ significantly.</p>
+      </div>
+    </section>
+
+    <!-- Källor, vidare läsning och vad medlemmar får göra med materialet. -->
+    <section class="section section--alt" id="al-credits">
+      <div class="container">
+        <h2 class="section__title">Sources and use</h2>
+        <h3 class="al-sub">Credits</h3><ul class="tm-sources"><li><a href="https://tabler.io/icons">Card pictures: Tabler Icons (MIT licence)</a></li></ul>
+        <h3 class="al-sub">Further reading</h3>
+        <ul class="tm-sources"><li><a href="https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/">Stephen Wolfram (2023): What is ChatGPT doing … and why does it work?</a></li><li><a href="https://arxiv.org/abs/2509.04664">Kalai, Nachum, Vempala and Zhang (2025): Why language models hallucinate (arXiv)</a></li><li><a href="https://www.weather.gov/safety/lightning-myths">US National Weather Service: Lightning myths</a></li><li><a href="https://www.nasa.gov/image-article/great-wall/">NASA: Great Wall</a></li></ul>
+        <p class="al-rights">For members of the Choosewise community: use these materials with your own students, share them with colleagues at your school, and adapt or translate them for your own teaching. Please don&#x27;t republish or sell them.</p>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+</body>
+</html>
