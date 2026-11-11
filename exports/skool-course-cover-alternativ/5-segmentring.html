@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+  SPARAD ALTERNATIV STIL — kursomslag till Skool, 1460 × 752.
+  Stil 5 från första omgången (2026-11-11): numret i en ring med en del per
+  kurs, kursens egen del i koppar. Bilden: 5-segmentring.png.
+
+  Används inte i dag. Gällande mall: exports/skool-course-cover-1460x752.html.
+  Johan vill kanske gå tillbaka till den här när antalet kurser är bestämt.
+
+  Om stilen tas i bruk:
+  - Lika många delar som kurser. Omkretsen är 2 × pi × 250 = 1570,8, så en
+    del är 1570,8 / antal: ungefär 16,8 luft och resten linje. Med sex kurser
+    blir det 245 linje + 16,8 luft, som nedan. Kopparbågen flyttas en del
+    framåt per kurs (rotate ökar med 360 / antal grader).
+  - Två siffror och typsnittet 'Cover Digits' (kortare flagga på ettan),
+    som i den gällande mallen. Numret centreras på bläcket, se mallens skript.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Skool course cover, segment ring</title>
+<link rel="stylesheet" href="../../assets/css/fonts.css">
+<style>
+  * { margin: 0; padding: 0; }
+  html, body { width: 1460px; height: 752px; overflow: hidden; }
+  svg { display: block; font-family: 'Hanken Grotesk', sans-serif; }
+</style>
+</head>
+<body>
+<svg width="1460" height="752" viewBox="0 0 1460 752" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1460" height="752" fill="#0B3A6F"/>
+  <!-- Märket och titeln -->
+  <image href="../../assets/images/brand/mark-on-dark.svg" x="84" y="72" width="128" height="128"/>
+  <text x="112" y="640" font-size="132" font-weight="300" fill="#FBFAF8" letter-spacing="-2">Start Here</text>
+
+  <!-- Ringen i sex delar. rotate(-88) börjar första delen strax efter klockan tolv. -->
+  <circle cx="1078" cy="376" r="250" fill="none" stroke="#C3CFDC" stroke-opacity="0.3" stroke-width="16"
+          stroke-dasharray="245 16.8" transform="rotate(-88 1078 376)"/>
+  <!-- Kursens egen del i koppar -->
+  <circle cx="1078" cy="376" r="250" fill="none" stroke="#C2793A" stroke-width="16"
+          stroke-dasharray="245 1325.8" transform="rotate(-88 1078 376)"/>
+  <text x="1090" y="488" text-anchor="middle" font-size="320" font-weight="300" fill="#FBFAF8">1</text>
+</svg>
+</body>
+</html>
