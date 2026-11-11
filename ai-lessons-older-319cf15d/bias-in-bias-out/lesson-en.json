@@ -34,7 +34,7 @@
   "materials": [
     "Student PDF page 1, round 1 and two closing-question tickets: one per pair",
     "Page 2, round 2 and who gains, who pays: one per pair",
-    "A board"
+    "Scrap paper, and the board"
   ],
   "before": [
     "Print pages 1 and 2 for every pair, and keep page 2 back until step 5.",
@@ -46,7 +46,7 @@
       "minutes": 3,
       "mode": "Individual",
       "title": "What should count?",
-      "do": "Each student writes two things that should matter when choosing someone for a summer job at the swimming-pool kiosk."
+      "do": "Each student writes two things on scrap paper that should matter when choosing someone for a summer job at the swimming-pool kiosk."
     },
     {
       "minutes": 2,
@@ -55,16 +55,16 @@
       "do": "Collect answers on the board, for example: experience, being reliable, a good reference, being friendly, being free all summer. Keep the list up."
     },
     {
-      "minutes": 7,
+      "minutes": 4,
       "mode": "Pairs",
       "title": "Round 1: you choose",
-      "do": "Hand out page 1. Pairs read the eight applicants and tick three to hire. The applicants have letters instead of names on purpose, so nobody guesses anything from a name."
+      "do": "Hand out page 1. Pairs read the eight applicants, tick three to hire and agree on one reason for each hire. The applicants have letters instead of names on purpose, so nobody guesses anything from a name."
     },
     {
-      "minutes": 5,
+      "minutes": 6,
       "mode": "All",
       "title": "The machine's memory",
-      "do": "Count on the board how many of the class's hires had each value: worked before, reference, where they live, hobby. Circle the most common value in each column. This tally is the training data. If the class is split, use the three applicants with the most ticks.",
+      "do": "Ask a few pairs for their reasons and write them on the board. Then count how many of the class's hires had each value: worked before, reference, where they live, hobby. Circle the most common value in each column. This tally is the training data. If the class is split, use the three applicants with the most ticks.",
       "say": "Now we build a machine that learns from our choices. The machine never sees our reasons. It only gets what the people we hired had in common."
     },
     {
@@ -81,7 +81,7 @@
       "say": "Nobody in this room chose by neighbourhood. The pattern was in the data, and the rule repeated it."
     },
     {
-      "minutes": 5,
+      "minutes": 7,
       "mode": "Pairs",
       "title": "Who gains, who pays?",
       "do": "On page 2, pairs write one group that gains from the machine, one that loses, and one change they would make: leave out features that have nothing to do with the job, compare the results for Northside and Southside before using it, or let a person look at every no."
@@ -260,7 +260,7 @@
       },
       {
         "title": "Round 2: the machine chooses",
-        "instruction": "One point for each value that most of your hires had.",
+        "instruction": "One point for each value circled on the board.",
         "blocks": [
           {
             "kind": "table",

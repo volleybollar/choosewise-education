@@ -291,7 +291,7 @@
                 "icon": "news"
               },
               {
-                "word": "Give me five sources with links for my report.",
+                "word": "Can you give me five sources with links for my report?",
                 "icon": "link"
               },
               {
@@ -299,11 +299,11 @@
                 "icon": "book"
               },
               {
-                "word": "Tell me about a person from our town.",
+                "word": "Can you tell me about a person from our town?",
                 "icon": "user"
               },
               {
-                "word": "The words of a song from last month",
+                "word": "What are the words of a song from last month?",
                 "icon": "music"
               }
             ]

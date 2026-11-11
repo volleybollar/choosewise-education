@@ -165,6 +165,14 @@ def test_prefilled_tables_give_their_cells_room():
     assert "grid--data" not in mod.BLOCKS["table"]({"kind": "table", "columns": ["A"], "rows": 2})
 
 
+def test_tall_tables_give_room_to_write():
+    mod = load("build_ai_lessons_pdf", BUILD)
+    out = mod.BLOCKS["table"]({"kind": "table", "columns": ["App", "Data"], "rows": [["A map app", ""]], "tall": True})
+    assert "grid--tall" in out
+    assert re.search(r"\.grid--tall td\s*\{[^}]*height:\s*18mm", mod.STYLE)
+    assert "grid--tall" not in mod.BLOCKS["table"]({"kind": "table", "columns": ["A"], "rows": 2})
+
+
 def test_missing_image_stops_the_build():
     mod = load("build_ai_lessons_pdf", BUILD)
     with pytest.raises(FileNotFoundError, match="no-such-picture.jpg"):

@@ -7,8 +7,9 @@ For every lesson in every track of scripts/build-ai-lessons.py this writes
 
 Each page in student_pdf.pages has a title, a short instruction and blocks:
   text       {body, big?}           a line of text; big for the training text (at least 16 pt)
-  table      {columns, rows}        a table to fill in: rows is a number of empty rows,
-                                    or a list of rows with one text per column ("" = empty)
+  table      {columns, rows, tall?} a table to fill in: rows is a number of empty rows,
+                                    or a list of rows with one text per column ("" = empty);
+                                    tall gives rows with room for two lines of handwriting
   slips      {count, label}         slips to fold and tear along dashed lines
   checklist  {items, checks}        one row per item, one tick box per check
   tickets    {question, count}      closing-question tickets to cut off
@@ -72,6 +73,8 @@ h1 { font-family: var(--font-display); font-size: 22pt; font-weight: 500; line-h
 /* Förtryckta tabeller: luft i cellerna, och kolumnerna så breda som innehållet kräver. */
 .grid--data td { padding: 0 2mm; }
 .grid--data th:first-child, .grid--data td:first-child, .grid--data th:last-child, .grid--data td:last-child { width: auto; }
+/* Höga rader: plats för två rader handstil. */
+.grid--tall td { height: 18mm; }
 .box { display: inline-block; width: 7mm; height: 7mm; border: 0.4mm solid var(--color-text); border-radius: 1mm; }
 .grid .tick { text-align: center; }
 .slips { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 0.4mm dashed var(--color-text); border-left: 0.4mm dashed var(--color-text); }
@@ -144,6 +147,8 @@ def _table(block: dict) -> str:
         body = "".join("<tr>" + "".join(f"<td>{escape(c)}</td>" for c in row) + "</tr>" for row in block["rows"])
     else:
         body = ("<tr>" + "<td></td>" * len(block["columns"]) + "</tr>") * block["rows"]
+    if block.get("tall"):
+        cls += " grid--tall"
     return f'<table class="{cls}"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table>'
 
 

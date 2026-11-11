@@ -63,6 +63,18 @@ def teacher_text(lesson):
     return out
 
 
+def student_frame(lesson):
+    """Det vi själva skriver på elevsidorna runt elevernas material: rubriker,
+    instruktioner, kort- och mattrubriker, tabellhuvuden. Inte chattrader,
+    träningstexter eller kortens ord, som är material att granska."""
+    out = []
+    for page in lesson["student_pdf"]["pages"]:
+        out += [page["title"], page["instruction"]]
+        for b in page["blocks"]:
+            out += [b.get("heading", "")] + list(b.get("headings", [])) + list(b.get("columns", []))
+    return out
+
+
 def statements(text):
     """Meningar som inte är frågor. Frågor till eleverna får provocera fram
     "maskinen vet" med flit; det vi själva påstår får det inte. Webbadresser
@@ -144,8 +156,9 @@ def test_no_anthropomorphic_wording():
     assert ANTHRO.search("The chatbot knows the answer.")  # vakten själv biter
     assert MENTAL.search("They train them to admit when they are unsure.")
     assert MENTAL.search("Keeps you chatting: it tries to stop Mika from leaving.")
+    assert "Round 1: you choose" in student_frame(_lesson("bias-in-bias-out", OLDER))
     for lesson in lessons():
-        for text in teacher_text(lesson):
+        for text in teacher_text(lesson) + student_frame(lesson):
             for sentence in statements(text):
                 assert not ANTHRO.search(sentence), (lesson["id"], sentence)
                 assert not MENTAL.search(sentence), (lesson["id"], sentence)
@@ -355,7 +368,9 @@ def test_why_chatbots_feel_human_marks_the_chat_in_our_own_columns():
 
 
 def test_why_chatbots_feel_human_names_the_safeguarding_routine():
-    assert any("safeguarding" in line for line in _lesson("why-chatbots-feel-human", OLDER)["before"])
+    lesson = _lesson("why-chatbots-feel-human", OLDER)
+    assert any("safeguarding" in line and "not in front of the class" in line for line in lesson["before"])
+    assert "after the lesson" in lesson["steps"][1]["do"]  # steg 2, där "lonely" brukar komma upp
 
 
 def test_confident_and_wrong_dice_cover_each_face_once():
@@ -416,6 +431,7 @@ def test_older_ai_or_human_ranks_eight_kinds_of_evidence():
 def test_my_data_trail_credits_iste():
     credits = _lesson("my-data-trail", OLDER)["credits"]
     assert any("ISTE" in c["text"] and "Project 3" in c["text"] and "CC BY 4.0" in c["text"] for c in credits)
+    assert any("Project 2" in c["text"] and "Activity 5" in c["text"] for c in credits)  # profilen och annonsen
 
 
 def test_my_data_trail_asks_for_app_types_and_keeps_sheets_with_students():
@@ -450,3 +466,76 @@ def test_older_ai_or_human_checklist_never_passes_on_the_code():
     checklist = next(s for s in steps if s["title"] == "Our checklist")["do"]
     assert "never pass on the code" in checklist.lower()
     assert "anything yet" not in checklist and "hang up" not in checklist.lower()
+
+
+# ───── Mindre fynd från slutgranskningen av 13–15 ─────
+
+def test_older_ai_or_human_runs_the_same_prompt_in_both_chats():
+    demo = next(s for s in _lesson("ai-or-human", OLDER)["steps"] if s.get("demo"))
+    assert "prompt 1 again" in demo["do"]
+    assert len(set(demo["prompts"])) == len(demo["prompts"])
+    assert not any("0 to 100" in p for p in demo["prompts"])
+
+
+def test_scrap_paper_in_a_step_is_in_the_materials():
+    """Gäller 13–15. Pilotlektionen i 9–12 har samma glapp; den är live och ändras inte här."""
+    for lesson in lessons(OLDER):
+        if any("scrap paper" in s["do"].lower() for s in lesson["steps"]):
+            assert any("scrap paper" in m.lower() for m in lesson["materials"]), lesson["id"]
+
+
+def test_older_first_steps_say_where_to_write():
+    """Ett första enskilt steg utan elevsida skrivs på kladdpapper, och det ska stå."""
+    for lesson in lessons(OLDER):
+        first = lesson["steps"][0]
+        if first["mode"] == "Individual" and "page" not in first["do"].lower():
+            assert "scrap paper" in first["do"].lower(), lesson["id"]
+
+
+def test_bias_in_bias_out_collects_reasons_and_scores_against_the_board():
+    lesson = _lesson("bias-in-bias-out", OLDER)
+    round1 = next(s for s in lesson["steps"] if s["title"] == "Round 1: you choose")
+    tally = next(s for s in lesson["steps"] if s["title"] == "The machine's memory")
+    assert round1["minutes"] <= 4 and "reason" in round1["do"]
+    assert "reasons" in tally["do"]
+    assert "board" in lesson["student_pdf"]["pages"][1]["instruction"]
+
+
+def test_my_data_trail_background_covers_every_app_on_the_sheet():
+    lesson = _lesson("my-data-trail", OLDER)
+    trail = next(b for b in _blocks(lesson, "table") if b["columns"][0] == "App")
+    background = " ".join(lesson["background"]).lower()
+    for row in trail["rows"]:
+        app = re.sub(r"^an? ", "", row[0].lower())
+        assert app in background, app
+
+
+def test_my_data_trail_sheet_has_room_to_write():
+    page = _lesson("my-data-trail", OLDER)["student_pdf"]["pages"][0]
+    trail = next(b for b in page["blocks"] if b["kind"] == "table")
+    assert trail.get("tall") is True
+    assert "the row" not in page["instruction"] and "not your own details" in page["instruction"]
+
+
+def test_older_mat_pages_hold_only_the_mat():
+    """Korten är 52 mm höga; mattan behöver hela sidan för att åtta kort ska få plats."""
+    for lesson in lessons(OLDER):
+        for page in lesson["student_pdf"]["pages"]:
+            if any(b["kind"] == "mat" for b in page["blocks"]):
+                assert len(page["blocks"]) == 1, (lesson["id"], page["title"])
+
+
+def test_confident_and_wrong_cards_are_questions():
+    cards = [c for b in _blocks(_lesson("confident-and-wrong", OLDER), "cards") for c in b["cards"]]
+    assert cards and all(c["word"].endswith("?") for c in cards)
+
+
+def _rows_fit(block):
+    return not isinstance(block["rows"], list) or all(len(r) == len(block["columns"]) for r in block["rows"])
+
+
+def test_prefilled_rows_have_one_cell_per_column():
+    assert not _rows_fit({"columns": ["a", "b"], "rows": [["x"]]})  # vakten själv biter
+    for lesson in lessons():
+        for block in _blocks(lesson, "table"):
+            assert _rows_fit(block), (lesson["id"], block["columns"])
