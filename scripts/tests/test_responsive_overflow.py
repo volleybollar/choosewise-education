@@ -81,6 +81,7 @@ PAGES = (
         "ai-lessons-older-319cf15d/confident-and-wrong/",
         "ai-lessons-older-319cf15d/bias-in-bias-out/",
         "ai-lessons-older-319cf15d/ai-or-human/",
+        "ai-lessons-older-319cf15d/my-data-trail/",
     ]
 )
 

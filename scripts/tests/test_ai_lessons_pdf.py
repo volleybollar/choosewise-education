@@ -160,6 +160,8 @@ def test_prefilled_tables_give_their_cells_room():
     out = mod.BLOCKS["table"]({"kind": "table", "columns": ["A", "B"], "rows": [["x", ""]]})
     assert 'class="grid grid--fill grid--data"' in out
     assert re.search(r"\.grid--data td\s*\{[^}]*padding", mod.STYLE)
+    # Flera tomma kolumner (lektion 5) ska dela bredden; sista kolumnen får inte låsas till 15 %.
+    assert re.search(r"\.grid--data td:last-child\s*\{[^}]*width:\s*auto", mod.STYLE)
     assert "grid--data" not in mod.BLOCKS["table"]({"kind": "table", "columns": ["A"], "rows": 2})
 
 

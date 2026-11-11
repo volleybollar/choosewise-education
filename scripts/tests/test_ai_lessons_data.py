@@ -410,3 +410,19 @@ def test_older_ai_or_human_ranks_eight_kinds_of_evidence():
     assert sum(len(b["cards"]) for b in _blocks(lesson, "cards")) == 8
     assert [b["headings"] for b in _blocks(lesson, "mat")] == [["Easy to fake", "Takes some work", "Hard to fake"]]
     assert any("call back" in text for text in teacher_text(lesson))
+
+
+def test_my_data_trail_credits_iste():
+    credits = _lesson("my-data-trail", OLDER)["credits"]
+    assert any("ISTE" in c["text"] and "Project 3" in c["text"] and "CC BY 4.0" in c["text"] for c in credits)
+
+
+def test_my_data_trail_asks_for_app_types_and_keeps_sheets_with_students():
+    lesson = _lesson("my-data-trail", OLDER)
+    trails = [b for b in _blocks(lesson, "table") if b["columns"][0] == "App"]
+    assert len(trails) == 1
+    assert trails[0]["columns"] == ["App", "I share it on purpose", "Recorded in the background", "What I get back"]
+    apps = " ".join(row[0] for row in trails[0]["rows"]).lower()
+    for product in ("tiktok", "instagram", "snapchat", "youtube", "spotify", "roblox", "fortnite"):
+        assert product not in apps, product
+    assert any("stay with" in line for line in lesson["before"])

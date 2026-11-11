@@ -69,9 +69,9 @@ h1 { font-family: var(--font-display); font-size: 22pt; font-weight: 500; line-h
 .grid--fill th:first-child, .grid--fill td:first-child { width: 35%; }
 .grid--fill th:last-child, .grid--fill td:last-child { width: 15%; }
 .grid .row-num { width: 14mm; font-weight: 500; text-align: center; }
-/* Förtryckta tabeller: luft i cellerna, och första kolumnen så bred som texten kräver. */
+/* Förtryckta tabeller: luft i cellerna, och kolumnerna så breda som innehållet kräver. */
 .grid--data td { padding: 0 2mm; }
-.grid--data th:first-child, .grid--data td:first-child { width: auto; }
+.grid--data th:first-child, .grid--data td:first-child, .grid--data th:last-child, .grid--data td:last-child { width: auto; }
 .box { display: inline-block; width: 7mm; height: 7mm; border: 0.4mm solid var(--color-text); border-radius: 1mm; }
 .grid .tick { text-align: center; }
 .slips { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 0.4mm dashed var(--color-text); border-left: 0.4mm dashed var(--color-text); }
