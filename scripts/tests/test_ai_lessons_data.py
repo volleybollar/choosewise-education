@@ -396,3 +396,17 @@ def test_bias_in_bias_out_rule_leaves_out_the_best_applicants():
     top_two = sorted((points(a) for a in second), reverse=True)[:2]
     assert best and all(a["Lives in"] != common["Lives in"] for a in best)
     assert all(points(a) < min(top_two) for a in best)
+
+
+def test_older_ai_or_human_uses_the_picture_grid_and_gives_the_answers():
+    lesson = _lesson("ai-or-human", OLDER)
+    assert [b["src"] for b in _blocks(lesson, "image")] == ["assets/images/ai-or-human/photo-grid.jpg"]
+    assert any("1, 6 and 8 are not AI" in text for text in teacher_text(lesson))
+    assert any("video 2" in text for text in teacher_text(lesson))
+
+
+def test_older_ai_or_human_ranks_eight_kinds_of_evidence():
+    lesson = _lesson("ai-or-human", OLDER)
+    assert sum(len(b["cards"]) for b in _blocks(lesson, "cards")) == 8
+    assert [b["headings"] for b in _blocks(lesson, "mat")] == [["Easy to fake", "Takes some work", "Hard to fake"]]
+    assert any("call back" in text for text in teacher_text(lesson))
