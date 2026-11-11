@@ -11,6 +11,14 @@ Each page in student_pdf.pages has a title, a short instruction and blocks:
   slips      {count, label}         slips to fold and tear along dashed lines
   checklist  {items, checks}        one row per item, one tick box per check
   tickets    {question, count}      closing-question tickets to cut off
+  cards      {cards, heading?}      picture cards to cut out: [{word, icon?}], 4 per row
+  mat        {headings}             a sorting mat, one column per heading
+  image      {src, alt}             a picture from the repo (src relative to the repo root)
+A checklist's items are a number (numbered rows) or a list of row labels.
+
+Card pictures are Tabler Icons (MIT) in _unpublished/exports/ai-lessons/icons/;
+only their drawing elements reach the PDF. A card without a picture gets an
+empty box for students to draw in.
 
 The PDF is A4. Every page is a box of 210 × 279 mm, centred on the A4 page,
 with the content inside 190 × 265 mm, so nothing is clipped when a teacher
@@ -25,9 +33,13 @@ from __future__ import annotations
 import importlib.util
 from html import escape
 from pathlib import Path
+from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC_DIR = ROOT / "_unpublished/exports/ai-lessons"
+ICON_DIR = SRC_DIR / "icons"
+DRAWING = {"path", "circle", "line", "rect", "polyline", "polygon", "ellipse"}
+GEOMETRY = {"d", "cx", "cy", "r", "rx", "ry", "x", "y", "width", "height", "x1", "y1", "x2", "y2", "points"}
 
 # Samma typsnitt och färger som de andra paketen (exports/_guide-print.css, Hanken Grotesk 300–500).
 STYLE = """
@@ -69,6 +81,20 @@ h1 { font-family: var(--font-display); font-size: 22pt; font-weight: 500; line-h
 .ticket__name { font-size: 10pt; color: var(--color-text-soft); }
 .ticket__line { border-bottom: 0.3mm solid var(--color-text-muted); height: 9mm; }
 .cut { font-size: 9pt; color: var(--color-text-muted); margin-bottom: -3mm; }
+.grid .row-label { width: 45%; padding: 2mm; }
+/* Bildkort: fyra per rad, streckade klipplinjer runt varje kort. */
+.cards__heading { font-size: 12pt; font-weight: 500; margin-bottom: -2mm; }
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); }
+.card { height: 52mm; border: 0.3mm dashed var(--color-text); margin: 0 -0.3mm -0.3mm 0; padding: 3mm; display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center; }
+.card__pic { width: 26mm; height: 26mm; display: grid; place-items: center; }
+.card__pic svg { width: 24mm; height: 24mm; color: var(--color-text); }
+.card__pic--draw { border: 0.3mm dashed var(--color-text-muted); border-radius: 2mm; font-size: 9pt; color: var(--color-text-muted); }
+.card__word { font-size: 13pt; font-weight: 500; line-height: 1.2; }
+/* Sorteringsmatta: en kolumn per rubrik, fyller resten av sidan. */
+.mat { flex: 1; min-height: 60mm; display: grid; border: 0.4mm solid var(--color-text); border-radius: 2mm; }
+.mat__col + .mat__col { border-left: 0.4mm solid var(--color-text); }
+.mat__head { min-height: 22mm; display: flex; align-items: center; justify-content: center; font-size: 15pt; font-weight: 500; text-align: center; padding: 3mm; border-bottom: 0.3mm solid var(--color-text-muted); }
+.image { display: block; max-width: 100%; max-height: 150mm; margin: 0 auto; object-fit: contain; }
 /* Sidfot på varje sida; användningsraden på sidan 1. */
 .foot { margin-top: auto; font-size: 8pt; color: var(--color-text-muted); border-top: 0.3mm solid var(--color-border); padding-top: 2mm; }
 .rights { margin-bottom: 1.5mm; color: var(--color-text-soft); }
@@ -82,6 +108,9 @@ ICONS = {
     "slips": '<path d="M5 8h14l-2 12H7z"/><path d="M9 8V4h6v4"/>',
     "checklist": '<rect x="4" y="4" width="16" height="16" rx="2"/><path d="m8 12 3 3 5-6"/>',
     "tickets": '<path d="M4 20l4-1 11-11-3-3L5 16z"/>',
+    "cards": '<rect x="3" y="6" width="12" height="15" rx="2"/><path d="M9 3h10a2 2 0 0 1 2 2v13"/>',
+    "mat": '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16"/>',
+    "image": '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 17-5-5-9 7"/>',
 }
 
 
@@ -116,9 +145,14 @@ def _slips(block: dict) -> str:
 
 
 def _checklist(block: dict) -> str:
-    head = "<th class=\"row-num\">#</th>" + "".join(f'<th class="tick">{escape(c)}</th>' for c in block["checks"])
     ticks = "".join('<td class="tick"><span class="box"></span></td>' for _ in block["checks"])
-    rows = "".join(f'<tr><td class="row-num">{n}</td>{ticks}</tr>' for n in range(1, block["items"] + 1))
+    checks = "".join(f'<th class="tick">{escape(c)}</th>' for c in block["checks"])
+    if isinstance(block["items"], list):  # rader med text, t.ex. situationer
+        head = '<th class="row-label"></th>' + checks
+        rows = "".join(f'<tr><td class="row-label">{escape(item)}</td>{ticks}</tr>' for item in block["items"])
+    else:  # numrerade rader
+        head = "<th class=\"row-num\">#</th>" + checks
+        rows = "".join(f'<tr><td class="row-num">{n}</td>{ticks}</tr>' for n in range(1, block["items"] + 1))
     return f'<table class="grid"><thead><tr>{head}</tr></thead><tbody>{rows}</tbody></table>'
 
 
@@ -128,12 +162,62 @@ def _tickets(block: dict) -> str:
     return f'<p class="cut">Cut or tear along the dashed lines.</p><div class="tickets">{ticket * block["count"]}</div>'
 
 
-BLOCKS = {"text": _text, "table": _table, "slips": _slips, "checklist": _checklist, "tickets": _tickets}
+def load_icon(name: str) -> str | None:
+    """The drawing elements of an icon, with only their geometry: no scripts,
+    links or event attributes can reach a PDF. None if the file is missing."""
+    path = ICON_DIR / f"{name}.svg"
+    if not path.exists():
+        return None
+    out = []
+    for el in ElementTree.fromstring(path.read_text(encoding="utf-8")).iter():
+        tag = el.tag.rsplit("}", 1)[-1]
+        if tag not in DRAWING or el.get("stroke") == "none":
+            continue  # Tablers osynliga ram har stroke="none"
+        attrs = " ".join(f'{k}="{escape(v)}"' for k, v in el.attrib.items() if k in GEOMETRY)
+        out.append(f"<{tag} {attrs}/>")
+    return "".join(out)
+
+
+def _card(card: dict) -> str:
+    drawing = load_icon(card["icon"]) if card.get("icon") else None
+    if drawing:
+        pic = ('<div class="card__pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" '
+               f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{drawing}</svg></div>')
+    else:
+        pic = '<div class="card__pic card__pic--draw">draw it</div>'
+    return f'<div class="card">{pic}<div class="card__word">{escape(card["word"])}</div></div>'
+
+
+def _cards(block: dict) -> str:
+    heading = f'<p class="cards__heading">{escape(block["heading"])}</p>' if block.get("heading") else ""
+    return f'{heading}<div class="cards">{"".join(_card(c) for c in block["cards"])}</div>'
+
+
+def _mat(block: dict) -> str:
+    cols = "".join(f'<div class="mat__col"><p class="mat__head">{escape(h)}</p></div>' for h in block["headings"])
+    return f'<div class="mat" style="grid-template-columns: repeat({len(block["headings"])}, 1fr)">{cols}</div>'
+
+
+def _image(block: dict) -> str:
+    if not (ROOT / block["src"]).exists():
+        raise FileNotFoundError(f"Picture for the student PDF is missing: {block['src']}")
+    return f'<img class="image" src="../../../{escape(block["src"])}" alt="{escape(block["alt"])}">'
+
+
+BLOCKS = {"text": _text, "table": _table, "slips": _slips, "checklist": _checklist, "tickets": _tickets,
+          "cards": _cards, "mat": _mat, "image": _image}
+
+
+def _uses_icons(lesson: dict) -> bool:
+    return any(c.get("icon") for p in lesson["student_pdf"]["pages"] for b in p["blocks"] for c in b.get("cards", []))
 
 
 def _page(lesson: dict, page: dict, n: int, total: int, rights: str) -> str:
     blocks = "".join(BLOCKS[b["kind"]](b) for b in page["blocks"])
-    rights_line = f'<p class="rights">{escape(rights)}</p>' if n == 1 else ""
+    rights_line = ""
+    if n == 1:  # användningsraden, och krediten för kortbilderna (MIT) när PDF:en har sådana
+        credit = " Card pictures: Tabler Icons (MIT licence)." if _uses_icons(lesson) else ""
+        rights_line = f'<p class="rights">{escape(rights)}{credit}</p>'
     return (
         f'<section class="page">'
         f'<header class="head"><span class="num">{n}</span><div><h1>{escape(page["title"])}</h1>'

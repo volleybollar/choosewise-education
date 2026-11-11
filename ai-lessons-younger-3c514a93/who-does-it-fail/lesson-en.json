@@ -1,0 +1,291 @@
+{
+  "id": "who-does-it-fail",
+  "title": "Who Does It Fail?",
+  "band": "9-12",
+  "number": 3,
+  "line": "An automatic door is built from ten pictures of people, and the class finds out who it leaves outside and how it could be fairer.",
+  "minutes": 40,
+  "groups": "Pairs, then the whole class",
+  "ai_use": "none",
+  "prep_minutes": 15,
+  "goals": [
+    "Explain that an AI system can work well for some people and badly for others, because of the examples it was built from.",
+    "Find who is missing from a set of examples, and who that leaves out.",
+    "Suggest changes that make a system fairer, including testing it with the people it affects."
+  ],
+  "key_words": [
+    {
+      "word": "training pictures",
+      "meaning": "The examples a machine is built from. Our door has ten."
+    },
+    {
+      "word": "rule",
+      "meaning": "What the training pictures have in common. The door opens when a visitor matches it."
+    },
+    {
+      "word": "bias",
+      "meaning": "When a system works worse for some groups of people, often because they were missing from its examples."
+    },
+    {
+      "word": "fair",
+      "meaning": "Working just as well for everyone it is meant for."
+    }
+  ],
+  "materials": [
+    "Student PDF page 1, the training pictures and the door's rule: one per pair (these cards stay on the page)",
+    "Page 2, the visitor cards and the door mat: one per pair, visitor cards cut out",
+    "Page 3, making it fairer and the closing questions: one per pair",
+    "The board"
+  ],
+  "before": [
+    "Print the student PDF and cut out the visitor cards on page 2 before the lesson, one set per pair. The training pictures on page 1 don't need cutting.",
+    "Read the background below. The real cases are optional in class: choose beforehand how much to tell, depending on your students.",
+    "Draw two columns on the board: The door opens, The door stays shut."
+  ],
+  "steps": [
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Who comes through our door?",
+      "do": "Each student writes down three different people who come in through the school's front door in a week.",
+      "say": "Think of a normal week. Who comes in through our front door? Write down three different people."
+    },
+    {
+      "minutes": 2,
+      "mode": "All",
+      "title": "Collect",
+      "do": "Collect answers on the board and make sure the list gets varied: students, teachers, parents, visitors, deliveries.",
+      "say": "So many different people use one door."
+    },
+    {
+      "minutes": 8,
+      "mode": "Pairs",
+      "title": "Train the door",
+      "do": "A company wants a door that opens only for people, and it built the door from the ten training pictures on page 1. Pairs look at all ten: what do they have in common? They write the door's rule at the bottom of page 1. Most pairs end up with something like \"a grown-up walking or running, whole body in view\".",
+      "say": "The door has only these ten pictures. Whatever all ten have in common becomes the door's rule. Look closely: what does every picture show?"
+    },
+    {
+      "minutes": 8,
+      "mode": "Pairs",
+      "title": "Visitors",
+      "do": "Pairs place each visitor card on the mat on page 2: does the door open, using only their rule? Remind them to use the rule, not what they think a good door should do. On some cards you see the pram, the box or the dog before the person. That is part of the point: a camera does too, and a door built from pictures of people walking alone has nothing to match them with.",
+      "say": "Use only your rule. Does this visitor match it?"
+    },
+    {
+      "minutes": 8,
+      "mode": "All",
+      "title": "Who does it fail?",
+      "do": "Which visitors stayed outside? Collect them on the board and ask why: people like them were missing from the training pictures. If pairs say \"there is no person on the card\", ask: is there a person behind the pram? Why didn't the door find them? Introduce the word bias. If it suits your class, tell one of the real cases from the background.",
+      "say": "The door works well for the people in its training pictures, and badly for everyone who was missing. Nobody meant to leave them out, but they were left out all the same."
+    },
+    {
+      "minutes": 8,
+      "mode": "Pairs",
+      "title": "Make it fairer",
+      "do": "On page 3, pairs write three pictures they would add to the training pictures, and one other change: for example, test the door with wheelchair users before it is used, or keep a button anyone can press. Collect a few ideas at the end.",
+      "say": "Who should the company ask before the door is put in?"
+    },
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
+      "do": "Pairs tear off the closing questions at the bottom of page 3, one for each student. Each student answers on their own before leaving."
+    }
+  ],
+  "gather": [
+    {
+      "question": "Which visitors did the door leave outside, and why?",
+      "students_say": [
+        "The wheelchair, because nobody in the pictures sits.",
+        "The small child, because everyone in the pictures is a grown-up.",
+        "The person with the box, you can't see their legs."
+      ]
+    },
+    {
+      "question": "Did the company want to leave anyone out?",
+      "students_say": [
+        "No, they just forgot.",
+        "They only took pictures of people like themselves."
+      ]
+    },
+    {
+      "question": "What would make the door fairer?",
+      "students_say": [
+        "More different pictures.",
+        "Ask people in wheelchairs to test it.",
+        "A button that always works."
+      ]
+    }
+  ],
+  "simpler": "Show the training pictures on the projector and work out the rule together as a class. Then pairs only sort the visitors.",
+  "harder": "Ask pairs to write a rule that lets every visitor in, then test it: does the door now also open for a dog on its own, a delivery robot or a shopping trolley? Which is worse for this door: staying shut for a person, or opening for something that isn't one?",
+  "closing_question": "Who might an AI system leave out if it only learns from examples of some people? What could its makers do?",
+  "language_swap": "The cards have short English phrases under pictures, and the pictures carry most of the meaning. On page 1, read the ten training phrases aloud in your class's language, or translate them on the board. On page 2, say each visitor phrase and the two mat headings in your class's language. On page 3, say the headings and the closing question aloud, or write them on the board.",
+  "age_note": "If students mention apps or chatbots they use at home, most of them have a minimum age of 13 on a personal account.",
+  "background": [
+    "An AI system built from examples works best for the kinds of cases it had many examples of. When some people are missing or rare in the examples, the system tends to make more mistakes for them. Nobody needs to intend this for it to happen: it follows from the data, and it can go unnoticed if the system is only tested on the same kinds of people.",
+    "A well-known study, Gender Shades (Buolamwini and Gebru, 2018), tested commercial systems that guess gender from face photos. For lighter-skinned men the error rate was at most 0.8 %; for darker-skinned women it was up to 34.7 %. The study also showed that the face collections commonly used to test such systems were mostly lighter-skinned faces.",
+    "A simpler case shows the same pattern without any AI. In 2017 a video of an automatic soap dispenser went viral: it gave soap to a white hand but not to a dark one. Reports blamed an infrared sensor that reacts to reflected light. Whatever the exact cause, the device had probably not been tested on enough different hands.",
+    "Our door is made up, but the mechanism is real. The training pictures show only adults walking upright, so the rule students find (\"a grown-up walking or running, whole body in view\") leaves out wheelchair users, small children, people with prams or crutches, and more. Fixing it takes more varied examples, testing with the people affected, and sometimes a way around the system, such as a button.",
+    "Talk about the real cases calmly and briefly: the point is the mechanism, not blame. Some students may have been left out by technology themselves, so let them choose whether to share."
+  ],
+  "frameworks": {
+    "AILit": "Engage with AI, competence 6 (explain how AI could be used to amplify societal biases), and Shape AI, competence 2 (evaluate AI systems using defined criteria, expected outcomes and test cases), basic level",
+    "AI4K12": "Big Idea 3 (Learning) · Big Idea 5 (Societal Impact)"
+  },
+  "tools": [],
+  "credits": [
+    {
+      "text": "Card pictures: Tabler Icons (MIT licence)",
+      "url": "https://tabler.io/icons"
+    }
+  ],
+  "further_reading": [
+    {
+      "title": "Buolamwini and Gebru (2018): Gender Shades, accuracy differences in commercial gender classification",
+      "url": "https://proceedings.mlr.press/v81/buolamwini18a.html"
+    },
+    {
+      "title": "Gizmodo (2017): Why can't this soap dispenser identify dark skin?",
+      "url": "https://gizmodo.com/why-cant-this-soap-dispenser-identify-dark-skin-1797931773"
+    }
+  ],
+  "student_pdf": {
+    "file": "who-does-it-fail-student-en.pdf",
+    "pages": [
+      {
+        "title": "Training pictures",
+        "instruction": "What do all 10 pictures have in common?",
+        "blocks": [
+          {
+            "kind": "cards",
+            "heading": "Training pictures: the door is built from these",
+            "cards": [
+              {
+                "word": "A teacher walks in",
+                "icon": "walk"
+              },
+              {
+                "word": "A parent walks in",
+                "icon": "man"
+              },
+              {
+                "word": "A cleaner walks in",
+                "icon": "woman"
+              },
+              {
+                "word": "Someone runs in late",
+                "icon": "run"
+              },
+              {
+                "word": "A visitor walks in",
+                "icon": "walk"
+              },
+              {
+                "word": "Two friends walk in",
+                "icon": "friends"
+              },
+              {
+                "word": "A nurse walks in",
+                "icon": "man"
+              },
+              {
+                "word": "A coach runs in",
+                "icon": "run"
+              },
+              {
+                "word": "A cook walks in",
+                "icon": "woman"
+              },
+              {
+                "word": "A librarian walks in",
+                "icon": "walk"
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "body": "The door's rule: the door opens for ______________________________"
+          }
+        ]
+      },
+      {
+        "title": "Visitors",
+        "instruction": "Does the door open? Use only your rule.",
+        "blocks": [
+          {
+            "kind": "cards",
+            "heading": "Visitors: cut out these cards",
+            "cards": [
+              {
+                "word": "A student in a wheelchair",
+                "icon": "disabled"
+              },
+              {
+                "word": "A teacher on crutches",
+                "icon": "crutches"
+              },
+              {
+                "word": "A parent with a pram",
+                "icon": "baby-carriage"
+              },
+              {
+                "word": "A grandparent with a walking stick",
+                "icon": "old"
+              },
+              {
+                "word": "A small child",
+                "icon": "mood-kid"
+              },
+              {
+                "word": "A student on a skateboard",
+                "icon": "skateboarding"
+              },
+              {
+                "word": "A delivery person with a big box",
+                "icon": "package"
+              },
+              {
+                "word": "A visitor with a guide dog",
+                "icon": "dog"
+              }
+            ]
+          },
+          {
+            "kind": "mat",
+            "headings": [
+              "The door opens",
+              "The door stays shut"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Make it fairer",
+        "instruction": "What would you change?",
+        "blocks": [
+          {
+            "kind": "table",
+            "columns": [
+              "Three pictures we would add to the training pictures"
+            ],
+            "rows": 3
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "One more change"
+            ],
+            "rows": 2
+          },
+          {
+            "kind": "tickets",
+            "question": "Who might an AI system leave out if it only learns from examples of some people? What could its makers do?",
+            "count": 2
+          }
+        ]
+      }
+    ]
+  },
+  "skool_text": "Lesson 3 for ages 9–12. An automatic door is built from ten pictures of adults walking in. Students test it on visitors (a wheelchair user, a small child, a parent with a pram), find out who it leaves outside, and work out how to make it fairer. No devices, 40 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-younger-3c514a93/who-does-it-fail/"
+}

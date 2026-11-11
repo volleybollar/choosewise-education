@@ -248,7 +248,7 @@ def _step(step: dict, start: int, n: int) -> str:
         parts.append('<p class="al-label">Prompts to try (pick one)</p>'
                      + _list(step["prompts"], "al-prompts"))
     if step.get("fallback"):
-        parts.append(f'<p class="al-fallback"><strong>If it refuses or gets it right:</strong> {escape(step["fallback"])}</p>')
+        parts.append(f'<p class="al-fallback"><strong>If the demo does not go as planned:</strong> {escape(step["fallback"])}</p>')
     parts.append("</li>")
     return "".join(parts)
 
@@ -266,23 +266,30 @@ def render_lesson(track: dict, lesson: dict) -> str:
     background = "".join(f'<p class="al-text">{escape(p)}</p>' for p in lesson["background"])
     frameworks = "".join(f'<p class="al-text"><a href="{escape(f["url"])}"><strong>{escape(f["name"])}</strong></a>: '
                          f'{escape(lesson["frameworks"][f["name"]])}</p>' for f in track["frameworks"])
-    language = ""
-    if lesson["uses_text"]:
-        language = f"""
-    <!-- Byta språk: hur läraren skriver en egen träningstext på klassens språk. -->
+    example = ""
+    if "training_text" in lesson:  # lektioner med en träningstext visar det engelska exemplet
+        example = f"""
+        <p class="al-label">The English example (page 1 of the PDF)</p>
+        <blockquote class="al-example">{escape(lesson["training_text"])}</blockquote>
+        <p class="al-text"><strong>Starting words:</strong> {escape(", ".join(lesson["starting_words"]))}</p>"""
+    language = f"""
+    <!-- Byta språk: hur läraren gör elevmaterialet till klassens språk. -->
     <section class="section section--alt" id="al-language">
       <div class="container">
         <h2 class="section__title">Teaching in another language</h2>
-        <p class="al-text">{escape(lesson["language_swap"])}</p>
-        <p class="al-label">The English example (page 1 of the PDF)</p>
-        <blockquote class="al-example">{escape(lesson["training_text"])}</blockquote>
-        <p class="al-text"><strong>Starting words:</strong> {escape(", ".join(lesson["starting_words"]))}</p>
+        <p class="al-text">{escape(lesson["language_swap"])}</p>{example}
       </div>
     </section>
 """
     credits = ""
-    if lesson["credits"]:
-        credits = '<h3 class="al-sub">Credits</h3>' + _list(lesson["credits"], "al-list")
+    if lesson["credits"]:  # källor och licenser, t.ex. ISTE (CC BY 4.0) och kortbilderna
+        credits = '<h3 class="al-sub">Credits</h3><ul class="tm-sources">' + "".join(
+            f'<li><a href="{escape(c["url"])}">{escape(c["text"])}</a></li>' for c in lesson["credits"]) + "</ul>"
+    if lesson["tools"]:
+        age = f'<p class="al-text">{escape(lesson["age_note"])}</p>\n        ' + _age_table(track, lesson["tools"])
+    else:  # ingen tom tabell när lektionen inte använder något AI-verktyg
+        age = ('<p class="al-text">This lesson uses no AI tool. Students don\'t use one, and you don\'t show one.</p>\n'
+               f'        <p class="al-text">{escape(lesson["age_note"])}</p>')
     return (
         HEAD.format(title=escape(lesson["title"]), description=escape(lesson["line"]))
         + f"""    <!-- Hero: tillbaka till översikten, lektionens namn och en rad om vad eleverna gör. -->
@@ -386,8 +393,7 @@ def render_lesson(track: dict, lesson: dict) -> str:
     <section class="section" id="al-age">
       <div class="container">
         <h2 class="section__title">AI tools and age limits</h2>
-        <p class="al-text">{escape(lesson["age_note"])}</p>
-        {_age_table(track, lesson["tools"])}
+        {age}
         <p class="tm-note">{escape(track["reader_note"])}</p>
       </div>
     </section>

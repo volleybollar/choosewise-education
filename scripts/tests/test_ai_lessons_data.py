@@ -17,7 +17,7 @@ TRACK = ROOT / SLUG / "track-en.json"
 
 MODES = {"Individual", "Pairs", "All"}
 AI_USES = {"none", "teacher-demo", "students"}
-BLOCK_KINDS = {"text", "table", "slips", "checklist", "tickets"}
+BLOCK_KINDS = {"text", "table", "slips", "checklist", "tickets", "cards", "mat", "image"}
 READER_NOTE = ("Readers outside Sweden should verify their own national regulations. "
                "AI in education is evolving quickly and country rules differ significantly.")
 USE_RIGHTS = ("For members of the Choosewise community: use these materials with your own students, "
@@ -53,10 +53,20 @@ def teacher_text(lesson):
 
 def statements(text):
     """Meningar som inte är frågor. Frågor till eleverna får provocera fram
-    "maskinen vet" med flit; det vi själva påstår får det inte."""
+    "maskinen vet" med flit; det vi själva påstår får det inte. Webbadresser
+    är inga formuleringar och tas bort (lektionen who-decides heter så)."""
+    text = re.sub(r"https?://\S+", "", text)
     for sentence in re.split(r"(?<=[.!?])[\"'”’)]*\s+", text):
         if not sentence.rstrip(" \"'”’)").endswith("?"):
             yield sentence
+
+
+def test_lesson_ids_and_numbers_are_unique():
+    entries = track()["lessons"]
+    assert len({e["id"] for e in entries}) == len(entries)
+    for band in {e["band"] for e in entries}:
+        numbers = [e["number"] for e in entries if e["band"] == band]
+        assert len(set(numbers)) == len(numbers), band
 
 
 def test_track_lists_existing_lessons():
@@ -114,18 +124,21 @@ def test_promise_to_come_back_is_kept():
                 assert "guesses" in later.lower(), lesson["id"]
 
 
-def test_text_lessons_explain_language_swap():
+def test_every_lesson_has_age_note_and_language_swap():
     for lesson in lessons():
-        if lesson["uses_text"]:
-            assert lesson["language_swap"].strip(), lesson["id"]
+        assert lesson["language_swap"].strip() and lesson["age_note"].strip(), lesson["id"]
+
+
+def test_credits_are_links():
+    for lesson in lessons():
+        for credit in lesson["credits"]:
+            assert credit["text"].strip() and credit["url"].startswith("https://"), (lesson["id"], credit)
 
 
 def test_language_swap_covers_every_student_page():
     """Varje elevsida har engelska ord. Språkbytet ska säga vad läraren gör
     med var och en, inte bara med träningstexten."""
     for lesson in lessons():
-        if not lesson["uses_text"]:
-            continue
         named = set()
         for m in re.finditer(r"\bpages?\s+((?:\d+(?:,\s*|\s+and\s+)?)+)", lesson["language_swap"], re.I):
             named.update(int(n) for n in re.findall(r"\d+", m.group(1)))
@@ -145,7 +158,7 @@ def _next_words(lesson):
 
 def test_starting_words_repeat_with_variety():
     for lesson in lessons():
-        if not lesson["uses_text"]:
+        if "training_text" not in lesson:
             continue
         for word, after in _next_words(lesson).items():
             assert sum(after.values()) >= 2, (lesson["id"], word)
@@ -156,7 +169,7 @@ def test_one_slip_page_holds_every_cup():
     """En kopp per startord, en lapp per streck: sidan med lappar måste räcka
     till ordet med flest streck."""
     for lesson in lessons():
-        if not lesson["uses_text"]:
+        if "training_text" not in lesson:
             continue
         slips = [b["count"] for p in lesson["student_pdf"]["pages"] for b in p["blocks"] if b["kind"] == "slips"]
         most = max(sum(after.values()) for after in _next_words(lesson).values())
@@ -165,7 +178,7 @@ def test_one_slip_page_holds_every_cup():
 
 def test_training_text_is_short():
     for lesson in lessons():
-        if lesson["uses_text"]:
+        if "training_text" in lesson:
             words = [t for t in TOKENS.findall(lesson["training_text"].lower()) if t != "."]
             assert 60 <= len(words) <= 120, (lesson["id"], len(words))
 
@@ -197,11 +210,91 @@ def test_skool_text_links_the_lesson():
         assert url in lesson["skool_text"], lesson["id"]
 
 
-def test_student_pdf_has_four_pages_of_known_blocks():
+def test_student_pdf_has_one_to_four_pages_of_known_blocks():
     for lesson in lessons():
         pages = lesson["student_pdf"]["pages"]
-        assert len(pages) == 4, lesson["id"]
+        assert 1 <= len(pages) <= 4, lesson["id"]
         for page in pages:
             assert page["title"] and page["instruction"], (lesson["id"], page.get("title"))
             for block in page["blocks"]:
                 assert block["kind"] in BLOCK_KINDS, (lesson["id"], block["kind"])
+
+
+# ───── Lektionsspecifika vakter (planen 2026-11-11-ai-lessons-9-12) ─────
+
+def _lesson(lid):
+    return json.loads((ROOT / SLUG / lid / "lesson-en.json").read_text(encoding="utf-8"))
+
+
+def _blocks(lesson, kind):
+    return [b for p in lesson["student_pdf"]["pages"] for b in p["blocks"] if b["kind"] == kind]
+
+
+def test_ai_or_not_sorts_sixteen_cards_on_three_columns():
+    lesson = _lesson("ai-or-not")
+    assert sum(len(b["cards"]) for b in _blocks(lesson, "cards")) == 16
+    assert [b["headings"] for b in _blocks(lesson, "mat")] == [["Always does the same", "Finds patterns and guesses", "Not sure"]]
+
+
+def test_learning_from_examples_credits_iste_and_has_a_card_to_draw():
+    lesson = _lesson("learning-from-examples")
+    assert any("ISTE" in c["text"] and "CC BY 4.0" in c["text"] for c in lesson["credits"])
+    new = [b for b in _blocks(lesson, "cards") if b.get("heading", "").startswith("New cards")]
+    assert new and any(not c.get("icon") for c in new[0]["cards"])
+
+
+def test_who_does_it_fail_has_ten_training_and_eight_visitor_cards():
+    lesson = _lesson("who-does-it-fail")
+    blocks = _blocks(lesson, "cards")
+    training = [c for b in blocks if b.get("heading", "").startswith("Training") for c in b["cards"]]
+    visitors = [c for b in blocks if b.get("heading", "").startswith("Visitors") for c in b["cards"]]
+    assert len(training) == 10 and len(visitors) == 8
+    assert any(c.get("icon") == "disabled" for c in visitors)  # en person i rullstol, inte bara stolen
+    assert all(c.get("icon") != "user" for c in training)  # bysten saknar kropp
+
+
+def test_ai_or_human_uses_the_picture_grid_and_gives_the_answers():
+    lesson = _lesson("ai-or-human")
+    assert [b["src"] for b in _blocks(lesson, "image")] == ["assets/images/ai-or-human/photo-grid.jpg"]
+    assert any("1, 6 and 8 are not AI" in text for text in teacher_text(lesson))
+    assert any("video 2" in text for text in teacher_text(lesson))
+
+
+def test_who_decides_has_the_grid_and_its_own_rule_starters():
+    lesson = _lesson("who-decides")
+    grids = [b for b in _blocks(lesson, "checklist") if isinstance(b["items"], list) and len(b["items"]) == 8]
+    assert grids and grids[0]["checks"] == ["Me", "The app", "Another person", "Not sure"]
+    student_words = " ".join([b["body"] for b in _blocks(lesson, "text")]
+                             + [c for b in _blocks(lesson, "table") for c in b["columns"]]).lower()
+    for word in ("unsure", "honest", "get help", "private"):  # IDEAL Thinkers kategorier: bara inspiration
+        assert word not in student_words, word
+
+
+def test_no_tool_age_note_adds_something():
+    """Sidan säger redan att lektionen inte använder något AI-verktyg; åldersraden
+    ska tillföra något, inte upprepa det."""
+    for lesson in lessons():
+        if not lesson["tools"]:
+            assert "don't use any AI tool" not in lesson["age_note"], lesson["id"]
+
+
+def test_learning_from_examples_keeps_the_new_cards_apart():
+    """De nya korten, och tåget som saknas med flit, får inte ligga på ett ark
+    som eleverna klipper innan steg 5."""
+    pages = _lesson("learning-from-examples")["student_pdf"]["pages"]
+    new_page = next(p for p in pages if any(b.get("heading", "").startswith("New cards") for b in p["blocks"]))
+    assert sum(b["kind"] == "cards" for b in new_page["blocks"]) == 1
+    others = [c["word"] for p in pages if p is not new_page for b in p["blocks"] if b["kind"] == "cards" for c in b["cards"]]
+    assert "train" not in others
+
+
+def test_lessons_with_a_photo_say_how_to_print_it():
+    for lesson in lessons():
+        if _blocks(lesson, "image"):
+            assert any("colour" in line for line in lesson["before"]), lesson["id"]
+
+
+def test_who_decides_tricky_messages_come_from_a_child():
+    lesson = _lesson("who-decides")
+    tricky = [c for b in _blocks(lesson, "cards") for c in b["cards"]]
+    assert tricky and all(c["word"].startswith("A child types:") for c in tricky)

@@ -79,14 +79,15 @@ def test_overview_counts_built_lessons():
     extra = copy.deepcopy(two["lesson_data"][0])
     extra["id"] = "another-lesson"
     two["lesson_data"].append(extra)
-    assert re.search(pattern, mod.render_overview(two)).group(1) == "2"
+    assert re.search(pattern, mod.render_overview(two)).group(1) == str(len(t["lesson_data"]) + 1)
 
 
 def test_demo_fallback_rendered():
     t = track()
-    lesson = t["lesson_data"][0]
+    lesson = next(x for x in t["lesson_data"] if x["ai_use"] == "teacher-demo")
     steps = section(build_mod().render_lesson(t, lesson), "al-steps")
     demo = next(s for s in lesson["steps"] if s.get("demo"))
     assert escape(demo["fallback"]) in steps
+    assert "If the demo does not go as planned:" in steps  # etiketten passar alla lektioners demo
     for prompt in demo["prompts"]:
         assert escape(prompt) in steps

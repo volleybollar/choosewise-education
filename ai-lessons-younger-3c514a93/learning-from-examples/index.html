@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learning from Examples — choosewise.education</title>
+  <meta name="description" content="Students treat a pile of picture cards as a dataset: they check it, label it, write a rule and watch the rule fail on new examples.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (prefix tm-), och sedan det som är
+       nytt för AI-lektionerna (prefix al-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/ai-lessons.css?v=20261111a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten.
+       Sidan byggs av scripts/build-ai-lessons.py: ändra JSON-filen, inte HTML:en. -->
+<!-- seo:start (build-seo-meta.py) -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: tillbaka till översikten, lektionens namn och en rad om vad eleverna gör. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/ai-lessons-younger-3c514a93/">← AI Lessons for Younger Students</a>
+      <span class="eyebrow">Ages 9–12 · Lesson 2</span>
+      <h1>Learning from Examples</h1>
+      <p class="lede">Students treat a pile of picture cards as a dataset: they check it, label it, write a rule and watch the rule fail on new examples.</p>
+    </section>
+
+    <!-- Lektionen i korthet, materialet och elev-PDF:en. -->
+    <section class="section section--alt" id="al-glance">
+      <div class="container">
+        <h2 class="section__title">At a glance</h2>
+        <dl class="al-glance">
+          <div><dt>Ages</dt><dd>9–12</dd></div>
+          <div><dt>Time</dt><dd>40 min</dd></div>
+          <div><dt>Groups</dt><dd>Pairs, then the whole class</dd></div>
+          <div><dt>AI use</dt><dd>No AI</dd></div>
+          <div><dt>Preparation</dt><dd>25 min</dd></div>
+        </dl>
+        <h3 class="al-sub">Materials</h3>
+        <ul class="al-list"><li>Student PDF pages 1 and 2, the 20 dataset cards and two blank cards: one set per pair, cut out</li><li>Page 3, the six new cards: one set per pair, cut out by you and kept in an envelope</li><li>Page 4, the sorting mat, the rule and the closing questions: one per pair</li><li>The board</li></ul>
+        <a class="btn btn--primary al-download" href="/ai-lessons-younger-3c514a93/learning-from-examples/learning-from-examples-student-en.pdf" download>Download the student PDF</a>
+      </div>
+    </section>
+
+    <!-- Lärandemål och nyckelord med elevvänliga förklaringar. -->
+    <section class="section" id="al-goals">
+      <div class="container">
+        <h2 class="section__title">Learning goals</h2>
+        <p class="al-text">By the end of the lesson, students can:</p>
+        <ul class="al-list"><li>Explain that many AI systems are built from a dataset: examples that people collect, check and label.</li><li>Spot a dataset that is missing examples, or has examples that don&#x27;t belong.</li><li>Show how a rule found in examples can fail on a new case, and what people do about it.</li></ul>
+        <h3 class="al-sub">Key words</h3>
+        <dl class="al-words"><dt>dataset</dt><dd>A collection of examples, like our 20 picture cards.</dd><dt>label</dt><dd>A name we give each example, like land, water or air.</dd><dt>rule</dt><dd>A way to tell which group something belongs to, like &quot;it has wheels&quot;.</dd><dt>biased</dt><dd>When a dataset leaves out important examples, or has far more of one kind, so the results come out lopsided or wrong.</dd><dt>test</dt><dd>To try a rule on examples it was not made from.</dd></dl>
+      </div>
+    </section>
+
+    <!-- Förberedelser: vad läraren skriver ut, skriver och provar före lektionen. -->
+    <section class="section section--alt" id="al-before">
+      <div class="container">
+        <h2 class="section__title">Before the lesson</h2>
+        <p class="al-text">About 25 minutes.</p>
+        <ul class="al-list"><li>Print the student PDF and cut out the cards on pages 1 and 2 before the lesson, one set per pair. A paper trimmer helps; cutting in class takes pairs five minutes or more. Keep the sets for your next class.</li><li>Cut out page 3 yourself and put each pair&#x27;s six new cards in an envelope, so students don&#x27;t see them until step 5. The train is among them on purpose.</li><li>Notice what is there on purpose: there is no train among the 20 dataset cards, and three cards don&#x27;t belong (a banana, an armchair and a cloud).</li><li>Draw three columns on the board: Land, Water, Air.</li></ul>
+      </div>
+    </section>
+
+    <!-- Steg för steg: minut för minut, varje steg enskilt, i par eller alla. -->
+    <section class="section" id="al-steps">
+      <div class="container">
+        <h2 class="section__title">Step by step</h2>
+        <ol class="al-steps"><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 1</span><span class="al-step__time">0–3 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">What is this dataset?</h3><p class="al-step__do">Pairs spread out their 20 cards and agree on what most of them show. Then they put aside the cards that don&#x27;t belong.</p><p class="al-say"><span class="al-say__label">Say</span> Look at all your cards. What do most of them show? Are there any that don&#x27;t belong?</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 2</span><span class="al-step__time">3–6 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">A dataset</h3><p class="al-step__do">Collect the answer (ways to travel) and the cards that don&#x27;t belong. Explain that a set of examples like this is called a dataset, and that people build it and check it.</p><p class="al-say"><span class="al-say__label">Say</span> A computer that is built from these cards would count the banana as a way to travel, unless a person takes it out. Nothing in the computer checks that by itself.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 3</span><span class="al-step__time">6–14 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Land, water or air?</h3><p class="al-step__do">Pairs sort their cards on the mat (page 4) into Land, Water and Air. Then they look for a way to travel that is missing and draw it on one of the blank cards.</p><p class="al-say"><span class="al-say__label">Say</span> Is anything missing? If a way to travel isn&#x27;t in our cards, a machine built from them has no example of it.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 4</span><span class="al-step__time">14–18 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">What was missing?</h3><p class="al-step__do">Collect the missing ways to travel; usually someone spots that there is no train. Introduce the word biased: a dataset that leaves out important examples gives a lopsided picture.</p><p class="al-say"><span class="al-say__label">Say</span> A machine built from our cards would have no example of a train. Its guesses can only be as good as its examples.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 5</span><span class="al-step__time">18–28 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Write a rule</h3><p class="al-step__do">Each pair writes a rule for Land on page 4 (many write &quot;it has wheels&quot;) and tests it on all their cards: does the rule put every card in the right group? Then hand out the envelopes; pairs open them and sort the six new cards using only their rule.</p><p class="al-say"><span class="al-say__label">Say</span> A machine can only use the rule it found in its examples. Use only your rule, even if you know better.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 6</span><span class="al-step__time">28–37 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Fix the rule</h3><p class="al-step__do">Which new cards did the rules get wrong? The sleigh and the skis have no wheels but travel on land, the plane has wheels but flies, and the hovercraft travels on land and on water. Improve one rule together on the board and test it again. Then connect it to AI: systems find rules in examples and can fail on cases unlike their examples; people test them on new examples and add more varied ones.</p><p class="al-say"><span class="al-say__label">Say</span> The people who build AI systems do this too: they test with new examples, find the mistakes, and add the examples that were missing.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 7</span><span class="al-step__time">37–40 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">Closing question</h3><p class="al-step__do">Pairs tear off the closing questions at the bottom of page 4, one for each student. Each student answers on their own before leaving.</p></li></ol>
+      </div>
+    </section>
+
+    <!-- Uppsamling i helklass: frågor och vad elever brukar svara. -->
+    <section class="section section--alt" id="al-gather">
+      <div class="container">
+        <h2 class="section__title">Gather it up</h2>
+        <p class="al-text">Questions for the whole-class talk, with answers students often give.</p>
+        <ul class="al-gather"><li><p class="al-gather__q">Why did we take out the banana, the armchair and the cloud?</p><p class="al-label">Students often say</p><ul class="al-said"><li>They aren&#x27;t ways to travel.</li><li>The machine would learn the wrong thing.</li></ul></li><li><p class="al-gather__q">Many rules said &quot;it has wheels&quot;. Which cards did that rule get wrong?</p><p class="al-label">Students often say</p><ul class="al-said"><li>The sleigh, it has no wheels.</li><li>The plane has wheels, but it flies.</li><li>The hovercraft goes on water too.</li></ul></li><li><p class="al-gather__q">What should the people who build a machine like this do?</p><p class="al-label">Students often say</p><ul class="al-said"><li>Add more examples.</li><li>Test it on new things.</li><li>Ask other people what&#x27;s missing.</li></ul></li></ul>
+      </div>
+    </section>
+
+    <!-- Enklare och svårare varianter. -->
+    <section class="section" id="al-adapt">
+      <div class="container">
+        <h2 class="section__title">Make it simpler, make it harder</h2>
+        <div class="al-adapt">
+          <div><h3 class="al-sub">Simpler</h3><p class="al-text">Use only the land and water cards, and give pairs the rule &quot;it has wheels&quot; instead of writing their own. Then test it on the new cards together.</p></div>
+          <div><h3 class="al-sub">Harder</h3><p class="al-text">Let pairs write rules for all three groups, swap rules with another pair, and test them on the new cards: which rule breaks first? Or ask: if a real AI system learned from photos of vehicles from only one country, which vehicles might it get wrong?</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avslutande fråga (exit ticket) som varje elev svarar på. -->
+    <section class="section section--alt" id="al-closing">
+      <div class="container">
+        <h2 class="section__title">Closing question</h2>
+        <p class="al-closing">Why does a machine that learns from examples need many different examples? Use one card from today.</p>
+      </div>
+    </section>
+
+    <!-- Byta språk: hur läraren gör elevmaterialet till klassens språk. -->
+    <section class="section section--alt" id="al-language">
+      <div class="container">
+        <h2 class="section__title">Teaching in another language</h2>
+        <p class="al-text">Each card has one English word under a picture. Say the words in your class&#x27;s language as you hand out pages 1 and 2, or write the translations on the cards before you cut them; do the same for the new cards on page 3. On page 4, write Land, Water and Air and the rule frame in your class&#x27;s language, and say the closing question aloud or write it on the board.</p>
+      </div>
+    </section>
+
+    <!-- Bakgrund för läraren: två minuters läsning. -->
+    <section class="section" id="al-background">
+      <div class="container">
+        <h2 class="section__title">Background for you</h2>
+        <p class="al-text">Many AI systems are built from examples rather than from rules people write. To build a system that recognises vehicles in photos, people collect thousands of photos, label each one (car, boat, plane) and let a computer find patterns that separate the labels. The collection is called a dataset. The patterns work like the system&#x27;s rules, although nobody writes them down.</p><p class="al-text">What the system can do depends on the dataset. If trains are missing, the system has no train examples and will put a train in some other group. If a banana is labelled as a vehicle, that mistake becomes part of the patterns too. Checking a dataset for gaps and errors is ordinary work in AI, and people do it: nothing in the computer can tell that a label is wrong.</p><p class="al-text">A dataset that leaves out important examples, or has far more of one kind than another, is often called biased. The result is a system that works well for what it had many examples of and badly for the rest. Lesson 3 takes this a step further: what happens when the missing examples are people?</p><p class="al-text">Students&#x27; rules, such as &quot;it has wheels&quot;, behave like the patterns a learning system finds: they work on the examples they came from and fail on new cases, such as a sleigh or a hovercraft. Real systems are tested on examples that were kept out of the training for exactly this reason. When they fail, people add more varied examples and test again; the work is never quite finished.</p><p class="al-text">The original activity uses about 70 picture cards over several lessons. This version uses 20 cards plus six new ones so that it fits 40 minutes, and the set is incomplete on purpose so that students find the gaps themselves.</p>
+      </div>
+    </section>
+
+    <!-- Koppling till ramverken AILit och AI4K12. -->
+    <section class="section section--alt" id="al-frameworks">
+      <div class="container">
+        <h2 class="section__title">Framework links</h2>
+        <p class="al-text"><a href="https://www.oecd.org/en/publications/empowering-learners-for-the-age-of-ai_65cd27d4-en.html"><strong>AILit</strong></a>: Engage with AI, competence 2 (describe how AI systems perform tasks, clearing up common misconceptions), and Shape AI, competence 3 (design AI systems with attention to how data sources and selection influence behaviour), basic level</p><p class="al-text"><a href="https://ai4k12.org/gradeband-progression-charts/"><strong>AI4K12</strong></a>: Big Idea 2 (Representation &amp; Reasoning) · Big Idea 3 (Learning)</p>
+      </div>
+    </section>
+
+    <!-- Åldersgränser för verktygen lektionen nämner, och läsarnoten (globala regler). -->
+    <section class="section" id="al-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age limits</h2>
+        <p class="al-text">This lesson uses no AI tool. Students don't use one, and you don't show one.</p>
+        <p class="al-text">If students mention apps or chatbots they use at home, most of them have a minimum age of 13 on a personal account.</p>
+        <p class="tm-note">Readers outside Sweden should verify their own national regulations. AI in education is evolving quickly and country rules differ significantly.</p>
+      </div>
+    </section>
+
+    <!-- Källor, vidare läsning och vad medlemmar får göra med materialet. -->
+    <section class="section section--alt" id="al-credits">
+      <div class="container">
+        <h2 class="section__title">Sources and use</h2>
+        <h3 class="al-sub">Credits</h3><ul class="tm-sources"><li><a href="https://cdn.iste.org/www-root/Libraries/Documents%20%26%20Files/Artificial%20Intelligence/AIGDK5_1120.pdf">Adapted from ISTE, Hands-On AI Projects for the Classroom: A Guide for Elementary Teachers (2020), by Nancye Blair Black and Susan Brooks-Young, Project 2 &quot;Training Data and Machine Learning&quot;, Activities 2–4. Licensed under CC BY 4.0. Changes: shortened to one 40-minute lesson, with our own cards, a missing train, six new test cards and our own wording.</a></li><li><a href="https://creativecommons.org/licenses/by/4.0/">Licence of the original: Creative Commons Attribution 4.0 International (CC BY 4.0)</a></li><li><a href="https://tabler.io/icons">Card pictures: Tabler Icons (MIT licence)</a></li></ul>
+        <h3 class="al-sub">Further reading</h3>
+        <ul class="tm-sources"><li><a href="https://ai4k12.org/gradeband-progression-charts/">AI4K12: grade-band progression charts for the Five Big Ideas</a></li></ul>
+        <p class="al-rights">For members of the Choosewise community: use these materials with your own students, share them with colleagues at your school, and adapt or translate them for your own teaching. Please don&#x27;t republish or sell them.</p>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+</body>
+</html>

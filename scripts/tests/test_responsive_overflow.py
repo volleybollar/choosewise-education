@@ -71,6 +71,11 @@ PAGES = (
         "community/",
         "ai-lessons-younger-3c514a93/",
         "ai-lessons-younger-3c514a93/word-guessing-machine/",
+        "ai-lessons-younger-3c514a93/who-decides/",
+        "ai-lessons-younger-3c514a93/ai-or-human/",
+        "ai-lessons-younger-3c514a93/who-does-it-fail/",
+        "ai-lessons-younger-3c514a93/learning-from-examples/",
+        "ai-lessons-younger-3c514a93/ai-or-not/",
     ]
 )
 
