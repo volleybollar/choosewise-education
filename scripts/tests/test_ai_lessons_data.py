@@ -17,7 +17,7 @@ TRACK = ROOT / SLUG / "track-en.json"
 
 MODES = {"Individual", "Pairs", "All"}
 AI_USES = {"none", "teacher-demo", "students"}
-BLOCK_KINDS = {"text", "table", "slips", "checklist", "tickets"}
+BLOCK_KINDS = {"text", "table", "slips", "checklist", "tickets", "cards", "mat", "image"}
 READER_NOTE = ("Readers outside Sweden should verify their own national regulations. "
                "AI in education is evolving quickly and country rules differ significantly.")
 USE_RIGHTS = ("For members of the Choosewise community: use these materials with your own students, "
@@ -57,6 +57,14 @@ def statements(text):
     for sentence in re.split(r"(?<=[.!?])[\"'”’)]*\s+", text):
         if not sentence.rstrip(" \"'”’)").endswith("?"):
             yield sentence
+
+
+def test_lesson_ids_and_numbers_are_unique():
+    entries = track()["lessons"]
+    assert len({e["id"] for e in entries}) == len(entries)
+    for band in {e["band"] for e in entries}:
+        numbers = [e["number"] for e in entries if e["band"] == band]
+        assert len(set(numbers)) == len(numbers), band
 
 
 def test_track_lists_existing_lessons():
@@ -114,18 +122,21 @@ def test_promise_to_come_back_is_kept():
                 assert "guesses" in later.lower(), lesson["id"]
 
 
-def test_text_lessons_explain_language_swap():
+def test_every_lesson_has_age_note_and_language_swap():
     for lesson in lessons():
-        if lesson["uses_text"]:
-            assert lesson["language_swap"].strip(), lesson["id"]
+        assert lesson["language_swap"].strip() and lesson["age_note"].strip(), lesson["id"]
+
+
+def test_credits_are_links():
+    for lesson in lessons():
+        for credit in lesson["credits"]:
+            assert credit["text"].strip() and credit["url"].startswith("https://"), (lesson["id"], credit)
 
 
 def test_language_swap_covers_every_student_page():
     """Varje elevsida har engelska ord. Språkbytet ska säga vad läraren gör
     med var och en, inte bara med träningstexten."""
     for lesson in lessons():
-        if not lesson["uses_text"]:
-            continue
         named = set()
         for m in re.finditer(r"\bpages?\s+((?:\d+(?:,\s*|\s+and\s+)?)+)", lesson["language_swap"], re.I):
             named.update(int(n) for n in re.findall(r"\d+", m.group(1)))
@@ -145,7 +156,7 @@ def _next_words(lesson):
 
 def test_starting_words_repeat_with_variety():
     for lesson in lessons():
-        if not lesson["uses_text"]:
+        if "training_text" not in lesson:
             continue
         for word, after in _next_words(lesson).items():
             assert sum(after.values()) >= 2, (lesson["id"], word)
@@ -156,7 +167,7 @@ def test_one_slip_page_holds_every_cup():
     """En kopp per startord, en lapp per streck: sidan med lappar måste räcka
     till ordet med flest streck."""
     for lesson in lessons():
-        if not lesson["uses_text"]:
+        if "training_text" not in lesson:
             continue
         slips = [b["count"] for p in lesson["student_pdf"]["pages"] for b in p["blocks"] if b["kind"] == "slips"]
         most = max(sum(after.values()) for after in _next_words(lesson).values())
@@ -165,7 +176,7 @@ def test_one_slip_page_holds_every_cup():
 
 def test_training_text_is_short():
     for lesson in lessons():
-        if lesson["uses_text"]:
+        if "training_text" in lesson:
             words = [t for t in TOKENS.findall(lesson["training_text"].lower()) if t != "."]
             assert 60 <= len(words) <= 120, (lesson["id"], len(words))
 
@@ -197,10 +208,10 @@ def test_skool_text_links_the_lesson():
         assert url in lesson["skool_text"], lesson["id"]
 
 
-def test_student_pdf_has_four_pages_of_known_blocks():
+def test_student_pdf_has_one_to_four_pages_of_known_blocks():
     for lesson in lessons():
         pages = lesson["student_pdf"]["pages"]
-        assert len(pages) == 4, lesson["id"]
+        assert 1 <= len(pages) <= 4, lesson["id"]
         for page in pages:
             assert page["title"] and page["instruction"], (lesson["id"], page.get("title"))
             for block in page["blocks"]:

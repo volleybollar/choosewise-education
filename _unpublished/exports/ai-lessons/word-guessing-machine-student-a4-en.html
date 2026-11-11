@@ -44,6 +44,20 @@ h1 { font-family: var(--font-display); font-size: 22pt; font-weight: 500; line-h
 .ticket__name { font-size: 10pt; color: var(--color-text-soft); }
 .ticket__line { border-bottom: 0.3mm solid var(--color-text-muted); height: 9mm; }
 .cut { font-size: 9pt; color: var(--color-text-muted); margin-bottom: -3mm; }
+.grid .row-label { width: 45%; padding: 2mm; }
+/* Bildkort: fyra per rad, streckade klipplinjer runt varje kort. */
+.cards__heading { font-size: 12pt; font-weight: 500; margin-bottom: -2mm; }
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); }
+.card { height: 52mm; border: 0.3mm dashed var(--color-text); margin: 0 -0.3mm -0.3mm 0; padding: 3mm; display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center; }
+.card__pic { width: 26mm; height: 26mm; display: grid; place-items: center; }
+.card__pic svg { width: 24mm; height: 24mm; color: var(--color-text); }
+.card__pic--draw { border: 0.3mm dashed var(--color-text-muted); border-radius: 2mm; font-size: 9pt; color: var(--color-text-muted); }
+.card__word { font-size: 13pt; font-weight: 500; line-height: 1.2; }
+/* Sorteringsmatta: en kolumn per rubrik, fyller resten av sidan. */
+.mat { flex: 1; min-height: 60mm; display: grid; border: 0.4mm solid var(--color-text); border-radius: 2mm; }
+.mat__col + .mat__col { border-left: 0.4mm solid var(--color-text); }
+.mat__head { font-size: 15pt; font-weight: 500; text-align: center; padding: 3mm; border-bottom: 0.3mm solid var(--color-text-muted); }
+.image { display: block; max-width: 100%; max-height: 150mm; margin: 0 auto; object-fit: contain; }
 /* Sidfot på varje sida; användningsraden på sidan 1. */
 .foot { margin-top: auto; font-size: 8pt; color: var(--color-text-muted); border-top: 0.3mm solid var(--color-border); padding-top: 2mm; }
 .rights { margin-bottom: 1.5mm; color: var(--color-text-soft); }
