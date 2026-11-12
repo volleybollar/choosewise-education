@@ -67,7 +67,7 @@
       "minutes": 9,
       "mode": "Pairs",
       "title": "Accept, revise or reject",
-      "do": "Pairs take the better AI email and go through it sentence by sentence on page 2: accept, revise or reject, and why. They circle anything the AI text made up, such as a reason, a date or a promise that nobody gave it."
+      "do": "Pairs take the better AI email and go through it sentence by sentence on page 2: accept, revise or reject, and why. In the Why? column they also note anything the AI text made up, such as a reason, a date or a promise that nobody gave it."
     },
     {
       "minutes": 4,
@@ -130,8 +130,8 @@
   "age_note": "In step 2, students use the AI tool your school has approved for their age. Check the table: Claude is for 18 and over, and ChatGPT needs a parent's or guardian's permission under 18. Step 2 works without AI, with the answers you saved before class.",
   "background": [
     "The OECD and European Commission's AI literacy framework (AILit) names three things to do with any AI output: accept it, revise it or reject it. At the advanced level, students justify each choice. The framework's classroom examples also have students work on their own before they look at AI-generated ideas, because what they bring themselves is what they compare the AI's answer with.",
-    "A chatbot writes from the prompt alone. Asked for an email asking for more time, it fills the gaps in the prompt: if no reason is given, the email may include one anyway, such as an illness or a family matter, because emails like this usually have one. Prompt 2 asks the tool to ask its questions first, so the student fills the gaps instead. Tools differ, and the same prompt gives different answers each time, so expect pairs' emails to differ.",
-    "Keep the privacy rule simple: nothing goes into an AI tool that you wouldn't write on the board. That means no names of teachers or classmates, no health details and nothing about family or friends. In the email, [Teacher] and [Name] can stay as placeholders."
+    "A chatbot writes from what is in the chat and, in some tools, from what it has saved from earlier chats. Asked for an email asking for more time, it fills the gaps in the prompt: if no reason is given, the email may include one anyway, such as an illness or a family matter, because emails like this usually have one. Prompt 2 asks the tool to ask its questions first, so the student fills the gaps instead. Tools differ, and the same prompt gives different answers each time, so expect pairs' emails to differ.",
+    "Keep the privacy rule simple: nothing goes into an AI tool that you wouldn't write on the board. That means no names of teachers or classmates, no health details and nothing about family or friends. In the email, [Teacher] and [Name] can stay as placeholders. Some tools also save details from earlier chats, which is one more reason to keep private things out."
   ],
   "frameworks": {
     "AILit": "Engage with AI, competence 3 (evaluate whether AI outputs should be accepted, revised or rejected, justifying each choice, advanced level); Create with AI, competence 3 (direct generative AI systems to refine results, comparing outputs with their own ideas, intermediate level); Manage AI, competence 4 (monitor and evaluate AI use, comparing AI outputs with the result they want, intermediate level)",
@@ -191,8 +191,8 @@
             "kind": "table",
             "columns": [
               "AI sentence",
-              "Accept, revise or reject?",
-              "Why?"
+              "Accept / revise / reject",
+              "Why? Your reason, and anything the AI made up"
             ],
             "rows": [
               [
@@ -229,7 +229,7 @@
           },
           {
             "kind": "text",
-            "body": "Circle anything the AI text made up: a reason, a date or a promise that you never gave it."
+            "body": "In the Why? column, note anything the AI text made up: a reason, a date or a promise that you never gave it."
           },
           {
             "kind": "tickets",

@@ -36,13 +36,13 @@
     }
   ],
   "materials": [
-    "Student PDF page 1, name the style: one per pair, printed in colour, or shown on the projector",
+    "Student PDF page 1, name the style: one per student, printed in colour if you can, or in black and white with the pictures shown in colour on the projector",
     "Page 2, who made this? and two closing-question tickets: one per pair",
     "One device per pair with a camera and the AI tool your school has approved, if the tool can edit pictures",
     "A projector, for the Visual Codes page if students work without AI"
   ],
   "before": [
-    "Print page 1 in colour for every pair, or show it on the projector: in black and white the styles are hard to tell apart. Print page 2 for every pair.",
+    "Print page 1 for every student and page 2 for every pair. Students can write on page 1 in black and white, but the styles are hard to tell apart without colour: print it in colour if you can, or show the pictures on the projector while students write.",
     "Check whether the AI tool your school has approved can edit an uploaded photo, and that it is approved for students' age. If it can't, or students can't log in, run step 4 without AI on the Visual Codes page.",
     "Open choosewise.education/visual-codes/ before class and pick three cards to show if you need the path without AI.",
     "Tell students before step 4: photos of objects only, never a person, themselves included. A photo of a person is personal data, and AI can turn it into something that person never agreed to."
@@ -64,7 +64,7 @@
       "minutes": 3,
       "mode": "All",
       "title": "One word, a whole style",
-      "do": "Give the answers: A is /blueprint, B is /forceanalysis, C is /cutaway. Ask whose words came closest. Then explain that each version came from the same photo and one word. The image model turns the word into a style because it was trained on huge numbers of pictures that people drew, photographed and labelled.",
+      "do": "Give the answers: A is /blueprint, B is /forceanalysis, C is /cutaway. Ask whose words came closest. Then explain that each version came from the same photo and one word. The image model turns the word into a style because it was trained on huge numbers of pictures that people drew, photographed and labelled. Then tell them that the original isn't a photo either: it was made with an image tool from a text prompt.",
       "say": "You needed five words to describe the style. The tool needed one. Both of you got the style from work that people made."
     },
     {
@@ -90,7 +90,7 @@
       "minutes": 9,
       "mode": "All",
       "title": "What the rules say",
-      "do": "Take the cases one by one and ask for hands. Then go through the rules (see Background). In the US, copyright protects what a person made, not purely AI-generated material, and prompts alone are not enough; choosing, arranging and changing the output can count. A court in Beijing protected an image made with more than 150 prompts and later adjustments, and UK law protects some computer-generated works. Who owns AI-made work depends on the country. Saying that AI was used is a separate question: under the EU's AI Act, people who use AI to make deepfakes must say that the content is AI-made, and schools set their own rules for schoolwork. Agree on a line the class can use, such as: Made with [tool] from my photo, code /cutaway.",
+      "do": "Take the cases one by one and ask for hands. Then go through the rules (see Background). In the US, copyright protects what a person made, not purely AI-generated material, and prompts alone are not enough; choosing, arranging and changing the output can count. A court in Beijing protected an image made with more than 150 prompts and later adjustments, and UK law protects some computer-generated works. Who owns AI-made work depends on the country. Saying that AI was used is a separate question: under the EU's AI Act, organisations and people who use AI to make deepfakes in their work must say that the content is AI-made (purely personal use is not covered), and schools set their own rules for schoolwork. Agree on a line the class can use, such as: Made with [tool] from my photo, code /cutaway.",
       "say": "Who made it and who owns it are two different questions. Saying how you used AI is how you answer the first one honestly."
     },
     {
@@ -140,10 +140,10 @@
   "language_swap": "Pages 1 and 2 have English text. The pictures need no translation. Write the column headings and the six cases on page 2 in your language next to the English ones, or read the cases aloud. The codes are English words: students type them as they are.",
   "age_note": "In step 4, students use the AI tool your school has approved for their age, and only if it can edit pictures. Check the table: Claude is for 18 and over, and ChatGPT needs a parent's or guardian's permission under 18. Step 4 works without AI, on the Visual Codes page.",
   "background": [
-    "Visual Codes are one-word prompts that Choosewise collected and tested with ChatGPT: you send a photo and a single word, such as /cutaway or /blueprint, and the image tool returns a new version of the same picture in that style. Other image tools may give different results, or none. The three versions on page 1 come from the Visual Codes page: A is /blueprint, B is /forceanalysis and C is /cutaway.",
+    "Visual Codes are one-word prompts that Choosewise collected and tested with ChatGPT: you send a photo and a single word, such as /cutaway or /blueprint, and the image tool returns a new version of the same picture in that style. Other image tools may give different results, or none. The three versions on page 1 come from the Visual Codes page: A is /blueprint, B is /forceanalysis and C is /cutaway. Even the original is not a photo: it was made with an image tool from a text prompt. That makes a good question for the gather: who made the original?",
     "ISTE's AI and Art project starts the same way: students describe an artist's style in their own words so that a friend could recognise it, then ask whether a computer could use the same description. An image model needs no such list: it was trained on huge numbers of pictures, made and labelled by people, and produces a style from a single word.",
     "Who owns AI-assisted work differs between countries. The US Copyright Office (January 2025) concludes that copyright does not extend to purely AI-generated material, that prompts alone do not give enough control, and that people can protect what they add: their own work that shows in the output, and creative selection, arrangement or changes. The same report notes that the Beijing Internet Court in 2023 found an image made with Stable Diffusion protected, because of the more than 150 prompts and later adjustments behind it; that most EU member states see significant human input as necessary; and that UK law protects works generated by computer with no human author.",
-    "Saying that AI was used is a separate question. Under the EU's AI Act (Article 50), people who use AI to make deepfakes, pictures, sound or video that look like real people, places or events, must disclose that the content was artificially generated or manipulated; for clearly artistic, satirical or fictional work a lighter disclosure is enough. The European Commission says these transparency rules apply from August 2026 (checked 12 November 2026). Outside the EU, rules differ. For schoolwork, follow your school's rules; where there are none, a short line saying which tool was used, and for what, is a good habit."
+    "Saying that AI was used is a separate question. Under the EU's AI Act (Article 50), organisations and people who use AI to make deepfakes in their work, pictures, sound or video that look like real people, places or events, must disclose that the content was artificially generated or manipulated; the duty does not cover purely personal, non-professional use (Article 3); for clearly artistic, satirical or fictional work a lighter disclosure is enough. The European Commission says these transparency rules apply from August 2026 (checked 12 November 2026). Outside the EU, rules differ. For schoolwork, follow your school's rules; where there are none, a short line saying which tool was used, and for what, is a good habit."
   ],
   "frameworks": {
     "AILit": "Create with AI, competences 4 (analyse how AI can safeguard or violate content authenticity and intellectual property: who should be credited and what copyright protects, advanced level) and 2 (visualise ideas using different types of AI systems, intermediate level)",
@@ -197,8 +197,8 @@
             "items": [
               {
                 "src": "visual-codes/images/airplane-before-584w.webp",
-                "label": "Photo",
-                "alt": "A photo of a passenger airplane in flight"
+                "label": "Original",
+                "alt": "An AI-made picture of a passenger airplane in flight, made to look like a photo"
               },
               {
                 "src": "visual-codes/images/airplane-blueprint-584w.webp",
