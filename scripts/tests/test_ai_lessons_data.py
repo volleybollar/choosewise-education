@@ -635,3 +635,20 @@ def test_does_ai_help_me_learn_compares_the_two_ai_groups():
     assert [row[0] for row in table["rows"]] == ["AI that gives answers", "AI tutor that gives hints"]
     assert "without AI" in lesson["student_pdf"]["pages"][0]["blocks"][0]["body"]
 
+
+def test_check_it_says_the_article_is_written_for_the_lesson():
+    """Påhittade fel får inte fastna: bladet säger att artikeln är skriven för lektionen och att en del är fel."""
+    lesson = _lesson("check-it", OLDER)
+    page = lesson["student_pdf"]["pages"][0]
+    assert "written for this lesson" in page["instruction"] and "wrong" in page["instruction"]
+    article = page["blocks"][0]["body"]
+    assert [n for n in range(1, 9) if f"[{n}]" in article] == [1, 2, 3, 4, 5, 6]
+
+
+def test_check_it_gives_a_verdict_for_every_claim():
+    lesson = _lesson("check-it", OLDER)
+    text = " ".join(teacher_text(lesson))
+    for n in range(1, 7):
+        assert re.search(rf"Claim {n}: (true|wrong|can't confirm)", text), n
+    assert any("search engine" in m for m in lesson["materials"])
+

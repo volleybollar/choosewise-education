@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Check It — choosewise.education</title>
+  <meta name="description" content="Students check an article written to look like a chatbot&#x27;s answer the way fact-checkers do, then ask AI for the other side and open every source it gives.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (prefix tm-), och sedan det som är
+       nytt för AI-lektionerna (prefix al-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/ai-lessons.css?v=20261111a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten.
+       Sidan byggs av scripts/build-ai-lessons.py: ändra JSON-filen, inte HTML:en. -->
+<!-- seo:start (build-seo-meta.py) -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: tillbaka till översikten, lektionens namn och en rad om vad eleverna gör. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/ai-lessons-older-319cf15d/">← AI Lessons for Older Students</a>
+      <span class="eyebrow">Ages 16–19 · Lesson 2</span>
+      <h1>Check It</h1>
+      <p class="lede">Students check an article written to look like a chatbot&#x27;s answer the way fact-checkers do, then ask AI for the other side and open every source it gives.</p>
+    </section>
+
+    <!-- Lektionen i korthet, materialet och elev-PDF:en. -->
+    <section class="section section--alt" id="al-glance">
+      <div class="container">
+        <h2 class="section__title">At a glance</h2>
+        <dl class="al-glance">
+          <div><dt>Ages</dt><dd>16–19</dd></div>
+          <div><dt>Time</dt><dd>40 min</dd></div>
+          <div><dt>Groups</dt><dd>Individual, pairs, then the whole class</dd></div>
+          <div><dt>AI use</dt><dd>Students use AI</dd></div>
+          <div><dt>Preparation</dt><dd>15 min</dd></div>
+        </dl>
+        <h3 class="al-sub">Materials</h3>
+        <ul class="al-list"><li>Student PDF page 1, the article: one per student</li><li>Page 2, check the claims, ask AI and two closing-question tickets: one per pair</li><li>One device per pair with a search engine and the AI tool your school has approved</li></ul>
+        <a class="btn btn--primary al-download" href="/ai-lessons-older-319cf15d/check-it/check-it-student-en.pdf" download>Download the student PDF</a>
+      </div>
+    </section>
+
+    <!-- Lärandemål och nyckelord med elevvänliga förklaringar. -->
+    <section class="section" id="al-goals">
+      <div class="container">
+        <h2 class="section__title">Learning goals</h2>
+        <p class="al-text">By the end of the lesson, students can:</p>
+        <ul class="al-list"><li>Check a claim the way fact-checkers do: leave the page, find out who says what, and trace the claim to its original source.</li><li>Use AI to find the other side of a claim, and check that the sources it names exist and say what it claims.</li><li>Judge a claim as true, wrong or impossible to confirm, and give the source for that judgement.</li></ul>
+        <h3 class="al-sub">Key words</h3>
+        <dl class="al-words"><dt>lateral reading</dt><dd>Checking a page by leaving it: opening new tabs to find out who is behind it and what other sources say.</dd><dt>original source</dt><dd>Where a claim first came from, such as the study, the report or the organisation itself.</dd><dt>can&#x27;t confirm</dt><dd>No reliable source backs the claim up. It may be true, but you shouldn&#x27;t repeat it as a fact.</dd><dt>counter-evidence</dt><dd>Facts or sources that go against a claim.</dd></dl>
+      </div>
+    </section>
+
+    <!-- Förberedelser: vad läraren skriver ut, skriver och provar före lektionen. -->
+    <section class="section section--alt" id="al-before">
+      <div class="container">
+        <h2 class="section__title">Before the lesson</h2>
+        <p class="al-text">About 15 minutes.</p>
+        <ul class="al-list"><li>Print page 1 for every student and page 2 for every pair.</li><li>Give each pair two claims to check, so that every claim is checked by at least two pairs. Write the claim numbers for each pair on the board.</li><li>Before class, run one of the prompts in step 4 with claim 4 or claim 6 on the tool students will use, and save a screenshot of the answer. You need it if the tool is blocked or students can&#x27;t log in.</li><li>Check that students can reach a search engine and the AI tool your school has approved, and that the tool is approved for their age.</li><li>The article is written to look like a chatbot&#x27;s answer, and three of its six claims are wrong or can&#x27;t be confirmed. Go through every claim in step 5, so that nobody leaves believing a wrong one.</li></ul>
+      </div>
+    </section>
+
+    <!-- Steg för steg: minut för minut, varje steg enskilt, i par eller alla. -->
+    <section class="section" id="al-steps">
+      <div class="container">
+        <h2 class="section__title">Step by step</h2>
+        <ol class="al-steps"><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 1</span><span class="al-step__time">0–4 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">First impression</h3><p class="al-step__do">Hand out page 1. Students read the article and tick Believe, Not sure or Doubt for each numbered claim, going on their gut feeling. No searching yet.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 2</span><span class="al-step__time">4–8 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Read sideways</h3><p class="al-step__do">Ask which claims students doubted and why. Then explain how fact-checkers work: they don&#x27;t read a page from top to bottom to judge it. They leave it, open new tabs and ask three things: who is behind this, what do other sources say, and where did the claim first come from? This is called lateral reading.</p><p class="al-say"><span class="al-say__label">Say</span> A text can sound sure and still be wrong. You won&#x27;t find out by reading it more closely. You find out by leaving it.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 3</span><span class="al-step__time">8–20 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Check the claims</h3><p class="al-step__do">Hand out page 2. Each pair checks the two claims you gave them with a search engine and writes who says so and a verdict: true, wrong or can&#x27;t confirm. Tips: search for the organisation&#x27;s name on its own; look for official health or research bodies; follow a number back to where it first appeared.</p></li><li class="al-step al-step--ai"><p class="al-step__head"><span class="al-step__num">Step 4</span><span class="al-step__time">20–28 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Ask AI for the other side</h3><p class="al-step__do">Pairs pick one of their claims and one prompt from page 2, type it into the AI tool your school has approved with the claim in the brackets, and open every source in the answer: does it exist, and does it say what the answer claims? They note what they find on page 2.</p><p class="al-label">Prompts to try (pick one)</p><ul class="al-prompts"><li>What is the strongest evidence against this claim: &quot;[claim]&quot;? List sources I can open.</li><li>Who disagrees with this claim, and why: &quot;[claim]&quot;? Give links to the sources.</li></ul><p class="al-fallback"><strong>Without AI:</strong> Show the answer you saved before class on the projector. Pairs pick one of the sources in it, open it, and check whether it exists and says what the answer claims.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 5</span><span class="al-step__time">28–37 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Claim by claim</h3><p class="al-step__do">Go through the six claims. Ask the pairs who checked each one for their verdict and source, then give the answer (see Background). Claim 1: true, CDC. Claim 2: true, a CDC report from 2015. Claim 3: wrong number: fewer than one in three US high-school students sleep at least 8 hours on school nights, so more than two in three sleep less. Claim 4: can&#x27;t confirm, and almost certainly made up: no organisation of that name can be found. Claim 5: true, the American Academy of Pediatrics in 2014. Claim 6: can&#x27;t confirm: many websites repeat it, but none points to a source from Einstein&#x27;s lifetime. Then ask where AI helped and where it misled.</p><p class="al-say"><span class="al-say__label">Say</span> AI can point you to a source. What counts is the source itself, and only once you&#x27;ve opened it.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 6</span><span class="al-step__time">37–40 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">Closing question</h3><p class="al-step__do">Each student answers the closing question on a ticket from page 2 and hands it in.</p></li></ol>
+      </div>
+    </section>
+
+    <!-- Uppsamling i helklass: frågor och vad elever brukar svara. -->
+    <section class="section section--alt" id="al-gather">
+      <div class="container">
+        <h2 class="section__title">Gather it up</h2>
+        <p class="al-text">Questions for the whole-class talk, with answers students often give.</p>
+        <ul class="al-gather"><li><p class="al-gather__q">Which claim fooled most of us at first, and why?</p><p class="al-label">Students often say</p><ul class="al-said"><li>The Einstein one. It sounds like a fun fact.</li><li>The council, because it sounded official.</li><li>The numbers. They look exact.</li></ul></li><li><p class="al-gather__q">How did you find out that claim 4 was a problem?</p><p class="al-label">Students often say</p><ul class="al-said"><li>We searched the name and found nothing.</li><li>It has no website.</li><li>Only the article mentions it.</li></ul></li><li><p class="al-gather__q">Did the AI help you find the other side?</p><p class="al-label">Students often say</p><ul class="al-said"><li>It gave us ideas for what to search.</li><li>One link didn&#x27;t work.</li><li>One source didn&#x27;t say what the answer said.</li></ul></li><li><p class="al-gather__q">What will you do the next time a chatbot gives you a fact?</p><p class="al-label">Students often say</p><ul class="al-said"><li>Check where it comes from.</li><li>Open the link before I use it.</li><li>Search for it somewhere else.</li></ul></li></ul>
+      </div>
+    </section>
+
+    <!-- Enklare och svårare varianter. -->
+    <section class="section" id="al-adapt">
+      <div class="container">
+        <h2 class="section__title">Make it simpler, make it harder</h2>
+        <div class="al-adapt">
+          <div><h3 class="al-sub">Simpler</h3><p class="al-text">Check claims 1, 4 and 6 together as a class on the projector, then let pairs check one more claim each. Run the AI step as a teacher demo.</p></div>
+          <div><h3 class="al-sub">Harder</h3><p class="al-text">Pairs ask the AI tool for a short article about a topic from one of their courses and check three of its claims the same way. Or the class writes a rule for school work: what counts as a good enough source, and how do you show that you checked?</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avslutande fråga (exit ticket) som varje elev svarar på. -->
+    <section class="section section--alt" id="al-closing">
+      <div class="container">
+        <h2 class="section__title">Closing question</h2>
+        <p class="al-closing">A chatbot gives you a fact with a link. What do you check before you use the fact?</p>
+      </div>
+    </section>
+
+    <!-- Byta språk: hur läraren gör elevmaterialet till klassens språk. -->
+    <section class="section section--alt" id="al-language">
+      <div class="container">
+        <h2 class="section__title">Teaching in another language</h2>
+        <p class="al-text">Pages 1 and 2 have English text. Read the article on page 1 aloud in your class&#x27;s language, or write your own version about a topic in your country with six claims of the same kinds, using sources you have checked. Write the column headings on page 2 in your language. The prompts work in any language, and students can search in the language that has the best sources for each claim.</p>
+      </div>
+    </section>
+
+    <!-- Bakgrund för läraren: två minuters läsning. -->
+    <section class="section" id="al-background">
+      <div class="container">
+        <h2 class="section__title">Background for you</h2>
+        <p class="al-text">Professional fact-checkers judge a page by leaving it. Instead of reading a site from top to bottom, they open new tabs and check who is behind it, what others say and where a claim first came from: this is called lateral reading. Earlier Stanford research found that fact-checkers were much less easily fooled by questionable websites than historians and undergraduates. In a randomised study with about 500 high-school students, six 50-minute lessons made students twice as likely to spot questionable websites, although by the end of the semester they still earned only half of the possible points (Stanford Graduate School of Education, 2022). The skill takes practice, so expect pairs to be slow at first.</p><p class="al-text">A chatbot&#x27;s answer is like a page without an author: it can mix true and wrong claims in the same confident tone. AI can help find counter-arguments and places to look, but a source it names only counts once you have opened it and seen that it exists and says what the answer claims. Research on lateral reading of chatbot answers is still thin; the habit is the same.</p><p class="al-text">The article&#x27;s claims, with sources. 1: true. The CDC (US Centers for Disease Control and Prevention), citing the American Academy of Sleep Medicine, recommends 8–10 hours of sleep for teens aged 13–17. 2: true. A CDC report from 2015 says that in puberty, biological rhythms commonly shift so that adolescents become sleepy later at night. 3: wrong number. The same report says that fewer than one in three US high-school students sleep at least 8 hours on school nights, so more than two in three sleep less, not one in three. 4: can&#x27;t confirm. When we searched in November 2026, we found no organisation with that name and nothing behind the 20 percent figure; treat it as made up. 5: true. In 2014 the American Academy of Pediatrics recommended that middle and high schools start no earlier than 8:30 a.m., as cited in the CDC report. 6: can&#x27;t confirm. Many websites repeat it, but none we found pointed to a letter, interview or biography from Einstein&#x27;s lifetime.</p>
+      </div>
+    </section>
+
+    <!-- Koppling till ramverken AILit och AI4K12. -->
+    <section class="section section--alt" id="al-frameworks">
+      <div class="container">
+        <h2 class="section__title">Framework links</h2>
+        <p class="al-text"><a href="https://www.oecd.org/en/publications/empowering-learners-for-the-age-of-ai_65cd27d4-en.html"><strong>AILit</strong></a>: Engage with AI, competence 3 (evaluate whether AI outputs should be accepted, revised or rejected: checking them against trusted sources and justifying the decision), advanced level</p><p class="al-text"><a href="https://ai4k12.org/gradeband-progression-charts/"><strong>AI4K12</strong></a>: Big Idea 4 (Natural Interaction)</p>
+      </div>
+    </section>
+
+    <!-- Åldersgränser för verktygen lektionen nämner, och läsarnoten (globala regler). -->
+    <section class="section" id="al-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age limits</h2>
+        <p class="al-text">In step 4, students use the AI tool your school has approved for their age. Check the table: Claude is for 18 and over, and ChatGPT needs a parent&#x27;s or guardian&#x27;s permission under 18. Step 4 works without AI, with the answer you saved before class.</p>
+        <table class="al-table"><thead><tr><th scope="col">Tool</th><th scope="col">Minimum age</th><th scope="col">Notes</th></tr></thead><tbody><tr><th scope="row">ChatGPT</th><td>13, or the minimum age in your country</td><td>Under 18 only with a parent&#x27;s or guardian&#x27;s permission. Under-18 accounts get a teen version automatically.</td></tr><tr><th scope="row">Gemini, personal account</th><td>13</td><td>Under 13 only through a Family Link account, switched on by a parent.</td></tr><tr><th scope="row">Gemini, Google Workspace for Education</th><td>Any age, if the school&#x27;s administrator switches it on</td><td>Stricter content rules for under-18 accounts.</td></tr><tr><th scope="row">Microsoft Copilot, personal account</th><td>13, higher in some countries</td><td></td></tr><tr><th scope="row">Microsoft 365 Copilot Chat, school account</th><td>13</td><td>Blocked for students under 13 on school accounts.</td></tr><tr><th scope="row">Claude</th><td>18</td><td>No exception with a parent&#x27;s permission. In a school, for teachers only.</td></tr></tbody></table><p class="al-checked">Checked 2026-11-11. Age rules change often.</p>
+        <p class="tm-note">Readers outside Sweden should verify their own national regulations. AI in education is evolving quickly and country rules differ significantly.</p>
+      </div>
+    </section>
+
+    <!-- Källor, vidare läsning och vad medlemmar får göra med materialet. -->
+    <section class="section section--alt" id="al-credits">
+      <div class="container">
+        <h2 class="section__title">Sources and use</h2>
+        
+        <h3 class="al-sub">Further reading</h3>
+        <ul class="tm-sources"><li><a href="https://ed.stanford.edu/news/it-doesn-t-take-long-learn-how-spot-misinformation-online-stanford-study-finds">Stanford Graduate School of Education (2022): It doesn&#x27;t take long to learn how to spot misinformation online</a></li><li><a href="https://www.cdc.gov/sleep/about/index.html">CDC: About sleep (recommended hours by age)</a></li><li><a href="https://www.cdc.gov/mmwr/preview/mmwrhtml/mm6430a1.htm">CDC (2015): School start times for middle school and high school students, United States, 2011–12 school year</a></li></ul>
+        <p class="al-rights">For members of the Choosewise community: use these materials with your own students, share them with colleagues at your school, and adapt or translate them for your own teaching. Please don&#x27;t republish or sell them.</p>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+</body>
+</html>

@@ -101,6 +101,11 @@
       "id": "does-ai-help-me-learn",
       "band": "16-19",
       "number": 1
+    },
+    {
+      "id": "check-it",
+      "band": "16-19",
+      "number": 2
     }
   ],
   "how_it_works": [
