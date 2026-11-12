@@ -30,6 +30,7 @@
     {"id": "9-12", "ages": "Ages 9–12", "line": "The main focus of the track, for students who can read a short text and work in pairs on their own."}
   ],
   "lessons": [
+    {"id": "made-by-people", "band": "5-8", "number": 1},
     {"id": "ai-or-not", "band": "9-12", "number": 1},
     {"id": "learning-from-examples", "band": "9-12", "number": 2},
     {"id": "who-does-it-fail", "band": "9-12", "number": 3},

@@ -841,3 +841,21 @@ def test_older_track_overview_covers_16_19():
     threads = {th["name"]: th["line"] for th in t["threads"]}
     assert "when to say that AI was used" in threads["AI-made content"]
     assert "rules for AI at school" in threads["Me and AI"]
+
+
+# ───── 5–8 (planen 2026-11-12-ai-lessons-5-8) ─────
+
+def test_made_by_people_credits_iste_project_3():
+    text = " ".join(c["text"] for c in _lesson("made-by-people")["credits"])
+    assert "ISTE" in text and "Project 3" in text and "CC BY 4.0" in text
+
+
+def test_made_by_people_sorts_twelve_cards_and_pairs_senses_with_sensors():
+    lesson = _lesson("made-by-people")
+    cards = _blocks(lesson, "cards")
+    assert sorted(c["word"] for c in cards[0]["cards"]) == sorted(
+        ["tree", "flower", "apple", "cat", "fish", "carrot", "car", "chair", "ball", "robot", "bread", "book"])
+    mat = _blocks(lesson, "mat")[0]
+    assert mat["headings"] == ["Grew", "Made by people"] and mat["icons"] == ["seedling", "hammer"]
+    assert [(b["heading"], [c["word"] for c in b["cards"]]) for b in cards[1:]] == [
+        ("Senses", ["eye", "ear", "finger"]), ("Sensors", ["camera", "microphone", "touchscreen"])]

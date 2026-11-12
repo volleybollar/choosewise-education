@@ -64,8 +64,8 @@ def test_render_escapes_text():
 
 
 def test_overview_hides_empty_bands():
-    t = track()
-    assert all(lesson["band"] != "5-8" for lesson in t["lesson_data"])
+    t = copy.deepcopy(track())  # 5–8 har lektioner sedan 2026-11-12; tomt band skapas här
+    t["lesson_data"] = [lesson for lesson in t["lesson_data"] if lesson["band"] != "5-8"]
     out = build_mod().render_overview(t)
     assert "Ages 5–8" not in section(out, "al-lessons")
     assert "Ages 9–12" in section(out, "al-lessons")

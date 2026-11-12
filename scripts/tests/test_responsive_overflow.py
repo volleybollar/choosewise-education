@@ -87,6 +87,7 @@ PAGES = (
         "ai-lessons-older-319cf15d/using-ai-well/",
         "ai-lessons-older-319cf15d/who-made-this/",
         "ai-lessons-older-319cf15d/who-decides-about-ai/",
+        "ai-lessons-younger-3c514a93/made-by-people/",
     ]
 )
 
