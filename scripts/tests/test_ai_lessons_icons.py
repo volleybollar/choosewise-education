@@ -11,7 +11,6 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-SLUG = "ai-lessons-younger-3c514a93"
 ICONS = ROOT / "_unpublished/exports/ai-lessons/icons"
 BUILD = ROOT / "exports/build-ai-lessons-pdf.py"
 
@@ -24,9 +23,17 @@ def load_build():
 
 
 def card_icons():
-    track = json.loads((ROOT / SLUG / "track-en.json").read_text(encoding="utf-8"))
+    spec = importlib.util.spec_from_file_location("build_ai_lessons", ROOT / "scripts/build-ai-lessons.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    for slug in mod.TRACKS:
+        yield from _card_icons(slug)
+
+
+def _card_icons(slug):
+    track = json.loads((ROOT / slug / "track-en.json").read_text(encoding="utf-8"))
     for entry in track["lessons"]:
-        lesson = json.loads((ROOT / SLUG / entry["id"] / "lesson-en.json").read_text(encoding="utf-8"))
+        lesson = json.loads((ROOT / slug / entry["id"] / "lesson-en.json").read_text(encoding="utf-8"))
         for page in lesson["student_pdf"]["pages"]:
             for block in page["blocks"]:
                 for card in block.get("cards", []):

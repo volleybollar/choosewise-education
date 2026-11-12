@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bias In, Bias Out — choosewise.education</title>
+  <meta name="description" content="Students hire for a summer job, turn their choices into training data, and watch a scoring rule leave out the best applicants for reasons nobody chose.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (prefix tm-), och sedan det som är
+       nytt för AI-lektionerna (prefix al-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/ai-lessons.css?v=20261111a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten.
+       Sidan byggs av scripts/build-ai-lessons.py: ändra JSON-filen, inte HTML:en. -->
+<!-- seo:start (build-seo-meta.py) -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: tillbaka till översikten, lektionens namn och en rad om vad eleverna gör. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/ai-lessons-older-319cf15d/">← AI Lessons for Older Students</a>
+      <span class="eyebrow">Ages 13–15 · Lesson 3</span>
+      <h1>Bias In, Bias Out</h1>
+      <p class="lede">Students hire for a summer job, turn their choices into training data, and watch a scoring rule leave out the best applicants for reasons nobody chose.</p>
+    </section>
+
+    <!-- Lektionen i korthet, materialet och elev-PDF:en. -->
+    <section class="section section--alt" id="al-glance">
+      <div class="container">
+        <h2 class="section__title">At a glance</h2>
+        <dl class="al-glance">
+          <div><dt>Ages</dt><dd>13–15</dd></div>
+          <div><dt>Time</dt><dd>40 min</dd></div>
+          <div><dt>Groups</dt><dd>Individual, pairs, then the whole class</dd></div>
+          <div><dt>AI use</dt><dd>No AI</dd></div>
+          <div><dt>Preparation</dt><dd>10 min</dd></div>
+        </dl>
+        <h3 class="al-sub">Materials</h3>
+        <ul class="al-list"><li>Student PDF page 1, round 1 and two closing-question tickets: one per pair</li><li>Page 2, round 2 and who gains, who pays: one per pair</li><li>Scrap paper, and the board</li></ul>
+        <a class="btn btn--primary al-download" href="/ai-lessons-older-319cf15d/bias-in-bias-out/bias-in-bias-out-student-en.pdf" download>Download the student PDF</a>
+      </div>
+    </section>
+
+    <!-- Lärandemål och nyckelord med elevvänliga förklaringar. -->
+    <section class="section" id="al-goals">
+      <div class="container">
+        <h2 class="section__title">Learning goals</h2>
+        <p class="al-text">By the end of the lesson, students can:</p>
+        <ul class="al-list"><li>Explain how past choices used as training data can carry a pattern that has nothing to do with the task.</li><li>Show who gains and who loses when an AI system repeats that pattern.</li><li>Suggest changes that make such a system fairer: other features, checks across groups, and a person who reviews the results.</li></ul>
+        <h3 class="al-sub">Key words</h3>
+        <dl class="al-words"><dt>training data</dt><dd>The examples a system learns from. Today: the people the class hired.</dd><dt>feature</dt><dd>One piece of information about each example, such as where someone lives.</dd><dt>bias</dt><dd>A pattern that treats some groups unfairly. Bias in the data comes out in the results: bias in, bias out.</dd><dt>stand-in feature</dt><dd>A feature that carries the same pattern as another one. Where someone lives can say a lot about who they are.</dd></dl>
+      </div>
+    </section>
+
+    <!-- Förberedelser: vad läraren skriver ut, skriver och provar före lektionen. -->
+    <section class="section section--alt" id="al-before">
+      <div class="container">
+        <h2 class="section__title">Before the lesson</h2>
+        <p class="al-text">About 10 minutes.</p>
+        <ul class="al-list"><li>Print pages 1 and 2 for every pair, and keep page 2 back until step 5.</li><li>Draw an empty tally on the board: Worked before (Yes, No), Reference (Yes, No), Lives in (Northside, Southside), Hobby (Football, Chess, Drama, Gaming).</li><li>Know the answer: if pairs hire the three applicants who have worked before and have a reference (A, B and C), the rule gives the job to J and K, and I and M, the best applicants in round 2, lose.</li></ul>
+      </div>
+    </section>
+
+    <!-- Steg för steg: minut för minut, varje steg enskilt, i par eller alla. -->
+    <section class="section" id="al-steps">
+      <div class="container">
+        <h2 class="section__title">Step by step</h2>
+        <ol class="al-steps"><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 1</span><span class="al-step__time">0–3 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">What should count?</h3><p class="al-step__do">Each student writes two things on scrap paper that should matter when choosing someone for a summer job at the swimming-pool kiosk.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 2</span><span class="al-step__time">3–5 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Collect</h3><p class="al-step__do">Collect answers on the board, for example: experience, being reliable, a good reference, being friendly, being free all summer. Keep the list up.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 3</span><span class="al-step__time">5–9 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Round 1: you choose</h3><p class="al-step__do">Hand out page 1. Pairs read the eight applicants, tick three to hire and agree on one reason for each hire. The applicants have letters instead of names on purpose, so nobody guesses anything from a name.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 4</span><span class="al-step__time">9–15 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">The machine&#x27;s memory</h3><p class="al-step__do">Ask a few pairs for their reasons and write them on the board. Then count how many of the class&#x27;s hires had each value: worked before, reference, where they live, hobby. Circle the most common value in each column. This tally is the training data. If the class is split, use the three applicants with the most ticks.</p><p class="al-say"><span class="al-say__label">Say</span> Now we build a machine that learns from our choices. The machine never sees our reasons. It only gets what the people we hired had in common.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 5</span><span class="al-step__time">15–22 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Round 2: the machine chooses</h3><p class="al-step__do">Hand out page 2. Pairs score the six new applicants with the machine&#x27;s rule: one point for each value the applicant shares with the circled values on the board. The two with the most points get the job.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 6</span><span class="al-step__time">22–30 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Who did it leave out?</h3><p class="al-step__do">Ask who got the job (J and K) and who didn&#x27;t. Applicants I and M had worked before and had a reference, the two things the class said matter, and both lost. Where someone lives and their hobby have nothing to do with the job, but all of round 1&#x27;s best applicants happened to share them, so the rule copied them. Name it: bias in, bias out. Then tell the real case from the background.</p><p class="al-say"><span class="al-say__label">Say</span> Nobody in this room chose by neighbourhood. The pattern was in the data, and the rule repeated it.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 7</span><span class="al-step__time">30–37 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Who gains, who pays?</h3><p class="al-step__do">On page 2, pairs write one group that gains from the machine, one that loses, and one change they would make: leave out features that have nothing to do with the job, compare the results for Northside and Southside before using it, or let a person look at every no.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 8</span><span class="al-step__time">37–40 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">Closing question</h3><p class="al-step__do">Each student answers the closing question on a ticket from page 1 and hands it in.</p></li></ol>
+      </div>
+    </section>
+
+    <!-- Uppsamling i helklass: frågor och vad elever brukar svara. -->
+    <section class="section section--alt" id="al-gather">
+      <div class="container">
+        <h2 class="section__title">Gather it up</h2>
+        <p class="al-text">Questions for the whole-class talk, with answers students often give.</p>
+        <ul class="al-gather"><li><p class="al-gather__q">Why did I and M lose?</p><p class="al-label">Students often say</p><ul class="al-said"><li>They live in Southside.</li><li>They don&#x27;t play football.</li><li>The machine copied what our hires had in common.</li></ul></li><li><p class="al-gather__q">Did we do anything wrong in round 1?</p><p class="al-label">Students often say</p><ul class="al-said"><li>No, we picked the ones who had worked before.</li><li>Maybe: we didn&#x27;t notice that they all lived in Northside.</li><li>The data was the problem, not us.</li></ul></li><li><p class="al-gather__q">Who gains and who loses if the kiosk uses the machine?</p><p class="al-label">Students often say</p><ul class="al-said"><li>The kiosk saves time.</li><li>People from Northside get the jobs.</li><li>People from Southside never get a chance and don&#x27;t know why.</li></ul></li><li><p class="al-gather__q">How could the makers make it fairer?</p><p class="al-label">Students often say</p><ul class="al-said"><li>Take out where people live.</li><li>Test it on different groups first.</li><li>Let a person check every no.</li></ul></li></ul>
+      </div>
+    </section>
+
+    <!-- Enklare och svårare varianter. -->
+    <section class="section" id="al-adapt">
+      <div class="container">
+        <h2 class="section__title">Make it simpler, make it harder</h2>
+        <div class="al-adapt">
+          <div><h3 class="al-sub">Simpler</h3><p class="al-text">Do round 1 and the tally together on the board, and score round 2 as a class.</p></div>
+          <div><h3 class="al-sub">Harder</h3><p class="al-text">Take away Lives in and Hobby and add a new column, School, where all of round 1&#x27;s best applicants went to the same school in Northside. Does the problem come back? That is how one feature can stand in for another. Or let students try the online hiring game that ISTE&#x27;s original activity uses (see Further reading).</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avslutande fråga (exit ticket) som varje elev svarar på. -->
+    <section class="section section--alt" id="al-closing">
+      <div class="container">
+        <h2 class="section__title">Closing question</h2>
+        <p class="al-closing">How can an AI system that learns from past choices end up unfair, even if nobody meant it to be? Use today&#x27;s job as your example.</p>
+      </div>
+    </section>
+
+    <!-- Byta språk: hur läraren gör elevmaterialet till klassens språk. -->
+    <section class="section section--alt" id="al-language">
+      <div class="container">
+        <h2 class="section__title">Teaching in another language</h2>
+        <p class="al-text">Pages 1 and 2 have English words, but few of them. Write Yes, No, the two neighbourhoods and the four hobbies in your class&#x27;s language on the board, and read the column headings aloud in your language. Students can write the answers on page 2 and their tickets on page 1 in any language.</p>
+      </div>
+    </section>
+
+    <!-- Bakgrund för läraren: två minuters läsning. -->
+    <section class="section" id="al-background">
+      <div class="container">
+        <h2 class="section__title">Background for you</h2>
+        <p class="al-text">Organisations use AI systems to sort job applications, school places and loan requests. Such a system learns from past choices: which applications were accepted before. If those choices followed a pattern that had nothing to do with the job, the system learns that pattern too, and repeats it for every new applicant.</p><p class="al-text">A well-known case: in 2018 Reuters reported that Amazon had built an experimental tool to rate job applicants, trained on patterns in CVs sent to the company over ten years. Most came from men, a reflection of the tech industry. The tool penalised CVs that included the word &quot;women&#x27;s&quot;, as in &quot;women&#x27;s chess club captain&quot;, and downgraded graduates of two all-women&#x27;s colleges. Amazon disbanded the team. According to people familiar with the project, recruiters looked at the tool&#x27;s recommendations but never relied on them alone.</p><p class="al-text">In today&#x27;s game, where someone lives and their hobby stand in for the history of who was hired before. Removing a feature doesn&#x27;t always help, because other features can carry the same pattern: in the Amazon case, words in the CV pointed to gender. That is why fairness checks compare results for different groups, and why a person should review results that affect people.</p><p class="al-text">Use precise words in class: the system scores and sorts applicants by patterns in past choices. The people who build it, choose its data and use its scores are responsible for what happens next.</p>
+      </div>
+    </section>
+
+    <!-- Koppling till ramverken AILit och AI4K12. -->
+    <section class="section section--alt" id="al-frameworks">
+      <div class="container">
+        <h2 class="section__title">Framework links</h2>
+        <p class="al-text"><a href="https://www.oecd.org/en/publications/empowering-learners-for-the-age-of-ai_65cd27d4-en.html"><strong>AILit</strong></a>: Engage with AI, competence 6 (explain how biased data or design choices can lead AI systems to unfair outcomes for certain groups), and Shape AI, competence 3 (design AI systems with attention to how data sources and selection influence behaviour, when AI is used for choices that affect others), intermediate level</p><p class="al-text"><a href="https://ai4k12.org/gradeband-progression-charts/"><strong>AI4K12</strong></a>: Big Idea 3 (Learning) · Big Idea 5 (Societal Impact)</p>
+      </div>
+    </section>
+
+    <!-- Åldersgränser för verktygen lektionen nämner, och läsarnoten (globala regler). -->
+    <section class="section" id="al-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age limits</h2>
+        <p class="al-text">This lesson uses no AI tool. Students don't use one, and you don't show one.</p>
+        <p class="al-text">Nobody uses AI in this lesson: the machine is a scoring rule that students run on paper.</p>
+        <p class="tm-note">Readers outside Sweden should verify their own national regulations. AI in education is evolving quickly and country rules differ significantly.</p>
+      </div>
+    </section>
+
+    <!-- Källor, vidare läsning och vad medlemmar får göra med materialet. -->
+    <section class="section section--alt" id="al-credits">
+      <div class="container">
+        <h2 class="section__title">Sources and use</h2>
+        <h3 class="al-sub">Credits</h3><ul class="tm-sources"><li><a href="https://iste-ascd.org/ai-lessons">Adapted from ISTE, Hands-On AI Projects for the Classroom: A Guide on Ethics and AI (2024), by Nancye Blair Black and Susan Brooks-Young, Project 4 &quot;AI and the 21st Century Worker&quot;, Activity 4 &quot;AI Decision-Making&quot;. Licensed under CC BY 4.0. Changes: the online hiring game is replaced by a 40-minute paper game with our own applicants, scoring rule and wording.</a></li><li><a href="https://creativecommons.org/licenses/by/4.0/">Licence of the original: Creative Commons Attribution 4.0 International (CC BY 4.0)</a></li></ul>
+        <h3 class="al-sub">Further reading</h3>
+        <ul class="tm-sources"><li><a href="https://www.irishtimes.com/business/technology/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-1.3658651">Reuters, Jeffrey Dastin (2018): Amazon scraps secret AI recruiting tool that showed bias against women (in The Irish Times)</a></li><li><a href="https://www.survivalofthebestfit.com/">Survival of the Best Fit, the online hiring game used in ISTE&#x27;s original activity</a></li></ul>
+        <p class="al-rights">For members of the Choosewise community: use these materials with your own students, share them with colleagues at your school, and adapt or translate them for your own teaching. Please don&#x27;t republish or sell them.</p>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+</body>
+</html>

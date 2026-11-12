@@ -25,7 +25,7 @@ from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-TRACKS = ["ai-lessons-younger-3c514a93"]
+TRACKS = ["ai-lessons-younger-3c514a93", "ai-lessons-older-319cf15d"]
 SEO_BLOCK = re.compile(r"<!-- seo:start \(build-seo-meta\.py\) -->.*?<!-- seo:end -->", re.S)
 AI_USE = {"none": "No AI", "teacher-demo": "Teacher demo", "students": "Students use AI"}
 
@@ -219,7 +219,7 @@ def render_overview(track: dict) -> str:
         <h3 class="al-sub">Further reading</h3>
         {_further_reading(list(reading.values()))}
         <h3 class="al-sub">AI tools and age limits</h3>
-        <p class="al-text">Students in this track never use AI themselves. If you show a tool in a teacher demo, use your own account.</p>
+        <p class="al-text">{escape(track["ai_use_note"])}</p>
         {_age_table(track, list(track["age_limits"]["tools"]))}
         <p class="tm-note">{escape(track["reader_note"])}</p>
         <p class="al-rights">{escape(track["use_rights"])}</p>
@@ -244,7 +244,10 @@ def _step(step: dict, start: int, n: int) -> str:
     ]
     if step.get("say"):
         parts.append(f'<p class="al-say"><span class="al-say__label">Say</span> {escape(step["say"])}</p>')
-    if step.get("prompts"):
+    if step.get("prompts_in_order"):  # stegen hänvisar till prompt 1, 2 …, så de numreras
+        parts.append('<p class="al-label">Prompts, in order</p><ol class="al-prompts">' + "".join(
+            f"<li><strong>Prompt {n}:</strong> {escape(p)}</li>" for n, p in enumerate(step["prompts"], start=1)) + "</ol>")
+    elif step.get("prompts"):
         parts.append('<p class="al-label">Prompts to try (pick one)</p>'
                      + _list(step["prompts"], "al-prompts"))
     if step.get("fallback"):

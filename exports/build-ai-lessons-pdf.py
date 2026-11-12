@@ -2,12 +2,14 @@
 """Build the student PDF for every AI lesson from its lesson-en.json.
 
 For every lesson in every track of scripts/build-ai-lessons.py this writes
-  _unpublished/exports/ai-lessons/<id>-student-a4-en.html   the HTML source
+  _unpublished/exports/ai-lessons/<id>-<band>-student-a4-en.html   the HTML source
   <slug>/<id>/<student_pdf.file>                            the PDF, in the hidden folder
 
 Each page in student_pdf.pages has a title, a short instruction and blocks:
   text       {body, big?}           a line of text; big for the training text (at least 16 pt)
-  table      {columns, rows}        an empty table to fill in
+  table      {columns, rows, tall?} a table to fill in: rows is a number of empty rows,
+                                    or a list of rows with one text per column ("" = empty);
+                                    tall gives rows with room for two lines of handwriting
   slips      {count, label}         slips to fold and tear along dashed lines
   checklist  {items, checks}        one row per item, one tick box per check
   tickets    {question, count}      closing-question tickets to cut off
@@ -68,6 +70,11 @@ h1 { font-family: var(--font-display); font-size: 22pt; font-weight: 500; line-h
 .grid--fill th:first-child, .grid--fill td:first-child { width: 35%; }
 .grid--fill th:last-child, .grid--fill td:last-child { width: 15%; }
 .grid .row-num { width: 14mm; font-weight: 500; text-align: center; }
+/* Förtryckta tabeller: luft i cellerna, och kolumnerna så breda som innehållet kräver. */
+.grid--data td { padding: 0 2mm; }
+.grid--data th:first-child, .grid--data td:first-child, .grid--data th:last-child, .grid--data td:last-child { width: auto; }
+/* Höga rader: plats för två rader handstil. */
+.grid--tall td { height: 18mm; }
 .box { display: inline-block; width: 7mm; height: 7mm; border: 0.4mm solid var(--color-text); border-radius: 1mm; }
 .grid .tick { text-align: center; }
 .slips { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 0.4mm dashed var(--color-text); border-left: 0.4mm dashed var(--color-text); }
@@ -134,8 +141,15 @@ def _text(block: dict) -> str:
 
 def _table(block: dict) -> str:
     head = "".join(f"<th>{escape(c)}</th>" for c in block["columns"])
-    row = "<tr>" + "<td></td>" * len(block["columns"]) + "</tr>"
-    return f'<table class="grid grid--fill"><thead><tr>{head}</tr></thead><tbody>{row * block["rows"]}</tbody></table>'
+    cls = "grid grid--fill"
+    if isinstance(block["rows"], list):  # förtryckta rader; tom text = en ruta att fylla i
+        cls += " grid--data"
+        body = "".join("<tr>" + "".join(f"<td>{escape(c)}</td>" for c in row) + "</tr>" for row in block["rows"])
+    else:
+        body = ("<tr>" + "<td></td>" * len(block["columns"]) + "</tr>") * block["rows"]
+    if block.get("tall"):
+        cls += " grid--tall"
+    return f'<table class="{cls}"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table>'
 
 
 def _slips(block: dict) -> str:
@@ -242,6 +256,12 @@ def render_student_html(track: dict, lesson: dict) -> str:
     )
 
 
+def source_path(lesson: dict) -> Path:
+    """The HTML source of a lesson's PDF. The band is in the name, because the
+    same lesson id can be in two tracks (ai-or-human in 9–12 and 13–15)."""
+    return SRC_DIR / f"{lesson['id']}-{lesson['band']}-student-a4-en.html"
+
+
 def main() -> None:
     from playwright.sync_api import sync_playwright
 
@@ -252,7 +272,7 @@ def main() -> None:
         for slug in build.TRACKS:
             track = build.load_track(ROOT, slug)
             for lesson in track["lesson_data"]:
-                src = SRC_DIR / f"{lesson['id']}-student-a4-en.html"
+                src = source_path(lesson)
                 dst = ROOT / slug / lesson["id"] / lesson["student_pdf"]["file"]
                 src.write_text(render_student_html(track, lesson), encoding="utf-8")
                 page = browser.new_page()

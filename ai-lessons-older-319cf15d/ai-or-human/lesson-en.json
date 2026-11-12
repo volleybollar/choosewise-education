@@ -1,0 +1,305 @@
+{
+  "id": "ai-or-human",
+  "title": "AI or Human?",
+  "band": "13-15",
+  "number": 4,
+  "line": "Students judge pictures and videos, watch a chatbot fail to tell who wrote a text, and plan how to check a voice message that sounds like a parent.",
+  "minutes": 40,
+  "groups": "Individual, pairs, then the whole class",
+  "ai_use": "teacher-demo",
+  "prep_minutes": 15,
+  "goals": [
+    "Use clues to judge whether a picture or a video was made with AI, and explain why a clue is not proof.",
+    "Explain why AI detectors, including asking a chatbot, can't settle who wrote a text.",
+    "Rank evidence by how easily AI can fake it, and plan safe steps before acting on a message that sounds like someone they know."
+  ],
+  "key_words": [
+    {
+      "word": "deepfake",
+      "meaning": "A video, picture or voice made with AI to look or sound like a real person doing or saying something they never did."
+    },
+    {
+      "word": "clue",
+      "meaning": "A sign that might show how something was made. A clue is not proof."
+    },
+    {
+      "word": "evidence",
+      "meaning": "Something that helps show whether a claim is true. Some evidence is much easier to fake than other evidence."
+    },
+    {
+      "word": "verify",
+      "meaning": "Check that something is true, for example by calling back on a number you already know."
+    }
+  ],
+  "materials": [
+    "Student PDF page 1, the picture grid and the clues: one per student, in colour if you can",
+    "Page 2, eight evidence cards: one per pair, cut out",
+    "Page 3, the sorting mat: one per pair",
+    "Page 4, the voice message, the plan and two closing-question tickets: one per pair",
+    "A projector, the Choosewise video test and a chatbot, on your own account"
+  ],
+  "before": [
+    "Print page 1 in colour if you can: in black and white the clues in the photos are hard to see. Or show the grid on the projector (https://choosewise.education/ai-or-human/#test-image) while students circle numbers on paper.",
+    "Print pages 2, 3 and 4 for every pair. Pairs need scissors for the cards on page 2.",
+    "Write a short paragraph yourself for the demo, for example a message to parents. Run prompt 1 with it before the lesson and save the answer, in case the tool is blocked in class.",
+    "Open https://choosewise.education/ai-or-human/#test-video and check that the videos play in your classroom."
+  ],
+  "steps": [
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Person or machine?",
+      "do": "Hand out page 1, or show the grid on the projector. Students circle the numbers of the pictures they think are AI-made, on their own."
+    },
+    {
+      "minutes": 3,
+      "mode": "Pairs",
+      "title": "Two clues",
+      "do": "Pairs compare their answers and agree on two clues, and write them on page 1."
+    },
+    {
+      "minutes": 5,
+      "mode": "All",
+      "title": "Reveal",
+      "do": "Reveal the answer: 1, 6 and 8 are not AI; the other six are AI-made. Ask which clues worked and which misled. Then run the video test on the projector (https://choosewise.education/ai-or-human/#test-video) and let the class vote: video 2 is AI.",
+      "say": "A clue is not proof. The tools get better every year, and a clue that worked last year may not work next year."
+    },
+    {
+      "minutes": 6,
+      "mode": "All",
+      "title": "Can a chatbot tell?",
+      "demo": true,
+      "do": "Open the chatbot on the projector, on your own account; students don't type. Paste the paragraph you wrote yourself and use prompt 1. Open a new chat and use prompt 1 again with the same paragraph. Compare the two answers, then ask prompt 2.",
+      "say": "The chatbot gave a number, but it has no way to find out who wrote the text. Tools built to detect AI text get it wrong too often to rely on.",
+      "prompts": [
+        "Was this text written by a person or by AI? Answer with a percentage. [paste your paragraph]",
+        "How could anyone be sure whether a person or an AI wrote this text?"
+      ],
+      "fallback": "If the chatbot says it can't tell, that is the more accurate answer: point out that studies of detection tools found them neither accurate nor reliable (see Background). If the tool is blocked, read out the answer you saved before the lesson.",
+      "prompts_in_order": true
+    },
+    {
+      "minutes": 10,
+      "mode": "Pairs",
+      "title": "Easy or hard to fake?",
+      "do": "Pairs cut out the eight evidence cards on page 2 and place them on the mat on page 3: Easy to fake, Takes some work, Hard to fake. Each card is a sign that a message really comes from your parent. Compare with the next pair. A usual sort: the voice, a photo, the nickname and the dog's name are easy to fake, since a short clip and a few posts are enough. The phone number and the video call take some work but can be faked: scammers can make any number show up on caller ID (spoofing), and criminals use AI video in real-time video calls. The family code word and calling back on a saved number are hard to fake. Pairs often disagree; the reasons matter more than the columns.",
+      "say": "Ask yourselves: could someone with an AI tool and a few posts from social media fake this?"
+    },
+    {
+      "minutes": 7,
+      "mode": "Pairs",
+      "title": "The voice message",
+      "do": "Hand out page 4 and read the voice message aloud: it sounds like your mum or dad and says, \"I lost my phone. Send me the code you just got by text.\" Pairs write three steps they would take, in order, on page 4."
+    },
+    {
+      "minutes": 3,
+      "mode": "All",
+      "title": "Our checklist",
+      "do": "Collect steps on the board into a class checklist. Make sure it includes: never pass on the code, whoever asks; don't reply to the message; call your parent on the number you already have saved; ask something only they would know, or your family's code word; tell an adult."
+    },
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
+      "do": "Each student answers the closing question on a ticket from page 4 and hands it in."
+    }
+  ],
+  "gather": [
+    {
+      "question": "Which clues worked for the pictures, and which misled you?",
+      "students_say": [
+        "The hands looked strange.",
+        "Too perfect, like an advert.",
+        "I thought a real one was fake because the light was odd."
+      ]
+    },
+    {
+      "question": "Why can't a chatbot tell whether a text is AI-made?",
+      "students_say": [
+        "It just gives an answer that sounds right.",
+        "It said different numbers in two chats.",
+        "Anyone can write like a chatbot, and a chatbot can write like anyone."
+      ]
+    },
+    {
+      "question": "Which evidence is hardest to fake, and why?",
+      "students_say": [
+        "Calling back on the saved number, because you choose who you call.",
+        "The code word, if nobody posted it online.",
+        "Not the voice: a short clip is enough."
+      ]
+    },
+    {
+      "question": "What would you do first with the voice message?",
+      "students_say": [
+        "Not send the code.",
+        "Call Mum on her normal number.",
+        "Tell an adult."
+      ]
+    }
+  ],
+  "simpler": "Skip the demo. Do the picture grid and the video test, then sort the eight cards together on the board and make the class checklist.",
+  "harder": "Show the text test on https://choosewise.education/ai-or-human/#test-text on the projector and let pairs explain their votes. Or pairs write the next message a scammer would send if their first step was to call back, and how their plan handles it.",
+  "closing_question": "You get a message that sounds like someone you know. What makes it real enough to trust, and what would you check?",
+  "language_swap": "Pages 1, 2, 3 and 4 have English text. The picture grid on page 1 needs no words; write the clue heading in your class's language. Read the eight cards on page 2 aloud in your language, and write the three mat headings on page 3 in your language. Read the voice message on page 4 aloud in your language. In the demo, paste a paragraph in your class's language and ask in it: the chatbot answers in it.",
+  "age_note": "Only you use a chatbot in this lesson, on your own account, and students watch. Some students aged 13–15 are old enough for some of these tools on a personal account, but most need a parent's permission, and Claude is for adults only. Showing the tool yourself avoids all of that.",
+  "background": [
+    "AI tools can now make pictures, texts, voices and videos that are very hard to tell from human-made ones. In one study, people could not reliably tell AI-made face photos from real ones, and even rated the AI-made faces as slightly more trustworthy (Nightingale and Farid, 2022). The tools have improved a lot since then. Clues still help with weaker pictures, but a clue is not proof: a real photo can look strange, and an AI picture can look perfect.",
+    "Tools that claim to detect AI-written text are unreliable. A 2023 test of 14 detection tools, two of them commercial, found them neither accurate nor reliable: they leaned towards labelling texts as human-written, and rewording a text made them worse (Weber-Wulff et al.). Asking a chatbot is not a detector at all: it produces a likely-sounding verdict, and the same text can get different verdicts in two chats, as the demo shows. Don't use either to judge students' work.",
+    "Copying a voice takes only a short clip, which can come from a video posted online, and the FBI warns that criminals also use AI video in real-time video calls. A phone number on the screen proves little: scammers can make any name or number show up on caller ID, which is called spoofing (FTC). The US Federal Trade Commission's advice for a call from a loved one asking for money: don't trust the voice; call the person back on a number you know is theirs; if you can't reach them, contact them through another family member or friends (FTC, 2023). The FBI also suggests a secret word or phrase that the family agrees on in advance.",
+    "The voice message in the lesson asks for a code sent by text. Teach the simple rule: never pass on a code you received by text, whoever asks for it.",
+    "The picture grid and the video test come from Choosewise's own AI or human? test, which adults find hard too. Expect the class to get several wrong: that is part of the lesson."
+  ],
+  "frameworks": {
+    "AILit": "Engage with AI, competence 3 (evaluate whether AI outputs should be accepted, revised or rejected, checking them against trusted sources), intermediate level; and Create with AI, competence 4 (analyse how AI can safeguard or violate content authenticity)",
+    "AI4K12": "Big Idea 5 (Societal Impact)"
+  },
+  "tools": [
+    "chatgpt",
+    "gemini",
+    "gemini-education",
+    "copilot",
+    "copilot-education",
+    "claude"
+  ],
+  "credits": [
+    {
+      "text": "Picture grid and video test: Choosewise, AI or human?",
+      "url": "https://choosewise.education/ai-or-human/"
+    },
+    {
+      "text": "Card pictures: Tabler Icons (MIT licence)",
+      "url": "https://tabler.io/icons"
+    }
+  ],
+  "further_reading": [
+    {
+      "title": "Nightingale and Farid (2022): AI-synthesized faces are indistinguishable from real faces and more trustworthy (PNAS)",
+      "url": "https://www.pnas.org/doi/10.1073/pnas.2120481119"
+    },
+    {
+      "title": "Weber-Wulff et al. (2023): Testing of detection tools for AI-generated text (arXiv)",
+      "url": "https://arxiv.org/abs/2306.15666"
+    },
+    {
+      "title": "US Federal Trade Commission (2023): Scammers use AI to enhance their family emergency schemes",
+      "url": "https://consumer.ftc.gov/consumer-alerts/2023/03/scammers-use-ai-enhance-their-family-emergency-schemes"
+    },
+    {
+      "title": "FBI Internet Crime Complaint Center (2024): Criminals use generative artificial intelligence to facilitate financial fraud",
+      "url": "https://www.ic3.gov/PSA/2024/PSA241203"
+    },
+    {
+      "title": "US Federal Trade Commission: Phone scams (caller ID spoofing)",
+      "url": "https://consumer.ftc.gov/articles/phone-scams"
+    },
+    {
+      "title": "Choosewise: the full AI or human? test, with texts, pictures and videos",
+      "url": "https://choosewise.education/ai-or-human/"
+    }
+  ],
+  "student_pdf": {
+    "file": "ai-or-human-student-en.pdf",
+    "pages": [
+      {
+        "title": "Person or machine?",
+        "instruction": "Circle the numbers you think are AI-made.",
+        "blocks": [
+          {
+            "kind": "image",
+            "src": "assets/images/ai-or-human/photo-grid.jpg",
+            "alt": "Nine numbered photographs in a 3 × 3 grid; some made with AI, some not."
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Our two clues"
+            ],
+            "rows": 2
+          }
+        ]
+      },
+      {
+        "title": "Is it really them?",
+        "instruction": "Cut out the cards.",
+        "blocks": [
+          {
+            "kind": "cards",
+            "heading": "Is the message really from your parent?",
+            "cards": [
+              {
+                "word": "It sounds like their voice",
+                "icon": "microphone"
+              },
+              {
+                "word": "It comes from their phone number",
+                "icon": "phone"
+              },
+              {
+                "word": "There's a photo of them",
+                "icon": "photo"
+              },
+              {
+                "word": "They're on a video call",
+                "icon": "video"
+              },
+              {
+                "word": "They use your nickname",
+                "icon": "message"
+              },
+              {
+                "word": "They know your dog's name",
+                "icon": "dog"
+              },
+              {
+                "word": "They say your family's code word",
+                "icon": "key"
+              },
+              {
+                "word": "You hang up, call their saved number, and they answer",
+                "icon": "phone-call"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Easy or hard to fake?",
+        "instruction": "Put each card where it belongs.",
+        "blocks": [
+          {
+            "kind": "mat",
+            "headings": [
+              "Easy to fake",
+              "Takes some work",
+              "Hard to fake"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "The voice message",
+        "instruction": "Write three steps, in order.",
+        "blocks": [
+          {
+            "kind": "text",
+            "body": "A voice message that sounds like your mum or dad: \"I lost my phone. Send me the code you just got by text.\""
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Our three steps, in order"
+            ],
+            "rows": 3
+          },
+          {
+            "kind": "tickets",
+            "question": "You get a message that sounds like someone you know. What makes it real enough to trust, and what would you check?",
+            "count": 2
+          }
+        ]
+      }
+    ]
+  },
+  "skool_text": "Lesson 4 for ages 13–15. Students judge which pictures and videos are AI-made, watch a chatbot fail to tell who wrote a text, rank evidence by how easily AI can fake it, and plan what to do with a voice message that sounds like a parent. Teacher demo only, 40 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-older-319cf15d/ai-or-human/"
+}

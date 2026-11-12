@@ -3,7 +3,7 @@
 En PDF per lektion, 1–4 sidor. PDF:en är A4 men innehållet ska rymmas när
 den skrivs ut i 100 % på US Letter, och varje sida bär sin sidfot. Källan är
 genererad HTML i _unpublished/exports/ai-lessons/, byggd ur lesson-en.json.
-Varje test går igenom alla lektioner i spåret.
+Varje test går igenom alla lektioner i alla spår.
 """
 import importlib.util
 import json
@@ -15,8 +15,6 @@ import pytest
 from pypdf import PdfReader
 
 ROOT = Path(__file__).resolve().parents[2]
-SLUG = "ai-lessons-younger-3c514a93"
-SRC_DIR = ROOT / "_unpublished/exports/ai-lessons"
 BUILD = ROOT / "exports/build-ai-lessons-pdf.py"
 
 
@@ -27,23 +25,26 @@ def load(name, path):
     return mod
 
 
-def track():
-    return json.loads((ROOT / SLUG / "track-en.json").read_text(encoding="utf-8"))
+TRACKS = load("build_ai_lessons", ROOT / "scripts/build-ai-lessons.py").TRACKS
 
 
-IDS = [entry["id"] for entry in track()["lessons"]]
+def track(slug):
+    return json.loads((ROOT / slug / "track-en.json").read_text(encoding="utf-8"))
 
 
-def lesson(lid):
-    return json.loads((ROOT / SLUG / lid / "lesson-en.json").read_text(encoding="utf-8"))
+PAIRS = [(slug, entry["id"]) for slug in TRACKS for entry in track(slug)["lessons"]]
 
 
-def pdf(lid):
-    return ROOT / SLUG / lid / lesson(lid)["student_pdf"]["file"]
+def lesson(slug, lid):
+    return json.loads((ROOT / slug / lid / "lesson-en.json").read_text(encoding="utf-8"))
 
 
-def src(lid):
-    return SRC_DIR / f"{lid}-student-a4-en.html"
+def pdf(slug, lid):
+    return ROOT / slug / lid / lesson(slug, lid)["student_pdf"]["file"]
+
+
+def src(slug, lid):
+    return load("build_ai_lessons_pdf", BUILD).source_path(lesson(slug, lid))
 
 
 def squash(text):
@@ -58,54 +59,60 @@ def has(needle, haystack):
     return squash(needle) in haystack
 
 
-@pytest.mark.parametrize("lid", IDS)
-def test_every_pdf_matches_its_page_count_and_footers(lid):
-    texts = pages(pdf(lid))
-    assert len(texts) == len(lesson(lid)["student_pdf"]["pages"])
+@pytest.mark.parametrize("slug,lid", PAIRS)
+def test_every_pdf_matches_its_page_count_and_footers(slug, lid):
+    texts = pages(pdf(slug, lid))
+    assert len(texts) == len(lesson(slug, lid)["student_pdf"]["pages"])
     for n, t in enumerate(texts, start=1):
-        assert has(f"{n} / {len(texts)}", t) and has(lesson(lid)["title"], t) and has("choosewise.education", t), n
+        assert has(f"{n} / {len(texts)}", t) and has(lesson(slug, lid)["title"], t) and has("choosewise.education", t), n
 
 
 def test_training_text_on_page_one():
-    for lid in IDS:
-        if "training_text" in lesson(lid):
-            assert has(lesson(lid)["training_text"], pages(pdf(lid))[0]), lid
+    for slug, lid in PAIRS:
+        if "training_text" in lesson(slug, lid):
+            assert has(lesson(slug, lid)["training_text"], pages(pdf(slug, lid))[0]), lid
 
 
-@pytest.mark.parametrize("lid", IDS)
-def test_use_rights_on_page_one(lid):
-    assert has(track()["use_rights"], pages(pdf(lid))[0])
+@pytest.mark.parametrize("slug,lid", PAIRS)
+def test_use_rights_on_page_one(slug, lid):
+    assert has(track(slug)["use_rights"], pages(pdf(slug, lid))[0])
 
 
-@pytest.mark.parametrize("lid", IDS)
-def test_pdf_fonts_allowed_weights(lid):
-    out = subprocess.run(["pdffonts", str(pdf(lid))], capture_output=True, text=True, check=True).stdout
+@pytest.mark.parametrize("slug,lid", PAIRS)
+def test_pdf_fonts_allowed_weights(slug, lid):
+    out = subprocess.run(["pdffonts", str(pdf(slug, lid))], capture_output=True, text=True, check=True).stdout
     assert "HankenGrotesk" in out
     assert not re.search(r"(SemiBold|Bold|Black|Heavy)", out, re.I), out
 
 
-@pytest.mark.parametrize("lid", IDS)
-def test_source_html_is_generated_from_json(lid):
+@pytest.mark.parametrize("slug,lid", PAIRS)
+def test_source_html_is_generated_from_json(slug, lid):
     build = load("build_ai_lessons", ROOT / "scripts/build-ai-lessons.py")
-    t = build.load_track(ROOT, SLUG)
+    t = build.load_track(ROOT, slug)
     mod = load("build_ai_lessons_pdf", BUILD)
     data = next(x for x in t["lesson_data"] if x["id"] == lid)
-    assert mod.render_student_html(t, data) == src(lid).read_text(encoding="utf-8")
+    assert mod.render_student_html(t, data) == src(slug, lid).read_text(encoding="utf-8")
 
 
-@pytest.mark.parametrize("lid", IDS)
-def test_fits_us_letter(lid, tmp_path):
+def test_source_paths_are_unique_across_tracks():
+    """ai-or-human finns i två spår; källfilerna får aldrig skriva över varandra."""
+    paths = [src(slug, lid) for slug, lid in PAIRS]
+    assert len(paths) == len(set(paths)), sorted(p.name for p in paths if paths.count(p) > 1)
+
+
+@pytest.mark.parametrize("slug,lid", PAIRS)
+def test_fits_us_letter(slug, lid, tmp_path):
     """En lärare skriver ut A4-PDF:en på US Letter i 100 %, centrerat, på en
     skrivare som inte når de yttersta 5 mm. Letter är 279,4 mm hög, så 8,8 mm
     försvinner upptill och nedtill på A4, och skrivaren tar 5 mm till; på
     bredden är Letter större. Varje ord måste ligga inom det som blir kvar."""
     out = tmp_path / "bbox.html"
-    subprocess.run(["pdftotext", "-bbox", str(pdf(lid)), str(out)], check=True)
+    subprocess.run(["pdftotext", "-bbox", str(pdf(slug, lid)), str(out)], check=True)
     mm = 25.4 / 72
     top = (297 - 279.4) / 2 + 5
     side = max(0.0, 5 - (215.9 - 210) / 2)
     texts = re.split(r"<page ", out.read_text(encoding="utf-8"))[1:]
-    assert len(texts) == len(lesson(lid)["student_pdf"]["pages"])
+    assert len(texts) == len(lesson(slug, lid)["student_pdf"]["pages"])
     for n, text in enumerate(texts, start=1):
         words = re.findall(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">([^<]*)<', text)
         assert words, n
@@ -138,14 +145,42 @@ def test_checklist_takes_labelled_rows():
     assert "The next video" in out and out.count('class="box"') == 4
 
 
+def test_table_takes_prefilled_rows():
+    mod = load("build_ai_lessons_pdf", BUILD)
+    out = mod.BLOCKS["table"]({"kind": "table", "columns": ["Die", "Word"], "rows": [["1, 2, 3", "cat"], ["4", ""]]})
+    body = out.split("<tbody>", 1)[1]
+    assert body.count("<tr>") == 2 and body.count("<td") == 4
+    assert "cat" in body and "1, 2, 3" in body
+
+
+def test_prefilled_tables_give_their_cells_room():
+    """Förtryckta celler behöver luft och en första kolumn efter innehållet;
+    annars flyter "Northside" och "Football" ihop i lektion 3."""
+    mod = load("build_ai_lessons_pdf", BUILD)
+    out = mod.BLOCKS["table"]({"kind": "table", "columns": ["A", "B"], "rows": [["x", ""]]})
+    assert 'class="grid grid--fill grid--data"' in out
+    assert re.search(r"\.grid--data td\s*\{[^}]*padding", mod.STYLE)
+    # Flera tomma kolumner (lektion 5) ska dela bredden; sista kolumnen får inte låsas till 15 %.
+    assert re.search(r"\.grid--data td:last-child\s*\{[^}]*width:\s*auto", mod.STYLE)
+    assert "grid--data" not in mod.BLOCKS["table"]({"kind": "table", "columns": ["A"], "rows": 2})
+
+
+def test_tall_tables_give_room_to_write():
+    mod = load("build_ai_lessons_pdf", BUILD)
+    out = mod.BLOCKS["table"]({"kind": "table", "columns": ["App", "Data"], "rows": [["A map app", ""]], "tall": True})
+    assert "grid--tall" in out
+    assert re.search(r"\.grid--tall td\s*\{[^}]*height:\s*18mm", mod.STYLE)
+    assert "grid--tall" not in mod.BLOCKS["table"]({"kind": "table", "columns": ["A"], "rows": 2})
+
+
 def test_missing_image_stops_the_build():
     mod = load("build_ai_lessons_pdf", BUILD)
     with pytest.raises(FileNotFoundError, match="no-such-picture.jpg"):
         mod.BLOCKS["image"]({"kind": "image", "src": "assets/images/no-such-picture.jpg", "alt": "x"})
 
 
-@pytest.mark.parametrize("lid", IDS)
-def test_card_pictures_are_credited_in_the_pdf(lid):
+@pytest.mark.parametrize("slug,lid", PAIRS)
+def test_card_pictures_are_credited_in_the_pdf(slug, lid):
     """Tabler Icons (MIT): kretsen ska följa med när bilderna gör det."""
-    uses_icons = any(c.get("icon") for p in lesson(lid)["student_pdf"]["pages"] for b in p["blocks"] for c in b.get("cards", []))
-    assert has("Tabler Icons (MIT licence)", pages(pdf(lid))[0]) == uses_icons
+    uses_icons = any(c.get("icon") for p in lesson(slug, lid)["student_pdf"]["pages"] for b in p["blocks"] for c in b.get("cards", []))
+    assert has("Tabler Icons (MIT licence)", pages(pdf(slug, lid))[0]) == uses_icons

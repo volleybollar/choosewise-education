@@ -1,0 +1,273 @@
+{
+  "id": "my-data-trail",
+  "title": "My Data Trail",
+  "band": "13-15",
+  "number": 5,
+  "line": "Students map what apps record about them and what they get back, then work out what an app could guess from one invented week of data.",
+  "minutes": 40,
+  "groups": "Individual, pairs, then the whole class",
+  "ai_use": "none",
+  "prep_minutes": 10,
+  "goals": [
+    "Tell the difference between data they share on purpose and data recorded in the background.",
+    "Explain what they get back for their data, and what an app can guess about someone from it.",
+    "Weigh what they get against what they give, and name one thing they want to change."
+  ],
+  "key_words": [
+    {
+      "word": "data trail",
+      "meaning": "Everything apps and websites record about you, put together."
+    },
+    {
+      "word": "shared on purpose",
+      "meaning": "Data you give an app knowingly, such as a post, a like or your birthday."
+    },
+    {
+      "word": "recorded in the background",
+      "meaning": "Data an app records without you doing anything special, such as where your phone is, how long you watch or what you skip."
+    },
+    {
+      "word": "profile",
+      "meaning": "What an app or a company puts together about you from your data, to predict what you will like or do."
+    },
+    {
+      "word": "terms and conditions",
+      "meaning": "The rules you agree to when you start using an app, including what it may do with your data."
+    }
+  ],
+  "materials": [
+    "Student PDF page 1, our data trail and two closing-question tickets: one per pair",
+    "Page 2, Person X's week and our guesses: one per pair",
+    "Scrap paper, and the board"
+  ],
+  "before": [
+    "Print pages 1 and 2 for every pair.",
+    "The sheets stay with the students and are not handed in; only the closing tickets are. Tell the class before they start.",
+    "Students write kinds of apps and kinds of data, never app names, usernames or their own details. Person X on page 2 is invented.",
+    "Draw a table on the board with the same four columns as page 1."
+  ],
+  "steps": [
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Yesterday's apps",
+      "do": "Each student writes down on scrap paper the kinds of apps they used yesterday, for example a video app, a game or a map.",
+      "say": "Write the kind of app, not its name, and never your username. Nobody will collect this."
+    },
+    {
+      "minutes": 3,
+      "mode": "All",
+      "title": "Two ways to collect",
+      "do": "Explain the two ways apps collect data, with a music app as the example on the board. Shared on purpose: the songs you like, your playlists. Recorded in the background: how long you listen, what time of day, what you skip. Then what you get back: suggestions, saved playlists."
+    },
+    {
+      "minutes": 10,
+      "mode": "Pairs",
+      "title": "Our data trail",
+      "do": "Hand out page 1. Pairs pick three of the app types in the table and fill in the three columns: kinds of data, not their own details."
+    },
+    {
+      "minutes": 6,
+      "mode": "All",
+      "title": "The class table",
+      "do": "Build a class table on the board from the pairs' answers, and add what they missed from the examples in the background, for example that a map app records where you live, your routine and when you arrive and leave."
+    },
+    {
+      "minutes": 10,
+      "mode": "Pairs",
+      "title": "What could an app guess?",
+      "do": "Hand out page 2. Person X is invented. Pairs read the eight things recorded in one week and write three guesses an app could make about Person X, which data each guess comes from, and whether they would be OK with an app making it."
+    },
+    {
+      "minutes": 5,
+      "mode": "All",
+      "title": "OK or not OK?",
+      "do": "Pairs share one guess they were OK with and one they were not. Point out that combined data says more than each piece, and that data can be passed on or sold to others. Ask who reads the terms and conditions of their apps, and why so few do."
+    },
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
+      "do": "Each student answers the closing question on a ticket from page 1 and hands in the ticket only. The rest of page 1 stays with the students."
+    }
+  ],
+  "gather": [
+    {
+      "question": "What surprised you on the class table?",
+      "students_say": [
+        "That apps know when I go to bed.",
+        "That the map knows where I live.",
+        "How much is recorded without me doing anything."
+      ]
+    },
+    {
+      "question": "Which guess about Person X did not feel OK, and why?",
+      "students_say": [
+        "The mood one: that's private.",
+        "Where they live.",
+        "That they're stressed, because then they get adverts for it."
+      ]
+    },
+    {
+      "question": "Is it worth it?",
+      "students_say": [
+        "For music suggestions, yes.",
+        "Not for a game that wants my location.",
+        "I didn't know I was paying with data."
+      ]
+    },
+    {
+      "question": "What can you actually change?",
+      "students_say": [
+        "Turn off location for apps that don't need it.",
+        "Not post my birthday and my pet's name.",
+        "Check what the app is allowed to use."
+      ]
+    }
+  ],
+  "simpler": "Fill in page 1 together on the board for one app type, then read Person X's week aloud and collect guesses as a class.",
+  "harder": "Pairs list three settings in one kind of app that they could change to share less, and what they would lose by changing them. Or they write the profile an advertiser might build of Person X, and the advert Person X would see next.",
+  "closing_question": "Name one thing an app records about you in the background. What do you get back, and is it worth it?",
+  "language_swap": "Pages 1 and 2 have English text. Write the four column headings of page 1 in your class's language on the board, and say the app types aloud in it. Read Person X's week on page 2 aloud in your language, or write it on the board. Students can write their answers and their tickets in any language.",
+  "age_note": "Nobody uses AI in this lesson. It is about the data that apps with AI features learn from and work with.",
+  "background": [
+    "Apps collect data in two ways. Some you share on purpose: a post, a like, a playlist, your birthday when you sign up. Some is recorded in the background: which profiles you look at, how long you watch, what time of day you use the app, where your phone is. ISTE's guide, which this lesson adapts, calls these footprints and fingerprints, terms from the book Blown to Bits by Hal Abelson, Ken Ledeen and Harry Lewis.",
+    "Apps with AI features use this data to predict what you will like and show it to you: the next video, songs, routes, adverts, friends to add. That is what you get back: convenience and suggestions that fit. The price is privacy. As ISTE's guide puts it, we don't always know if, how or why the data we share is used, or whether it is sold to someone else.",
+    "Combined data says more than each piece alone. ISTE's guide gives examples: posted photos and a list of favourite things can help someone guess passwords or the answers to security questions, and a company could draw conclusions about users' health from the topics they watch or read. Person X's week works the same way: no single line says much, but together they point to a sleep pattern, a hobby, a mood and a home address.",
+    "Examples for step 4, from ISTE's table. A social media app records likes, posts, follows and messages on purpose, and in the background the profiles and adverts you look at, the links you click, how long you stay, and when and where you use it. A video or music app records what you like, follow and save, and in the background how often you play something, the topics you prefer, and when and for how long you watch or listen. A map app records where you want to go, and in the background where you live, your routine and when you arrive and leave. A learning app records your answers and your progress, and in the background how long a topic takes you. A shopping app records what you buy and save for later, and in the background what you look at and for how long. A smartwatch or fitness app records your steps and heart rate, and in the background how they change between places, for example at school and at home.",
+    "What students can do: check which permissions an app has (location, microphone, contacts), switch off what it doesn't need, and think twice before posting details that answer security questions. Rules on children's data differ between countries."
+  ],
+  "frameworks": {
+    "AILit": "Engage with AI, competences 4 (examine how AI systems use data about a user to make recommendations, and when those are helpful or too narrow) and 7 (analyse how well the use of an AI system aligns with ethical principles, such as weighing what you get against your privacy), intermediate level",
+    "AI4K12": "Big Idea 5 (Societal Impact)"
+  },
+  "tools": [],
+  "credits": [
+    {
+      "text": "Adapted from ISTE, Hands-On AI Projects for the Classroom: A Guide on Ethics and AI (2024), by Nancye Blair Black and Susan Brooks-Young, Project 3 \"The Trade-Offs of AI Technology\", Activity 2 \"AI Data Collection and Applications\", and Project 2 \"Who Is in Control?\", Activity 5 \"Using Data Trails to Profile Someone\" (the guesses about Person X and the advert in the harder option). Licensed under CC BY 4.0. Changes: shortened to one 40-minute lesson, with our own column names, app types, an invented person's week and our own wording.",
+      "url": "https://iste-ascd.org/ai-lessons"
+    },
+    {
+      "text": "Licence of the original: Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ],
+  "further_reading": [
+    {
+      "title": "ISTE: Hands-On AI Projects for the Classroom, including the Guide on Ethics and AI",
+      "url": "https://iste-ascd.org/ai-lessons"
+    }
+  ],
+  "student_pdf": {
+    "file": "my-data-trail-student-en.pdf",
+    "pages": [
+      {
+        "title": "Our data trail",
+        "instruction": "Pick three apps. Write kinds of data, not your own details.",
+        "blocks": [
+          {
+            "kind": "table",
+            "columns": [
+              "App",
+              "I share it on purpose",
+              "Recorded in the background",
+              "What I get back"
+            ],
+            "rows": [
+              [
+                "A social media app",
+                "",
+                "",
+                ""
+              ],
+              [
+                "A video or music app",
+                "",
+                "",
+                ""
+              ],
+              [
+                "A map app",
+                "",
+                "",
+                ""
+              ],
+              [
+                "A learning app",
+                "",
+                "",
+                ""
+              ],
+              [
+                "A shopping app",
+                "",
+                "",
+                ""
+              ],
+              [
+                "A smartwatch or fitness app",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "tall": true
+          },
+          {
+            "kind": "tickets",
+            "question": "Name one thing an app records about you in the background. What do you get back, and is it worth it?",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "title": "What could an app guess?",
+        "instruction": "Person X is made up. Read the week. Guess.",
+        "blocks": [
+          {
+            "kind": "table",
+            "columns": [
+              "Recorded about Person X this week"
+            ],
+            "rows": [
+              [
+                "Opens the video app at 23:40 most nights"
+              ],
+              [
+                "Phone is at the sports hall on Tuesday and Thursday, 17:00–19:00"
+              ],
+              [
+                "Searched: cheap football boots, size 39"
+              ],
+              [
+                "Watched three videos about stress before exams"
+              ],
+              [
+                "Phone is at the same address every night"
+              ],
+              [
+                "Bought a birthday present in a shopping app, sent to another address"
+              ],
+              [
+                "Played the same sad song 15 times on Sunday evening"
+              ],
+              [
+                "Steps: 9,000 on school days, 2,000 at weekends"
+              ]
+            ]
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Our guess",
+              "From which data?",
+              "OK?"
+            ],
+            "rows": 3
+          }
+        ]
+      }
+    ]
+  },
+  "skool_text": "Lesson 5 for ages 13–15. Students map what apps record about them, on purpose and in the background, and what they get back. Then they read an invented week of someone's data and work out what an app could guess, and which guesses they're OK with. Adapted from ISTE (CC BY 4.0). No devices, 40 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-older-319cf15d/my-data-trail/"
+}

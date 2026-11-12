@@ -1,0 +1,166 @@
+{
+  "slug": "ai-lessons-older-319cf15d",
+  "title": "AI Lessons for Older Students",
+  "eyebrow": "For Choosewise members · Ages 13–19",
+  "lede": "Ready-to-teach lessons about AI for teenagers. In 40 minutes or less, students take chatbot replies apart, see their own choices turn into training data and work out what to check, with paper, each other and short teacher demos. The whole class pulls it together at the end.",
+  "chips": [
+    "Ages 13–19",
+    "Curriculum-neutral",
+    "No student accounts for ages 13–15",
+    "Free for members"
+  ],
+  "stats": [
+    {
+      "label": "Ages",
+      "value": "13–19"
+    },
+    {
+      "label": "Time",
+      "value": "40 min or less"
+    },
+    {
+      "label": "Students",
+      "value": "No accounts needed for ages 13–15"
+    },
+    {
+      "label": "Teacher",
+      "value": "Leads, with a step-by-step guide"
+    }
+  ],
+  "objectives": [
+    "Explain how a chatbot produces its replies, and why the same question can get different answers.",
+    "Recognise the design choices that make a chatbot seem like a friend, and say who gains from them.",
+    "Show how past choices used as training data can make an AI system unfair, and suggest what its makers could change.",
+    "Weigh clues and evidence about whether a picture, a text or a voice is real, and plan how to check before acting on it.",
+    "Map what apps record about them, what they get back, and what they want to change."
+  ],
+  "threads": [
+    {
+      "name": "What AI is (and isn't)",
+      "line": "A chatbot produces text from patterns, not from feelings or understanding. Students see how design choices make it seem human."
+    },
+    {
+      "name": "How AI learns",
+      "line": "Models learn from data that people collect and choose. Students see past choices turn into patterns, and chance shape every reply."
+    },
+    {
+      "name": "When AI is wrong (and how we check)",
+      "line": "Fluent and confident is not the same as true. Students practise deciding when to trust, when to check and where to look."
+    },
+    {
+      "name": "AI-made content",
+      "line": "Pictures, texts and voices can be faked. Students weigh evidence by how easily it can be faked, and plan what to do before they act."
+    },
+    {
+      "name": "Me and AI",
+      "line": "What apps record about us, what we get back, and the choices we can make about our own data."
+    }
+  ],
+  "bands": [
+    {
+      "id": "13-15",
+      "ages": "Ages 13–15",
+      "line": "Lower secondary. Students work in pairs with printed material; AI appears only in short teacher demos."
+    },
+    {
+      "id": "16-19",
+      "ages": "Ages 16–19",
+      "line": "Upper secondary. Students use the AI tool their school provides, always with a way to do the task without AI."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "why-chatbots-feel-human",
+      "band": "13-15",
+      "number": 1
+    },
+    {
+      "id": "confident-and-wrong",
+      "band": "13-15",
+      "number": 2
+    },
+    {
+      "id": "bias-in-bias-out",
+      "band": "13-15",
+      "number": 3
+    },
+    {
+      "id": "ai-or-human",
+      "band": "13-15",
+      "number": 4
+    },
+    {
+      "id": "my-data-trail",
+      "band": "13-15",
+      "number": 5
+    }
+  ],
+  "how_it_works": [
+    "Every lesson has a teacher page you can read in about ten minutes, and a student PDF to print.",
+    "Students work on their own first, then in pairs, and then the whole class pulls it together: individual, pairs, all.",
+    "You lead, and the students do most of the work. Suggested wording helps where the words matter, for example to describe what a chatbot does without making it sound like a person.",
+    "Every lesson ends with a closing question that each student answers before leaving.",
+    "The lessons work on their own or in order. Pick what suits your class."
+  ],
+  "what_you_need": [
+    "A printer. The student PDFs are A4, fit US Letter and print well in black and white.",
+    "A board, and a projector for the lessons with a short teacher demo of an AI tool.",
+    "No devices or accounts for students aged 13–15. In the demos, you use the tool on your own account and students watch.",
+    "About ten minutes to read the teacher page, plus the preparation it lists."
+  ],
+  "frameworks": [
+    {
+      "name": "AILit",
+      "full": "OECD and European Commission, Empowering Learners for the Age of AI: An AI Literacy Framework for Primary and Secondary Education (2026)",
+      "url": "https://www.oecd.org/en/publications/empowering-learners-for-the-age-of-ai_65cd27d4-en.html"
+    },
+    {
+      "name": "AI4K12",
+      "full": "AI4K12, the Five Big Ideas in AI and their grade-band progression charts",
+      "url": "https://ai4k12.org/gradeband-progression-charts/"
+    }
+  ],
+  "age_limits": {
+    "checked": "2026-11-11",
+    "tools": {
+      "chatgpt": {
+        "name": "ChatGPT",
+        "min_age": "13, or the minimum age in your country",
+        "note": "Under 18 only with a parent's or guardian's permission. Under-18 accounts get a teen version automatically."
+      },
+      "gemini": {
+        "name": "Gemini, personal account",
+        "min_age": "13",
+        "note": "Under 13 only through a Family Link account, switched on by a parent."
+      },
+      "gemini-education": {
+        "name": "Gemini, Google Workspace for Education",
+        "min_age": "Any age, if the school's administrator switches it on",
+        "note": "Stricter content rules for under-18 accounts."
+      },
+      "copilot": {
+        "name": "Microsoft Copilot, personal account",
+        "min_age": "13, higher in some countries",
+        "note": ""
+      },
+      "copilot-education": {
+        "name": "Microsoft 365 Copilot Chat, school account",
+        "min_age": "13",
+        "note": "Blocked for students under 13 on school accounts."
+      },
+      "claude": {
+        "name": "Claude",
+        "min_age": "18",
+        "note": "No exception with a parent's permission. In a school, for teachers only."
+      },
+      "snapchat-my-ai": {
+        "name": "Snapchat My AI",
+        "min_age": "13",
+        "note": "My AI is part of the Snapchat app."
+      }
+    }
+  },
+  "ai_use_note": "Students aged 13–15 don't need accounts. AI appears only in short teacher demos, on your own account.",
+  "reader_note": "Readers outside Sweden should verify their own national regulations. AI in education is evolving quickly and country rules differ significantly.",
+  "use_rights": "For members of the Choosewise community: use these materials with your own students, share them with colleagues at your school, and adapt or translate them for your own teaching. Please don't republish or sell them."
+}

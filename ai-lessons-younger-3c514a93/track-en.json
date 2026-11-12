@@ -64,6 +64,7 @@
       "claude": {"name": "Claude", "min_age": "18", "note": "No exception with a parent's permission. In a school, for teachers only."}
     }
   },
+  "ai_use_note": "Students in this track never use AI themselves. If you show a tool in a teacher demo, use your own account.",
   "reader_note": "Readers outside Sweden should verify their own national regulations. AI in education is evolving quickly and country rules differ significantly.",
   "use_rights": "For members of the Choosewise community: use these materials with your own students, share them with colleagues at your school, and adapt or translate them for your own teaching. Please don't republish or sell them."
 }

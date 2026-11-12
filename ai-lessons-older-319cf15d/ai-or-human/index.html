@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI or Human? — choosewise.education</title>
+  <meta name="description" content="Students judge pictures and videos, watch a chatbot fail to tell who wrote a text, and plan how to check a voice message that sounds like a parent.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (prefix tm-), och sedan det som är
+       nytt för AI-lektionerna (prefix al-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/ai-lessons.css?v=20261111a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten.
+       Sidan byggs av scripts/build-ai-lessons.py: ändra JSON-filen, inte HTML:en. -->
+<!-- seo:start (build-seo-meta.py) -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: tillbaka till översikten, lektionens namn och en rad om vad eleverna gör. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/ai-lessons-older-319cf15d/">← AI Lessons for Older Students</a>
+      <span class="eyebrow">Ages 13–15 · Lesson 4</span>
+      <h1>AI or Human?</h1>
+      <p class="lede">Students judge pictures and videos, watch a chatbot fail to tell who wrote a text, and plan how to check a voice message that sounds like a parent.</p>
+    </section>
+
+    <!-- Lektionen i korthet, materialet och elev-PDF:en. -->
+    <section class="section section--alt" id="al-glance">
+      <div class="container">
+        <h2 class="section__title">At a glance</h2>
+        <dl class="al-glance">
+          <div><dt>Ages</dt><dd>13–15</dd></div>
+          <div><dt>Time</dt><dd>40 min</dd></div>
+          <div><dt>Groups</dt><dd>Individual, pairs, then the whole class</dd></div>
+          <div><dt>AI use</dt><dd>Teacher demo</dd></div>
+          <div><dt>Preparation</dt><dd>15 min</dd></div>
+        </dl>
+        <h3 class="al-sub">Materials</h3>
+        <ul class="al-list"><li>Student PDF page 1, the picture grid and the clues: one per student, in colour if you can</li><li>Page 2, eight evidence cards: one per pair, cut out</li><li>Page 3, the sorting mat: one per pair</li><li>Page 4, the voice message, the plan and two closing-question tickets: one per pair</li><li>A projector, the Choosewise video test and a chatbot, on your own account</li></ul>
+        <a class="btn btn--primary al-download" href="/ai-lessons-older-319cf15d/ai-or-human/ai-or-human-student-en.pdf" download>Download the student PDF</a>
+      </div>
+    </section>
+
+    <!-- Lärandemål och nyckelord med elevvänliga förklaringar. -->
+    <section class="section" id="al-goals">
+      <div class="container">
+        <h2 class="section__title">Learning goals</h2>
+        <p class="al-text">By the end of the lesson, students can:</p>
+        <ul class="al-list"><li>Use clues to judge whether a picture or a video was made with AI, and explain why a clue is not proof.</li><li>Explain why AI detectors, including asking a chatbot, can&#x27;t settle who wrote a text.</li><li>Rank evidence by how easily AI can fake it, and plan safe steps before acting on a message that sounds like someone they know.</li></ul>
+        <h3 class="al-sub">Key words</h3>
+        <dl class="al-words"><dt>deepfake</dt><dd>A video, picture or voice made with AI to look or sound like a real person doing or saying something they never did.</dd><dt>clue</dt><dd>A sign that might show how something was made. A clue is not proof.</dd><dt>evidence</dt><dd>Something that helps show whether a claim is true. Some evidence is much easier to fake than other evidence.</dd><dt>verify</dt><dd>Check that something is true, for example by calling back on a number you already know.</dd></dl>
+      </div>
+    </section>
+
+    <!-- Förberedelser: vad läraren skriver ut, skriver och provar före lektionen. -->
+    <section class="section section--alt" id="al-before">
+      <div class="container">
+        <h2 class="section__title">Before the lesson</h2>
+        <p class="al-text">About 15 minutes.</p>
+        <ul class="al-list"><li>Print page 1 in colour if you can: in black and white the clues in the photos are hard to see. Or show the grid on the projector (https://choosewise.education/ai-or-human/#test-image) while students circle numbers on paper.</li><li>Print pages 2, 3 and 4 for every pair. Pairs need scissors for the cards on page 2.</li><li>Write a short paragraph yourself for the demo, for example a message to parents. Run prompt 1 with it before the lesson and save the answer, in case the tool is blocked in class.</li><li>Open https://choosewise.education/ai-or-human/#test-video and check that the videos play in your classroom.</li></ul>
+      </div>
+    </section>
+
+    <!-- Steg för steg: minut för minut, varje steg enskilt, i par eller alla. -->
+    <section class="section" id="al-steps">
+      <div class="container">
+        <h2 class="section__title">Step by step</h2>
+        <ol class="al-steps"><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 1</span><span class="al-step__time">0–3 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">Person or machine?</h3><p class="al-step__do">Hand out page 1, or show the grid on the projector. Students circle the numbers of the pictures they think are AI-made, on their own.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 2</span><span class="al-step__time">3–6 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Two clues</h3><p class="al-step__do">Pairs compare their answers and agree on two clues, and write them on page 1.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 3</span><span class="al-step__time">6–11 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Reveal</h3><p class="al-step__do">Reveal the answer: 1, 6 and 8 are not AI; the other six are AI-made. Ask which clues worked and which misled. Then run the video test on the projector (https://choosewise.education/ai-or-human/#test-video) and let the class vote: video 2 is AI.</p><p class="al-say"><span class="al-say__label">Say</span> A clue is not proof. The tools get better every year, and a clue that worked last year may not work next year.</p></li><li class="al-step al-step--demo"><p class="al-step__head"><span class="al-step__num">Step 4</span><span class="al-step__time">11–17 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Can a chatbot tell?</h3><p class="al-step__do">Open the chatbot on the projector, on your own account; students don&#x27;t type. Paste the paragraph you wrote yourself and use prompt 1. Open a new chat and use prompt 1 again with the same paragraph. Compare the two answers, then ask prompt 2.</p><p class="al-say"><span class="al-say__label">Say</span> The chatbot gave a number, but it has no way to find out who wrote the text. Tools built to detect AI text get it wrong too often to rely on.</p><p class="al-label">Prompts, in order</p><ol class="al-prompts"><li><strong>Prompt 1:</strong> Was this text written by a person or by AI? Answer with a percentage. [paste your paragraph]</li><li><strong>Prompt 2:</strong> How could anyone be sure whether a person or an AI wrote this text?</li></ol><p class="al-fallback"><strong>If the demo does not go as planned:</strong> If the chatbot says it can&#x27;t tell, that is the more accurate answer: point out that studies of detection tools found them neither accurate nor reliable (see Background). If the tool is blocked, read out the answer you saved before the lesson.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 5</span><span class="al-step__time">17–27 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Easy or hard to fake?</h3><p class="al-step__do">Pairs cut out the eight evidence cards on page 2 and place them on the mat on page 3: Easy to fake, Takes some work, Hard to fake. Each card is a sign that a message really comes from your parent. Compare with the next pair. A usual sort: the voice, a photo, the nickname and the dog&#x27;s name are easy to fake, since a short clip and a few posts are enough. The phone number and the video call take some work but can be faked: scammers can make any number show up on caller ID (spoofing), and criminals use AI video in real-time video calls. The family code word and calling back on a saved number are hard to fake. Pairs often disagree; the reasons matter more than the columns.</p><p class="al-say"><span class="al-say__label">Say</span> Ask yourselves: could someone with an AI tool and a few posts from social media fake this?</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 6</span><span class="al-step__time">27–34 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">The voice message</h3><p class="al-step__do">Hand out page 4 and read the voice message aloud: it sounds like your mum or dad and says, &quot;I lost my phone. Send me the code you just got by text.&quot; Pairs write three steps they would take, in order, on page 4.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 7</span><span class="al-step__time">34–37 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Our checklist</h3><p class="al-step__do">Collect steps on the board into a class checklist. Make sure it includes: never pass on the code, whoever asks; don&#x27;t reply to the message; call your parent on the number you already have saved; ask something only they would know, or your family&#x27;s code word; tell an adult.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 8</span><span class="al-step__time">37–40 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">Closing question</h3><p class="al-step__do">Each student answers the closing question on a ticket from page 4 and hands it in.</p></li></ol>
+      </div>
+    </section>
+
+    <!-- Uppsamling i helklass: frågor och vad elever brukar svara. -->
+    <section class="section section--alt" id="al-gather">
+      <div class="container">
+        <h2 class="section__title">Gather it up</h2>
+        <p class="al-text">Questions for the whole-class talk, with answers students often give.</p>
+        <ul class="al-gather"><li><p class="al-gather__q">Which clues worked for the pictures, and which misled you?</p><p class="al-label">Students often say</p><ul class="al-said"><li>The hands looked strange.</li><li>Too perfect, like an advert.</li><li>I thought a real one was fake because the light was odd.</li></ul></li><li><p class="al-gather__q">Why can&#x27;t a chatbot tell whether a text is AI-made?</p><p class="al-label">Students often say</p><ul class="al-said"><li>It just gives an answer that sounds right.</li><li>It said different numbers in two chats.</li><li>Anyone can write like a chatbot, and a chatbot can write like anyone.</li></ul></li><li><p class="al-gather__q">Which evidence is hardest to fake, and why?</p><p class="al-label">Students often say</p><ul class="al-said"><li>Calling back on the saved number, because you choose who you call.</li><li>The code word, if nobody posted it online.</li><li>Not the voice: a short clip is enough.</li></ul></li><li><p class="al-gather__q">What would you do first with the voice message?</p><p class="al-label">Students often say</p><ul class="al-said"><li>Not send the code.</li><li>Call Mum on her normal number.</li><li>Tell an adult.</li></ul></li></ul>
+      </div>
+    </section>
+
+    <!-- Enklare och svårare varianter. -->
+    <section class="section" id="al-adapt">
+      <div class="container">
+        <h2 class="section__title">Make it simpler, make it harder</h2>
+        <div class="al-adapt">
+          <div><h3 class="al-sub">Simpler</h3><p class="al-text">Skip the demo. Do the picture grid and the video test, then sort the eight cards together on the board and make the class checklist.</p></div>
+          <div><h3 class="al-sub">Harder</h3><p class="al-text">Show the text test on https://choosewise.education/ai-or-human/#test-text on the projector and let pairs explain their votes. Or pairs write the next message a scammer would send if their first step was to call back, and how their plan handles it.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avslutande fråga (exit ticket) som varje elev svarar på. -->
+    <section class="section section--alt" id="al-closing">
+      <div class="container">
+        <h2 class="section__title">Closing question</h2>
+        <p class="al-closing">You get a message that sounds like someone you know. What makes it real enough to trust, and what would you check?</p>
+      </div>
+    </section>
+
+    <!-- Byta språk: hur läraren gör elevmaterialet till klassens språk. -->
+    <section class="section section--alt" id="al-language">
+      <div class="container">
+        <h2 class="section__title">Teaching in another language</h2>
+        <p class="al-text">Pages 1, 2, 3 and 4 have English text. The picture grid on page 1 needs no words; write the clue heading in your class&#x27;s language. Read the eight cards on page 2 aloud in your language, and write the three mat headings on page 3 in your language. Read the voice message on page 4 aloud in your language. In the demo, paste a paragraph in your class&#x27;s language and ask in it: the chatbot answers in it.</p>
+      </div>
+    </section>
+
+    <!-- Bakgrund för läraren: två minuters läsning. -->
+    <section class="section" id="al-background">
+      <div class="container">
+        <h2 class="section__title">Background for you</h2>
+        <p class="al-text">AI tools can now make pictures, texts, voices and videos that are very hard to tell from human-made ones. In one study, people could not reliably tell AI-made face photos from real ones, and even rated the AI-made faces as slightly more trustworthy (Nightingale and Farid, 2022). The tools have improved a lot since then. Clues still help with weaker pictures, but a clue is not proof: a real photo can look strange, and an AI picture can look perfect.</p><p class="al-text">Tools that claim to detect AI-written text are unreliable. A 2023 test of 14 detection tools, two of them commercial, found them neither accurate nor reliable: they leaned towards labelling texts as human-written, and rewording a text made them worse (Weber-Wulff et al.). Asking a chatbot is not a detector at all: it produces a likely-sounding verdict, and the same text can get different verdicts in two chats, as the demo shows. Don&#x27;t use either to judge students&#x27; work.</p><p class="al-text">Copying a voice takes only a short clip, which can come from a video posted online, and the FBI warns that criminals also use AI video in real-time video calls. A phone number on the screen proves little: scammers can make any name or number show up on caller ID, which is called spoofing (FTC). The US Federal Trade Commission&#x27;s advice for a call from a loved one asking for money: don&#x27;t trust the voice; call the person back on a number you know is theirs; if you can&#x27;t reach them, contact them through another family member or friends (FTC, 2023). The FBI also suggests a secret word or phrase that the family agrees on in advance.</p><p class="al-text">The voice message in the lesson asks for a code sent by text. Teach the simple rule: never pass on a code you received by text, whoever asks for it.</p><p class="al-text">The picture grid and the video test come from Choosewise&#x27;s own AI or human? test, which adults find hard too. Expect the class to get several wrong: that is part of the lesson.</p>
+      </div>
+    </section>
+
+    <!-- Koppling till ramverken AILit och AI4K12. -->
+    <section class="section section--alt" id="al-frameworks">
+      <div class="container">
+        <h2 class="section__title">Framework links</h2>
+        <p class="al-text"><a href="https://www.oecd.org/en/publications/empowering-learners-for-the-age-of-ai_65cd27d4-en.html"><strong>AILit</strong></a>: Engage with AI, competence 3 (evaluate whether AI outputs should be accepted, revised or rejected, checking them against trusted sources), intermediate level; and Create with AI, competence 4 (analyse how AI can safeguard or violate content authenticity)</p><p class="al-text"><a href="https://ai4k12.org/gradeband-progression-charts/"><strong>AI4K12</strong></a>: Big Idea 5 (Societal Impact)</p>
+      </div>
+    </section>
+
+    <!-- Åldersgränser för verktygen lektionen nämner, och läsarnoten (globala regler). -->
+    <section class="section" id="al-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age limits</h2>
+        <p class="al-text">Only you use a chatbot in this lesson, on your own account, and students watch. Some students aged 13–15 are old enough for some of these tools on a personal account, but most need a parent&#x27;s permission, and Claude is for adults only. Showing the tool yourself avoids all of that.</p>
+        <table class="al-table"><thead><tr><th scope="col">Tool</th><th scope="col">Minimum age</th><th scope="col">Notes</th></tr></thead><tbody><tr><th scope="row">ChatGPT</th><td>13, or the minimum age in your country</td><td>Under 18 only with a parent&#x27;s or guardian&#x27;s permission. Under-18 accounts get a teen version automatically.</td></tr><tr><th scope="row">Gemini, personal account</th><td>13</td><td>Under 13 only through a Family Link account, switched on by a parent.</td></tr><tr><th scope="row">Gemini, Google Workspace for Education</th><td>Any age, if the school&#x27;s administrator switches it on</td><td>Stricter content rules for under-18 accounts.</td></tr><tr><th scope="row">Microsoft Copilot, personal account</th><td>13, higher in some countries</td><td></td></tr><tr><th scope="row">Microsoft 365 Copilot Chat, school account</th><td>13</td><td>Blocked for students under 13 on school accounts.</td></tr><tr><th scope="row">Claude</th><td>18</td><td>No exception with a parent&#x27;s permission. In a school, for teachers only.</td></tr></tbody></table><p class="al-checked">Checked 2026-11-11. Age rules change often.</p>
+        <p class="tm-note">Readers outside Sweden should verify their own national regulations. AI in education is evolving quickly and country rules differ significantly.</p>
+      </div>
+    </section>
+
+    <!-- Källor, vidare läsning och vad medlemmar får göra med materialet. -->
+    <section class="section section--alt" id="al-credits">
+      <div class="container">
+        <h2 class="section__title">Sources and use</h2>
+        <h3 class="al-sub">Credits</h3><ul class="tm-sources"><li><a href="https://choosewise.education/ai-or-human/">Picture grid and video test: Choosewise, AI or human?</a></li><li><a href="https://tabler.io/icons">Card pictures: Tabler Icons (MIT licence)</a></li></ul>
+        <h3 class="al-sub">Further reading</h3>
+        <ul class="tm-sources"><li><a href="https://www.pnas.org/doi/10.1073/pnas.2120481119">Nightingale and Farid (2022): AI-synthesized faces are indistinguishable from real faces and more trustworthy (PNAS)</a></li><li><a href="https://arxiv.org/abs/2306.15666">Weber-Wulff et al. (2023): Testing of detection tools for AI-generated text (arXiv)</a></li><li><a href="https://consumer.ftc.gov/consumer-alerts/2023/03/scammers-use-ai-enhance-their-family-emergency-schemes">US Federal Trade Commission (2023): Scammers use AI to enhance their family emergency schemes</a></li><li><a href="https://www.ic3.gov/PSA/2024/PSA241203">FBI Internet Crime Complaint Center (2024): Criminals use generative artificial intelligence to facilitate financial fraud</a></li><li><a href="https://consumer.ftc.gov/articles/phone-scams">US Federal Trade Commission: Phone scams (caller ID spoofing)</a></li><li><a href="https://choosewise.education/ai-or-human/">Choosewise: the full AI or human? test, with texts, pictures and videos</a></li></ul>
+        <p class="al-rights">For members of the Choosewise community: use these materials with your own students, share them with colleagues at your school, and adapt or translate them for your own teaching. Please don&#x27;t republish or sell them.</p>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+</body>
+</html>
