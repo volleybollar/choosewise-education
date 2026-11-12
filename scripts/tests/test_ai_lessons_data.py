@@ -523,8 +523,8 @@ def test_lessons_that_name_prompt_numbers_show_them_in_order():
     """Steg som säger "prompt 2" kräver numrerade prompter, inte "pick one"."""
     for lesson in lessons():
         if any(re.search(r"\bprompt [123]\b", text, re.I) for text in teacher_text(lesson)):
-            demo = next(s for s in lesson["steps"] if s.get("demo"))
-            assert demo.get("prompts_in_order") is True, lesson["id"]
+            steps = [s for s in lesson["steps"] if s.get("prompts")]  # lärardemo eller elevernas AI-steg
+            assert steps and all(s.get("prompts_in_order") is True for s in steps), lesson["id"]
 
 
 def test_older_ai_or_human_gives_a_usual_sort_and_warns_about_spoofing():
@@ -651,4 +651,20 @@ def test_check_it_gives_a_verdict_for_every_claim():
     for n in range(1, 7):
         assert re.search(rf"Claim {n}: (true|wrong|can't confirm)", text), n
     assert any("search engine" in m for m in lesson["materials"])
+
+
+def test_using_ai_well_asks_for_questions_first():
+    lesson = _lesson("using-ai-well", OLDER)
+    step = next(s for s in lesson["steps"] if s.get("student_ai"))
+    assert step.get("prompts_in_order") and len(step["prompts"]) == 2
+    assert "ask me the questions" in step["prompts"][1]
+
+
+def test_using_ai_well_keeps_private_things_out_of_the_tool():
+    lesson = _lesson("using-ai-well", OLDER)
+    page1 = lesson["student_pdf"]["pages"][0]
+    assert "Don't put names, health details or anything private into the AI tool." in page1["instruction"]
+    teacher = lesson["before"] + [s["do"] + " " + s.get("say", "") for s in lesson["steps"]]
+    assert any("anything private" in line for line in teacher)
+    assert _blocks(lesson, "table")[2]["columns"] == ["AI sentence", "Accept, revise or reject?", "Why?"]
 

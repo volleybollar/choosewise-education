@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Using AI Well — choosewise.education</title>
+  <meta name="description" content="Students write a short email themselves first, get two versions from AI, and go through the AI text sentence by sentence: accept, revise or reject.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (prefix tm-), och sedan det som är
+       nytt för AI-lektionerna (prefix al-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/ai-lessons.css?v=20261111a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten.
+       Sidan byggs av scripts/build-ai-lessons.py: ändra JSON-filen, inte HTML:en. -->
+<!-- seo:start (build-seo-meta.py) -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: tillbaka till översikten, lektionens namn och en rad om vad eleverna gör. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/ai-lessons-older-319cf15d/">← AI Lessons for Older Students</a>
+      <span class="eyebrow">Ages 16–19 · Lesson 3</span>
+      <h1>Using AI Well</h1>
+      <p class="lede">Students write a short email themselves first, get two versions from AI, and go through the AI text sentence by sentence: accept, revise or reject.</p>
+    </section>
+
+    <!-- Lektionen i korthet, materialet och elev-PDF:en. -->
+    <section class="section section--alt" id="al-glance">
+      <div class="container">
+        <h2 class="section__title">At a glance</h2>
+        <dl class="al-glance">
+          <div><dt>Ages</dt><dd>16–19</dd></div>
+          <div><dt>Time</dt><dd>40 min</dd></div>
+          <div><dt>Groups</dt><dd>Individual, pairs, then the whole class</dd></div>
+          <div><dt>AI use</dt><dd>Students use AI</dd></div>
+          <div><dt>Preparation</dt><dd>15 min</dd></div>
+        </dl>
+        <h3 class="al-sub">Materials</h3>
+        <ul class="al-list"><li>Student PDF page 1, my email and my final email: one per student</li><li>Page 2, the prompts, accept, revise or reject, and two closing-question tickets: one per pair</li><li>One device per pair with the AI tool your school has approved</li></ul>
+        <a class="btn btn--primary al-download" href="/ai-lessons-older-319cf15d/using-ai-well/using-ai-well-student-en.pdf" download>Download the student PDF</a>
+      </div>
+    </section>
+
+    <!-- Lärandemål och nyckelord med elevvänliga förklaringar. -->
+    <section class="section" id="al-goals">
+      <div class="container">
+        <h2 class="section__title">Learning goals</h2>
+        <p class="al-text">By the end of the lesson, students can:</p>
+        <ul class="al-list"><li>Do a task themselves before asking AI, so that they have something to compare the AI&#x27;s answer with.</li><li>Get a better answer by giving AI the context it needs, for example by asking it to ask questions first.</li><li>Accept, revise or reject AI text sentence by sentence, and give a reason for each choice.</li></ul>
+        <h3 class="al-sub">Key words</h3>
+        <dl class="al-words"><dt>context</dt><dd>What an AI tool can&#x27;t know unless you tell it: who you are, who the text is for and what really happened.</dd><dt>made up</dt><dd>A detail in the AI text that you never gave it, such as a reason, a name or a date.</dd><dt>accept, revise or reject</dt><dd>Keep a sentence as it is, change it, or leave it out.</dd><dt>clarifying question</dt><dd>A question that asks for missing information before you start. You can ask an AI tool to ask you its questions first.</dd></dl>
+      </div>
+    </section>
+
+    <!-- Förberedelser: vad läraren skriver ut, skriver och provar före lektionen. -->
+    <section class="section section--alt" id="al-before">
+      <div class="container">
+        <h2 class="section__title">Before the lesson</h2>
+        <p class="al-text">About 15 minutes.</p>
+        <ul class="al-list"><li>Print page 1 for every student and page 2 for every pair.</li><li>Before class, run both prompts in step 2 on the tool students will use, prompt 2 in a new chat, and answer its questions with an invented situation. Print the two answers or have them ready on the projector. You need them if the tool is blocked or students can&#x27;t log in.</li><li>Check that your school has approved the tool for students&#x27; age and that they can log in.</li><li>Tell students before step 1 that the reason in their email can be real or made up, and that they don&#x27;t put names, health details or anything private into the AI tool. Page 1 says so too.</li></ul>
+      </div>
+    </section>
+
+    <!-- Steg för steg: minut för minut, varje steg enskilt, i par eller alla. -->
+    <section class="section" id="al-steps">
+      <div class="container">
+        <h2 class="section__title">Step by step</h2>
+        <ol class="al-steps"><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 1</span><span class="al-step__time">0–6 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">Do it yourself first</h3><p class="al-step__do">Hand out page 1. Each student writes an email to a teacher asking for three more days on an assignment, one sentence per row: a greeting, the request, a reason, an offer and a sign-off. The reason can be real or made up for the lesson.</p><p class="al-say"><span class="al-say__label">Say</span> Nothing private goes into the AI tool later, so pick a reason you&#x27;re happy to share, or make one up.</p></li><li class="al-step al-step--ai"><p class="al-step__head"><span class="al-step__num">Step 2</span><span class="al-step__time">6–16 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Two prompts</h3><p class="al-step__do">Pairs open the AI tool your school has approved. They type prompt 1 from page 2 in a new chat and read the email. Then they open another new chat, type prompt 2 and answer the questions it asks, without names or private details. They compare the two AI emails with each other and with their own.</p><p class="al-label">Prompts, in order</p><ol class="al-prompts"><li><strong>Prompt 1:</strong> Write an email to my teacher asking for three more days on my assignment.</li><li><strong>Prompt 2:</strong> I need to email my teacher to ask for three more days on an assignment. Before you write anything, ask me the questions you need answered. Then write the email.</li></ol><p class="al-fallback"><strong>Without AI:</strong> Hand out or show the two answers you saved before class. Pairs read the email from prompt 1, then the questions and the email from prompt 2, and compare them with their own emails.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 3</span><span class="al-step__time">16–25 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Accept, revise or reject</h3><p class="al-step__do">Pairs take the better AI email and go through it sentence by sentence on page 2: accept, revise or reject, and why. They circle anything the AI text made up, such as a reason, a date or a promise that nobody gave it.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 4</span><span class="al-step__time">25–29 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">My final email</h3><p class="al-step__do">Each student writes the final email on page 1. They can keep their own sentences, take sentences from the AI text or change them; what matters is that they can explain each choice.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 5</span><span class="al-step__time">29–37 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Who answers for it?</h3><p class="al-step__do">Ask pairs where the AI text added something and where it didn&#x27;t. Usual answers: a clear structure and a polite tone; prompt 1&#x27;s email made up a reason or sounded too formal; prompt 2&#x27;s questions made its email fit the situation better. Then ask what doing it themselves first gave them: something to compare with, and their own voice.</p><p class="al-say"><span class="al-say__label">Say</span> You send the email, so you answer for every sentence in it, including the ones the AI wrote.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 6</span><span class="al-step__time">37–40 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">Closing question</h3><p class="al-step__do">Each student answers the closing question on a ticket from page 2 and hands it in.</p></li></ol>
+      </div>
+    </section>
+
+    <!-- Uppsamling i helklass: frågor och vad elever brukar svara. -->
+    <section class="section section--alt" id="al-gather">
+      <div class="container">
+        <h2 class="section__title">Gather it up</h2>
+        <p class="al-text">Questions for the whole-class talk, with answers students often give.</p>
+        <ul class="al-gather"><li><p class="al-gather__q">Which email was best: yours, prompt 1&#x27;s or prompt 2&#x27;s? Why?</p><p class="al-label">Students often say</p><ul class="al-said"><li>Prompt 2&#x27;s, because it knew the situation.</li><li>Mine. It sounded like me.</li><li>Prompt 1&#x27;s was too long and too formal.</li></ul></li><li><p class="al-gather__q">What did the AI text make up?</p><p class="al-label">Students often say</p><ul class="al-said"><li>A family emergency.</li><li>That I&#x27;d been ill.</li><li>A date we never gave it.</li></ul></li><li><p class="al-gather__q">What did prompt 2 do differently?</p><p class="al-label">Students often say</p><ul class="al-said"><li>It asked what had happened first.</li><li>It asked who the teacher is.</li><li>It asked how formal it should be.</li></ul></li><li><p class="al-gather__q">When is it worth doing a task yourself first?</p><p class="al-label">Students often say</p><ul class="al-said"><li>When I want it to sound like me.</li><li>When it&#x27;s what I&#x27;m meant to learn.</li><li>When the AI doesn&#x27;t know the situation.</li></ul></li></ul>
+      </div>
+    </section>
+
+    <!-- Enklare och svårare varianter. -->
+    <section class="section" id="al-adapt">
+      <div class="container">
+        <h2 class="section__title">Make it simpler, make it harder</h2>
+        <div class="al-adapt">
+          <div><h3 class="al-sub">Simpler</h3><p class="al-text">Run the two prompts as a teacher demo on the projector and give each pair a printout of the second email. Pairs mark accept, revise or reject on the printout.</p></div>
+          <div><h3 class="al-sub">Harder</h3><p class="al-text">Pairs use the same method on a task from one of their courses, such as the introduction to a lab report or a summary of a chapter. Before they start, they choose which part they will do themselves and which part AI may help with, and afterwards they explain whether that split worked.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avslutande fråga (exit ticket) som varje elev svarar på. -->
+    <section class="section section--alt" id="al-closing">
+      <div class="container">
+        <h2 class="section__title">Closing question</h2>
+        <p class="al-closing">When is it worth doing a task yourself before you ask AI? Use today&#x27;s email as your example.</p>
+      </div>
+    </section>
+
+    <!-- Byta språk: hur läraren gör elevmaterialet till klassens språk. -->
+    <section class="section section--alt" id="al-language">
+      <div class="container">
+        <h2 class="section__title">Teaching in another language</h2>
+        <p class="al-text">Pages 1 and 2 have English text. Students can write the email in your class&#x27;s language and type the prompts in that language: the AI tool answers in it. Write the column headings on page 2 in your language next to the English ones.</p>
+      </div>
+    </section>
+
+    <!-- Bakgrund för läraren: två minuters läsning. -->
+    <section class="section" id="al-background">
+      <div class="container">
+        <h2 class="section__title">Background for you</h2>
+        <p class="al-text">The OECD and European Commission&#x27;s AI literacy framework (AILit) names three things to do with any AI output: accept it, revise it or reject it. At the advanced level, students justify each choice. The framework&#x27;s classroom examples also have students work on their own before they look at AI-generated ideas, because what they bring themselves is what they compare the AI&#x27;s answer with.</p><p class="al-text">A chatbot writes from the prompt alone. Asked for an email asking for more time, it fills the gaps in the prompt: if no reason is given, the email may include one anyway, such as an illness or a family matter, because emails like this usually have one. Prompt 2 asks the tool to ask its questions first, so the student fills the gaps instead. Tools differ, and the same prompt gives different answers each time, so expect pairs&#x27; emails to differ.</p><p class="al-text">Keep the privacy rule simple: nothing goes into an AI tool that you wouldn&#x27;t write on the board. That means no names of teachers or classmates, no health details and nothing about family or friends. In the email, [Teacher] and [Name] can stay as placeholders.</p>
+      </div>
+    </section>
+
+    <!-- Koppling till ramverken AILit och AI4K12. -->
+    <section class="section section--alt" id="al-frameworks">
+      <div class="container">
+        <h2 class="section__title">Framework links</h2>
+        <p class="al-text"><a href="https://www.oecd.org/en/publications/empowering-learners-for-the-age-of-ai_65cd27d4-en.html"><strong>AILit</strong></a>: Engage with AI, competence 3 (evaluate whether AI outputs should be accepted, revised or rejected, justifying each choice, advanced level); Create with AI, competence 3 (direct generative AI systems to refine results, comparing outputs with their own ideas, intermediate level); Manage AI, competence 4 (monitor and evaluate AI use, comparing AI outputs with the result they want, intermediate level)</p><p class="al-text"><a href="https://ai4k12.org/gradeband-progression-charts/"><strong>AI4K12</strong></a>: Big Idea 4 (Natural Interaction)</p>
+      </div>
+    </section>
+
+    <!-- Åldersgränser för verktygen lektionen nämner, och läsarnoten (globala regler). -->
+    <section class="section" id="al-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age limits</h2>
+        <p class="al-text">In step 2, students use the AI tool your school has approved for their age. Check the table: Claude is for 18 and over, and ChatGPT needs a parent&#x27;s or guardian&#x27;s permission under 18. Step 2 works without AI, with the answers you saved before class.</p>
+        <table class="al-table"><thead><tr><th scope="col">Tool</th><th scope="col">Minimum age</th><th scope="col">Notes</th></tr></thead><tbody><tr><th scope="row">ChatGPT</th><td>13, or the minimum age in your country</td><td>Under 18 only with a parent&#x27;s or guardian&#x27;s permission. Under-18 accounts get a teen version automatically.</td></tr><tr><th scope="row">Gemini, personal account</th><td>13</td><td>Under 13 only through a Family Link account, switched on by a parent.</td></tr><tr><th scope="row">Gemini, Google Workspace for Education</th><td>Any age, if the school&#x27;s administrator switches it on</td><td>Stricter content rules for under-18 accounts.</td></tr><tr><th scope="row">Microsoft Copilot, personal account</th><td>13, higher in some countries</td><td></td></tr><tr><th scope="row">Microsoft 365 Copilot Chat, school account</th><td>13</td><td>Blocked for students under 13 on school accounts.</td></tr><tr><th scope="row">Claude</th><td>18</td><td>No exception with a parent&#x27;s permission. In a school, for teachers only.</td></tr></tbody></table><p class="al-checked">Checked 2026-11-11. Age rules change often.</p>
+        <p class="tm-note">Readers outside Sweden should verify their own national regulations. AI in education is evolving quickly and country rules differ significantly.</p>
+      </div>
+    </section>
+
+    <!-- Källor, vidare läsning och vad medlemmar får göra med materialet. -->
+    <section class="section section--alt" id="al-credits">
+      <div class="container">
+        <h2 class="section__title">Sources and use</h2>
+        
+        <h3 class="al-sub">Further reading</h3>
+        <ul class="tm-sources"><li><a href="https://ailiteracyframework.org/pdfs/framework_pdf/AILF_en.pdf">OECD and European Commission (2026): Empowering Learners for the Age of AI, the AILit framework (PDF)</a></li></ul>
+        <p class="al-rights">For members of the Choosewise community: use these materials with your own students, share them with colleagues at your school, and adapt or translate them for your own teaching. Please don&#x27;t republish or sell them.</p>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+</body>
+</html>

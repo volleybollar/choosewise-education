@@ -1,0 +1,244 @@
+{
+  "id": "using-ai-well",
+  "title": "Using AI Well",
+  "band": "16-19",
+  "number": 3,
+  "line": "Students write a short email themselves first, get two versions from AI, and go through the AI text sentence by sentence: accept, revise or reject.",
+  "minutes": 40,
+  "groups": "Individual, pairs, then the whole class",
+  "ai_use": "students",
+  "prep_minutes": 15,
+  "goals": [
+    "Do a task themselves before asking AI, so that they have something to compare the AI's answer with.",
+    "Get a better answer by giving AI the context it needs, for example by asking it to ask questions first.",
+    "Accept, revise or reject AI text sentence by sentence, and give a reason for each choice."
+  ],
+  "key_words": [
+    {
+      "word": "context",
+      "meaning": "What an AI tool can't know unless you tell it: who you are, who the text is for and what really happened."
+    },
+    {
+      "word": "made up",
+      "meaning": "A detail in the AI text that you never gave it, such as a reason, a name or a date."
+    },
+    {
+      "word": "accept, revise or reject",
+      "meaning": "Keep a sentence as it is, change it, or leave it out."
+    },
+    {
+      "word": "clarifying question",
+      "meaning": "A question that asks for missing information before you start. You can ask an AI tool to ask you its questions first."
+    }
+  ],
+  "materials": [
+    "Student PDF page 1, my email and my final email: one per student",
+    "Page 2, the prompts, accept, revise or reject, and two closing-question tickets: one per pair",
+    "One device per pair with the AI tool your school has approved"
+  ],
+  "before": [
+    "Print page 1 for every student and page 2 for every pair.",
+    "Before class, run both prompts in step 2 on the tool students will use, prompt 2 in a new chat, and answer its questions with an invented situation. Print the two answers or have them ready on the projector. You need them if the tool is blocked or students can't log in.",
+    "Check that your school has approved the tool for students' age and that they can log in.",
+    "Tell students before step 1 that the reason in their email can be real or made up, and that they don't put names, health details or anything private into the AI tool. Page 1 says so too."
+  ],
+  "steps": [
+    {
+      "minutes": 6,
+      "mode": "Individual",
+      "title": "Do it yourself first",
+      "do": "Hand out page 1. Each student writes an email to a teacher asking for three more days on an assignment, one sentence per row: a greeting, the request, a reason, an offer and a sign-off. The reason can be real or made up for the lesson.",
+      "say": "Nothing private goes into the AI tool later, so pick a reason you're happy to share, or make one up."
+    },
+    {
+      "minutes": 10,
+      "mode": "Pairs",
+      "title": "Two prompts",
+      "student_ai": true,
+      "prompts_in_order": true,
+      "do": "Pairs open the AI tool your school has approved. They type prompt 1 from page 2 in a new chat and read the email. Then they open another new chat, type prompt 2 and answer the questions it asks, without names or private details. They compare the two AI emails with each other and with their own.",
+      "prompts": [
+        "Write an email to my teacher asking for three more days on my assignment.",
+        "I need to email my teacher to ask for three more days on an assignment. Before you write anything, ask me the questions you need answered. Then write the email."
+      ],
+      "without_ai": "Hand out or show the two answers you saved before class. Pairs read the email from prompt 1, then the questions and the email from prompt 2, and compare them with their own emails."
+    },
+    {
+      "minutes": 9,
+      "mode": "Pairs",
+      "title": "Accept, revise or reject",
+      "do": "Pairs take the better AI email and go through it sentence by sentence on page 2: accept, revise or reject, and why. They circle anything the AI text made up, such as a reason, a date or a promise that nobody gave it."
+    },
+    {
+      "minutes": 4,
+      "mode": "Individual",
+      "title": "My final email",
+      "do": "Each student writes the final email on page 1. They can keep their own sentences, take sentences from the AI text or change them; what matters is that they can explain each choice."
+    },
+    {
+      "minutes": 8,
+      "mode": "All",
+      "title": "Who answers for it?",
+      "do": "Ask pairs where the AI text added something and where it didn't. Usual answers: a clear structure and a polite tone; prompt 1's email made up a reason or sounded too formal; prompt 2's questions made its email fit the situation better. Then ask what doing it themselves first gave them: something to compare with, and their own voice.",
+      "say": "You send the email, so you answer for every sentence in it, including the ones the AI wrote."
+    },
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
+      "do": "Each student answers the closing question on a ticket from page 2 and hands it in."
+    }
+  ],
+  "gather": [
+    {
+      "question": "Which email was best: yours, prompt 1's or prompt 2's? Why?",
+      "students_say": [
+        "Prompt 2's, because it knew the situation.",
+        "Mine. It sounded like me.",
+        "Prompt 1's was too long and too formal."
+      ]
+    },
+    {
+      "question": "What did the AI text make up?",
+      "students_say": [
+        "A family emergency.",
+        "That I'd been ill.",
+        "A date we never gave it."
+      ]
+    },
+    {
+      "question": "What did prompt 2 do differently?",
+      "students_say": [
+        "It asked what had happened first.",
+        "It asked who the teacher is.",
+        "It asked how formal it should be."
+      ]
+    },
+    {
+      "question": "When is it worth doing a task yourself first?",
+      "students_say": [
+        "When I want it to sound like me.",
+        "When it's what I'm meant to learn.",
+        "When the AI doesn't know the situation."
+      ]
+    }
+  ],
+  "simpler": "Run the two prompts as a teacher demo on the projector and give each pair a printout of the second email. Pairs mark accept, revise or reject on the printout.",
+  "harder": "Pairs use the same method on a task from one of their courses, such as the introduction to a lab report or a summary of a chapter. Before they start, they choose which part they will do themselves and which part AI may help with, and afterwards they explain whether that split worked.",
+  "closing_question": "When is it worth doing a task yourself before you ask AI? Use today's email as your example.",
+  "language_swap": "Pages 1 and 2 have English text. Students can write the email in your class's language and type the prompts in that language: the AI tool answers in it. Write the column headings on page 2 in your language next to the English ones.",
+  "age_note": "In step 2, students use the AI tool your school has approved for their age. Check the table: Claude is for 18 and over, and ChatGPT needs a parent's or guardian's permission under 18. Step 2 works without AI, with the answers you saved before class.",
+  "background": [
+    "The OECD and European Commission's AI literacy framework (AILit) names three things to do with any AI output: accept it, revise it or reject it. At the advanced level, students justify each choice. The framework's classroom examples also have students work on their own before they look at AI-generated ideas, because what they bring themselves is what they compare the AI's answer with.",
+    "A chatbot writes from the prompt alone. Asked for an email asking for more time, it fills the gaps in the prompt: if no reason is given, the email may include one anyway, such as an illness or a family matter, because emails like this usually have one. Prompt 2 asks the tool to ask its questions first, so the student fills the gaps instead. Tools differ, and the same prompt gives different answers each time, so expect pairs' emails to differ.",
+    "Keep the privacy rule simple: nothing goes into an AI tool that you wouldn't write on the board. That means no names of teachers or classmates, no health details and nothing about family or friends. In the email, [Teacher] and [Name] can stay as placeholders."
+  ],
+  "frameworks": {
+    "AILit": "Engage with AI, competence 3 (evaluate whether AI outputs should be accepted, revised or rejected, justifying each choice, advanced level); Create with AI, competence 3 (direct generative AI systems to refine results, comparing outputs with their own ideas, intermediate level); Manage AI, competence 4 (monitor and evaluate AI use, comparing AI outputs with the result they want, intermediate level)",
+    "AI4K12": "Big Idea 4 (Natural Interaction)"
+  },
+  "tools": [
+    "chatgpt",
+    "gemini",
+    "gemini-education",
+    "copilot",
+    "copilot-education",
+    "claude"
+  ],
+  "credits": [],
+  "further_reading": [
+    {
+      "title": "OECD and European Commission (2026): Empowering Learners for the Age of AI, the AILit framework (PDF)",
+      "url": "https://ailiteracyframework.org/pdfs/framework_pdf/AILF_en.pdf"
+    }
+  ],
+  "student_pdf": {
+    "file": "using-ai-well-student-en.pdf",
+    "pages": [
+      {
+        "title": "My email",
+        "instruction": "Use a real reason or make one up. Don't put names, health details or anything private into the AI tool.",
+        "blocks": [
+          {
+            "kind": "text",
+            "body": "Write an email to a teacher asking for three more days on an assignment. One sentence per row."
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "My email, one sentence per row"
+            ],
+            "rows": 5
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "My final email: my sentences, the AI's or changed ones"
+            ],
+            "rows": 5
+          }
+        ]
+      },
+      {
+        "title": "Accept, revise or reject",
+        "instruction": "Use the better AI email. One sentence per row.",
+        "blocks": [
+          {
+            "kind": "text",
+            "body": "Prompt 1, in a new chat: Write an email to my teacher asking for three more days on my assignment. Prompt 2, in another new chat: I need to email my teacher to ask for three more days on an assignment. Before you write anything, ask me the questions you need answered. Then write the email."
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "AI sentence",
+              "Accept, revise or reject?",
+              "Why?"
+            ],
+            "rows": [
+              [
+                "1",
+                "",
+                ""
+              ],
+              [
+                "2",
+                "",
+                ""
+              ],
+              [
+                "3",
+                "",
+                ""
+              ],
+              [
+                "4",
+                "",
+                ""
+              ],
+              [
+                "5",
+                "",
+                ""
+              ],
+              [
+                "6",
+                "",
+                ""
+              ]
+            ]
+          },
+          {
+            "kind": "text",
+            "body": "Circle anything the AI text made up: a reason, a date or a promise that you never gave it."
+          },
+          {
+            "kind": "tickets",
+            "question": "When is it worth doing a task yourself before you ask AI? Use today's email as your example.",
+            "count": 2
+          }
+        ]
+      }
+    ]
+  },
+  "skool_text": "Lesson 3 for ages 16–19. Students write a short email themselves, get two versions from AI (the second after it has asked its questions) and go through the AI text sentence by sentence: accept, revise or reject. Then they write the final version and talk about who answers for it. Students use AI, with a way to do it without, 40 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-older-319cf15d/using-ai-well/"
+}
