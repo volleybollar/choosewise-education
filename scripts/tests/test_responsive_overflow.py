@@ -255,3 +255,31 @@ def test_a_table_too_wide_for_its_column_scrolls_instead_of_clipping(site, brows
         assert not bad, "\n".join(bad)
     finally:
         page.close()
+
+
+AL_PAGES = ["ai-lessons-younger-3c514a93/", "ai-lessons-older-319cf15d/",
+            "ai-lessons-younger-3c514a93/ai-or-not/", "ai-lessons-older-319cf15d/does-ai-help-me-learn/"]
+AL_TEXT = (".section .section__lede, .al-band__line, .al-text, .al-list li, .al-step__do, .al-say, "
+           ".al-gather__q, .al-said li, .al-words, .al-closing, .al-rights, .tm-note, .tm-sources li")
+# "Make it simpler / harder" står i två spalter med flit; där fyller texten sin spalt.
+NARROW = """(sel) => [...document.querySelectorAll(sel)].filter(el => {
+  if (el.closest('.al-adapt')) return false;
+  const box = el.closest('.container'), cs = getComputedStyle(box);
+  const inner = box.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+  return el.getBoundingClientRect().width < 0.85 * inner;
+}).map(el => el.className || el.tagName)"""
+
+
+def test_ai_lesson_text_fills_the_section(site, browser):
+    """Johan 2026-11-12: textblocken på AI-lektionssidorna (What students learn,
+    How a lesson works, What you need, Resources) var bara drygt halva sektionen,
+    40rem av 72rem. De ska fylla sektionen som bakgrunden gör."""
+    page = browser.new_page(viewport={"width": 1280, "height": 800})
+    try:
+        bad = []
+        for rel in AL_PAGES:
+            page.goto(f"{site}/{rel}", wait_until="networkidle")
+            bad += [f"{rel}: {name}" for name in sorted(set(page.evaluate(NARROW, AL_TEXT)))]
+        assert not bad, "\n".join(bad)
+    finally:
+        page.close()
