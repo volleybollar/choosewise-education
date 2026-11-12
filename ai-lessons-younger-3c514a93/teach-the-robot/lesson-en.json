@@ -1,0 +1,271 @@
+{
+  "id": "teach-the-robot",
+  "title": "Teach the Robot",
+  "band": "5-8",
+  "number": 3,
+  "line": "One child plays a robot that learns \"fruit\" from two examples, then from eight, and sorts the same test cards both times. A toy apple shows that the robot guesses and people check.",
+  "minutes": 34,
+  "groups": "Pairs, then the whole class",
+  "ai_use": "none",
+  "prep_minutes": 20,
+  "goals": [
+    "Explain that a machine that learns from examples can only compare new things with the examples it was given.",
+    "Show that more examples, and more different ones, give better guesses.",
+    "Say why a person checks what a machine guesses."
+  ],
+  "key_words": [
+    {
+      "word": "example",
+      "meaning": "Something you show to teach what a word means, like an apple card for fruit."
+    },
+    {
+      "word": "training",
+      "meaning": "Showing a machine many examples, so that it can sort new things."
+    },
+    {
+      "word": "test",
+      "meaning": "Checking how well something works on cards it was never shown."
+    },
+    {
+      "word": "guess",
+      "meaning": "An answer that might be wrong. The robot's answers are guesses from its examples."
+    }
+  ],
+  "materials": [
+    "Student PDF page 1, the Round 1 and Round 2 cards: one set per pair, cut out and in an envelope",
+    "Page 2, the four test cards: one set per pair, cut out and in a second envelope, and the two closing tickets",
+    "Page 3, the Fruit and Not fruit mat: one per pair",
+    "A toy apple, or a real carrot",
+    "Crayons or pencils"
+  ],
+  "before": [
+    "Print the student PDF and cut out the cards on pages 1 and 2 before the lesson, one set per pair. Put each pair's Round 1 and Round 2 cards in one envelope and the four test cards in another, so the test cards stay new to the child playing the robot. A paper trimmer helps.",
+    "Bring a toy apple, or other toy fruit from the play corner. If you have none, bring a real carrot: it looks most like the banana card, so the robot says fruit, and the class checks.",
+    "Read the background below, especially the robot's rule."
+  ],
+  "steps": [
+    {
+      "minutes": 3,
+      "mode": "All",
+      "title": "The robot game",
+      "do": "Show the game with a volunteer at the front. In each pair, one child plays the robot and one the trainer. The robot may only compare a new card with the cards it has been shown: if it looks like a fruit card, it says fruit; if it looks like a not-fruit card, or like none of them, it says not fruit. The child playing the robot puts aside everything else they know about fruit.",
+      "say": "Robot, you can only look at the cards your trainer showed you."
+    },
+    {
+      "minutes": 6,
+      "mode": "Pairs",
+      "title": "Round 1",
+      "do": "Give each pair the two envelopes and the mat on page 3. The trainer shows the robot the two Round 1 cards, the apple and the cherry, and says fruit for each. Then the trainer takes out the four test cards one at a time, and the robot puts each one on the mat: Fruit or Not fruit.",
+      "say": "Robot, does this card look like one of your fruit cards?"
+    },
+    {
+      "minutes": 4,
+      "mode": "All",
+      "title": "How did round 1 go?",
+      "do": "Give the answers: the lemon and the avocado are fruit, the tennis ball and the cookie are not. Pairs count right answers on their fingers. Most robots got some wrong: with only two round fruit to compare with, round things like the tennis ball and the cookie ended up as fruit.",
+      "say": "Your robot had only two examples, and both were round."
+    },
+    {
+      "minutes": 8,
+      "mode": "Pairs",
+      "title": "Round 2",
+      "do": "Swap roles. The new trainer shows all eight Round 2 cards and says fruit or not fruit for each: the apple, the cherry, the banana and the melon are fruit; the ball, the coin, the pizza and the clock are not. The new robot follows the same rule and sorts the same four test cards again.",
+      "say": "Robot, which card does it look most like?"
+    },
+    {
+      "minutes": 3,
+      "mode": "All",
+      "title": "How did round 2 go?",
+      "do": "Pairs count right answers again and compare with round 1. With more examples, and different ones, the robot had something closer to compare with: the tennis ball looked like the ball, the cookie like the coin.",
+      "say": "More examples, and different ones, gave better guesses."
+    },
+    {
+      "minutes": 4,
+      "mode": "All",
+      "title": "The surprise",
+      "do": "Hold up the toy apple and ask the robots: fruit or not? It looks like the apple card, so the robot says fruit. Then ask the class whether we can eat it. It is a toy. The robot could only compare it with pictures; a person can pick it up and check.",
+      "say": "The robot says fruit. Can we eat it? A person checks."
+    },
+    {
+      "minutes": 3,
+      "mode": "All",
+      "title": "Who checks?",
+      "do": "Ask who chose the examples and who checked the guesses. People did both. Machines that learn from examples work in a similar way: people choose the examples, the machine compares, and people check what comes out.",
+      "say": "People choose the examples, and people check the guesses."
+    },
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
+      "do": "Read the closing question aloud. Each child draws an answer on a ticket from page 2 and hands it in. Ask a few children why their card would help."
+    }
+  ],
+  "gather": [
+    {
+      "question": "Why did the robot say the tennis ball was fruit?",
+      "students_say": [
+        "It was round, like the apple.",
+        "It only had two fruit cards.",
+        "It didn't have a ball card to look at."
+      ]
+    },
+    {
+      "question": "What made round 2 better?",
+      "students_say": [
+        "More cards.",
+        "There were things that aren't fruit too.",
+        "The banana showed that fruit can be long."
+      ]
+    },
+    {
+      "question": "Who should check the robot?",
+      "students_say": [
+        "A grown-up.",
+        "Someone who can touch it.",
+        "The trainer."
+      ]
+    }
+  ],
+  "simpler": "Play both rounds as a whole class: you are the trainer, and one child at a time is the robot in front of everyone.",
+  "harder": "Let pairs choose four new Round 2 cards to make the robot better, or think up a tricky test card for another pair's robot and draw it on scrap paper.",
+  "closing_question": "Draw one more card you would show the robot, so it guesses better.",
+  "language_swap": "Each card has one English word under a picture. Say the words in your class's language as you hand out pages 1 and 2, or write the translations on the cards before you cut them. On page 3, say Fruit and Not fruit in your class's language; the pictures above them help children who can't read yet. Read the closing question on page 2 aloud in your class's language.",
+  "age_note": "If children mention apps that name what a phone's camera points at, most AI apps have a minimum age of 13 on a personal account.",
+  "background": [
+    "The robot game is a small version of how machine learning works. People collect examples and label them, a computer program finds a pattern in them, and then it is tested on examples it was not given before. In round 1 the robot has two examples, both round fruit, so everything round looks like fruit. Round 2 adds different fruit and round things that are not fruit, and the same test cards come out better.",
+    "The robot's rule is a simple form of a real method: a new example gets the label of the example it looks most like. Real systems compare far more features than shape, but the weakness is the same. A new thing that looks like an example gets that example's label, whether it fits or not. That is why the toy apple ends up as fruit.",
+    "The surprise is the main point at this age. The robot gives an answer for every card, including one unlike any it was shown, and the answer sounds the same either way. People choose the examples, and people check the guesses. Use words like compare and guess for what the robot does, not words for what goes on inside a person."
+  ],
+  "frameworks": {
+    "AILit": "Shape AI, competence 3 (identify examples of data that might be used to train AI systems), and Engage with AI, competence 3 (understand why AI outputs should be checked), basic level",
+    "AI4K12": "Big Idea 3 (Learning)"
+  },
+  "tools": [],
+  "credits": [
+    {
+      "text": "Card pictures: Tabler Icons (MIT licence)",
+      "url": "https://tabler.io/icons"
+    }
+  ],
+  "further_reading": [
+    {
+      "title": "AI4K12: grade-band progression charts for the Five Big Ideas",
+      "url": "https://ai4k12.org/gradeband-progression-charts/"
+    }
+  ],
+  "student_pdf": {
+    "file": "teach-the-robot-student-en.pdf",
+    "pages": [
+      {
+        "title": "Training cards",
+        "instruction": "Cut out the cards.",
+        "blocks": [
+          {
+            "kind": "cards",
+            "heading": "Round 1",
+            "cards": [
+              {
+                "word": "apple",
+                "icon": "apple"
+              },
+              {
+                "word": "cherry",
+                "icon": "cherry"
+              }
+            ]
+          },
+          {
+            "kind": "cards",
+            "heading": "Round 2",
+            "cards": [
+              {
+                "word": "apple",
+                "icon": "apple"
+              },
+              {
+                "word": "cherry",
+                "icon": "cherry"
+              },
+              {
+                "word": "banana",
+                "icon": "banana"
+              },
+              {
+                "word": "melon",
+                "icon": "melon"
+              },
+              {
+                "word": "ball",
+                "icon": "ball-football"
+              },
+              {
+                "word": "coin",
+                "icon": "coin"
+              },
+              {
+                "word": "pizza",
+                "icon": "pizza"
+              },
+              {
+                "word": "clock",
+                "icon": "clock"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Test cards",
+        "instruction": "Keep the test cards in their envelope.",
+        "blocks": [
+          {
+            "kind": "cards",
+            "heading": "Test cards",
+            "cards": [
+              {
+                "word": "lemon",
+                "icon": "lemon"
+              },
+              {
+                "word": "avocado",
+                "icon": "avocado"
+              },
+              {
+                "word": "tennis ball",
+                "icon": "ball-tennis"
+              },
+              {
+                "word": "cookie",
+                "icon": "cookie"
+              }
+            ]
+          },
+          {
+            "kind": "tickets",
+            "question": "Draw one more card you would show the robot, so it guesses better.",
+            "count": 2,
+            "draw": true
+          }
+        ]
+      },
+      {
+        "title": "Fruit or not?",
+        "instruction": "Put each test card on one side.",
+        "blocks": [
+          {
+            "kind": "mat",
+            "headings": [
+              "Fruit",
+              "Not fruit"
+            ],
+            "icons": [
+              "apple",
+              "x"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "skool_text": "Lesson 3 for ages 5–8. One child in each pair plays a robot that may only compare new cards with the examples it was shown. Trained on two round fruit, the robot calls a tennis ball fruit; trained on eight different cards, it does better. Then a toy apple shows that the robot guesses and a person checks. No devices, 34 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-younger-3c514a93/teach-the-robot/"
+}

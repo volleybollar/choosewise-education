@@ -878,3 +878,20 @@ def test_guess_my_rule_keeps_rules_about_the_cards():
     """En regel om barnen själva (kläder, hår, familjer) kan peka ut ett barn."""
     assert "never about the children" in " ".join(teacher_text(_lesson("guess-my-rule")))
 
+
+def test_teach_the_robot_keeps_the_test_cards_new():
+    """Testkorten får inte finnas bland exemplen; då mäter testet inget."""
+    lesson = _lesson("teach-the-robot")
+    sets = {b["heading"]: [c["word"] for c in b["cards"]] for b in _blocks(lesson, "cards")}
+    assert sets["Round 1"] == ["apple", "cherry"]
+    assert sets["Round 2"] == ["apple", "cherry", "banana", "melon", "ball", "coin", "pizza", "clock"]
+    assert sets["Test cards"] == ["lemon", "avocado", "tennis ball", "cookie"]
+    assert not set(sets["Test cards"]) & (set(sets["Round 1"]) | set(sets["Round 2"]))
+    mat = _blocks(lesson, "mat")[0]
+    assert mat["headings"] == ["Fruit", "Not fruit"] and mat["icons"] == ["apple", "x"]
+
+
+def test_teach_the_robot_ends_with_a_person_checking_a_toy():
+    text = " ".join(teacher_text(_lesson("teach-the-robot")))
+    assert "toy" in text and "A person checks" in text
+
