@@ -238,7 +238,7 @@ def _young_problems(lesson):
     problems += ["mat without one icon per heading" for b in blocks
                  if b["kind"] == "mat" and len(b.get("icons", [])) != len(b["headings"])]
     problems += ["ticket to write on" for b in blocks if b["kind"] == "tickets" and not b.get("draw")]
-    cut_before = any("cut" in line and "envelope" in line for line in lesson["before"])
+    cut_before = any("cut" in line.lower() and "envelope" in line for line in lesson["before"])
     return problems + ([] if cut_before or not any(b["kind"] == "cards" for b in blocks) else ["cards not cut before the lesson"])
 
 
@@ -859,3 +859,22 @@ def test_made_by_people_sorts_twelve_cards_and_pairs_senses_with_sensors():
     assert mat["headings"] == ["Grew", "Made by people"] and mat["icons"] == ["seedling", "hammer"]
     assert [(b["heading"], [c["word"] for c in b["cards"]]) for b in cards[1:]] == [
         ("Senses", ["eye", "ear", "finger"]), ("Sensors", ["camera", "microphone", "touchscreen"])]
+
+
+def test_guess_my_rule_has_sixteen_cards_four_rules_and_a_yes_no_mat():
+    lesson = _lesson("guess-my-rule")
+    cards, rules = _blocks(lesson, "cards")
+    assert [c["word"] for c in cards["cards"]] == [
+        "car", "bus", "bike", "tractor", "plane", "helicopter", "air balloon", "rocket",
+        "ship", "sailboat", "submarine", "kayak", "cat", "dog", "horse", "fish"]
+    assert rules["heading"] == "Secret rule cards"
+    assert [(c["word"], c["icon"]) for c in rules["cards"]] == [
+        ("wheels", "wheel"), ("in the air", "cloud"), ("water", "ripple"), ("animal", "paw")]
+    mat = _blocks(lesson, "mat")[0]
+    assert mat["headings"] == ["Yes", "No"] and mat["icons"] == ["check", "x"]
+
+
+def test_guess_my_rule_keeps_rules_about_the_cards():
+    """En regel om barnen själva (kläder, hår, familjer) kan peka ut ett barn."""
+    assert "never about the children" in " ".join(teacher_text(_lesson("guess-my-rule")))
+

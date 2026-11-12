@@ -31,6 +31,7 @@
   ],
   "lessons": [
     {"id": "made-by-people", "band": "5-8", "number": 1},
+    {"id": "guess-my-rule", "band": "5-8", "number": 2},
     {"id": "ai-or-not", "band": "9-12", "number": 1},
     {"id": "learning-from-examples", "band": "9-12", "number": 2},
     {"id": "who-does-it-fail", "band": "9-12", "number": 3},
