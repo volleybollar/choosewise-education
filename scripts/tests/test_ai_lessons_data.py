@@ -689,3 +689,18 @@ def test_who_made_this_lists_the_codes_shown_and_photographs_objects_only():
     assert "never a person" in page1
     assert "never a person" in " ".join(teacher_text(lesson))
 
+
+def test_who_decides_about_ai_credits_iste_and_sorts_eight_uses():
+    lesson = _lesson("who-decides-about-ai", OLDER)
+    credits = " ".join(c["text"] for c in lesson["credits"])
+    assert "ISTE" in credits and "Project 4" in credits and "CC BY 4.0" in credits
+    sheet = _blocks(lesson, "checklist")[0]
+    assert len(sheet["items"]) == 8
+    assert sheet["checks"] == ["Fine at school", "Only with rules", "Not at school"]
+
+
+def test_who_decides_about_ai_names_the_law_and_its_limits():
+    text = " ".join(teacher_text(_lesson("who-decides-about-ai", OLDER)))
+    for needle in ("2024/1689", "Annex III", "Article 5", "other countries"):
+        assert needle in text, needle
+
