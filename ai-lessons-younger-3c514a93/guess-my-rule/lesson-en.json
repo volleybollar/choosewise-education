@@ -7,7 +7,7 @@
   "minutes": 32,
   "groups": "The whole class and pairs",
   "ai_use": "none",
-  "prep_minutes": 20,
+  "prep_minutes": 30,
   "goals": [
     "Find a rule by looking at sorted examples, and test it on the next card.",
     "Sort cards by a secret rule so that a partner can find it.",
@@ -38,7 +38,7 @@
     "Crayons or pencils"
   ],
   "before": [
-    "Print page 1 two times for the class game, plus once per pair. Cut out all the cards and the rule cards on page 3 before the lesson, and put each pair's 16 cards and four rule cards in an envelope. A paper trimmer helps. With more than 32 children, print a third set for the game.",
+    "Print page 1 two times for the class game, plus once per pair. Cut out all the cards and the rule cards on page 3 before the lesson, and put each pair's 16 cards and four rule cards in an envelope. A paper trimmer helps. Keep the sets for your next class. With more than 32 children, print a third set for the game.",
     "Mark the two sides of the room: a check for Yes on one wall and a cross for No on the other. A sheet of paper with each sign is enough.",
     "Rules in this lesson are about the cards, never about the children themselves: not their clothes, hair, bodies or families. A rule about children can single one of them out.",
     "Read the background below about the tricky cards."
@@ -55,7 +55,7 @@
       "minutes": 7,
       "mode": "All",
       "title": "Guess the side",
-      "do": "Your rule is \"has wheels\". Call children up one at a time with their card. Before you point to a side, the class shows thumbs up for Yes or thumbs down for No. After eight or more cards, children who think they know the rule whisper it to you; then say it aloud together.",
+      "do": "Your rule is \"has wheels\". Call children up one at a time with their card, and call a few wheel cards early so the Yes side gets examples. Before you point to a side, the class shows thumbs up for Yes or thumbs down for No. The child stands by that wall and holds the card up. The plane goes on Yes: planes have wheels for landing, even though the picture doesn't show them; if children protest, keep it for the tricky cards. After eight or more cards, children who think they know the rule whisper it to you; then say it aloud together.",
       "say": "Thumbs up if you think this card goes on the Yes side."
     },
     {

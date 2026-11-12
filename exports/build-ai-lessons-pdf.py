@@ -239,6 +239,8 @@ def _mat_pic(name: str) -> str:
 
 
 def _mat(block: dict) -> str:
+    if "icons" in block and len(block["icons"]) != len(block["headings"]):
+        raise ValueError(f"A sorting mat needs one icon per heading: {block['headings']}")
     pics = [_mat_pic(name) for name in block.get("icons", [])] or [""] * len(block["headings"])
     cols = "".join(f'<div class="mat__col"><p class="mat__head">{pic}{escape(h)}</p></div>'
                    for pic, h in zip(pics, block["headings"]))

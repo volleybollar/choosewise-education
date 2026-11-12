@@ -144,3 +144,14 @@ def test_demo_prompts_in_order_are_numbered():
     assert "pick one" not in steps and "Prompts, in order" in steps
     for n in range(1, len(demo["prompts"]) + 1):
         assert f"Prompt {n}" in steps, n
+
+
+def test_ai_lessons_css_version_is_not_older_than_the_css():
+    """Versionen i länken (?v=ÅÅÅÅMMDD) ska höjas när ai-lessons.css ändras, annars
+    kan en webbläsare visa sidorna med den gamla CSS:en."""
+    import subprocess
+    changed = subprocess.run(["git", "log", "-1", "--format=%cs", "--", "assets/css/ai-lessons.css"],
+                             cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip().replace("-", "")
+    version = re.search(r"ai-lessons\.css\?v=(\d{8})", (ROOT / "scripts/build-ai-lessons.py").read_text(encoding="utf-8")).group(1)
+    assert version >= changed, (version, changed)
+

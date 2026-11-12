@@ -59,7 +59,7 @@ def teacher_text(lesson):
     """Allt vi själva skriver till läraren (inte elevernas typiska svar)."""
     out = list(lesson["goals"]) + [k["meaning"] for k in lesson["key_words"]]
     out += list(lesson["before"]) + list(lesson["materials"]) + [lesson["simpler"], lesson["harder"], lesson["language_swap"]]
-    out += list(lesson["background"]) + [lesson["line"], lesson["age_note"], lesson["skool_text"]]
+    out += list(lesson["background"]) + [lesson["line"], lesson["age_note"], lesson["skool_text"], lesson["closing_question"]]
     for s in lesson["steps"]:
         out += [s["do"], s.get("say", ""), s.get("fallback", ""), s.get("without_ai", "")] + list(s.get("prompts", []))
     return out
@@ -73,7 +73,7 @@ def student_frame(lesson):
     for page in lesson["student_pdf"]["pages"]:
         out += [page["title"], page["instruction"]]
         for b in page["blocks"]:
-            out += [b.get("heading", "")] + list(b.get("headings", [])) + list(b.get("columns", []))
+            out += [b.get("heading", ""), b.get("label", ""), b.get("question", "")] + list(b.get("headings", [])) + list(b.get("columns", []))
     return out
 
 
@@ -235,6 +235,8 @@ def _young_problems(lesson):
                  if len(p["instruction"].split()) > 8]
     problems += [f"text over 15 words: {b['body']}" for b in blocks if b["kind"] == "text" and len(b["body"].split()) > 15]
     problems += [f"card without a picture: {c['word']}" for b in blocks for c in b.get("cards", []) if not c.get("icon")]
+    icons = [c["icon"] for b in blocks for c in b.get("cards", []) if c.get("icon")] + [i for b in blocks for i in b.get("icons", [])]
+    problems += [f"no icon file: {i}" for i in icons if not (ROOT / "_unpublished/exports/ai-lessons/icons" / f"{i}.svg").exists()]
     problems += ["mat without one icon per heading" for b in blocks
                  if b["kind"] == "mat" and len(b.get("icons", [])) != len(b["headings"])]
     problems += ["ticket to write on" for b in blocks if b["kind"] == "tickets" and not b.get("draw")]
@@ -246,10 +248,10 @@ def test_young_lessons_work_for_children_who_cant_read_yet():
     bad = {"band": "5-8", "minutes": 40, "before": ["Print the PDF."], "student_pdf": {"pages": [
         {"instruction": "Cut out all of the cards and then sort them now.", "blocks": [
             {"kind": "text", "body": " ".join(["word"] * 16)},
-            {"kind": "cards", "cards": [{"word": "hovercraft"}]},
+            {"kind": "cards", "cards": [{"word": "hovercraft"}, {"word": "boat", "icon": "no-such-icon"}]},
             {"kind": "mat", "headings": ["Yes", "No"]},
             {"kind": "tickets", "question": "Why?", "count": 2}]}]}}
-    assert len(_young_problems(bad)) == 7  # vakten själv biter
+    assert len(_young_problems(bad)) == 8  # vakten själv biter
     for lesson in lessons():
         assert _young_problems(lesson) == [], lesson["id"]
 
@@ -263,6 +265,10 @@ def test_younger_track_covers_5_8():
 def test_no_anthropomorphic_wording():
     assert ANTHRO.search("The chatbot knows the answer.")  # vakten själv biter
     assert ANTHRO.search("The robot thinks the ball is a fruit.")
+    fake = {"student_pdf": {"pages": [{"title": "", "instruction": "", "blocks": [
+        {"kind": "draw", "label": "What the robot knows"}, {"kind": "tickets", "question": "The robot wants a ball.", "count": 1}]}]}}
+    assert {"What the robot knows", "The robot wants a ball."} <= set(student_frame(fake))
+    assert all(lesson["closing_question"] in teacher_text(lesson) for lesson in lessons())
     assert MENTAL.search("They train them to admit when they are unsure.")
     assert MENTAL.search("Keeps you chatting: it tries to stop Mika from leaving.")
     assert "Round 1: you choose" in student_frame(_lesson("bias-in-bias-out", OLDER))
@@ -750,7 +756,7 @@ def test_teacher_text_includes_the_path_without_ai():
     """Ordvakterna ska nå fältet without_ai, som den här grenen lade till."""
     lesson = {"goals": [], "key_words": [], "before": [], "materials": [], "simpler": "", "harder": "",
               "language_swap": "", "background": [], "line": "", "age_note": "", "skool_text": "",
-              "steps": [{"do": "", "without_ai": "Show the saved answer."}]}
+              "closing_question": "", "steps": [{"do": "", "without_ai": "Show the saved answer."}]}
     assert "Show the saved answer." in teacher_text(lesson)
 
 
@@ -884,7 +890,7 @@ def test_teach_the_robot_keeps_the_test_cards_new():
     lesson = _lesson("teach-the-robot")
     sets = {b["heading"]: [c["word"] for c in b["cards"]] for b in _blocks(lesson, "cards")}
     assert sets["Round 1"] == ["apple", "cherry"]
-    assert sets["Round 2"] == ["apple", "cherry", "banana", "melon", "ball", "coin", "pizza", "clock"]
+    assert sets["Round 2"] == ["banana", "melon", "ball", "coin", "pizza", "clock"]  # läggs till Round 1
     assert sets["Test cards"] == ["lemon", "avocado", "tennis ball", "cookie"]
     assert not set(sets["Test cards"]) & (set(sets["Round 1"]) | set(sets["Round 2"]))
     mat = _blocks(lesson, "mat")[0]
@@ -916,3 +922,33 @@ def test_teach_the_robot_has_a_script_for_the_carrot():
 def test_made_by_people_credits_the_activities_it_adapts():
     """De tre sensorerna (kamera, mikrofon, pekskärm) kommer från ISTE:s aktivitet 2."""
     assert "Activities 1, 2 and 4" in _lesson("made-by-people")["credits"][0]["text"]
+
+
+# ───── Mindre fynd från slutgranskningen 5–8, rättade på Johans begäran ─────
+
+def test_guess_my_rule_class_game_is_spelled_out():
+    """Planet ser hjullöst ut på bilden; barnen ska se Ja-korten; Ja-sidan behöver exempel tidigt."""
+    game = next(s for s in _lesson("guess-my-rule")["steps"] if s["title"] == "Guess the side")
+    assert "wheels for landing" in game["do"]
+    assert "holds the card up" in game["do"] and "wheel cards early" in game["do"]
+
+
+def test_young_lessons_keep_their_cards_and_allow_time_to_cut():
+    for lesson in lessons(YOUNGER):
+        if lesson["band"] == "5-8":
+            assert any("next class" in line for line in lesson["before"]), lesson["id"]
+    assert _lesson("guess-my-rule")["prep_minutes"] >= 30  # cirka 270 kort att klippa och sortera
+
+
+def test_teach_the_robot_works_for_children_who_cant_read():
+    lesson = _lesson("teach-the-robot")
+    assert "question mark" in " ".join(lesson["before"])  # kuvertet med testkort syns utan att läsa
+    assert any("face up" in s["do"] for s in lesson["steps"])  # roboten jämför med korten framför sig
+
+
+def test_made_by_people_model_robot_is_drawn_before_the_lesson():
+    lesson = _lesson("made-by-people")
+    assert any("waters plants" in line for line in lesson["before"])
+    robot = next(s for s in lesson["steps"] if s["title"] == "A robot for a job")
+    assert "First draw" not in robot["do"]
+

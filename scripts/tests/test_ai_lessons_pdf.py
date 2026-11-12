@@ -244,3 +244,11 @@ def test_mat_icons_count_for_the_tabler_credit():
     mod = load("build_ai_lessons_pdf", BUILD)
     only_mat = {"student_pdf": {"pages": [{"blocks": [{"kind": "mat", "headings": ["Yes"], "icons": ["check"]}]}]}}
     assert mod._uses_icons(only_mat)
+
+
+def test_mat_with_too_few_icons_stops_the_build():
+    """zip tappar kolumner tyst om ikonerna är färre än rubrikerna."""
+    mod = load("build_ai_lessons_pdf", BUILD)
+    with pytest.raises(ValueError, match="one icon per heading"):
+        mod.BLOCKS["mat"]({"kind": "mat", "headings": ["Yes", "No"], "icons": ["check"]})
+

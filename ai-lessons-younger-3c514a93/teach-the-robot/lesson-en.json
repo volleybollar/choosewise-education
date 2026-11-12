@@ -32,14 +32,14 @@
     }
   ],
   "materials": [
-    "Student PDF page 1, the Round 1 and Round 2 cards: one set per pair, cut out and in an envelope",
+    "Student PDF page 1, the two Round 1 cards and the six Round 2 cards: one set per pair, cut out and in an envelope",
     "Page 2, the four test cards: one set per pair, cut out and in a second envelope, and the two closing tickets",
     "Page 3, the Fruit and Not fruit mat: one per pair",
     "A toy apple, or a real carrot",
     "Crayons or pencils"
   ],
   "before": [
-    "Print the student PDF and cut out the cards on pages 1 and 2 before the lesson, one set per pair. Put each pair's Round 1 and Round 2 cards in one envelope and the four test cards in another, so the test cards stay new to the child playing the robot. A paper trimmer helps.",
+    "Print the student PDF and cut out the cards on pages 1 and 2 before the lesson, one set per pair. Put each pair's Round 1 and Round 2 cards in one envelope and the four test cards in another, so the test cards stay new to the child playing the robot. Draw a big question mark on the test-card envelope, so children who can't read can tell the two apart. A paper trimmer helps. Keep the sets for your next class.",
     "Bring a toy apple, or other toy fruit from the play corner. If you have none, bring a real carrot: it looks most like the banana card, so the robot says fruit, and the class checks.",
     "Read the background below, especially the robot's rule."
   ],
@@ -55,7 +55,7 @@
       "minutes": 6,
       "mode": "Pairs",
       "title": "Round 1",
-      "do": "Give each pair the two envelopes and the mat on page 3. The trainer shows the robot the two Round 1 cards, the apple and the cherry, and says fruit for each. Then the trainer takes out the four test cards one at a time, and the robot puts each one on the mat: Fruit or Not fruit.",
+      "do": "Give each pair the two envelopes and the mat on page 3. The trainer shows the robot the two Round 1 cards, the apple and the cherry, and says fruit for each. The training cards stay face up beside the mat, so the robot can compare. Then the trainer takes out the four test cards one at a time, and the robot puts each one on the mat: Fruit or Not fruit.",
       "say": "Robot, does this card look like one of your fruit cards?"
     },
     {
@@ -69,7 +69,7 @@
       "minutes": 8,
       "mode": "Pairs",
       "title": "Round 2",
-      "do": "Swap roles. The new trainer shows all eight Round 2 cards and says fruit or not fruit for each: the apple, the cherry, the banana and the melon are fruit; the ball, the coin, the pizza and the clock are not. The new robot follows the same rule, with only the Round 2 cards to compare with, and sorts the same four test cards again.",
+      "do": "Swap roles. The new trainer lays out the two Round 1 cards and the six Round 2 cards face up, eight in all, and says fruit or not fruit for each: the apple, the cherry, the banana and the melon are fruit; the ball, the coin, the pizza and the clock are not. The new robot follows the same rule, with only the Round 2 cards to compare with, and sorts the same four test cards again.",
       "say": "Robot, which card does it look most like?"
     },
     {
@@ -178,14 +178,6 @@
             "kind": "cards",
             "heading": "Round 2",
             "cards": [
-              {
-                "word": "apple",
-                "icon": "apple"
-              },
-              {
-                "word": "cherry",
-                "icon": "cherry"
-              },
               {
                 "word": "banana",
                 "icon": "banana"
