@@ -764,3 +764,43 @@ def test_who_decides_about_ai_tutor_can_be_high_risk():
     """Annex III 3 b: AI som bedömer elever för att styra lärandet är högrisk, också i en tutor."""
     assert "steer" in " ".join(teacher_text(_lesson("who-decides-about-ai", OLDER)))
 
+
+
+# ───── Mindre fynd från slutgranskningen 16–19, rättade på Johans begäran ─────
+
+def test_does_ai_help_me_learn_lets_students_guess_about_the_same():
+    """Tutorgruppen klarade provet ungefär lika bra; gissningen får inte bara erbjuda upp eller ned."""
+    lesson = _lesson("does-ai-help-me-learn", OLDER)
+    page = lesson["student_pdf"]["pages"][0]
+    step = next(s for s in lesson["steps"] if s["title"] == "The maths study")
+    assert "the same" in page["instruction"] and "the same" in step["do"]
+    assert all("same?" in c for c in _blocks(lesson, "table")[0]["columns"][1:])
+
+
+def test_does_ai_help_me_learn_says_pnas_has_the_same_figures():
+    """IDEAS/RePEc-posten för PNAS-artikeln ger samma 48, 127 och 17 procent som arbetsversionen."""
+    assert "the same figures" in " ".join(_lesson("does-ai-help-me-learn", OLDER)["background"])
+
+
+def test_using_ai_well_example_answers_give_the_tool_no_knowledge():
+    """Prompt 2 fick situationen av eleverna; exempelsvaret får inte säga att verktyget visste den."""
+    said = [s for g in _lesson("using-ai-well", OLDER)["gather"] for s in g["students_say"]]
+    assert not any(re.search(r"\bit (knew|knows?|understood|understands?)\b", s, re.I) for s in said)
+
+
+def test_who_made_this_prepares_other_cards_and_tries_a_code():
+    """Eleverna har redan sett flygplanet på sida 1, och läraren provar en kod i skolans verktyg före lektionen."""
+    before = " ".join(_lesson("who-made-this", OLDER)["before"])
+    assert "other than the airplane" in before
+    assert "Try /cutaway" in before
+
+
+def test_older_track_overview_covers_16_19():
+    """Översikten beskriver båda banden: färgutskrift, projektorn utan AI och trådarna för 16–19."""
+    t = track(OLDER)
+    needs = " ".join(t["what_you_need"])
+    assert "print well in black and white." not in needs and "colour" in needs
+    assert "without AI" in next(line for line in t["what_you_need"] if "projector" in line)
+    threads = {th["name"]: th["line"] for th in t["threads"]}
+    assert "when to say that AI was used" in threads["AI-made content"]
+    assert "rules for AI at school" in threads["Me and AI"]

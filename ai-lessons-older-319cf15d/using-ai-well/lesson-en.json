@@ -93,7 +93,7 @@
     {
       "question": "Which email was best: yours, prompt 1's or prompt 2's? Why?",
       "students_say": [
-        "Prompt 2's, because it knew the situation.",
+        "Prompt 2's, because we told it the situation.",
         "Mine. It sounded like me.",
         "Prompt 1's was too long and too formal."
       ]

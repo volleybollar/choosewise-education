@@ -62,7 +62,7 @@
       "minutes": 7,
       "mode": "Pairs",
       "title": "The maths study",
-      "do": "Hand out page 1. Pairs read about the study and guess, for each of the two AI groups, whether practice scores went up or down compared with the group without AI, and then whether exam scores did. They write one reason for their guess about the answer group."
+      "do": "Hand out page 1. Pairs read about the study and guess, for each of the two AI groups, whether practice scores went up, went down or stayed about the same compared with the group without AI, and then how exam scores went. They write one reason for their guess about the answer group."
     },
     {
       "minutes": 4,
@@ -150,7 +150,7 @@
   "background": [
     "Bastani and colleagues ran a field experiment at a large high school in Turkey in autumn 2023: nearly 1,000 students in about fifty 9th-, 10th- and 11th-grade maths classes, in four 90-minute sessions. In each session the teacher went through a topic, students solved practice problems, and then they took a closed-book exam on its own, with problems very similar to the practice ones. During practice, one group had books and notes and no AI, one had GPT Base, an interface like ChatGPT, and one had GPT Tutor, the same model with teacher-written instructions to give hints without giving away the solution.",
     "In practice, both AI groups did much better than the group without AI: 48% better with GPT Base and 127% better with GPT Tutor. In the exam, without AI, the GPT Base group did 17% worse than the group that never had AI, while the safeguards in GPT Tutor largely removed that harm. Students with GPT Base most often simply asked for the answer; the authors describe them as using the tool as a crutch.",
-    "The figures come from the authors' working paper (2024). The peer-reviewed version appeared in PNAS in 2025 as Generative AI without guardrails can harm learning, with the same conclusion. It is one study, in one subject and one country, so present it as a strong example rather than a rule: the result depends on how the tool is used.",
+    "The figures come from the authors' working paper (2024). The peer-reviewed version appeared in PNAS in 2025 as Generative AI without guardrails can harm learning, with the same figures and the same conclusion. It is one study, in one subject and one country, so present it as a strong example rather than a rule: the result depends on how the tool is used.",
     "The trade-off question is how Choosewise looks at any tool, digital or not. Every tool makes us worse at something. If that matters, we choose when to practise it; if it doesn't, it's fine to let the tool take it. It is not either–or: use AI where it adds something, and leave it out where it takes away what students are there to learn."
   ],
   "frameworks": {
@@ -181,7 +181,7 @@
     "pages": [
       {
         "title": "The maths study",
-        "instruction": "Read about the study. Then guess: up or down?",
+        "instruction": "Read about the study. Then guess: up, down or about the same?",
         "blocks": [
           {
             "kind": "text",
@@ -191,8 +191,8 @@
             "kind": "table",
             "columns": [
               "Group",
-              "Practice, with AI: up or down?",
-              "Exam, without AI: up or down?"
+              "Practice, with AI: up, down, same?",
+              "Exam, without AI: up, down, same?"
             ],
             "rows": [
               [
