@@ -103,7 +103,7 @@ h1 { font-family: var(--font-display); font-size: 22pt; font-weight: 500; line-h
 .mat__col + .mat__col { border-left: 0.4mm solid var(--color-text); }
 .mat__head { min-height: 22mm; display: flex; align-items: center; justify-content: center; font-size: 15pt; font-weight: 500; text-align: center; padding: 3mm; border-bottom: 0.3mm solid var(--color-text-muted); }
 .image { display: block; max-width: 100%; max-height: 150mm; margin: 0 auto; object-fit: contain; }
-.images { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm 6mm; }
+.images { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm 6mm; max-width: 170mm; margin: 0 auto; }
 .images figure { margin: 0; text-align: center; }
 .images img { display: block; max-width: 100%; max-height: 70mm; margin: 0 auto; object-fit: contain; }
 .images figcaption { margin-top: 1.5mm; font-size: 12pt; }
@@ -123,6 +123,7 @@ ICONS = {
     "cards": '<rect x="3" y="6" width="12" height="15" rx="2"/><path d="M9 3h10a2 2 0 0 1 2 2v13"/>',
     "mat": '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16"/>',
     "image": '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 17-5-5-9 7"/>',
+    "images": '<rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/>',
 }
 
 

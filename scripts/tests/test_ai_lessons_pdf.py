@@ -185,6 +185,12 @@ def test_images_block_puts_labelled_pictures_in_a_grid():
     assert re.search(r"\.images img\s*\{[^}]*max-height:\s*70mm", mod.STYLE)
 
 
+def test_every_block_kind_has_a_header_icon():
+    """Sidhuvudets ikon väljs efter sidans första block (utom text); en ny blocktyp utan ikon stoppar bygget."""
+    mod = load("build_ai_lessons_pdf", BUILD)
+    assert set(mod.BLOCKS) == set(mod.ICONS)
+
+
 def test_missing_picture_in_images_block_stops_the_build():
     mod = load("build_ai_lessons_pdf", BUILD)
     with pytest.raises(FileNotFoundError, match="no-such-picture.webp"):

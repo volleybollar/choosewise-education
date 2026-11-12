@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Who Made This? — choosewise.education</title>
+  <meta name="description" content="Students name the style of three AI versions of the same photo, try a Visual Code on a photo of an object, and work out who made the result and when to say that AI was used.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (prefix tm-), och sedan det som är
+       nytt för AI-lektionerna (prefix al-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/ai-lessons.css?v=20261111a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten.
+       Sidan byggs av scripts/build-ai-lessons.py: ändra JSON-filen, inte HTML:en. -->
+<!-- seo:start (build-seo-meta.py) -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: tillbaka till översikten, lektionens namn och en rad om vad eleverna gör. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/ai-lessons-older-319cf15d/">← AI Lessons for Older Students</a>
+      <span class="eyebrow">Ages 16–19 · Lesson 4</span>
+      <h1>Who Made This?</h1>
+      <p class="lede">Students name the style of three AI versions of the same photo, try a Visual Code on a photo of an object, and work out who made the result and when to say that AI was used.</p>
+    </section>
+
+    <!-- Lektionen i korthet, materialet och elev-PDF:en. -->
+    <section class="section section--alt" id="al-glance">
+      <div class="container">
+        <h2 class="section__title">At a glance</h2>
+        <dl class="al-glance">
+          <div><dt>Ages</dt><dd>16–19</dd></div>
+          <div><dt>Time</dt><dd>40 min</dd></div>
+          <div><dt>Groups</dt><dd>Individual, pairs, then the whole class</dd></div>
+          <div><dt>AI use</dt><dd>Students use AI</dd></div>
+          <div><dt>Preparation</dt><dd>10 min</dd></div>
+        </dl>
+        <h3 class="al-sub">Materials</h3>
+        <ul class="al-list"><li>Student PDF page 1, name the style: one per pair, printed in colour, or shown on the projector</li><li>Page 2, who made this? and two closing-question tickets: one per pair</li><li>One device per pair with a camera and the AI tool your school has approved, if the tool can edit pictures</li><li>A projector, for the Visual Codes page if students work without AI</li></ul>
+        <a class="btn btn--primary al-download" href="/ai-lessons-older-319cf15d/who-made-this/who-made-this-student-en.pdf" download>Download the student PDF</a>
+      </div>
+    </section>
+
+    <!-- Lärandemål och nyckelord med elevvänliga förklaringar. -->
+    <section class="section" id="al-goals">
+      <div class="container">
+        <h2 class="section__title">Learning goals</h2>
+        <p class="al-text">By the end of the lesson, students can:</p>
+        <ul class="al-list"><li>Describe a visual style in precise words, and explain that an image model learned its styles from pictures that people made.</li><li>Judge, for six cases, how much of a piece of work a person made and how much AI made.</li><li>Explain when to say that AI was used, and why the rules on who owns AI-made work differ between countries.</li></ul>
+        <h3 class="al-sub">Key words</h3>
+        <dl class="al-words"><dt>style</dt><dd>The way something is made: colours, lines, what is shown and what is left out.</dd><dt>Visual Code</dt><dd>A one-word prompt, such as /cutaway, that an image tool turns into a whole style when you send it with a photo. Collected by Choosewise.</dd><dt>copyright</dt><dd>The right of the person who made a work to control who may copy, share or sell it.</dd><dt>deepfake</dt><dd>A picture, sound or video made or changed with AI that looks real and could be taken for a real person, place or event.</dd><dt>disclose</dt><dd>Say openly that AI was used, and how.</dd></dl>
+      </div>
+    </section>
+
+    <!-- Förberedelser: vad läraren skriver ut, skriver och provar före lektionen. -->
+    <section class="section section--alt" id="al-before">
+      <div class="container">
+        <h2 class="section__title">Before the lesson</h2>
+        <p class="al-text">About 10 minutes.</p>
+        <ul class="al-list"><li>Print page 1 in colour for every pair, or show it on the projector: in black and white the styles are hard to tell apart. Print page 2 for every pair.</li><li>Check whether the AI tool your school has approved can edit an uploaded photo, and that it is approved for students&#x27; age. If it can&#x27;t, or students can&#x27;t log in, run step 4 without AI on the Visual Codes page.</li><li>Open choosewise.education/visual-codes/ before class and pick three cards to show if you need the path without AI.</li><li>Tell students before step 4: photos of objects only, never a person, themselves included. A photo of a person is personal data, and AI can turn it into something that person never agreed to.</li></ul>
+      </div>
+    </section>
+
+    <!-- Steg för steg: minut för minut, varje steg enskilt, i par eller alla. -->
+    <section class="section" id="al-steps">
+      <div class="container">
+        <h2 class="section__title">Step by step</h2>
+        <ol class="al-steps"><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 1</span><span class="al-step__time">0–4 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">Name the style</h3><p class="al-step__do">Hand out page 1. Each student looks at the photo and the versions A, B and C, and writes five words for the style of each in the table: colours, lines, what is shown and what is left out. No talking yet.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 2</span><span class="al-step__time">4–8 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Match the codes</h3><p class="al-step__do">Pairs compare their words, then match A, B and C to three of the five codes on page 1. Two codes are not used.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 3</span><span class="al-step__time">8–11 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">One word, a whole style</h3><p class="al-step__do">Give the answers: A is /blueprint, B is /forceanalysis, C is /cutaway. Ask whose words came closest. Then explain that each version came from the same photo and one word. The image model turns the word into a style because it was trained on huge numbers of pictures that people drew, photographed and labelled.</p><p class="al-say"><span class="al-say__label">Say</span> You needed five words to describe the style. The tool needed one. Both of you got the style from work that people made.</p></li><li class="al-step al-step--ai"><p class="al-step__head"><span class="al-step__num">Step 4</span><span class="al-step__time">11–19 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Try a code</h3><p class="al-step__do">Pairs photograph an object on their desk, such as a pencil case, a water bottle or a calculator: never a person. Before sending it, they agree on what they expect the code to do. Then they send the photo to the AI tool your school has approved with one code from page 1 and nothing else, and compare the result with what they expected.</p><p class="al-label">Prompts to try (pick one)</p><ul class="al-prompts"><li>/cutaway</li><li>/blueprint</li><li>/xray</li></ul><p class="al-fallback"><strong>Without AI:</strong> Show the Visual Codes page on the projector. For each of three cards, pairs say what the code will do to the photo before you move the slider, then compare.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 5</span><span class="al-step__time">19–28 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Who made this?</h3><p class="al-step__do">Pairs go through the six cases on page 2. For each, they tick who mostly made it, a person, both or AI, and tick the last column if they would say that AI was used in a school task. They agree on a reason for every case they first disagree about.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 6</span><span class="al-step__time">28–37 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">What the rules say</h3><p class="al-step__do">Take the cases one by one and ask for hands. Then go through the rules (see Background). In the US, copyright protects what a person made, not purely AI-generated material, and prompts alone are not enough; choosing, arranging and changing the output can count. A court in Beijing protected an image made with more than 150 prompts and later adjustments, and UK law protects some computer-generated works. Who owns AI-made work depends on the country. Saying that AI was used is a separate question: under the EU&#x27;s AI Act, people who use AI to make deepfakes must say that the content is AI-made, and schools set their own rules for schoolwork. Agree on a line the class can use, such as: Made with [tool] from my photo, code /cutaway.</p><p class="al-say"><span class="al-say__label">Say</span> Who made it and who owns it are two different questions. Saying how you used AI is how you answer the first one honestly.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 7</span><span class="al-step__time">37–40 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">Closing question</h3><p class="al-step__do">Each student answers the closing question on a ticket from page 2 and hands it in.</p></li></ol>
+      </div>
+    </section>
+
+    <!-- Uppsamling i helklass: frågor och vad elever brukar svara. -->
+    <section class="section section--alt" id="al-gather">
+      <div class="container">
+        <h2 class="section__title">Gather it up</h2>
+        <p class="al-text">Questions for the whole-class talk, with answers students often give.</p>
+        <ul class="al-gather"><li><p class="al-gather__q">Which words described the styles best?</p><p class="al-label">Students often say</p><ul class="al-said"><li>Lines and a grid for the blueprint.</li><li>The arrows in B.</li><li>In C you can see inside the plane.</li></ul></li><li><p class="al-gather__q">Who made the picture of the object on your desk: you, the AI tool or the people whose pictures it was trained on?</p><p class="al-label">Students often say</p><ul class="al-said"><li>Me. I took the photo.</li><li>The AI did most of it.</li><li>All of us, in a way.</li></ul></li><li><p class="al-gather__q">Which case was hardest to place, and why?</p><p class="al-label">Students often say</p><ul class="al-said"><li>The one I edited for an hour.</li><li>The sketch coloured in by AI.</li><li>The song, because it sounds like the singer.</li></ul></li><li><p class="al-gather__q">When must you say that AI was used?</p><p class="al-label">Students often say</p><ul class="al-said"><li>Always in schoolwork.</li><li>When it looks real.</li><li>When someone could be fooled.</li></ul></li></ul>
+      </div>
+    </section>
+
+    <!-- Enklare och svårare varianter. -->
+    <section class="section" id="al-adapt">
+      <div class="container">
+        <h2 class="section__title">Make it simpler, make it harder</h2>
+        <div class="al-adapt">
+          <div><h3 class="al-sub">Simpler</h3><p class="al-text">Do steps 1 to 3 together on the projector. Skip the AI step and show three Visual Codes cards instead. Then sort the six cases as a class.</p></div>
+          <div><h3 class="al-sub">Harder</h3><p class="al-text">Pairs write a short AI disclosure for a school project that used AI in two places, and compare it with the school&#x27;s own rules if there are any. Or they find out, from official sources, how their own country treats AI-made work.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avslutande fråga (exit ticket) som varje elev svarar på. -->
+    <section class="section section--alt" id="al-closing">
+      <div class="container">
+        <h2 class="section__title">Closing question</h2>
+        <p class="al-closing">You made a picture with AI for a school poster. Who made it, and what would you write next to it?</p>
+      </div>
+    </section>
+
+    <!-- Byta språk: hur läraren gör elevmaterialet till klassens språk. -->
+    <section class="section section--alt" id="al-language">
+      <div class="container">
+        <h2 class="section__title">Teaching in another language</h2>
+        <p class="al-text">Pages 1 and 2 have English text. The pictures need no translation. Write the column headings and the six cases on page 2 in your language next to the English ones, or read the cases aloud. The codes are English words: students type them as they are.</p>
+      </div>
+    </section>
+
+    <!-- Bakgrund för läraren: två minuters läsning. -->
+    <section class="section" id="al-background">
+      <div class="container">
+        <h2 class="section__title">Background for you</h2>
+        <p class="al-text">Visual Codes are one-word prompts that Choosewise collected and tested with ChatGPT: you send a photo and a single word, such as /cutaway or /blueprint, and the image tool returns a new version of the same picture in that style. Other image tools may give different results, or none. The three versions on page 1 come from the Visual Codes page: A is /blueprint, B is /forceanalysis and C is /cutaway.</p><p class="al-text">ISTE&#x27;s AI and Art project starts the same way: students describe an artist&#x27;s style in their own words so that a friend could recognise it, then ask whether a computer could use the same description. An image model needs no such list: it was trained on huge numbers of pictures, made and labelled by people, and produces a style from a single word.</p><p class="al-text">Who owns AI-assisted work differs between countries. The US Copyright Office (January 2025) concludes that copyright does not extend to purely AI-generated material, that prompts alone do not give enough control, and that people can protect what they add: their own work that shows in the output, and creative selection, arrangement or changes. The same report notes that the Beijing Internet Court in 2023 found an image made with Stable Diffusion protected, because of the more than 150 prompts and later adjustments behind it; that most EU member states see significant human input as necessary; and that UK law protects works generated by computer with no human author.</p><p class="al-text">Saying that AI was used is a separate question. Under the EU&#x27;s AI Act (Article 50), people who use AI to make deepfakes, pictures, sound or video that look like real people, places or events, must disclose that the content was artificially generated or manipulated; for clearly artistic, satirical or fictional work a lighter disclosure is enough. The European Commission says these transparency rules apply from August 2026 (checked 12 November 2026). Outside the EU, rules differ. For schoolwork, follow your school&#x27;s rules; where there are none, a short line saying which tool was used, and for what, is a good habit.</p>
+      </div>
+    </section>
+
+    <!-- Koppling till ramverken AILit och AI4K12. -->
+    <section class="section section--alt" id="al-frameworks">
+      <div class="container">
+        <h2 class="section__title">Framework links</h2>
+        <p class="al-text"><a href="https://www.oecd.org/en/publications/empowering-learners-for-the-age-of-ai_65cd27d4-en.html"><strong>AILit</strong></a>: Create with AI, competences 4 (analyse how AI can safeguard or violate content authenticity and intellectual property: who should be credited and what copyright protects, advanced level) and 2 (visualise ideas using different types of AI systems, intermediate level)</p><p class="al-text"><a href="https://ai4k12.org/gradeband-progression-charts/"><strong>AI4K12</strong></a>: Big Idea 5 (Societal Impact)</p>
+      </div>
+    </section>
+
+    <!-- Åldersgränser för verktygen lektionen nämner, och läsarnoten (globala regler). -->
+    <section class="section" id="al-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age limits</h2>
+        <p class="al-text">In step 4, students use the AI tool your school has approved for their age, and only if it can edit pictures. Check the table: Claude is for 18 and over, and ChatGPT needs a parent&#x27;s or guardian&#x27;s permission under 18. Step 4 works without AI, on the Visual Codes page.</p>
+        <table class="al-table"><thead><tr><th scope="col">Tool</th><th scope="col">Minimum age</th><th scope="col">Notes</th></tr></thead><tbody><tr><th scope="row">ChatGPT</th><td>13, or the minimum age in your country</td><td>Under 18 only with a parent&#x27;s or guardian&#x27;s permission. Under-18 accounts get a teen version automatically.</td></tr><tr><th scope="row">Gemini, personal account</th><td>13</td><td>Under 13 only through a Family Link account, switched on by a parent.</td></tr><tr><th scope="row">Gemini, Google Workspace for Education</th><td>Any age, if the school&#x27;s administrator switches it on</td><td>Stricter content rules for under-18 accounts.</td></tr><tr><th scope="row">Microsoft Copilot, personal account</th><td>13, higher in some countries</td><td></td></tr><tr><th scope="row">Microsoft 365 Copilot Chat, school account</th><td>13</td><td>Blocked for students under 13 on school accounts.</td></tr><tr><th scope="row">Claude</th><td>18</td><td>No exception with a parent&#x27;s permission. In a school, for teachers only.</td></tr></tbody></table><p class="al-checked">Checked 2026-11-11. Age rules change often.</p>
+        <p class="tm-note">Readers outside Sweden should verify their own national regulations. AI in education is evolving quickly and country rules differ significantly.</p>
+      </div>
+    </section>
+
+    <!-- Källor, vidare läsning och vad medlemmar får göra med materialet. -->
+    <section class="section section--alt" id="al-credits">
+      <div class="container">
+        <h2 class="section__title">Sources and use</h2>
+        <h3 class="al-sub">Credits</h3><ul class="tm-sources"><li><a href="https://iste-ascd.org/ai-lessons">Adapted from ISTE, Hands-On AI Projects for the Classroom: A Guide for Electives Teachers (2024), by Nancye Blair Black and Susan Brooks-Young, Project 3 &quot;AI and Art&quot;, Activities 1 &quot;Discussion&quot; and 3 &quot;Identifying Artists&#x27; Styles&quot;. Licensed under CC BY 4.0. Changes: shortened to part of one lesson; students describe the styles of three AI versions of one photo instead of artists&#x27; styles, with Choosewise&#x27;s pictures and our own wording.</a></li><li><a href="https://creativecommons.org/licenses/by/4.0/">Licence of the original: Creative Commons Attribution 4.0 International (CC BY 4.0)</a></li></ul>
+        <h3 class="al-sub">Further reading</h3>
+        <ul class="tm-sources"><li><a href="https://choosewise.education/visual-codes/">Choosewise: Visual Codes</a></li><li><a href="https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf">US Copyright Office (2025): Copyright and Artificial Intelligence, Part 2: Copyrightability</a></li><li><a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">European Commission: AI Act, the regulatory framework for AI</a></li><li><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj">Regulation (EU) 2024/1689, the AI Act (EUR-Lex)</a></li></ul>
+        <p class="al-rights">For members of the Choosewise community: use these materials with your own students, share them with colleagues at your school, and adapt or translate them for your own teaching. Please don&#x27;t republish or sell them.</p>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+</body>
+</html>

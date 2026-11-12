@@ -668,3 +668,24 @@ def test_using_ai_well_keeps_private_things_out_of_the_tool():
     assert any("anything private" in line for line in teacher)
     assert _blocks(lesson, "table")[2]["columns"] == ["AI sentence", "Accept, revise or reject?", "Why?"]
 
+
+def test_who_made_this_credits_iste_and_shows_the_airplane():
+    lesson = _lesson("who-made-this", OLDER)
+    credits = " ".join(c["text"] for c in lesson["credits"])
+    assert "ISTE" in credits and "Project 3" in credits and "CC BY 4.0" in credits
+    grid = _blocks(lesson, "images")[0]["items"]
+    assert [i["label"] for i in grid] == ["Photo", "A", "B", "C"]
+    assert [i["src"].rsplit("/", 1)[1] for i in grid] == [
+        "airplane-before-584w.webp", "airplane-blueprint-584w.webp",
+        "airplane-forceanalysis-584w.webp", "airplane-cutaway-584w.webp"]
+
+
+def test_who_made_this_lists_the_codes_shown_and_photographs_objects_only():
+    """En bild av en person är personuppgifter och kan bli något personen aldrig gått med på."""
+    lesson = _lesson("who-made-this", OLDER)
+    page1 = _student_page_text({"student_pdf": {"pages": lesson["student_pdf"]["pages"][:1]}})
+    for code in ("/blueprint", "/forceanalysis", "/cutaway"):
+        assert code in page1, code
+    assert "never a person" in page1
+    assert "never a person" in " ".join(teacher_text(lesson))
+
