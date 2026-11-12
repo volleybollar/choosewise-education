@@ -1,0 +1,259 @@
+{
+  "id": "who-decides-about-ai",
+  "title": "Who Decides About AI?",
+  "band": "16-19",
+  "number": 5,
+  "line": "Students say which of eight uses of AI at school they would allow, compare their views with how the EU's AI Act sorts the same uses, and write rules for one high-risk use at their own school.",
+  "minutes": 40,
+  "groups": "Individual, pairs, then the whole class",
+  "ai_use": "none",
+  "prep_minutes": 10,
+  "goals": [
+    "Weigh uses of AI at school by what they could do for students and what they could cost them.",
+    "Explain how one real law, the EU's AI Act, sorts uses of AI by risk: what it bans, what it regulates and what it leaves alone.",
+    "Write rules for one high-risk use at their school: who is responsible, who checks the results and how a student can question them."
+  ],
+  "key_words": [
+    {
+      "word": "high risk",
+      "meaning": "Under the EU's AI Act, uses of AI that can shape someone's education, work or rights, such as marking exams. They must meet strict rules, including human oversight."
+    },
+    {
+      "word": "banned",
+      "meaning": "Under the EU's AI Act, uses that are not allowed at all, such as reading students' emotions in school, except for medical or safety reasons."
+    },
+    {
+      "word": "transparency",
+      "meaning": "Telling people openly that they are dealing with AI, for example that a chatbot is not a person."
+    },
+    {
+      "word": "consequence chain",
+      "meaning": "What happens next, and what happens after that: a way to find effects that nobody planned."
+    },
+    {
+      "word": "appeal",
+      "meaning": "Asking for a result about you to be looked at again by a person."
+    }
+  ],
+  "materials": [
+    "Student PDF page 1, fine, with rules, or not at all? and the closing-question ticket: one per student",
+    "Page 2, consequence chain and our rules: one per pair",
+    "The board, with the AI Act's four groups written up before the lesson"
+  ],
+  "before": [
+    "Print page 1 for every student and page 2 for every pair.",
+    "Read the background, so that you can show in step 3 how the AI Act sorts the eight uses. Write its four groups on the board: banned, high risk, must say it's AI, no special rules.",
+    "The AI Act is EU law. Outside the EU, use it as one example of how a law can sort AI by risk, and add your own country's rules if there are any."
+  ],
+  "steps": [
+    {
+      "minutes": 4,
+      "mode": "Individual",
+      "title": "Fine, with rules, or not at all?",
+      "do": "Hand out page 1. Each student ticks one column for each of the eight uses of AI at school: fine at school, only with rules, or not at school."
+    },
+    {
+      "minutes": 6,
+      "mode": "Pairs",
+      "title": "Where we disagree",
+      "do": "Pairs compare their ticks and find the two uses they disagree about most, and why. For one use that either of them put under Only with rules, they agree on the rule they would want."
+    },
+    {
+      "minutes": 8,
+      "mode": "All",
+      "title": "How one law sorts them",
+      "do": "Tally the class's ticks on the board. Then show how the EU's AI Act sorts the same eight uses (see Background). The camera that reads how students feel is banned in schools, except for medical or safety reasons. Marking essays and exams, watching students during an online test and picking who gets a place are high risk, with strict rules such as human oversight. The chatbot on the website and the AI tutor must tell people that they are AI; a tutor that also assesses students to steer their learning can be high risk. The spell checker and the translation have no special rules. Ask where the class and the law agree, and where not. Remind the class that this is EU law, and that other countries have other rules, or none yet.",
+      "say": "A law sets a floor. Much of the rest is up to schools, and to the people in them."
+    },
+    {
+      "minutes": 10,
+      "mode": "Pairs",
+      "title": "Consequence chain",
+      "do": "Pairs pick one high-risk use, such as AI marking essays, and write it at the top of page 2. Then they write what happens next if the school starts using it, and what follows from that: three links in all. They swap sheets with the next pair, who add one more link and fill in who gains and who pays."
+    },
+    {
+      "minutes": 7,
+      "mode": "Pairs",
+      "title": "Our rules",
+      "do": "With their own sheet back, pairs write three rules for that use at their school: who is responsible for it, who checks the results, and how a student can question a result. Next to each rule they write who it protects."
+    },
+    {
+      "minutes": 2,
+      "mode": "All",
+      "title": "Rules aloud",
+      "do": "Two or three pairs read one rule each. Ask whether the school already has a rule like it, and who students could take it to."
+    },
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
+      "do": "Each student answers the closing question on the ticket at the bottom of page 1 and hands it in."
+    }
+  ],
+  "gather": [
+    {
+      "question": "Which use did the class disagree about most?",
+      "students_say": [
+        "The camera during online tests.",
+        "Marking essays. It could be fairer, or not.",
+        "The tutor."
+      ]
+    },
+    {
+      "question": "Where did the class and the law agree, and where not?",
+      "students_say": [
+        "We said no to the emotion camera too.",
+        "We were stricter about marking.",
+        "We didn't mind the tutor, and the law only says it has to tell you it's AI."
+      ]
+    },
+    {
+      "question": "What happened in your consequence chain that nobody planned?",
+      "students_say": [
+        "Students started writing for the AI, not for the teacher.",
+        "Teachers stopped reading the essays.",
+        "Students who write differently got lower marks."
+      ]
+    },
+    {
+      "question": "Who should be able to question a result from an AI system?",
+      "students_say": [
+        "The student.",
+        "Parents.",
+        "A teacher who knows the student."
+      ]
+    }
+  ],
+  "simpler": "Skip the consequence chain. After the law, pairs write two rules for one high-risk use, and the class picks the best three.",
+  "harder": "Pairs compare their rules with the school's own rules for AI, if there are any, and write a short proposal to the student council or the school leadership. Or they find out, from official sources, what their own country's rules say about one of the high-risk uses.",
+  "closing_question": "Who should decide how AI is used at your school, and why?",
+  "language_swap": "Pages 1 and 2 have English text. Read the eight uses on page 1 aloud in your class's language, or write them on the board, and write the column headings on both pages in your language next to the English ones.",
+  "age_note": "No AI tool is used or named in this lesson. If students bring up tools they use at school, the table shows their age limits, which are one more thing a school's rules have to take into account.",
+  "background": [
+    "The EU's AI Act, Regulation (EU) 2024/1689, sorts uses of AI by risk. A few practices are banned. One of them is using AI to infer the emotions of people at work or in education institutions, except for medical or safety reasons (Article 5), in force since February 2025. Uses that can shape someone's education are high risk (Annex III, point 3): AI used to determine access or admission, to evaluate learning outcomes, to assess the level of education someone will receive, or to monitor and detect prohibited behaviour of students during tests.",
+    "High-risk systems must meet strict requirements before they are used, among them risk assessment, high-quality data, documentation, human oversight and accuracy. After the AI Omnibus amendment, these rules apply to the education uses from 2 December 2027. Chatbots fall under transparency rules: people must be told that they are interacting with an AI system unless that is obvious (Article 50), from August 2026. Many other uses, such as spam filters, have no special rules under the Act. Dates from the European Commission's AI Act page, checked 12 November 2026.",
+    "The answer key for page 1. Banned in schools, except for medical or safety reasons: the camera that reads students' faces to tell how they feel. High risk: AI that marks essays and exams, AI that watches students through the camera during an online test, and AI that picks who gets a place at the school. Must say it's AI: the chatbot on the school website, and the AI tutor as long as it only gives hints; AI that evaluates learning outcomes, including to steer the learning process, is high risk (Annex III, point 3). No special rules: the spell checker and the translation tool.",
+    "The AI Act is EU law, for AI systems provided or used in the EU. Other countries have other rules, or none yet. Even in the EU, the Act leaves much to schools: which tools to use, for what, and how students can question a result.",
+    "The consequence chain is a common futures exercise: start with one change, ask what happens next, and keep going. It brings out effects that nobody planned, which is often where rules are most needed."
+  ],
+  "frameworks": {
+    "AILit": "Shape AI, competence 1 (investigate how an AI system is intended to work, whom it is designed for and what its limitations are, considering its potential impacts, advanced level); Engage with AI, competence 7 (analyse how well the use of an AI system aligns with ethical principles, weighing trade-offs and who may benefit or be harmed, advanced level)",
+    "AI4K12": "Big Idea 5 (Societal Impact)"
+  },
+  "tools": [],
+  "credits": [
+    {
+      "text": "Adapted from ISTE, Hands-On AI Projects for the Classroom: A Guide on Ethics and AI (2024), by Nancye Blair Black and Susan Brooks-Young, Project 4 \"AI and the 21st Century Worker\", Activity 1 \"AI in Schools\". Licensed under CC BY 4.0. Changes: eight uses of AI at school in our own words, sorted in three columns and compared with the EU's AI Act; the consequence chain and the rules are added.",
+      "url": "https://iste-ascd.org/ai-lessons"
+    },
+    {
+      "text": "Licence of the original: Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ],
+  "further_reading": [
+    {
+      "title": "European Commission: AI Act, the regulatory framework for AI",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+    },
+    {
+      "title": "Regulation (EU) 2024/1689, the AI Act (EUR-Lex)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "title": "AI Act Explorer: Annex III, high-risk uses",
+      "url": "https://artificialintelligenceact.eu/annex/3/"
+    }
+  ],
+  "student_pdf": {
+    "file": "who-decides-about-ai-student-en.pdf",
+    "pages": [
+      {
+        "title": "Fine, with rules, or not at all?",
+        "instruction": "Tick one box for each use of AI at school.",
+        "blocks": [
+          {
+            "kind": "checklist",
+            "items": [
+              "A spell checker in your writing app",
+              "A chatbot that answers questions on the school website",
+              "An AI tutor that gives hints when you're stuck",
+              "AI that marks essays and exams",
+              "AI that watches you through the camera during an online test",
+              "AI that picks who gets a place at the school",
+              "A camera that reads students' faces to tell how they feel",
+              "AI that translates a text for a new student"
+            ],
+            "checks": [
+              "Fine at school",
+              "Only with rules",
+              "Not at school"
+            ]
+          },
+          {
+            "kind": "tickets",
+            "question": "Who should decide how AI is used at your school, and why?",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "title": "Consequence chain",
+        "instruction": "One high-risk use. What happens next, and after that?",
+        "blocks": [
+          {
+            "kind": "table",
+            "columns": [
+              "Our use of AI at school"
+            ],
+            "rows": 1
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Then …"
+            ],
+            "rows": 4,
+            "tall": true
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Who gains?",
+              "Who pays?"
+            ],
+            "rows": [
+              [
+                "",
+                ""
+              ]
+            ],
+            "tall": true
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Our rule: who is responsible, who checks, how to question a result",
+              "Who it protects"
+            ],
+            "rows": [
+              [
+                "",
+                ""
+              ],
+              [
+                "",
+                ""
+              ],
+              [
+                "",
+                ""
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "skool_text": "Lesson 5 for ages 16–19. Students say which of eight uses of AI at school they would allow, compare their views with how the EU's AI Act sorts the same uses, trace what could follow from one high-risk use and write rules for it at their own school. Adapted from ISTE (CC BY 4.0). No devices, 40 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-older-319cf15d/who-decides-about-ai/"
+}

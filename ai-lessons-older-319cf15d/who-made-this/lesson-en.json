@@ -1,0 +1,289 @@
+{
+  "id": "who-made-this",
+  "title": "Who Made This?",
+  "band": "16-19",
+  "number": 4,
+  "line": "Students name the style of three AI versions of the same picture, try a Visual Code on a photo of an object, and work out who made the result and when to say that AI was used.",
+  "minutes": 40,
+  "groups": "Individual, pairs, then the whole class",
+  "ai_use": "students",
+  "prep_minutes": 10,
+  "goals": [
+    "Describe a visual style in precise words, and explain that an image model learned its styles from pictures that people made.",
+    "Judge, for six cases, how much of a piece of work a person made and how much AI made.",
+    "Explain when to say that AI was used, and why the rules on who owns AI-made work differ between countries."
+  ],
+  "key_words": [
+    {
+      "word": "style",
+      "meaning": "The way something is made: colours, lines, what is shown and what is left out."
+    },
+    {
+      "word": "Visual Code",
+      "meaning": "A one-word prompt, such as /cutaway, that an image tool turns into a whole style when you send it with a photo. Collected by Choosewise."
+    },
+    {
+      "word": "copyright",
+      "meaning": "The right of the person who made a work to control who may copy, share or sell it."
+    },
+    {
+      "word": "deepfake",
+      "meaning": "A picture, sound or video made or changed with AI that looks real and could be taken for a real person, place or event."
+    },
+    {
+      "word": "disclose",
+      "meaning": "Say openly that AI was used, and how."
+    }
+  ],
+  "materials": [
+    "Student PDF page 1, name the style: one per student, printed in colour if you can, or in black and white with the pictures shown in colour on the projector",
+    "Page 2, who made this? and two closing-question tickets: one per pair",
+    "One device per pair with a camera and the AI tool your school has approved, if the tool can edit pictures",
+    "A projector, for the Visual Codes page if students work without AI"
+  ],
+  "before": [
+    "Print page 1 for every student and page 2 for every pair. Students can write on page 1 in black and white, but the styles are hard to tell apart without colour: print it in colour if you can, or show the pictures on the projector while students write.",
+    "Try /cutaway on a photo of an object in the AI tool your school has approved, to check that it can edit an uploaded photo, and check that the tool is approved for students' age. If it can't, or students can't log in, run step 4 without AI on the Visual Codes page.",
+    "Open choosewise.education/visual-codes/ before class and pick three cards to show if you need the path without AI. Pick cards other than the airplane, which students have already seen on page 1, for example /xray, /timeline and /mechanism.",
+    "Tell students before step 4: photos of objects only, never a person, themselves included. A photo of a person is personal data, and AI can turn it into something that person never agreed to."
+  ],
+  "steps": [
+    {
+      "minutes": 4,
+      "mode": "Individual",
+      "title": "Name the style",
+      "do": "Hand out page 1. Each student looks at the original and the versions A, B and C, and writes five words for the style of each in the table: colours, lines, what is shown and what is left out. No talking yet."
+    },
+    {
+      "minutes": 4,
+      "mode": "Pairs",
+      "title": "Match the codes",
+      "do": "Pairs compare their words, then match A, B and C to three of the five codes on page 1. Two codes are not used."
+    },
+    {
+      "minutes": 3,
+      "mode": "All",
+      "title": "One word, a whole style",
+      "do": "Give the answers: A is /blueprint, B is /forceanalysis, C is /cutaway. Ask whose words came closest. Then explain that each version came from the same picture and one word. The image model turns the word into a style because it was trained on huge numbers of pictures that people drew, photographed and labelled. Then tell them that the original isn't a photo either: it was made with an image tool from a text prompt.",
+      "say": "You needed five words to describe the style. The tool needed one. Both of you got the style from work that people made."
+    },
+    {
+      "minutes": 8,
+      "mode": "Pairs",
+      "title": "Try a code",
+      "student_ai": true,
+      "do": "Pairs photograph an object on their desk, such as a pencil case, a water bottle or a calculator: never a person. Before sending it, they agree on what they expect the code to do. Then they send the photo to the AI tool your school has approved with one code from page 1 and nothing else, and compare the result with what they expected.",
+      "prompts": [
+        "/cutaway",
+        "/blueprint",
+        "/xray"
+      ],
+      "without_ai": "Show the Visual Codes page on the projector. For each of three cards, pairs say what the code will do to the picture before you move the slider, then compare."
+    },
+    {
+      "minutes": 9,
+      "mode": "Pairs",
+      "title": "Who made this?",
+      "do": "Pairs go through the six cases on page 2. For each, they tick who mostly made it, a person, both or AI, and tick the last column if they would say that AI was used in a school task. They agree on a reason for every case they first disagree about."
+    },
+    {
+      "minutes": 9,
+      "mode": "All",
+      "title": "What the rules say",
+      "do": "Take the cases one by one and ask for hands. Then go through the rules (see Background). In the US, copyright protects what a person made, not purely AI-generated material, and prompts alone are not enough; choosing, arranging and changing the output can count. A court in Beijing protected an image made with more than 150 prompts and later adjustments, and UK law protects some computer-generated works. Who owns AI-made work depends on the country. Saying that AI was used is a separate question: under the EU's AI Act, organisations and people who use AI to make deepfakes in their work must say that the content is AI-made (purely personal use is not covered), and schools set their own rules for schoolwork. Agree on a line the class can use, such as: Made with [tool] from my photo, code /cutaway.",
+      "say": "Who made it and who owns it are two different questions. Saying how you used AI is how you answer the first one honestly."
+    },
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
+      "do": "Each student answers the closing question on a ticket from page 2 and hands it in."
+    }
+  ],
+  "gather": [
+    {
+      "question": "Which words described the styles best?",
+      "students_say": [
+        "Lines and a grid for the blueprint.",
+        "The arrows in B.",
+        "In C you can see inside the plane."
+      ]
+    },
+    {
+      "question": "Who made the picture of the object on your desk: you, the AI tool or the people whose pictures it was trained on?",
+      "students_say": [
+        "Me. I took the photo.",
+        "The AI did most of it.",
+        "All of us, in a way."
+      ]
+    },
+    {
+      "question": "Which case was hardest to place, and why?",
+      "students_say": [
+        "The one I edited for an hour.",
+        "The sketch coloured in by AI.",
+        "The song, because it sounds like the singer."
+      ]
+    },
+    {
+      "question": "When must you say that AI was used?",
+      "students_say": [
+        "Always in schoolwork.",
+        "When it looks real.",
+        "When someone could be fooled."
+      ]
+    }
+  ],
+  "simpler": "Do steps 1 to 3 together on the projector. Skip the AI step and show three Visual Codes cards instead. Then sort the six cases as a class.",
+  "harder": "Pairs write a short AI disclosure for a school project that used AI in two places, and compare it with the school's own rules if there are any. Or they find out, from official sources, how their own country treats AI-made work.",
+  "closing_question": "You made a picture with AI for a school poster. Who made it, and what would you write next to it?",
+  "language_swap": "Pages 1 and 2 have English text. The pictures need no translation. Write the column headings and the six cases on page 2 in your language next to the English ones, or read the cases aloud. The codes are English words: students type them as they are.",
+  "age_note": "In step 4, students use the AI tool your school has approved for their age, and only if it can edit pictures. Check the table: Claude is for 18 and over, and ChatGPT needs a parent's or guardian's permission under 18. Step 4 works without AI, on the Visual Codes page.",
+  "background": [
+    "Visual Codes are one-word prompts that Choosewise collected and tested with ChatGPT: you send a photo and a single word, such as /cutaway or /blueprint, and the image tool returns a new version of the same picture in that style. Other image tools may give different results, or none. The three versions on page 1 come from the Visual Codes page: A is /blueprint, B is /forceanalysis and C is /cutaway. Even the original is not a photo: it was made with an image tool from a text prompt. That makes a good question for the gather: who made the original?",
+    "ISTE's AI and Art project starts the same way: students describe an artist's style in their own words so that a friend could recognise it, then ask whether a computer could use the same description. An image model needs no such list: it was trained on huge numbers of pictures, made and labelled by people, and produces a style from a single word.",
+    "Who owns AI-assisted work differs between countries. The US Copyright Office (January 2025) concludes that copyright does not extend to purely AI-generated material, that prompts alone do not give enough control, and that people can protect what they add: their own work that shows in the output, and creative selection, arrangement or changes. The same report notes that the Beijing Internet Court in 2023 found an image made with Stable Diffusion protected, because of the more than 150 prompts and later adjustments behind it; that most EU member states see significant human input as necessary; and that UK law protects works generated by computer with no human author.",
+    "Saying that AI was used is a separate question. Under the EU's AI Act (Article 50), organisations and people who use AI to make deepfakes in their work, pictures, sound or video that look like real people, places or events, must disclose that the content was artificially generated or manipulated; the duty does not cover purely personal, non-professional use (Article 3); for clearly artistic, satirical or fictional work a lighter disclosure is enough. The European Commission says these transparency rules apply from August 2026 (checked 12 November 2026). Outside the EU, rules differ. For schoolwork, follow your school's rules; where there are none, a short line saying which tool was used, and for what, is a good habit."
+  ],
+  "frameworks": {
+    "AILit": "Create with AI, competences 4 (analyse how AI can safeguard or violate content authenticity and intellectual property: who should be credited and what copyright protects, advanced level) and 2 (visualise ideas using different types of AI systems, intermediate level)",
+    "AI4K12": "Big Idea 5 (Societal Impact)"
+  },
+  "tools": [
+    "chatgpt",
+    "gemini",
+    "gemini-education",
+    "copilot",
+    "copilot-education",
+    "claude"
+  ],
+  "credits": [
+    {
+      "text": "Adapted from ISTE, Hands-On AI Projects for the Classroom: A Guide for Electives Teachers (2024), by Nancye Blair Black and Susan Brooks-Young, Project 3 \"AI and Art\", Activities 1 \"Discussion\" and 3 \"Identifying Artists' Styles\". Licensed under CC BY 4.0. Changes: shortened to part of one lesson; students describe the styles of three AI versions of one picture instead of artists' styles, with Choosewise's pictures and our own wording.",
+      "url": "https://iste-ascd.org/ai-lessons"
+    },
+    {
+      "text": "Licence of the original: Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ],
+  "further_reading": [
+    {
+      "title": "Choosewise: Visual Codes",
+      "url": "https://choosewise.education/visual-codes/"
+    },
+    {
+      "title": "US Copyright Office (2025): Copyright and Artificial Intelligence, Part 2: Copyrightability",
+      "url": "https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf"
+    },
+    {
+      "title": "European Commission: AI Act, the regulatory framework for AI",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+    },
+    {
+      "title": "Regulation (EU) 2024/1689, the AI Act (EUR-Lex)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    }
+  ],
+  "student_pdf": {
+    "file": "who-made-this-student-en.pdf",
+    "pages": [
+      {
+        "title": "Name the style",
+        "instruction": "Five words for each style. Then match A, B and C to three of the codes.",
+        "blocks": [
+          {
+            "kind": "images",
+            "items": [
+              {
+                "src": "visual-codes/images/airplane-before-584w.webp",
+                "label": "Original",
+                "alt": "An AI-made picture of a passenger airplane in flight, made to look like a photo"
+              },
+              {
+                "src": "visual-codes/images/airplane-blueprint-584w.webp",
+                "label": "A",
+                "alt": "The same airplane as a white-on-blue technical blueprint"
+              },
+              {
+                "src": "visual-codes/images/airplane-forceanalysis-584w.webp",
+                "label": "B",
+                "alt": "The same airplane with arrows for the forces acting on it"
+              },
+              {
+                "src": "visual-codes/images/airplane-cutaway-584w.webp",
+                "label": "C",
+                "alt": "The same airplane with its outer shell opened to show the inside"
+              }
+            ]
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Picture",
+              "Five words for the style",
+              "Code"
+            ],
+            "rows": [
+              [
+                "A",
+                "",
+                ""
+              ],
+              [
+                "B",
+                "",
+                ""
+              ],
+              [
+                "C",
+                "",
+                ""
+              ]
+            ]
+          },
+          {
+            "kind": "text",
+            "body": "The codes: /xray · /cutaway · /timeline · /blueprint · /forceanalysis. Try a code: take a photo of an object, never a person. Send it with one code and nothing else."
+          }
+        ]
+      },
+      {
+        "title": "Who made this?",
+        "instruction": "Tick who mostly made it. Tick the last box too if you would say that AI was used.",
+        "blocks": [
+          {
+            "kind": "checklist",
+            "items": [
+              "A pencil drawing you scanned",
+              "Your photo with one code, like /cutaway",
+              "One sentence you typed, then you picked the best of four pictures",
+              "Your sketch, coloured in by AI",
+              "An AI picture you edited for an hour",
+              "A song made by AI in the style of a famous singer"
+            ],
+            "checks": [
+              "Mostly a person",
+              "Both",
+              "Mostly AI",
+              "Say AI was used"
+            ]
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Our line: how we would say that AI was used"
+            ],
+            "rows": 1
+          },
+          {
+            "kind": "tickets",
+            "question": "You made a picture with AI for a school poster. Who made it, and what would you write next to it?",
+            "count": 2
+          }
+        ]
+      }
+    ]
+  },
+  "skool_text": "Lesson 4 for ages 16–19. Students name the style of three AI versions of the same picture, try a Visual Code on a photo of an object, and sort six cases by who made them. Then the class looks at who owns AI-made work in different countries and when to say that AI was used. Adapted from ISTE (CC BY 4.0). Students use AI, with a way to do it without, 40 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-older-319cf15d/who-made-this/"
+}

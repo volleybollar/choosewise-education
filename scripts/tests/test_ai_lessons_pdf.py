@@ -173,6 +173,31 @@ def test_tall_tables_give_room_to_write():
     assert "grid--tall" not in mod.BLOCKS["table"]({"kind": "table", "columns": ["A"], "rows": 2})
 
 
+def test_images_block_puts_labelled_pictures_in_a_grid():
+    mod = load("build_ai_lessons_pdf", BUILD)
+    items = [{"src": "visual-codes/images/airplane-before-584w.webp", "label": "Photo", "alt": "An airplane"},
+             {"src": "visual-codes/images/airplane-cutaway-584w.webp", "label": "A", "alt": "The airplane, opened up"}]
+    out = mod.BLOCKS["images"]({"kind": "images", "items": items})
+    assert out.startswith('<div class="images">') and out.count("<figure") == 2
+    assert "<figcaption>Photo</figcaption>" in out and "<figcaption>A</figcaption>" in out
+    assert "airplane-cutaway-584w.webp" in out and 'alt="The airplane, opened up"' in out
+    assert re.search(r"\.images\s*\{[^}]*grid", mod.STYLE)
+    assert re.search(r"\.images img\s*\{[^}]*max-height:\s*70mm", mod.STYLE)
+
+
+def test_every_block_kind_has_a_header_icon():
+    """Sidhuvudets ikon väljs efter sidans första block (utom text); en ny blocktyp utan ikon stoppar bygget."""
+    mod = load("build_ai_lessons_pdf", BUILD)
+    assert set(mod.BLOCKS) == set(mod.ICONS)
+
+
+def test_missing_picture_in_images_block_stops_the_build():
+    mod = load("build_ai_lessons_pdf", BUILD)
+    with pytest.raises(FileNotFoundError, match="no-such-picture.webp"):
+        mod.BLOCKS["images"]({"kind": "images", "items": [
+            {"src": "visual-codes/images/no-such-picture.webp", "label": "A", "alt": "x"}]})
+
+
 def test_missing_image_stops_the_build():
     mod = load("build_ai_lessons_pdf", BUILD)
     with pytest.raises(FileNotFoundError, match="no-such-picture.jpg"):

@@ -74,8 +74,9 @@
 .al-say { margin: var(--space-3) 0 0; border-left: 3px solid var(--color-highlight); background: var(--color-bg-alt); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: var(--space-3) var(--space-4); }
 .al-say__label { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-highlight-ink); font-weight: var(--weight-emphasis); margin-right: var(--space-2); }
 
-/* Lärardemon: promptförslag och vad läraren gör om chatboten svarar rätt. */
-.al-step--demo::before { background: var(--color-accent); }
+/* Lärardemon och elevernas AI-steg: promptförslag, och vad läraren gör om
+   demon går fel eller om eleverna inte kan använda AI. */
+.al-step--demo::before, .al-step--ai::before { background: var(--color-accent); }
 .al-prompts { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-2); }
 .al-prompts li { max-width: none; font-family: var(--font-mono); font-size: var(--fs-small); border: 1px dashed var(--color-border-strong); border-radius: var(--radius-sm); padding: var(--space-2) var(--space-3); overflow-wrap: anywhere; }
 .al-fallback { margin: var(--space-4) 0 0; border-left: 3px dashed var(--color-accent); padding: var(--space-1) 0 var(--space-1) var(--space-4); }

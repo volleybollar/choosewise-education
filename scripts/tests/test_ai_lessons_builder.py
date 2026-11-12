@@ -94,10 +94,30 @@ def test_demo_fallback_rendered():
         assert escape(prompt) in steps
 
 
-def test_older_overview_hides_the_16_19_band():
+def test_overview_shows_only_bands_with_lessons():
+    """Ett åldersband syns på översikten när det har sin första lektion, inte före."""
+    mod = build_mod()
+    for slug in mod.TRACKS:
+        t = mod.load_track(ROOT, slug)
+        shown = section(mod.render_overview(t), "al-lessons")
+        with_lessons = {entry["band"] for entry in t["lessons"]}
+        for band in t["bands"]:
+            assert (escape(band["ages"]) in shown) == (band["id"] in with_lessons), (slug, band["id"])
+
+
+def test_student_ai_step_shows_the_path_without_ai():
     t = build_mod().load_track(ROOT, OLDER)
-    assert any(b["id"] == "16-19" for b in t["bands"])
-    assert "Ages 16–19" not in section(build_mod().render_overview(t), "al-lessons")
+    lesson = copy.deepcopy(t["lesson_data"][0])
+    lesson["steps"][0].update(student_ai=True, without_ai="Use the <saved> answer.", prompts=["Ask me one question."])
+    steps = section(build_mod().render_lesson(t, lesson), "al-steps")
+    assert steps.count('class="al-step al-step--ai"') == 1
+    assert "<strong>Without AI:</strong> " + escape("Use the <saved> answer.") in steps
+    assert escape("Ask me one question.") in steps
+    assert ".al-step--ai" in (ROOT / "assets/css/ai-lessons.css").read_text(encoding="utf-8")
+
+
+def test_optional_ai_use_has_a_label():
+    assert build_mod().AI_USE["optional"] == "Optional for students"
 
 
 def test_overview_shows_the_tracks_ai_use_note():

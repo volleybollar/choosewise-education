@@ -17,8 +17,10 @@ YOUNGER = "ai-lessons-younger-3c514a93"
 OLDER = "ai-lessons-older-319cf15d"
 
 MODES = {"Individual", "Pairs", "All"}
-AI_USES = {"none", "teacher-demo", "students"}
-BLOCK_KINDS = {"text", "table", "slips", "checklist", "tickets", "cards", "mat", "image"}
+AI_USES = {"none", "teacher-demo", "students", "optional"}
+BLOCK_KINDS = {"text", "table", "slips", "checklist", "tickets", "cards", "mat", "image", "images"}
+# De sex chattbotsraderna i ålderstabellen; lektioner där eleverna själva använder AI listar alla.
+CHATBOTS = {"chatgpt", "gemini", "gemini-education", "copilot", "copilot-education", "claude"}
 READER_NOTE = ("Readers outside Sweden should verify their own national regulations. "
                "AI in education is evolving quickly and country rules differ significantly.")
 USE_RIGHTS = ("For members of the Choosewise community: use these materials with your own students, "
@@ -59,7 +61,7 @@ def teacher_text(lesson):
     out += list(lesson["before"]) + list(lesson["materials"]) + [lesson["simpler"], lesson["harder"], lesson["language_swap"]]
     out += list(lesson["background"]) + [lesson["line"], lesson["age_note"], lesson["skool_text"]]
     for s in lesson["steps"]:
-        out += [s["do"], s.get("say", ""), s.get("fallback", "")] + list(s.get("prompts", []))
+        out += [s["do"], s.get("say", ""), s.get("fallback", ""), s.get("without_ai", "")] + list(s.get("prompts", []))
     return out
 
 
@@ -150,6 +152,76 @@ def test_demo_step_has_fallback():
             assert 2 <= len(demos[0].get("prompts", [])) <= 3, lesson["id"]
         else:
             assert not demos, lesson["id"]
+
+
+def _student_ai_problems(lesson):
+    """Det som saknas i en lektion där eleverna själva använder AI: ett AI-steg,
+    och för varje sådant steg en väg utan AI (specen: 16–19)."""
+    steps = [s for s in lesson["steps"] if s.get("student_ai")]
+    if lesson["ai_use"] not in ("students", "optional"):
+        return ["student_ai step in a lesson without student AI use"] if steps else []
+    problems = [] if steps else ["no student_ai step"]
+    return problems + [f"no without_ai: {s['title']}" for s in steps if not s.get("without_ai", "").strip()]
+
+
+def test_student_ai_steps_have_a_path_without_ai():
+    assert _student_ai_problems({"ai_use": "students", "steps": [{"title": "Try it", "student_ai": True}]}) \
+        == ["no without_ai: Try it"]  # vakten själv biter
+    assert _student_ai_problems({"ai_use": "optional", "steps": []}) == ["no student_ai step"]
+    assert _student_ai_problems({"ai_use": "none", "steps": [{"title": "x", "student_ai": True}]})
+    for lesson in lessons():
+        assert _student_ai_problems(lesson) == [], lesson["id"]
+
+
+def _student_page_text(lesson):
+    """All text på elevsidorna: rubriker, instruktioner, textblock, förtryckta
+    tabellceller, kryssrader och bildetiketter."""
+    out = []
+    for page in lesson["student_pdf"]["pages"]:
+        out += [page["title"], page["instruction"]]
+        for b in page["blocks"]:
+            out.append(b.get("body", ""))
+            if isinstance(b.get("rows"), list):
+                out += [cell for row in b["rows"] for cell in row]
+            if isinstance(b.get("items"), list):
+                out += [i if isinstance(i, str) else i["label"] for i in b["items"]]
+    return "\n".join(out)
+
+
+def _prompts_missing_from_sheet(lesson):
+    sheet = _student_page_text(lesson)
+    return [p for s in lesson["steps"] if s.get("student_ai") for p in s.get("prompts", []) if p not in sheet]
+
+
+def test_student_prompts_are_on_a_student_page():
+    """Eleverna har bara bladet framför sig; en prompt som bara står på lärarsidan kan de inte skriva."""
+    bad = {"steps": [{"student_ai": True, "prompts": ["Ask me first."]}],
+           "student_pdf": {"pages": [{"title": "T", "instruction": "I", "blocks": [{"kind": "text", "body": "Other"}]}]}}
+    assert _prompts_missing_from_sheet(bad) == ["Ask me first."]  # vakten själv biter
+    for lesson in lessons():
+        assert _prompts_missing_from_sheet(lesson) == [], lesson["id"]
+
+
+def _age_note_problems(lesson):
+    """En 16- eller 17-åring får inte hamna i ett verktyg med 18-årsgräns eller utan förälderns tillåtelse."""
+    if lesson["ai_use"] not in ("students", "optional"):
+        return []
+    problems = [] if CHATBOTS <= set(lesson["tools"]) else ["tools lack the chatbot rows"]
+    problems += [f"age_note lacks {w!r}" for w in ("approved", "Claude", "ChatGPT", "18", "permission") if w not in lesson["age_note"]]
+    return problems + ([] if any("device" in m for m in lesson["materials"]) else ["materials name no device"])
+
+
+def test_lessons_where_students_use_ai_name_the_approved_tool():
+    bad = {"ai_use": "students", "tools": ["chatgpt"], "age_note": "Any tool.", "materials": ["Paper"]}
+    assert len(_age_note_problems(bad)) == 7  # vakten själv biter
+    for lesson in lessons():
+        assert _age_note_problems(lesson) == [], lesson["id"]
+
+
+def test_older_track_covers_16_19():
+    t = track(OLDER)
+    assert "16–19" in t["ai_use_note"] and "approved" in t["ai_use_note"]
+    assert any(line.startswith("For ages 16–19") for line in t["what_you_need"])
 
 
 def test_no_anthropomorphic_wording():
@@ -345,7 +417,7 @@ def test_learning_from_examples_keeps_the_new_cards_apart():
 
 def test_lessons_with_a_photo_say_how_to_print_it():
     for lesson in lessons():
-        if _blocks(lesson, "image"):
+        if _blocks(lesson, "image") or _blocks(lesson, "images"):
             assert any("colour" in line for line in lesson["before"]), lesson["id"]
 
 
@@ -451,8 +523,8 @@ def test_lessons_that_name_prompt_numbers_show_them_in_order():
     """Steg som säger "prompt 2" kräver numrerade prompter, inte "pick one"."""
     for lesson in lessons():
         if any(re.search(r"\bprompt [123]\b", text, re.I) for text in teacher_text(lesson)):
-            demo = next(s for s in lesson["steps"] if s.get("demo"))
-            assert demo.get("prompts_in_order") is True, lesson["id"]
+            steps = [s for s in lesson["steps"] if s.get("prompts")]  # lärardemo eller elevernas AI-steg
+            assert steps and all(s.get("prompts_in_order") is True for s in steps), lesson["id"]
 
 
 def test_older_ai_or_human_gives_a_usual_sort_and_warns_about_spoofing():
@@ -538,3 +610,197 @@ def test_prefilled_rows_have_one_cell_per_column():
     for lesson in lessons():
         for block in _blocks(lesson, "table"):
             assert _rows_fit(block), (lesson["id"], block["columns"])
+
+
+# ───── 16–19 (planen 2026-11-12-ai-lessons-16-19) ─────
+
+TRADE_OFF = ("What does it make me worse at?", "If that matters, when do I practise it?",
+             "If it doesn't, it's fine to get worse at it.")
+
+
+def test_does_ai_help_me_learn_is_built_on_the_trade_off_question():
+    lesson = _lesson("does-ai-help-me-learn", OLDER)
+    assert lesson["ai_use"] == "optional"
+    assert len([s for s in lesson["steps"] if s.get("student_ai")]) == 1
+    text = " ".join(teacher_text(lesson))
+    assert "the trade-off question" in text
+    for question in TRADE_OFF:
+        assert question in text, question
+
+
+def test_does_ai_help_me_learn_compares_the_two_ai_groups():
+    """Gruppen utan AI är jämförelsen; tabellen frågar hur de två AI-grupperna gick jämfört med den."""
+    lesson = _lesson("does-ai-help-me-learn", OLDER)
+    table = _blocks(lesson, "table")[0]
+    assert [row[0] for row in table["rows"]] == ["AI that gives answers", "AI tutor that gives hints"]
+    assert "without AI" in lesson["student_pdf"]["pages"][0]["blocks"][0]["body"]
+
+
+def test_check_it_says_the_article_is_written_for_the_lesson():
+    """Påhittade fel får inte fastna: bladet säger att artikeln är skriven för lektionen och att en del är fel."""
+    lesson = _lesson("check-it", OLDER)
+    page = lesson["student_pdf"]["pages"][0]
+    assert "written for this lesson" in page["instruction"] and "wrong" in page["instruction"]
+    article = page["blocks"][0]["body"]
+    assert [n for n in range(1, 9) if f"[{n}]" in article] == [1, 2, 3, 4, 5, 6]
+
+
+def test_check_it_gives_a_verdict_for_every_claim():
+    lesson = _lesson("check-it", OLDER)
+    text = " ".join(teacher_text(lesson))
+    for n in range(1, 7):
+        assert re.search(rf"Claim {n}: (true|wrong|can't confirm)", text), n
+    assert any("search engine" in m for m in lesson["materials"])
+
+
+def test_using_ai_well_asks_for_questions_first():
+    lesson = _lesson("using-ai-well", OLDER)
+    step = next(s for s in lesson["steps"] if s.get("student_ai"))
+    assert step.get("prompts_in_order") and len(step["prompts"]) == 2
+    assert "ask me the questions" in step["prompts"][1]
+
+
+def test_using_ai_well_keeps_private_things_out_of_the_tool():
+    lesson = _lesson("using-ai-well", OLDER)
+    page1 = lesson["student_pdf"]["pages"][0]
+    assert "Don't put names, health details or anything private into the AI tool." in page1["instruction"]
+    teacher = lesson["before"] + [s["do"] + " " + s.get("say", "") for s in lesson["steps"]]
+    assert any("anything private" in line for line in teacher)
+    assert _blocks(lesson, "table")[2]["columns"][0] == "AI sentence"
+
+
+def test_who_made_this_credits_iste_and_shows_the_airplane():
+    lesson = _lesson("who-made-this", OLDER)
+    credits = " ".join(c["text"] for c in lesson["credits"])
+    assert "ISTE" in credits and "Project 3" in credits and "CC BY 4.0" in credits
+    grid = _blocks(lesson, "images")[0]["items"]
+    assert [i["label"] for i in grid] == ["Original", "A", "B", "C"]
+    assert [i["src"].rsplit("/", 1)[1] for i in grid] == [
+        "airplane-before-584w.webp", "airplane-blueprint-584w.webp",
+        "airplane-forceanalysis-584w.webp", "airplane-cutaway-584w.webp"]
+
+
+def test_who_made_this_lists_the_codes_shown_and_photographs_objects_only():
+    """En bild av en person är personuppgifter och kan bli något personen aldrig gått med på."""
+    lesson = _lesson("who-made-this", OLDER)
+    page1 = _student_page_text({"student_pdf": {"pages": lesson["student_pdf"]["pages"][:1]}})
+    for code in ("/blueprint", "/forceanalysis", "/cutaway"):
+        assert code in page1, code
+    assert "never a person" in page1
+    assert "never a person" in " ".join(teacher_text(lesson))
+
+
+def test_who_decides_about_ai_credits_iste_and_sorts_eight_uses():
+    lesson = _lesson("who-decides-about-ai", OLDER)
+    credits = " ".join(c["text"] for c in lesson["credits"])
+    assert "ISTE" in credits and "Project 4" in credits and "CC BY 4.0" in credits
+    sheet = _blocks(lesson, "checklist")[0]
+    assert len(sheet["items"]) == 8
+    assert sheet["checks"] == ["Fine at school", "Only with rules", "Not at school"]
+
+
+def test_who_decides_about_ai_names_the_law_and_its_limits():
+    text = " ".join(teacher_text(_lesson("who-decides-about-ai", OLDER)))
+    for needle in ("2024/1689", "Annex III", "Article 5", "other countries"):
+        assert needle in text, needle
+
+
+
+
+# ───── Slutgranskningen av 16–19 (2026-11-12) ─────
+
+def test_teacher_text_includes_the_path_without_ai():
+    """Ordvakterna ska nå fältet without_ai, som den här grenen lade till."""
+    lesson = {"goals": [], "key_words": [], "before": [], "materials": [], "simpler": "", "harder": "",
+              "language_swap": "", "background": [], "line": "", "age_note": "", "skool_text": "",
+              "steps": [{"do": "", "without_ai": "Show the saved answer."}]}
+    assert "Show the saved answer." in teacher_text(lesson)
+
+
+def test_who_made_this_puts_the_deepfake_duty_on_deployers():
+    """Artikel 50.4 gäller den som använder AI i sitt arbete, inte privat bruk (artikel 3.4)."""
+    text = " ".join(teacher_text(_lesson("who-made-this", OLDER)))
+    assert "people who use AI to make deepfakes must" not in text
+    assert "personal" in text and "Article 50" in text
+
+
+def test_who_made_this_gives_every_student_page_one():
+    assert "one per student" in _lesson("who-made-this", OLDER)["materials"][0]
+
+
+def test_who_made_this_says_the_original_is_ai_made_too():
+    """Före-bilden i Visual Codes gjordes med en bildmodell från en textprompt; den är inget foto."""
+    lesson = _lesson("who-made-this", OLDER)
+    original = _blocks(lesson, "images")[0]["items"][0]
+    assert not original["alt"].startswith("A photo") and "AI" in original["alt"]
+    assert "text prompt" in " ".join(teacher_text(lesson))
+    # Originalet och Visual Codes-sidans före-bilder kallas aldrig foto; elevernas egna bilder är foton.
+    text = " ".join(teacher_text(lesson) + [c["text"] for c in lesson["credits"]])
+    assert not re.search(r"(same|one) photo|the photo and|to the photo", text)
+
+
+def test_using_ai_well_gives_the_reason_column_room():
+    """Kolumnerna i förtryckta tabeller får bredd efter rubriken; skälet behöver mest plats."""
+    lesson = _lesson("using-ai-well", OLDER)
+    cols = _blocks(lesson, "table")[2]["columns"]
+    assert cols[2].startswith("Why?") and len(cols[2]) > len(cols[1])
+    assert "Circle" not in _student_page_text(lesson)
+
+
+def test_using_ai_well_background_mentions_saved_memory():
+    text = " ".join(teacher_text(_lesson("using-ai-well", OLDER)))
+    assert "prompt alone" not in text and "saved" in text
+
+
+def test_who_decides_about_ai_chain_has_a_row_for_every_link():
+    lesson = _lesson("who-decides-about-ai", OLDER)
+    chain = next(s for s in lesson["steps"] if s["title"] == "Consequence chain")
+    links = {"three": 3, "four": 4}[re.search(r"\b(three|four) links\b", chain["do"]).group(1)]
+    rows = next(b for b in _blocks(lesson, "table") if b["columns"] == ["Then …"])["rows"]
+    assert rows >= links + 1  # nästa par lägger till en länk
+
+
+def test_who_decides_about_ai_tutor_can_be_high_risk():
+    """Annex III 3 b: AI som bedömer elever för att styra lärandet är högrisk, också i en tutor."""
+    assert "steer" in " ".join(teacher_text(_lesson("who-decides-about-ai", OLDER)))
+
+
+
+# ───── Mindre fynd från slutgranskningen 16–19, rättade på Johans begäran ─────
+
+def test_does_ai_help_me_learn_lets_students_guess_about_the_same():
+    """Tutorgruppen klarade provet ungefär lika bra; gissningen får inte bara erbjuda upp eller ned."""
+    lesson = _lesson("does-ai-help-me-learn", OLDER)
+    page = lesson["student_pdf"]["pages"][0]
+    step = next(s for s in lesson["steps"] if s["title"] == "The maths study")
+    assert "the same" in page["instruction"] and "the same" in step["do"]
+    assert all("same?" in c for c in _blocks(lesson, "table")[0]["columns"][1:])
+
+
+def test_does_ai_help_me_learn_says_pnas_has_the_same_figures():
+    """IDEAS/RePEc-posten för PNAS-artikeln ger samma 48, 127 och 17 procent som arbetsversionen."""
+    assert "the same figures" in " ".join(_lesson("does-ai-help-me-learn", OLDER)["background"])
+
+
+def test_using_ai_well_example_answers_give_the_tool_no_knowledge():
+    """Prompt 2 fick situationen av eleverna; exempelsvaret får inte säga att verktyget visste den."""
+    said = [s for g in _lesson("using-ai-well", OLDER)["gather"] for s in g["students_say"]]
+    assert not any(re.search(r"\bit (knew|knows?|understood|understands?)\b", s, re.I) for s in said)
+
+
+def test_who_made_this_prepares_other_cards_and_tries_a_code():
+    """Eleverna har redan sett flygplanet på sida 1, och läraren provar en kod i skolans verktyg före lektionen."""
+    before = " ".join(_lesson("who-made-this", OLDER)["before"])
+    assert "other than the airplane" in before
+    assert "Try /cutaway" in before
+
+
+def test_older_track_overview_covers_16_19():
+    """Översikten beskriver båda banden: färgutskrift, projektorn utan AI och trådarna för 16–19."""
+    t = track(OLDER)
+    needs = " ".join(t["what_you_need"])
+    assert "print well in black and white." not in needs and "colour" in needs
+    assert "without AI" in next(line for line in t["what_you_need"] if "projector" in line)
+    threads = {th["name"]: th["line"] for th in t["threads"]}
+    assert "when to say that AI was used" in threads["AI-made content"]
+    assert "rules for AI at school" in threads["Me and AI"]
