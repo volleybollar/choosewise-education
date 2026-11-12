@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teach the Robot — choosewise.education</title>
+  <meta name="description" content="One child plays a robot that learns &quot;fruit&quot; from two examples, then from eight, and sorts the same test cards both times. A toy apple shows that the robot guesses and people check.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (prefix tm-), och sedan det som är
+       nytt för AI-lektionerna (prefix al-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/ai-lessons.css?v=20261112a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten.
+       Sidan byggs av scripts/build-ai-lessons.py: ändra JSON-filen, inte HTML:en. -->
+<!-- seo:start (build-seo-meta.py) -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: tillbaka till översikten, lektionens namn och en rad om vad eleverna gör. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/ai-lessons-younger-3c514a93/">← AI Lessons for Younger Students</a>
+      <span class="eyebrow">Ages 5–8 · Lesson 3</span>
+      <h1>Teach the Robot</h1>
+      <p class="lede">One child plays a robot that learns &quot;fruit&quot; from two examples, then from eight, and sorts the same test cards both times. A toy apple shows that the robot guesses and people check.</p>
+    </section>
+
+    <!-- Lektionen i korthet, materialet och elev-PDF:en. -->
+    <section class="section section--alt" id="al-glance">
+      <div class="container">
+        <h2 class="section__title">At a glance</h2>
+        <dl class="al-glance">
+          <div><dt>Ages</dt><dd>5–8</dd></div>
+          <div><dt>Time</dt><dd>34 min</dd></div>
+          <div><dt>Groups</dt><dd>Pairs, then the whole class</dd></div>
+          <div><dt>AI use</dt><dd>No AI</dd></div>
+          <div><dt>Preparation</dt><dd>20 min</dd></div>
+        </dl>
+        <h3 class="al-sub">Materials</h3>
+        <ul class="al-list"><li>Student PDF page 1, the two Round 1 cards and the six Round 2 cards: one set per pair, cut out and in an envelope</li><li>Page 2, the four test cards: one set per pair, cut out and in a second envelope, and the two closing tickets</li><li>Page 3, the Fruit and Not fruit mat: one per pair</li><li>A toy apple, or a real carrot</li><li>Crayons or pencils</li></ul>
+        <a class="btn btn--primary al-download" href="/ai-lessons-younger-3c514a93/teach-the-robot/teach-the-robot-student-en.pdf" download>Download the student PDF</a>
+      </div>
+    </section>
+
+    <!-- Lärandemål och nyckelord med elevvänliga förklaringar. -->
+    <section class="section" id="al-goals">
+      <div class="container">
+        <h2 class="section__title">Learning goals</h2>
+        <p class="al-text">By the end of the lesson, students can:</p>
+        <ul class="al-list"><li>Explain that a machine that learns from examples can only compare new things with the examples it was given.</li><li>Show that more examples, and more different ones, give better guesses.</li><li>Say why a person checks what a machine guesses.</li></ul>
+        <h3 class="al-sub">Key words</h3>
+        <dl class="al-words"><dt>example</dt><dd>Something you show to teach what a word means, like an apple card for fruit.</dd><dt>training</dt><dd>Showing a machine many examples, so that it can sort new things.</dd><dt>test</dt><dd>Checking how well something works on cards it was never shown.</dd><dt>guess</dt><dd>An answer that might be wrong. The robot&#x27;s answers are guesses from its examples.</dd></dl>
+      </div>
+    </section>
+
+    <!-- Förberedelser: vad läraren skriver ut, skriver och provar före lektionen. -->
+    <section class="section section--alt" id="al-before">
+      <div class="container">
+        <h2 class="section__title">Before the lesson</h2>
+        <p class="al-text">About 20 minutes.</p>
+        <ul class="al-list"><li>Print the student PDF and cut out the cards on pages 1 and 2 before the lesson, one set per pair. Put each pair&#x27;s Round 1 and Round 2 cards in one envelope and the four test cards in another, so the test cards stay new to the child playing the robot. Draw a big question mark on the test-card envelope, so children who can&#x27;t read can tell the two apart. A paper trimmer helps. Keep the sets for your next class.</li><li>Bring a toy apple, or other toy fruit from the play corner. If you have none, bring a real carrot: it looks most like the banana card, so the robot says fruit, and the class checks.</li><li>Read the background below, especially the robot&#x27;s rule.</li></ul>
+      </div>
+    </section>
+
+    <!-- Steg för steg: minut för minut, varje steg enskilt, i par eller alla. -->
+    <section class="section" id="al-steps">
+      <div class="container">
+        <h2 class="section__title">Step by step</h2>
+        <ol class="al-steps"><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 1</span><span class="al-step__time">0–3 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">The robot game</h3><p class="al-step__do">Show the game with a volunteer at the front. In each pair, one child plays the robot and one the trainer. The robot may only compare a new card with the cards it has been shown: if it looks like a fruit card, it says fruit; if it looks like a not-fruit card, or like none of them, it says not fruit. The child playing the robot puts aside everything else they know about fruit.</p><p class="al-say"><span class="al-say__label">Say</span> Robot, you can only look at the cards your trainer showed you.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 2</span><span class="al-step__time">3–9 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Round 1</h3><p class="al-step__do">Give each pair the two envelopes and the mat on page 3. The trainer shows the robot the two Round 1 cards, the apple and the cherry, and says fruit for each. The training cards stay face up beside the mat, so the robot can compare. Then the trainer takes out the four test cards one at a time, and the robot puts each one on the mat: Fruit or Not fruit.</p><p class="al-say"><span class="al-say__label">Say</span> Robot, does this card look like one of your fruit cards?</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 3</span><span class="al-step__time">9–12 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Round 1 on the board</h3><p class="al-step__do">Draw the four test cards on the board in a row: lemon, avocado, tennis ball, cookie. For each card, ask the robots to show a thumb up if they put it on Fruit, and write the number of thumbs under it. Keep the answers for later.</p><p class="al-say"><span class="al-say__label">Say</span> Robots, thumbs up if you put this card on Fruit.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 4</span><span class="al-step__time">12–20 min</span><span class="al-mode al-mode--pairs">Pairs</span></p><h3 class="al-step__title">Round 2</h3><p class="al-step__do">Swap roles. The new trainer lays out the two Round 1 cards and the six Round 2 cards face up, eight in all, and says fruit or not fruit for each: the apple, the cherry, the banana and the melon are fruit; the ball, the coin, the pizza and the clock are not. The new robot follows the same rule, with only the Round 2 cards to compare with, and sorts the same four test cards again.</p><p class="al-say"><span class="al-say__label">Say</span> Robot, which card does it look most like?</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 5</span><span class="al-step__time">20–24 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Both rounds</h3><p class="al-step__do">Count thumbs again under each card, this time for round 2. Then give the answers: the lemon and the avocado are fruit, the tennis ball and the cookie are not. Which cards moved to the right side? The tennis ball now looked like the ball and the cookie like the coin. Which cards are still wrong for some robots, and which card could we add to help?</p><p class="al-say"><span class="al-say__label">Say</span> More examples, and different ones, helped with the ball and the cookie.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 6</span><span class="al-step__time">24–28 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">The surprise</h3><p class="al-step__do">Hold up the toy apple and ask the robots: fruit or not? It looks like the apple card, so the robot says fruit. Then ask the class whether we can eat it. It is a toy. The robot could only compare it with pictures; a person can pick it up and check. If you brought a carrot instead: the robot says fruit, because the carrot looks most like the banana card. Ask whether a carrot is a fruit. It is a vegetable, and a person checks.</p><p class="al-say"><span class="al-say__label">Say</span> The robot says fruit. Can we eat it? A person checks.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 7</span><span class="al-step__time">28–31 min</span><span class="al-mode al-mode--all">All</span></p><h3 class="al-step__title">Who checks?</h3><p class="al-step__do">Ask who chose the examples and who checked the guesses. People did both. Machines that learn from examples work in a similar way: people choose the examples, the machine compares, and people check what comes out.</p><p class="al-say"><span class="al-say__label">Say</span> People choose the examples, and people check the guesses.</p></li><li class="al-step"><p class="al-step__head"><span class="al-step__num">Step 8</span><span class="al-step__time">31–34 min</span><span class="al-mode al-mode--individual">Individual</span></p><h3 class="al-step__title">Closing question</h3><p class="al-step__do">Read the closing question aloud. Each child draws an answer on a ticket from page 2 and hands it in. Ask a few children why their card would help.</p></li></ol>
+      </div>
+    </section>
+
+    <!-- Uppsamling i helklass: frågor och vad elever brukar svara. -->
+    <section class="section section--alt" id="al-gather">
+      <div class="container">
+        <h2 class="section__title">Gather it up</h2>
+        <p class="al-text">Questions for the whole-class talk, with answers students often give.</p>
+        <ul class="al-gather"><li><p class="al-gather__q">Why did the robot say the tennis ball was fruit?</p><p class="al-label">Students often say</p><ul class="al-said"><li>It was round, like the apple.</li><li>It only had two fruit cards.</li><li>It didn&#x27;t have a ball card to look at.</li></ul></li><li><p class="al-gather__q">What made round 2 better?</p><p class="al-label">Students often say</p><ul class="al-said"><li>More cards.</li><li>There were things that aren&#x27;t fruit too.</li><li>The banana showed that fruit can be long.</li></ul></li><li><p class="al-gather__q">Who should check the robot?</p><p class="al-label">Students often say</p><ul class="al-said"><li>A grown-up.</li><li>Someone who can touch it.</li><li>The trainer.</li></ul></li></ul>
+      </div>
+    </section>
+
+    <!-- Enklare och svårare varianter. -->
+    <section class="section" id="al-adapt">
+      <div class="container">
+        <h2 class="section__title">Make it simpler, make it harder</h2>
+        <div class="al-adapt">
+          <div><h3 class="al-sub">Simpler</h3><p class="al-text">Play both rounds as a whole class: you are the trainer, and one child at a time is the robot in front of everyone.</p></div>
+          <div><h3 class="al-sub">Harder</h3><p class="al-text">Let pairs choose four new Round 2 cards to make the robot better, or think up a tricky test card for another pair&#x27;s robot and draw it on scrap paper.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avslutande fråga (exit ticket) som varje elev svarar på. -->
+    <section class="section section--alt" id="al-closing">
+      <div class="container">
+        <h2 class="section__title">Closing question</h2>
+        <p class="al-closing">Draw one more card you would show the robot, so it guesses better.</p>
+      </div>
+    </section>
+
+    <!-- Byta språk: hur läraren gör elevmaterialet till klassens språk. -->
+    <section class="section section--alt" id="al-language">
+      <div class="container">
+        <h2 class="section__title">Teaching in another language</h2>
+        <p class="al-text">Each card has one English word under a picture. Say the words in your class&#x27;s language as you hand out pages 1 and 2, or write the translations on the cards before you cut them. On page 3, say Fruit and Not fruit in your class&#x27;s language; the pictures above them help children who can&#x27;t read yet. Read the closing question on page 2 aloud in your class&#x27;s language.</p>
+      </div>
+    </section>
+
+    <!-- Bakgrund för läraren: två minuters läsning. -->
+    <section class="section" id="al-background">
+      <div class="container">
+        <h2 class="section__title">Background for you</h2>
+        <p class="al-text">The robot game is a small version of how machine learning works. People collect examples and label them, a computer program finds a pattern in them, and then it is tested on examples it was not given before. In round 1 the robot has two examples, both round fruit, so everything round looks like fruit. Round 2 adds different fruit and round things that are not fruit, so the tennis ball and the cookie come out right. Some robots still get the lemon or the avocado wrong: that is the moment to ask which example would help.</p><p class="al-text">The robot&#x27;s rule is a simple form of a real method: a new example gets the label of the example it looks most like. Real systems compare far more features than shape, but the weakness is the same. A new thing that looks like an example gets that example&#x27;s label, whether it fits or not. That is why the toy apple ends up as fruit.</p><p class="al-text">The surprise is the main point at this age. The robot gives an answer for every card, including one unlike any it was shown, and the answer sounds the same either way. People choose the examples, and people check the guesses. Use words like compare and guess for what the robot does, not words for what goes on inside a person.</p>
+      </div>
+    </section>
+
+    <!-- Koppling till ramverken AILit och AI4K12. -->
+    <section class="section section--alt" id="al-frameworks">
+      <div class="container">
+        <h2 class="section__title">Framework links</h2>
+        <p class="al-text"><a href="https://www.oecd.org/en/publications/empowering-learners-for-the-age-of-ai_65cd27d4-en.html"><strong>AILit</strong></a>: Shape AI, competence 3 (identify examples of data that might be used to train AI systems), and Engage with AI, competence 3 (understand why AI outputs should be checked), basic level</p><p class="al-text"><a href="https://ai4k12.org/gradeband-progression-charts/"><strong>AI4K12</strong></a>: Big Idea 3 (Learning)</p>
+      </div>
+    </section>
+
+    <!-- Åldersgränser för verktygen lektionen nämner, och läsarnoten (globala regler). -->
+    <section class="section" id="al-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age limits</h2>
+        <p class="al-text">This lesson uses no AI tool. Students don't use one, and you don't show one.</p>
+        <p class="al-text">If children mention apps that name what a phone&#x27;s camera points at, most AI apps have a minimum age of 13 on a personal account.</p>
+        <p class="tm-note">Readers outside Sweden should verify their own national regulations. AI in education is evolving quickly and country rules differ significantly.</p>
+      </div>
+    </section>
+
+    <!-- Källor, vidare läsning och vad medlemmar får göra med materialet. -->
+    <section class="section section--alt" id="al-credits">
+      <div class="container">
+        <h2 class="section__title">Sources and use</h2>
+        <h3 class="al-sub">Credits</h3><ul class="tm-sources"><li><a href="https://tabler.io/icons">Card pictures: Tabler Icons (MIT licence)</a></li></ul>
+        <h3 class="al-sub">Further reading</h3>
+        <ul class="tm-sources"><li><a href="https://ai4k12.org/gradeband-progression-charts/">AI4K12: grade-band progression charts for the Five Big Ideas</a></li></ul>
+        <p class="al-rights">For members of the Choosewise community: use these materials with your own students, share them with colleagues at your school, and adapt or translate them for your own teaching. Please don&#x27;t republish or sell them.</p>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+</body>
+</html>

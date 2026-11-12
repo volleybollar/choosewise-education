@@ -1,0 +1,310 @@
+{
+  "id": "made-by-people",
+  "title": "Made by People",
+  "band": "5-8",
+  "number": 1,
+  "line": "Children sort things that grew from things that people made, match their senses with a machine's sensors, and draw a robot with the sensors its job needs.",
+  "minutes": 35,
+  "groups": "The whole class and pairs",
+  "ai_use": "none",
+  "prep_minutes": 20,
+  "goals": [
+    "Sort everyday things into those that grew and those that people made, and say that robots, computers and AI are made by people.",
+    "Match three senses with three sensors: eye and camera, ear and microphone, finger and touchscreen.",
+    "Describe what a sensor does in precise words: a camera takes in light, a microphone takes in sound."
+  ],
+  "key_words": [
+    {
+      "word": "grew",
+      "meaning": "Living things, and things that grow on plants or animals, like a tree, an apple or a cat."
+    },
+    {
+      "word": "made by people",
+      "meaning": "Something people built or made, like a chair, a book or a robot."
+    },
+    {
+      "word": "sense",
+      "meaning": "A way our body takes in the world: seeing, hearing, touching, smelling and tasting."
+    },
+    {
+      "word": "sensor",
+      "meaning": "A part of a machine that takes in something from the world, like light, sound or a touch. A camera and a microphone are sensors."
+    },
+    {
+      "word": "robot",
+      "meaning": "A machine that people made to do a job. Some robots use sensors to take in what is around them."
+    }
+  ],
+  "materials": [
+    "Student PDF page 1, the 12 picture cards: one set per pair, cut out and in an envelope",
+    "Page 2, the sorting mat: one per pair",
+    "Page 3, the six sense and sensor cards: one set per pair, cut out and in a second envelope",
+    "Page 4, the robot box and the two closing tickets: one per pair",
+    "Crayons or pencils, and the board"
+  ],
+  "before": [
+    "Print the student PDF and cut out the cards on pages 1 and 3 before the lesson, one set per pair, with an envelope for each page. A paper trimmer helps; cutting in class takes young children ten minutes or more. Keep the sets for your next class.",
+    "Pick two or three things in the room to point at in step 1, such as a plant, a window and a chair.",
+    "Write three or four robot jobs on the board, each with a quick drawing for children who can't read yet: water the plants, find a lost ball, tidy the toys, open the door for visitors.",
+    "Draw a model robot on the board before the lesson: a robot that waters plants, with a camera to find the plants and a sensor in the soil. Show the sensors with small drawings, not words.",
+    "Read the background below, especially the part about the tricky cards."
+  ],
+  "steps": [
+    {
+      "minutes": 3,
+      "mode": "All",
+      "title": "Grew or made?",
+      "do": "Point at the things you picked, one at a time. Children answer with their bodies: arms up like a tree for grew, fists on top of each other like building for made by people.",
+      "say": "Did this grow, or did people make it?"
+    },
+    {
+      "minutes": 7,
+      "mode": "Pairs",
+      "title": "Sort the cards",
+      "do": "Give each pair the envelope with the 12 picture cards and the sorting mat on page 2. Read the two headings aloud and point to the pictures above them. Pairs put each card on one side of the mat.",
+      "say": "Look at each picture. Did it grow, or did people make it? Put it on that side."
+    },
+    {
+      "minutes": 4,
+      "mode": "All",
+      "title": "The tricky cards",
+      "do": "Ask where pairs put the bread and the book. People made them, from things that grew: wheat for the bread, trees for the paper in the book. Then hold up the robot card and ask who made it. People did. Robots, computers and AI are made by people too, even when they move or make sounds.",
+      "say": "People made the robot. People made the computer inside it too."
+    },
+    {
+      "minutes": 3,
+      "mode": "All",
+      "title": "Our senses",
+      "do": "Ask how we find out what is around us. Children point to their eyes, ears and fingertips as you name seeing, hearing and touching. Mention smelling and tasting too.",
+      "say": "We see with our eyes, hear with our ears and feel with our fingers."
+    },
+    {
+      "minutes": 5,
+      "mode": "Pairs",
+      "title": "Find the pairs",
+      "do": "Give each pair the envelope with the six cards from page 3. Pairs put each sense next to the machine part that does a similar job: eye and camera, ear and microphone, finger and touchscreen.",
+      "say": "Which machine part takes in light, like your eye?"
+    },
+    {
+      "minutes": 3,
+      "mode": "All",
+      "title": "What a sensor does",
+      "do": "Go through the three pairs. A camera takes in light, a microphone takes in sound, and a touchscreen measures where a finger touches it. A machine doesn't see or hear the way we do: people made the sensors and chose what the machine does with what they take in.",
+      "say": "A camera takes in light. People chose what the machine does with it."
+    },
+    {
+      "minutes": 7,
+      "mode": "Pairs",
+      "title": "A robot for a job",
+      "do": "Point to the robot you drew on the board: it waters plants. Ask what its sensors take in: the camera takes in light to find the plants, and the sensor in the soil measures whether the soil is dry. Then pairs pick a job from the board and draw a robot with the sensors it needs in the box on page 4. Walk around and ask about each sensor: what does it take in?",
+      "say": "Your robot has a job to do. Which sensors does it need?"
+    },
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
+      "do": "Read the closing question aloud. Each child draws an answer on a ticket from page 4 and hands it in. Ask a few children which sense their machine is like."
+    }
+  ],
+  "gather": [
+    {
+      "question": "Which cards were tricky, and why?",
+      "students_say": [
+        "The bread. People made it, but the wheat grew.",
+        "The book is made of paper, and paper comes from trees.",
+        "The robot looks alive, but people made it."
+      ]
+    },
+    {
+      "question": "Is a camera an eye?",
+      "students_say": [
+        "No, but it does a job like an eye.",
+        "It takes pictures, but it can't see.",
+        "Yes, it's the robot's eye."
+      ]
+    },
+    {
+      "question": "What did your robot need?",
+      "students_say": [
+        "A camera to find the ball.",
+        "A microphone, so it hears when we call it.",
+        "Something that feels if the soil is dry."
+      ]
+    }
+  ],
+  "simpler": "Use six picture cards, three of each, and match the senses and sensors together on the board. Draw one robot together instead of in pairs.",
+  "harder": "Add a sense we left out: smell. Which machine part does a similar job? (A smoke alarm measures smoke in the air.) Or let pairs give their robot a second job and add the sensors it needs.",
+  "closing_question": "Draw a machine that has a sensor. Which of your senses is it like?",
+  "language_swap": "Each card has one English word under a picture. Say the words in your class's language as you hand out pages 1 and 3, or write the translations on the cards before you cut them. On page 2, say Grew and Made by people in your class's language; the pictures above them help children who can't read yet. On page 4, say the box label and the closing question aloud in your class's language.",
+  "age_note": "If children talk about a voice assistant or a smart speaker at home, remember that most AI apps have a minimum age of 13 on a personal account.",
+  "background": [
+    "ISTE's elementary guide starts from what children already know: people and animals take in the world through their senses, and robots have sensors that do a similar job. A camera is a sensor for light, a microphone for sound, and a touchscreen or trackpad for touch. Some robots use what their sensors take in to carry out a task on their own, even when things around them change; the guide calls them AI robots.",
+    "The words matter. A camera takes in light and turns it into numbers; a microphone does the same with sound. The machine works with those numbers in the way people built it to. Say \"the camera takes in light\" rather than using words for what goes on inside a person, such as seeing, knowing or wanting. ISTE's guide makes the same point: talking about machines as if they were people makes it harder for children to see the difference.",
+    "The tricky cards are there on purpose. Bread and books are made by people from things that grew: wheat, and wood for the paper. The robot is made by people even though it may move and make sounds. Some children may put it with the living things at first; that is the moment to ask who made it."
+  ],
+  "frameworks": {
+    "AILit": "Engage with AI, competence 2 (AI is a non-human tool that produces outputs from patterns in data), basic level",
+    "AI4K12": "Big Idea 1 (Perception)"
+  },
+  "tools": [],
+  "credits": [
+    {
+      "text": "Adapted from ISTE, Hands-On AI Projects for the Classroom: A Guide for Elementary Teachers (2020), by Nancye Blair Black and Susan Brooks-Young, Project 3 \"Senses vs. Sensors\", Activities 1, 2 and 4. Licensed under CC BY 4.0. Changes: shortened to one 35-minute lesson for ages 5–8, with sorting what grew from what people made added, Activity 2's three sensors as picture cards instead of apps, pairs choosing the robot's job, and our own wording.",
+      "url": "https://cdn.iste.org/www-root/Libraries/Documents%20%26%20Files/Artificial%20Intelligence/AIGDK5_1120.pdf"
+    },
+    {
+      "text": "Licence of the original: Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "text": "Card pictures: Tabler Icons (MIT licence)",
+      "url": "https://tabler.io/icons"
+    }
+  ],
+  "further_reading": [
+    {
+      "title": "AI4K12: grade-band progression charts for the Five Big Ideas",
+      "url": "https://ai4k12.org/gradeband-progression-charts/"
+    }
+  ],
+  "student_pdf": {
+    "file": "made-by-people-student-en.pdf",
+    "pages": [
+      {
+        "title": "Grew or made?",
+        "instruction": "Cut out the cards.",
+        "blocks": [
+          {
+            "kind": "cards",
+            "cards": [
+              {
+                "word": "tree",
+                "icon": "tree"
+              },
+              {
+                "word": "car",
+                "icon": "car"
+              },
+              {
+                "word": "apple",
+                "icon": "apple"
+              },
+              {
+                "word": "chair",
+                "icon": "armchair"
+              },
+              {
+                "word": "cat",
+                "icon": "cat"
+              },
+              {
+                "word": "ball",
+                "icon": "ball-football"
+              },
+              {
+                "word": "flower",
+                "icon": "flower"
+              },
+              {
+                "word": "robot",
+                "icon": "robot"
+              },
+              {
+                "word": "fish",
+                "icon": "fish"
+              },
+              {
+                "word": "bread",
+                "icon": "bread"
+              },
+              {
+                "word": "carrot",
+                "icon": "carrot"
+              },
+              {
+                "word": "book",
+                "icon": "book"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Sort the cards",
+        "instruction": "Put each card on one side.",
+        "blocks": [
+          {
+            "kind": "mat",
+            "headings": [
+              "Grew",
+              "Made by people"
+            ],
+            "icons": [
+              "seedling",
+              "hammer"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Find the pairs",
+        "instruction": "Cut out the cards. Find the pairs.",
+        "blocks": [
+          {
+            "kind": "cards",
+            "heading": "Senses",
+            "cards": [
+              {
+                "word": "eye",
+                "icon": "eye"
+              },
+              {
+                "word": "ear",
+                "icon": "ear"
+              },
+              {
+                "word": "finger",
+                "icon": "hand-finger"
+              }
+            ]
+          },
+          {
+            "kind": "cards",
+            "heading": "Sensors",
+            "cards": [
+              {
+                "word": "camera",
+                "icon": "camera"
+              },
+              {
+                "word": "microphone",
+                "icon": "microphone"
+              },
+              {
+                "word": "touchscreen",
+                "icon": "device-tablet"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "A robot for a job",
+        "instruction": "Draw a robot and its sensors.",
+        "blocks": [
+          {
+            "kind": "draw",
+            "label": "Our robot for a job"
+          },
+          {
+            "kind": "tickets",
+            "question": "Draw a machine that has a sensor. Which of your senses is it like?",
+            "count": 2,
+            "draw": true
+          }
+        ]
+      }
+    ]
+  },
+  "skool_text": "Lesson 1 for ages 5–8. Children sort picture cards into things that grew and things people made, find out that robots and computers are made by people too, match their eyes, ears and fingers with a camera, a microphone and a touchscreen, and draw a robot with the sensors its job needs. Adapted from ISTE (CC BY 4.0). No devices, 35 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-younger-3c514a93/made-by-people/"
+}

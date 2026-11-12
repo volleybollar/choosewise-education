@@ -2,6 +2,10 @@
    thinking-moves.css (tm-) och lägger bara till det som är nytt här (al-).
    Färger bara som var(--…): hex bor i tokens.css. */
 
+/* Texten fyller sektionen som bakgrunden gör (Johan 2026-11-12), inte 40rem av 72rem:
+   base.css spärrar p och li till 40rem och pages.css ingressen, så här släpps de i sektionerna. */
+main .section p, main .section li, main .section .tm-sources { max-width: none; }
+
 /* ───── Översiktssidan ───── */
 
 /* Taggarna under ingressen. */
@@ -16,7 +20,7 @@
 
 /* Åldersband och lektionskort. */
 .al-band__title { margin: var(--space-6) 0 var(--space-1); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
-.al-band__line { margin: 0 0 var(--space-4); color: var(--color-text-soft); max-width: var(--content-text-max); }
+.al-band__line { margin: 0 0 var(--space-4); color: var(--color-text-soft); max-width: none; }
 .al-card .tm-move__name a { color: inherit; text-decoration: none; }
 .al-card .tm-move__name a:hover { color: var(--color-accent); }
 .al-card__links { margin: auto 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); max-width: none; }
@@ -25,13 +29,13 @@
 /* ───── Gemensamt för båda sidorna ───── */
 
 .al-sub { margin: var(--space-6) 0 var(--space-3); font-size: 1.15rem; font-weight: var(--weight-emphasis); }
-.al-text { max-width: var(--content-text-max); }
+.al-text { max-width: none; }
 .al-text + .al-text { margin-top: var(--space-3); }
 .al-label { margin: var(--space-3) 0 var(--space-1); font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-text-muted); }
-.al-list { padding-left: var(--space-5); display: grid; gap: var(--space-2); max-width: var(--content-text-max); }
+.al-list { padding-left: var(--space-5); display: grid; gap: var(--space-2); max-width: none; }
 .al-text + .al-list, .al-text + .al-gather { margin-top: var(--space-4); }
 .al-download { margin-top: var(--space-6); }
-.al-rights { margin-top: var(--space-6); max-width: var(--content-text-max); font-size: var(--fs-small); color: var(--color-text-soft); border-top: 1px solid var(--color-border); padding-top: var(--space-4); }
+.al-rights { margin-top: var(--space-6); max-width: none; font-size: var(--fs-small); color: var(--color-text-soft); border-top: 1px solid var(--color-border); padding-top: var(--space-4); }
 
 /* Åldersgränserna som tabell. Fast layout och radbrytning i stället för
    sidledsscroll på smala skärmar. */
@@ -50,12 +54,12 @@
 .al-glance dd { margin: 0; font-weight: var(--weight-emphasis); }
 
 /* Nyckelorden. */
-.al-words { display: grid; grid-template-columns: minmax(6rem, auto) minmax(0, 1fr); gap: var(--space-2) var(--space-4); max-width: var(--content-text-max); margin: 0; }
+.al-words { display: grid; grid-template-columns: minmax(6rem, auto) minmax(0, 1fr); gap: var(--space-2) var(--space-4); max-width: none; margin: 0; }
 .al-words dt { font-weight: var(--weight-emphasis); }
 .al-words dd { margin: 0; color: var(--color-text-soft); }
 
 /* Tidslinjen: en lodrät linje, varje steg med minuter och arbetsform. */
-.al-steps { list-style: none; padding: 0; margin: 0; max-width: var(--content-text-max); }
+.al-steps { list-style: none; padding: 0; margin: 0; max-width: none; }
 .al-step { position: relative; max-width: none; padding: 0 0 var(--space-6) var(--space-6); border-left: 2px solid var(--color-border); }
 .al-step:last-child { padding-bottom: 0; }
 .al-step::before { content: ""; position: absolute; left: -7px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--color-bg); border: 2px solid var(--color-accent); }
@@ -82,7 +86,7 @@
 .al-fallback { margin: var(--space-4) 0 0; border-left: 3px dashed var(--color-accent); padding: var(--space-1) 0 var(--space-1) var(--space-4); }
 
 /* Uppsamlingen. */
-.al-gather { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-5); max-width: var(--content-text-max); }
+.al-gather { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-5); max-width: none; }
 .al-gather li { max-width: none; }
 .al-gather__q { margin: 0; font-weight: var(--weight-emphasis); }
 .al-said { margin: 0; padding-left: var(--space-5); color: var(--color-text-soft); display: grid; gap: var(--space-1); }
@@ -92,5 +96,5 @@
 .al-adapt .al-sub { margin-top: 0; }
 
 /* Den avslutande frågan och exempeltexten. */
-.al-closing { font-size: 1.35rem; max-width: var(--content-text-max); color: var(--color-text); }
-.al-example { margin: 0 0 var(--space-3); max-width: var(--content-text-max); border-left: 3px solid var(--color-highlight); padding: var(--space-2) var(--space-4); color: var(--color-text); }
+.al-closing { font-size: 1.35rem; max-width: none; color: var(--color-text); }
+.al-example { margin: 0 0 var(--space-3); max-width: none; border-left: 3px solid var(--color-highlight); padding: var(--space-2) var(--space-4); color: var(--color-text); }

@@ -1,0 +1,274 @@
+{
+  "id": "guess-my-rule",
+  "title": "Guess My Rule",
+  "band": "5-8",
+  "number": 2,
+  "line": "Children find the teacher's secret sorting rule from examples, then sort by secret rules in pairs and talk about the cards that are hard to sort.",
+  "minutes": 32,
+  "groups": "The whole class and pairs",
+  "ai_use": "none",
+  "prep_minutes": 30,
+  "goals": [
+    "Find a rule by looking at sorted examples, and test it on the next card.",
+    "Sort cards by a secret rule so that a partner can find it.",
+    "Say that machines that learn from examples find a pattern in what people sorted, and can still put a new card on the wrong side."
+  ],
+  "key_words": [
+    {
+      "word": "sort",
+      "meaning": "Put things into groups."
+    },
+    {
+      "word": "rule",
+      "meaning": "A way to sort, like \"has wheels\": every card with wheels goes on the Yes side."
+    },
+    {
+      "word": "example",
+      "meaning": "One card that shows what belongs in a group, or what doesn't."
+    },
+    {
+      "word": "pattern",
+      "meaning": "Something that is the same again and again, like all the Yes cards having wheels."
+    }
+  ],
+  "materials": [
+    "Student PDF page 1, the 16 picture cards: two sets for the class game, one card per child, and one set per pair, cut out and in envelopes",
+    "Page 2, the Yes and No mat: one per pair",
+    "Page 3, the four secret rule cards and the two closing tickets: one per pair, the rule cards cut out",
+    "Crayons or pencils"
+  ],
+  "before": [
+    "Print page 1 two times for the class game, plus once per pair. Cut out all the cards and the rule cards on page 3 before the lesson, and put each pair's 16 cards and four rule cards in an envelope. A paper trimmer helps. Keep the sets for your next class. With more than 32 children, print a third set for the game.",
+    "Mark the two sides of the room: a check for Yes on one wall and a cross for No on the other. A sheet of paper with each sign is enough.",
+    "Rules in this lesson are about the cards, never about the children themselves: not their clothes, hair, bodies or families. A rule about children can single one of them out.",
+    "Read the background below about the tricky cards."
+  ],
+  "steps": [
+    {
+      "minutes": 3,
+      "mode": "All",
+      "title": "The sorting game",
+      "do": "Give each child one card from the two class sets. Show the Yes wall and the No wall. Tell the class you have a secret rule, and that they will find it by watching where the cards go.",
+      "say": "I have a secret rule. Watch where each card goes, and find my rule."
+    },
+    {
+      "minutes": 7,
+      "mode": "All",
+      "title": "Guess the side",
+      "do": "Your rule is \"has wheels\". Call children up one at a time with their card, and call a few wheel cards early so the Yes side gets examples. Before you point to a side, the class shows thumbs up for Yes or thumbs down for No. The child stands by that wall and holds the card up. The plane goes on Yes: planes have wheels for landing, even though the picture doesn't show them; if children protest, keep it for the tricky cards. After eight or more cards, children who think they know the rule whisper it to you; then say it aloud together.",
+      "say": "Thumbs up if you think this card goes on the Yes side."
+    },
+    {
+      "minutes": 3,
+      "mode": "All",
+      "title": "How did you find it?",
+      "do": "Ask how they found the rule. They looked at the Yes cards and found what was the same. Nobody told them the rule, and the more cards they saw, the better their guesses got.",
+      "say": "Nobody told you the rule. You found it in the examples."
+    },
+    {
+      "minutes": 10,
+      "mode": "Pairs",
+      "title": "Your secret rule",
+      "do": "Give each pair an envelope with the 16 cards, the four rule cards and the mat on page 2. One child takes a rule card without showing it and puts the cards on the mat one at a time, Yes or No. Before each card, the partner shows a thumb. When the partner knows the rule, they say it. Then swap and take a new rule card.",
+      "say": "Keep your rule card secret. Put one card at a time on Yes or No."
+    },
+    {
+      "minutes": 6,
+      "mode": "All",
+      "title": "The tricky cards",
+      "do": "Ask which cards were hard to sort. The plane has wheels and flies; the fish is an animal and lives in water. Then connect it to machines: people give a machine that learns from examples many sorted examples, and it finds a pattern. A new card can still end up on the wrong side, so a person checks.",
+      "say": "A machine that learns from examples finds a pattern, like you did. A person checks the new cards."
+    },
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
+      "do": "Read the closing question aloud. Each child draws an answer on a ticket from page 3 and hands it in. Ask a few children why their card is tricky."
+    }
+  ],
+  "gather": [
+    {
+      "question": "How did you find the rule?",
+      "students_say": [
+        "All the Yes cards had wheels.",
+        "I looked at what was the same.",
+        "I guessed, and then the next card showed if I was right."
+      ]
+    },
+    {
+      "question": "Which card was hard to sort?",
+      "students_say": [
+        "The plane. It has wheels, but it flies.",
+        "The fish. It's an animal and it lives in water.",
+        "The air balloon, because it's not like the other things in the air."
+      ]
+    },
+    {
+      "question": "How is this like a machine that learns from examples?",
+      "students_say": [
+        "It looks at lots of examples.",
+        "It finds what's the same.",
+        "It can put a new card on the wrong side."
+      ]
+    }
+  ],
+  "simpler": "Play only the class game, twice, with the rules \"in the air\" and \"animal\". Leave out the pair game and sort one rule together on the board instead.",
+  "harder": "Let pairs make up a rule that is not on a rule card, such as \"has a window\", and play it with another pair. Or ask the class for a card that breaks one of the rules, and change the rule so that it works.",
+  "closing_question": "Draw a tricky card: something that is hard to sort with your rule.",
+  "language_swap": "Each card has one English word under a picture. Say the words in your class's language as you hand out page 1 and the four rule cards on page 3, or write the translations on the cards before you cut them. On page 2, say Yes and No in your class's language; the check and the cross help children who can't read yet. Read the closing question on page 3 aloud in your class's language.",
+  "age_note": "If children ask whether phones or games find rules like this, say yes: many apps sort photos or suggest videos from patterns in examples. Most AI apps have a minimum age of 13 on a personal account.",
+  "background": [
+    "Sorting by a secret rule is an old classroom game, and it shows in miniature what machine learning does. People collect examples and sort them, and a computer program finds a pattern that separates the groups. Nobody writes the rule into the program; the pattern comes from the examples, so it is only as good as the examples are.",
+    "The tricky cards are there on purpose. The plane has wheels and flies, so it fits two rules. The fish is an animal that lives in water. Let children disagree about them: a rule found from examples works for cards that look like the examples, and can go wrong on a card that doesn't. People check the results and add examples.",
+    "Keep every rule about the cards. A rule about the children themselves can single one of them out. Older children look at what happens when a rule is learned from people, and who it can be unfair to, in Who Does It Fail? (ages 9–12)."
+  ],
+  "frameworks": {
+    "AILit": "Engage with AI, competence 2 (AI is a non-human tool that produces outputs from patterns in data), basic level",
+    "AI4K12": "Big Idea 2 (Representation & Reasoning) · Big Idea 3 (Learning)"
+  },
+  "tools": [],
+  "credits": [
+    {
+      "text": "Card pictures: Tabler Icons (MIT licence)",
+      "url": "https://tabler.io/icons"
+    }
+  ],
+  "further_reading": [
+    {
+      "title": "AI4K12: grade-band progression charts for the Five Big Ideas",
+      "url": "https://ai4k12.org/gradeband-progression-charts/"
+    }
+  ],
+  "student_pdf": {
+    "file": "guess-my-rule-student-en.pdf",
+    "pages": [
+      {
+        "title": "Picture cards",
+        "instruction": "Cut out the cards.",
+        "blocks": [
+          {
+            "kind": "cards",
+            "cards": [
+              {
+                "word": "car",
+                "icon": "car"
+              },
+              {
+                "word": "bus",
+                "icon": "bus"
+              },
+              {
+                "word": "bike",
+                "icon": "bike"
+              },
+              {
+                "word": "tractor",
+                "icon": "tractor"
+              },
+              {
+                "word": "plane",
+                "icon": "plane"
+              },
+              {
+                "word": "helicopter",
+                "icon": "helicopter"
+              },
+              {
+                "word": "air balloon",
+                "icon": "air-balloon"
+              },
+              {
+                "word": "rocket",
+                "icon": "rocket"
+              },
+              {
+                "word": "ship",
+                "icon": "ship"
+              },
+              {
+                "word": "sailboat",
+                "icon": "sailboat"
+              },
+              {
+                "word": "submarine",
+                "icon": "submarine"
+              },
+              {
+                "word": "kayak",
+                "icon": "kayak"
+              },
+              {
+                "word": "cat",
+                "icon": "cat"
+              },
+              {
+                "word": "dog",
+                "icon": "dog"
+              },
+              {
+                "word": "horse",
+                "icon": "horse"
+              },
+              {
+                "word": "fish",
+                "icon": "fish"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Yes or no?",
+        "instruction": "Put each card on Yes or No.",
+        "blocks": [
+          {
+            "kind": "mat",
+            "headings": [
+              "Yes",
+              "No"
+            ],
+            "icons": [
+              "check",
+              "x"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Secret rules",
+        "instruction": "Keep your rule card secret.",
+        "blocks": [
+          {
+            "kind": "cards",
+            "heading": "Secret rule cards",
+            "cards": [
+              {
+                "word": "wheels",
+                "icon": "wheel"
+              },
+              {
+                "word": "in the air",
+                "icon": "cloud"
+              },
+              {
+                "word": "water",
+                "icon": "ripple"
+              },
+              {
+                "word": "animal",
+                "icon": "paw"
+              }
+            ]
+          },
+          {
+            "kind": "tickets",
+            "question": "Draw a tricky card: something that is hard to sort with your rule.",
+            "count": 2,
+            "draw": true
+          }
+        ]
+      }
+    ]
+  },
+  "skool_text": "Lesson 2 for ages 5–8. Each child holds a picture card and the class guesses which side of the room it belongs on, until they find the teacher's secret rule. Then pairs sort by secret rule cards and talk about the tricky cards, like a plane that has wheels and flies. No devices, 32 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-younger-3c514a93/guess-my-rule/"
+}

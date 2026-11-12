@@ -224,5 +224,5 @@ def test_committed_pages_match_a_fresh_build(tmp_path):
 @pytest.mark.parametrize("slug,lid", [(slug, None) for slug in TRACKS] + PAIRS)
 def test_stylesheet_linked(slug, lid):
     html = overview(slug) if lid is None else page(slug, lid)
-    assert '<link rel="stylesheet" href="/assets/css/ai-lessons.css?v=20261111a">' in html
+    assert '<link rel="stylesheet" href="/assets/css/ai-lessons.css?v=20261112a">' in html
     assert '<link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">' in html

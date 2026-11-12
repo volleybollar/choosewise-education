@@ -12,11 +12,14 @@ Each page in student_pdf.pages has a title, a short instruction and blocks:
                                     tall gives rows with room for two lines of handwriting
   slips      {count, label}         slips to fold and tear along dashed lines
   checklist  {items, checks}        one row per item, one tick box per check
-  tickets    {question, count}      closing-question tickets to cut off
+  tickets    {question, count, draw?} closing-question tickets to cut off; draw gives a box
+                                    to draw in instead of lines, for children who can't write yet
   cards      {cards, heading?}      picture cards to cut out: [{word, icon?}], 4 per row
-  mat        {headings}             a sorting mat, one column per heading
+  mat        {headings, icons?}     a sorting mat, one column per heading; icons puts a Tabler
+                                    picture above each heading
   image      {src, alt}             a picture from the repo (src relative to the repo root)
   images     {items}                labelled pictures two by two: [{src, label, alt}]
+  draw       {label}                a big box to draw in, filling the rest of the page
 A checklist's items are a number (numbered rows) or a list of row labels.
 
 Card pictures are Tabler Icons (MIT) in _unpublished/exports/ai-lessons/icons/;
@@ -88,6 +91,8 @@ h1 { font-family: var(--font-display); font-size: 22pt; font-weight: 500; line-h
 .ticket__q { font-size: 12pt; font-weight: 500; }
 .ticket__name { font-size: 10pt; color: var(--color-text-soft); }
 .ticket__line { border-bottom: 0.3mm solid var(--color-text-muted); height: 9mm; }
+/* Rita i stället för att skriva (5–8): en ruta där linjerna annars står. */
+.ticket__draw { min-height: 40mm; border: 0.3mm dashed var(--color-text-muted); border-radius: 2mm; }
 .cut { font-size: 9pt; color: var(--color-text-muted); margin-bottom: -3mm; }
 .grid .row-label { width: 45%; padding: 2mm; }
 /* Bildkort: fyra per rad, streckade klipplinjer runt varje kort. */
@@ -101,7 +106,14 @@ h1 { font-family: var(--font-display); font-size: 22pt; font-weight: 500; line-h
 /* Sorteringsmatta: en kolumn per rubrik, fyller resten av sidan. */
 .mat { flex: 1; min-height: 60mm; display: grid; border: 0.4mm solid var(--color-text); border-radius: 2mm; }
 .mat__col + .mat__col { border-left: 0.4mm solid var(--color-text); }
-.mat__head { min-height: 22mm; display: flex; align-items: center; justify-content: center; font-size: 15pt; font-weight: 500; text-align: center; padding: 3mm; border-bottom: 0.3mm solid var(--color-text-muted); }
+.mat__head { min-height: 22mm; display: flex; flex-direction: column; gap: 1.5mm; align-items: center; justify-content: center; font-size: 15pt; font-weight: 500; text-align: center; padding: 3mm; border-bottom: 0.3mm solid var(--color-text-muted); }
+/* Bild över mattans rubrik, för den som inte läser än. */
+.mat__pic { display: block; width: 14mm; height: 14mm; color: var(--color-text); }
+.mat__pic svg { width: 100%; height: 100%; }
+/* Ritruta: fyller resten av sidan. */
+.draw { flex: 1; min-height: 60mm; display: flex; flex-direction: column; gap: 2mm; }
+.draw__label { font-size: 12pt; font-weight: 500; }
+.draw__box { flex: 1; border: 0.4mm solid var(--color-text); border-radius: 2mm; }
 .image { display: block; max-width: 100%; max-height: 150mm; margin: 0 auto; object-fit: contain; }
 .images { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm 6mm; max-width: 170mm; margin: 0 auto; }
 .images figure { margin: 0; text-align: center; }
@@ -123,6 +135,7 @@ ICONS = {
     "cards": '<rect x="3" y="6" width="12" height="15" rx="2"/><path d="M9 3h10a2 2 0 0 1 2 2v13"/>',
     "mat": '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16"/>',
     "image": '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 17-5-5-9 7"/>',
+    "draw": '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 15c2-4 4 0 6-3s3-2 4-1"/>',
     "images": '<rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/>',
 }
 
@@ -177,8 +190,9 @@ def _checklist(block: dict) -> str:
 
 
 def _tickets(block: dict) -> str:
+    room = '<span class="ticket__draw"></span>' if block.get("draw") else '<span class="ticket__line"></span>' * 4
     ticket = (f'<div class="ticket"><p class="ticket__q">{escape(block["question"])}</p>'
-              '<p class="ticket__name">Name:</p>' + '<span class="ticket__line"></span>' * 4 + "</div>")
+              f'<p class="ticket__name">Name:</p>{room}</div>')
     return f'<p class="cut">Cut or tear along the dashed lines.</p><div class="tickets">{ticket * block["count"]}</div>'
 
 
@@ -198,11 +212,15 @@ def load_icon(name: str) -> str | None:
     return "".join(out)
 
 
+def _tabler_svg(drawing: str) -> str:
+    return ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" '
+            f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{drawing}</svg>')
+
+
 def _card(card: dict) -> str:
     drawing = load_icon(card["icon"]) if card.get("icon") else None
     if drawing:
-        pic = ('<div class="card__pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" '
-               f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{drawing}</svg></div>')
+        pic = f'<div class="card__pic">{_tabler_svg(drawing)}</div>'
     else:
         pic = '<div class="card__pic card__pic--draw">draw it</div>'
     return f'<div class="card">{pic}<div class="card__word">{escape(card["word"])}</div></div>'
@@ -213,8 +231,19 @@ def _cards(block: dict) -> str:
     return f'{heading}<div class="cards">{"".join(_card(c) for c in block["cards"])}</div>'
 
 
+def _mat_pic(name: str) -> str:
+    drawing = load_icon(name)
+    if drawing is None:  # en matta utan bild går inte att läsa för den som inte läser än
+        raise FileNotFoundError(f"Icon for the sorting mat is missing: {name}")
+    return f'<span class="mat__pic">{_tabler_svg(drawing)}</span>'
+
+
 def _mat(block: dict) -> str:
-    cols = "".join(f'<div class="mat__col"><p class="mat__head">{escape(h)}</p></div>' for h in block["headings"])
+    if "icons" in block and len(block["icons"]) != len(block["headings"]):
+        raise ValueError(f"A sorting mat needs one icon per heading: {block['headings']}")
+    pics = [_mat_pic(name) for name in block.get("icons", [])] or [""] * len(block["headings"])
+    cols = "".join(f'<div class="mat__col"><p class="mat__head">{pic}{escape(h)}</p></div>'
+                   for pic, h in zip(pics, block["headings"]))
     return f'<div class="mat" style="grid-template-columns: repeat({len(block["headings"])}, 1fr)">{cols}</div>'
 
 
@@ -232,12 +261,17 @@ def _images(block: dict) -> str:
     return f'<div class="images">{"".join(figures)}</div>'
 
 
+def _draw(block: dict) -> str:
+    return f'<div class="draw"><p class="draw__label">{escape(block["label"])}</p><div class="draw__box"></div></div>'
+
+
 BLOCKS = {"text": _text, "table": _table, "slips": _slips, "checklist": _checklist, "tickets": _tickets,
-          "cards": _cards, "mat": _mat, "image": _image, "images": _images}
+          "cards": _cards, "mat": _mat, "image": _image, "images": _images, "draw": _draw}
 
 
 def _uses_icons(lesson: dict) -> bool:
-    return any(c.get("icon") for p in lesson["student_pdf"]["pages"] for b in p["blocks"] for c in b.get("cards", []))
+    blocks = [b for p in lesson["student_pdf"]["pages"] for b in p["blocks"]]
+    return any(c.get("icon") for b in blocks for c in b.get("cards", [])) or any(b.get("icons") for b in blocks)
 
 
 def _page(lesson: dict, page: dict, n: int, total: int, rights: str) -> str:
