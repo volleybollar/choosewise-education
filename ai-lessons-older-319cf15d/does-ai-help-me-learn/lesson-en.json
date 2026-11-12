@@ -1,0 +1,265 @@
+{
+  "id": "does-ai-help-me-learn",
+  "title": "Does AI Help Me Learn?",
+  "band": "16-19",
+  "number": 1,
+  "line": "Students look at a study where an AI that gave answers raised practice scores and lowered exam results, use the trade-off question on their own AI habits, and write a rule they can test.",
+  "minutes": 40,
+  "groups": "Individual, pairs, then the whole class",
+  "ai_use": "optional",
+  "prep_minutes": 10,
+  "goals": [
+    "Explain, with a real study, why getting a task done with AI is not the same as learning to do it.",
+    "Use the trade-off question to name what AI could make them worse at, and whether that matters.",
+    "Write and test a rule for how they use AI in their own schoolwork."
+  ],
+  "key_words": [
+    {
+      "word": "the trade-off question",
+      "meaning": "Three questions to ask about any tool. What does it make me worse at? If that matters, when do I practise it? If it doesn't, it's fine to get worse at it."
+    },
+    {
+      "word": "practice score",
+      "meaning": "How well you do while you practise, with whatever help you have at hand."
+    },
+    {
+      "word": "learning",
+      "meaning": "What you can still do on your own when the help is gone, for example in an exam."
+    },
+    {
+      "word": "tutor prompt",
+      "meaning": "A prompt that asks an AI tool for questions and hints instead of answers, so the work stays with you."
+    }
+  ],
+  "materials": [
+    "Scrap paper for step 1",
+    "Student PDF page 1, the maths study, the tutor prompts and two closing-question tickets: one per pair",
+    "Page 2, my AI habits and my rule: one per student",
+    "Optional, for step 7: one device per pair with the AI tool your school has approved"
+  ],
+  "before": [
+    "Print page 1 for every pair and page 2 for every student.",
+    "Read the background, so that you can give the study's results in step 4.",
+    "AI is optional in step 7. If students will use it, check that your school has approved the tool for their age and that they can log in. If not, run step 7 without AI: the role play works just as well.",
+    "Students keep page 2. Their AI habits are their own; only the closing-question tickets from page 1 are handed in."
+  ],
+  "steps": [
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Worse at what?",
+      "do": "Students write on scrap paper one thing they have got worse at since a phone or an app started doing it for them: mental arithmetic, finding the way, spelling, remembering phone numbers, handwriting.",
+      "say": "Every tool we use makes us worse at something. That isn't always a problem."
+    },
+    {
+      "minutes": 3,
+      "mode": "All",
+      "title": "The trade-off question",
+      "do": "Collect five or six answers on the board. Write the trade-off question next to them and try it on one example together: does it matter that we are worse at remembering phone numbers? If it does, when would we practise?",
+      "say": "What does it make me worse at? If that matters, when do I practise it? If it doesn't, it's fine to get worse at it."
+    },
+    {
+      "minutes": 7,
+      "mode": "Pairs",
+      "title": "The maths study",
+      "do": "Hand out page 1. Pairs read about the study and guess, for each of the two AI groups, whether practice scores went up or down compared with the group without AI, and then whether exam scores did. They write one reason for their guess about the answer group."
+    },
+    {
+      "minutes": 4,
+      "mode": "All",
+      "title": "The results",
+      "do": "Take a few guesses, then give the results (see Background). In practice, both AI groups did much better than the group without AI: the answer group about half as well again, the tutor group more than twice as well. In the exam without AI, the answer group did about a sixth worse than the students who never had AI, and the tutor group about the same. Most students in the answer group simply asked for the answer.",
+      "say": "The AI that gave answers did the maths, and the scores went up while it was there. On their own afterwards, those students had learned less. The tutor that gave hints left the work with the students."
+    },
+    {
+      "minutes": 6,
+      "mode": "Individual",
+      "title": "My AI habits",
+      "do": "Students fill in the table on page 2. For each school task they tick whether AI does it, AI helps them do it, or they do it alone, and tick the last column if it is something they must practise. Tasks they never do stay empty."
+    },
+    {
+      "minutes": 4,
+      "mode": "Pairs",
+      "title": "Where does it cost most?",
+      "do": "Pairs compare their tables. Each student picks the task where AI could cost them most and uses the trade-off question on it: what would I get worse at, and does that matter?"
+    },
+    {
+      "minutes": 7,
+      "mode": "Pairs",
+      "title": "Test a rule",
+      "student_ai": true,
+      "do": "Each student writes one rule on page 2: When I …, I will … (for example: when I revise for a test, I will ask AI to quiz me, not to give me the answers). Pairs pick one rule and test it with the AI tool your school has approved, using one of the tutor prompts on page 1 and something from a course they are taking now. They note whether the replies left the work with them.",
+      "prompts": [
+        "I'm revising [topic] for a test. Ask me one question at a time. If I get it wrong, give me a hint, not the answer.",
+        "Here is my answer to [question]: [my answer]. Don't correct it. Ask me two questions that help me find the mistake myself."
+      ],
+      "without_ai": "One partner plays the tutor and follows the rule strictly: questions and hints only, never the answer. The other is the student and works on something from a current course. After three minutes they swap."
+    },
+    {
+      "minutes": 3,
+      "mode": "All",
+      "title": "Our rules",
+      "do": "Three or four students read their rule aloud. Ask the class whether each rule leaves the work with the student, and when it might be fine to break it."
+    },
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
+      "do": "Each student answers the closing question on a ticket from page 1, tears it off and hands it in."
+    }
+  ],
+  "gather": [
+    {
+      "question": "Why did the answer group do worse in the exam, when they did better in practice?",
+      "students_say": [
+        "The AI did the maths, not them.",
+        "They copied the answers.",
+        "They never practised working it out alone."
+      ]
+    },
+    {
+      "question": "Why did the tutor group do about as well as the students without AI?",
+      "students_say": [
+        "They still had to work it out.",
+        "Hints make you think.",
+        "The tutor didn't give the answer away."
+      ]
+    },
+    {
+      "question": "Which tasks did you tick as something you must practise?",
+      "students_say": [
+        "Writing, because I'll need it in exams.",
+        "Maths. I can't skip that.",
+        "Not spelling: the spell checker is fine."
+      ]
+    },
+    {
+      "question": "When is it fine to let AI do a task for you?",
+      "students_say": [
+        "When it's not what I'm meant to learn.",
+        "Checking spelling.",
+        "When I already know how and just need it done fast."
+      ]
+    }
+  ],
+  "simpler": "Skip the table on page 2. After the results, ask the class for three school tasks and use the trade-off question on each together. Every student then writes one rule.",
+  "harder": "Students write a tutor prompt for one subject that works like the study's tutor: it asks questions and gives hints, but never the solution. Pairs test it, improve it once and explain what they changed.",
+  "closing_question": "Name one thing AI could make you worse at. Does it matter to you, and if it does, when will you practise it?",
+  "language_swap": "Pages 1 and 2 have English text. Read the study on page 1 aloud in your class's language, or summarise it on the board. Write the group names and the column headings on pages 1 and 2 in your language next to the English ones. The tutor prompts on page 1 work in any language: students type them in the language they study in.",
+  "age_note": "AI is optional in this lesson. If students use it, they use the tool your school has approved for their age. Check the table: Claude is for 18 and over, and ChatGPT needs a parent's or guardian's permission under 18. Step 7 works without AI.",
+  "background": [
+    "Bastani and colleagues ran a field experiment at a large high school in Turkey in autumn 2023: nearly 1,000 students in about fifty 9th-, 10th- and 11th-grade maths classes, in four 90-minute sessions. In each session the teacher went through a topic, students solved practice problems, and then they took a closed-book exam on its own, with problems very similar to the practice ones. During practice, one group had books and notes and no AI, one had GPT Base, an interface like ChatGPT, and one had GPT Tutor, the same model with teacher-written instructions to give hints without giving away the solution.",
+    "In practice, both AI groups did much better than the group without AI: 48% better with GPT Base and 127% better with GPT Tutor. In the exam, without AI, the GPT Base group did 17% worse than the group that never had AI, while the safeguards in GPT Tutor largely removed that harm. Students with GPT Base most often simply asked for the answer; the authors describe them as using the tool as a crutch.",
+    "The figures come from the authors' working paper (2024). The peer-reviewed version appeared in PNAS in 2025 as Generative AI without guardrails can harm learning, with the same conclusion. It is one study, in one subject and one country, so present it as a strong example rather than a rule: the result depends on how the tool is used.",
+    "The trade-off question is how Choosewise looks at any tool, digital or not. Every tool makes us worse at something. If that matters, we choose when to practise it; if it doesn't, it's fine to let the tool take it. It is not either–or: use AI where it adds something, and leave it out where it takes away what students are there to learn."
+  ],
+  "frameworks": {
+    "AILit": "Manage AI, competences 1 (decide whether to use AI systems based on the nature of the task, advanced level) and 4 (monitor and evaluate AI use throughout a problem-solving process, intermediate level)",
+    "AI4K12": "Big Idea 5 (Societal Impact)"
+  },
+  "tools": [
+    "chatgpt",
+    "gemini",
+    "gemini-education",
+    "copilot",
+    "copilot-education",
+    "claude"
+  ],
+  "credits": [],
+  "further_reading": [
+    {
+      "title": "Bastani, Bastani, Sungu, Ge, Kabakcı and Mariman (2025): Generative AI without guardrails can harm learning: Evidence from high school mathematics (PNAS)",
+      "url": "https://doi.org/10.1073/pnas.2422633122"
+    },
+    {
+      "title": "Knowledge at Wharton (2024): Without guardrails, generative AI can harm education",
+      "url": "https://knowledge.wharton.upenn.edu/article/without-guardrails-generative-ai-can-harm-education/"
+    }
+  ],
+  "student_pdf": {
+    "file": "does-ai-help-me-learn-student-en.pdf",
+    "pages": [
+      {
+        "title": "The maths study",
+        "instruction": "Read about the study. Then guess: up or down?",
+        "blocks": [
+          {
+            "kind": "text",
+            "body": "Nearly 1,000 high-school students in Turkey practised maths in four lessons, and after each practice they took an exam alone, without AI. Each class was in one of three groups. One group had no AI, only books and notes. One group had an AI chatbot that gave answers when asked. One group had an AI tutor that asked questions and gave hints, but never the answer. How did the two AI groups do, compared with the group without AI?"
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Group",
+              "Practice, with AI: up or down?",
+              "Exam, without AI: up or down?"
+            ],
+            "rows": [
+              [
+                "AI that gives answers",
+                "",
+                ""
+              ],
+              [
+                "AI tutor that gives hints",
+                "",
+                ""
+              ]
+            ]
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Our reason for the guess about the answer group"
+            ],
+            "rows": 1
+          },
+          {
+            "kind": "text",
+            "body": "For step 7, testing a rule with AI: pick one prompt. 1: I'm revising [topic] for a test. Ask me one question at a time. If I get it wrong, give me a hint, not the answer. 2: Here is my answer to [question]: [my answer]. Don't correct it. Ask me two questions that help me find the mistake myself."
+          },
+          {
+            "kind": "tickets",
+            "question": "Name one thing AI could make you worse at. Does it matter to you, and if it does, when will you practise it?",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "title": "My AI habits",
+        "instruction": "Tick one box for each task you do. Tick the last box too if you must practise it.",
+        "blocks": [
+          {
+            "kind": "checklist",
+            "items": [
+              "Write a first draft",
+              "Check spelling and grammar",
+              "Explain something I don't get",
+              "Solve maths homework",
+              "Summarise a text I should read",
+              "Revise for a test",
+              "Translate a text",
+              "Come up with ideas"
+            ],
+            "checks": [
+              "AI does it",
+              "AI helps me",
+              "Only me",
+              "I must practise this"
+            ]
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "My rule: when I …",
+              "I will …"
+            ],
+            "rows": 1,
+            "tall": true
+          }
+        ]
+      }
+    ]
+  },
+  "skool_text": "Lesson 1 for ages 16–19. Students look at a study where an AI that gave answers raised practice scores but lowered exam results, use the trade-off question on their own AI habits, and write a rule for their schoolwork that they test with or without AI. AI optional, 40 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-older-319cf15d/does-ai-help-me-learn/"
+}

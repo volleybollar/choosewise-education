@@ -610,3 +610,28 @@ def test_prefilled_rows_have_one_cell_per_column():
     for lesson in lessons():
         for block in _blocks(lesson, "table"):
             assert _rows_fit(block), (lesson["id"], block["columns"])
+
+
+# ───── 16–19 (planen 2026-11-12-ai-lessons-16-19) ─────
+
+TRADE_OFF = ("What does it make me worse at?", "If that matters, when do I practise it?",
+             "If it doesn't, it's fine to get worse at it.")
+
+
+def test_does_ai_help_me_learn_is_built_on_the_trade_off_question():
+    lesson = _lesson("does-ai-help-me-learn", OLDER)
+    assert lesson["ai_use"] == "optional"
+    assert len([s for s in lesson["steps"] if s.get("student_ai")]) == 1
+    text = " ".join(teacher_text(lesson))
+    assert "the trade-off question" in text
+    for question in TRADE_OFF:
+        assert question in text, question
+
+
+def test_does_ai_help_me_learn_compares_the_two_ai_groups():
+    """Gruppen utan AI är jämförelsen; tabellen frågar hur de två AI-grupperna gick jämfört med den."""
+    lesson = _lesson("does-ai-help-me-learn", OLDER)
+    table = _blocks(lesson, "table")[0]
+    assert [row[0] for row in table["rows"]] == ["AI that gives answers", "AI tutor that gives hints"]
+    assert "without AI" in lesson["student_pdf"]["pages"][0]["blocks"][0]["body"]
+
