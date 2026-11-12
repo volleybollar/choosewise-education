@@ -15,7 +15,8 @@
     "Explain that people build AI systems and choose the examples they are built from.",
     "Show how an AI system can produce something that sounds right and is still wrong, and say how a person can check.",
     "Describe AI in precise words: it sorts, predicts and guesses from patterns; it is not a person.",
-    "Decide when to ask an adult, and what should happen to the information they share with apps and devices."
+    "Decide when to ask an adult, and what should happen to the information they share with apps and devices.",
+    "Match their own senses to the sensors that let a machine take in light, sound and touch."
   ],
   "threads": [
     {"name": "What AI is (and isn't)", "line": "Spot AI in everyday life, and tell a tool that follows fixed steps from one that guesses from patterns."},
@@ -44,7 +45,7 @@
     "The lessons work on their own or in order. Pick what suits your class."
   ],
   "what_you_need": [
-    "A printer. The student PDFs are A4, fit US Letter and print well in black and white.",
+    "A printer. The student PDFs are A4 and fit US Letter. Most print well in black and white; when a page needs colour, the teacher page says so.",
     "A board, and a projector for the lessons with a short teacher demo of an AI tool.",
     "No devices or accounts for students. In this track, children never use AI themselves.",
     "About ten minutes to read the teacher page, plus the preparation it lists."

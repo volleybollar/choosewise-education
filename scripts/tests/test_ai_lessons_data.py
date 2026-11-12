@@ -18,7 +18,7 @@ OLDER = "ai-lessons-older-319cf15d"
 
 MODES = {"Individual", "Pairs", "All"}
 AI_USES = {"none", "teacher-demo", "students", "optional"}
-BLOCK_KINDS = {"text", "table", "slips", "checklist", "tickets", "cards", "mat", "image", "images"}
+BLOCK_KINDS = {"text", "table", "slips", "checklist", "tickets", "cards", "mat", "image", "images", "draw"}
 # De sex chattbotsraderna i ålderstabellen; lektioner där eleverna själva använder AI listar alla.
 CHATBOTS = {"chatgpt", "gemini", "gemini-education", "copilot", "copilot-education", "claude"}
 READER_NOTE = ("Readers outside Sweden should verify their own national regulations. "
@@ -27,7 +27,7 @@ USE_RIGHTS = ("For members of the Choosewise community: use these materials with
               "share them with colleagues at your school, and adapt or translate them for your own teaching. "
               "Please don't republish or sell them.")
 ANTHRO = re.compile(
-    r"\b(AI|it|the (chat)?bot|the machine|the model|chatbots?|machines?|models?)\s+"
+    r"\b(AI|it|the (chat)?bot|the machine|the model|the robot|chatbots?|machines?|models?|robots?)\s+"
     r"(thinks?|understands?|knows?|wants?|feels?|believes?)\b", re.I)
 # Ord som ger maskinen ett inre liv även utan subjekt framför ("train them to
 # admit when they are unsure"). Granskningen 2026-11-11 hittade dem.
@@ -224,8 +224,45 @@ def test_older_track_covers_16_19():
     assert any(line.startswith("For ages 16–19") for line in t["what_you_need"])
 
 
+def _young_problems(lesson):
+    """Barn på 5–8 år läser knappt: bilder på allt, korta instruktioner, biljetter man ritar på
+    och kort som är klippta före lektionen."""
+    if lesson["band"] != "5-8":
+        return []
+    problems = [] if lesson["minutes"] <= 35 else ["longer than 35 minutes"]
+    blocks = [b for p in lesson["student_pdf"]["pages"] for b in p["blocks"]]
+    problems += [f"instruction over 8 words: {p['instruction']}" for p in lesson["student_pdf"]["pages"]
+                 if len(p["instruction"].split()) > 8]
+    problems += [f"text over 15 words: {b['body']}" for b in blocks if b["kind"] == "text" and len(b["body"].split()) > 15]
+    problems += [f"card without a picture: {c['word']}" for b in blocks for c in b.get("cards", []) if not c.get("icon")]
+    problems += ["mat without one icon per heading" for b in blocks
+                 if b["kind"] == "mat" and len(b.get("icons", [])) != len(b["headings"])]
+    problems += ["ticket to write on" for b in blocks if b["kind"] == "tickets" and not b.get("draw")]
+    cut_before = any("cut" in line and "envelope" in line for line in lesson["before"])
+    return problems + ([] if cut_before or not any(b["kind"] == "cards" for b in blocks) else ["cards not cut before the lesson"])
+
+
+def test_young_lessons_work_for_children_who_cant_read_yet():
+    bad = {"band": "5-8", "minutes": 40, "before": ["Print the PDF."], "student_pdf": {"pages": [
+        {"instruction": "Cut out all of the cards and then sort them now.", "blocks": [
+            {"kind": "text", "body": " ".join(["word"] * 16)},
+            {"kind": "cards", "cards": [{"word": "hovercraft"}]},
+            {"kind": "mat", "headings": ["Yes", "No"]},
+            {"kind": "tickets", "question": "Why?", "count": 2}]}]}}
+    assert len(_young_problems(bad)) == 7  # vakten själv biter
+    for lesson in lessons():
+        assert _young_problems(lesson) == [], lesson["id"]
+
+
+def test_younger_track_covers_5_8():
+    t = track(YOUNGER)
+    assert any("senses" in o and "sensors" in o for o in t["objectives"])
+    assert "when a page needs colour" in t["what_you_need"][0]
+
+
 def test_no_anthropomorphic_wording():
     assert ANTHRO.search("The chatbot knows the answer.")  # vakten själv biter
+    assert ANTHRO.search("The robot thinks the ball is a fruit.")
     assert MENTAL.search("They train them to admit when they are unsure.")
     assert MENTAL.search("Keeps you chatting: it tries to stop Mika from leaving.")
     assert "Round 1: you choose" in student_frame(_lesson("bias-in-bias-out", OLDER))

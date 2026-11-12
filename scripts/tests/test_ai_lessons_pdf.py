@@ -207,5 +207,40 @@ def test_missing_image_stops_the_build():
 @pytest.mark.parametrize("slug,lid", PAIRS)
 def test_card_pictures_are_credited_in_the_pdf(slug, lid):
     """Tabler Icons (MIT): kretsen ska följa med när bilderna gör det."""
-    uses_icons = any(c.get("icon") for p in lesson(slug, lid)["student_pdf"]["pages"] for b in p["blocks"] for c in b.get("cards", []))
+    blocks = [b for p in lesson(slug, lid)["student_pdf"]["pages"] for b in p["blocks"]]
+    uses_icons = any(c.get("icon") for b in blocks for c in b.get("cards", [])) or any(b.get("icons") for b in blocks)
     assert has("Tabler Icons (MIT licence)", pages(pdf(slug, lid))[0]) == uses_icons
+
+
+# ───── 5–8: bilder för den som inte läser än (planen 2026-11-12-ai-lessons-5-8) ─────
+
+def test_mat_headings_can_carry_icons():
+    mod = load("build_ai_lessons_pdf", BUILD)
+    out = mod.BLOCKS["mat"]({"kind": "mat", "headings": ["Yes", "No"], "icons": ["check", "x"]})
+    assert out.count("<svg") == 2 and "Yes" in out and "No" in out
+
+
+def test_missing_mat_icon_stops_the_build():
+    mod = load("build_ai_lessons_pdf", BUILD)
+    with pytest.raises(FileNotFoundError, match="no-such-icon"):
+        mod.BLOCKS["mat"]({"kind": "mat", "headings": ["Yes"], "icons": ["no-such-icon"]})
+
+
+def test_drawing_ticket_has_a_box_instead_of_lines():
+    mod = load("build_ai_lessons_pdf", BUILD)
+    out = mod.BLOCKS["tickets"]({"kind": "tickets", "question": "Draw a robot.", "count": 2, "draw": True})
+    assert out.count("ticket__draw") == 2 and "ticket__line" not in out
+    assert "Draw a robot." in out and "Name:" in out
+
+
+def test_draw_block_gives_a_box_to_draw_in():
+    mod = load("build_ai_lessons_pdf", BUILD)
+    out = mod.BLOCKS["draw"]({"kind": "draw", "label": "Our robot for a job"})
+    assert "Our robot for a job" in out and 'class="draw' in out
+    assert re.search(r"\.draw\s*\{", mod.STYLE)
+
+
+def test_mat_icons_count_for_the_tabler_credit():
+    mod = load("build_ai_lessons_pdf", BUILD)
+    only_mat = {"student_pdf": {"pages": [{"blocks": [{"kind": "mat", "headings": ["Yes"], "icons": ["check"]}]}]}}
+    assert mod._uses_icons(only_mat)
