@@ -59,31 +59,31 @@
       "say": "Robot, does this card look like one of your fruit cards?"
     },
     {
-      "minutes": 4,
+      "minutes": 3,
       "mode": "All",
-      "title": "How did round 1 go?",
-      "do": "Give the answers: the lemon and the avocado are fruit, the tennis ball and the cookie are not. Pairs count right answers on their fingers. Most robots got some wrong: with only two round fruit to compare with, round things like the tennis ball and the cookie ended up as fruit.",
-      "say": "Your robot had only two examples, and both were round."
+      "title": "Round 1 on the board",
+      "do": "Draw the four test cards on the board in a row: lemon, avocado, tennis ball, cookie. For each card, ask the robots to show a thumb up if they put it on Fruit, and write the number of thumbs under it. Keep the answers for later.",
+      "say": "Robots, thumbs up if you put this card on Fruit."
     },
     {
       "minutes": 8,
       "mode": "Pairs",
       "title": "Round 2",
-      "do": "Swap roles. The new trainer shows all eight Round 2 cards and says fruit or not fruit for each: the apple, the cherry, the banana and the melon are fruit; the ball, the coin, the pizza and the clock are not. The new robot follows the same rule and sorts the same four test cards again.",
+      "do": "Swap roles. The new trainer shows all eight Round 2 cards and says fruit or not fruit for each: the apple, the cherry, the banana and the melon are fruit; the ball, the coin, the pizza and the clock are not. The new robot follows the same rule, with only the Round 2 cards to compare with, and sorts the same four test cards again.",
       "say": "Robot, which card does it look most like?"
     },
     {
-      "minutes": 3,
+      "minutes": 4,
       "mode": "All",
-      "title": "How did round 2 go?",
-      "do": "Pairs count right answers again and compare with round 1. With more examples, and different ones, the robot had something closer to compare with: the tennis ball looked like the ball, the cookie like the coin.",
-      "say": "More examples, and different ones, gave better guesses."
+      "title": "Both rounds",
+      "do": "Count thumbs again under each card, this time for round 2. Then give the answers: the lemon and the avocado are fruit, the tennis ball and the cookie are not. Which cards moved to the right side? The tennis ball now looked like the ball and the cookie like the coin. Which cards are still wrong for some robots, and which card could we add to help?",
+      "say": "More examples, and different ones, helped with the ball and the cookie."
     },
     {
       "minutes": 4,
       "mode": "All",
       "title": "The surprise",
-      "do": "Hold up the toy apple and ask the robots: fruit or not? It looks like the apple card, so the robot says fruit. Then ask the class whether we can eat it. It is a toy. The robot could only compare it with pictures; a person can pick it up and check.",
+      "do": "Hold up the toy apple and ask the robots: fruit or not? It looks like the apple card, so the robot says fruit. Then ask the class whether we can eat it. It is a toy. The robot could only compare it with pictures; a person can pick it up and check. If you brought a carrot instead: the robot says fruit, because the carrot looks most like the banana card. Ask whether a carrot is a fruit. It is a vegetable, and a person checks.",
       "say": "The robot says fruit. Can we eat it? A person checks."
     },
     {
@@ -132,7 +132,7 @@
   "language_swap": "Each card has one English word under a picture. Say the words in your class's language as you hand out pages 1 and 2, or write the translations on the cards before you cut them. On page 3, say Fruit and Not fruit in your class's language; the pictures above them help children who can't read yet. Read the closing question on page 2 aloud in your class's language.",
   "age_note": "If children mention apps that name what a phone's camera points at, most AI apps have a minimum age of 13 on a personal account.",
   "background": [
-    "The robot game is a small version of how machine learning works. People collect examples and label them, a computer program finds a pattern in them, and then it is tested on examples it was not given before. In round 1 the robot has two examples, both round fruit, so everything round looks like fruit. Round 2 adds different fruit and round things that are not fruit, and the same test cards come out better.",
+    "The robot game is a small version of how machine learning works. People collect examples and label them, a computer program finds a pattern in them, and then it is tested on examples it was not given before. In round 1 the robot has two examples, both round fruit, so everything round looks like fruit. Round 2 adds different fruit and round things that are not fruit, so the tennis ball and the cookie come out right. Some robots still get the lemon or the avocado wrong: that is the moment to ask which example would help.",
     "The robot's rule is a simple form of a real method: a new example gets the label of the example it looks most like. Real systems compare far more features than shape, but the weakness is the same. A new thing that looks like an example gets that example's label, whether it fits or not. That is why the toy apple ends up as fruit.",
     "The surprise is the main point at this age. The robot gives an answer for every card, including one unlike any it was shown, and the answer sounds the same either way. People choose the examples, and people check the guesses. Use words like compare and guess for what the robot does, not words for what goes on inside a person."
   ],

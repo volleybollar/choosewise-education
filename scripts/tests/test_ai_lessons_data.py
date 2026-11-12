@@ -895,3 +895,24 @@ def test_teach_the_robot_ends_with_a_person_checking_a_toy():
     text = " ".join(teacher_text(_lesson("teach-the-robot")))
     assert "toy" in text and "A person checks" in text
 
+
+
+def test_teach_the_robot_gives_the_answers_after_both_rounds():
+    """Slutgranskningen 5–8: sägs svaren efter omgång 1 minns roboten dem i omgång 2,
+    och då visar testet inget. Svaren kommer när båda omgångarna är spelade."""
+    steps = _lesson("teach-the-robot")["steps"]
+    round2 = next(i for i, s in enumerate(steps) if s["title"] == "Round 2")
+    answer = "the lemon and the avocado are fruit"
+    assert not any(answer in s["do"] for s in steps[:round2 + 1])
+    after = next(s for s in steps[round2 + 1:] if answer in s["do"])
+    assert "still wrong" in after["do"]  # med de här ikonerna blir inte alla kort rätt i omgång 2
+
+
+def test_teach_the_robot_has_a_script_for_the_carrot():
+    surprise = next(s for s in _lesson("teach-the-robot")["steps"] if s["title"] == "The surprise")
+    assert "carrot" in surprise["do"]
+
+
+def test_made_by_people_credits_the_activities_it_adapts():
+    """De tre sensorerna (kamera, mikrofon, pekskärm) kommer från ISTE:s aktivitet 2."""
+    assert "Activities 1, 2 and 4" in _lesson("made-by-people")["credits"][0]["text"]
