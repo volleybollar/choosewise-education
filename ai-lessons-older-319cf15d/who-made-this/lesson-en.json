@@ -3,7 +3,7 @@
   "title": "Who Made This?",
   "band": "16-19",
   "number": 4,
-  "line": "Students name the style of three AI versions of the same photo, try a Visual Code on a photo of an object, and work out who made the result and when to say that AI was used.",
+  "line": "Students name the style of three AI versions of the same picture, try a Visual Code on a photo of an object, and work out who made the result and when to say that AI was used.",
   "minutes": 40,
   "groups": "Individual, pairs, then the whole class",
   "ai_use": "students",
@@ -52,7 +52,7 @@
       "minutes": 4,
       "mode": "Individual",
       "title": "Name the style",
-      "do": "Hand out page 1. Each student looks at the photo and the versions A, B and C, and writes five words for the style of each in the table: colours, lines, what is shown and what is left out. No talking yet."
+      "do": "Hand out page 1. Each student looks at the original and the versions A, B and C, and writes five words for the style of each in the table: colours, lines, what is shown and what is left out. No talking yet."
     },
     {
       "minutes": 4,
@@ -64,7 +64,7 @@
       "minutes": 3,
       "mode": "All",
       "title": "One word, a whole style",
-      "do": "Give the answers: A is /blueprint, B is /forceanalysis, C is /cutaway. Ask whose words came closest. Then explain that each version came from the same photo and one word. The image model turns the word into a style because it was trained on huge numbers of pictures that people drew, photographed and labelled. Then tell them that the original isn't a photo either: it was made with an image tool from a text prompt.",
+      "do": "Give the answers: A is /blueprint, B is /forceanalysis, C is /cutaway. Ask whose words came closest. Then explain that each version came from the same picture and one word. The image model turns the word into a style because it was trained on huge numbers of pictures that people drew, photographed and labelled. Then tell them that the original isn't a photo either: it was made with an image tool from a text prompt.",
       "say": "You needed five words to describe the style. The tool needed one. Both of you got the style from work that people made."
     },
     {
@@ -78,7 +78,7 @@
         "/blueprint",
         "/xray"
       ],
-      "without_ai": "Show the Visual Codes page on the projector. For each of three cards, pairs say what the code will do to the photo before you move the slider, then compare."
+      "without_ai": "Show the Visual Codes page on the projector. For each of three cards, pairs say what the code will do to the picture before you move the slider, then compare."
     },
     {
       "minutes": 9,
@@ -159,7 +159,7 @@
   ],
   "credits": [
     {
-      "text": "Adapted from ISTE, Hands-On AI Projects for the Classroom: A Guide for Electives Teachers (2024), by Nancye Blair Black and Susan Brooks-Young, Project 3 \"AI and Art\", Activities 1 \"Discussion\" and 3 \"Identifying Artists' Styles\". Licensed under CC BY 4.0. Changes: shortened to part of one lesson; students describe the styles of three AI versions of one photo instead of artists' styles, with Choosewise's pictures and our own wording.",
+      "text": "Adapted from ISTE, Hands-On AI Projects for the Classroom: A Guide for Electives Teachers (2024), by Nancye Blair Black and Susan Brooks-Young, Project 3 \"AI and Art\", Activities 1 \"Discussion\" and 3 \"Identifying Artists' Styles\". Licensed under CC BY 4.0. Changes: shortened to part of one lesson; students describe the styles of three AI versions of one picture instead of artists' styles, with Choosewise's pictures and our own wording.",
       "url": "https://iste-ascd.org/ai-lessons"
     },
     {
@@ -285,5 +285,5 @@
       }
     ]
   },
-  "skool_text": "Lesson 4 for ages 16–19. Students name the style of three AI versions of the same photo, try a Visual Code on a photo of an object, and sort six cases by who made them. Then the class looks at who owns AI-made work in different countries and when to say that AI was used. Adapted from ISTE (CC BY 4.0). Students use AI, with a way to do it without, 40 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-older-319cf15d/who-made-this/"
+  "skool_text": "Lesson 4 for ages 16–19. Students name the style of three AI versions of the same picture, try a Visual Code on a photo of an object, and sort six cases by who made them. Then the class looks at who owns AI-made work in different countries and when to say that AI was used. Adapted from ISTE (CC BY 4.0). Students use AI, with a way to do it without, 40 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-older-319cf15d/who-made-this/"
 }

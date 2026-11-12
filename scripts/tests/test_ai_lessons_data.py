@@ -734,6 +734,9 @@ def test_who_made_this_says_the_original_is_ai_made_too():
     original = _blocks(lesson, "images")[0]["items"][0]
     assert not original["alt"].startswith("A photo") and "AI" in original["alt"]
     assert "text prompt" in " ".join(teacher_text(lesson))
+    # Originalet och Visual Codes-sidans före-bilder kallas aldrig foto; elevernas egna bilder är foton.
+    text = " ".join(teacher_text(lesson) + [c["text"] for c in lesson["credits"]])
+    assert not re.search(r"(same|one) photo|the photo and|to the photo", text)
 
 
 def test_using_ai_well_gives_the_reason_column_room():
