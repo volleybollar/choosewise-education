@@ -17,8 +17,10 @@ YOUNGER = "ai-lessons-younger-3c514a93"
 OLDER = "ai-lessons-older-319cf15d"
 
 MODES = {"Individual", "Pairs", "All"}
-AI_USES = {"none", "teacher-demo", "students"}
-BLOCK_KINDS = {"text", "table", "slips", "checklist", "tickets", "cards", "mat", "image"}
+AI_USES = {"none", "teacher-demo", "students", "optional"}
+BLOCK_KINDS = {"text", "table", "slips", "checklist", "tickets", "cards", "mat", "image", "images"}
+# De sex chattbotsraderna i ålderstabellen; lektioner där eleverna själva använder AI listar alla.
+CHATBOTS = {"chatgpt", "gemini", "gemini-education", "copilot", "copilot-education", "claude"}
 READER_NOTE = ("Readers outside Sweden should verify their own national regulations. "
                "AI in education is evolving quickly and country rules differ significantly.")
 USE_RIGHTS = ("For members of the Choosewise community: use these materials with your own students, "
@@ -150,6 +152,76 @@ def test_demo_step_has_fallback():
             assert 2 <= len(demos[0].get("prompts", [])) <= 3, lesson["id"]
         else:
             assert not demos, lesson["id"]
+
+
+def _student_ai_problems(lesson):
+    """Det som saknas i en lektion där eleverna själva använder AI: ett AI-steg,
+    och för varje sådant steg en väg utan AI (specen: 16–19)."""
+    steps = [s for s in lesson["steps"] if s.get("student_ai")]
+    if lesson["ai_use"] not in ("students", "optional"):
+        return ["student_ai step in a lesson without student AI use"] if steps else []
+    problems = [] if steps else ["no student_ai step"]
+    return problems + [f"no without_ai: {s['title']}" for s in steps if not s.get("without_ai", "").strip()]
+
+
+def test_student_ai_steps_have_a_path_without_ai():
+    assert _student_ai_problems({"ai_use": "students", "steps": [{"title": "Try it", "student_ai": True}]}) \
+        == ["no without_ai: Try it"]  # vakten själv biter
+    assert _student_ai_problems({"ai_use": "optional", "steps": []}) == ["no student_ai step"]
+    assert _student_ai_problems({"ai_use": "none", "steps": [{"title": "x", "student_ai": True}]})
+    for lesson in lessons():
+        assert _student_ai_problems(lesson) == [], lesson["id"]
+
+
+def _student_page_text(lesson):
+    """All text på elevsidorna: rubriker, instruktioner, textblock, förtryckta
+    tabellceller, kryssrader och bildetiketter."""
+    out = []
+    for page in lesson["student_pdf"]["pages"]:
+        out += [page["title"], page["instruction"]]
+        for b in page["blocks"]:
+            out.append(b.get("body", ""))
+            if isinstance(b.get("rows"), list):
+                out += [cell for row in b["rows"] for cell in row]
+            if isinstance(b.get("items"), list):
+                out += [i if isinstance(i, str) else i["label"] for i in b["items"]]
+    return "\n".join(out)
+
+
+def _prompts_missing_from_sheet(lesson):
+    sheet = _student_page_text(lesson)
+    return [p for s in lesson["steps"] if s.get("student_ai") for p in s.get("prompts", []) if p not in sheet]
+
+
+def test_student_prompts_are_on_a_student_page():
+    """Eleverna har bara bladet framför sig; en prompt som bara står på lärarsidan kan de inte skriva."""
+    bad = {"steps": [{"student_ai": True, "prompts": ["Ask me first."]}],
+           "student_pdf": {"pages": [{"title": "T", "instruction": "I", "blocks": [{"kind": "text", "body": "Other"}]}]}}
+    assert _prompts_missing_from_sheet(bad) == ["Ask me first."]  # vakten själv biter
+    for lesson in lessons():
+        assert _prompts_missing_from_sheet(lesson) == [], lesson["id"]
+
+
+def _age_note_problems(lesson):
+    """En 16- eller 17-åring får inte hamna i ett verktyg med 18-årsgräns eller utan förälderns tillåtelse."""
+    if lesson["ai_use"] not in ("students", "optional"):
+        return []
+    problems = [] if CHATBOTS <= set(lesson["tools"]) else ["tools lack the chatbot rows"]
+    problems += [f"age_note lacks {w!r}" for w in ("approved", "Claude", "18", "permission") if w not in lesson["age_note"]]
+    return problems + ([] if any("device" in m for m in lesson["materials"]) else ["materials name no device"])
+
+
+def test_lessons_where_students_use_ai_name_the_approved_tool():
+    bad = {"ai_use": "students", "tools": ["chatgpt"], "age_note": "Any tool.", "materials": ["Paper"]}
+    assert len(_age_note_problems(bad)) == 6  # vakten själv biter
+    for lesson in lessons():
+        assert _age_note_problems(lesson) == [], lesson["id"]
+
+
+def test_older_track_covers_16_19():
+    t = track(OLDER)
+    assert "16–19" in t["ai_use_note"] and "approved" in t["ai_use_note"]
+    assert any(line.startswith("For ages 16–19") for line in t["what_you_need"])
 
 
 def test_no_anthropomorphic_wording():
@@ -345,7 +417,7 @@ def test_learning_from_examples_keeps_the_new_cards_apart():
 
 def test_lessons_with_a_photo_say_how_to_print_it():
     for lesson in lessons():
-        if _blocks(lesson, "image"):
+        if _blocks(lesson, "image") or _blocks(lesson, "images"):
             assert any("colour" in line for line in lesson["before"]), lesson["id"]
 
 

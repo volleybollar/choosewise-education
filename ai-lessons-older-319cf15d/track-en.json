@@ -2,11 +2,11 @@
   "slug": "ai-lessons-older-319cf15d",
   "title": "AI Lessons for Older Students",
   "eyebrow": "For Choosewise members · Ages 13–19",
-  "lede": "Ready-to-teach lessons about AI for teenagers. In 40 minutes or less, students take chatbot replies apart, see their own choices turn into training data and work out what to check, with paper, each other and short teacher demos. The whole class pulls it together at the end.",
+  "lede": "Ready-to-teach lessons about AI for teenagers. In 40 minutes or less, students take chatbot replies apart, see their own choices turn into training data and work out what to check. Younger teens work with paper, each other and short teacher demos; older students also use the AI tool their school has approved. The whole class pulls it together at the end.",
   "chips": [
     "Ages 13–19",
     "Curriculum-neutral",
-    "No student accounts for ages 13–15",
+    "AI use grows with age",
     "Free for members"
   ],
   "stats": [
@@ -20,7 +20,7 @@
     },
     {
       "label": "Students",
-      "value": "No accounts needed for ages 13–15"
+      "value": "No accounts at 13–15; the school's AI tool at 16–19"
     },
     {
       "label": "Teacher",
@@ -32,7 +32,10 @@
     "Recognise the design choices that make a chatbot seem like a friend, and say who gains from them.",
     "Show how past choices used as training data can make an AI system unfair, and suggest what its makers could change.",
     "Weigh clues and evidence about whether a picture, a text or a voice is real, and plan how to check before acting on it.",
-    "Map what apps record about them, what they get back, and what they want to change."
+    "Map what apps record about them, what they get back, and what they want to change.",
+    "Decide when AI helps them learn and when it does the thinking for them, and set their own rules.",
+    "Check what a chatbot says against sources, and accept, revise or reject what it writes.",
+    "Explain who made a piece of AI-assisted work, when to say AI was used, and who decides the rules for AI at school."
   ],
   "threads": [
     {
@@ -106,6 +109,7 @@
     "A printer. The student PDFs are A4, fit US Letter and print well in black and white.",
     "A board, and a projector for the lessons with a short teacher demo of an AI tool.",
     "No devices or accounts for students aged 13–15. In the demos, you use the tool on your own account and students watch.",
+    "For ages 16–19: one device per pair, with internet and the AI tool your school has approved.",
     "About ten minutes to read the teacher page, plus the preparation it lists."
   ],
   "frameworks": [
@@ -160,7 +164,7 @@
       }
     }
   },
-  "ai_use_note": "Students aged 13–15 don't need accounts. AI appears only in short teacher demos, on your own account.",
+  "ai_use_note": "Students aged 13–15 don't need accounts: AI appears only in short teacher demos, on your own account. Students aged 16–19 use the AI tool your school has approved, and every step that uses AI has a way to do it without AI.",
   "reader_note": "Readers outside Sweden should verify their own national regulations. AI in education is evolving quickly and country rules differ significantly.",
   "use_rights": "For members of the Choosewise community: use these materials with your own students, share them with colleagues at your school, and adapt or translate them for your own teaching. Please don't republish or sell them."
 }

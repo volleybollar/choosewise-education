@@ -27,7 +27,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 TRACKS = ["ai-lessons-younger-3c514a93", "ai-lessons-older-319cf15d"]
 SEO_BLOCK = re.compile(r"<!-- seo:start \(build-seo-meta\.py\) -->.*?<!-- seo:end -->", re.S)
-AI_USE = {"none": "No AI", "teacher-demo": "Teacher demo", "students": "Students use AI"}
+AI_USE = {"none": "No AI", "teacher-demo": "Teacher demo", "students": "Students use AI",
+          "optional": "Optional for students"}
 
 # Samma stilmallar som Pedagogy Compass, plus det som är nytt för lektionerna (prefix al-).
 HEAD = """<!DOCTYPE html>
@@ -236,7 +237,7 @@ def _step(step: dict, start: int, n: int) -> str:
     """Ett steg i tidslinjen: nummer, minuter, arbetsform, vad läraren gör och vad hen kan säga."""
     end = start + step["minutes"]
     parts = [
-        f'<li class="al-step{" al-step--demo" if step.get("demo") else ""}">',
+        f'<li class="al-step{" al-step--demo" if step.get("demo") else ""}{" al-step--ai" if step.get("student_ai") else ""}">',
         f'<p class="al-step__head"><span class="al-step__num">Step {n}</span><span class="al-step__time">{start}–{end} min</span>'
         f'<span class="al-mode al-mode--{step["mode"].lower()}">{escape(step["mode"])}</span></p>',
         f'<h3 class="al-step__title">{escape(step["title"])}</h3>',
@@ -252,6 +253,8 @@ def _step(step: dict, start: int, n: int) -> str:
                      + _list(step["prompts"], "al-prompts"))
     if step.get("fallback"):
         parts.append(f'<p class="al-fallback"><strong>If the demo does not go as planned:</strong> {escape(step["fallback"])}</p>')
+    if step.get("without_ai"):  # elevernas AI-steg har alltid en väg utan AI (16–19)
+        parts.append(f'<p class="al-fallback"><strong>Without AI:</strong> {escape(step["without_ai"])}</p>')
     parts.append("</li>")
     return "".join(parts)
 
