@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Moves — choosewise.education</title>
+  <meta name="description" content="Ten study moves that research shows work, for students in Grades 7–12. Pick what you want to do and get the moves that fit. Every move works with pen and paper; teachers can prepare it with AI, and students 13+ can study with AI.">
+  <meta property="og:title" content="Study Moves — choosewise.education">
+  <meta property="og:description" content="Ten study moves that research shows work, for students in Grades 7–12. Pick what you want to do and get the moves that fit. Every move works with pen and paper; teachers can prepare it with AI, and students 13+ can study with AI.">
+  <meta property="og:image" content="https://choosewise.education/assets/images/brand/og/studymoves-en.png">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (byggare, kort, etiketter, prefix tm-),
+       och sedan det som är nytt för Study Moves (prefix sm-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/study-moves.css?v=20261112a">
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main>
+    <!-- Hero: vad verktyget är och de tre löftena. Texten är skriven till
+         eleven ("you"), på engelska som en 13-åring kan följa (specen). -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/study/">← Study + AI</a>
+      <span class="eyebrow">Free tool · Grades 7–12</span>
+      <h1>Study Moves</h1>
+      <p class="lede">Pick what you want to do, and get the study moves that research shows work for it. Every move works with a book, pen and paper. Your teacher can prepare it with AI, and if you are 13 or older you can study with AI in a way that keeps you doing the thinking.</p>
+      <ul class="tm-promises">
+        <li><strong>Works without AI.</strong> Every move is complete with a book, pen and paper. AI is an extra, never a must.</li>
+        <li><strong>No personal data.</strong> You give a subject, a grade and a topic. Names and student work never go in.</li>
+        <li><strong>Any AI tool.</strong> The prompt works in Copilot, Gemini, ChatGPT and Claude.</li>
+      </ul>
+    </section>
+
+    <!-- Ingången är elevens mål, inte en lista med tio tekniker (specens
+         antimål "another list of study tips"). Startnoten, rutorna och
+         80/20-noten mellan markörerna byggs av scripts/build-study-moves.py
+         från study-moves/moves-en.json. Varje drag i en ruta länkar till
+         sitt kort längre ned. -->
+    <section class="section section--alt" id="sm-goals">
+      <div class="container">
+        <h2 class="section__title">What do you want to do?</h2>
+<!-- goals:start -->
+<p class="sm-start" id="sm-start"><strong>Not sure? Start here.</strong> Try <a href="#test-yourself">Test yourself</a> first. Close the book and pull what you have learned out of your memory, instead of reading it again.</p>
+<ul class="sm-goals"><li class="sm-goal"><h3 class="sm-goal__name">Remember it</h3><p class="sm-goal__desc">Facts, words, dates and formulas you need to know by heart.</p><ul class="sm-goal__moves"><li><a href="#test-yourself">Test yourself</a></li><li><a href="#spread-it-out">Spread it out</a></li></ul></li><li class="sm-goal"><h3 class="sm-goal__name">Tell similar things apart</h3><p class="sm-goal__desc">Problem types, terms or ideas you keep mixing up.</p><ul class="sm-goal__moves"><li><a href="#mix-it-up">Mix it up</a></li></ul></li><li class="sm-goal"><h3 class="sm-goal__name">Understand it</h3><p class="sm-goal__desc">How and why something works, not just what it is called.</p><ul class="sm-goal__moves"><li><a href="#explain-it-simply">Explain it simply</a></li><li><a href="#ask-why">Ask why</a></li><li><a href="#draw-it">Draw it</a></li><li><a href="#find-an-example">Find an example</a></li></ul></li><li class="sm-goal"><h3 class="sm-goal__name">Solve problems</h3><p class="sm-goal__desc">Tasks with steps, in maths, science and other subjects.</p><ul class="sm-goal__moves"><li><a href="#study-a-solved-example">Study a solved example</a></li><li><a href="#mix-it-up">Mix it up</a></li></ul></li><li class="sm-goal"><h3 class="sm-goal__name">Fix your mistakes</h3><p class="sm-goal__desc">Find out what you got wrong and make the right answer stick.</p><ul class="sm-goal__moves"><li><a href="#fix-your-mistakes">Fix your mistakes</a></li></ul></li><li class="sm-goal"><h3 class="sm-goal__name">Start a new topic</h3><p class="sm-goal__desc">Before the lesson or chapter, when it is all new.</p><ul class="sm-goal__moves"><li><a href="#guess-first">Guess first</a></li></ul></li></ul>
+<p class="tm-note sm-eighty">Short on time? The 80/20 rule helps you choose what to study, not how. Start with the key ideas, what the test will cover and what you got wrong last time. Then use a move.</p>
+<!-- goals:end -->
+      </div>
+    </section>
+
+    <!-- Kärnproblemet verktyget finns för: bra studieteknik känns sämre
+         medan man använder den. Texten och källorna byggs från JSON-filen. -->
+    <section class="section container" id="sm-feels">
+      <h2 class="section__title">Why good studying feels harder</h2>
+<!-- feels:start -->
+<p class="sm-feels">Good study moves feel worse while you use them. Testing yourself is slower than reading again, and you get things wrong. Reading again feels smooth, so it feels like learning. Most students re-read rather than test themselves (Karpicke, Butler &amp; Roediger 2009), and in one study physics students learned more in lessons that made them work hard but felt they had learned less (Deslauriers et al. 2019). If a move feels hard, that is usually a sign it is working. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1080/09658210802647009">Karpicke, Butler &amp; Roediger 2009, Memory</a>, <a href="https://doi.org/10.1073/pnas.1821936116">Deslauriers et al. 2019, PNAS</a></span></p>
+<!-- feels:end -->
+    </section>
+
+    <!-- De tio dragen. Korten mellan markörerna byggs av
+         scripts/build-study-moves.py från study-moves/moves-en.json —
+         redigera JSON-filen, inte korten, och kör skriptet igen. Varje kort
+         har tre versioner: utan AI (stegen), läraren + AI och eleven + AI.
+         De två länkarna längst ned väljer draget och vem som använder AI
+         i byggaren. -->
+    <section class="section section--alt" id="sm-moves">
+      <div class="container">
+        <h2 class="section__title">The ten moves</h2>
+        <p class="section__lede">Each move is one way to study. Open a card for the steps, an example, how it feels and how to use it with AI.</p>
+        <div class="tm-grid">
+<!-- moves:start -->
+<article class="tm-move sm-move" id="test-yourself" data-move-id="test-yourself">
+  <div class="tm-move__head"><div><span class="tm-move__num">Move 1</span><h3 class="tm-move__name">Test yourself</h3></div></div>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--strong">Strong</span> <span class="sm-move__research">Retrieval practice</span></p>
+  <p class="tm-move__line">Close the book and pull what you have learned out of your memory, instead of reading it again.</p>
+  <p class="sm-move__goals">Good for: Remember it</p>
+  <details class="tm-move__more"><summary>How to do it, with and without AI</summary><h4 class="sm-part">How to do it</h4><ol class="sm-steps"><li>Close the book and put your notes away.</li><li>Write down everything you remember, or answer questions: flashcards, the questions at the end of the chapter or an old test.</li><li>Open the book and check. Mark what you missed or got wrong.</li><li>Next time, start with what you missed.</li></ol><div class="tm-example sm-example"><h4 class="tm-example__subject">Example: History <span>· Grade 8</span></h4><p>Before a test on the French Revolution, close your notes and write down the main causes, three key dates and three key people from memory. Check against your notes. Whatever you missed is where you start tomorrow.</p></div><h4 class="sm-part">How it feels</h4><p class="sm-feels">It is slower than reading again, and you will get things wrong. That is the point: every time you pull something out of memory, it gets easier to find the next time.</p><h4 class="sm-part">With AI: your teacher</h4><p>Your teacher pastes in the topic and gets ten questions with answers, to print for you to answer with the book closed.</p><h4 class="sm-part">With AI: you (13+)</h4><p>The AI quizzes you one question at a time and only gives the answer after you have tried.</p><h4 class="sm-part">Watch out</h4><p>Check your answers every time, so that a wrong answer does not stick. Testing yourself helps most with facts. To understand how something works, add Explain it simply or Ask why.</p><p class="tm-move__evidence"><strong>Evidence.</strong> Testing yourself is one of the two best-supported study techniques (Dunlosky et al. 2013). A meta-analysis of classroom studies confirms that it improves learning in school (Yang et al. 2021). In real classrooms the effect is smaller than in lab studies, but still clear (Ruitenburg et al. 2026). <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1177/1529100612453266">Dunlosky et al. 2013, Psychological Science in the Public Interest</a>, <a href="https://doi.org/10.1037/bul0000309">Yang et al. 2021, Psychological Bulletin</a>, <a href="https://doi.org/10.1007/s10648-026-10225-5">Ruitenburg et al. 2026, Educational Psychology Review</a></span></p><p class="tm-move__evidence sm-move__read">Read more: <a href="/evidence/memory/">Evidence Toolkit: Memory</a> · <a href="/retrieval-rhythm/">For teachers: Retrieval Rhythm</a></p></details>
+  <div class="sm-move__use"><a class="tm-move__use" href="?move=test-yourself&amp;for=teacher#sm-builder" data-use-move="test-yourself" data-use-for="teacher" aria-label="Test yourself, teacher: prepare it with AI">Teacher: prepare it with AI</a><a class="tm-move__use" href="?move=test-yourself&amp;for=student#sm-builder" data-use-move="test-yourself" data-use-for="student" aria-label="Test yourself, student: study with AI (13+)">Student: study with AI (13+)</a></div>
+</article>
+<article class="tm-move sm-move" id="spread-it-out" data-move-id="spread-it-out">
+  <div class="tm-move__head"><div><span class="tm-move__num">Move 2</span><h3 class="tm-move__name">Spread it out</h3></div></div>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--strong">Strong</span> <span class="sm-move__research">Spaced practice</span></p>
+  <p class="tm-move__line">Study in short sessions on different days, instead of one long session the night before.</p>
+  <p class="sm-move__goals">Good for: Remember it</p>
+  <details class="tm-move__more"><summary>How to do it, with and without AI</summary><h4 class="sm-part">How to do it</h4><ol class="sm-steps"><li>Split your study time into short sessions of 15 to 30 minutes on different days.</li><li>Start each session by testing yourself on what you studied last time.</li><li>Leave a day or more between sessions, and keep coming back even after it feels easy.</li><li>For a test, start at least a week before. Use the last evening for a quick check, not for reading everything for the first time.</li></ol><div class="tm-example sm-example"><h4 class="tm-example__subject">Example: Modern languages <span>· Grade 9</span></h4><p>Instead of learning 40 Spanish words on Sunday evening, learn 10 on Monday. On Wednesday, test yourself on Monday&#x27;s words before you learn 10 more, and so on. On Sunday, test yourself on all 40.</p></div><h4 class="sm-part">How it feels</h4><p class="sm-feels">Each time you come back, you will have forgotten some of it, and that feels bad. Pulling it back is exactly what makes it last.</p><h4 class="sm-part">With AI: your teacher</h4><p>Your teacher gets a two-week plan of four short sessions, each starting with questions on what came before.</p><h4 class="sm-part">With AI: you (13+)</h4><p>The AI helps you plan short sessions before your test, and starts each session with questions on earlier parts.</p><h4 class="sm-part">Watch out</h4><p>There is no perfect gap: the further away the test, the longer the gaps can be. Spreading it out works best together with testing yourself.</p><p class="tm-move__evidence"><strong>Evidence.</strong> Spreading practice out is the other of the two best-supported study techniques (Dunlosky et al. 2013). A meta-analysis finds that it clearly beats doing the same practice in one go (Latimier, Peyre &amp; Ramus 2021). In real classrooms the effect is smaller, but still positive (Ruitenburg et al. 2026). <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1177/1529100612453266">Dunlosky et al. 2013, Psychological Science in the Public Interest</a>, <a href="https://doi.org/10.1007/s10648-020-09572-8">Latimier, Peyre &amp; Ramus 2021, Educational Psychology Review</a>, <a href="https://doi.org/10.1111/j.1467-9280.2008.02209.x">Cepeda et al. 2008, Psychological Science</a>, <a href="https://doi.org/10.1007/s10648-026-10225-5">Ruitenburg et al. 2026, Educational Psychology Review</a></span></p><p class="tm-move__evidence sm-move__read">Read more: <a href="/evidence/memory/">Evidence Toolkit: Memory</a></p></details>
+  <div class="sm-move__use"><a class="tm-move__use" href="?move=spread-it-out&amp;for=teacher#sm-builder" data-use-move="spread-it-out" data-use-for="teacher" aria-label="Spread it out, teacher: prepare it with AI">Teacher: prepare it with AI</a><a class="tm-move__use" href="?move=spread-it-out&amp;for=student#sm-builder" data-use-move="spread-it-out" data-use-for="student" aria-label="Spread it out, student: study with AI (13+)">Student: study with AI (13+)</a></div>
+</article>
+<article class="tm-move sm-move" id="mix-it-up" data-move-id="mix-it-up">
+  <div class="tm-move__head"><div><span class="tm-move__num">Move 3</span><h3 class="tm-move__name">Mix it up</h3></div></div>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--promising">Promising</span> <span class="sm-move__research">Interleaving</span></p>
+  <p class="tm-move__line">Mix different types of problems or topics in one session, so that you have to choose the method yourself.</p>
+  <p class="sm-move__goals">Good for: Tell similar things apart · Solve problems</p>
+  <details class="tm-move__more"><summary>How to do it, with and without AI</summary><h4 class="sm-part">How to do it</h4><ol class="sm-steps"><li>Learn each type on its own first.</li><li>Then practise with the types mixed in a random order, not all of one type in a row.</li><li>Before you solve each one, say which type it is and how you can tell.</li><li>Check your answers and note which types you mixed up.</li></ol><div class="tm-example sm-example"><h4 class="tm-example__subject">Example: Maths <span>· Grade 9</span></h4><p>Instead of 20 area problems followed by 20 volume problems, mix them: the area of a circle, the volume of a cylinder, the area of a triangle, the volume of a box. Before each one, write &#x27;area&#x27; or &#x27;volume&#x27; and the formula you need.</p></div><h4 class="sm-part">How it feels</h4><p class="sm-feels">Mixing feels messier, and you will be slower and make more mistakes while you practise. That is because you have to decide which method to use, which is exactly what a test asks of you.</p><h4 class="sm-part">With AI: your teacher</h4><p>Your teacher gets twelve mixed practice questions where you first name the type and then solve it.</p><h4 class="sm-part">With AI: you (13+)</h4><p>The AI gives you mixed questions one at a time and asks which type each one is before you solve it.</p><h4 class="sm-part">Watch out</h4><p>Only mix things you have already learned once. It helps most when the types look alike and are easy to confuse. For learning new words, practising them in blocks may work better.</p><p class="tm-move__evidence"><strong>Evidence.</strong> A meta-analysis finds that mixing helps on average, most when learning to tell similar things apart, such as painting styles, less in maths, and not for learning words (Brunmair &amp; Richter 2019). It helped in real classrooms too, but that finding rests on only ten studies (Ruitenburg et al. 2026). <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1037/bul0000209">Brunmair &amp; Richter 2019, Psychological Bulletin</a>, <a href="https://doi.org/10.1007/s10648-026-10225-5">Ruitenburg et al. 2026, Educational Psychology Review</a></span></p><p class="tm-move__evidence sm-move__read">Read more: <a href="/evidence/memory/">Evidence Toolkit: Memory</a></p></details>
+  <div class="sm-move__use"><a class="tm-move__use" href="?move=mix-it-up&amp;for=teacher#sm-builder" data-use-move="mix-it-up" data-use-for="teacher" aria-label="Mix it up, teacher: prepare it with AI">Teacher: prepare it with AI</a><a class="tm-move__use" href="?move=mix-it-up&amp;for=student#sm-builder" data-use-move="mix-it-up" data-use-for="student" aria-label="Mix it up, student: study with AI (13+)">Student: study with AI (13+)</a></div>
+</article>
+<article class="tm-move sm-move" id="explain-it-simply" data-move-id="explain-it-simply">
+  <div class="tm-move__head"><div><span class="tm-move__num">Move 4</span><h3 class="tm-move__name">Explain it simply</h3></div></div>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--promising">Promising</span> <span class="sm-move__research">The Feynman technique</span></p>
+  <p class="tm-move__line">Explain the topic in simple words, as if to someone younger, and find the parts you cannot explain yet.</p>
+  <p class="sm-move__goals">Good for: Understand it</p>
+  <details class="tm-move__more"><summary>How to do it, with and without AI</summary><h4 class="sm-part">How to do it</h4><ol class="sm-steps"><li>Decide before you study that you will explain it afterwards.</li><li>Close the book. Explain the topic out loud or on paper as if to a ten-year-old, without difficult words.</li><li>Mark where you got stuck or used a word you could not explain. Go back to the book for just those parts.</li><li>Explain it again, shorter and clearer.</li></ol><div class="tm-example sm-example"><h4 class="tm-example__subject">Example: Biology <span>· Grade 8</span></h4><p>Explain photosynthesis to a ten-year-old. If you say &#x27;chlorophyll&#x27; and cannot say what it does, that is the part to look up before you try again.</p></div><h4 class="sm-part">How it feels</h4><p class="sm-feels">You will find gaps you did not know you had, and that is uncomfortable. Finding them now is much better than finding them in the test.</p><h4 class="sm-part">With AI: your teacher</h4><p>Your teacher gets an explain-it task, three &#x27;but why?&#x27; questions a beginner would ask, and a checklist for checking your explanation.</p><h4 class="sm-part">With AI: you (13+)</h4><p>The AI plays a curious beginner who only asks questions. It never explains the topic itself.</p><h4 class="sm-part">Watch out</h4><p>Decide before you start studying that you will explain it: that is when the effect is largest. Check your explanation against the book, because a confident explanation can still be wrong.</p><p class="tm-move__evidence"><strong>Evidence.</strong> There are no studies of the Feynman technique by name. It combines two things that are well studied: explaining to yourself while you learn, which helps across many studies (Bisra et al. 2018), and learning in order to teach someone, which helps most when you know before you study that you will teach (Kobayashi 2024). <span class="tm-move__sources">Source: <a href="https://doi.org/10.1007/s10648-018-9434-x">Bisra et al. 2018, Educational Psychology Review</a></span></p><p class="tm-move__evidence sm-move__read">Read more: <a href="/evidence/self-regulated-learning/">Evidence Toolkit: Self-regulated learning</a></p></details>
+  <div class="sm-move__use"><a class="tm-move__use" href="?move=explain-it-simply&amp;for=teacher#sm-builder" data-use-move="explain-it-simply" data-use-for="teacher" aria-label="Explain it simply, teacher: prepare it with AI">Teacher: prepare it with AI</a><a class="tm-move__use" href="?move=explain-it-simply&amp;for=student#sm-builder" data-use-move="explain-it-simply" data-use-for="student" aria-label="Explain it simply, student: study with AI (13+)">Student: study with AI (13+)</a></div>
+</article>
+<article class="tm-move sm-move" id="ask-why" data-move-id="ask-why">
+  <div class="tm-move__head"><div><span class="tm-move__num">Move 5</span><h3 class="tm-move__name">Ask why</h3></div></div>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--promising">Promising</span> <span class="sm-move__research">Elaborative interrogation</span></p>
+  <p class="tm-move__line">Ask yourself why each fact is true, and answer with what you already know.</p>
+  <p class="sm-move__goals">Good for: Understand it</p>
+  <details class="tm-move__more"><summary>How to do it, with and without AI</summary><h4 class="sm-part">How to do it</h4><ol class="sm-steps"><li>Take one fact you are learning.</li><li>Ask: why is this true? Why does it happen?</li><li>Answer in your own words, using what you already know.</li><li>Check your answer against the book or your notes.</li></ol><div class="tm-example sm-example"><h4 class="tm-example__subject">Example: Geography <span>· Grade 7</span></h4><p>Fact: it rains much more on the west coast of Norway than east of the mountains. Why? Wet air from the sea is pushed up the mountains, cools and drops its water as rain before it reaches the other side.</p></div><h4 class="sm-part">How it feels</h4><p class="sm-feels">It is slower than reading, and sometimes you will not know the answer. Trying to answer still helps you understand and remember.</p><h4 class="sm-part">With AI: your teacher</h4><p>Your teacher gets eight key facts, each with a &#x27;why?&#x27; question and a short model answer to check against.</p><h4 class="sm-part">With AI: you (13+)</h4><p>The AI gives you one fact at a time, asks you why it is true and then tells you what was missing in your reasoning.</p><h4 class="sm-part">Watch out</h4><p>It works best when you already know something about the topic. Always check your reasons: a wrong explanation can stick just as well as a right one.</p><p class="tm-move__evidence"><strong>Evidence.</strong> A large review rates asking why as moderately useful (Dunlosky et al. 2013). A meta-analysis finds a medium average effect, mostly on tests of facts given soon after studying (Donoghue &amp; Hattie 2021). <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1177/1529100612453266">Dunlosky et al. 2013, Psychological Science in the Public Interest</a>, <a href="https://doi.org/10.3389/feduc.2021.581216">Donoghue &amp; Hattie 2021, Frontiers in Education</a></span></p><p class="tm-move__evidence sm-move__read">Read more: <a href="/evidence/memory/">Evidence Toolkit: Memory</a></p></details>
+  <div class="sm-move__use"><a class="tm-move__use" href="?move=ask-why&amp;for=teacher#sm-builder" data-use-move="ask-why" data-use-for="teacher" aria-label="Ask why, teacher: prepare it with AI">Teacher: prepare it with AI</a><a class="tm-move__use" href="?move=ask-why&amp;for=student#sm-builder" data-use-move="ask-why" data-use-for="student" aria-label="Ask why, student: study with AI (13+)">Student: study with AI (13+)</a></div>
+</article>
+<article class="tm-move sm-move" id="draw-it" data-move-id="draw-it">
+  <div class="tm-move__head"><div><span class="tm-move__num">Move 6</span><h3 class="tm-move__name">Draw it</h3></div></div>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--promising">Promising</span> <span class="sm-move__research">Dual coding</span></p>
+  <p class="tm-move__line">Turn what you read into a drawing, such as a diagram, a timeline or a flowchart, and explain it in words.</p>
+  <p class="sm-move__goals">Good for: Understand it</p>
+  <details class="tm-move__more"><summary>How to do it, with and without AI</summary><h4 class="sm-part">How to do it</h4><ol class="sm-steps"><li>Read a section, then close the book.</li><li>Draw it: a labelled diagram, a timeline, a flowchart or a map of how the ideas connect.</li><li>Explain your drawing in words, out loud or in two sentences.</li><li>Compare with the book and fix what is missing or wrong.</li></ol><div class="tm-example sm-example"><h4 class="tm-example__subject">Example: Physics <span>· Grade 9</span></h4><p>After reading about electric circuits, close the book and draw a battery, a switch and two lamps in series. Mark the direction of the current and explain what happens to the other lamp when one breaks.</p></div><h4 class="sm-part">How it feels</h4><p class="sm-feels">Drawing takes longer than highlighting, and your first drawing will be messy. You are not making art: you are working out how the parts connect.</p><h4 class="sm-part">With AI: your teacher</h4><p>Your teacher gets a drawing task: which kind of diagram fits the topic, what it must show, and a model to compare with.</p><h4 class="sm-part">With AI: you (13+)</h4><p>The AI tells you what to draw, asks you to describe your drawing and points out what is missing, without drawing it for you.</p><h4 class="sm-part">Watch out</h4><p>The drawing must show how things connect. Decoration and colours do not help on their own. Check your drawing against the book.</p><p class="tm-move__evidence"><strong>Evidence.</strong> Pairing words with a clear picture helps learning in many studies (Cromley &amp; Chen 2025). Making your own drawing while you learn also helps on average (Fiorella &amp; Zhang 2018), but the results vary with how the drawing is done. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1016/j.edurev.2025.100660">Cromley &amp; Chen 2025, Educational Research Review</a></span></p><p class="tm-move__evidence sm-move__read">Read more: <a href="/evidence/memory/">Evidence Toolkit: Memory</a> · <a href="/visual-codes/study/">Visual codes for studying</a></p></details>
+  <div class="sm-move__use"><a class="tm-move__use" href="?move=draw-it&amp;for=teacher#sm-builder" data-use-move="draw-it" data-use-for="teacher" aria-label="Draw it, teacher: prepare it with AI">Teacher: prepare it with AI</a><a class="tm-move__use" href="?move=draw-it&amp;for=student#sm-builder" data-use-move="draw-it" data-use-for="student" aria-label="Draw it, student: study with AI (13+)">Student: study with AI (13+)</a></div>
+</article>
+<article class="tm-move sm-move" id="find-an-example" data-move-id="find-an-example">
+  <div class="tm-move__head"><div><span class="tm-move__num">Move 7</span><h3 class="tm-move__name">Find an example</h3></div></div>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--promising">Promising</span> <span class="sm-move__research">Concrete examples</span></p>
+  <p class="tm-move__line">Find your own examples of an abstract idea, and work out what they have in common.</p>
+  <p class="sm-move__goals">Good for: Understand it</p>
+  <details class="tm-move__more"><summary>How to do it, with and without AI</summary><h4 class="sm-part">How to do it</h4><ol class="sm-steps"><li>Take an abstract idea, such as &#x27;opportunity cost&#x27; or &#x27;irony&#x27;.</li><li>Find two or three examples from different places: the book, your own life, the news.</li><li>Say what the examples have in common. That is the idea.</li><li>Find one thing that looks similar but is not an example, and say why.</li></ol><div class="tm-example sm-example"><h4 class="tm-example__subject">Example: Economics <span>· Grade 12</span></h4><p>Opportunity cost: going to football practice means missing a friend&#x27;s party; a town that builds a swimming pool cannot spend that money on a library. What they share: choosing one thing means giving up the next best thing.</p></div><h4 class="sm-part">How it feels</h4><p class="sm-feels">Thinking of your own examples is harder than reading the ones in the book. That effort is what makes the idea yours.</p><h4 class="sm-part">With AI: your teacher</h4><p>Your teacher gets examples of two key ideas, a task to find your own, and a tricky case that is not an example.</p><h4 class="sm-part">With AI: you (13+)</h4><p>The AI names an idea, asks for your own examples and tells you whether they really fit.</p><h4 class="sm-part">Watch out</h4><p>Use more than one example and make them different, so that you do not mistake a surface detail for the idea. Check your examples with the book or your teacher.</p><p class="tm-move__evidence"><strong>Evidence.</strong> Studying several concrete examples helps students understand and use abstract ideas in controlled studies (Rawson, Thomas &amp; Jacoby 2015). There is no meta-analysis yet, and most of the studies are with university students. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1007/s10648-014-9273-3">Rawson, Thomas &amp; Jacoby 2015, Educational Psychology Review</a></span></p><p class="tm-move__evidence sm-move__read">Read more: <a href="/evidence/memory/">Evidence Toolkit: Memory</a></p></details>
+  <div class="sm-move__use"><a class="tm-move__use" href="?move=find-an-example&amp;for=teacher#sm-builder" data-use-move="find-an-example" data-use-for="teacher" aria-label="Find an example, teacher: prepare it with AI">Teacher: prepare it with AI</a><a class="tm-move__use" href="?move=find-an-example&amp;for=student#sm-builder" data-use-move="find-an-example" data-use-for="student" aria-label="Find an example, student: study with AI (13+)">Student: study with AI (13+)</a></div>
+</article>
+<article class="tm-move sm-move" id="study-a-solved-example" data-move-id="study-a-solved-example">
+  <div class="tm-move__head"><div><span class="tm-move__num">Move 8</span><h3 class="tm-move__name">Study a solved example</h3></div></div>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--strong">Strong</span> <span class="sm-move__research">Worked examples</span></p>
+  <p class="tm-move__line">Study a fully solved example step by step before you solve similar problems on your own.</p>
+  <p class="sm-move__goals">Good for: Solve problems</p>
+  <details class="tm-move__more"><summary>How to do it, with and without AI</summary><h4 class="sm-part">How to do it</h4><ol class="sm-steps"><li>Find a fully solved example: in the book, from your teacher or in your notes.</li><li>Go through it step by step and say why each step is done.</li><li>Cover the solution and solve the same problem yourself.</li><li>Then solve a similar problem on your own. Move on to problems without examples as you get better.</li></ol><div class="tm-example sm-example"><h4 class="tm-example__subject">Example: Chemistry <span>· Grade 10</span></h4><p>Study a solved example of balancing H₂ + O₂ → H₂O step by step. Cover it and balance it yourself. Then try CH₄ + O₂ → CO₂ + H₂O on your own.</p></div><h4 class="sm-part">How it feels</h4><p class="sm-feels">Looking at the solution can feel like cheating. But when a topic is new, studying a solution teaches you more than being stuck on your own.</p><h4 class="sm-part">With AI: your teacher</h4><p>Your teacher gets solved examples with every step explained, each followed by a similar problem for you to solve.</p><h4 class="sm-part">With AI: you (13+)</h4><p>The AI shows one solved example, gives you a similar problem and points to your first wrong step without fixing it for you.</p><h4 class="sm-part">Watch out</h4><p>This helps most when a topic is new. As you get better, solving problems on your own helps more than studying examples. Most of the research is in maths.</p><p class="tm-move__evidence"><strong>Evidence.</strong> A meta-analysis of studies in maths, from primary school to university, finds that learning from worked examples beats solving problems alone (Barbieri et al. 2023). The benefit is largest for beginners and shrinks as you gain skill (Sweller, van Merriënboer &amp; Paas 2019). <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1007/s10648-023-09745-1">Barbieri et al. 2023, Educational Psychology Review</a>, <a href="https://doi.org/10.1007/s10648-019-09465-5">Sweller, van Merriënboer &amp; Paas 2019, Educational Psychology Review</a></span></p><p class="tm-move__evidence sm-move__read">Read more: <a href="/evidence/explicit-instruction/">Evidence Toolkit: Explicit instruction</a></p></details>
+  <div class="sm-move__use"><a class="tm-move__use" href="?move=study-a-solved-example&amp;for=teacher#sm-builder" data-use-move="study-a-solved-example" data-use-for="teacher" aria-label="Study a solved example, teacher: prepare it with AI">Teacher: prepare it with AI</a><a class="tm-move__use" href="?move=study-a-solved-example&amp;for=student#sm-builder" data-use-move="study-a-solved-example" data-use-for="student" aria-label="Study a solved example, student: study with AI (13+)">Student: study with AI (13+)</a></div>
+</article>
+<article class="tm-move sm-move" id="fix-your-mistakes" data-move-id="fix-your-mistakes">
+  <div class="tm-move__head"><div><span class="tm-move__num">Move 9</span><h3 class="tm-move__name">Fix your mistakes</h3></div></div>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--strong">Strong</span> <span class="sm-move__research">Feedback</span></p>
+  <p class="tm-move__line">Check every answer, find out why the wrong ones were wrong, and test yourself on them again later.</p>
+  <p class="sm-move__goals">Good for: Fix your mistakes</p>
+  <details class="tm-move__more"><summary>How to do it, with and without AI</summary><h4 class="sm-part">How to do it</h4><ol class="sm-steps"><li>After a test or quiz, check every answer against the key or the book as soon as you can.</li><li>For each mistake, write the right answer and why yours was wrong.</li><li>A few days later, test yourself again on just the questions you got wrong.</li></ol><div class="tm-example sm-example"><h4 class="tm-example__subject">Example: English <span>· Grade 11</span></h4><p>Your essay comes back with the comment &#x27;quotes without analysis&#x27;. Rewrite one paragraph so that each quote is followed by what it shows and why it matters. Then check the paragraph against the comment.</p></div><h4 class="sm-part">How it feels</h4><p class="sm-feels">Looking at your mistakes is uncomfortable, and it is tempting to look only at the score. But your mistakes show you exactly what to study next.</p><h4 class="sm-part">With AI: your teacher</h4><p>Your teacher gets a quiz with an answer key that explains each answer, a correction sheet and three retest questions for later.</p><h4 class="sm-part">With AI: you (13+)</h4><p>The AI quizzes you, asks you to find your own mistakes before it explains them, and ends with new questions on what you got wrong.</p><h4 class="sm-part">Watch out</h4><p>Check soon, and look at more than the score. A mistake you only notice, without writing down the right answer, is easy to make again.</p><p class="tm-move__evidence"><strong>Evidence.</strong> Feedback is one of the best-supported ways to improve learning, especially when it tells you what to do next (Wisniewski, Zierer &amp; Hattie 2020). Testing yourself also works better when you check the right answer afterwards (Rowland 2014). <span class="tm-move__sources">Sources: <a href="https://doi.org/10.3389/fpsyg.2019.03087">Wisniewski, Zierer &amp; Hattie 2020, Frontiers in Psychology</a>, <a href="https://doi.org/10.1037/a0037559">Rowland 2014, Psychological Bulletin</a>, <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback">EEF Teaching and Learning Toolkit: Feedback</a></span></p><p class="tm-move__evidence sm-move__read">Read more: <a href="/evidence/feedback/">Evidence Toolkit: Feedback</a></p></details>
+  <div class="sm-move__use"><a class="tm-move__use" href="?move=fix-your-mistakes&amp;for=teacher#sm-builder" data-use-move="fix-your-mistakes" data-use-for="teacher" aria-label="Fix your mistakes, teacher: prepare it with AI">Teacher: prepare it with AI</a><a class="tm-move__use" href="?move=fix-your-mistakes&amp;for=student#sm-builder" data-use-move="fix-your-mistakes" data-use-for="student" aria-label="Fix your mistakes, student: study with AI (13+)">Student: study with AI (13+)</a></div>
+</article>
+<article class="tm-move sm-move" id="guess-first" data-move-id="guess-first">
+  <div class="tm-move__head"><div><span class="tm-move__num">Move 10</span><h3 class="tm-move__name">Guess first</h3></div></div>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--promising">Promising</span> <span class="sm-move__research">Pretesting</span></p>
+  <p class="tm-move__line">Before a new topic, try to answer questions about it, even if you have to guess.</p>
+  <p class="sm-move__goals">Good for: Start a new topic</p>
+  <details class="tm-move__more"><summary>How to do it, with and without AI</summary><h4 class="sm-part">How to do it</h4><ol class="sm-steps"><li>Before a new chapter or lesson, find questions on it: the questions at the end of the chapter, or ones your teacher gives you.</li><li>Answer them all, even if you have to guess. Do not look anything up.</li><li>Then read the chapter or follow the lesson, and look for the answers.</li><li>Check your guesses afterwards.</li></ol><div class="tm-example sm-example"><h4 class="tm-example__subject">Example: Science <span>· Grade 7</span></h4><p>Before the chapter on the solar system, guess: which planet is the hottest, and why do we have seasons? Then read and check. It is Venus, not Mercury, and seasons come from the tilt of the Earth, not its distance from the Sun.</p></div><h4 class="sm-part">How it feels</h4><p class="sm-feels">Guessing wrong feels silly. Wrong guesses still help: they show your brain what to look for when you learn it.</p><h4 class="sm-part">With AI: your teacher</h4><p>Your teacher gets six questions to try before the topic is taught, aimed at its key ideas.</p><h4 class="sm-part">With AI: you (13+)</h4><p>The AI asks you questions on a topic you have not learned yet and keeps the answers until after you have studied.</p><h4 class="sm-part">Watch out</h4><p>It mostly helps you learn what the questions were about. Answering, even with a guess, helps more than just reading the questions.</p><p class="tm-move__evidence"><strong>Evidence.</strong> A meta-analysis finds that trying questions before learning helps you learn the answers to those questions, more when you answer than when you only read them, with a smaller benefit for other content (St. Hilaire et al.). <span class="tm-move__sources">Source: <a href="https://par.nsf.gov/servlets/purl/10511812">St. Hilaire et al., pretesting meta-analysis</a></span></p><p class="tm-move__evidence sm-move__read">Read more: <a href="/evidence/memory/">Evidence Toolkit: Memory</a></p></details>
+  <div class="sm-move__use"><a class="tm-move__use" href="?move=guess-first&amp;for=teacher#sm-builder" data-use-move="guess-first" data-use-for="teacher" aria-label="Guess first, teacher: prepare it with AI">Teacher: prepare it with AI</a><a class="tm-move__use" href="?move=guess-first&amp;for=student#sm-builder" data-use-move="guess-first" data-use-for="student" aria-label="Guess first, student: study with AI (13+)">Student: study with AI (13+)</a></div>
+</article>
+<!-- moves:end -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Promptbyggaren. Allt sker i webbläsaren: inget sparas och inget
+         skickas någonstans. Logiken finns i assets/js/study-moves.js.
+         Valet Teacher/Student byter fältens rubriker, integritetsraden och
+         hela prompten på en gång. -->
+    <section class="section container" id="sm-builder">
+      <h2 class="section__title">Build your prompt</h2>
+      <!-- onsubmit="return false" hindrar att Enter i ett fält laddar om sidan:
+           prompten byggs medan man skriver, så formuläret ska aldrig skickas. -->
+      <form class="tm-form" id="sm-form" autocomplete="off" onsubmit="return false">
+        <!-- Vem som använder AI. Läraren är förvald (specen); länkarna på
+             korten och ?for=student i adressen kan välja eleven. -->
+        <fieldset class="tm-field tm-field--wide sm-who">
+          <legend class="tm-field__label">Who is using AI?</legend>
+          <label class="sm-who__option"><input type="radio" name="sm-who" id="sm-who-teacher" value="teacher" checked> <span><strong>Teacher</strong> — material to print for your students</span></label>
+          <label class="sm-who__option"><input type="radio" name="sm-who" id="sm-who-student" value="student"> <span><strong>Student (13+)</strong> — a study partner that makes you do the thinking</span></label>
+        </fieldset>
+        <!-- Integritetsraden byts av study-moves.js när valet ovan ändras. -->
+        <p class="tm-privacy tm-field--wide" id="sm-privacy"><strong>Do not include student names or student work.</strong> The prompt only needs your subject, grade and topic.</p>
+        <!-- Dragvalet. Listan fylls av study-moves.js från JSON-filen, med
+             Test yourself förvald om inte en länk (?move=) har valt ett annat. -->
+        <div class="tm-field tm-field--wide">
+          <label class="tm-field__label" for="sm-move">Study move</label>
+          <select class="input" id="sm-move" aria-describedby="sm-move-more" required></select>
+          <span class="tm-field__note" id="sm-move-more">Read about all ten moves <a href="#sm-moves">further up on this page</a>.</span>
+        </div>
+        <label class="tm-field">
+          <span class="tm-field__label">Subject</span>
+          <input class="input" id="sm-subject" list="sm-subjects" maxlength="60" placeholder="e.g. Biology" required>
+          <datalist id="sm-subjects">
+            <option value="Art"><option value="Biology"><option value="Chemistry"><option value="Civics">
+            <option value="Economics"><option value="English"><option value="Geography"><option value="History">
+            <option value="Maths"><option value="Modern languages"><option value="Music"><option value="PE and health">
+            <option value="Physics"><option value="Religion and ethics"><option value="Science"><option value="Social studies"><option value="Technology">
+          </datalist>
+        </label>
+        <label class="tm-field">
+          <span class="tm-field__label">Grade</span>
+          <select class="input" id="sm-grade">
+            <option value="7">Grade 7</option><option value="8">Grade 8</option><option value="9" selected>Grade 9</option>
+            <option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option>
+          </select>
+        </label>
+        <!-- Rubrikerna i de två textfälten byts med valet Teacher/Student. -->
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label" id="sm-topic-label">What is the topic?</span>
+          <textarea class="input" id="sm-topic" rows="3" maxlength="600" placeholder="e.g. Photosynthesis: what plants take in, what they give off and why" required></textarea>
+        </label>
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label" id="sm-prior-label">What do students already know? (optional)</span>
+          <textarea class="input" id="sm-prior" rows="2" maxlength="400" placeholder="e.g. That plants need light and water"></textarea>
+        </label>
+      </form>
+      <label class="tm-field tm-field--wide">
+        <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
+        <textarea class="input tm-prompt" id="sm-prompt" rows="16" readonly></textarea>
+      </label>
+      <div class="tm-copy-row">
+        <button type="button" class="btn btn--primary" id="sm-copy" data-copy="" aria-describedby="sm-hint" disabled>Copy prompt</button>
+        <!-- Ledtråden står bredvid knappen så att man ser varför den är grå.
+             Den töms av study-moves.js när prompten är klar. -->
+        <p class="tm-hint" id="sm-hint" aria-live="polite">Fill in subject and topic to see your prompt.</p>
+        <span class="copy-toast" role="status">Copied</span>
+      </div>
+    </section>
+
+    <!-- Evidensen: etikettförklaringen, noten om att effekterna är mindre i
+         riktiga klassrum än i labb, och källorna. Allt byggs från JSON-filen. -->
+    <section class="section section--alt" id="sm-evidence">
+      <div class="container">
+        <h2 class="section__title">How strong is the evidence?</h2>
+<!-- legend:start -->
+<ul class="tm-legend"><li><span class="tm-chip tm-chip--strong">Strong</span> Meta-analyses, including studies in real classrooms, show that studying this way improves learning.</li><li><span class="tm-chip tm-chip--promising">Promising</span> Controlled studies show gains, but there are fewer of them, results vary, or they depend on the material.</li><li><span class="tm-chip tm-chip--framework">Framework</span> A sensible method built on related research, with no direct studies of the method itself yet.</li></ul>
+<!-- legend:end -->
+<!-- classroom:start -->
+<p class="tm-note">Most of this research was done in labs, often with short tests. A 2026 review of 53 studies in real school classrooms still found that testing yourself, spreading practice out and mixing it up help, with smaller effects than in the lab (Ruitenburg et al. 2026). Smaller does not mean they do not work.</p>
+<!-- classroom:end -->
+        <h3 class="tm-sources__title">Sources</h3>
+<!-- sources:start -->
+<ul class="tm-sources"><li><a href="https://doi.org/10.1177/1529100612453266">Dunlosky et al. 2013, Psychological Science in the Public Interest</a> — <a href="#test-yourself">Test yourself</a>, <a href="#spread-it-out">Spread it out</a>, <a href="#ask-why">Ask why</a></li><li><a href="https://doi.org/10.1037/bul0000309">Yang et al. 2021, Psychological Bulletin</a> — <a href="#test-yourself">Test yourself</a></li><li><a href="https://doi.org/10.1007/s10648-026-10225-5">Ruitenburg et al. 2026, Educational Psychology Review</a> — <a href="#test-yourself">Test yourself</a>, <a href="#spread-it-out">Spread it out</a>, <a href="#mix-it-up">Mix it up</a></li><li><a href="https://doi.org/10.1007/s10648-020-09572-8">Latimier, Peyre &amp; Ramus 2021, Educational Psychology Review</a> — <a href="#spread-it-out">Spread it out</a></li><li><a href="https://doi.org/10.1111/j.1467-9280.2008.02209.x">Cepeda et al. 2008, Psychological Science</a> — <a href="#spread-it-out">Spread it out</a></li><li><a href="https://doi.org/10.1037/bul0000209">Brunmair &amp; Richter 2019, Psychological Bulletin</a> — <a href="#mix-it-up">Mix it up</a></li><li><a href="https://doi.org/10.1007/s10648-018-9434-x">Bisra et al. 2018, Educational Psychology Review</a> — <a href="#explain-it-simply">Explain it simply</a></li><li><a href="https://doi.org/10.3389/feduc.2021.581216">Donoghue &amp; Hattie 2021, Frontiers in Education</a> — <a href="#ask-why">Ask why</a></li><li><a href="https://doi.org/10.1016/j.edurev.2025.100660">Cromley &amp; Chen 2025, Educational Research Review</a> — <a href="#draw-it">Draw it</a></li><li><a href="https://doi.org/10.1007/s10648-014-9273-3">Rawson, Thomas &amp; Jacoby 2015, Educational Psychology Review</a> — <a href="#find-an-example">Find an example</a></li><li><a href="https://doi.org/10.1007/s10648-023-09745-1">Barbieri et al. 2023, Educational Psychology Review</a> — <a href="#study-a-solved-example">Study a solved example</a></li><li><a href="https://doi.org/10.1007/s10648-019-09465-5">Sweller, van Merriënboer &amp; Paas 2019, Educational Psychology Review</a> — <a href="#study-a-solved-example">Study a solved example</a></li><li><a href="https://doi.org/10.3389/fpsyg.2019.03087">Wisniewski, Zierer &amp; Hattie 2020, Frontiers in Psychology</a> — <a href="#fix-your-mistakes">Fix your mistakes</a></li><li><a href="https://doi.org/10.1037/a0037559">Rowland 2014, Psychological Bulletin</a> — <a href="#fix-your-mistakes">Fix your mistakes</a></li><li><a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/feedback">EEF Teaching and Learning Toolkit: Feedback</a> — <a href="#fix-your-mistakes">Fix your mistakes</a></li><li><a href="https://par.nsf.gov/servlets/purl/10511812">St. Hilaire et al., pretesting meta-analysis</a> — <a href="#guess-first">Guess first</a></li></ul>
+<!-- sources:end -->
+        <p class="tm-note">Each source is also in its move's card. For research on many other strategies, see the <a href="/evidence/">Evidence Toolkit</a> on this site.</p>
+      </div>
+    </section>
+
+    <!-- AI-verktyg och åldersgränser. Global regel för allt AI-innehåll på
+         sajten: åldersgränser och läsarens eget ansvar för nationella regler.
+         Ingressen med datumet och reglerna byggs från JSON-filen. -->
+    <section class="section container" id="sm-age">
+      <h2 class="section__title">AI tools and age rules</h2>
+<!-- age:start -->
+<p class="section__lede">You never need AI to use a move. If you use AI yourself, these rules apply (November 2026):</p>
+<ul class="tm-age"><li><strong>Copilot Chat:</strong> Students aged 13 and over, through the school&#x27;s own Microsoft 365 account. The school&#x27;s administrator must set each student&#x27;s age group and consent.</li><li><strong>Gemini for Education:</strong> Open to education users of all ages, with a stricter experience for under-18s. The school&#x27;s administrator must turn it on.</li><li><strong>ChatGPT:</strong> Ages 13 and over on personal accounts, with a parent&#x27;s or guardian&#x27;s permission under 18. ChatGPT for Teachers is for school staff only.</li><li><strong>Claude:</strong> Ages 18 and over. In a school, for teachers only.</li></ul>
+<!-- age:end -->
+      <p class="tm-note">Rules differ between countries and change often. Check your own national rules and your school policy before students use any AI tool.</p>
+    </section>
+
+    <!-- Kortleken som PDF. Fri nedladdning, ingen e-postgrind (specen). -->
+    <section class="section section--alt" id="sm-download">
+      <div class="container">
+        <h2 class="section__title">The card deck</h2>
+        <p class="section__lede">All ten moves, one per A4 page, plus a fill-in prompt for teachers and one for students, for when you are offline. Free to print and share.</p>
+        <a class="btn btn--primary" href="/assets/pdfs/free/study-moves-cards-en.pdf" download>Download the card deck (PDF)</a>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknappen (data-copy) och promptbyggaren. -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+  <script src="/assets/js/study-moves.js" defer></script>
+</body>
+</html>

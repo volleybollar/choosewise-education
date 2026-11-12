@@ -1,0 +1,52 @@
+/* Study Moves (/study-moves/). Bygger på thinking-moves.css (tm-) och
+   lägger bara till det som är nytt här (sm-). Färger bara som var(--…). */
+
+/* ───── Målen ───── */
+.sm-start { max-width: var(--content-text-max); margin: 0 0 var(--space-5); }
+.sm-start strong { font-weight: var(--weight-emphasis); }
+
+/* Sex målrutor: lika höga i samma rad, och dragen står längst ned i rutan
+   så att länkarna hamnar på samma linje. En kolumn på mobil. */
+.sm-goals { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); align-items: stretch; }
+.sm-goal { max-width: none; min-width: 0; display: flex; flex-direction: column; gap: var(--space-2); background: var(--color-bg); border: 1px solid var(--color-border); border-top: 3px solid var(--color-accent); border-radius: var(--radius-md); padding: var(--space-4) var(--space-5); }
+.sm-goal__name { margin: 0; font-size: 1.15rem; font-weight: var(--weight-emphasis); }
+.sm-goal__desc { margin: 0; font-size: var(--fs-small); color: var(--color-text-soft); max-width: none; }
+.sm-goal__moves { margin: auto 0 0; padding: var(--space-2) 0 0; list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); font-size: var(--fs-small); font-weight: var(--weight-emphasis); }
+.sm-goal__moves li { max-width: none; }
+
+/* ───── Varför det känns svårare ───── */
+/* Raden om hur det känns har en kopparlinje till vänster, både i avsnittet
+   och i korten: det är verktygets kärna, så den ska synas. */
+.sm-feels { border-left: 3px solid var(--color-highlight); padding-left: var(--space-4); max-width: var(--content-text-max); }
+#sm-feels .sm-feels { margin: 0; font-size: 1.125rem; }
+
+/* ───── Dragkorten ───── */
+.sm-move__research { color: var(--color-text-muted); }
+.sm-move__goals { margin: 0; font-size: var(--fs-small); color: var(--color-text-soft); max-width: none; }
+.sm-part { margin: var(--space-3) 0 var(--space-1); font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); font-weight: var(--weight-emphasis); }
+.sm-part:first-of-type { margin-top: 0; }
+.sm-move .tm-move__more p { font-size: var(--fs-small); max-width: none; margin: 0; }
+.sm-move .tm-move__more .tm-move__evidence { margin-top: var(--space-3); }
+.sm-move .tm-move__more .sm-move__read { margin-top: var(--space-2); }
+
+/* Stegen utan AI: en numrerad lista. */
+.sm-steps { margin: 0 0 var(--space-3); padding-left: var(--space-5); display: grid; gap: var(--space-1); font-size: var(--fs-small); }
+.sm-steps li { max-width: none; }
+
+/* Exemplet är en löptext, inte Thinking Moves rubrik/text-tabell. */
+.sm-example { margin: 0; }
+
+/* De två länkarna längst ned i kortet: margin-top: auto trycker raden till
+   botten, så att länkarna i kort i samma rad står på samma linje. De bryts
+   till två rader på smala skärmar. */
+.sm-move__use { margin-top: auto; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); }
+.sm-move__use .tm-move__use { margin-top: 0; }
+
+/* ───── Promptbyggaren ───── */
+.sm-who { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0 var(--space-6); }
+.sm-who legend { padding: 0; margin-bottom: var(--space-2); }
+.sm-who__option { display: flex; gap: var(--space-3); align-items: baseline; padding: var(--space-2) 0; cursor: pointer; }
+.sm-who__option input { flex: none; accent-color: var(--color-accent); }
+.sm-who__option strong { font-weight: var(--weight-emphasis); color: var(--color-text); }
+/* Integritetsraden står inne i formulärets rutnät; avståndet ger rutnätet. */
+#sm-form .tm-privacy { margin: 0; }
