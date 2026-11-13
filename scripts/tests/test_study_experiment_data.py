@@ -4,8 +4,9 @@ Datafilen är sidans, resultatvyns och PDF-kitets enda källa. Upplägget är
 beslutat i specen: två lektioner med en veckas mellanrum, två grupper som
 läser om och testar sig i omvänd ordning (motviktat), prediktionslappen och
 poänglappen, och ingen personuppgift någonstans. Ändra inte dem här utan att
-specen ändras först. Evidenstexterna granskas fortfarande, så testerna
-kontrollerar bara att källorna finns och har rätt form, inte vad texterna säger.
+specen ändras först. Evidenstexterna är granskade mot källorna i slutgranskningen
+2026-11-13. Testerna kontrollerar bara att källorna finns och har rätt form, inte vad
+texterna säger, så en ändrad evidenstext måste läsas mot sin källa av en människa.
 Spec: docs/superpowers/specs/2026-11-13-study-experiment-design.md.
 """
 import json
@@ -49,6 +50,14 @@ def test_group_cards_are_counterbalanced():
     # Grupp 1 läser Text A två gånger, grupp 2 läser Text B två gånger.
     assert any("Read Text A again" in s for s in cards[0]["steps"])
     assert any("Read Text B again" in s for s in cards[1]["steps"])
+    # Motvikten åt andra hållet: grupp 1 skriver från minnet efter Text B och läser
+    # den inte om, grupp 2 skriver efter Text A och läser den inte om. Annars läser
+    # någon grupp samma text två gånger i båda sätten, och experimentet säger ingenting.
+    write = [[s for s in c["steps"] if "Write down everything you remember" in s] for c in cards]
+    assert len(write[0]) == 1 and "Turn Text B over" in write[0][0]
+    assert len(write[1]) == 1 and "Turn Text A over" in write[1][0]
+    assert not any("Read Text B again" in s for s in cards[0]["steps"])
+    assert not any("Read Text A again" in s for s in cards[1]["steps"])
     for c in cards:
         text = " ".join(c["steps"])
         assert "Text A" in text and "Text B" in text, c["group"]
@@ -109,6 +118,8 @@ def test_score_slip_has_check_box():
 
 
 def test_every_source_https():
+    # Listan får inte vara tom: då skulle loopen nedan godkänna ingenting.
+    assert data()["evidence"]
     for i, item in enumerate(data()["evidence"]):
         assert item["text"].strip(), i
         assert item["sources"], i

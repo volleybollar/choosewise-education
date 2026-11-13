@@ -204,6 +204,69 @@ def test_even_note(page):
     assert page.is_visible("#se-even")
 
 
+def slips_with_sums(twice_sum, tested_sum, n):
+    """n lappar vars poäng (högst 6) summerar till de givna heltalen, så att
+    medelvärdet kan väljas exakt. Summan delas så jämnt som möjligt."""
+    def spread(total):
+        base, extra = divmod(total, n)
+        return [base + 1] * extra + [base] * (n - extra)
+    return "\n".join(f"{a} {b}" for a, b in zip(spread(twice_sum), spread(tested_sum)))
+
+
+def test_averages_round_half_up_from_the_sums(page):
+    # 87/20 = 4.35 och 91/20 = 4.55 är exakta halvor: en lärare avrundar dem uppåt.
+    # Flyttalsformatering (toFixed på 87/20) skulle ge 4.3 och 4.5.
+    scores(page, slips_with_sums(87, 91, 20))
+    assert "Text read twice: 4.4 of 6 on average." in summary(page)
+    assert "Text tested: 4.6 of 6 on average." in summary(page)
+
+
+def test_even_note_follows_the_displayed_averages(page):
+    # 108/25 och 107/25 visas båda som 4.3. Visas samma tal ska noten stå, även
+    # när det råa medelvärdet för testningen är en hundradel högre.
+    for twice_sum, tested_sum in ((108, 107), (107, 108)):
+        scores(page, slips_with_sums(twice_sum, tested_sum, 25))
+        text = summary(page)
+        assert "Text read twice: 4.3 of 6 on average." in text, (twice_sum, tested_sum)
+        assert "Text tested: 4.3 of 6 on average." in text, (twice_sum, tested_sum)
+        assert page.is_visible("#se-even"), (twice_sum, tested_sum)
+    # 4.4 mot 4.3 är en skillnad åt rätt håll: ingen not.
+    scores(page, slips_with_sums(107, 110, 25))
+    assert "Text tested: 4.4 of 6 on average." in summary(page)
+    assert page.is_hidden("#se-even")
+
+
+def test_errors_text_is_not_rewritten_when_unchanged(page):
+    # Ett aria-live-område läser upp varje ändring av sin text: sätts samma text
+    # igen vid varje tangenttryckning läses felet upp om och om igen.
+    scores(page, "9 9")
+    page.evaluate("""() => {
+        window.__errorWrites = 0;
+        new MutationObserver(m => { window.__errorWrites += m.length; })
+            .observe(document.getElementById('se-errors'), { childList: true, characterData: true, subtree: true });
+    }""")
+    # Fälten för förutsägelserna ritar om vyn, men felet på rad 1 är detsamma.
+    predictions(page, 5, 3, 1)
+    page.fill("#se-pred-twice", "6")
+    assert page.text_content("#se-errors").strip() == "Line 1 is not two scores between 0 and 6, so it is left out."
+    assert page.evaluate("() => window.__errorWrites") == 0
+    # Kontroll: ändras felet skrivs texten.
+    scores(page, "9 9\n8 8")
+    assert page.evaluate("() => window.__errorWrites") > 0
+
+
+def test_chart_groups_have_a_caption(page):
+    predictions(page, 15, 7, 3)
+    scores(page, SCORES)
+    captions = [t.strip() for t in page.locator("#se-chart .se-chart__caption").all_text_contents()]
+    assert captions == [
+        "Which text students expected to remember better.",
+        "Which text each student remembered better.",
+    ]
+    # Bildtexten är en p direkt under rubriken i samma grupp.
+    assert page.locator("#se-chart .se-chart__group > h3 + p.se-chart__caption").count() == 2
+
+
 def test_no_predictions_hides_row(page):
     predictions(page)
     scores(page, "3 5")

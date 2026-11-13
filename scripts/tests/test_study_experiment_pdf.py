@@ -7,6 +7,7 @@ exports/build-study-experiment-pdf.py från study-experiment/experiment-en.json,
 samma JSON som sidan. Fri nedladdning, ingen e-postgrind (specen).
 Spec: docs/superpowers/specs/2026-11-13-study-experiment-design.md.
 """
+import html
 import importlib.util
 import json
 import re
@@ -161,6 +162,14 @@ def _literals(fn, next_fn):
     return [s for s in unescaped if s.strip(" .")]
 
 
+def src_page_text(i):
+    """Texten på en sida i källans HTML, med skiftlägen kvar: taggar bort,
+    html.unescape och blanksteg sammanslagna. Luckorna (tomma spans) lämnar bara blanksteg."""
+    sections = re.findall(r'<section class="page.*?</section>', SRC.read_text(encoding="utf-8"), re.S)
+    plain = html.unescape(re.sub(r"<[^>]+>", "", sections[i]))
+    return re.sub(r"\s+", " ", plain)
+
+
 def test_fill_in_matches_js():
     page = text(6)
     lines = _literals("teacherLines", "buildPrompt")
@@ -170,11 +179,35 @@ def test_fill_in_matches_js():
     assert any(l.startswith("CHECK: every fact") for l in lines)
     for line in lines:
         assert has(line, page), line
+    # PDF-texten jämförs utan skiftlägen (pypdf lämnar ibland versaler), så samma
+    # rader jämförs också med skiftlägen i källans HTML.
+    src_page = src_page_text(6)
+    for line in lines:
+        assert re.sub(r"\s+", " ", line.strip()) in src_page, line
     # Den andra meningen står ordagrant (specen och sidans prompt).
     assert has(
         "Students will study two short texts: one by reading it twice, the other by "
         "reading it once, writing down everything they remember and then checking it "
         "against the text.", page)
+
+
+def test_fill_in_page_states_age_rules():
+    # Sida 7 ska skriva ut åldersreglerna och deras datum, som kortleken Study Moves gör.
+    d = data()
+    page = text(6)
+    for rule in d["age_rules"]:
+        assert has(rule["tool"], page), rule["tool"]
+        assert has(rule["rule"], page), rule["tool"]
+    assert has(d["age_rules_date"], page)
+    assert has("Students do not use AI in this experiment.", page)
+    assert has("Check your national rules and your school policy.", page)
+    assert has("the prompt builder at choosewise.education/study-experiment fills this in for you", page)
+
+
+def test_age_rules_text_is_at_least_8_5pt():
+    # Åldersreglerna får inte krympas för att få plats: 8,5 pt är 11,33 px.
+    sizes = _rendered("[...document.querySelectorAll('.page')[6].querySelectorAll('.agerules')].map(el => parseFloat(getComputedStyle(el).fontSize))")
+    assert sizes and min(sizes) >= 11.3, sizes
 
 
 def test_fill_in_has_blanks_for_the_four_fields():
