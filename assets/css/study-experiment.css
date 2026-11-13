@@ -1,0 +1,82 @@
+/* The Study Experiment (/study-experiment/). Bygger på thinking-moves.css (tm-)
+   och lägger bara till det som är nytt här (se-). Färger bara som var(--…). */
+
+/* Rubrikerna är längre än de delade 22ch och ska stå på en rad på dator. */
+.se-page .section__title { max-width: none; }
+
+/* ───── Så fungerar det ───── */
+/* De två lektionerna i korthet: två rutor bredvid varandra från 820 px
+   (lika höga, rutnätet sträcker dem), under varandra på mobil. */
+.se-glance { list-style: none; padding: 0; margin: 0 0 var(--space-7); display: grid; gap: var(--space-4); grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 820px) { .se-glance { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.se-glance__box { max-width: none; min-width: 0; display: flex; flex-direction: column; gap: var(--space-2); background: var(--color-bg); border: 1px solid var(--color-border); border-top: 3px solid var(--color-accent); border-radius: var(--radius-md); padding: var(--space-4) var(--space-5); }
+.se-glance__title { margin: 0; font-size: 1.35rem; font-weight: var(--weight-emphasis); }
+.se-glance__time { margin: 0; font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-highlight-ink); max-width: none; }
+.se-glance__text { margin: 0; color: var(--color-text-soft); max-width: none; }
+
+/* Material och "Before you start" i två kolumner när det finns plats. */
+.se-prep { display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
+.se-prep__col { min-width: 0; }
+.se-prep__title { margin: 0 0 var(--space-3); font-size: 1.15rem; font-weight: var(--weight-emphasis); }
+.se-list { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-2); }
+.se-list li { max-width: none; }
+
+/* "What to expect": en not med kopparlinje till vänster, som raden om hur det
+   känns i Study Moves, eftersom den är det läraren ska komma ihåg. */
+.se-expect { border-left: 3px solid var(--color-highlight); padding-left: var(--space-4); }
+.se-expect .se-prep__title { margin-bottom: var(--space-2); color: var(--color-text); }
+.se-expect p { margin: 0; }
+
+/* ───── Lektionerna ───── */
+/* Stegen som en numrerad lista. Tre kolumner: numret, minutetiketten (tom för
+   ett steg utan egen tid) och texten. På mobil hamnar texten under numret
+   och etiketten, i stället för att pressas ihop till en smal kolumn. */
+.se-steps { list-style: none; margin: 0; padding: 0; counter-reset: se-step; max-width: 48rem; }
+.se-steps li { counter-increment: se-step; max-width: none; display: grid; grid-template-columns: 2rem 4.5rem minmax(0, 1fr); column-gap: var(--space-3); align-items: baseline; padding: var(--space-3) 0; border-top: 1px solid var(--color-border); }
+.se-steps li:last-child { border-bottom: 1px solid var(--color-border); }
+.se-steps li::before { content: counter(se-step); grid-column: 1; font-weight: var(--weight-emphasis); color: var(--color-highlight-ink); }
+.se-minutes { grid-column: 2; justify-self: start; white-space: nowrap; font-size: var(--fs-caption); font-weight: var(--weight-emphasis); letter-spacing: .03em; color: var(--color-accent); border: 1px solid var(--color-border-strong); border-radius: var(--radius-pill); padding: 0 var(--space-2); }
+.se-step__text { grid-column: 3; min-width: 0; }
+@media (max-width: 520px) {
+  .se-steps li { grid-template-columns: 1.75rem minmax(0, 1fr); }
+  .se-step__text { grid-column: 2; }
+}
+
+/* Diskussionen under lektion 2: frågor, förklaringar, jämnt resultat. */
+.se-talk { margin-top: var(--space-8); }
+.se-talk__title { margin: var(--space-6) 0 var(--space-3); font-size: 1.35rem; font-weight: var(--weight-emphasis); }
+.se-talk > .se-talk__title:first-child { margin-top: 0; }
+.se-talk .se-list { max-width: var(--content-text-max); }
+/* Rådet för ett jämnt resultat har en kopparlinje och ett eget ankare:
+   resultatvyn länkar hit, så rubriken får inte hamna under menyn. */
+.se-even-result { margin-top: var(--space-6); border-left: 3px solid var(--color-highlight); padding-left: var(--space-4); scroll-margin-top: calc(var(--nav-height) + var(--space-4)); }
+.se-even-result .se-talk__title { margin-top: 0; }
+.se-even-result p { margin: 0; max-width: var(--content-text-max); }
+
+/* ───── Byggaren ───── */
+/* Integritetsraden står inne i formulärets rutnät; avståndet ger rutnätet. */
+#se-form .tm-privacy { margin: 0; }
+/* Promptrutan står utanför formuläret och får samma luft som fälten. */
+#se-form + .tm-field { margin-top: var(--space-4); }
+.se-noai { margin-top: var(--space-6); }
+
+/* ───── Resultatvyn ───── */
+/* Ett fält per rad, och de tre förutsägelsefälten bredvid varandra när det
+   finns plats (annars under varandra). */
+.se-form { display: grid; gap: var(--space-4); grid-template-columns: minmax(0, 1fr); max-width: 48rem; }
+.se-field--narrow { max-width: 12rem; }
+.se-preds { border: 0; padding: 0; margin: 0; min-width: 0; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); }
+.se-preds legend { padding: 0; margin-bottom: var(--space-2); }
+.se-scores { font-family: var(--font-mono); line-height: var(--lh-normal); resize: vertical; }
+
+/* Ytorna som study-experiment.js fyller. Ett tomt felfält tar ingen plats. */
+.se-output { margin-top: var(--space-6); max-width: 48rem; }
+.se-errors { margin: 0 0 var(--space-3); font-size: var(--fs-small); color: var(--color-highlight-ink); max-width: none; }
+.se-errors:empty { display: none; }
+
+/* ───── Forskningen ───── */
+.se-evidence { max-width: var(--content-text-max); margin: 0 0 var(--space-5); }
+.se-evidence .tm-move__sources { margin-top: var(--space-1); font-size: var(--fs-small); color: var(--color-text-soft); }
+
+/* ───── Kitet ───── */
+.se-next { margin: var(--space-5) 0 0; max-width: var(--content-text-max); }
