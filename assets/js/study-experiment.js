@@ -94,7 +94,8 @@
 
   /* Räknar ihop klassens resultat. Ren funktion. predicted = { twice, tested,
      same }: hur många som tippade vad. Medelvärdena är null när det inte finns
-     några lappar, så att ingen kan dela med noll. */
+     några lappar, så att ingen kan dela med noll. Heltalssummorna följer med,
+     eftersom visningen avrundar utifrån dem (se tenths). */
   function summarize(pairs, predicted) {
     var n = pairs.length;
     var sumTwice = 0;
@@ -109,12 +110,23 @@
     });
     return {
       n: n,
+      sumTwice: sumTwice,
+      sumTested: sumTested,
       avgTwice: n ? sumTwice / n : null,
       avgTested: n ? sumTested / n : null,
       better: better,
       predicted: predicted,
       predictedTotal: predicted.twice + predicted.tested + predicted.same
     };
+  }
+
+  /* Medelvärdet i hela tiondelar, räknat på heltalssumman: 87 poäng på 20 lappar
+     blir 44 (4,4). Math.round avrundar hälften uppåt, som en lärare gör, och
+     ett exakt .5 kan flyttal visa exakt, så avrundningen blir inte fel. Både
+     visningen och jämförelsen för "jämnt resultat" använder tiondelarna, så att
+     "4,3 mot 4,3" aldrig ser ut som en skillnad. */
+  function tenths(sum, n) {
+    return Math.round(sum * 10 / n);
   }
 
   /* Det som andra delar av sidan (och testerna) kan använda. */
@@ -201,9 +213,11 @@
   /* En grupp med tre rader: etikett, stapel och "antal (andel %)". Antalet
      står utanför stapeln, så en rad på 0 % går ändå att läsa, och etiketten
      skiljer raderna åt utan hjälp av färg. */
-  function chartGroup(title, counts, total, barClass) {
+  function chartGroup(title, caption, counts, total, barClass) {
     var group = make('div', 'se-chart__group');
     group.appendChild(make('h3', 'se-chart__title', title));
+    /* En rad under rubriken som säger vad staplarna visar. */
+    group.appendChild(make('p', 'se-chart__caption', caption));
     var list = make('ul', 'se-chart__rows');
     CHART_ROWS.forEach(function (row) {
       var count = counts[row.key];
@@ -235,10 +249,16 @@
       same: wholeNumber('pred-same', 0)
     });
 
-    /* Felen: en mening per rad som lämnas utanför. */
-    els.errors.textContent = parsed.bad.map(function (line) {
+    /* Felen: en mening per rad som lämnas utanför. Området är aria-live, så
+       texten sätts bara när den har ändrats: annars läses samma fel upp på
+       nytt vid varje tangenttryckning. */
+    var errors = parsed.bad.map(function (line) {
       return 'Line ' + line + ' is not two scores between 0 and ' + max + ', so it is left out.';
     }).join('\n');
+    if (els.errors.textContent !== errors) { els.errors.textContent = errors; }
+
+    var shownTwice = s.n ? tenths(s.sumTwice, s.n) : 0;
+    var shownTested = s.n ? tenths(s.sumTested, s.n) : 0;
 
     els.summary.textContent = '';
     if (s.n === 0) {
@@ -246,8 +266,8 @@
     } else {
       els.summary.appendChild(make('p', '', s.n + (s.n === 1 ? ' slip.' : ' slips.')));
       els.summary.appendChild(make('p', '',
-        'Text read twice: ' + s.avgTwice.toFixed(1) + ' of ' + max + ' on average. ' +
-        'Text tested: ' + s.avgTested.toFixed(1) + ' of ' + max + ' on average.'));
+        'Text read twice: ' + (shownTwice / 10).toFixed(1) + ' of ' + max + ' on average. ' +
+        'Text tested: ' + (shownTested / 10).toFixed(1) + ' of ' + max + ' on average.'));
       els.summary.appendChild(make('p', '',
         s.better.tested + ' scored higher on the text they tested themselves on, ' +
         s.better.twice + ' on the text they read twice, and ' +
@@ -261,14 +281,17 @@
 
     els.chart.textContent = '';
     if (s.predictedTotal > 0) {
-      els.chart.appendChild(chartGroup('What you predicted', s.predicted, s.predictedTotal, 'se-chart__bar--predicted'));
+      els.chart.appendChild(chartGroup('What you predicted', 'Which text students expected to remember better.',
+        s.predicted, s.predictedTotal, 'se-chart__bar--predicted'));
     }
     if (s.n > 0) {
-      els.chart.appendChild(chartGroup('What happened', s.better, s.n, 'se-chart__bar--happened'));
+      els.chart.appendChild(chartGroup('What happened', 'Which text each student remembered better.',
+        s.better, s.n, 'se-chart__bar--happened'));
     }
 
-    /* Noten om ett jämnt eller omvänt resultat. */
-    els.even.hidden = !(s.n > 0 && s.avgTested <= s.avgTwice);
+    /* Noten om ett jämnt eller omvänt resultat: när det visade medelvärdet för
+       testningen inte är högre än det för omläsningen. */
+    els.even.hidden = !(s.n > 0 && shownTested <= shownTwice);
   }
 
   function initResults() {
