@@ -11,8 +11,9 @@
   Själva kopieringen sköts av copy-to-clipboard.js, som läser data-copy på
   knappen — därför hålls data-copy alltid lika med prompten.
 
-  Filen har två delar: promptbyggaren (här) och, längre ner, kopplingen till
-  formuläret. Resultatvyn får egna delar i samma fil.
+  Filen har fyra delar: promptbyggaren, räknefunktionerna för resultatet,
+  kopplingen till promptformuläret och resultatvyn. Resultatvyn räknar och ritar
+  om allt vid varje tangenttryckning och sätter all text med textContent.
 */
 (function () {
   'use strict';
@@ -64,9 +65,64 @@
     return teacherLines(input, language).join('\n');
   }
 
-  /* Det som andra delar av sidan (och testerna) kan använda. Fler funktioner
-     läggs till här i objektet. */
-  window.StudyExperiment = { buildPrompt: buildPrompt };
+  /* ---------- Räkna på resultatet ---------- */
+
+  /* En rad per lapp: poängen för texten som lästes två gånger, sedan för texten
+     man testade sig på. Mellan talen går ett mellanslag, tabb, komma, snedstreck
+     eller semikolon. */
+  var SCORE_LINE = /^\s*(\d+)\s*(?:[,/;]\s*|\s+)(\d+)\s*$/;
+
+  /* Läser poängen. Ren funktion. Returnerar giltiga par [lästTvå, testad] och
+     radnumren (från 1) på rader som inte är två heltal från 0 till max. Tomma
+     rader hoppas över, men räknas med i radnumren. */
+  function parseScores(text, max) {
+    var pairs = [];
+    var bad = [];
+    String(text).split(/\r\n|\r|\n/).forEach(function (line, i) {
+      if (!line.trim()) { return; }
+      var m = SCORE_LINE.exec(line);
+      var twice = m ? parseInt(m[1], 10) : -1;
+      var tested = m ? parseInt(m[2], 10) : -1;
+      if (twice < 0 || tested < 0 || twice > max || tested > max) {
+        bad.push(i + 1);
+      } else {
+        pairs.push([twice, tested]);
+      }
+    });
+    return { pairs: pairs, bad: bad };
+  }
+
+  /* Räknar ihop klassens resultat. Ren funktion. predicted = { twice, tested,
+     same }: hur många som tippade vad. Medelvärdena är null när det inte finns
+     några lappar, så att ingen kan dela med noll. */
+  function summarize(pairs, predicted) {
+    var n = pairs.length;
+    var sumTwice = 0;
+    var sumTested = 0;
+    var better = { twice: 0, tested: 0, same: 0 };
+    pairs.forEach(function (pair) {
+      sumTwice += pair[0];
+      sumTested += pair[1];
+      if (pair[0] > pair[1]) { better.twice += 1; }
+      else if (pair[1] > pair[0]) { better.tested += 1; }
+      else { better.same += 1; }
+    });
+    return {
+      n: n,
+      avgTwice: n ? sumTwice / n : null,
+      avgTested: n ? sumTested / n : null,
+      better: better,
+      predicted: predicted,
+      predictedTotal: predicted.twice + predicted.tested + predicted.same
+    };
+  }
+
+  /* Det som andra delar av sidan (och testerna) kan använda. */
+  window.StudyExperiment = {
+    buildPrompt: buildPrompt,
+    parseScores: parseScores,
+    summarize: summarize
+  };
 
   /* ---------- Formuläret med promptbyggaren ---------- */
 
@@ -106,7 +162,125 @@
     update();
   }
 
+  /* ---------- Resultatvyn ---------- */
+
+  var DEFAULT_MAX = 6;
+  var MAX_LIMIT = 20;
+  var MSG_NO_SLIPS = 'Type the scores from the slips to see your class\'s result.';
+  /* Raderna i diagrammet, i samma ordning i båda grupperna. */
+  var CHART_ROWS = [
+    { key: 'twice', label: 'Read twice' },
+    { key: 'tested', label: 'Tested myself' },
+    { key: 'same', label: 'About the same' }
+  ];
+
+  /* Hela tal i fältet, annars ersättningsvärdet. */
+  function wholeNumber(id, fallback) {
+    var raw = value(id);
+    return /^\d+$/.test(raw) ? parseInt(raw, 10) : fallback;
+  }
+
+  /* Antal frågor per text: 1 till 20, annars 6. */
+  function readMax() {
+    var n = wholeNumber('max', DEFAULT_MAX);
+    return n >= 1 && n <= MAX_LIMIT ? n : DEFAULT_MAX;
+  }
+
+  /* Ett element med klass och text. Texten sätts alltid med textContent. */
+  function make(tag, className, text) {
+    var node = document.createElement(tag);
+    if (className) { node.className = className; }
+    if (text !== undefined) { node.textContent = text; }
+    return node;
+  }
+
+  function percent(count, total) {
+    return Math.round(count / total * 100);
+  }
+
+  /* En grupp med tre rader: etikett, stapel och "antal (andel %)". Antalet
+     står utanför stapeln, så en rad på 0 % går ändå att läsa, och etiketten
+     skiljer raderna åt utan hjälp av färg. */
+  function chartGroup(title, counts, total, barClass) {
+    var group = make('div', 'se-chart__group');
+    group.appendChild(make('h3', 'se-chart__title', title));
+    var list = make('ul', 'se-chart__rows');
+    CHART_ROWS.forEach(function (row) {
+      var count = counts[row.key];
+      var share = percent(count, total);
+      var item = make('li', 'se-chart__row');
+      item.appendChild(make('span', 'se-chart__label', row.label));
+      /* Stapeln är bara dekoration; siffrorna bär informationen. */
+      var track = make('div', 'se-chart__track');
+      track.setAttribute('aria-hidden', 'true');
+      var bar = make('div', 'se-chart__bar ' + barClass);
+      bar.style.width = share + '%';
+      if (count > 0) { bar.style.minWidth = '2px'; }
+      track.appendChild(bar);
+      item.appendChild(track);
+      item.appendChild(make('span', 'se-chart__count', count + ' (' + share + ' %)'));
+      list.appendChild(item);
+    });
+    group.appendChild(list);
+    return group;
+  }
+
+  /* Räknar om och ritar om hela resultatvyn utifrån fälten. */
+  function renderResults() {
+    var max = readMax();
+    var parsed = parseScores(els.scores.value, max);
+    var s = summarize(parsed.pairs, {
+      twice: wholeNumber('pred-twice', 0),
+      tested: wholeNumber('pred-tested', 0),
+      same: wholeNumber('pred-same', 0)
+    });
+
+    /* Felen: en mening per rad som lämnas utanför. */
+    els.errors.textContent = parsed.bad.map(function (line) {
+      return 'Line ' + line + ' is not two scores between 0 and ' + max + ', so it is left out.';
+    }).join('\n');
+
+    els.summary.textContent = '';
+    if (s.n === 0) {
+      els.summary.appendChild(make('p', '', MSG_NO_SLIPS));
+    } else {
+      els.summary.appendChild(make('p', '', s.n + (s.n === 1 ? ' slip.' : ' slips.')));
+      els.summary.appendChild(make('p', '',
+        'Text read twice: ' + s.avgTwice.toFixed(1) + ' of ' + max + ' on average. ' +
+        'Text tested: ' + s.avgTested.toFixed(1) + ' of ' + max + ' on average.'));
+      els.summary.appendChild(make('p', '',
+        s.better.tested + ' scored higher on the text they tested themselves on, ' +
+        s.better.twice + ' on the text they read twice, and ' +
+        s.better.same + ' the same.'));
+      if (s.predictedTotal > 0) {
+        els.summary.appendChild(make('p', '',
+          'Before the quiz, ' + s.predicted.twice + ' of ' + s.predictedTotal +
+          ' predicted the text they read twice would stick better.'));
+      }
+    }
+
+    els.chart.textContent = '';
+    if (s.predictedTotal > 0) {
+      els.chart.appendChild(chartGroup('What you predicted', s.predicted, s.predictedTotal, 'se-chart__bar--predicted'));
+    }
+    if (s.n > 0) {
+      els.chart.appendChild(chartGroup('What happened', s.better, s.n, 'se-chart__bar--happened'));
+    }
+
+    /* Noten om ett jämnt eller omvänt resultat. */
+    els.even.hidden = !(s.n > 0 && s.avgTested <= s.avgTwice);
+  }
+
+  function initResults() {
+    ['max', 'pred-twice', 'pred-tested', 'pred-same', 'scores', 'errors', 'summary', 'chart', 'even', 'results'].forEach(function (id) {
+      els[id] = document.getElementById('se-' + id);
+    });
+    els.results.addEventListener('input', renderResults);
+    renderResults();
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initBuilder();
+    initResults();
   });
 })();

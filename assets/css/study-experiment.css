@@ -69,10 +69,35 @@
 .se-preds legend { padding: 0; margin-bottom: var(--space-2); }
 .se-scores { font-family: var(--font-mono); line-height: var(--lh-normal); resize: vertical; }
 
-/* Ytorna som study-experiment.js fyller. Ett tomt felfält tar ingen plats. */
+/* Ytorna som study-experiment.js fyller. Felfältet är ett aria-live-område och
+   göms därför aldrig med display:none (då läses det första felet inte upp);
+   tomt har det ingen höjd, och marginalen nollas så att det inte tar plats.
+   Flera fel ligger en mening per rad. */
 .se-output { margin-top: var(--space-6); max-width: 48rem; }
-.se-errors { margin: 0 0 var(--space-3); font-size: var(--fs-small); color: var(--color-highlight-ink); max-width: none; }
-.se-errors:empty { display: none; }
+.se-errors { margin: 0 0 var(--space-3); font-size: var(--fs-small); color: var(--color-highlight-ink); max-width: none; white-space: pre-line; }
+.se-errors:empty { margin: 0; }
+.se-summary p { margin: 0 0 var(--space-2); max-width: var(--content-text-max); color: var(--color-text); }
+
+/* Diagrammet: två grupper, "What you predicted" och "What happened", med tre
+   rader var i samma ordning. Varje rad har en textetikett, en stapel och
+   antalet utanför stapeln, så färgen aldrig är det enda som skiljer raderna
+   åt och en rad på 0 % går att läsa. På mobil står etiketten över stapeln. */
+.se-chart { margin-top: var(--space-5); display: grid; gap: var(--space-5); }
+.se-chart:empty { margin: 0; }
+.se-chart__group { min-width: 0; }
+.se-chart__title { margin: 0 0 var(--space-3); font-size: 1.15rem; font-weight: var(--weight-emphasis); }
+.se-chart__rows { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+.se-chart__row { max-width: none; min-width: 0; display: grid; grid-template-columns: 9rem minmax(0, 1fr) 7rem; column-gap: var(--space-3); align-items: center; }
+.se-chart__label { font-size: var(--fs-small); color: var(--color-text); }
+.se-chart__track { height: 1.25rem; background: var(--color-bg); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); overflow: hidden; box-sizing: border-box; }
+.se-chart__bar { display: block; height: 100%; }
+.se-chart__bar--predicted { background: var(--color-text-muted); }
+.se-chart__bar--happened { background: var(--color-accent); }
+.se-chart__count { font-size: var(--fs-small); color: var(--color-text-soft); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+@media (max-width: 520px) {
+  .se-chart__row { grid-template-columns: minmax(0, 1fr) 5.5rem; row-gap: var(--space-1); }
+  .se-chart__label { grid-column: 1 / -1; }
+}
 
 /* ───── Forskningen ───── */
 .se-evidence { max-width: var(--content-text-max); margin: 0 0 var(--space-5); }
