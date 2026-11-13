@@ -88,6 +88,16 @@ A weekly routine for retrieval practice and spacing. The teacher keeps a simple 
 
 For the lessons that didn't go as planned. The teacher answers four questions (goal, evidence, surprise, next) and a prompt builder returns a prompt for any AI tool. The answer comes in four parts: two likely causes tied to the lesson's content, one concrete move for the next lesson with minutes, a check written for students with a threshold for moving on, and one question back to the teacher. The check result becomes the evidence in the next debrief for that group. Debriefs can be saved in the teacher's own browser for an end-of-day prompt and a weekly roll-up that finds patterns across lessons. Includes four exit ticket templates (with Microsoft Forms and Google Forms setup), an Excel unit journal and a free printable pack. Evidence labels for formative assessment, feedback and worked examples (Strong), and hinge questions and structured teacher reflection (Framework).
 
+## Study + AI
+
+- [Study + AI — English](https://choosewise.education/study/)
+
+Free tools that help students in Grades 7–12 study in ways research shows work, with or without AI. Teachers can prepare the material with AI; students do the studying.
+
+- [Study Moves — English](https://choosewise.education/study-moves/)
+
+Ten study moves for students in Grades 7–12, chosen by goal: remember it, tell similar things apart, understand it, solve problems, fix your mistakes and start a new topic. The moves are Test yourself (retrieval practice, the suggested starting move), Spread it out (spaced practice), Mix it up (interleaving), Explain it simply (the Feynman technique), Ask why (elaborative interrogation), Draw it (dual coding), Find an example (concrete examples), Study a solved example (worked examples), Fix your mistakes (feedback) and Guess first (pretesting). Every move is complete without AI, with steps, a worked example, a note on why it feels harder than re-reading, an evidence label (Strong, Promising or Framework) and sources. A prompt builder has two versions: a teacher prepares printable study material with any AI tool, or a student aged 13 and over gets a study partner that asks one question at a time, never gives the answer before the student has tried and never writes homework. Includes AI age rules and a free PDF card deck with fill-in prompts for teachers and students.
+
 ## Presentation Skills
 
 - [Presentation Skills landing — English](https://choosewise.education/presentation-skills/)

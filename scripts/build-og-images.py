@@ -36,6 +36,8 @@ SECTIONS = [
     ("lessonlens-en",      "Lesson Lens",               "for any lesson",         "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("retrievalrhythm-en", "Retrieval Rhythm",          "for any subject",        "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("twominutedebrief-en", "Two-Minute Debrief",       "for any subject",        "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("study-en",           "Study + AI",                "for students",           "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("studymoves-en",      "Study Moves",               "with and without AI",    "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("community-en",       "The Choosewise community",  "on Skool",               "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("about-en",           "Johan Lindström",           "Education consultant",   "CHOOSEWISE.EDUCATION", "#C2793A"),
     ("free-en",            "Free resources",            "for educators",          "CHOOSEWISE.EDUCATION", "#0B3A6F"),
