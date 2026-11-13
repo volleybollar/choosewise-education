@@ -70,7 +70,7 @@
       },
       {
         "minutes": 1,
-        "text": "Remind each half which text they read twice: Group 1 read Text A twice, Group 2 read Text B twice. Hand out the score slips. Students fill them in, fold them and hand them in."
+        "text": "Remind the class which text each student read twice: Group 1 read Text A twice, Group 2 read Text B twice. Anyone unsure can work it out: if you wrote from memory after the first text, you read the second text twice. Hand out the score slips. Students fill them in, fold them and hand them in. Students who missed Lesson 1 take the quiz too, but hand in no slip."
       },
       {
         "minutes": 2,
@@ -86,7 +86,7 @@
       },
       {
         "minutes": 2,
-        "text": "End with a plan: every student writes down when and how they will test themselves before their next real test. Close the book, write down what you remember, then check."
+        "text": "End with a plan: every student writes down when and how they will test themselves before their next real test. Close the book, write down what you remember, then check. For more ways to study, point students to Study Moves on choosewise.education."
       }
     ]
   },
@@ -160,7 +160,7 @@
       ]
     },
     {
-      "text": "In real school classrooms, with students aged 6 to 18, testing yourself beat reading again, with smaller effects than in the lab. Quizzes followed by checking the answers helped more than quizzes alone, which is why the testing group checks its writing against the text.",
+      "text": "In a 2026 review of studies in real school classrooms, with students aged 6 to 18, testing yourself beat reading again, with smaller effects than in lab studies (Ruitenburg et al. 2026). Quizzes followed by checking the answers helped more than quizzes alone (Yang et al. 2021). In lab studies without a check, writing from memory helped little when people recalled less than half of what they had read (Rowland 2014). That is why the testing group checks its writing against the text.",
       "sources": [
         {
           "text": "Ruitenburg et al. 2026, Educational Psychology Review",
@@ -169,6 +169,10 @@
         {
           "text": "Yang et al. 2021, Psychological Bulletin",
           "url": "https://doi.org/10.1037/bul0000309"
+        },
+        {
+          "text": "Rowland 2014, Psychological Bulletin",
+          "url": "https://doi.org/10.1037/a0037559"
         }
       ]
     },
@@ -208,7 +212,7 @@
       ]
     },
     {
-      "text": "What this experiment can do is show students the effect in their own scores and shift what they believe. No study has yet shown that a demonstration like this changes how teenagers study at home. Knowing how and when to test yourself made more of a difference than knowing why, so the lesson ends with a concrete plan.",
+      "text": "What this experiment can do is show students the effect in their own scores and shift what they believe. No study has yet shown that a demonstration like this changes how teenagers study at home. In a lab study, university students who were told why testing yourself works and shown how to do it used it on their own a week later (Ariel & Karpicke 2018). Researchers also argue that lasting change needs a commitment and a plan (McDaniel & Einstein 2020), so the lesson ends with one.",
       "sources": [
         {
           "text": "Ariel & Karpicke 2018, Journal of Experimental Psychology: Applied",

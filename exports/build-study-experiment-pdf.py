@@ -57,8 +57,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; color: var(
 .foot { margin-top: auto; font-size: 7.5pt; color: var(--color-text-muted); border-top: 0.3mm solid var(--color-border); padding-top: 2.5mm; display: flex; justify-content: space-between; }
 .cover h1 { font-size: 34pt; font-weight: 300; letter-spacing: -.02em; line-height: 1.05; }
 .cover .lede { font-size: 12pt; color: var(--color-text); max-width: 160mm; }
-.prompt { border: 0.35mm dashed var(--color-accent); border-radius: 1.5mm; padding: 6mm 7mm; font-size: 9.6pt; line-height: 1.6; color: var(--color-text); white-space: pre-wrap; }
+.prompt { border: 0.35mm dashed var(--color-accent); border-radius: 1.5mm; padding: 5mm 7mm; font-size: 9.6pt; line-height: 1.4; color: var(--color-text); white-space: pre-wrap; }
 .blank { display: inline-block; border-bottom: 0.3mm solid var(--color-text); }
+/* Åldersreglerna på sida 7: aldrig under 8,5 pt, så att de går att läsa utskrivna. */
+.agerules { font-size: 8.5pt; line-height: 1.4; }
 
 /* ---- Nytt för kitet ---- */
 /* Överblicken: de två lektionerna bredvid varandra, sedan material och förberedelser. */
@@ -98,14 +100,13 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; color: var(
 .tick { display: inline-block; flex: none; width: 4.4mm; height: 4.4mm; border: 0.4mm solid var(--color-text); border-radius: 0.7mm; }
 
 /* Sida 6 rymmer mycket: lite mindre text och tätare rader, men aldrig under 9,5 pt. */
-.dense { font-size: 9.6pt; line-height: 1.38; padding-top: 12mm; gap: 2.6mm; }
+.dense { font-size: 9.6pt; line-height: 1.38; padding-top: 12mm; gap: 2mm; }
 .dense .top { padding-bottom: 2.5mm; }
 .dense .top h2 { font-size: 22pt; }
 .dense .intro { font-size: 9.8pt; }
 .dense .script .n { font-size: 9.6pt; }
-.dense .script .min { padding-top: 0; }
-.dense .script li { font-size: 9.6pt; padding: 0.9mm 0; }
-.dense .script .min { font-size: 9.5pt; }
+.dense .script li { font-size: 9.6pt; padding: 0.7mm 0; }
+.dense .script .min { padding-top: 0; font-size: 9.5pt; }
 .dense .qs, .dense .points { padding-left: 4.5mm; display: flex; flex-direction: column; gap: .6mm; color: var(--color-text); }
 .dense .points { list-style: none; padding-left: 0; gap: 1.4mm; }
 .box { border-left: 1mm solid var(--color-highlight); background: var(--color-bg-alt); padding: 2.8mm 5mm; display: flex; flex-direction: column; gap: 1mm; }
@@ -271,7 +272,7 @@ def _lesson2(data: dict) -> str:
     )
 
 
-def _fill_in() -> str:
+def _fill_in(data: dict) -> str:
     # Raderna är ordagrant desamma som i teacherLines i assets/js/study-experiment.js,
     # utom att lärarens uppgifter är luckor: årskurs (två ställen), ämne, område och
     # språk. test_fill_in_matches_js håller dem i takt.
@@ -310,6 +311,7 @@ def _fill_in() -> str:
               "as right."),
         _text("CHECK: every fact, figure, date or name in the texts that the teacher should verify, one per line."),
     ])
+    rules = " ".join(f"<strong>{escape(r['tool'])}:</strong> {escape(r['rule'])}" for r in data["age_rules"])
     return (
         '<section class="page">'
         + _top("Without the website · for teachers", "Your own prompt")
@@ -318,9 +320,12 @@ def _fill_in() -> str:
         "ChatGPT or Claude. Read both texts and the quiz, and check every fact, before you print them: the AI "
         "proposes, you decide.</p>"
         + f'<div class="prompt">{prompt}</div>'
-        + f'<p class="evidence">Faster online: the prompt builder at {URL} fills this in for you. Students do '
-        "not use AI in this experiment. AI tools have age rules that change often: check them on the web page, "
-        "and check your national rules and your school policy before you start.</p>"
+        # Åldersreglerna skrivs ut ur JSON, med datum, på samma sätt som i kortleken Study Moves.
+        # Stycket är aldrig mindre än 8,5 pt (se .agerules i STYLE).
+        + f'<p class="evidence agerules">Students do not use AI in this experiment. If you use AI to make the '
+        f"material, these rules apply ({escape(data['age_rules_date'])}): {rules} "
+        "Rules differ between countries and change often. Check your national rules and your school policy. "
+        f"Faster online: the prompt builder at {URL} fills this in for you.</p>"
         + _foot(7)
         + "</section>"
     )
@@ -335,7 +340,7 @@ def render_kit_html(data: dict) -> str:
         ("Sida 4: gissningslappar att klippa ut", _prediction_slips(data)),
         ("Sida 5: poänglappar att klippa ut", _score_slips(data)),
         ("Sida 6: Lesson 2-manus, diskussion och förklaringar", _lesson2(data)),
-        ("Sida 7: luckprompt för läraren", _fill_in()),
+        ("Sida 7: luckprompt för läraren", _fill_in(data)),
     ]
     return (
         "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n"
