@@ -58,3 +58,9 @@
 #sm-form .tm-privacy { margin: 0; }
 /* Promptrutan står utanför formuläret och får samma luft som fälten. */
 #sm-form + .tm-field { margin-top: var(--space-4); }
+
+/* Varför elevprompterna ger ledtrådar: en mindre rubrik än avsnittets och
+   luft mellan styckena. */
+.sm-hints { margin-top: var(--space-8); }
+.sm-hints__title { margin: 0 0 var(--space-3); font-size: 1.35rem; font-weight: var(--weight-emphasis); }
+.sm-hints p { margin: 0 0 var(--space-3); }

@@ -52,7 +52,7 @@
     if (input.prior) lines.push('Students already know: ' + input.prior);
     lines.push(
       '',
-      "Use only this topic's content. Do not repeat a question. If you write multiple-choice questions, make all options about the same length.",
+      "Use only this topic's content. Do not repeat a question or test the same fact twice unless What to make asks for it, and do not give away one answer in another question. If you write multiple-choice questions, make all options about the same length, never make the right option the longest, and vary which letter is right.",
       '',
       'Reply in plain text, no tables, with exactly these four parts:',
       "MOVE: the move's name and one sentence, written to students, on why it works.",
@@ -80,10 +80,10 @@
       '',
       'Rules for the whole conversation:',
       '- Give me one question or task at a time, then wait for my answer.',
-      '- Never give me the answer to a question before I have tried it. If I am stuck, give a small hint first.',
-      '- Keep every message short.',
-      '- Do not write my homework, essays or answers for me, even if I ask.',
-      '- If you are not sure a fact is right, say so. I will check facts in my textbook or notes.',
+      '- Never give me the answer to a question before I have tried it. If I say I do not know, give me a small hint that does not contain the answer. If I am still stuck after the hint, give the answer in one sentence and move on.',
+      '- Keep every message under 60 words, except when you show a worked example.',
+      '- Do not write my homework, essays or answers for me, even if I ask. If I ask, say no in one sentence and go back to where we were.',
+      '- If you are not sure a fact is right, or you simplify something, say so. I will check facts in my textbook or notes.',
       '',
       'Start now.'
     );
