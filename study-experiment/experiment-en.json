@@ -1,0 +1,243 @@
+{
+  "questions_per_text": 6,
+  "minutes": {
+    "lesson1": 20,
+    "lesson2": 25
+  },
+  "materials": [
+    "Two short texts, Text A and Text B: one copy of each per student",
+    "Blank paper for writing from memory",
+    "Group cards and prediction slips for Lesson 1",
+    "The quiz and score slips for Lesson 2",
+    "A timer",
+    "The results view on this page, or the board"
+  ],
+  "before": [
+    "Pick a topic area the class has not studied and will not study in the coming week. Lessons on the topic in between would change the result.",
+    "Make the two texts and the quiz with the prompt on this page, or use two textbook passages.",
+    "Read everything, check every fact, and make sure the two texts are about equally long and equally hard. For younger classes, keep them short and plain: if students can write down only a line or two from memory, the experiment shows little.",
+    "Print the texts, the quiz and, from the kit, the group cards and the slips.",
+    "Decide which half of the room is Group 1 and which is Group 2, and write it down."
+  ],
+  "expect": "Expect a modest gap. In a class of 25, the class average will most likely favour the text students tested themselves on, by about half a question out of six. About half the students will score higher on that text, about one in five will get the same score on both, and about one in four will do better on the text they read twice. Roughly one class in fourteen sees no gap or the reverse. Many students will predict “about the same”. These numbers are our estimate from the research, not a promise.",
+  "lesson1": {
+    "intro": "About 20 minutes. Every student studies both texts, one in each way. Keep the times exact, so that both ways get the same eight minutes per text.",
+    "steps": [
+      {
+        "minutes": 2,
+        "text": "Tell the class that today you will try two ways of studying. Do not mention a quiz, and do not say which way you expect to work better. Hand out the group cards: Group 1 to one half of the room, Group 2 to the other."
+      },
+      {
+        "minutes": 4,
+        "text": "Hand out Text A. Everyone reads it carefully."
+      },
+      {
+        "minutes": 4,
+        "text": "Group 1 reads Text A again and makes a mark in the margin each time they reach the end. Group 2 turns Text A over and writes down everything they remember for three minutes, then turns it back and marks what they missed."
+      },
+      {
+        "minutes": null,
+        "text": "Collect Text A and the written sheets."
+      },
+      {
+        "minutes": 4,
+        "text": "Hand out Text B. Everyone reads it carefully."
+      },
+      {
+        "minutes": 4,
+        "text": "Group 1 turns Text B over and writes down everything they remember for three minutes, then turns it back and marks what they missed. Group 2 reads Text B again and makes a mark each time they reach the end."
+      },
+      {
+        "minutes": 2,
+        "text": "Collect everything, so that nobody takes a text home. Before anyone talks about the two ways, hand out the prediction slips. Collect them, sort them into three piles and write down the three numbers."
+      }
+    ]
+  },
+  "lesson2": {
+    "intro": "One week later, about 25 minutes. Do not warn the class: a quiz they know about turns into homework, and then the experiment no longer compares the two ways.",
+    "steps": [
+      {
+        "minutes": 1,
+        "text": "Tell the class there is a short quiz on last week's two texts. It does not count, and nobody will see anyone else's score."
+      },
+      {
+        "minutes": 8,
+        "text": "Hand out the quiz. No texts and no notes. Q1 to Q6 are on Text A, Q7 to Q12 on Text B."
+      },
+      {
+        "minutes": 3,
+        "text": "Read the answers aloud. Students mark their own answers strictly: an answer counts only if it matches the key."
+      },
+      {
+        "minutes": 1,
+        "text": "Remind each half which text they read twice: Group 1 read Text A twice, Group 2 read Text B twice. Hand out the score slips. Students fill them in, fold them and hand them in."
+      },
+      {
+        "minutes": 2,
+        "text": "Type the prediction numbers and the scores into the results view on this page, leaving out any slip with the box ticked, and show it on the board. A student can read the slips aloud while you type."
+      },
+      {
+        "minutes": 5,
+        "text": "Talk about the result with the questions below."
+      },
+      {
+        "minutes": 3,
+        "text": "Explain the three points below, so that every student can make sense of the result, whichever way their own scores went."
+      },
+      {
+        "minutes": 2,
+        "text": "End with a plan: every student writes down when and how they will test themselves before their next real test. Close the book, write down what you remember, then check."
+      }
+    ]
+  },
+  "group_cards": [
+    {
+      "group": 1,
+      "title": "Group 1",
+      "steps": [
+        "Read Text A carefully. (4 minutes)",
+        "Read Text A again. Make a mark in the margin each time you reach the end. (4 minutes)",
+        "Read Text B carefully. (4 minutes)",
+        "Turn Text B over. Write down everything you remember, in your own words, until your teacher says stop. (3 minutes)",
+        "Turn Text B back and mark what you missed. (1 minute)"
+      ]
+    },
+    {
+      "group": 2,
+      "title": "Group 2",
+      "steps": [
+        "Read Text A carefully. (4 minutes)",
+        "Turn Text A over. Write down everything you remember, in your own words, until your teacher says stop. (3 minutes)",
+        "Turn Text A back and mark what you missed. (1 minute)",
+        "Read Text B carefully. (4 minutes)",
+        "Read Text B again. Make a mark in the margin each time you reach the end. (4 minutes)"
+      ]
+    }
+  ],
+  "prediction_slip": {
+    "question": "Which text do you think you will remember better in a week?",
+    "options": [
+      "The one I read twice",
+      "The one I tested myself on",
+      "About the same"
+    ]
+  },
+  "score_slip": {
+    "lines": [
+      "Text I read twice: ____ of 6",
+      "Text I tested myself on: ____ of 6"
+    ],
+    "check": "I looked at one of the texts during the week."
+  },
+  "discussion": [
+    "Think back to last week: which text felt easier to study, and what did you predict?",
+    "Which way won for you? Is that what you predicted?",
+    "What happened in the whole class? Why might the way that felt harder have worked better?",
+    "Why might some of you have done better on the text you read twice?"
+  ],
+  "explain": {
+    "title": "Explain three things",
+    "points": [
+      "Why reading again feels better. A text you have just read feels familiar, and familiar feels like knowing. Writing from memory is harder, and hard work feels as if learning is going badly. But recognising a text is not the same as recalling it when the text is gone. On a quiz straight after studying, reading twice often wins; a week later, testing yourself usually does.",
+      "Why your own result can go either way. Six questions per text is a small test: one lucky guess or one tricky question can change which way wins for you. The class result is a better guide than any one student's, and many studies are a better guide than one class.",
+      "Why it was not just the easier text. Half the class tested themselves on Text A and the other half on Text B. If one text was easier, it helped both ways equally across the class."
+    ]
+  },
+  "even_result": {
+    "title": "If your result is even, or the other way round",
+    "text": "One class is not a study. With 25 students, chance plays a big part, and it takes many studies to see the pattern. Ask what might have affected your result: did some students already know the topic, was one text easier, did anyone go over a text at home? Then ask what each way felt like. Across studies in real school classrooms, testing yourself beats reading again when the test comes later, and your class has still felt why reading again is so tempting."
+  },
+  "no_computer": "No computer? Ask for hands: who scored higher on the text they tested themselves on, who on the one they read twice, and who got the same? Write the three numbers on the board next to the predictions.",
+  "no_ai": "No AI? Pick two passages from a textbook in your subject that the class has not read, about the same length and about equally hard. Write six short questions for each, with answers that are a word, a number or a short phrase from the passage.",
+  "evidence": [
+    {
+      "text": "In the classic experiment, university students read a short text and then either read it again or wrote down what they remembered. Five minutes later, reading again had done slightly better. A week later, testing yourself had done clearly better: 56% of the text remembered against 42%. Students who had only reread also expected to remember more.",
+      "sources": [
+        {
+          "text": "Roediger & Karpicke 2006, Psychological Science",
+          "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+        }
+      ]
+    },
+    {
+      "text": "In real school classrooms, with students aged 6 to 18, testing yourself beat reading again, with smaller effects than in the lab. Quizzes followed by checking the answers helped more than quizzes alone, which is why the testing group checks its writing against the text.",
+      "sources": [
+        {
+          "text": "Ruitenburg et al. 2026, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-026-10225-5"
+        },
+        {
+          "text": "Yang et al. 2021, Psychological Bulletin",
+          "url": "https://doi.org/10.1037/bul0000309"
+        }
+      ]
+    },
+    {
+      "text": "The Study Experiment is a Grades 7–12 version of a demonstration used with university classes: one text studied twice, one studied and then tested, and short-answer quizzes a week later. The students found the usual testing effect in their own results.",
+      "sources": [
+        {
+          "text": "Einstein, Mullet & Harrison 2012, Teaching of Psychology",
+          "url": "https://doi.org/10.1177/0098628312450432"
+        }
+      ]
+    },
+    {
+      "text": "Doing both ways is not enough to change what students believe. Seeing their own scores for each way helps, but mainly for students whose scores show the effect. Students whose scores do not show it change their minds when they also get an explanation. That is why Lesson 2 has both.",
+      "sources": [
+        {
+          "text": "Tullis, Finley & Benjamin 2013, Memory & Cognition",
+          "url": "https://doi.org/10.3758/s13421-012-0274-5"
+        },
+        {
+          "text": "Hui et al. 2021, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-021-09604-x"
+        },
+        {
+          "text": "Rivers 2023, Journal of Intelligence",
+          "url": "https://doi.org/10.3390/jintelligence11070147"
+        }
+      ]
+    },
+    {
+      "text": "Effort is easy to misread: students who found a way of studying harder judged it less effective and were less likely to choose it again.",
+      "sources": [
+        {
+          "text": "Kirk-Johnson, Galla & Fraundorf 2019, Cognitive Psychology",
+          "url": "https://doi.org/10.1016/j.cogpsych.2019.101237"
+        }
+      ]
+    },
+    {
+      "text": "What this experiment can do is show students the effect in their own scores and shift what they believe. No study has yet shown that a demonstration like this changes how teenagers study at home. Knowing how and when to test yourself made more of a difference than knowing why, so the lesson ends with a concrete plan.",
+      "sources": [
+        {
+          "text": "Ariel & Karpicke 2018, Journal of Experimental Psychology: Applied",
+          "url": "https://doi.org/10.1037/xap0000133"
+        },
+        {
+          "text": "McDaniel & Einstein 2020, Perspectives on Psychological Science",
+          "url": "https://doi.org/10.1177/1745691620920723"
+        }
+      ]
+    }
+  ],
+  "age_rules": [
+    {
+      "tool": "Copilot Chat",
+      "rule": "Students aged 13 and over, through the school's own Microsoft 365 Education account. The school's administrator must set each student's age group; under-13 accounts get no access."
+    },
+    {
+      "tool": "Gemini for Education",
+      "rule": "Open to education users of all ages, with stricter content rules and some features switched off for under-18s. The school's administrator must turn it on for students under 18."
+    },
+    {
+      "tool": "ChatGPT",
+      "rule": "Ages 13 and over (or the minimum age in your country) on personal accounts, with a parent's or guardian's permission under 18. Users under 18 are placed in ChatGPT for Teens. ChatGPT for Teachers is for verified U.S. K–12 school staff, not students."
+    },
+    {
+      "tool": "Claude",
+      "rule": "Ages 18 and over. Claude for Teachers is for verified U.S. K–12 teachers, not students."
+    }
+  ],
+  "age_rules_date": "November 2026"
+}
