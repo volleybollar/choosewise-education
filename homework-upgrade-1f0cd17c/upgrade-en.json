@@ -1,0 +1,550 @@
+{
+  "labels": {
+    "strong": {
+      "name": "Strong",
+      "definition": "Meta-analyses of classroom studies show that practising this way improves learning."
+    },
+    "promising": {
+      "name": "Promising",
+      "definition": "Controlled studies show gains, but results are mixed, small in number or dependent on context."
+    },
+    "choosewise": {
+      "name": "Choosewise",
+      "definition": "Our own rule, not a research finding."
+    }
+  },
+  "groups": [
+    {
+      "id": "reading",
+      "name": "Reading a text"
+    },
+    {
+      "id": "facts",
+      "name": "Facts and words"
+    },
+    {
+      "id": "problems",
+      "name": "Problems"
+    },
+    {
+      "id": "concepts",
+      "name": "Concepts and processes"
+    },
+    {
+      "id": "writing",
+      "name": "Writing"
+    },
+    {
+      "id": "marked",
+      "name": "Marked work"
+    },
+    {
+      "id": "new-topic",
+      "name": "A new topic"
+    }
+  ],
+  "patterns": [
+    {
+      "id": "read-close-write",
+      "number": 1,
+      "group": "reading",
+      "name": "Read, close, write",
+      "instead": "Read chapter 4.",
+      "steps": [
+        "Read the pages once.",
+        "Close the book and write down everything you remember, as notes or a mind map.",
+        "Open the book and add what you missed in another colour."
+      ],
+      "check": "Three questions on the main ideas of the text.",
+      "why": "Pulling ideas out of memory makes them stick better than reading again, and checking afterwards shows what you missed.",
+      "label": "strong",
+      "sources": [
+        {
+          "text": "Ruitenburg et al. 2026, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-026-10225-5"
+        },
+        {
+          "text": "Roediger & Karpicke 2006, Psychological Science",
+          "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+        }
+      ],
+      "tip": "After one reading most students remember only part of a text. For weaker readers, give the headings to recall from.",
+      "chatbot": "A chatbot can summarise the chapter, but then the student has remembered nothing, and the check shows it.",
+      "brief": "After reading the text once, students close the book and write down everything they remember, as notes or a mind map, then open the book and add what they missed in a different colour. If the text is long or hard, give them the headings to recall from."
+    },
+    {
+      "id": "answer-from-memory",
+      "number": 2,
+      "group": "reading",
+      "name": "Answer from memory first",
+      "instead": "Read the chapter and answer questions 1–6.",
+      "steps": [
+        "Read the pages once.",
+        "Close the book and answer every question from memory. Write what you know, even if you are unsure.",
+        "Open the book and correct and complete your answers in another colour."
+      ],
+      "check": "Three questions of the same kind, in new words.",
+      "why": "Trying first from memory shows you your gaps, and checking in the book fixes them while they are fresh.",
+      "label": "strong",
+      "sources": [
+        {
+          "text": "Agarwal et al. 2008, Applied Cognitive Psychology",
+          "url": "https://doi.org/10.1002/acp.1391"
+        },
+        {
+          "text": "Yang et al. 2021, Psychological Bulletin",
+          "url": "https://doi.org/10.1037/bul0000309"
+        }
+      ],
+      "tip": "The best first upgrade for “read and answer the questions”.",
+      "chatbot": "A chatbot can answer the questions in seconds. A student who copies the answers skips the remembering, and the check shows it.",
+      "brief": "Students read the text once, then close the book and answer the set questions from memory, writing what they know even when unsure, then open the book to check, correct and complete their answers in a different colour."
+    },
+    {
+      "id": "self-test-cards",
+      "number": 3,
+      "group": "facts",
+      "name": "Self-test cards",
+      "instead": "Learn these 20 words.",
+      "steps": [
+        "Write the word or question on one side of a card and the answer on the other.",
+        "Say the answer before you turn the card. Put the ones you miss back in the pile until you get each one right.",
+        "Next time, start with the cards you missed, then go through the ones you knew once more."
+      ],
+      "check": "Three of the words or facts, in a new order or the other way round.",
+      "why": "Saying the answer before you look is retrieval practice, and cards you miss keep coming back until you know them.",
+      "label": "strong",
+      "sources": [
+        {
+          "text": "Barenberg et al. 2021, Applied Cognitive Psychology",
+          "url": "https://doi.org/10.1002/acp.3796"
+        },
+        {
+          "text": "Karpicke & Roediger 2008, Science",
+          "url": "https://doi.org/10.1126/science.1152408"
+        }
+      ],
+      "tip": "Two or three short sessions on different days beat one long one.",
+      "chatbot": "A chatbot can make the cards, and that is fine. It cannot remember them for the student.",
+      "brief": "Students make cards with a word or question on one side and the answer on the other, say the answer before turning each card, and keep missed cards in the pile until each one is right. In the next session they start with the missed cards and go through the known ones once more. Spread the work over two or three short sessions rather than one."
+    },
+    {
+      "id": "bring-back",
+      "number": 4,
+      "group": "facts",
+      "name": "Bring back old ones",
+      "instead": "Homework only on this week's content.",
+      "steps": [
+        "Do this week's homework as usual.",
+        "Then answer three questions on something from two or three weeks ago, from memory.",
+        "Check them in your book or notes and correct them in another colour."
+      ],
+      "check": "One of the three questions is on the older content.",
+      "why": "Meeting older material again after a gap stops it from fading.",
+      "label": "strong",
+      "sources": [
+        {
+          "text": "Ruitenburg et al. 2026, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-026-10225-5"
+        },
+        {
+          "text": "Emeny, Hartwig & Rohrer 2021, Applied Cognitive Psychology",
+          "url": "https://doi.org/10.1002/acp.3814"
+        }
+      ],
+      "tip": "The gap matters more than its exact length. “Two or three weeks” is a rule of thumb.",
+      "chatbot": "A chatbot can answer old questions too, but the student only keeps what they recall themselves.",
+      "brief": "Keep this week's task but shorten it, to make room for three questions on content from two or three weeks ago. Students answer them from memory, then check them in the book or notes."
+    },
+    {
+      "id": "example-then-twin",
+      "number": 5,
+      "group": "problems",
+      "name": "Solved example, then a twin",
+      "instead": "Problems 1–20 after one example in class.",
+      "steps": [
+        "Study the solved example step by step.",
+        "Cover it and solve the twin problem on your own.",
+        "Uncover the example and compare. Fix any step you got wrong, then go on to the next pair."
+      ],
+      "check": "Two problems like the twins and one that is a little different.",
+      "why": "A solved example shows the method before you try it alone, and the twin problem shows whether it stuck.",
+      "label": "strong",
+      "sources": [
+        {
+          "text": "Barbieri et al. 2023, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-023-09745-1"
+        },
+        {
+          "text": "van Gog, Kester & Paas 2011, Contemporary Educational Psychology",
+          "url": "https://doi.org/10.1016/j.cedpsych.2010.10.004"
+        }
+      ],
+      "tip": "Strongest in maths and other step-by-step problems, for students still learning the method.",
+      "chatbot": "A chatbot can solve the twins. A student who copies them never tries the method, and the check shows it.",
+      "brief": "Replace part of the problem set with pairs: a fully solved example, then a similar problem students solve on their own with the example covered, then compare. Put the example first and the problem second, and do not ask students to explain every step."
+    },
+    {
+      "id": "mixed-set",
+      "number": 6,
+      "group": "problems",
+      "name": "Mixed set",
+      "instead": "A set of problems that are all the type just taught.",
+      "steps": [
+        "Before you solve each problem, write which method it needs.",
+        "Solve it.",
+        "Check your answers at the end and redo the ones you got wrong."
+      ],
+      "check": "Three problems of different types, in mixed order.",
+      "why": "Mixing problem types makes you decide which method fits, which is what tests ask you to do.",
+      "label": "promising",
+      "sources": [
+        {
+          "text": "Rohrer et al. 2020, Journal of Educational Psychology",
+          "url": "https://doi.org/10.1037/edu0000367"
+        }
+      ],
+      "tip": "Writing the method first is our addition. The research tested the mixing itself.",
+      "chatbot": "A chatbot can solve them all. A student who copies the answers never has to choose a method, and the mixed check shows it.",
+      "brief": "Replace a set of problems of only the type just taught with a shorter set that mixes this type with two or three types from earlier, in random order. For each problem, students first write which method it needs, then solve it, then check the answers at the end."
+    },
+    {
+      "id": "explain-it",
+      "number": 7,
+      "group": "concepts",
+      "name": "Explain it without notes",
+      "instead": "Summarise the chapter.",
+      "steps": [
+        "Close the book. Explain the main idea in writing for a younger student, or out loud to someone at home.",
+        "Open the book and mark what you left out or got wrong.",
+        "Fix your explanation in another colour."
+      ],
+      "check": "Explain one of the ideas in two or three sentences.",
+      "why": "Explaining in your own words shows where your understanding has holes.",
+      "label": "promising",
+      "sources": [
+        {
+          "text": "Kobayashi 2024, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-024-09871-4"
+        },
+        {
+          "text": "Ribosa & Duran 2022, Educational Research Review",
+          "url": "https://doi.org/10.1016/j.edurev.2022.100475"
+        }
+      ],
+      "tip": "Tell students before they study that they will explain it.",
+      "chatbot": "A chatbot writes clear explanations. If it writes this one, the student never finds their own gaps.",
+      "brief": "Students close the book and explain the main idea in their own words, in writing for a younger student or out loud to someone at home, then open the book, mark what they left out or got wrong, and fix the explanation in a different colour. Tell them when the homework is set that they will explain it."
+    },
+    {
+      "id": "ask-why",
+      "number": 8,
+      "group": "concepts",
+      "name": "Ask why",
+      "instead": "Learn these facts.",
+      "steps": [
+        "Take three facts from the lesson.",
+        "For each one, write from memory why it is true.",
+        "Check the reasons in the book and correct them in another colour."
+      ],
+      "check": "One of the facts and the question: why is it true?",
+      "why": "Linking a fact to a reason ties it to what you already know, so it is easier to remember.",
+      "label": "promising",
+      "sources": [
+        {
+          "text": "Donoghue & Hattie 2021, Frontiers in Education",
+          "url": "https://doi.org/10.3389/feduc.2021.581216"
+        },
+        {
+          "text": "Wood, Pressley & Winne 1990, Journal of Educational Psychology",
+          "url": "https://doi.org/10.1037/0022-0663.82.4.741"
+        }
+      ],
+      "tip": "Works best on facts students can reason about with what they already know.",
+      "chatbot": "A chatbot can give the reasons. A student who copies them has linked nothing to what they know.",
+      "brief": "Give students three to five key facts from the lesson. For each one, they write from memory why it is true, using what they already know, then check the reasons in the book and correct them in a different colour."
+    },
+    {
+      "id": "draw-it",
+      "number": 9,
+      "group": "concepts",
+      "name": "Draw it from memory",
+      "instead": "Copy the diagram into your book.",
+      "steps": [
+        "Close the book. Draw the process, structure or map from memory and label it.",
+        "Open the book and compare.",
+        "Correct it and add the missing parts in another colour."
+      ],
+      "check": "Draw or label a simple version of the diagram.",
+      "why": "Turning words into a labelled drawing makes you organise the ideas, and comparing with the book fixes mistakes.",
+      "label": "promising",
+      "sources": [
+        {
+          "text": "Schwamborn et al. 2010, Journal of Educational Psychology",
+          "url": "https://doi.org/10.1037/a0019640"
+        },
+        {
+          "text": "Leutner & Biele 2025, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-025-10067-7"
+        }
+      ],
+      "tip": "Keep the comparison with the book: that is the part the research supports.",
+      "chatbot": "A chatbot can make a diagram. Copying it is not remembering it, and the check shows it.",
+      "brief": "Students close the book and draw the process, structure or map from memory, with labels, then open the book, compare with its diagram and correct or add the missing parts in a different colour."
+    },
+    {
+      "id": "plan-at-home",
+      "number": 10,
+      "group": "writing",
+      "name": "Plan at home, write in class",
+      "instead": "Write the essay at home.",
+      "steps": [
+        "Write a plan by hand: your main point, the points that support it and the evidence for each. Start from memory.",
+        "Then check your sources and add to the plan.",
+        "Bring the plan. You write the text in class."
+      ],
+      "check": "Students write the opening of the text in class, from their plan.",
+      "why": "The thinking happens at home and the writing happens where you can see it. Planning before writing is known to improve writing.",
+      "label": "choosewise",
+      "sources": [
+        {
+          "text": "Graham & Perin 2007, Journal of Educational Psychology",
+          "url": "https://doi.org/10.1037/0022-0663.99.3.445"
+        }
+      ],
+      "tip": "No study tests this as a method. It is our rule for knowing who wrote what.",
+      "chatbot": "A chatbot can write a plan. A student who copies one will struggle to write from it in class.",
+      "brief": "Turn the homework into a written plan, by hand: the main point, the points that support it and the evidence for each, written from memory first and then checked against sources. The text itself is written in class."
+    },
+    {
+      "id": "fix-your-mistakes",
+      "number": 11,
+      "group": "marked",
+      "name": "Fix your mistakes",
+      "instead": "Look through your marked test.",
+      "steps": [
+        "Cover the corrections and redo every question you got wrong.",
+        "Check against the correct answer.",
+        "Try the ones that are still wrong again until you get them right."
+      ],
+      "check": "New versions of the two or three most common mistakes.",
+      "why": "Trying again before you look, then checking, turns a red mark into learning.",
+      "label": "strong",
+      "sources": [
+        {
+          "text": "Yang et al. 2021, Psychological Bulletin",
+          "url": "https://doi.org/10.1037/bul0000309"
+        },
+        {
+          "text": "Pashler et al. 2005, Journal of Experimental Psychology: Learning, Memory, and Cognition",
+          "url": "https://doi.org/10.1037/0278-7393.31.1.3"
+        }
+      ],
+      "tip": "Redoing the errors without looking is our way to apply the research on feedback.",
+      "chatbot": "A chatbot can give the right answers, but the learning comes from finding them yourself after a mistake.",
+      "brief": "Students redo the questions they got wrong on marked work, with the corrections covered, then check against the correct answers and try the ones that are still wrong again until they get them right."
+    },
+    {
+      "id": "guess-first",
+      "number": 12,
+      "group": "new-topic",
+      "name": "Guess first",
+      "instead": "Read ahead for the next lesson.",
+      "steps": [
+        "Answer five questions about the next lesson's topic before it is taught. Do not look anything up.",
+        "Guess when you do not know. Wrong guesses are fine.",
+        "Bring your answers. You will find out in the lesson."
+      ],
+      "check": "Go over the answers during the lesson, then ask two of the questions again at the end.",
+      "why": "Guessing before the lesson makes you notice the answers when they come. It helps mostly with those exact questions.",
+      "label": "promising",
+      "sources": [
+        {
+          "text": "St. Hilaire, Chan & Ahn 2024, Psychonomic Bulletin & Review",
+          "url": "https://doi.org/10.3758/s13423-023-02353-8"
+        },
+        {
+          "text": "Motz et al. 2026, Journal of Educational Psychology",
+          "url": "https://doi.org/10.1037/edu0000978"
+        }
+      ],
+      "tip": "Use it now and then, not every week. Some students give up on questions they cannot answer, so keep them short.",
+      "chatbot": "A chatbot can answer the questions, but then there is nothing to guess and nothing to notice.",
+      "brief": "Before the topic is taught, students answer five short questions about it without looking anything up, guessing when they do not know. The next lesson goes over the answers. Use it now and then, not every week."
+    }
+  ],
+  "example": {
+    "subject": "History",
+    "grade": 8,
+    "minutes": 20,
+    "pattern": "answer-from-memory",
+    "homework": [
+      "Read chapter 4, The Industrial Revolution in Britain, pages 62–71.",
+      "Answer questions 1–6 on page 72."
+    ],
+    "keep": "The six questions cover the right content, and question 6 makes students take a position and back it up.",
+    "upgrade": [
+      "Write the six questions on a sheet of paper, with space under each.",
+      "Read pages 62–71 once, without writing anything.",
+      "Close the book and put your notes away.",
+      "Answer all six questions from memory. If you are unsure, write what you know and add a question mark.",
+      "Open the book. In another colour, tick what is right, correct what is wrong and add what is missing. Do not rub out your first answers.",
+      "The next lesson starts with three questions on this, with books closed."
+    ],
+    "ai_risk": [
+      "A chatbot could answer questions 1–6 in under a minute.",
+      "A student who lets it write the first answers in the upgrade skips the remembering, and the three questions next lesson will show it."
+    ],
+    "check": [
+      {
+        "q": "Roughly when did the Industrial Revolution begin, and what did James Watt improve?",
+        "a": "In the second half of the 1700s. He improved the steam engine."
+      },
+      {
+        "q": "Describe two ways it changed people's lives: one from the factories and one from the railways.",
+        "a": "For example long hours and child labour in the factories; faster, cheaper travel and growing towns with the railways."
+      },
+      {
+        "q": "Someone says it could just as easily have started anywhere in Europe. Use one fact about Britain to show why that is wrong.",
+        "a": "For example: Britain had coal and iron close together, which gave cheap fuel and materials for machines."
+      }
+    ]
+  },
+  "check": {
+    "steps": [
+      "When you set the homework, tell students that the next lesson starts with three questions on it, with books closed.",
+      "Start the lesson with the three questions on the board. Books closed, answers on paper, about four minutes.",
+      "Go through the answers together. Students mark their own in another colour.",
+      "Ask for a show of hands on each question. If many missed the same one, go over it before you move on.",
+      "Now and then, make one of the three questions about something older."
+    ],
+    "why": "The check is not graded. In classroom studies, ungraded quizzes helped about as much as graded ones, and going through the answers made quizzes work better. The check is retrieval practice in its own right, and it shows you and each student what they can do alone.",
+    "detectors": "Skip AI detectors. They are unreliable, and they tend to flag plain, simple writing as AI, for example essays by students writing in a second language. The check tells you more."
+  },
+  "students": {
+    "intro": "Copy this for your students, or send it home. Change it to fit your class.",
+    "text": [
+      "From now on, some homework starts with the book closed. You write or answer from memory first, then open the book, check and fix what you missed in another colour.",
+      "It will feel harder than reading the chapter again, and you will get things wrong. That is the practice: what you pull out of your memory is what stays.",
+      "The next lesson starts with three short questions on the homework, with books closed. They are not graded. We go through the answers together, so that you and I can see what you can do on your own and what we need to go over again.",
+      "If a chatbot does the homework for you, you skip the practice, and the questions will show it."
+    ]
+  },
+  "evidence": [
+    {
+      "title": "Good homework is about thinking, not minutes.",
+      "text": "Homework is linked to higher achievement in secondary school. The EEF Toolkit estimates about five months' extra progress on average, but from a weak and mostly correlational evidence base. What matters is the quality of the task, a clear purpose and a link to the next lesson. Students who put real effort into homework gain more, while the time they spend predicts little on its own.",
+      "sources": [
+        {
+          "text": "Education Endowment Foundation, Teaching and Learning Toolkit: Homework",
+          "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/homework"
+        },
+        {
+          "text": "Trautwein et al. 2009, Contemporary Educational Psychology",
+          "url": "https://doi.org/10.1016/j.cedpsych.2008.09.001"
+        }
+      ]
+    },
+    {
+      "title": "Close the book first, then check.",
+      "text": "Answering from memory before you open the book shows you what you do not yet know, and checking straight after fixes it. In classroom studies, short quizzes followed by the right answers helped students learn more than quizzes alone. In a lab study, students who expected an open-book test studied less and later did worse on a closed-book one.",
+      "sources": [
+        {
+          "text": "Yang et al. 2021, Psychological Bulletin",
+          "url": "https://doi.org/10.1037/bul0000309"
+        },
+        {
+          "text": "Agarwal & Roediger 2011, Memory",
+          "url": "https://doi.org/10.1080/09658211.2011.613840"
+        }
+      ]
+    },
+    {
+      "title": "Why this matters when chatbots can do the homework.",
+      "text": "More than half of US teens have used a chatbot for schoolwork. In a study of nearly 1,000 high school maths students, those who practised with open access to GPT-4 later scored 17% lower on a test without it than students who never had access. No homework is AI-proof, but recalling from memory is something a chatbot cannot do for you. AI detectors are no way round this: they are unreliable, and they flag plain writing, such as essays by students writing in a second language.",
+      "sources": [
+        {
+          "text": "Pew Research Center 2026, How teens use and view AI",
+          "url": "https://www.pewresearch.org/internet/2026/02/24/how-teens-use-and-view-ai/"
+        },
+        {
+          "text": "Bastani et al. 2025, PNAS",
+          "url": "https://doi.org/10.1073/pnas.2422633122"
+        },
+        {
+          "text": "Weber-Wulff et al. 2023, International Journal for Educational Integrity",
+          "url": "https://doi.org/10.1007/s40979-023-00146-z"
+        },
+        {
+          "text": "Liang et al. 2023, Patterns",
+          "url": "https://doi.org/10.1016/j.patter.2023.100779"
+        }
+      ]
+    },
+    {
+      "title": "The four-minute check is what makes it count.",
+      "text": "A few closed-book questions at the start of the next lesson are retrieval practice in their own right. In classroom studies, quizzes given in class after teaching helped most, and ungraded quizzes worked about as well as graded ones. In a survey of 1,408 middle and high school students, 72% said regular quizzing made them less nervous before tests. Tell students about the check when you set the homework, and go over the answers together.",
+      "sources": [
+        {
+          "text": "Yang et al. 2021, Psychological Bulletin",
+          "url": "https://doi.org/10.1037/bul0000309"
+        },
+        {
+          "text": "Agarwal et al. 2014, Journal of Applied Research in Memory and Cognition",
+          "url": "https://doi.org/10.1016/j.jarmac.2014.07.002"
+        }
+      ]
+    },
+    {
+      "title": "In maths: mix, space and start from an example.",
+      "text": "When Grade 7 maths classes mixed different problem types in their practice, they scored 61% on a surprise test a month later, against 38% for classes that practised one type at a time. Spreading the same practice over three weeks also beat doing it in one go, and studying a solved example before solving a similar problem helps students who are still learning the method.",
+      "sources": [
+        {
+          "text": "Rohrer et al. 2020, Journal of Educational Psychology",
+          "url": "https://doi.org/10.1037/edu0000367"
+        },
+        {
+          "text": "Emeny, Hartwig & Rohrer 2021, Applied Cognitive Psychology",
+          "url": "https://doi.org/10.1002/acp.3814"
+        },
+        {
+          "text": "Barbieri et al. 2023, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-023-09745-1"
+        }
+      ]
+    },
+    {
+      "title": "It will feel harder, and that is the point.",
+      "text": "Students tend to prefer rereading: in one survey, 84% of students reread and only 11% tested themselves. Year 7 students who crammed their maths practice were overconfident about their test scores, while those who spread it out judged themselves fairly accurately. Upgraded homework feels slower, but the check in the next lesson shows students what they actually remember.",
+      "sources": [
+        {
+          "text": "Karpicke, Butler & Roediger 2009, Memory",
+          "url": "https://doi.org/10.1080/09658210802647009"
+        },
+        {
+          "text": "Emeny, Hartwig & Rohrer 2021, Applied Cognitive Psychology",
+          "url": "https://doi.org/10.1002/acp.3814"
+        }
+      ]
+    }
+  ],
+  "age_rules": [
+    {
+      "tool": "Copilot Chat",
+      "rule": "Students aged 13 and over, through the school's own Microsoft 365 Education account. The school's administrator must set each student's age group; under-13 accounts get no access."
+    },
+    {
+      "tool": "Gemini for Education",
+      "rule": "Open to education users of all ages, with stricter content rules and some features switched off for under-18s. The school's administrator must turn it on for students under 18."
+    },
+    {
+      "tool": "ChatGPT",
+      "rule": "Ages 13 and over (or the minimum age in your country) on personal accounts, with a parent's or guardian's permission under 18. Users under 18 are placed in ChatGPT for Teens. ChatGPT for Teachers is for verified U.S. K–12 school staff, not students."
+    },
+    {
+      "tool": "Claude",
+      "rule": "Ages 18 and over. Claude for Teachers is for verified U.S. K–12 teachers, not students."
+    }
+  ],
+  "age_rules_date": "November 2026"
+}
