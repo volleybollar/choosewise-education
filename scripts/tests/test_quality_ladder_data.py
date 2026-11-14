@@ -114,3 +114,17 @@ def test_banned_words():
         lowered = text.lower()
         for word in BANNED:
             assert word not in lowered, (word, text)
+
+
+def test_samples_are_about_the_same_length():
+    # Nivåerna ska skilja sig i innehåll, inte i längd (specen B4).
+    counts = [len(s["text"].split()) for s in data()["example"]["samples"]]
+    assert max(counts) <= 1.2 * min(counts), counts
+
+
+def test_example_has_no_grading_words():
+    # Exemplet visar kvalitet, inte betyg.
+    example = data()["example"]
+    for text in all_strings({"samples": example["samples"], "key": example["key"]}):
+        for word in ("grade", "score", "mark"):
+            assert word not in text.lower(), (word, text)

@@ -29,7 +29,7 @@
     "samples": [
       {
         "letter": "A",
-        "text": "One reason is that Britain had a lot of coal. Coal could power steam engines, so factories could run machines all day instead of waiting for a river to turn a water wheel. Another reason is that Britain had colonies. The colonies were very important for trade. Together these two things meant that Britain was ready to change how goods were made before other countries."
+        "text": "One reason is that Britain had a lot of coal. Coal could power steam engines, so factories no longer had to be built next to fast rivers to drive their machines. Another reason is that Britain had colonies. The colonies were very important for trade. Together these two things meant that Britain was ready to change how goods were made before other countries."
       },
       {
         "letter": "B",
@@ -37,7 +37,7 @@
       },
       {
         "letter": "C",
-        "text": "Britain had three advantages. First, it had large coalfields, and coal powered steam engines: Newcomen's engine (1712) was first used to pump water out of coal mines. Second, trade with its colonies brought in raw cotton, so factory owners wanted faster machines, like Arkwright's water frame (1769). Third, a growing population gave factories both workers and customers. Together, these made Britain the first to industrialise."
+        "text": "Britain had three advantages. First, it had large coalfields, and coal powered steam engines: Newcomen's engine (1712) was first used to pump water out of coal mines. Second, trade with its colonies brought in raw cotton, so cotton makers wanted faster spinning machines, like Arkwright's water frame (1769). Third, a growing population gave factories both workers and customers. Together, these made Britain the first to industrialise."
       }
     ],
     "key": [
@@ -63,10 +63,10 @@
   },
   "routine": {
     "steps": [
-      "Write your own answer to the task first, before you see any samples.",
+      "Write your own answer to the task first, before you see any samples. Use books and notes if the task allows.",
       "Read Samples A, B and C. On your own, rank them from strongest to weakest.",
       "With a partner, explain your ranking using the criteria: what does the strongest one do that the others do not?",
-      "Your teacher reveals the levels, shows a second strong answer that does the task in a different way (when there is one), and leads a short discussion.",
+      "Your teacher reveals the levels, shows a second strong answer that does the task in a different way (when there is one), and leads a short discussion with three questions.",
       "Decide which sample your own answer is closest to, and why.",
       "Make the one change that would lift your answer one level, and write your new version."
     ],
@@ -113,8 +113,8 @@
     "principles": [
       {
         "title": "Feedback is for the student's next step",
-        "text": "Feedback exists to move learning forward, not to show others that marking has happened.",
-        "source": "EEF 2021"
+        "text": "Feedback exists to move learning forward. The amount of feedback is not the same as its quality.",
+        "source": "DfE 2016"
       },
       {
         "title": "Teachers choose the method and how often",
@@ -123,17 +123,17 @@
       },
       {
         "title": "No marking for show",
-        "text": "No acknowledgement marking, no ticks on every page and no deep-marking trails in different colours.",
-        "source": "DfE 2016"
+        "text": "No acknowledgement marking and no deep-marking trails in different colour pens.",
+        "source": "DfE 2016; Elliott et al. 2016"
       },
       {
         "title": "Students act on feedback",
         "text": "Feedback is followed by time in a lesson to use it.",
-        "source": "EEF 2021"
+        "source": "Elliott et al. 2016"
       },
       {
         "title": "Not a grade on every piece",
-        "text": "Grades go on few pieces of work, so that students read the comments.",
+        "text": "Not every piece of work gets a grade, so that students read the comments.",
         "source": "Elliott et al. 2016"
       },
       {
@@ -159,12 +159,12 @@
       "[Review date]"
     ]
   },
-  "colleagues": "Bring one set of three samples to a department meeting. Each teacher places a few real answers next to them (weaker, similar or stronger), then you compare where you put them and why. In a writing study, rating texts against benchmark texts at different levels gave scores that agreed closely with other careful methods, although ratings bunched in the middle (Bouwer et al. 2023). One meeting gives the team a shared picture of what a strong answer looks like.",
+  "colleagues": "Bring one set of three samples to a department meeting. Each teacher places a few real answers next to them (weaker, similar or stronger), then you compare where you put them and why. In a writing study, rating texts against benchmark texts at different levels gave scores that agreed closely with comparative judgement, another careful method, although ratings bunched in the middle (Bouwer et al. 2023). One meeting can give the team a shared picture of what a strong answer looks like.",
   "evidence": [
     {
       "title": "Judging work against criteria helps students learn.",
       "label": "strong",
-      "text": "Students in Grades 3–12 who assessed their own or each other's work did better on later tests (0.34 for self-assessment, 0.29 for peer assessment; Sanchez et al. 2017). Across 54 control-group studies from primary school to university, peer assessment helped performance (0.31), also compared with teacher assessment alone (Double et al. 2020). In writing in Grades 1–8, feedback from students themselves and from peers helped, while teachers only monitoring progress did not (Graham et al. 2015). It works best with criteria and some training.",
+      "text": "Students in Grades 3–12 who assessed their own or each other's work did better on later tests, self-assessment slightly more than peer assessment (0.34 and 0.29; Sanchez et al. 2017). Across 54 control-group studies from primary school to university, peer assessment helped performance (0.31 overall, and 0.28 compared with teacher assessment alone; Double et al. 2020). In writing in Grades 1–8, feedback from adults helped most (0.87), then feedback from students themselves (0.62) and from peers (0.58), while teachers only monitoring progress did not help (Graham et al. 2015). It works best with criteria and some training.",
       "sources": [
         {
           "text": "Sanchez et al. 2017, Journal of Educational Psychology",
@@ -183,7 +183,7 @@
     {
       "title": "Clear criteria help, when they are about substance.",
       "label": "strong",
-      "text": "Rubrics improved academic performance across 21 studies in school and university (0.45 after correcting for publication bias; Panadero et al. 2023). In one Year 6 class, success criteria turned into a checklist that students ticked off (Eltringham et al. 2018). Criteria should describe what good thinking does, not features to count.",
+      "text": "Rubrics improved academic performance across 21 studies in school and university (0.45 after correcting for publication bias), more than they improved self-regulation (0.23) or self-efficacy (0.18) (Panadero et al. 2023). In one Year 6 class, success criteria turned into a checklist that students ticked off (Eltringham et al. 2018). Criteria should describe what good thinking does, not features to count.",
       "sources": [
         {
           "text": "Panadero et al. 2023, Educational Psychology Review",
@@ -198,7 +198,7 @@
     {
       "title": "Samples work best after a first draft and a discussion.",
       "label": "promising",
-      "text": "A review of 40 studies of exemplars found that students used them best when they wrote a draft first, then compared and improved it. All 40 studies were in higher education, and most had no control group (To et al. 2022). A teacher-led discussion of why each sample sits at its level raised understanding and results, while just handing out grade descriptors helped little (Hendry et al. 2012).",
+      "text": "A review of 40 studies of exemplars recommends that students write a draft first, then compare it with the samples and improve it. All 40 studies were in higher education, and most had no control group (To et al. 2022). Among university students, a teacher-led discussion of why each sample sits at its level raised understanding and results, while just handing out grade descriptors may have little or no benefit (Hendry et al. 2012).",
       "sources": [
         {
           "text": "To, Panadero & Carless 2022, Assessment & Evaluation in Higher Education",
@@ -213,7 +213,7 @@
     {
       "title": "AI-written model texts: one promising study, no test of three levels.",
       "label": "promising",
-      "text": "In a study with 104 high-school English learners, a ChatGPT-written model text improved writing as much as a teacher-written one, though students found its style less natural (Lu & Zeng 2025). No study has yet tested AI-written samples at three levels. That is why you read every sample before the lesson.",
+      "text": "In a study with 104 high-school English learners, a ChatGPT-written model text improved writing as much as a teacher-written one, though students worried that its style was unnatural (Lu & Zeng 2025). No study of AI-written samples at three levels was found. That is why you read every sample before the lesson.",
       "sources": [
         {
           "text": "Lu & Zeng 2025, Innovation in Language Learning and Teaching",
@@ -222,9 +222,9 @@
       ]
     },
     {
-      "title": "Whole-class feedback saves time. Its effect on learning is untested.",
+      "title": "Whole-class feedback saves time. Its effect on learning has not been tested in a controlled study.",
       "label": "framework",
-      "text": "In one English secondary school, reading all books and giving whole-class feedback cut a maths teacher's marking from about 3.5 to 1 hour a week. That is a worked estimate without attainment data (Jones & Essery 2018). The EEF finds that how feedback is delivered matters less than its principles, and warns that whole-class feedback can become too generic (EEF 2021). No controlled study of its effect on learning was found.",
+      "text": "In one English secondary school, reading all books and giving whole-class feedback cut a maths teacher's marking from about 3.5 to 1 hour a week. That is a worked estimate without attainment data (Jones & Essery 2018). The EEF judges that how feedback is delivered is likely to matter less than its principles, and warns that whole-class feedback can become too generic (EEF 2021). No controlled study of its effect on learning was found.",
       "sources": [
         {
           "text": "Jones & Essery 2018, Chartered College of Teaching",
@@ -263,7 +263,7 @@
     },
     {
       "risk": "The AI gets facts wrong or misjudges the age.",
-      "what_we_do": "Read all three samples before the lesson. Check the facts, the language for the age and the fit to your task, and cut or rewrite what does not fit."
+      "what_we_do": "Read all three samples before the lesson. Check the facts, the language for the age and the fit to your task, and cut or rewrite what does not fit (in one study, students found AI model texts unnatural in style; Lu & Zeng 2025)."
     }
   ],
   "age_rules": [
