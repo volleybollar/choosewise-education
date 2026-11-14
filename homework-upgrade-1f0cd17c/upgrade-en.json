@@ -96,7 +96,7 @@
           "url": "https://doi.org/10.1037/bul0000309"
         }
       ],
-      "tip": "The best first upgrade for “read and answer the questions”.",
+      "tip": "The best first upgrade for “read and answer the questions”. In a lab study, answering from memory gave only a small edge over answering with the book open a week later; the bigger gains are seeing your own gaps and being ready for the check.",
       "chatbot": "A chatbot can answer the questions in seconds. A student who copies the answers skips the remembering, and the check shows it.",
       "brief": "Students read the text once, then close the book and answer the set questions from memory, writing what they know even when unsure, then open the book to check, correct and complete their answers in a different colour."
     },
@@ -122,6 +122,10 @@
         {
           "text": "Karpicke & Roediger 2008, Science",
           "url": "https://doi.org/10.1126/science.1152408"
+        },
+        {
+          "text": "Bloom & Shuell 1981, Journal of Educational Research",
+          "url": "https://doi.org/10.1080/00220671.1981.10885317"
         }
       ],
       "tip": "Two or three short sessions on different days beat one long one.",
@@ -135,7 +139,7 @@
       "name": "Bring back old ones",
       "instead": "Homework only on this week's content.",
       "steps": [
-        "Do this week's homework as usual.",
+        "Do a shorter version of this week's homework.",
         "Then answer three questions on something from two or three weeks ago, from memory.",
         "Check them in your book or notes and correct them in another colour."
       ],
@@ -424,7 +428,7 @@
   "students": {
     "intro": "Copy this for your students, or send it home. Change it to fit your class.",
     "text": [
-      "From now on, some homework starts with the book closed. You write or answer from memory first, then open the book, check and fix what you missed in another colour.",
+      "From now on, some homework has a part you do with the book closed. You write or answer from memory first, then open the book, check and fix what you missed in another colour.",
       "It will feel harder than reading the chapter again, and you will get things wrong. That is the practice: what you pull out of your memory is what stays.",
       "The next lesson starts with three short questions on the homework, with books closed. They are not graded. We go through the answers together, so that you and I can see what you can do on your own and what we need to go over again.",
       "If a chatbot does the homework for you, you skip the practice, and the questions will show it."

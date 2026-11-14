@@ -31,7 +31,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SLUG = "homework-upgrade-1f0cd17c"
 
-# The legend lists the labels in this order (there is no Framework label here).
+# Teckenförklaringen listar etiketterna i den här ordningen (här finns ingen Framework-etikett).
 LABEL_ORDER = ("strong", "promising", "choosewise")
 
 

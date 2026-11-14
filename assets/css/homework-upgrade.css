@@ -6,7 +6,7 @@
 .hu-page .section__title { max-width: none; }
 
 /* ───── Exemplet i hero ───── */
-/* Samma ruta som korten, men alltid öppen. */
+/* Exempelrutan i hero (tm-example): alltid öppen. */
 .hu-hero-example { margin-top: var(--space-8); max-width: var(--content-max); }
 .hu-hero-example__title { margin: 0 0 var(--space-3); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
 
