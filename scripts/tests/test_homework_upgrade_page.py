@@ -351,8 +351,6 @@ def test_page_head():
             'three-question check for the next lesson.">') in page
     assert '<link rel="stylesheet" href="/assets/css/homework-upgrade.css?v=20261114a">' in page
     assert '<link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">' in page
-    # SEO-blocket (noindex) läggs in av build-seo-meta.py i uppgift 3, inte för hand här.
-    assert "seo:start" not in page
 
 
 def test_scripts_loaded():
