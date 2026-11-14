@@ -100,7 +100,8 @@
       <div class="tc-plan" id="tc-plan" hidden>
         <h3 class="tc-plan__heading" id="tc-plan-title"></h3>
         <p class="tc-plan__total" id="tc-plan-total"></p>
-        <ol class="tc-plan__list" id="tc-plan-list"></ol>
+        <!-- role="list": CSS tar bort punkterna, och då slutar Safari behandla den som en lista. -->
+        <ol class="tc-plan__list" id="tc-plan-list" role="list"></ol>
         <!-- Noterna under planen: "short on time" och "capped" är dolda och visas av
              scriptet när de gäller; "sensible" visas alltid. Byggs från JSON-filen. -->
 <!-- notes:start -->

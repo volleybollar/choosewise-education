@@ -33,7 +33,7 @@ def state(test, start, areas, minutes=20, days=None):
 
 
 # Varje fall: (indata, förväntade sessioner som (datum, slag, områden, tidigare, minuter), short, capped).
-# Planerna är beräknade med referensimplementationen i briefen och är auktoritativa.
+# Planerna följer reglerna i specen.
 CASES = {
     "A": (
         state("2026-11-20", "2026-11-09", [A, B, C], 20, [1, 2, 3, 4, 5]),
@@ -130,6 +130,19 @@ CASES = {
          ("2027-03-27", "mixed", [A], [], 20),
          ("2027-03-28", "practice", [A], [], 20),
          ("2027-03-29", "last", [A], [], 15)],
+        False, False),
+    # M: fem byggpass på sju byggdagar. Två av passen faller på index 1,5 och 4,5,
+    # mitt emellan två dagar: halvor avrundas uppåt, så de ligger på den tredje och
+    # sjätte lediga dagen (11-13 och 11-16), inte på den andra och femte.
+    "M": (
+        state("2026-11-20", "2026-11-11", [A, B, C, D]),
+        [("2026-11-11", "new", [A], [], 20),
+         ("2026-11-13", "new", [B], [A], 20),
+         ("2026-11-14", "new", [C], [A, B], 20),
+         ("2026-11-16", "new", [D], [A, B, C], 20),
+         ("2026-11-17", "mixed", [A, B, C, D], [], 20),
+         ("2026-11-18", "practice", [A, B, C, D], [], 20),
+         ("2026-11-19", "last", [A, B, C, D], [], 15)],
         False, False),
 }
 
@@ -242,6 +255,17 @@ def test_errors_in_order(page):
     assert err(start="", days=[]) == messages["start"]
     assert err(start="2026-11-25", days=[]) == messages["after"]
     assert err(days=[], start="2026-11-19") == messages["day"]
+
+
+def test_string_inputs_give_the_same_plan(page):
+    # Värden som kommer ur ett formulär är texter ("20", "1"). buildPlan gör om
+    # dem till tal, så att minuterna inte läggs ihop som text och veckodagarna
+    # hittas bland datumen.
+    given = CASES["A"][0]
+    as_text = dict(given, minutes=str(given["minutes"]), days=[str(d) for d in given["days"]])
+    assert build(page, as_text) == build(page, given)
+    assert build(page, as_text)["ok"] is True
+    assert [s["minutes"] for s in build(page, as_text)["sessions"]] == [20] * 5 + [15]
 
 
 @pytest.mark.parametrize("minutes", [15, 20, 30, 45])

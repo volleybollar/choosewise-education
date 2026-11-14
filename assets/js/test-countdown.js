@@ -125,6 +125,7 @@
   function buildDayIndexes(m, b) {
     var indexes = [];
     for (var i = 0; i < b; i++) {
+      /* Math.round avrundar halvor uppåt (1,5 blir 2): lika långt mellan två dagar tar den senare. */
       indexes.push(b === 1 ? 0 : Math.round(i * (m - 1) / (b - 1)));
     }
     return indexes;
@@ -190,7 +191,9 @@
     var start = parseDate(input.start);
     if (start === null) { return fail(MSG_NO_START); }
     if (test <= start) { return fail(MSG_NOT_AFTER); }
-    var days = input.days || [];
+    /* Dagarna kan komma som texter ("1") ur ett formulär: gör om dem till tal
+       så att de går att jämföra med isoWeekday. */
+    var days = (input.days || []).map(Number);
     if (days.length === 0) { return fail(MSG_NO_DAY); }
 
     /* Fönstret: från startdagen, dock högst 21 dagar före provet, till och med
@@ -205,7 +208,8 @@
     if (k === 0) { return fail(MSG_NO_STUDY_DAY); }
 
     var n = areas.length;
-    var minutes = input.minutes;
+    /* Minuterna kan också vara en text ("20"): som tal läggs de ihop rätt i planTotal. */
+    var minutes = Number(input.minutes);
     var lastMinutes = Math.min(minutes, LAST_EVENING_MINUTES);
     var sessions;
 
@@ -286,8 +290,8 @@
           label: 'Last evening',
           text: 'Quiz yourself again on what you missed, then one quick round of the most important ideas. Keep it short, then get a good night\'s sleep.'
         };
-      default:
-        /* 'single': den enda studiedagen före provet. */
+      case 'single':
+        /* Den enda studiedagen före provet. */
         return {
           label: 'Quiz',
           text: 'Quiz yourself on the most important ideas in ' + joinList(session.areas) + '. Check your notes, try the ones you missed again, and finish in time for your normal bedtime.'
@@ -382,10 +386,149 @@
 
   /* ---------- Kopplingen till sidan ---------- */
 
+  /* Dagens datum som YYYY-MM-DD, i webbläsarens lokala tid. Det är det enda
+     stället som använder lokal tid: ett datum "idag" är den dag eleven ser på
+     sin klocka, inte den dag det är i UTC. */
+  function todayLocal() {
+    var now = new Date();
+    return now.getFullYear() + '-' + pad2(now.getMonth() + 1) + '-' + pad2(now.getDate());
+  }
+
+  /* Ett element med klass och text. Texten sätts alltid med textContent, så
+     inget som eleven skrivit kan bli HTML. */
+  function make(tag, className, text) {
+    var node = document.createElement(tag);
+    if (className) { node.className = className; }
+    if (text !== undefined) { node.textContent = text; }
+    return node;
+  }
+
+  /* En rad i planen: datum, etikett och text, och sist minuterna (utom på
+     provdagen, som skickar null). Markuppen följer test-countdown.css. */
+  function makeRow(kind, date, label, text, minutes) {
+    var row = make('li', 'tc-row tc-row--' + kind);
+    row.appendChild(make('span', 'tc-row__date', formatDate(date)));
+    var main = make('div', 'tc-row__main');
+    main.appendChild(make('span', 'tc-row__label', label));
+    main.appendChild(make('p', 'tc-row__text', text));
+    row.appendChild(main);
+    if (minutes !== null) { row.appendChild(make('span', 'tc-row__minutes', minutes + ' min')); }
+    return row;
+  }
+
   /* Sidans formulär kopplas här. Finns inget #tc-form (filen läses in på en
      annan sida) görs ingenting alls. */
   function init() {
-    if (!document.getElementById('tc-form')) { return; }
+    var form = document.getElementById('tc-form');
+    if (!form) { return; }
+
+    var els = {
+      test: document.getElementById('tc-test'),
+      start: document.getElementById('tc-start'),
+      minutes: document.getElementById('tc-minutes'),
+      areas: document.getElementById('tc-areas'),
+      days: form.querySelectorAll('#tc-days input[name="day"]'),
+      hint: document.getElementById('tc-hint'),
+      plan: document.getElementById('tc-plan'),
+      title: document.getElementById('tc-plan-title'),
+      total: document.getElementById('tc-plan-total'),
+      list: document.getElementById('tc-plan-list'),
+      short: document.getElementById('tc-short'),
+      capped: document.getElementById('tc-capped'),
+      link: document.getElementById('tc-link'),
+      print: document.getElementById('tc-print')
+    };
+
+    /* Adressen skrivs bara om när eleven har ändrat något eller när sidan
+       öppnades med parametrar. En vanlig sidladdning lämnar adressen orörd. */
+    var opened = location.search !== '';
+    var edited = false;
+
+    /* Formuläret som indata till buildPlan och toQuery. Minuter och veckodagar
+       är tal, inte de texter fälten innehåller. */
+    function readState() {
+      var days = [];
+      Array.prototype.forEach.call(els.days, function (box) {
+        if (box.checked) { days.push(Number(box.value)); }
+      });
+      return {
+        test: els.test.value,
+        start: els.start.value,
+        minutes: Number(els.minutes.value),
+        areas: parseAreas(els.areas.value),
+        days: days
+      };
+    }
+
+    /* Länken i adressen fyller i formuläret. Det som saknas eller är ogiltigt
+       lämnas som det står i HTML:en (20 minuter, alla dagar ikryssade). */
+    function fillForm(saved) {
+      if (saved.test) { els.test.value = saved.test; }
+      if (saved.start) { els.start.value = saved.start; }
+      if (saved.minutes) { els.minutes.value = String(saved.minutes); }
+      if (saved.areas) { els.areas.value = saved.areas.join('\n'); }
+      if (saved.days) {
+        Array.prototype.forEach.call(els.days, function (box) {
+          box.checked = saved.days.indexOf(Number(box.value)) !== -1;
+        });
+      }
+    }
+
+    /* Rubrik, summering, noter och rader. Raderna byggs om varje gång. */
+    function showPlan(plan) {
+      els.title.textContent = planTitle(plan);
+      els.total.textContent = planTotal(plan);
+      els.short.hidden = !plan.short;
+      els.capped.hidden = !plan.capped;
+      var rows = document.createDocumentFragment();
+      plan.sessions.forEach(function (session) {
+        var shown = sessionText(session, plan);
+        rows.appendChild(makeRow(session.kind, session.date, shown.label, shown.text, session.minutes));
+      });
+      var test = testRow();
+      rows.appendChild(makeRow('test', plan.test, test.label, test.text, null));
+      els.list.textContent = '';
+      els.list.appendChild(rows);
+    }
+
+    /* Skriver formulärets läge i adressfältet utan att lägga till något i
+       historiken. Misslyckas det (Safari tillåter bara ett hundratal ändringar
+       på 30 sekunder, och snabb skrivning kan nå dit) ska planen ändå visas. */
+    function updateAddress(input) {
+      try {
+        history.replaceState(null, '', location.pathname + '?' + toQuery(input) + location.hash);
+      } catch (e) { /* adressen blir kvar som den var */ }
+    }
+
+    /* En omräkning: läs formuläret, bygg planen, visa den eller ledtråden,
+       uppdatera adressen och länkknappen och berätta för andra delar av sidan
+       (promptbyggaren lyssnar på tc:plan; detail är planen eller null). */
+    function replan() {
+      var input = readState();
+      var plan = buildPlan(input);
+      var message = plan.ok ? '' : plan.error;
+      /* Ledtråden är aria-live: skrivs samma text om läser en skärmläsare upp
+         den för varje tangenttryckning. Därför skrivs den bara när den ändras. */
+      if (els.hint.textContent !== message) { els.hint.textContent = message; }
+      els.plan.hidden = !plan.ok;
+      if (plan.ok) { showPlan(plan); }
+      if (edited || opened) { updateAddress(input); }
+      els.link.setAttribute('data-copy', location.href);
+      document.dispatchEvent(new CustomEvent('tc:plan', { detail: plan.ok ? plan : null }));
+    }
+
+    function onEdit() {
+      edited = true;
+      replan();
+    }
+
+    fillForm(fromQuery(location.search));
+    /* Tomt startdatum blir dagens datum. */
+    if (!els.start.value) { els.start.value = todayLocal(); }
+    form.addEventListener('input', onEdit);
+    form.addEventListener('change', onEdit);
+    els.print.addEventListener('click', function () { window.print(); });
+    replan();
   }
 
   document.addEventListener('DOMContentLoaded', init);
