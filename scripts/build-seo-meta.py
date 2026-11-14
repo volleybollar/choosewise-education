@@ -62,6 +62,8 @@ HIDDEN_PATHS = {
     "/unit-studio-541ebd12/",
     # Pedagogy Compass: bara för Skool-medlemmar via en dold länk (Johans beslut 2026-10-30).
     "/pedagogy-compass-59ecb8db/",
+    # Homework Upgrade: bara för Skool-medlemmar via en dold länk (Johans beslut 2026-11-14).
+    "/homework-upgrade-1f0cd17c/",
     # Community: dold tills Skool öppnar för alla (Johans beslut 2026-11-11).
     "/community/",
     # AI-lektioner för elever: bara för Skool-medlemmar via dolda länkar (Johans beslut 2026-11-11).
