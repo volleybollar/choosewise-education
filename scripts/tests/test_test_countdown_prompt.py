@@ -241,18 +241,31 @@ def test_prompt_short_plans(page):
 
 def test_prompt_grouped(page):
     # Fall E: fem områden på två byggpass. Kort plan, så båda grupperna är "de viktigaste idéerna".
+    # Ett pass med tre nya områden får tio frågor, ett med två får fem.
     got = prompt_for(page, CASE_E)
     lines = got.split("\n")
-    assert "Session 1: five questions on the most important ideas in A, B and C." in lines
+    assert "Session 1: ten questions on the most important ideas in A, B and C." in lines
     assert "Session 2: five questions on the most important ideas in D and E, and three on A, B and C." in lines
     assert "Session 3: a practice test of twelve questions on all areas, in the same format as the real test." in lines
     assert "The class has a test on these areas: A; B; C; D; E." in got
     assert got == spec_prompt(
         "The class has a test on these areas: A; B; C; D; E.",
-        ["Session 1: five questions on the most important ideas in A, B and C.",
+        ["Session 1: ten questions on the most important ideas in A, B and C.",
          "Session 2: five questions on the most important ideas in D and E, and three on A, B and C.",
          "Session 3: a practice test of twelve questions on all areas, in the same format as the real test."],
         CLOSE_PRACTICE)
+
+
+def test_prompt_many_new_areas_get_ten_questions(page):
+    # Två dagar och sex områden: kärnquizet tar alla sex i ett pass, och det får tio frågor.
+    six = state("2026-11-20", "2026-11-18", list("ABCDEF"))
+    got = prompt_for(page, six)
+    assert "Session 1: ten questions on the most important ideas in A, B, C, D, E and F." in got.split("\n")
+    assert got == spec_prompt(
+        "The class has a test on these areas: A; B; C; D; E; F.",
+        ["Session 1: ten questions on the most important ideas in A, B, C, D, E and F."], CLOSE_NO_PRACTICE)
+    # Två nya områden i ett pass ger fortfarande fem frågor (fall D).
+    assert "Session 1: five questions on the most important ideas in A and B." in prompt_for(page, CASE_D).split("\n")
 
 
 def test_language_default(page):

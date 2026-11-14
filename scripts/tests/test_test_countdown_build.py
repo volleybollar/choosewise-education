@@ -53,7 +53,7 @@ def test_render_escapes_text():
         "how_to": {"title": "T <i>", "steps": ["A <b>&</b>"]},
         "feels_harder": "F <u>",
         "why": {"title": "W <s>", "intro": "I <em>", "points": ["P <q>"]},
-        "short_note": "S <a>", "capped_note": "C <a>", "sensible": "N <a>",
+        "short_note": "S <a>", "capped_note": "C <a>", "past_note": "Pa <a>", "sensible": "N <a>",
         "share": "Sh <a>", "no_ai": "No <a>", "student_ai": "St <a>",
         "evidence": [{"text": "E <a>", "sources": [{"text": "X <a>", "url": 'https://x.test/?a=1&b="2"'}]}],
         "age_rules": [{"tool": "Tool <a>", "rule": "Rule <a>"}],
@@ -85,7 +85,7 @@ def test_build_fills_every_marker():
     assert escape(d["why"]["title"]) in why and escape(d["why"]["intro"]) in why
     for point in d["why"]["points"]:
         assert escape(point) in why, point
-    for key in ("short_note", "capped_note", "sensible"):
+    for key in ("short_note", "capped_note", "past_note", "sensible"):
         assert escape(d[key]) in make, key
     assert escape(d["share"]) in teachers
     assert escape(d["no_ai"]) in teachers
@@ -104,6 +104,7 @@ def test_notes_start_hidden():
     make = section("tc-make")
     assert re.search(r'<p[^>]*id="tc-short"[^>]*\bhidden\b', make)
     assert re.search(r'<p[^>]*id="tc-capped"[^>]*\bhidden\b', make)
+    assert re.search(r'<p[^>]*id="tc-past"[^>]*\bhidden\b', make)
     assert 'class="tc-sensible"' in make
 
 
@@ -185,6 +186,20 @@ def test_plan_container_and_buttons():
     assert plan.index('id="tc-short"') < plan.index('id="tc-link"')
 
 
+def test_status_region_is_outside_the_plan():
+    # Skärmläsarens meddelande om planen: en tom, visuellt dold aria-live-ruta i
+    # planerarsektionen men utanför #tc-plan, som är dold tills det finns en plan.
+    make = section("tc-make")
+    status = re.search(r'<p[^>]*id="tc-status"[^>]*>(.*?)</p>', make, re.S)
+    assert status, "tc-status"
+    tag = status.group(0)
+    assert re.search(r'class="visually-hidden"', tag) and re.search(r'aria-live="polite"', tag)
+    assert status.group(1) == ""
+    assert make.index('id="tc-status"') < make.index('id="tc-plan"')
+    # Rubriken i planerarsektionen är direkt barn till sektionen (utskriften döljer den).
+    assert re.search(r'<section[^>]*id="tc-make"[^>]*>\s*<h2 class="section__title">Make your plan</h2>', make)
+
+
 def test_builder_fields_and_defaults():
     teachers = section("tc-teachers")
     builder = re.search(r'id="tc-builder".*', teachers, re.S).group(0)
@@ -228,7 +243,7 @@ def test_head_hero_and_scripts():
     assert f'<meta property="og:description" content="{desc}">' in page
     assert 'content="https://choosewise.education/assets/images/brand/og/testcountdown-en.png"' in page
     assert '<link rel="canonical" href="https://choosewise.education/test-countdown/">' in page
-    assert "thinking-moves.css?v=20261029a" in page and "test-countdown.css?v=20261114a" in page
+    assert "thinking-moves.css?v=20261029a" in page and "test-countdown.css?v=20261114b" in page
     assert page.index("thinking-moves.css") < page.index("test-countdown.css")
     assert '<a class="tm-back" href="/study/">← Study + AI</a>' in page
     assert "Free study planner · Grades 7–12" in page and "<h1>Test Countdown</h1>" in page

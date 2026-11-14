@@ -73,8 +73,11 @@ def context(site, browser):
     ctx.close()
 
 
-def open_page(ctx, url):
+def open_page(ctx, url, now=None):
+    """Öppnar sidan. now = ett fast ögonblick (som "2026-11-14T10:00:00Z"): då är "idag" given."""
     p = ctx.new_page()
+    if now:
+        p.clock.set_fixed_time(now)
     # Alla fel i konsolen och alla oväntade undantag samlas; testerna som
     # öppnar gamla eller trasiga länkar kontrollerar att listan är tom.
     p.errors = []
@@ -138,6 +141,12 @@ def hint(page):
 
 def query_of(page):
     return urlparse(page.url).query
+
+
+# Länken till fall A öppnad efter respektive före första passet (mån 9 nov).
+NOW_AFTER_START = "2026-11-14T10:00:00Z"
+NOW_BEFORE_START = "2026-11-08T10:00:00Z"
+PAST_LINK_QUERY = "start=2026-11-09&test=2026-11-20&area=A"
 
 
 def local_today(zone):
@@ -274,6 +283,44 @@ def test_notes_toggle(page):
     assert page.is_visible(".tc-sensible")
 
 
+def test_past_note_shows_when_the_first_session_has_passed(context, base):
+    # Länken har startdag mån 9 nov, och planens första pass ligger då på den dagen.
+    # Öppnad 14 nov har det passet redan varit: noten visas.
+    page = open_page(context, base + "?" + PAST_LINK_QUERY, now=NOW_AFTER_START)
+    assert rows(page)[0]["date"] == "Mon 9 Nov"
+    assert page.is_visible("#tc-past")
+    assert page.inner_text("#tc-past") == ("Some of these sessions are already in the past. "
+                                           "To plan from today, set Start on to today.")
+    # Startdagen sätts till idag: första passet är idag, inget ligger bakåt, och noten försvinner.
+    page.fill("#tc-start", "2026-11-14")
+    assert rows(page)[0]["date"] == "Sat 14 Nov"
+    assert page.is_hidden("#tc-past")
+    # Sätts startdagen bakåt igen kommer noten tillbaka.
+    page.fill("#tc-start", "2026-11-12")
+    assert page.is_visible("#tc-past")
+    assert page.errors == []
+
+    # Öppnad 8 nov har inget pass hunnit gå.
+    early = open_page(context, base + "?" + PAST_LINK_QUERY, now=NOW_BEFORE_START)
+    assert early.is_visible("#tc-plan")
+    assert early.is_hidden("#tc-past")
+    assert early.errors == []
+
+
+def test_past_note_uses_the_local_date(browser, base):
+    # Passet 14 nov är idag (inte bakåt) hela dagen, även 00:30 i Stockholm när UTC fortfarande är 13 nov.
+    ctx = browser.new_context(timezone_id="Europe/Stockholm")
+    try:
+        page = open_page(ctx, base + "?start=2026-11-14&test=2026-11-20&area=A", now="2026-11-13T23:30:00Z")
+        assert page.input_value("#tc-start") == "2026-11-14"
+        assert page.is_hidden("#tc-past")
+        # Samma länk en dag senare: då har 14 nov gått.
+        late = open_page(ctx, base + "?start=2026-11-14&test=2026-11-20&area=A", now="2026-11-14T23:30:00Z")
+        assert late.is_visible("#tc-past")
+    finally:
+        ctx.close()
+
+
 def test_messages(page):
     fill_plan(page, CASE_A)
     assert page.is_visible("#tc-plan")
@@ -327,6 +374,56 @@ def test_hint_is_written_only_when_it_changes(page):
     assert page.evaluate("window.hintWrites") == 1
 
 
+def test_status_announces_the_plan(page):
+    # Skärmläsarens ruta bär planens rubrik; utan plan är den tom.
+    assert page.text_content("#tc-status") == ""
+    fill_plan(page, CASE_A)
+    title = "Your plan: 6 sessions before the test on Fri 20 Nov"
+    assert page.text_content("#tc-status") == title
+    assert page.text_content("#tc-status") == page.inner_text("#tc-plan-title")
+    # Rutan ligger utanför #tc-plan, så den läses upp även när planen byggs om.
+    assert page.evaluate("!document.getElementById('tc-plan').contains(document.getElementById('tc-status'))")
+    assert page.get_attribute("#tc-status", "aria-live") == "polite"
+    # En annan plan ger en annan rubrik, och utan plan töms rutan.
+    page.set_checked('#tc-days input[value="6"]', True)
+    page.set_checked('#tc-days input[value="7"]', True)
+    assert page.text_content("#tc-status") == "Your plan: 7 sessions before the test on Fri 20 Nov"
+    page.fill("#tc-areas", "")
+    assert page.text_content("#tc-status") == ""
+    assert page.errors == []
+
+
+def test_status_is_written_only_when_it_changes(page):
+    # Rutan är aria-live: samma rubrik skriven om och om igen läses upp varje gång.
+    fill_plan(page, CASE_A)
+    page.evaluate("""() => {
+        window.statusWrites = 0;
+        new MutationObserver(records => { window.statusWrites += records.length; })
+          .observe(document.getElementById('tc-status'), { childList: true, characterData: true, subtree: true });
+      }""")
+    # Minuterna ändrar planen men inte rubriken; samma plan igen, två gånger per ändring.
+    page.select_option("#tc-minutes", "30")
+    page.select_option("#tc-minutes", "20")
+    page.fill("#tc-areas", "\n".join(CASE_A["areas"]))
+    page.evaluate("""() => {
+        const form = document.getElementById('tc-form');
+        form.dispatchEvent(new Event('input', { bubbles: true }));
+        form.dispatchEvent(new Event('change', { bubbles: true }));
+      }""")
+    assert page.evaluate("window.statusWrites") == 0
+    assert page.text_content("#tc-status") == "Your plan: 6 sessions before the test on Fri 20 Nov"
+    # Lördagen ensam ändrar planen men inte rubriken (fortfarande sex pass): inget skrivs.
+    page.set_checked('#tc-days input[value="6"]', True)
+    assert page.evaluate("window.statusWrites") == 0
+    # Söndagen också ger sju pass: en ny rubrik skrivs, en gång.
+    page.set_checked('#tc-days input[value="7"]', True)
+    assert page.text_content("#tc-status") == "Your plan: 7 sessions before the test on Fri 20 Nov"
+    assert page.evaluate("window.statusWrites") == 1
+    # Samma rubrik igen (minuterna ändras): inget nytt skrivs.
+    page.select_option("#tc-minutes", "30")
+    assert page.evaluate("window.statusWrites") == 1
+
+
 def test_plan_event(context, base):
     # Task 5 lyssnar på tc:plan: planen när det finns en, annars null, och en
     # första gång redan vid laddningen.
@@ -369,6 +466,37 @@ def test_link_restores_plan(context, page):
     assert query_of(again) == CASE_A_QUERY
     assert again.get_attribute("#tc-link", "data-copy") == again.url
     assert again.errors == []
+
+
+def test_copy_link_is_built_from_the_form(page, base):
+    # Kopieringsadressen byggs av samma läge som planen, inte av location.href.
+    fill_plan(page, CASE_A)
+    expected = f"{base}?{CASE_A_QUERY}"
+    assert page.get_attribute("#tc-link", "data-copy") == expected
+    assert expected == base + "?" + page.evaluate("s => window.TestCountdown.toQuery(s)", CASE_A)
+    page.click("#tc-link")
+    assert page.evaluate("navigator.clipboard.readText()") == expected
+
+
+def test_copy_link_survives_a_refusing_history(page, base):
+    # Safari kan vägra replaceState efter en snabb följd av ändringar: planen och
+    # länken ska ändå stämma med formuläret, medan adressfältet står kvar som det var.
+    page.evaluate("() => { history.replaceState = () => { throw new Error('refused'); }; }")
+    fill_plan(page, CASE_A)
+    assert page.is_visible("#tc-plan")
+    assert rows(page)[0]["date"] == "Mon 9 Nov"
+    assert query_of(page) == ""
+    assert page.get_attribute("#tc-link", "data-copy") == f"{base}?{CASE_A_QUERY}"
+    # Nästa ändring ger en ny länk, fortfarande utan att adressfältet rörs.
+    page.select_option("#tc-minutes", "30")
+    assert page.get_attribute("#tc-link", "data-copy") == f"{base}?{CASE_A_QUERY.replace('min=20', 'min=30')}"
+    assert page.errors == []
+
+
+def test_copy_link_keeps_the_hash(context, base):
+    page = open_page(context, base + "?" + CASE_A_QUERY + "#tc-make")
+    assert page.get_attribute("#tc-link", "data-copy") == f"{base}?{CASE_A_QUERY}#tc-make"
+    assert page.errors == []
 
 
 def test_link_without_minutes_and_days_gets_the_defaults(context, base):
@@ -438,9 +566,27 @@ def test_print_button_prints(page):
 
 def test_print_view(page):
     fill_plan(page, CASE_A)
+    # På skärmen syns rubriken över formuläret; på papper ska den inte skrivas ut.
+    assert page.is_visible("#tc-make > .section__title")
     page.emulate_media(media="print")
     # Bara planen, hur man testar sig själv och varför ska skrivas ut.
-    for hidden in ("#tc-form", "#tc-teachers", "#tc-evidence", "#tc-age", "#tc-link", "#tc-print"):
+    for hidden in ("#tc-form", "#tc-teachers", "#tc-evidence", "#tc-age", "#tc-link", "#tc-print",
+                   "#tc-make > .section__title"):
         assert page.is_hidden(hidden), hidden
     for shown in ("#tc-plan", "#tc-howto", "#tc-why"):
         assert page.is_visible(shown), shown
+
+
+def test_print_hides_the_past_note_and_the_status(context, base):
+    # Dagens datum är fast: planen har pass som redan varit, så noten syns på skärmen
+    # men ska inte skrivas ut. Skärmläsarens ruta är aldrig till för papper.
+    page = open_page(context, base + "?" + CASE_A_QUERY, now=NOW_AFTER_START)
+    assert page.is_visible("#tc-past")
+    display = lambda sel: page.evaluate("s => getComputedStyle(document.querySelector(s)).display", sel)
+    assert display("#tc-status") != "none"
+    page.emulate_media(media="print")
+    assert page.is_hidden("#tc-past")
+    assert display("#tc-past") == "none"
+    assert display("#tc-status") == "none"
+    assert page.is_visible("#tc-plan")
+    assert page.errors == []

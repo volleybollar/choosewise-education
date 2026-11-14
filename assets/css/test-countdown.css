@@ -74,9 +74,12 @@
 
 /* ───── Utskrift: bara planen, hur man testar sig och varför ───── */
 @media print {
-  /* .nav: include.js ersätter data-include-diven med sajtens <nav class="nav">. */
+  /* .nav: include.js ersätter data-include-diven med sajtens <nav class="nav">.
+     Rubriken "Make your plan" hör till formuläret, noten om pass som redan varit
+     gäller skärmen, och statusraden är bara till för skärmläsare. */
   [data-include], .nav, header, footer, .page-hero, #tc-form, #tc-hint, .tm-privacy,
-  .tm-copy-row, .tc-bookmark, #tc-teachers, #tc-evidence, #tc-age, #tc-next { display: none !important; }
+  .tm-copy-row, .tc-bookmark, #tc-teachers, #tc-evidence, #tc-age, #tc-next,
+  #tc-make > .section__title, #tc-past, #tc-status { display: none !important; }
   /* Planen, "How to quiz yourself" och "Why the plan looks like this" skrivs ut
      (de döljs inte ovan). Mindre luft mellan avsnitten på papper. */
   .tc-page .section { padding-block: var(--space-4); }

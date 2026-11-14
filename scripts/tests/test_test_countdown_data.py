@@ -49,12 +49,39 @@ def test_why_has_five_points():
 
 def test_notes():
     d = data()
-    for key in ("short_note", "share", "no_ai", "student_ai"):
+    for key in ("short_note", "past_note", "share", "no_ai", "student_ai"):
         assert d[key].strip(), key
     # Planen börjar högst tre veckor före provet, och noten säger det.
     assert "three weeks" in d["capped_note"]
     # Elev-AI nämns bara för elever från 13 år.
     assert "13" in d["student_ai"]
+
+
+def test_final_review_wording():
+    # Ordalydelserna som slutgranskningen fastställde, ordagrant ur briefen.
+    d = data()
+    assert d["feels_harder"].endswith(
+        "The next quiz, a few days later, is where you will see the difference.")
+    assert "Your practice test is where" not in d["feels_harder"]
+    # Sensible-noten nämner inte längre "three weeks": den bara beskriver reglerna.
+    assert d["sensible"].startswith(
+        "This is a sensible plan, not a perfect one: the practice test near the end and the session lengths "
+        "are rules of thumb, not research findings.")
+    assert "three weeks" not in d["sensible"]
+    assert d["sensible"].endswith(
+        "Move a session if you need to, but keep the sessions on different days and keep testing yourself.")
+    points = d["why"]["points"]
+    assert points[3] == ("A practice test near the end. There is still time to fix what you got wrong, "
+                         "and nothing new is crammed in at the last minute.")
+    assert points[4] == ("A short last session and a normal bedtime. Sleep helps you keep what you have studied, "
+                         "and students who give up sleep to study more than usual are more likely to struggle "
+                         "in class or on a test the next day.")
+    assert d["past_note"] == ("Some of these sessions are already in the past. "
+                              "To plan from today, set Start on to today.")
+    assert ("Students who open it later can set Start on to today, and anyone can untick days to fit "
+            "their own week.") in d["share"]
+    first = d["evidence"][0]["text"]
+    assert "by a reliable margin" in first and "clear margin" not in first
 
 
 def test_every_source_https():

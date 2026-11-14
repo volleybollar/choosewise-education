@@ -8,8 +8,8 @@
       "Next session, start with what you missed last time."
     ]
   },
-  "feels_harder": "These sessions will feel harder than reading your notes again, and you will get things wrong. That does not mean they are working worse. Notes you have just read feel familiar, and familiar feels like knowing, but on the test the notes are gone. Your practice test is where you will see the difference.",
-  "sensible": "This is a sensible plan, not a perfect one: the three weeks, the practice test two days before and the session lengths are rules of thumb, not research findings. The plan assumes each area has already been taught; if one has not, learn it in class or from your book before its first quiz. Move a session if you need to, but keep testing yourself and checking.",
+  "feels_harder": "These sessions will feel harder than reading your notes again, and you will get things wrong. That does not mean they are working worse. Notes you have just read feel familiar, and familiar feels like knowing, but on the test the notes are gone. The next quiz, a few days later, is where you will see the difference.",
+  "sensible": "This is a sensible plan, not a perfect one: the practice test near the end and the session lengths are rules of thumb, not research findings. The plan assumes each area has already been taught; if one has not, learn it in class or from your book before its first quiz. Move a session if you need to, but keep the sessions on different days and keep testing yourself.",
   "why": {
     "title": "Why the plan looks like this",
     "intro": "For students, and for parents who wonder why the evenings before a test look different.",
@@ -17,18 +17,19 @@
       "Short sessions on different days. What you study on several days stays with you longer than the same time spent in one long evening.",
       "Every session starts with a quiz, not with reading. Pulling something out of your memory, and then checking it, makes it easier to find on the test than reading it again.",
       "Earlier areas come back. Each session brings back what you practised before, so every area is tested again after a gap and nothing is left until the end.",
-      "A practice test two days before. There is still an evening left to fix what you got wrong, and nothing new is crammed in at the last minute.",
-      "A short last evening and a normal bedtime. Sleep helps you keep what you have studied, and students who give up sleep to study have more trouble on the next day's test."
+      "A practice test near the end. There is still time to fix what you got wrong, and nothing new is crammed in at the last minute.",
+      "A short last session and a normal bedtime. Sleep helps you keep what you have studied, and students who give up sleep to study more than usual are more likely to struggle in class or on a test the next day."
     ]
   },
   "short_note": "You have only a few study days, so the plan is short and goes straight to the most important ideas. A few short sessions still beat one long evening, but less time means less will stay with you after the test. Next time, start a week or two earlier.",
   "capped_note": "Your test is more than three weeks away, so the plan starts three weeks before it. Until then, keep up with your lessons and quiz yourself now and then on what you have just learned.",
-  "share": "To give the whole class the same plan, fill in the planner with the test date and the areas, then copy the link and post it where your students will find it. Everyone who opens it sees the same plan, and students can untick days to fit their own week. You can also print it. The link holds only what is in the form.",
+  "past_note": "Some of these sessions are already in the past. To plan from today, set Start on to today.",
+  "share": "To give the whole class the same plan, fill in the planner with the test date and the areas, then copy the link and post it where your students will find it. Everyone who opens it sees the same plan. Students who open it later can set Start on to today, and anyone can untick days to fit their own week. You can also print it. The link holds only what is in the form.",
   "no_ai": "No AI? Use the questions at the end of each chapter, an old test or flashcards. Or let students write down everything they remember about each area and check it against their notes: that works on its own.",
   "student_ai": "Students aged 13 and over who want an AI to quiz them, and whose school allows it, can use the student prompt in",
   "evidence": [
     {
-      "text": "Spreading your study over several days beats doing it all the night before. In real school classrooms, spaced practice beat cramming by a clear margin, about as large as the gain from testing yourself instead of reading again (Ruitenburg et al. 2026). In a study with university students and a test ten days away, a gap of one day between sessions already gave most of the benefit, and gaps of up to a week did about as well (Cepeda et al. 2009). That is why the plan spreads the sessions out but does not need exact gaps.",
+      "text": "Spreading your study over several days beats doing it all the night before. In real school classrooms, spaced practice beat cramming by a reliable margin, about as large as the gain from testing yourself instead of reading again (Ruitenburg et al. 2026). In a study with university students and a test ten days away, a gap of one day between sessions already gave most of the benefit, and gaps of up to a week did about as well (Cepeda et al. 2009). That is why the plan spreads the sessions out but does not need exact gaps.",
       "sources": [
         {
           "text": "Ruitenburg et al. 2026, Educational Psychology Review",

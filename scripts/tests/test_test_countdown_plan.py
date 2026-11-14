@@ -419,6 +419,40 @@ def test_session_texts(page):
     assert call(page, "testRow") == {"label": "Test", "text": "Test day. You have practised for it."}
 
 
+def test_last_label_follows_the_date(page):
+    # "Last evening" bara när passet ligger dagen före provet; annars "Last session".
+    # Texterna är desamma i båda fallen.
+    def last_of(given):
+        plan = build(page, given)
+        assert plan["ok"] is True, plan
+        last = plan["sessions"][-1]
+        assert last["kind"] == "last"
+        return last["date"], plan["test"], call(page, "sessionText", last, plan)
+
+    # A: sista passet torsdag 19 nov, provet fredag 20 nov.
+    date, test, shown = last_of(CASES["A"][0])
+    assert (date, test, shown["label"]) == ("2026-11-19", "2026-11-20", "Last evening")
+    assert shown["text"] == ("Only what you got wrong on the practice test. "
+                             "Keep it short, then get a good night's sleep.")
+
+    # H: bara lördagar är tickade, så sista passet ligger lör 14 nov, sex dagar före provet.
+    date, test, shown = last_of(CASES["H"][0])
+    assert (date, test, shown["label"]) == ("2026-11-14", "2026-11-20", "Last session")
+    assert shown["text"] == ("Quiz yourself again on what you missed, then one quick round of the most "
+                             "important ideas. Keep it short, then get a good night's sleep.")
+
+    # Måndagsprov utan helger: sista passet ligger på fredagen, tre dagar före provet.
+    monday = state("2026-11-23", "2026-11-16", [A], 20, [1, 2, 3, 4, 5])
+    date, test, shown = last_of(monday)
+    assert (date, test, shown["label"]) == ("2026-11-20", "2026-11-23", "Last session")
+    assert shown["text"] == ("Only what you got wrong on the practice test. "
+                             "Keep it short, then get a good night's sleep.")
+
+    # Gränsen över månadsskiftet: sista passet 31 jan, provet 1 feb är "Last evening".
+    date, test, shown = last_of(state("2027-02-01", "2027-01-28", [A]))
+    assert (date, test, shown["label"]) == ("2027-01-31", "2027-02-01", "Last evening")
+
+
 def test_session_text_is_plain_text(page):
     # Områdesnamn sätts in som text. Sidan sätter dem med textContent, så här
     # får tecknen passera orörda: ingen escapning i JavaScript.

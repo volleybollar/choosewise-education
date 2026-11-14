@@ -4,7 +4,7 @@
 Ersätter innehållet mellan de här markörparen i test-countdown/index.html:
   <!-- howto:start -->    / <!-- howto:end -->     "How to quiz yourself": rubrik, fyra steg och noten om att det känns svårare
   <!-- why:start -->      / <!-- why:end -->       "Why the plan looks like this": rubrik, ingress och fem punkter
-  <!-- notes:start -->    / <!-- notes:end -->     noterna i planen: kort tid (dold), långt avstånd (dold) och "sensible"
+  <!-- notes:start -->    / <!-- notes:end -->     noterna i planen: kort tid, långt avstånd och pass som redan varit (alla tre dolda) och "sensible"
   <!-- share:start -->    / <!-- share:end -->     läraren: hur man delar planen med klassen
   <!-- noai:start -->     / <!-- noai:end -->      läraren: vägen utan AI
   <!-- evidence:start --> / <!-- evidence:end -->  forskningen, med källlänkar
@@ -57,10 +57,11 @@ def render_why(data: dict) -> str:
 
 
 def render_notes(data: dict) -> str:
-    """Noterna i planen. De två första är dolda; test-countdown.js visar rätt not när planen byggs."""
+    """Noterna i planen. De tre första är dolda; test-countdown.js visar rätt not när planen byggs."""
     return (
         f'<p class="tm-note" id="tc-short" hidden>{escape(data["short_note"])}</p>\n'
         f'<p class="tm-note" id="tc-capped" hidden>{escape(data["capped_note"])}</p>\n'
+        f'<p class="tm-note" id="tc-past" hidden>{escape(data["past_note"])}</p>\n'
         f'<p class="tc-sensible">{escape(data["sensible"])}</p>'
     )
 

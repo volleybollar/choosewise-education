@@ -16,7 +16,7 @@
   <!-- Delade stilar för verktygssidorna (formulär, etiketter, anteckningar,
        prefix tm-), och sedan det som är nytt för Test Countdown (prefix tc-). -->
   <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
-  <link rel="stylesheet" href="/assets/css/test-countdown.css?v=20261114a">
+  <link rel="stylesheet" href="/assets/css/test-countdown.css?v=20261114b">
 <!-- seo:start (build-seo-meta.py) -->
 <link rel="canonical" href="https://choosewise.education/test-countdown/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -95,6 +95,10 @@
       <!-- Ledtråden: säger vad som saknas så länge det inte går att göra en plan.
            aria-live gör att skärmläsare läser upp den när den ändras. -->
       <p class="tm-hint" id="tc-hint" aria-live="polite">Pick your test date to see your plan.</p>
+      <!-- Skärmläsarens meddelande: planen ligger i en ruta som är dold tills den finns,
+           så den rutan kan inte tala om att en plan har dykt upp. Den här är alltid
+           med (visuellt dold, utanför #tc-plan) och scriptet skriver planens rubrik i den. -->
+      <p class="visually-hidden" id="tc-status" aria-live="polite"></p>
       <!-- Planen. Dold tills det finns en plan att visa; test-countdown.js fyller
            rubriken, summeringen och raderna och visar rutan. -->
       <div class="tc-plan" id="tc-plan" hidden>
@@ -102,12 +106,13 @@
         <p class="tc-plan__total" id="tc-plan-total"></p>
         <!-- role="list": CSS tar bort punkterna, och då slutar Safari behandla den som en lista. -->
         <ol class="tc-plan__list" id="tc-plan-list" role="list"></ol>
-        <!-- Noterna under planen: "short on time" och "capped" är dolda och visas av
-             scriptet när de gäller; "sensible" visas alltid. Byggs från JSON-filen. -->
+        <!-- Noterna under planen: "short on time", "capped" och "past" är dolda och
+             visas av scriptet när de gäller; "sensible" visas alltid. Byggs från JSON-filen. -->
 <!-- notes:start -->
 <p class="tm-note" id="tc-short" hidden>You have only a few study days, so the plan is short and goes straight to the most important ideas. A few short sessions still beat one long evening, but less time means less will stay with you after the test. Next time, start a week or two earlier.</p>
 <p class="tm-note" id="tc-capped" hidden>Your test is more than three weeks away, so the plan starts three weeks before it. Until then, keep up with your lessons and quiz yourself now and then on what you have just learned.</p>
-<p class="tc-sensible">This is a sensible plan, not a perfect one: the three weeks, the practice test two days before and the session lengths are rules of thumb, not research findings. The plan assumes each area has already been taught; if one has not, learn it in class or from your book before its first quiz. Move a session if you need to, but keep testing yourself and checking.</p>
+<p class="tm-note" id="tc-past" hidden>Some of these sessions are already in the past. To plan from today, set Start on to today.</p>
+<p class="tc-sensible">This is a sensible plan, not a perfect one: the practice test near the end and the session lengths are rules of thumb, not research findings. The plan assumes each area has already been taught; if one has not, learn it in class or from your book before its first quiz. Move a session if you need to, but keep the sessions on different days and keep testing yourself.</p>
 <!-- notes:end -->
         <!-- Länken är planen: adressen innehåller allt formuläret fyllts i med,
              så "Copy link" kopierar adressen (data-copy sätts av test-countdown.js). -->
@@ -127,7 +132,7 @@
 <!-- howto:start -->
 <h2 class="section__title">How to quiz yourself</h2>
 <ol class="tc-list"><li>Close your book and put your notes away.</li><li>Write down everything you remember about the area, or answer questions: the ones at the end of the chapter, flashcards, an old test or a quiz from your teacher.</li><li>Open your notes and check. Try the ones you missed again, with your notes closed, until you get each one right once.</li><li>Next session, start with what you missed last time.</li></ol>
-<p class="tm-note">These sessions will feel harder than reading your notes again, and you will get things wrong. That does not mean they are working worse. Notes you have just read feel familiar, and familiar feels like knowing, but on the test the notes are gone. Your practice test is where you will see the difference.</p>
+<p class="tm-note">These sessions will feel harder than reading your notes again, and you will get things wrong. That does not mean they are working worse. Notes you have just read feel familiar, and familiar feels like knowing, but on the test the notes are gone. The next quiz, a few days later, is where you will see the difference.</p>
 <!-- howto:end -->
       </div>
     </section>
@@ -138,7 +143,7 @@
 <!-- why:start -->
 <h2 class="section__title">Why the plan looks like this</h2>
 <p class="section__lede">For students, and for parents who wonder why the evenings before a test look different.</p>
-<ul class="tc-list"><li>Short sessions on different days. What you study on several days stays with you longer than the same time spent in one long evening.</li><li>Every session starts with a quiz, not with reading. Pulling something out of your memory, and then checking it, makes it easier to find on the test than reading it again.</li><li>Earlier areas come back. Each session brings back what you practised before, so every area is tested again after a gap and nothing is left until the end.</li><li>A practice test two days before. There is still an evening left to fix what you got wrong, and nothing new is crammed in at the last minute.</li><li>A short last evening and a normal bedtime. Sleep helps you keep what you have studied, and students who give up sleep to study have more trouble on the next day&#x27;s test.</li></ul>
+<ul class="tc-list"><li>Short sessions on different days. What you study on several days stays with you longer than the same time spent in one long evening.</li><li>Every session starts with a quiz, not with reading. Pulling something out of your memory, and then checking it, makes it easier to find on the test than reading it again.</li><li>Earlier areas come back. Each session brings back what you practised before, so every area is tested again after a gap and nothing is left until the end.</li><li>A practice test near the end. There is still time to fix what you got wrong, and nothing new is crammed in at the last minute.</li><li>A short last session and a normal bedtime. Sleep helps you keep what you have studied, and students who give up sleep to study more than usual are more likely to struggle in class or on a test the next day.</li></ul>
 <!-- why:end -->
     </section>
 
@@ -149,7 +154,7 @@
       <div class="container">
         <h2 class="section__title">For teachers</h2>
 <!-- share:start -->
-<p>To give the whole class the same plan, fill in the planner with the test date and the areas, then copy the link and post it where your students will find it. Everyone who opens it sees the same plan, and students can untick days to fit their own week. You can also print it. The link holds only what is in the form.</p>
+<p>To give the whole class the same plan, fill in the planner with the test date and the areas, then copy the link and post it where your students will find it. Everyone who opens it sees the same plan. Students who open it later can set Start on to today, and anyone can untick days to fit their own week. You can also print it. The link holds only what is in the form.</p>
 <!-- share:end -->
         <h3 class="tc-subtitle">Make the quizzes with AI</h3>
         <div id="tc-builder">
@@ -200,7 +205,7 @@
     <section class="section container" id="tc-evidence">
       <h2 class="section__title">What the research says</h2>
 <!-- evidence:start -->
-<p class="tc-evidence__item">Spreading your study over several days beats doing it all the night before. In real school classrooms, spaced practice beat cramming by a clear margin, about as large as the gain from testing yourself instead of reading again (Ruitenburg et al. 2026). In a study with university students and a test ten days away, a gap of one day between sessions already gave most of the benefit, and gaps of up to a week did about as well (Cepeda et al. 2009). That is why the plan spreads the sessions out but does not need exact gaps. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1007/s10648-026-10225-5">Ruitenburg et al. 2026, Educational Psychology Review</a>, <a href="https://doi.org/10.1027/1618-3169.56.4.236">Cepeda et al. 2009, Experimental Psychology</a></span></p>
+<p class="tc-evidence__item">Spreading your study over several days beats doing it all the night before. In real school classrooms, spaced practice beat cramming by a reliable margin, about as large as the gain from testing yourself instead of reading again (Ruitenburg et al. 2026). In a study with university students and a test ten days away, a gap of one day between sessions already gave most of the benefit, and gaps of up to a week did about as well (Cepeda et al. 2009). That is why the plan spreads the sessions out but does not need exact gaps. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1007/s10648-026-10225-5">Ruitenburg et al. 2026, Educational Psychology Review</a>, <a href="https://doi.org/10.1027/1618-3169.56.4.236">Cepeda et al. 2009, Experimental Psychology</a></span></p>
 <p class="tc-evidence__item">Every session starts by testing yourself and then checking. In real school classrooms, quizzes followed by the right answers helped more than quizzes alone (Yang et al. 2021). Even a wrong attempt helps, as long as you study the answer straight after (Kornell, Hays &amp; Bjork 2009). <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1037/bul0000309">Yang et al. 2021, Psychological Bulletin</a>, <a href="https://doi.org/10.1037/a0015729">Kornell, Hays &amp; Bjork 2009, Journal of Experimental Psychology: Learning, Memory, and Cognition</a></span></p>
 <p class="tc-evidence__item">Each session brings back the areas you have already practised, so every area is tested again after a gap. When university students quizzed themselves on the same ideas in several spaced sessions, their course exam scores rose by at least 10% (Janes et al. 2020) and they remembered more at the end of the semester (Higham et al. 2022). Most of this research is with older students, but it builds on testing yourself and spacing, which both help in school classrooms. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1002/acp.3699">Janes et al. 2020, Applied Cognitive Psychology</a>, <a href="https://doi.org/10.1037/edu0000693">Higham et al. 2022, Journal of Educational Psychology</a></span></p>
 <p class="tc-evidence__item">Spacing and testing yourself feel slower than reading again, so many students think they are doing worse. In one study with university students, spacing worked better for 90% of them, yet most of those who noticed a difference (72%) believed cramming had worked better (Kornell 2009). A test after a gap is where the difference shows, which is why the plan has a practice test. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1002/acp.1537">Kornell 2009, Applied Cognitive Psychology</a></span></p>

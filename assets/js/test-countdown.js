@@ -247,9 +247,10 @@
 
   /* Raden för ett pass: { label, text }. Texterna är fastställda ordagrant i
      specen. Områdena sätts in som ren text; sidan sätter dem med textContent.
-     Planen behövs för tre saker: kort plan ger "the most important ideas",
-     ett enda område ger andra formuleringar, och sista kvällen säger olika
-     saker beroende på om planen har ett övningsprov. */
+     Planen behövs för fyra saker: kort plan ger "the most important ideas",
+     ett enda område ger andra formuleringar, sista passet säger olika saker
+     beroende på om planen har ett övningsprov, och rubriken på sista passet
+     beror på vilken dag provet är. */
   function sessionText(session, plan) {
     var single = plan.areas.length === 1;
     var hasPractice = plan.sessions.some(function (s) { return s.kind === 'practice'; });
@@ -280,14 +281,19 @@
           text: 'Practice test on ' + (single ? plan.areas[0] : 'all areas') + ': no notes, timed, in the same format as the real test. Then check your answers and try the ones you got wrong again.'
         };
       case 'last':
+        /* Passet är "Last evening" bara när det ligger dagen före provet. Ligger
+           provet längre bort (bara lördagar ikryssade, eller ett måndagsprov utan
+           helger) vore "kvällen före" fel, så då heter det "Last session". Texterna
+           är desamma. */
+        var lastLabel = session.date === toIso(parseDate(plan.test) - MS_PER_DAY) ? 'Last evening' : 'Last session';
         if (hasPractice) {
           return {
-            label: 'Last evening',
+            label: lastLabel,
             text: 'Only what you got wrong on the practice test. Keep it short, then get a good night\'s sleep.'
           };
         }
         return {
-          label: 'Last evening',
+          label: lastLabel,
           text: 'Quiz yourself again on what you missed, then one quick round of the most important ideas. Keep it short, then get a good night\'s sleep.'
         };
       case 'single':
@@ -378,13 +384,16 @@
   /* Det som står efter "Session {i}: " för ett pass, utan slutpunkten (den sätter
      buildPrompt dit). Texterna är fastställda ordagrant i specen (avsnittet Quiz
      prompt). Antalet frågor och formuleringen följer passets slag; kort plan och
-     ett enda område ger andra ord, precis som i sessionText. */
+     ett enda område ger andra ord, precis som i sessionText. Ett nytt pass med
+     tre eller fler nya områden får tio frågor i stället för fem: fem frågor
+     räcker inte till så många områden. */
   function quizLine(session, plan) {
     var single = plan.areas.length === 1;
     var line;
     switch (session.kind) {
       case 'new':
-        line = 'five questions on ' + (plan.short ? 'the most important ideas in ' : '') + joinList(session.areas);
+        line = (session.areas.length >= 3 ? 'ten' : 'five') + ' questions on ' +
+          (plan.short ? 'the most important ideas in ' : '') + joinList(session.areas);
         if (session.earlier.length > 0) { line += ', and three on ' + joinList(session.earlier); }
         return line;
       case 'mixed':
@@ -512,6 +521,8 @@
       list: document.getElementById('tc-plan-list'),
       short: document.getElementById('tc-short'),
       capped: document.getElementById('tc-capped'),
+      past: document.getElementById('tc-past'),
+      status: document.getElementById('tc-status'),
       link: document.getElementById('tc-link'),
       print: document.getElementById('tc-print')
     };
@@ -554,12 +565,15 @@
       }
     }
 
-    /* Rubrik, summering, noter och rader. Raderna byggs om varje gång. */
+    /* Rubrik, summering, noter och rader. Raderna byggs om varje gång. Noten om
+       pass som redan varit visas när planens första pass ligger före dagens
+       datum (båda är YYYY-MM-DD, så texterna går att jämföra som de är). */
     function showPlan(plan) {
       els.title.textContent = planTitle(plan);
       els.total.textContent = planTotal(plan);
       els.short.hidden = !plan.short;
       els.capped.hidden = !plan.capped;
+      els.past.hidden = plan.sessions[0].date >= todayLocal();
       var rows = document.createDocumentFragment();
       plan.sessions.forEach(function (session) {
         var shown = sessionText(session, plan);
@@ -587,13 +601,25 @@
       var input = readState();
       var plan = buildPlan(input);
       var message = plan.ok ? '' : plan.error;
-      /* Ledtråden är aria-live: skrivs samma text om läser en skärmläsare upp
-         den för varje tangenttryckning. Därför skrivs den bara när den ändras. */
+      /* Ledtråden och statusraden är aria-live: skrivs samma text om läser en
+         skärmläsare upp den för varje tangenttryckning. Därför skrivs de bara när
+         texten ändras. Statusraden bär planens rubrik, eftersom planen själv
+         ligger i en ruta som är dold tills den finns. */
       if (els.hint.textContent !== message) { els.hint.textContent = message; }
+      var status = plan.ok ? planTitle(plan) : '';
+      if (els.status.textContent !== status) { els.status.textContent = status; }
       els.plan.hidden = !plan.ok;
       if (plan.ok) { showPlan(plan); }
-      if (edited || opened) { updateAddress(input); }
-      els.link.setAttribute('data-copy', location.href);
+      var written = edited || opened;
+      if (written) { updateAddress(input); }
+      /* Länken byggs av samma läge som planen, inte av location.href: går
+         replaceState fel (Safari, efter snabba ändringar) står adressfältet kvar
+         på det gamla, men den som trycker på knappen får ändå länken till planen
+         som visas. Innan något har skrivits i adressen (en vanlig sidladdning)
+         står adressen som den är, och då är den länken. */
+      els.link.setAttribute('data-copy', written
+        ? location.origin + location.pathname + '?' + toQuery(input) + location.hash
+        : location.href);
       document.dispatchEvent(new CustomEvent('tc:plan', { detail: plan.ok ? plan : null }));
     }
 
