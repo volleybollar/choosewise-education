@@ -1,0 +1,87 @@
+/* Test Countdown (/test-countdown/). Bygger på thinking-moves.css (tm-) och
+   lägger bara till det som är nytt här (tc-). Färger bara som var(--…),
+   teckenvikter bara 300/400/500 (tokens). */
+
+/* Rubrikerna är längre än de delade 22ch och ska stå på en rad på dator. */
+.tc-page .section__title { max-width: none; }
+
+/* ───── Planeraren ───── */
+/* Provdatum, startdatum och minuter på en rad på dator, under varandra på
+   mobil. Områdena och veckodagarna tar hela bredden (tm-field--wide). */
+#tc-form { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 48rem; }
+@media (max-width: 640px) { #tc-form { grid-template-columns: minmax(0, 1fr); } }
+#tc-areas { resize: vertical; }
+
+/* Veckodagarna: sju kryssrutor i en rad som bryts när det inte får plats.
+   Varje dag är en hel klickbar ruta (minst 44 px hög), inte bara kryssrutan. */
+.tc-days { border: 0; padding: 0; margin: 0; min-width: 0; }
+.tc-days legend { padding: 0; margin-bottom: var(--space-2); }
+.tc-days__row { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.tc-day { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 2.75rem; padding: 0 var(--space-3); background: var(--color-bg); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); cursor: pointer; }
+.tc-day input { margin: 0; width: 1.1rem; height: 1.1rem; accent-color: var(--color-accent); }
+/* Ikryssad dag får blå ram och ljus botten (webbläsare utan :has visar bara kryssrutan). */
+.tc-day:has(input:checked) { border-color: var(--color-accent); background: var(--color-bg-alt); }
+
+/* Ledtråden under formuläret. */
+#tc-hint { margin-top: var(--space-4); }
+
+/* ───── Planen ───── */
+.tc-plan { margin-top: var(--space-6); max-width: 48rem; }
+.tc-plan__heading { margin: 0 0 var(--space-2); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+.tc-plan__total { margin: 0 0 var(--space-4); color: var(--color-text-soft); max-width: none; }
+
+/* En rad per pass: datum | etikett och text | minuter. På mobil står datum och
+   minuter på första raden och etikett och text under, över hela bredden.
+   Raderna byggs av test-countdown.js: li.tc-row med .tc-row__date,
+   .tc-row__main (som innehåller .tc-row__label och .tc-row__text) och
+   .tc-row__minutes. Provdagen är li.tc-row.tc-row--test. */
+.tc-plan__list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-border); }
+/* Alla rader har samma inre marginal och en genomskinlig vänsterkant, så att
+   kolumnerna ligger i linje med provdagens kopparlinje. */
+.tc-row { max-width: none; display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 5rem; column-gap: var(--space-4); align-items: baseline; padding: var(--space-3); border-bottom: 1px solid var(--color-border); border-left: 3px solid transparent; }
+.tc-row__date { font-weight: var(--weight-emphasis); }
+.tc-row__main { min-width: 0; }
+.tc-row__label { display: block; font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-highlight-ink); }
+.tc-row__text { margin: 0; max-width: none; }
+.tc-row__minutes { justify-self: end; white-space: nowrap; color: var(--color-text-soft); font-variant-numeric: tabular-nums; }
+/* Provdagen ska synas som slutpunkten: kopparlinje till vänster och ljus botten. */
+.tc-row--test { background: var(--color-bg-alt); border-left-color: var(--color-highlight); }
+@media (max-width: 520px) {
+  .tc-row { grid-template-columns: minmax(0, 1fr) auto; row-gap: var(--space-1); }
+  .tc-row__minutes { grid-column: 2; grid-row: 1; }
+  .tc-row__main { grid-column: 1 / -1; }
+}
+
+/* Noten om att planen är rimlig, inte perfekt, och raden om att bokmärka. */
+.tc-sensible { margin: var(--space-4) 0 0; max-width: var(--content-text-max); color: var(--color-text-soft); font-size: var(--fs-small); }
+.tc-bookmark { margin: var(--space-4) 0 0; max-width: none; color: var(--color-text-soft); font-size: var(--fs-small); }
+
+/* ───── Så testar du dig, och varför ───── */
+.tc-list { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-2); max-width: var(--content-text-max); }
+.tc-list li { max-width: none; }
+
+/* ───── Läraren ───── */
+.tc-subtitle { margin: var(--space-7) 0 var(--space-4); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+/* Promptrutan står utanför formuläret och får samma luft som fälten. */
+#tc-builder-form + .tm-field { margin-top: var(--space-4); }
+
+/* ───── Forskningen och nästa steg ───── */
+.tc-evidence__item { max-width: var(--content-text-max); margin: 0 0 var(--space-5); }
+.tc-evidence__item .tm-move__sources { margin-top: var(--space-1); font-size: var(--fs-small); color: var(--color-text-soft); }
+/* En enda rad: avsnittet behöver inte den stora luften de andra har. */
+#tc-next { padding-block: var(--space-7); }
+.tc-next { margin: 0; max-width: var(--content-text-max); }
+
+/* ───── Utskrift: bara planen, hur man testar sig och varför ───── */
+@media print {
+  /* .nav: include.js ersätter data-include-diven med sajtens <nav class="nav">.
+     Rubriken "Make your plan" hör till formuläret, noten om pass som redan varit
+     gäller skärmen, och statusraden är bara till för skärmläsare. */
+  [data-include], .nav, header, footer, .page-hero, #tc-form, #tc-hint, .tm-privacy,
+  .tm-copy-row, .tc-bookmark, #tc-teachers, #tc-evidence, #tc-age, #tc-next,
+  #tc-make > .section__title, #tc-past, #tc-status { display: none !important; }
+  /* Planen, "How to quiz yourself" och "Why the plan looks like this" skrivs ut
+     (de döljs inte ovan). Mindre luft mellan avsnitten på papper. */
+  .tc-page .section { padding-block: var(--space-4); }
+  .tc-row { break-inside: avoid; }
+}

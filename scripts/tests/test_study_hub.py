@@ -3,8 +3,9 @@
 Översiktssidan visar bara verktyg som finns, och kommande verktyg nämns inte
 vid namn (samma regel som Think + AI och Pedagogy + AI). Menyvalet står
 direkt efter Pedagogy + AI.
-Spec: docs/superpowers/specs/2026-11-12-study-moves-design.md och
-docs/superpowers/specs/2026-11-13-study-experiment-design.md.
+Spec: docs/superpowers/specs/2026-11-12-study-moves-design.md,
+docs/superpowers/specs/2026-11-13-study-experiment-design.md och
+docs/superpowers/specs/2026-11-14-test-countdown-design.md.
 """
 import json
 import re
@@ -13,26 +14,44 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 HUB = ROOT / "study/index.html"
 HEADER = ROOT / "assets/partials/header-en.html"
-# Förslag 2, 4 och 5 på Study + AI-sidan, som inte är byggda (specens Non-goals).
-UNANNOUNCED = ["Test Countdown", "Homework Upgrade", "Study Season"]
+# Förslag 4 och 5 på Study + AI-sidan, som inte är byggda (specens Non-goals).
+# Test Countdown är byggt och har fått sitt kort (uppgift 6).
+UNANNOUNCED = ["Homework Upgrade", "Study Season"]
 # Sidorna i Study + AI och deras og-bilder, i den ordning de står.
 PAGES = (
     ("study/index.html", "/study/", "study-en.png"),
     ("study-moves/index.html", "/study-moves/", "studymoves-en.png"),
     ("study-experiment/index.html", "/study-experiment/", "studyexperiment-en.png"),
+    ("test-countdown/index.html", "/test-countdown/", "testcountdown-en.png"),
 )
 
 
-def test_hub_has_two_cards():
+def test_hub_has_three_cards():
     html = HUB.read_text(encoding="utf-8")
     assert "<h1>Study + AI</h1>" in html
-    assert re.findall(r'<a class="think-card"[^>]*href="([^"]+)"', html) == ["/study-moves/", "/study-experiment/"]
+    assert re.findall(r'<a class="think-card"[^>]*href="([^"]+)"', html) == [
+        "/study-moves/", "/study-experiment/", "/test-countdown/"]
+
+
+def test_hub_third_card_is_test_countdown():
+    # Kortet följer samma byggsten som de två första: ikon, status, titel,
+    # beskrivning och pil, och beskrivningen är specens text ord för ord.
+    html = HUB.read_text(encoding="utf-8")
+    card = re.search(r'<a class="think-card" href="/test-countdown/">.*?</a>', html, re.S).group(0)
+    assert '<img class="think-card__icon" src="/test-countdown/icons/test-countdown.svg" alt="" width="48" height="48">' in card
+    assert '<span class="think-card__status">Available now</span>' in card
+    assert '<span class="think-card__title">Test Countdown</span>' in card
+    assert ('<span class="think-card__desc">Type in your test date and what the test covers, and get a plan of '
+            'short study sessions on different days instead of one long evening. Print it or share it with '
+            'your class. No AI needed.</span>') in card
+    assert '<span class="think-card__arrow" aria-hidden="true">→</span>' in card
 
 
 def test_hub_card_icons_exist():
     html = HUB.read_text(encoding="utf-8")
     srcs = re.findall(r'<img class="think-card__icon" src="([^"]+)"', html)
-    assert srcs == ["/study-moves/icons/study-moves.svg", "/study-experiment/icons/study-experiment.svg"]
+    assert srcs == ["/study-moves/icons/study-moves.svg", "/study-experiment/icons/study-experiment.svg",
+                    "/test-countdown/icons/test-countdown.svg"]
     for src in srcs:
         icon = ROOT / src.lstrip("/")
         assert icon.exists(), src
@@ -95,3 +114,14 @@ def test_study_moves_links_experiment():
     move = next(m for m in data["moves"] if m["id"] == "test-yourself")
     assert [r["href"] for r in move["related"]] == ["/retrieval-rhythm/", "/study-experiment/"]
     assert 'href="/study-experiment/"' in (ROOT / "study-moves/index.html").read_text(encoding="utf-8")
+
+
+def test_study_moves_links_countdown():
+    # Kortet Spread it out pekar eleven vidare till planeraren, och bara det kortet.
+    data = json.loads((ROOT / "study-moves/moves-en.json").read_text(encoding="utf-8"))
+    move = next(m for m in data["moves"] if m["id"] == "spread-it-out")
+    assert move["related"] == [{"href": "/test-countdown/", "text": "Make a plan: Test Countdown"}]
+    html = (ROOT / "study-moves/index.html").read_text(encoding="utf-8")
+    card = re.search(r'<article class="tm-move sm-move" id="spread-it-out".*?</article>', html, re.S).group(0)
+    assert '<a href="/test-countdown/">Make a plan: Test Countdown</a>' in card
+    assert html.count('href="/test-countdown/"') == 1

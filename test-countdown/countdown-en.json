@@ -1,0 +1,125 @@
+{
+  "how_to": {
+    "title": "How to quiz yourself",
+    "steps": [
+      "Close your book and put your notes away.",
+      "Write down everything you remember about the area, or answer questions: the ones at the end of the chapter, flashcards, an old test or a quiz from your teacher.",
+      "Open your notes and check. Try the ones you missed again, with your notes closed, until you get each one right once.",
+      "Next session, start with what you missed last time."
+    ]
+  },
+  "feels_harder": "These sessions will feel harder than reading your notes again, and you will get things wrong. That does not mean they are working worse. Notes you have just read feel familiar, and familiar feels like knowing, but on the test the notes are gone. The next quiz, a few days later, is where you will see the difference.",
+  "sensible": "This is a sensible plan, not a perfect one: the practice test near the end and the session lengths are rules of thumb, not research findings. The plan assumes each area has already been taught; if one has not, learn it in class or from your book before its first quiz. Move a session if you need to, but keep the sessions on different days and keep testing yourself.",
+  "why": {
+    "title": "Why the plan looks like this",
+    "intro": "For students, and for parents who wonder why the evenings before a test look different.",
+    "points": [
+      "Short sessions on different days. What you study on several days stays with you longer than the same time spent in one long evening.",
+      "Every session starts with a quiz, not with reading. Pulling something out of your memory, and then checking it, makes it easier to find on the test than reading it again.",
+      "Earlier areas come back. Each session brings back what you practised before, so every area is tested again after a gap and nothing is left until the end.",
+      "A practice test near the end. There is still time to fix what you got wrong, and nothing new is crammed in at the last minute.",
+      "A short last session and a normal bedtime. Sleep helps you keep what you have studied, and students who give up sleep to study more than usual are more likely to struggle in class or on a test the next day."
+    ]
+  },
+  "short_note": "You have only a few study days, so the plan is short and goes straight to the most important ideas. A few short sessions still beat one long evening, but less time means less will stay with you after the test. Next time, start a week or two earlier.",
+  "capped_note": "Your test is more than three weeks away, so the plan starts three weeks before it. Until then, keep up with your lessons and quiz yourself now and then on what you have just learned.",
+  "past_note": "Some of these sessions are already in the past. To plan from today, set Start on to today.",
+  "share": "To give the whole class the same plan, fill in the planner with the test date and the areas, then copy the link and post it where your students will find it. Everyone who opens it sees the same plan. Students who open it later can set Start on to today, and anyone can untick days to fit their own week. You can also print it. The link holds only what is in the form.",
+  "no_ai": "No AI? Use the questions at the end of each chapter, an old test or flashcards. Or let students write down everything they remember about each area and check it against their notes: that works on its own.",
+  "student_ai": "Students aged 13 and over who want an AI to quiz them, and whose school allows it, can use the student prompt in",
+  "evidence": [
+    {
+      "text": "Spreading your study over several days beats doing it all the night before. In real school classrooms, spaced practice beat cramming by a reliable margin, about as large as the gain from testing yourself instead of reading again (Ruitenburg et al. 2026). In a study with university students and a test ten days away, a gap of one day between sessions already gave most of the benefit, and gaps of up to a week did about as well (Cepeda et al. 2009). That is why the plan spreads the sessions out but does not need exact gaps.",
+      "sources": [
+        {
+          "text": "Ruitenburg et al. 2026, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-026-10225-5"
+        },
+        {
+          "text": "Cepeda et al. 2009, Experimental Psychology",
+          "url": "https://doi.org/10.1027/1618-3169.56.4.236"
+        }
+      ]
+    },
+    {
+      "text": "Every session starts by testing yourself and then checking. In real school classrooms, quizzes followed by the right answers helped more than quizzes alone (Yang et al. 2021). Even a wrong attempt helps, as long as you study the answer straight after (Kornell, Hays & Bjork 2009).",
+      "sources": [
+        {
+          "text": "Yang et al. 2021, Psychological Bulletin",
+          "url": "https://doi.org/10.1037/bul0000309"
+        },
+        {
+          "text": "Kornell, Hays & Bjork 2009, Journal of Experimental Psychology: Learning, Memory, and Cognition",
+          "url": "https://doi.org/10.1037/a0015729"
+        }
+      ]
+    },
+    {
+      "text": "Each session brings back the areas you have already practised, so every area is tested again after a gap. When university students quizzed themselves on the same ideas in several spaced sessions, their course exam scores rose by at least 10% (Janes et al. 2020) and they remembered more at the end of the semester (Higham et al. 2022). Most of this research is with older students, but it builds on testing yourself and spacing, which both help in school classrooms.",
+      "sources": [
+        {
+          "text": "Janes et al. 2020, Applied Cognitive Psychology",
+          "url": "https://doi.org/10.1002/acp.3699"
+        },
+        {
+          "text": "Higham et al. 2022, Journal of Educational Psychology",
+          "url": "https://doi.org/10.1037/edu0000693"
+        }
+      ]
+    },
+    {
+      "text": "Spacing and testing yourself feel slower than reading again, so many students think they are doing worse. In one study with university students, spacing worked better for 90% of them, yet most of those who noticed a difference (72%) believed cramming had worked better (Kornell 2009). A test after a gap is where the difference shows, which is why the plan has a practice test.",
+      "sources": [
+        {
+          "text": "Kornell 2009, Applied Cognitive Psychology",
+          "url": "https://doi.org/10.1002/acp.1537"
+        }
+      ]
+    },
+    {
+      "text": "On days when high school students gave up sleep to study more than usual, they had more trouble in class and on tests the next day (Gillen-O'Neel, Huynh & Fuligni 2013). In a study with high school students, sleep within a few hours of studying helped them keep the words they had learned (Gais, Lucas & Born 2006). So the last session is short, and bedtime is normal.",
+      "sources": [
+        {
+          "text": "Gillen-O'Neel, Huynh & Fuligni 2013, Child Development",
+          "url": "https://doi.org/10.1111/j.1467-8624.2012.01834.x"
+        },
+        {
+          "text": "Gais, Lucas & Born 2006, Learning & Memory",
+          "url": "https://doi.org/10.1101/lm.132106"
+        }
+      ]
+    },
+    {
+      "text": "With only a day or two left, testing yourself still beats reading again: two days later, university students remembered 68% of a text they had tested themselves on, against 54% of a text they had read again (Roediger & Karpicke 2006). But what you cram fades quickly. In high school French classes, words practised in three 10-minute sessions on three days were remembered clearly better four days later than words practised in one 30-minute session (Bloom & Shuell 1981).",
+      "sources": [
+        {
+          "text": "Roediger & Karpicke 2006, Psychological Science",
+          "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+        },
+        {
+          "text": "Bloom & Shuell 1981, Journal of Educational Research",
+          "url": "https://doi.org/10.1080/00220671.1981.10885317"
+        }
+      ]
+    }
+  ],
+  "age_rules": [
+    {
+      "tool": "Copilot Chat",
+      "rule": "Students aged 13 and over, through the school's own Microsoft 365 Education account. The school's administrator must set each student's age group; under-13 accounts get no access."
+    },
+    {
+      "tool": "Gemini for Education",
+      "rule": "Open to education users of all ages, with stricter content rules and some features switched off for under-18s. The school's administrator must turn it on for students under 18."
+    },
+    {
+      "tool": "ChatGPT",
+      "rule": "Ages 13 and over (or the minimum age in your country) on personal accounts, with a parent's or guardian's permission under 18. Users under 18 are placed in ChatGPT for Teens. ChatGPT for Teachers is for verified U.S. K–12 school staff, not students."
+    },
+    {
+      "tool": "Claude",
+      "rule": "Ages 18 and over. Claude for Teachers is for verified U.S. K–12 teachers, not students."
+    }
+  ],
+  "age_rules_date": "November 2026"
+}

@@ -660,11 +660,11 @@
   </url>
   <url>
     <loc>https://choosewise.education/study-moves/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-14</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/study/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-14</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/sv/ai-eller-manniska/</loc>
@@ -1229,6 +1229,10 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://choosewise.education/wise/"/>
     <xhtml:link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/ratt/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://choosewise.education/wise/"/>
+  </url>
+  <url>
+    <loc>https://choosewise.education/test-countdown/</loc>
+    <lastmod>2026-11-14</lastmod>
   </url>
   <url>
     <loc>https://choosewise.education/think/</loc>

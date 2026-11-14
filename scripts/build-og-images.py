@@ -39,6 +39,7 @@ SECTIONS = [
     ("study-en",           "Study + AI",                "for students",           "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("studymoves-en",      "Study Moves",               "with and without AI",    "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("studyexperiment-en", "The Study Experiment",      "for your class",         "CHOOSEWISE.EDUCATION", "#0B3A6F"),
+    ("testcountdown-en",   "Test Countdown",            "plan your study",        "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("community-en",       "The Choosewise community",  "on Skool",               "CHOOSEWISE.EDUCATION", "#0B3A6F"),
     ("about-en",           "Johan Lindström",           "Education consultant",   "CHOOSEWISE.EDUCATION", "#C2793A"),
     ("free-en",            "Free resources",            "for educators",          "CHOOSEWISE.EDUCATION", "#0B3A6F"),
