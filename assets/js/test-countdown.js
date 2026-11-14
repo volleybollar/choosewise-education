@@ -95,13 +95,14 @@
   /* ---------- Områden ---------- */
 
   /* Textrutan: ett område per rad. Raderna trimmas, tomma rader hoppas över och
-     varje område kapas vid 60 tecken. Antalet begränsas inte här; det är
-     buildPlan som säger ifrån vid fler än sex. */
+     varje område kapas vid 60 tecken. Efter kapningen trimmas området igen, så
+     att ett område som klipps mitt i ett mellanrum inte slutar på ett mellanslag.
+     Antalet begränsas inte här; det är buildPlan som säger ifrån vid fler än sex. */
   function parseAreas(text) {
     var areas = [];
     String(text).split('\n').forEach(function (line) {
       var area = line.trim();
-      if (area) { areas.push(area.slice(0, MAX_AREA_LENGTH)); }
+      if (area) { areas.push(area.slice(0, MAX_AREA_LENGTH).trim()); }
     });
     return areas;
   }
@@ -272,7 +273,7 @@
       case 'practice':
         return {
           label: 'Practice test',
-          text: 'Practice test on ' + (single ? 'the area' : 'all areas') + ': no notes, timed, in the same format as the real test. Then check your answers and try the ones you got wrong again.'
+          text: 'Practice test on ' + (single ? plan.areas[0] : 'all areas') + ': no notes, timed, in the same format as the real test. Then check your answers and try the ones you got wrong again.'
         };
       case 'last':
         if (hasPractice) {

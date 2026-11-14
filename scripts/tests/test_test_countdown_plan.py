@@ -307,6 +307,8 @@ def test_parse_areas(page):
     assert call(page, "parseAreas", "x" * 70) == ["x" * 60]
     assert call(page, "parseAreas", "  " + "y" * 61 + "  ") == ["y" * 60]
     assert call(page, "parseAreas", "A\r\nB\r\n") == ["A", "B"]
+    # Kapas området mitt i ett mellanrum ska det inte sluta på ett mellanslag.
+    assert call(page, "parseAreas", "x" * 59 + " xyz") == ["x" * 59]
     assert call(page, "parseAreas", "") == []
     assert call(page, "parseAreas", " \n\t\n ") == []
     # Ingen gräns på antalet: sjuradslistan avvisas först av buildPlan.
@@ -361,7 +363,7 @@ def test_session_texts(page):
     plan, got = texts(page, "K")
     assert got[0] == {"label": "Quiz", "text": "Quiz yourself on the most important ideas in A. " + NEW_TAIL}
     assert got[1]["label"] == "Practice test"
-    assert got[1]["text"].startswith("Practice test on the area: no notes, timed, ")
+    assert got[1]["text"].startswith("Practice test on A: no notes, timed, ")
 
     # L2: ett enda område, ett blandat pass och ett övningsprov.
     plan, got = texts(page, "L2")
@@ -369,7 +371,7 @@ def test_session_texts(page):
     assert got[1] == {"label": "Quiz again",
                       "text": "Quiz yourself on A again, starting with what you missed last time. " + MIXED_TAIL}
     assert got[2] == {"label": "Practice test",
-                      "text": "Practice test on the area: no notes, timed, in the same format as the real test. "
+                      "text": "Practice test on A: no notes, timed, in the same format as the real test. "
                               "Then check your answers and try the ones you got wrong again."}
     assert got[3] == {"label": "Last evening",
                       "text": "Only what you got wrong on the practice test. "
