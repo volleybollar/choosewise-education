@@ -1,0 +1,53 @@
+/* Homework Upgrade (dold sida för Skool-medlemmar). Bygger på thinking-moves.css
+   (tm-) och lägger bara till det som är nytt här (hu-). Färger bara som
+   var(--…), teckenvikter bara 300/400/500 (tokens). */
+
+/* Rubrikerna är längre än de delade 22ch och ska stå på en rad på dator. */
+.hu-page .section__title { max-width: none; }
+
+/* ───── Exemplet i hero ───── */
+/* Samma ruta som korten, men alltid öppen. */
+.hu-hero-example { margin-top: var(--space-8); max-width: var(--content-max); }
+.hu-hero-example__title { margin: 0 0 var(--space-3); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+
+/* Exemplet har längre rader än Thinking Moves, så rubrik och text staplas. */
+.hu-example dl { grid-template-columns: 1fr; gap: var(--space-1); }
+.hu-example dd { margin-bottom: var(--space-2); }
+.hu-example li, .hu-example p { max-width: none; }
+.hu-example dd p { margin: 0 0 var(--space-1); }
+/* Läxan och den uppgraderade läxan är listor: punkter respektive siffror. */
+.hu-example__list { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-1); }
+/* Kontrollfrågorna: Q1 med sitt svar A1 under, utan punkter. */
+.hu-qa { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-3); }
+.hu-example .hu-qa p { margin: 0; }
+.hu-qa strong { font-weight: var(--weight-emphasis); }
+
+/* ───── De tolv mönstren ───── */
+/* Sju grupper, var och en med en rubrik och ett rutnät av kort. */
+.hu-group { margin-top: var(--space-7); }
+.hu-group__title { margin: 0 0 var(--space-4); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+/* Kortets tre steg som numrerad lista. */
+.hu-steps { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-1); }
+.hu-steps li { max-width: none; }
+.hu-pattern strong { font-weight: var(--weight-emphasis); }
+
+/* Etiketten Choosewise: Choosewises egen regel, inte ett forskningsresultat.
+   Streckad ram i kopparfärg, så den inte förväxlas med forskningsetiketterna
+   (samma regel som i lesson-lens.css). */
+.tm-chip--choosewise { color: var(--color-highlight-ink); border-color: var(--color-highlight); border-style: dashed; }
+
+/* ───── Kontrollen och elevtexten ───── */
+.hu-list { margin: 0 0 var(--space-5); padding-left: var(--space-5); display: grid; gap: var(--space-2); max-width: var(--content-text-max); }
+.hu-list li { max-width: none; }
+.hu-prose { margin: 0 0 var(--space-4); max-width: var(--content-text-max); }
+/* Texten till eleverna i en ruta som går att kopiera. Egen bakgrund och ram,
+   så att rutan syns både på vanlig bakgrund och på sektionsbandet. */
+.hu-students__text { display: grid; gap: var(--space-3); max-width: var(--content-text-max); padding: var(--space-4) var(--space-5); background: var(--color-bg); border: 1px solid var(--color-border); border-left: 3px solid var(--color-highlight); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+.hu-students__text p { margin: 0; max-width: none; }
+
+/* ───── Forskningen och nästa steg ───── */
+.hu-evidence__item { max-width: var(--content-text-max); margin: 0 0 var(--space-5); }
+.hu-evidence__item strong { font-weight: var(--weight-emphasis); }
+.hu-evidence__item .tm-move__sources { margin-top: var(--space-1); font-size: var(--fs-small); color: var(--color-text-soft); }
+.hu-next { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-3); }
+.hu-next li { max-width: none; }

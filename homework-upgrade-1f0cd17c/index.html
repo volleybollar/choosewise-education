@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Homework Upgrade — choosewise.education</title>
+  <meta name="description" content="For Choosewise members. Paste a homework task you have already set and get, from any AI tool, a version students do from memory and a three-question check for the next lesson.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (prefix tm-), och sedan det som är
+       nytt för Homework Upgrade (prefix hu-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/homework-upgrade.css?v=20261114a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten. -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <!-- class="hu-page" gör att sektionsrubrikerna får vara längre än de delade
+       22 tecknen (se homework-upgrade.css). -->
+  <main class="hu-page">
+    <!-- Hero: vad verktyget är och ett färdigt exempel. Exemplet visas före
+         byggaren med flit: en lärare som tvekar ska se vad hen får innan hen
+         klistrar in något. Sidan är dold, så här finns ingen länk tillbaka
+         till någon översiktssida. -->
+    <section class="page-hero container">
+      <span class="eyebrow">For Choosewise members · Grades 7–12</span>
+      <h1>Homework Upgrade</h1>
+      <p class="lede">Paste a homework task you have already set. Your AI tool keeps what works, turns the rest into practice students do from memory with pen and paper, says honestly what a chatbot could still do, and writes three questions to start the next lesson.</p>
+      <div class="hu-hero-example">
+        <h2 class="hu-hero-example__title">What an upgrade looks like</h2>
+        <!-- Exemplet byggs av scripts/build-homework-upgrade.py från exemplet
+             i homework-upgrade-1f0cd17c/upgrade-en.json — redigera JSON-filen,
+             inte rutan, och kör skriptet igen. -->
+<!-- hero-example:start -->
+<div class="tm-example hu-example"><h3 class="tm-example__subject">History <span>· Grade 8 · Answer from memory first · 20 minutes</span></h3><dl><dt>The homework as set</dt><dd><ul class="hu-example__list"><li>Read chapter 4, The Industrial Revolution in Britain, pages 62–71.</li><li>Answer questions 1–6 on page 72.</li></ul></dd><dt>Keep</dt><dd>The six questions cover the right content, and question 6 makes students take a position and back it up.</dd><dt>Upgrade</dt><dd><ol class="hu-example__list"><li>Write the six questions on a sheet of paper, with space under each.</li><li>Read pages 62–71 once, without writing anything.</li><li>Close the book and put your notes away.</li><li>Answer all six questions from memory. If you are unsure, write what you know and add a question mark.</li><li>Open the book. In another colour, tick what is right, correct what is wrong and add what is missing. Do not rub out your first answers.</li><li>The next lesson starts with three questions on this, with books closed.</li></ol></dd><dt>AI risk</dt><dd><p>A chatbot could answer questions 1–6 in under a minute.</p><p>A student who lets it write the first answers in the upgrade skips the remembering, and the three questions next lesson will show it.</p></dd><dt>Check</dt><dd><ul class="hu-qa"><li><p class="hu-qa__q"><strong>Q1:</strong> Roughly when did the Industrial Revolution begin, and what did James Watt improve?</p><p class="hu-qa__a"><strong>A1:</strong> In the second half of the 1700s. He improved the steam engine.</p></li><li><p class="hu-qa__q"><strong>Q2:</strong> Describe two ways it changed people&#x27;s lives: one from the factories and one from the railways.</p><p class="hu-qa__a"><strong>A2:</strong> For example long hours and child labour in the factories; faster, cheaper travel and growing towns with the railways.</p></li><li><p class="hu-qa__q"><strong>Q3:</strong> Someone says it could just as easily have started anywhere in Europe. Use one fact about Britain to show why that is wrong.</p><p class="hu-qa__a"><strong>A3:</strong> For example: Britain had coal and iron close together, which gave cheap fuel and materials for machines.</p></li></ul></dd></dl></div>
+<!-- hero-example:end -->
+      </div>
+    </section>
+
+    <!-- Så fungerar det: tre steg och en ärlig not. Texten är statisk. -->
+    <section class="section section--alt" id="hu-how">
+      <div class="container">
+        <h2 class="section__title">How it works</h2>
+        <ol class="tm-steps">
+          <li>Paste the homework as students get it. Choose a pattern, or let the AI choose.</li>
+          <li>Copy the prompt into your AI tool. Read the answer before you hand anything out: check the facts and answers, and cut what does not fit your class.</li>
+          <li>Tell students about the check when you set the homework, and start the next lesson with it.</li>
+        </ol>
+        <!-- Sidan lovar aldrig läxor som tål AI. Därför säger noten rakt ut vad
+             som ändras i stället: vad eleven förlorar, och att kontrollen visar det. -->
+        <p class="tm-note">No homework is AI-proof. A chatbot can do the upgraded homework too, and a student can copy its answers by hand. What changes is what the student loses by doing that, and the check in the next lesson shows it.</p>
+      </div>
+    </section>
+
+    <!-- Promptbyggaren. Allt sker i webbläsaren: inget sparas och inget
+         skickas någonstans. Logiken finns i assets/js/homework-upgrade.js;
+         mönstren läses från JSON-blocket nedan, som byggskriptet skriver. -->
+    <section class="section" id="hu-builder">
+      <div class="container">
+        <h2 class="section__title">Build your prompt</h2>
+        <p class="tm-privacy"><strong>Do not include student names or student work.</strong> The prompt only needs your subject, grade and the homework.</p>
+<!-- data:start -->
+<script type="application/json" id="hu-data">{"patterns":[{"id":"read-close-write","name":"Read, close, write","brief":"After reading the text once, students close the book and write down everything they remember, as notes or a mind map, then open the book and add what they missed in a different colour. If the text is long or hard, give them the headings to recall from."},{"id":"answer-from-memory","name":"Answer from memory first","brief":"Students read the text once, then close the book and answer the set questions from memory, writing what they know even when unsure, then open the book to check, correct and complete their answers in a different colour."},{"id":"self-test-cards","name":"Self-test cards","brief":"Students make cards with a word or question on one side and the answer on the other, say the answer before turning each card, and keep missed cards in the pile until each one is right. In the next session they start with the missed cards and go through the known ones once more. Spread the work over two or three short sessions rather than one."},{"id":"bring-back","name":"Bring back old ones","brief":"Keep this week's task but shorten it, to make room for three questions on content from two or three weeks ago. Students answer them from memory, then check them in the book or notes."},{"id":"example-then-twin","name":"Solved example, then a twin","brief":"Replace part of the problem set with pairs: a fully solved example, then a similar problem students solve on their own with the example covered, then compare. Put the example first and the problem second, and do not ask students to explain every step."},{"id":"mixed-set","name":"Mixed set","brief":"Replace a set of problems of only the type just taught with a shorter set that mixes this type with two or three types from earlier, in random order. For each problem, students first write which method it needs, then solve it, then check the answers at the end."},{"id":"explain-it","name":"Explain it without notes","brief":"Students close the book and explain the main idea in their own words, in writing for a younger student or out loud to someone at home, then open the book, mark what they left out or got wrong, and fix the explanation in a different colour. Tell them when the homework is set that they will explain it."},{"id":"ask-why","name":"Ask why","brief":"Give students three to five key facts from the lesson. For each one, they write from memory why it is true, using what they already know, then check the reasons in the book and correct them in a different colour."},{"id":"draw-it","name":"Draw it from memory","brief":"Students close the book and draw the process, structure or map from memory, with labels, then open the book, compare with its diagram and correct or add the missing parts in a different colour."},{"id":"plan-at-home","name":"Plan at home, write in class","brief":"Turn the homework into a written plan, by hand: the main point, the points that support it and the evidence for each, written from memory first and then checked against sources. The text itself is written in class."},{"id":"fix-your-mistakes","name":"Fix your mistakes","brief":"Students redo the questions they got wrong on marked work, with the corrections covered, then check against the correct answers and try the ones that are still wrong again until they get them right."},{"id":"guess-first","name":"Guess first","brief":"Before the topic is taught, students answer five short questions about it without looking anything up, guessing when they do not know. The next lesson goes over the answers. Use it now and then, not every week."}]}</script>
+<!-- data:end -->
+        <!-- onsubmit="return false" hindrar att Enter i ett fält laddar om sidan:
+             prompten byggs medan man skriver, så formuläret ska aldrig skickas. -->
+        <form class="tm-form" id="hu-form" autocomplete="off" onsubmit="return false">
+          <!-- Mönstret. Första valet, "Let the AI choose", har tomt värde och
+               står kvar här för hand. De tolv mönstren, en grupp i taget,
+               läggs in av byggskriptet. Noten kopplas till listan med
+               aria-describedby, så att en skärmläsare läser den som beskrivning. -->
+          <div class="tm-field tm-field--wide">
+            <label class="tm-field__label" for="hu-pattern">Pattern</label>
+            <select class="input" id="hu-pattern" aria-describedby="hu-pattern-more">
+              <option value="">Let the AI choose</option>
+<!-- pattern-options:start -->
+<optgroup label="Reading a text"><option value="read-close-write">1. Read, close, write</option><option value="answer-from-memory">2. Answer from memory first</option></optgroup>
+<optgroup label="Facts and words"><option value="self-test-cards">3. Self-test cards</option><option value="bring-back">4. Bring back old ones</option></optgroup>
+<optgroup label="Problems"><option value="example-then-twin">5. Solved example, then a twin</option><option value="mixed-set">6. Mixed set</option></optgroup>
+<optgroup label="Concepts and processes"><option value="explain-it">7. Explain it without notes</option><option value="ask-why">8. Ask why</option><option value="draw-it">9. Draw it from memory</option></optgroup>
+<optgroup label="Writing"><option value="plan-at-home">10. Plan at home, write in class</option></optgroup>
+<optgroup label="Marked work"><option value="fix-your-mistakes">11. Fix your mistakes</option></optgroup>
+<optgroup label="A new topic"><option value="guess-first">12. Guess first</option></optgroup>
+<!-- pattern-options:end -->
+            </select>
+            <span class="tm-field__note" id="hu-pattern-more">Read about all twelve patterns <a href="#hu-patterns">further down on this page</a>.</span>
+          </div>
+          <label class="tm-field">
+            <span class="tm-field__label">Subject</span>
+            <input class="input" id="hu-subject" list="hu-subjects" maxlength="60" placeholder="e.g. History" required>
+            <!-- Samma ämnesförslag som i Lesson Lens. -->
+            <datalist id="hu-subjects">
+              <option value="Art"><option value="Biology"><option value="Chemistry"><option value="Civics">
+              <option value="Economics"><option value="English"><option value="Geography"><option value="History">
+              <option value="Maths"><option value="Modern languages"><option value="Music"><option value="PE and health">
+              <option value="Physics"><option value="Religion and ethics"><option value="Science"><option value="Social studies"><option value="Technology">
+            </datalist>
+          </label>
+          <label class="tm-field">
+            <span class="tm-field__label">Grade</span>
+            <select class="input" id="hu-grade">
+              <option value="7">Grade 7</option><option value="8">Grade 8</option><option value="9" selected>Grade 9</option>
+              <option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option>
+            </select>
+          </label>
+          <!-- Läxan. Gränsen 3000 tecken räcker för en hel läxa med frågor och
+               sidhänvisningar. Platshållaren är två rader: &#10; är en radbrytning. -->
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">The homework as you set it</span>
+            <span class="tm-field__note">Paste it as students get it: the task, the questions, the pages.</span>
+            <textarea class="input" id="hu-homework" rows="5" maxlength="3000" placeholder="Read chapter 4, pages 62–71.&#10;Answer questions 1–6 on page 72." required></textarea>
+          </label>
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">What should students be able to do afterwards? (optional)</span>
+            <textarea class="input" id="hu-goal" rows="2" maxlength="400" placeholder="e.g. Explain why the Industrial Revolution began in Britain"></textarea>
+          </label>
+          <label class="tm-field">
+            <span class="tm-field__label">Time at home</span>
+            <select class="input" id="hu-minutes">
+              <option value="10">10 minutes</option><option value="15">15 minutes</option><option value="20" selected>20 minutes</option>
+              <option value="30">30 minutes</option><option value="45">45 minutes</option>
+            </select>
+          </label>
+          <!-- Språket på läxan. Förvalt engelska; tomt fält räknas också som engelska. -->
+          <label class="tm-field">
+            <span class="tm-field__label">Language of the homework</span>
+            <input class="input" id="hu-language" value="English" maxlength="40">
+          </label>
+        </form>
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
+          <textarea class="input tm-prompt" id="hu-prompt" rows="14" readonly></textarea>
+        </label>
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--primary" id="hu-copy" data-copy="" aria-describedby="hu-hint" disabled>Copy prompt</button>
+          <!-- Ledtråden står bredvid knappen så att man ser varför den är grå.
+               Den töms av homework-upgrade.js när prompten är klar. -->
+          <p class="tm-hint" id="hu-hint" aria-live="polite">Fill in subject and the homework to see your prompt.</p>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- De tolv mönstren. Förklaringen av etiketterna, de sju grupperna och
+         korten mellan markörerna byggs av scripts/build-homework-upgrade.py
+         från JSON-filen — redigera den, inte korten, och kör skriptet igen. -->
+    <section class="section section--alt" id="hu-patterns">
+      <div class="container">
+        <h2 class="section__title">Twelve ways to upgrade homework</h2>
+        <p class="section__lede">Grouped by what the homework is now. Each pattern works on paper, with no AI.</p>
+<!-- patterns:start -->
+<ul class="tm-legend"><li><span class="tm-chip tm-chip--strong">Strong</span> Meta-analyses of classroom studies show that practising this way improves learning.</li><li><span class="tm-chip tm-chip--promising">Promising</span> Controlled studies show gains, but results are mixed, small in number or dependent on context.</li><li><span class="tm-chip tm-chip--choosewise">Choosewise</span> Our own rule, not a research finding.</li></ul>
+<div class="hu-group">
+<h3 class="hu-group__title">Reading a text</h3>
+<div class="tm-grid">
+<article class="tm-move hu-pattern" id="read-close-write" data-pattern-id="read-close-write">
+  <div class="tm-move__head"><div><span class="tm-move__num">Pattern 1</span><h4 class="tm-move__name">Read, close, write</h4></div></div>
+  <p class="tm-move__line"><strong>Instead of:</strong> Read chapter 4.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--strong">Strong</span></p>
+  <ol class="hu-steps"><li>Read the pages once.</li><li>Close the book and write down everything you remember, as notes or a mind map.</li><li>Open the book and add what you missed in another colour.</li></ol>
+  <p class="tm-move__line"><strong>Check next lesson:</strong> Three questions on the main ideas of the text.</p>
+  <details class="tm-move__more"><summary>Why it works</summary><p class="tm-move__evidence">Pulling ideas out of memory makes them stick better than reading again, and checking afterwards shows what you missed.</p><p class="tm-move__evidence">After one reading most students remember only part of a text. For weaker readers, give the headings to recall from.</p><p class="tm-move__evidence"><strong>If a chatbot does it:</strong> A chatbot can summarise the chapter, but then the student has remembered nothing, and the check shows it.</p><p class="tm-move__evidence"><span class="tm-move__sources">Sources: <a href="https://doi.org/10.1007/s10648-026-10225-5">Ruitenburg et al. 2026, Educational Psychology Review</a>, <a href="https://doi.org/10.1111/j.1467-9280.2006.01693.x">Roediger &amp; Karpicke 2006, Psychological Science</a></span></p></details>
+  <a class="tm-move__use" href="?pattern=read-close-write#hu-builder" data-use-pattern="read-close-write" aria-label="Use this pattern: Read, close, write">Use this pattern</a>
+</article>
+<article class="tm-move hu-pattern" id="answer-from-memory" data-pattern-id="answer-from-memory">
+  <div class="tm-move__head"><div><span class="tm-move__num">Pattern 2</span><h4 class="tm-move__name">Answer from memory first</h4></div></div>
+  <p class="tm-move__line"><strong>Instead of:</strong> Read the chapter and answer questions 1–6.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--strong">Strong</span></p>
+  <ol class="hu-steps"><li>Read the pages once.</li><li>Close the book and answer every question from memory. Write what you know, even if you are unsure.</li><li>Open the book and correct and complete your answers in another colour.</li></ol>
+  <p class="tm-move__line"><strong>Check next lesson:</strong> Three questions of the same kind, in new words.</p>
+  <details class="tm-move__more"><summary>Why it works</summary><p class="tm-move__evidence">Trying first from memory shows you your gaps, and checking in the book fixes them while they are fresh.</p><p class="tm-move__evidence">The best first upgrade for “read and answer the questions”.</p><p class="tm-move__evidence"><strong>If a chatbot does it:</strong> A chatbot can answer the questions in seconds. A student who copies the answers skips the remembering, and the check shows it.</p><p class="tm-move__evidence"><span class="tm-move__sources">Sources: <a href="https://doi.org/10.1002/acp.1391">Agarwal et al. 2008, Applied Cognitive Psychology</a>, <a href="https://doi.org/10.1037/bul0000309">Yang et al. 2021, Psychological Bulletin</a></span></p></details>
+  <a class="tm-move__use" href="?pattern=answer-from-memory#hu-builder" data-use-pattern="answer-from-memory" aria-label="Use this pattern: Answer from memory first">Use this pattern</a>
+</article>
+</div>
+</div>
+<div class="hu-group">
+<h3 class="hu-group__title">Facts and words</h3>
+<div class="tm-grid">
+<article class="tm-move hu-pattern" id="self-test-cards" data-pattern-id="self-test-cards">
+  <div class="tm-move__head"><div><span class="tm-move__num">Pattern 3</span><h4 class="tm-move__name">Self-test cards</h4></div></div>
+  <p class="tm-move__line"><strong>Instead of:</strong> Learn these 20 words.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--strong">Strong</span></p>
+  <ol class="hu-steps"><li>Write the word or question on one side of a card and the answer on the other.</li><li>Say the answer before you turn the card. Put the ones you miss back in the pile until you get each one right.</li><li>Next time, start with the cards you missed, then go through the ones you knew once more.</li></ol>
+  <p class="tm-move__line"><strong>Check next lesson:</strong> Three of the words or facts, in a new order or the other way round.</p>
+  <details class="tm-move__more"><summary>Why it works</summary><p class="tm-move__evidence">Saying the answer before you look is retrieval practice, and cards you miss keep coming back until you know them.</p><p class="tm-move__evidence">Two or three short sessions on different days beat one long one.</p><p class="tm-move__evidence"><strong>If a chatbot does it:</strong> A chatbot can make the cards, and that is fine. It cannot remember them for the student.</p><p class="tm-move__evidence"><span class="tm-move__sources">Sources: <a href="https://doi.org/10.1002/acp.3796">Barenberg et al. 2021, Applied Cognitive Psychology</a>, <a href="https://doi.org/10.1126/science.1152408">Karpicke &amp; Roediger 2008, Science</a></span></p></details>
+  <a class="tm-move__use" href="?pattern=self-test-cards#hu-builder" data-use-pattern="self-test-cards" aria-label="Use this pattern: Self-test cards">Use this pattern</a>
+</article>
+<article class="tm-move hu-pattern" id="bring-back" data-pattern-id="bring-back">
+  <div class="tm-move__head"><div><span class="tm-move__num">Pattern 4</span><h4 class="tm-move__name">Bring back old ones</h4></div></div>
+  <p class="tm-move__line"><strong>Instead of:</strong> Homework only on this week&#x27;s content.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--strong">Strong</span></p>
+  <ol class="hu-steps"><li>Do this week&#x27;s homework as usual.</li><li>Then answer three questions on something from two or three weeks ago, from memory.</li><li>Check them in your book or notes and correct them in another colour.</li></ol>
+  <p class="tm-move__line"><strong>Check next lesson:</strong> One of the three questions is on the older content.</p>
+  <details class="tm-move__more"><summary>Why it works</summary><p class="tm-move__evidence">Meeting older material again after a gap stops it from fading.</p><p class="tm-move__evidence">The gap matters more than its exact length. “Two or three weeks” is a rule of thumb.</p><p class="tm-move__evidence"><strong>If a chatbot does it:</strong> A chatbot can answer old questions too, but the student only keeps what they recall themselves.</p><p class="tm-move__evidence"><span class="tm-move__sources">Sources: <a href="https://doi.org/10.1007/s10648-026-10225-5">Ruitenburg et al. 2026, Educational Psychology Review</a>, <a href="https://doi.org/10.1002/acp.3814">Emeny, Hartwig &amp; Rohrer 2021, Applied Cognitive Psychology</a></span></p></details>
+  <a class="tm-move__use" href="?pattern=bring-back#hu-builder" data-use-pattern="bring-back" aria-label="Use this pattern: Bring back old ones">Use this pattern</a>
+</article>
+</div>
+</div>
+<div class="hu-group">
+<h3 class="hu-group__title">Problems</h3>
+<div class="tm-grid">
+<article class="tm-move hu-pattern" id="example-then-twin" data-pattern-id="example-then-twin">
+  <div class="tm-move__head"><div><span class="tm-move__num">Pattern 5</span><h4 class="tm-move__name">Solved example, then a twin</h4></div></div>
+  <p class="tm-move__line"><strong>Instead of:</strong> Problems 1–20 after one example in class.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--strong">Strong</span></p>
+  <ol class="hu-steps"><li>Study the solved example step by step.</li><li>Cover it and solve the twin problem on your own.</li><li>Uncover the example and compare. Fix any step you got wrong, then go on to the next pair.</li></ol>
+  <p class="tm-move__line"><strong>Check next lesson:</strong> Two problems like the twins and one that is a little different.</p>
+  <details class="tm-move__more"><summary>Why it works</summary><p class="tm-move__evidence">A solved example shows the method before you try it alone, and the twin problem shows whether it stuck.</p><p class="tm-move__evidence">Strongest in maths and other step-by-step problems, for students still learning the method.</p><p class="tm-move__evidence"><strong>If a chatbot does it:</strong> A chatbot can solve the twins. A student who copies them never tries the method, and the check shows it.</p><p class="tm-move__evidence"><span class="tm-move__sources">Sources: <a href="https://doi.org/10.1007/s10648-023-09745-1">Barbieri et al. 2023, Educational Psychology Review</a>, <a href="https://doi.org/10.1016/j.cedpsych.2010.10.004">van Gog, Kester &amp; Paas 2011, Contemporary Educational Psychology</a></span></p></details>
+  <a class="tm-move__use" href="?pattern=example-then-twin#hu-builder" data-use-pattern="example-then-twin" aria-label="Use this pattern: Solved example, then a twin">Use this pattern</a>
+</article>
+<article class="tm-move hu-pattern" id="mixed-set" data-pattern-id="mixed-set">
+  <div class="tm-move__head"><div><span class="tm-move__num">Pattern 6</span><h4 class="tm-move__name">Mixed set</h4></div></div>
+  <p class="tm-move__line"><strong>Instead of:</strong> A set of problems that are all the type just taught.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--promising">Promising</span></p>
+  <ol class="hu-steps"><li>Before you solve each problem, write which method it needs.</li><li>Solve it.</li><li>Check your answers at the end and redo the ones you got wrong.</li></ol>
+  <p class="tm-move__line"><strong>Check next lesson:</strong> Three problems of different types, in mixed order.</p>
+  <details class="tm-move__more"><summary>Why it works</summary><p class="tm-move__evidence">Mixing problem types makes you decide which method fits, which is what tests ask you to do.</p><p class="tm-move__evidence">Writing the method first is our addition. The research tested the mixing itself.</p><p class="tm-move__evidence"><strong>If a chatbot does it:</strong> A chatbot can solve them all. A student who copies the answers never has to choose a method, and the mixed check shows it.</p><p class="tm-move__evidence"><span class="tm-move__sources">Source: <a href="https://doi.org/10.1037/edu0000367">Rohrer et al. 2020, Journal of Educational Psychology</a></span></p></details>
+  <a class="tm-move__use" href="?pattern=mixed-set#hu-builder" data-use-pattern="mixed-set" aria-label="Use this pattern: Mixed set">Use this pattern</a>
+</article>
+</div>
+</div>
+<div class="hu-group">
+<h3 class="hu-group__title">Concepts and processes</h3>
+<div class="tm-grid">
+<article class="tm-move hu-pattern" id="explain-it" data-pattern-id="explain-it">
+  <div class="tm-move__head"><div><span class="tm-move__num">Pattern 7</span><h4 class="tm-move__name">Explain it without notes</h4></div></div>
+  <p class="tm-move__line"><strong>Instead of:</strong> Summarise the chapter.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--promising">Promising</span></p>
+  <ol class="hu-steps"><li>Close the book. Explain the main idea in writing for a younger student, or out loud to someone at home.</li><li>Open the book and mark what you left out or got wrong.</li><li>Fix your explanation in another colour.</li></ol>
+  <p class="tm-move__line"><strong>Check next lesson:</strong> Explain one of the ideas in two or three sentences.</p>
+  <details class="tm-move__more"><summary>Why it works</summary><p class="tm-move__evidence">Explaining in your own words shows where your understanding has holes.</p><p class="tm-move__evidence">Tell students before they study that they will explain it.</p><p class="tm-move__evidence"><strong>If a chatbot does it:</strong> A chatbot writes clear explanations. If it writes this one, the student never finds their own gaps.</p><p class="tm-move__evidence"><span class="tm-move__sources">Sources: <a href="https://doi.org/10.1007/s10648-024-09871-4">Kobayashi 2024, Educational Psychology Review</a>, <a href="https://doi.org/10.1016/j.edurev.2022.100475">Ribosa &amp; Duran 2022, Educational Research Review</a></span></p></details>
+  <a class="tm-move__use" href="?pattern=explain-it#hu-builder" data-use-pattern="explain-it" aria-label="Use this pattern: Explain it without notes">Use this pattern</a>
+</article>
+<article class="tm-move hu-pattern" id="ask-why" data-pattern-id="ask-why">
+  <div class="tm-move__head"><div><span class="tm-move__num">Pattern 8</span><h4 class="tm-move__name">Ask why</h4></div></div>
+  <p class="tm-move__line"><strong>Instead of:</strong> Learn these facts.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--promising">Promising</span></p>
+  <ol class="hu-steps"><li>Take three facts from the lesson.</li><li>For each one, write from memory why it is true.</li><li>Check the reasons in the book and correct them in another colour.</li></ol>
+  <p class="tm-move__line"><strong>Check next lesson:</strong> One of the facts and the question: why is it true?</p>
+  <details class="tm-move__more"><summary>Why it works</summary><p class="tm-move__evidence">Linking a fact to a reason ties it to what you already know, so it is easier to remember.</p><p class="tm-move__evidence">Works best on facts students can reason about with what they already know.</p><p class="tm-move__evidence"><strong>If a chatbot does it:</strong> A chatbot can give the reasons. A student who copies them has linked nothing to what they know.</p><p class="tm-move__evidence"><span class="tm-move__sources">Sources: <a href="https://doi.org/10.3389/feduc.2021.581216">Donoghue &amp; Hattie 2021, Frontiers in Education</a>, <a href="https://doi.org/10.1037/0022-0663.82.4.741">Wood, Pressley &amp; Winne 1990, Journal of Educational Psychology</a></span></p></details>
+  <a class="tm-move__use" href="?pattern=ask-why#hu-builder" data-use-pattern="ask-why" aria-label="Use this pattern: Ask why">Use this pattern</a>
+</article>
+<article class="tm-move hu-pattern" id="draw-it" data-pattern-id="draw-it">
+  <div class="tm-move__head"><div><span class="tm-move__num">Pattern 9</span><h4 class="tm-move__name">Draw it from memory</h4></div></div>
+  <p class="tm-move__line"><strong>Instead of:</strong> Copy the diagram into your book.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--promising">Promising</span></p>
+  <ol class="hu-steps"><li>Close the book. Draw the process, structure or map from memory and label it.</li><li>Open the book and compare.</li><li>Correct it and add the missing parts in another colour.</li></ol>
+  <p class="tm-move__line"><strong>Check next lesson:</strong> Draw or label a simple version of the diagram.</p>
+  <details class="tm-move__more"><summary>Why it works</summary><p class="tm-move__evidence">Turning words into a labelled drawing makes you organise the ideas, and comparing with the book fixes mistakes.</p><p class="tm-move__evidence">Keep the comparison with the book: that is the part the research supports.</p><p class="tm-move__evidence"><strong>If a chatbot does it:</strong> A chatbot can make a diagram. Copying it is not remembering it, and the check shows it.</p><p class="tm-move__evidence"><span class="tm-move__sources">Sources: <a href="https://doi.org/10.1037/a0019640">Schwamborn et al. 2010, Journal of Educational Psychology</a>, <a href="https://doi.org/10.1007/s10648-025-10067-7">Leutner &amp; Biele 2025, Educational Psychology Review</a></span></p></details>
+  <a class="tm-move__use" href="?pattern=draw-it#hu-builder" data-use-pattern="draw-it" aria-label="Use this pattern: Draw it from memory">Use this pattern</a>
+</article>
+</div>
+</div>
+<div class="hu-group">
+<h3 class="hu-group__title">Writing</h3>
+<div class="tm-grid">
+<article class="tm-move hu-pattern" id="plan-at-home" data-pattern-id="plan-at-home">
+  <div class="tm-move__head"><div><span class="tm-move__num">Pattern 10</span><h4 class="tm-move__name">Plan at home, write in class</h4></div></div>
+  <p class="tm-move__line"><strong>Instead of:</strong> Write the essay at home.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--choosewise">Choosewise</span></p>
+  <ol class="hu-steps"><li>Write a plan by hand: your main point, the points that support it and the evidence for each. Start from memory.</li><li>Then check your sources and add to the plan.</li><li>Bring the plan. You write the text in class.</li></ol>
+  <p class="tm-move__line"><strong>Check next lesson:</strong> Students write the opening of the text in class, from their plan.</p>
+  <details class="tm-move__more"><summary>Why it works</summary><p class="tm-move__evidence">The thinking happens at home and the writing happens where you can see it. Planning before writing is known to improve writing.</p><p class="tm-move__evidence">No study tests this as a method. It is our rule for knowing who wrote what.</p><p class="tm-move__evidence"><strong>If a chatbot does it:</strong> A chatbot can write a plan. A student who copies one will struggle to write from it in class.</p><p class="tm-move__evidence"><span class="tm-move__sources">Source: <a href="https://doi.org/10.1037/0022-0663.99.3.445">Graham &amp; Perin 2007, Journal of Educational Psychology</a></span></p></details>
+  <a class="tm-move__use" href="?pattern=plan-at-home#hu-builder" data-use-pattern="plan-at-home" aria-label="Use this pattern: Plan at home, write in class">Use this pattern</a>
+</article>
+</div>
+</div>
+<div class="hu-group">
+<h3 class="hu-group__title">Marked work</h3>
+<div class="tm-grid">
+<article class="tm-move hu-pattern" id="fix-your-mistakes" data-pattern-id="fix-your-mistakes">
+  <div class="tm-move__head"><div><span class="tm-move__num">Pattern 11</span><h4 class="tm-move__name">Fix your mistakes</h4></div></div>
+  <p class="tm-move__line"><strong>Instead of:</strong> Look through your marked test.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--strong">Strong</span></p>
+  <ol class="hu-steps"><li>Cover the corrections and redo every question you got wrong.</li><li>Check against the correct answer.</li><li>Try the ones that are still wrong again until you get them right.</li></ol>
+  <p class="tm-move__line"><strong>Check next lesson:</strong> New versions of the two or three most common mistakes.</p>
+  <details class="tm-move__more"><summary>Why it works</summary><p class="tm-move__evidence">Trying again before you look, then checking, turns a red mark into learning.</p><p class="tm-move__evidence">Redoing the errors without looking is our way to apply the research on feedback.</p><p class="tm-move__evidence"><strong>If a chatbot does it:</strong> A chatbot can give the right answers, but the learning comes from finding them yourself after a mistake.</p><p class="tm-move__evidence"><span class="tm-move__sources">Sources: <a href="https://doi.org/10.1037/bul0000309">Yang et al. 2021, Psychological Bulletin</a>, <a href="https://doi.org/10.1037/0278-7393.31.1.3">Pashler et al. 2005, Journal of Experimental Psychology: Learning, Memory, and Cognition</a></span></p></details>
+  <a class="tm-move__use" href="?pattern=fix-your-mistakes#hu-builder" data-use-pattern="fix-your-mistakes" aria-label="Use this pattern: Fix your mistakes">Use this pattern</a>
+</article>
+</div>
+</div>
+<div class="hu-group">
+<h3 class="hu-group__title">A new topic</h3>
+<div class="tm-grid">
+<article class="tm-move hu-pattern" id="guess-first" data-pattern-id="guess-first">
+  <div class="tm-move__head"><div><span class="tm-move__num">Pattern 12</span><h4 class="tm-move__name">Guess first</h4></div></div>
+  <p class="tm-move__line"><strong>Instead of:</strong> Read ahead for the next lesson.</p>
+  <p class="tm-move__meta"><span class="tm-chip tm-chip--promising">Promising</span></p>
+  <ol class="hu-steps"><li>Answer five questions about the next lesson&#x27;s topic before it is taught. Do not look anything up.</li><li>Guess when you do not know. Wrong guesses are fine.</li><li>Bring your answers. You will find out in the lesson.</li></ol>
+  <p class="tm-move__line"><strong>Check next lesson:</strong> Go over the answers during the lesson, then ask two of the questions again at the end.</p>
+  <details class="tm-move__more"><summary>Why it works</summary><p class="tm-move__evidence">Guessing before the lesson makes you notice the answers when they come. It helps mostly with those exact questions.</p><p class="tm-move__evidence">Use it now and then, not every week. Some students give up on questions they cannot answer, so keep them short.</p><p class="tm-move__evidence"><strong>If a chatbot does it:</strong> A chatbot can answer the questions, but then there is nothing to guess and nothing to notice.</p><p class="tm-move__evidence"><span class="tm-move__sources">Sources: <a href="https://doi.org/10.3758/s13423-023-02353-8">St. Hilaire, Chan &amp; Ahn 2024, Psychonomic Bulletin &amp; Review</a>, <a href="https://doi.org/10.1037/edu0000978">Motz et al. 2026, Journal of Educational Psychology</a></span></p></details>
+  <a class="tm-move__use" href="?pattern=guess-first#hu-builder" data-use-pattern="guess-first" aria-label="Use this pattern: Guess first">Use this pattern</a>
+</article>
+</div>
+</div>
+<!-- patterns:end -->
+      </div>
+    </section>
+
+    <!-- Kontrollen i nästa lektion: det som bär hela upplägget. Stegen och
+         förklaringen byggs från JSON-filen. -->
+    <section class="section" id="hu-check">
+      <div class="container">
+        <h2 class="section__title">The check in the next lesson</h2>
+<!-- check:start -->
+<ol class="hu-list"><li>When you set the homework, tell students that the next lesson starts with three questions on it, with books closed.</li><li>Start the lesson with the three questions on the board. Books closed, answers on paper, about four minutes.</li><li>Go through the answers together. Students mark their own in another colour.</li><li>Ask for a show of hands on each question. If many missed the same one, go over it before you move on.</li><li>Now and then, make one of the three questions about something older.</li></ol>
+<p class="hu-prose">The check is not graded. In classroom studies, ungraded quizzes helped about as much as graded ones, and going through the answers made quizzes work better. The check is retrieval practice in its own right, and it shows you and each student what they can do alone.</p>
+<p class="hu-prose">Skip AI detectors. They are unreliable, and they tend to flag plain, simple writing as AI, for example essays by students writing in a second language. The check tells you more.</p>
+<!-- check:end -->
+      </div>
+    </section>
+
+    <!-- En text läraren kan ge eleverna. Knappen kopierar de fyra styckena
+         (data-copy sätts av byggskriptet), så ingen JavaScript behövs här. -->
+    <section class="section section--alt" id="hu-students">
+      <div class="container">
+        <h2 class="section__title">Tell your students why</h2>
+<!-- students:start -->
+<p class="section__lede">Copy this for your students, or send it home. Change it to fit your class.</p>
+<div class="hu-students__text"><p>From now on, some homework starts with the book closed. You write or answer from memory first, then open the book, check and fix what you missed in another colour.</p><p>It will feel harder than reading the chapter again, and you will get things wrong. That is the practice: what you pull out of your memory is what stays.</p><p>The next lesson starts with three short questions on the homework, with books closed. They are not graded. We go through the answers together, so that you and I can see what you can do on your own and what we need to go over again.</p><p>If a chatbot does the homework for you, you skip the practice, and the questions will show it.</p></div>
+<div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="From now on, some homework starts with the book closed. You write or answer from memory first, then open the book, check and fix what you missed in another colour.
+
+It will feel harder than reading the chapter again, and you will get things wrong. That is the practice: what you pull out of your memory is what stays.
+
+The next lesson starts with three short questions on the homework, with books closed. They are not graded. We go through the answers together, so that you and I can see what you can do on your own and what we need to go over again.
+
+If a chatbot does the homework for you, you skip the practice, and the questions will show it.">Copy text</button><span class="copy-toast" role="status">Copied</span></div>
+<!-- students:end -->
+      </div>
+    </section>
+
+    <!-- Läxkliniken: en återkommande tråd i Skool-gruppen. Länken är den enda
+         vägen härifrån till communityn. -->
+    <section class="section" id="hu-clinic">
+      <div class="container">
+        <h2 class="section__title">Homework Clinic</h2>
+        <p class="section__lede">Homework Clinic is a weekly thread in the Choosewise community. Post one homework task as you set it, your upgraded version and what the check showed. Ask for a pattern when you are stuck, and see how teachers in other subjects upgrade theirs.</p>
+        <a class="btn btn--primary" href="https://www.skool.com/choosewise-7103">Go to the community on Skool →</a>
+      </div>
+    </section>
+
+    <!-- Forskningen bakom upplägget. Varje stycke och dess källor byggs från
+         JSON-filen; källorna är länkar så att man kan kontrollera dem. -->
+    <section class="section section--alt" id="hu-evidence">
+      <div class="container">
+        <h2 class="section__title">What the research says</h2>
+        <p class="section__lede">The parts are well supported. No study has tested upgraded homework as a package.</p>
+<!-- evidence:start -->
+<p class="hu-evidence__item"><strong>Good homework is about thinking, not minutes.</strong> Homework is linked to higher achievement in secondary school. The EEF Toolkit estimates about five months&#x27; extra progress on average, but from a weak and mostly correlational evidence base. What matters is the quality of the task, a clear purpose and a link to the next lesson. Students who put real effort into homework gain more, while the time they spend predicts little on its own. <span class="tm-move__sources">Sources: <a href="https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/homework">Education Endowment Foundation, Teaching and Learning Toolkit: Homework</a>, <a href="https://doi.org/10.1016/j.cedpsych.2008.09.001">Trautwein et al. 2009, Contemporary Educational Psychology</a></span></p>
+<p class="hu-evidence__item"><strong>Close the book first, then check.</strong> Answering from memory before you open the book shows you what you do not yet know, and checking straight after fixes it. In classroom studies, short quizzes followed by the right answers helped students learn more than quizzes alone. In a lab study, students who expected an open-book test studied less and later did worse on a closed-book one. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1037/bul0000309">Yang et al. 2021, Psychological Bulletin</a>, <a href="https://doi.org/10.1080/09658211.2011.613840">Agarwal &amp; Roediger 2011, Memory</a></span></p>
+<p class="hu-evidence__item"><strong>Why this matters when chatbots can do the homework.</strong> More than half of US teens have used a chatbot for schoolwork. In a study of nearly 1,000 high school maths students, those who practised with open access to GPT-4 later scored 17% lower on a test without it than students who never had access. No homework is AI-proof, but recalling from memory is something a chatbot cannot do for you. AI detectors are no way round this: they are unreliable, and they flag plain writing, such as essays by students writing in a second language. <span class="tm-move__sources">Sources: <a href="https://www.pewresearch.org/internet/2026/02/24/how-teens-use-and-view-ai/">Pew Research Center 2026, How teens use and view AI</a>, <a href="https://doi.org/10.1073/pnas.2422633122">Bastani et al. 2025, PNAS</a>, <a href="https://doi.org/10.1007/s40979-023-00146-z">Weber-Wulff et al. 2023, International Journal for Educational Integrity</a>, <a href="https://doi.org/10.1016/j.patter.2023.100779">Liang et al. 2023, Patterns</a></span></p>
+<p class="hu-evidence__item"><strong>The four-minute check is what makes it count.</strong> A few closed-book questions at the start of the next lesson are retrieval practice in their own right. In classroom studies, quizzes given in class after teaching helped most, and ungraded quizzes worked about as well as graded ones. In a survey of 1,408 middle and high school students, 72% said regular quizzing made them less nervous before tests. Tell students about the check when you set the homework, and go over the answers together. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1037/bul0000309">Yang et al. 2021, Psychological Bulletin</a>, <a href="https://doi.org/10.1016/j.jarmac.2014.07.002">Agarwal et al. 2014, Journal of Applied Research in Memory and Cognition</a></span></p>
+<p class="hu-evidence__item"><strong>In maths: mix, space and start from an example.</strong> When Grade 7 maths classes mixed different problem types in their practice, they scored 61% on a surprise test a month later, against 38% for classes that practised one type at a time. Spreading the same practice over three weeks also beat doing it in one go, and studying a solved example before solving a similar problem helps students who are still learning the method. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1037/edu0000367">Rohrer et al. 2020, Journal of Educational Psychology</a>, <a href="https://doi.org/10.1002/acp.3814">Emeny, Hartwig &amp; Rohrer 2021, Applied Cognitive Psychology</a>, <a href="https://doi.org/10.1007/s10648-023-09745-1">Barbieri et al. 2023, Educational Psychology Review</a></span></p>
+<p class="hu-evidence__item"><strong>It will feel harder, and that is the point.</strong> Students tend to prefer rereading: in one survey, 84% of students reread and only 11% tested themselves. Year 7 students who crammed their maths practice were overconfident about their test scores, while those who spread it out judged themselves fairly accurately. Upgraded homework feels slower, but the check in the next lesson shows students what they actually remember. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1080/09658210802647009">Karpicke, Butler &amp; Roediger 2009, Memory</a>, <a href="https://doi.org/10.1002/acp.3814">Emeny, Hartwig &amp; Rohrer 2021, Applied Cognitive Psychology</a></span></p>
+<!-- evidence:end -->
+      </div>
+    </section>
+
+    <!-- AI-verktyg och åldersgränser. Global regel för allt AI-innehåll på
+         sajten: åldersgränser och läsarens eget ansvar för nationella regler.
+         Ingressen med datumet och reglerna byggs från JSON-filen; noten under
+         är statisk text. -->
+    <section class="section" id="hu-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age rules</h2>
+<!-- age:start -->
+<p class="section__lede">You use AI to prepare. The upgraded homework needs no AI. If students use AI tools, these rules apply (November 2026):</p>
+<ul class="tm-age"><li><strong>Copilot Chat:</strong> Students aged 13 and over, through the school&#x27;s own Microsoft 365 Education account. The school&#x27;s administrator must set each student&#x27;s age group; under-13 accounts get no access.</li><li><strong>Gemini for Education:</strong> Open to education users of all ages, with stricter content rules and some features switched off for under-18s. The school&#x27;s administrator must turn it on for students under 18.</li><li><strong>ChatGPT:</strong> Ages 13 and over (or the minimum age in your country) on personal accounts, with a parent&#x27;s or guardian&#x27;s permission under 18. Users under 18 are placed in ChatGPT for Teens. ChatGPT for Teachers is for verified U.S. K–12 school staff, not students.</li><li><strong>Claude:</strong> Ages 18 and over. Claude for Teachers is for verified U.S. K–12 teachers, not students.</li></ul>
+<!-- age:end -->
+        <p class="tm-note">Rules differ between countries and change often. Check your own national rules and your school policy before students use any AI tool.</p>
+      </div>
+    </section>
+
+    <!-- Nästa steg: tre länkar till öppna verktyg på sajten. Länkarna går bara
+         härifrån och ut; ingen öppen sida länkar hit. -->
+    <section class="section section--alt" id="hu-next">
+      <div class="container">
+        <h2 class="section__title">Next</h2>
+        <ul class="hu-next">
+          <li><a href="/lesson-lens/">Upgrade a lesson: Lesson Lens</a></li>
+          <li><a href="/retrieval-rhythm/">Weekly starters: Retrieval Rhythm</a></li>
+          <li><a href="/study-moves/">For your students: Study Moves</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknapparna (data-copy) och promptbyggaren. -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+  <script src="/assets/js/homework-upgrade.js" defer></script>
+</body>
+</html>
