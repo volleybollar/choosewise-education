@@ -102,6 +102,10 @@ Ten study moves for students in Grades 7–12, chosen by goal: remember it, tell
 
 A free two-lesson classroom kit for Grades 7–12, a school version of a demonstration used with university classes (Einstein, Mullet & Harrison 2012). Every student studies two short texts, one by reading it twice and one by writing down what they remember and then checking, with the two groups counterbalanced. Students predict which text they will remember better, and an unannounced quiz a week later shows the class's own result. A results view in the browser compares prediction with outcome without saving anything. Lesson 2 includes discussion questions, a three-point explanation, a script for an even result and a concrete study plan for each student. A prompt builder helps the teacher make the two texts and the quiz with any AI tool; students do not use AI. Includes AI age rules and a free PDF teacher kit with group cards, anonymous slips and a fill-in prompt.
 
+- [Test Countdown — English](https://choosewise.education/test-countdown/)
+
+A free study planner for students in Grades 7–12. The student types the test date, what the test covers (one to six areas), the session length and the days they can study, and gets short dated sessions on different days within the last three weeks before the test: a quiz on each area that brings earlier areas back, mixed quizzes, a practice test two days before and a short last evening. Every session works with the notes closed and needs no AI. When there are only a few study days the plan is shorter and says that less time means less will stay with the student. The plan is made in the browser and lives in the link, so it can be bookmarked, shared with a whole class or printed; nothing is saved or sent. Includes how to quiz yourself, why the sessions feel harder than rereading, the research behind the plan, a prompt builder with which a teacher makes the quizzes with any AI tool, and AI age rules.
+
 ## Presentation Skills
 
 - [Presentation Skills landing — English](https://choosewise.education/presentation-skills/)

@@ -22,6 +22,7 @@ PAGES = (
     ("study/index.html", "/study/", "study-en.png"),
     ("study-moves/index.html", "/study-moves/", "studymoves-en.png"),
     ("study-experiment/index.html", "/study-experiment/", "studyexperiment-en.png"),
+    ("test-countdown/index.html", "/test-countdown/", "testcountdown-en.png"),
 )
 
 
