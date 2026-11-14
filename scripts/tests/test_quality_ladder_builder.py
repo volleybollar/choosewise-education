@@ -40,7 +40,7 @@ Length of a strong answer: one paragraph.
 
 Rules for the samples:
 - Write as real Grade 8 students would, in words they use. No names.
-- The three samples are about the same length. They differ in what they do against the criteria, not in how much they write.
+- The three samples are about the same length, the longest at most a fifth longer than the shortest. They differ in what they do against the criteria, not in how much they write.
 - The weakest sample shows a mistake Grade 8 students often make in this task and meets few of the criteria. The middle one meets some. The strongest meets all of them and is realistic for a strong Grade 8 student, not an expert.
 - Apart from that mistake, every fact in the samples is correct.
 

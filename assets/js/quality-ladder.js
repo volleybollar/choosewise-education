@@ -20,7 +20,7 @@
   var RULES_BEFORE_MISTAKE = [
     'Rules for the samples:',
     '- Write as real Grade {grade} students would, in words they use. No names.',
-    '- The three samples are about the same length. They differ in what they do against the criteria, not in how much they write.'
+    '- The three samples are about the same length, the longest at most a fifth longer than the shortest. They differ in what they do against the criteria, not in how much they write.'
   ];
   // Den svagaste provtexten: med angiven vanlig miss pekar regeln på den, annars på en typisk miss.
   var WEAKEST_WITH_MISTAKE = 'the common mistake above';
