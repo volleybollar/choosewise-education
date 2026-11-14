@@ -64,6 +64,7 @@ HIDDEN_PATHS = {
     "/pedagogy-compass-59ecb8db/",
     # Homework Upgrade: bara för Skool-medlemmar via en dold länk (Johans beslut 2026-11-14).
     "/homework-upgrade-1f0cd17c/",
+    "/quality-ladder-ec1c2f8c/",
     # Community: dold tills Skool öppnar för alla (Johans beslut 2026-11-11).
     "/community/",
     # AI-lektioner för elever: bara för Skool-medlemmar via dolda länkar (Johans beslut 2026-11-11).
