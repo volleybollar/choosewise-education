@@ -243,7 +243,8 @@ def test_head_hero_and_scripts():
 
 
 def test_local_assets_exist():
-    # Sidan får inte peka på en fil som saknas (JavaScript-filen skrivs i senare steg).
+    # Sidan får inte peka på en fil som saknas: en script-tagg som ger 404 laddar
+    # ingen planerare, och sidan kan då inte räkna fram någon plan.
     page = html()
     for url in re.findall(r'(?:href|src)="(/assets/[^"?#]+)', page):
         assert (ROOT / url.lstrip("/")).exists(), url
