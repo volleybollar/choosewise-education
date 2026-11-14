@@ -11,8 +11,8 @@
   månader kommer från fasta engelska listor, aldrig från webbläsarens språk.
   Det enda som använder lokal tid är "idag" i formuläret.
 
-  Filen har tre delar: datumfunktionerna, planreglerna med texterna och
-  länken (adressfältet). Alla funktioner exporteras först på
+  Filen har fyra delar: datumfunktionerna, planreglerna med texterna, länken
+  (adressfältet) och lärarens quizprompt. Alla funktioner exporteras först på
   window.TestCountdown; sist kommer kopplingen till sidan.
 
   Reglerna är fastställda i specen (avsnittet The planner). Tidsfönstret på 21
@@ -371,6 +371,82 @@
     return result;
   }
 
+  /* ---------- Lärarens quizprompt ---------- */
+
+  var BUILDER_HINT = 'Make a plan above, then fill in your subject.';
+
+  /* Det som står efter "Session {i}: " för ett pass, utan slutpunkten (den sätter
+     buildPrompt dit). Texterna är fastställda ordagrant i specen (avsnittet Quiz
+     prompt). Antalet frågor och formuleringen följer passets slag; kort plan och
+     ett enda område ger andra ord, precis som i sessionText. */
+  function quizLine(session, plan) {
+    var single = plan.areas.length === 1;
+    var line;
+    switch (session.kind) {
+      case 'new':
+        line = 'five questions on ' + (plan.short ? 'the most important ideas in ' : '') + joinList(session.areas);
+        if (session.earlier.length > 0) { line += ', and three on ' + joinList(session.earlier); }
+        return line;
+      case 'mixed':
+        return single ? 'eight new questions on ' + session.areas[0] : 'eight questions mixing all areas';
+      case 'practice':
+        return 'a practice test of twelve questions on ' + (single ? plan.areas[0] : 'all areas') +
+          ', in the same format as the real test';
+      case 'single':
+        return 'ten questions on the most important ideas in ' + joinList(session.areas);
+    }
+  }
+
+  /* Bygger lärarens prompt. Ren funktion: samma plan och indata ger alltid samma
+     text. options = { subject, grade, language }. Ämnet och språket trimmas, och
+     ett tomt språk blir engelska. Passen numreras utan sista kvällen, som inte
+     får något quiz; meningen om sista passet kommer bara när planen har en sista
+     kväll, och den säger olika saker med och utan övningsprov. */
+  function buildPrompt(plan, options) {
+    var subject = String(options.subject).trim();
+    var language = String(options.language).trim() || 'English';
+    var areasSentence = plan.areas.length === 1
+      ? 'The class has a test on ' + plan.areas[0] + '.'
+      : 'The class has a test on these areas: ' + plan.areas.join('; ') + '.';
+    var lines = [
+      'Do not include student names or student work in this conversation.',
+      '',
+      'You are helping a Grade ' + options.grade + ' ' + subject + ' teacher. ' + areasSentence +
+        ' Students will prepare with short study sessions on different days. Each session starts with a quiz that students answer on paper with their notes closed, and then check against the answers.',
+      '',
+      'Write everything in ' + language + '.',
+      '',
+      'Write one quiz for each of these sessions:'
+    ];
+    var number = 0;
+    var hasPractice = false;
+    var hasLast = false;
+    plan.sessions.forEach(function (session) {
+      if (session.kind === 'last') {
+        hasLast = true;
+        return;
+      }
+      if (session.kind === 'practice') { hasPractice = true; }
+      number += 1;
+      lines.push('Session ' + number + ': ' + quizLine(session, plan) + '.');
+    });
+    if (hasLast) {
+      lines.push(hasPractice
+        ? 'The last session works on the mistakes from the practice test, so it needs no quiz.'
+        : 'The last session goes back over the first quiz, so it needs no quiz of its own.');
+    }
+    lines.push(
+      '',
+      '- Ask about the most important content in each area: what the test is most likely to ask. If I paste my own teaching material or an old test after this prompt, base the questions on that material and make the practice test look like the old test.',
+      '- Each question asks one thing. Most answers are a word, a number or a short phrase; add a few "explain why" questions.',
+      '- When a session comes back to an earlier area, ask in a new way, not the same question again.',
+      '- Do not give away one answer in another question.',
+      '',
+      'Reply in plain text, no tables. For each session, write SESSION 1:, SESSION 2: and so on, with the questions numbered Q1:, Q2: and so on, ready to print. Then write ANSWERS, with the answers for each session numbered to match. End with CHECK: every fact, figure, date or name in the answers that I should verify, one per line.'
+    );
+    return lines.join('\n');
+  }
+
   window.TestCountdown = {
     parseAreas: parseAreas,
     buildPlan: buildPlan,
@@ -381,7 +457,8 @@
     planTitle: planTitle,
     planTotal: planTotal,
     toQuery: toQuery,
-    fromQuery: fromQuery
+    fromQuery: fromQuery,
+    buildPrompt: buildPrompt
   };
 
   /* ---------- Kopplingen till sidan ---------- */
@@ -440,8 +517,11 @@
     };
 
     /* Adressen skrivs bara om när eleven har ändrat något eller när sidan
-       öppnades med parametrar. En vanlig sidladdning lämnar adressen orörd. */
-    var opened = location.search !== '';
+       öppnades med en länk som hade minst en giltig del. En vanlig sidladdning
+       och en adress med bara andra parametrar (till exempel ?utm_source=mail)
+       lämnas orörda tills eleven ändrar något. */
+    var saved = fromQuery(location.search);
+    var opened = Object.keys(saved).length > 0;
     var edited = false;
 
     /* Formuläret som indata till buildPlan och toQuery. Minuter och veckodagar
@@ -522,7 +602,7 @@
       replan();
     }
 
-    fillForm(fromQuery(location.search));
+    fillForm(saved);
     /* Tomt startdatum blir dagens datum. */
     if (!els.start.value) { els.start.value = todayLocal(); }
     form.addEventListener('input', onEdit);
@@ -531,5 +611,58 @@
     replan();
   }
 
+  /* Promptbyggaren på sidan. Den lyssnar på tc:plan från planeraren och på
+     sina egna fält. Senaste planen sparas i en variabel (null när det inte finns
+     någon), och prompten byggs om från den varje gång något ändras. Det gör
+     lyssnaren idempotent: planeraren kan skicka tc:plan två gånger per ändring
+     (input och change), och samma plan igen ger exakt samma läge. */
+  function initBuilder() {
+    var form = document.getElementById('tc-builder-form');
+    if (!form) { return; }
+
+    var els = {
+      subject: document.getElementById('tc-subject'),
+      grade: document.getElementById('tc-grade'),
+      language: document.getElementById('tc-language'),
+      prompt: document.getElementById('tc-prompt'),
+      copy: document.getElementById('tc-copy'),
+      hint: document.getElementById('tc-prompt-hint')
+    };
+    var latestPlan = null;
+
+    /* Klar = en plan och ett ämne. Då står prompten i rutan och i knappens
+       data-copy, som copy-to-clipboard.js kopierar vid klick; annars är rutan
+       tom, knappen grå och ledtråden säger vad som saknas. Ledtråden är
+       aria-live och skrivs därför bara när texten ändras. */
+    function refresh() {
+      var subject = els.subject.value.trim();
+      var text = '';
+      if (latestPlan && subject) {
+        text = buildPrompt(latestPlan, {
+          subject: subject,
+          grade: els.grade.value,
+          language: els.language.value
+        });
+      }
+      var message = text ? '' : BUILDER_HINT;
+      els.prompt.value = text;
+      els.copy.disabled = text === '';
+      els.copy.setAttribute('data-copy', text);
+      if (els.hint.textContent !== message) { els.hint.textContent = message; }
+    }
+
+    document.addEventListener('tc:plan', function (event) {
+      latestPlan = event.detail || null;
+      refresh();
+    });
+    form.addEventListener('input', refresh);
+    form.addEventListener('change', refresh);
+    refresh();
+  }
+
+  /* initBuilder registreras före init: planeraren skickar sin första tc:plan
+     redan i init, och då måste promptbyggaren redan lyssna. Lyssnarna på
+     DOMContentLoaded körs i den ordning de lades till. */
+  document.addEventListener('DOMContentLoaded', initBuilder);
   document.addEventListener('DOMContentLoaded', init);
 })();

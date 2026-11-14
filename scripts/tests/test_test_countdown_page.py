@@ -175,12 +175,15 @@ def test_today_is_the_local_date(browser, base, zone, instant, expected):
     # Klockan är fast och tidszonen vald, så "idag" måste komma från lokala
     # getters: UTC-datumet skulle ge fel dag i bägge fallen.
     ctx = browser.new_context(timezone_id=zone)
-    p = ctx.new_page()
-    p.clock.set_fixed_time(instant)
-    p.goto(base, wait_until="networkidle")
-    p.wait_for_function("window.TestCountdown")
-    assert p.input_value("#tc-start") == expected
-    ctx.close()
+    try:
+        p = ctx.new_page()
+        p.clock.set_fixed_time(instant)
+        p.goto(base, wait_until="networkidle")
+        p.wait_for_function("window.TestCountdown")
+        assert p.input_value("#tc-start") == expected
+    finally:
+        # Sammanhanget stängs även när något av ovanstående faller.
+        ctx.close()
 
 
 def test_case_a_renders(page):
@@ -390,8 +393,23 @@ def test_bad_link_keeps_defaults(context, base):
     assert got["start"] != ""
     assert hint(page) == PICK_DATE
     assert page.is_hidden("#tc-plan")
-    # Öppnad med parametrar: adressen skrivs om till det som visas, och länken följer med.
-    assert query_of(page).endswith("&min=20&days=1234567")
+    # Inget av parametrarna var giltigt, så adressen lämnas som den var, och länken följer med.
+    assert query_of(page) == "test=2026-02-30&min=17&days=9"
+    assert page.get_attribute("#tc-link", "data-copy") == page.url
+    assert page.errors == []
+
+
+def test_unrelated_parameters_keep_the_address(context, base):
+    # En länk med bara andra parametrar (till exempel från ett utskick) lämnas orörd
+    # tills eleven ändrar något; då skrivs adressen om till planens indata.
+    page = open_page(context, base + "?utm_source=mail")
+    assert query_of(page) == "utm_source=mail"
+    assert page.get_attribute("#tc-link", "data-copy") == page.url
+    assert hint(page) == PICK_DATE
+    assert page.errors == []
+    page.fill("#tc-areas", "A")
+    assert "utm_source" not in query_of(page)
+    assert query_of(page).endswith("&min=20&days=1234567&area=A")
     assert page.get_attribute("#tc-link", "data-copy") == page.url
     assert page.errors == []
 
