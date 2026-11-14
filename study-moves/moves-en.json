@@ -215,7 +215,12 @@
           "text": "Evidence Toolkit: Memory"
         }
       ],
-      "related": []
+      "related": [
+        {
+          "href": "/test-countdown/",
+          "text": "Make a plan: Test Countdown"
+        }
+      ]
     },
     {
       "id": "mix-it-up",
