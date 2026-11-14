@@ -280,22 +280,39 @@ def test_whole_class_and_policy_copy():
 
 
 def test_text_helpers_hold_all_the_content():
+    """Hjälparna är enda källan till kopieringsknapparna och .docx-filerna: allt ska vara med."""
     mod = load_build()
     d = data()
-    routine = mod.routine_text(d["routine"])
-    for i, step in enumerate(d["routine"]["steps"], start=1):
+    r = d["routine"]
+    routine = mod.routine_text(r)
+    for i, step in enumerate(r["steps"], start=1):
         assert f"{i}. {step}" in routine
-    assert d["routine"]["younger"] in routine
-    wc = mod.whole_class_text(d["whole_class"])
-    for s in d["whole_class"]["sections"]:
+    assert r["younger"] in routine
+    for line in r["sheet"]:
+        assert line in routine, line
+    assert routine.index(r["steps"][-1]) < routine.index(r["younger"]) < routine.index(r["sheet"][0])
+    w = d["whole_class"]
+    wc = mod.whole_class_text(w)
+    assert w["intro"] in wc and w["followup"] in wc
+    for s in w["sections"]:
         assert s["heading"] in wc and s["guide"] in wc
-    assert d["whole_class"]["followup"] in wc
-    policy = mod.policy_text(d["policy"])
-    assert d["policy"]["intro"] in policy
-    for p in d["policy"]["principles"]:
+    assert wc.index(w["intro"]) < wc.index(w["sections"][0]["heading"])
+    pol = d["policy"]
+    policy = mod.policy_text(pol)
+    assert pol["intro"] in policy
+    for p in pol["principles"]:
         assert p["title"] in policy and p["text"] in policy
     for text in (routine, wc, policy):
         assert "<" not in text and "&amp;" not in text
+
+
+def test_framework_chip_on_template_and_policy():
+    chip = '<span class="tm-chip tm-chip--framework">Framework</span>'
+    for sid, name in (("ql-feedback", "whole-class"), ("ql-policy", "policy")):
+        block = section(sid)
+        assert chip in block, sid
+        # Etiketten står överst, före det byggda innehållet.
+        assert block.index(chip) < block.index(f"<!-- {name}:start -->"), sid
 
 
 def test_data_copy_survives_a_real_parser():
@@ -335,6 +352,8 @@ def test_evidence_and_legend():
     assert ">What the research says</h2>" in block
     assert ("Students judging work against criteria is well supported in school. Samples written by "
             "AI at three levels have not been tested yet.") in text_of(block)
+    assert "Quality Ladder as a whole: Promising, with a Strong core." in text_of(block)
+    assert block.index("Quality Ladder as a whole") < block.index("<!-- evidence:start -->")
     legend = re.search(r'<ul class="tm-legend">.*?</ul>', block, re.S).group(0)
     assert len(re.findall("<li>", legend)) == 4
     for key, name in LABEL_NAMES.items():

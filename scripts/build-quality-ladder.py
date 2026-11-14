@@ -41,15 +41,18 @@ LABEL_ORDER = ("strong", "promising", "framework", "choosewise")
 # ───── Ren text: det som kopieringsknapparna lägger i urklipp ─────
 
 def routine_text(routine: dict) -> str:
-    """The routine as plain text: a title, the numbered steps, the Grades 1-3 note."""
+    """The routine as plain text: a title, the numbered steps, the Grades 1-3 note and the
+    fill-in lines of the student sheet (so the .docx can reuse this text as it is)."""
     steps = "\n".join(f"{i}. {step}" for i, step in enumerate(routine["steps"], start=1))
-    return f"The lesson, step by step\n\n{steps}\n\n{routine['younger']}"
+    sheet = "\n".join(routine["sheet"])
+    return f"The lesson, step by step\n\n{steps}\n\n{routine['younger']}\n\n{sheet}"
 
 
 def whole_class_text(wc: dict) -> str:
-    """The whole-class feedback template: each heading with its guidance, then the follow-up."""
+    """The whole-class feedback template: a title, the intro, each heading with its
+    guidance, then the follow-up."""
     parts = [f"{s['heading']}\n{s['guide']}" for s in wc["sections"]]
-    return "Whole-class feedback\n\n" + "\n\n".join(parts) + f"\n\n{wc['followup']}"
+    return f"Whole-class feedback\n\n{wc['intro']}\n\n" + "\n\n".join(parts) + f"\n\n{wc['followup']}"
 
 
 def policy_text(policy: dict) -> str:
