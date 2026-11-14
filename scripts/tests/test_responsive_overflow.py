@@ -67,6 +67,7 @@ PAGES = (
         "two-minute-debrief/",
         "unit-studio-541ebd12/",
         "pedagogy-compass-59ecb8db/",
+        "homework-upgrade-1f0cd17c/",
         "pedagogy/",
         "community/",
         "ai-lessons-younger-3c514a93/",

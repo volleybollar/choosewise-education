@@ -4,8 +4,8 @@ Sidan är bara för Skool-medlemmar: den nås via en dold länk och länkas aldr
 från resten av sajten. Exemplet, de tolv mönsterkorten, kontrollen, elevtexten,
 forskningen och åldersreglerna byggs från homework-upgrade-1f0cd17c/upgrade-en.json
 av scripts/build-homework-upgrade.py, så att de syns utan JavaScript. Testerna
-läser den byggda sidan och kör byggskriptet. (Noindex, sitemap och att sidan
-inte länkas från sajten vaktas i uppgift 3.)
+läser den byggda sidan och kör byggskriptet. Noindex och att sidan inte
+länkas från sajten vaktas också här.
 Spec: docs/superpowers/specs/2026-11-14-homework-upgrade-design.md.
 """
 import importlib.util
@@ -351,6 +351,20 @@ def test_page_head():
             'three-question check for the next lesson.">') in page
     assert '<link rel="stylesheet" href="/assets/css/homework-upgrade.css?v=20261114a">' in page
     assert '<link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">' in page
+
+
+def test_page_is_noindex():
+    assert '<meta name="robots" content="noindex,nofollow">' in html()
+    assert 'rel="canonical"' not in html()
+    assert "og:image" not in html()
+
+
+def test_hidden_page_is_not_linked_anywhere():
+    # Den dolda länken finns bara i Skool.
+    for rel in ["sitemap.xml", "llms.txt", "study/index.html", "index.html", "robots.txt"]:
+        assert SLUG not in (ROOT / rel).read_text(encoding="utf-8"), rel
+    for p in (ROOT / "assets/partials").glob("*"):
+        assert SLUG not in p.read_text(encoding="utf-8"), p.name
 
 
 def test_scripts_loaded():
