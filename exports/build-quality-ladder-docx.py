@@ -36,6 +36,9 @@ NAVY = RGBColor(0x0B, 0x3A, 0x6F)
 SOFT = RGBColor(0x4E, 0x5A, 0x68)   # --color-text-soft, för vägledningstext
 LINE = "9AA7B5"                      # grå för skrivrader och rutor
 AUTHOR = "Choosewise.education"
+TEXT_WIDTH_CM = 17                   # 21 cm minus 2 x 2 cm marginal
+FILLER_CHARS = 520                   # hårda blanksteg à ~1 pt i 4 pt: längre än 17 cm
+TEXT_WIDTH_TWIPS = 9638              # samma bredd i twips (1 cm = 566,9)
 
 
 def _load_helpers():
@@ -98,40 +101,41 @@ def _guide(doc: Document, text: str) -> None:
     p.paragraph_format.keep_with_next = True
 
 
-def _write_line(doc: Document) -> None:
-    """En tom skrivrad: ett tomt stycke med understreckad kant, som ger en ren linje i Word."""
-    p = doc.add_paragraph()
-    # Kanten läggs in först och avstånden sätts efteråt: python-docx lägger då w:spacing
-    # på rätt plats efter w:pBdr, som Words schema kräver.
-    borders = OxmlElement("w:pBdr")
-    bottom = OxmlElement("w:bottom")
-    for key, val in (("val", "single"), ("sz", "4"), ("space", "1"), ("color", LINE)):
-        bottom.set(qn(f"w:{key}"), val)
-    borders.append(bottom)
-    p._p.get_or_add_pPr().append(borders)
-    p.paragraph_format.space_before = Pt(10)
-    p.paragraph_format.space_after = Pt(0)
-
-
 def _notes_box(doc: Document, height_cm: float) -> None:
-    """En tom ruta med ram där läraren skriver anteckningar."""
+    """En tom ruta med ram över hela textbredden: plats för elevens eller lärarens text.
+
+    Bredden sätts uttryckligen (17 cm = A4 minus 2 x 2 cm marginal) och tabellen låses med
+    fast layout. Utan det ritar Quick Look och Pages en smal ruta vid vänstermarginalen."""
     table = doc.add_table(rows=1, cols=1)
-    row = table.rows[0]
-    trpr = row._tr.get_or_add_trPr()
-    h = OxmlElement("w:trHeight")
-    h.set(qn("w:val"), str(int(height_cm * 567)))   # 1 cm = 567 twips
-    h.set(qn("w:hRule"), "atLeast")
-    trpr.append(h)
+    table.autofit = False                      # w:tblLayout fixed, på rätt plats i tblPr
+    tblpr = table._tbl.tblPr
+    tbl_w = tblpr.find(qn("w:tblW"))
+    tbl_w.set(qn("w:type"), "dxa")
+    tbl_w.set(qn("w:w"), str(TEXT_WIDTH_TWIPS))
     borders = OxmlElement("w:tblBorders")
     for side in ("top", "left", "bottom", "right"):
         b = OxmlElement(f"w:{side}")
         for key, val in (("val", "single"), ("sz", "4"), ("space", "0"), ("color", LINE)):
             b.set(qn(f"w:{key}"), val)
         borders.append(b)
-    # Schemat kräver w:tblBorders före w:tblLook.
-    table._tbl.tblPr.find(qn("w:tblLook")).addprevious(borders)
+    # Schemat kräver w:tblBorders före w:tblLayout och w:tblLook.
+    tblpr.find(qn("w:tblLayout")).addprevious(borders)
+    table.columns[0].width = Cm(TEXT_WIDTH_CM)
+    row = table.rows[0]
+    h = OxmlElement("w:trHeight")
+    h.set(qn("w:val"), str(int(height_cm * 567)))   # 1 cm = 567 twips
+    h.set(qn("w:hRule"), "atLeast")
+    row._tr.get_or_add_trPr().append(h)
     cell = row.cells[0]
+    cell.width = Cm(TEXT_WIDTH_CM)
     cell.paragraphs[0].paragraph_format.space_after = Pt(0)
+    # Quick Look (och Pages) ritar cellen efter innehållet och ignorerar bredden, så en tom
+    # ruta blir en smal strimma. Ett andra, osynligt stycke av hårda blanksteg i 4 pt är
+    # bredare än raden och tvingar rutan till full bredd. Det första stycket är där
+    # läraren eller eleven skriver, så det påverkas inte; Word ritar rutan lika bred ändå.
+    filler = cell.add_paragraph()
+    filler.paragraph_format.space_after = Pt(0)
+    filler.add_run("\u00a0" * FILLER_CHARS).font.size = Pt(4)
 
 
 def _highlighted(paragraph, text: str) -> None:
@@ -147,7 +151,7 @@ def _highlighted(paragraph, text: str) -> None:
 # ───── De tre dokumenten ─────
 
 def _routine(h, data: dict, dst: Path) -> None:
-    """Elevblad. Ordningen och orden följer routine_text; skrivraderna ligger efter varje fråga."""
+    """Elevblad. Ordningen och orden följer routine_text; en skrivruta ligger under varje fråga."""
     r = data["routine"]
     doc = _new_document("Quality Ladder — student sheet")
     _title(doc, "Quality Ladder — student sheet")
@@ -161,11 +165,10 @@ def _routine(h, data: dict, dst: Path) -> None:
         run.italic = True
         run.font.color.rgb = SOFT
 
-    # Frågorna på elevbladet: en rad var, "Min nya version" får flera.
+    # Frågorna på elevbladet: en skrivruta under varje, "My new version" får en hög.
     for prompt in r["sheet"]:
         _heading(doc, prompt)
-        for _ in range(4 if prompt.startswith("My new version") else 2):
-            _write_line(doc)
+        _notes_box(doc, 7.0 if prompt.startswith("My new version") else 2.0)
     doc.save(str(dst))
 
 

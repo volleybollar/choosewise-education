@@ -140,20 +140,39 @@ def _children(el):
     return [c.tag.rsplit("}", 1)[-1] for c in el]
 
 
+W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+TBLPR_ORDER = ["tblStyle", "tblW", "tblBorders", "tblLayout", "tblLook"]
+
+
 def test_xml_children_in_schema_order():
-    """Word kräver schemaordning: pBdr före spacing i pPr, tblBorders före tblLook i tblPr."""
-    ns = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
-    lines = [p for p in _body_xml("quality-ladder-routine.docx").iter(ns + "pPr")
-             if p.find(ns + "pBdr") is not None]
-    assert lines, "inga skrivrader hittades"
-    for ppr in lines:
-        kids = _children(ppr)
-        assert kids.index("pBdr") < kids.index("spacing"), kids
-    tbls = list(_body_xml("whole-class-feedback.docx").iter(ns + "tblPr"))
-    assert tbls, "inga anteckningsrutor hittades"
-    for tblpr in tbls:
-        kids = _children(tblpr)
-        assert kids.index("tblBorders") < kids.index("tblLook"), kids
+    """Word kräver schemaordning i tblPr: tblW, tblBorders, tblLayout, tblLook."""
+    for name in ("quality-ladder-routine.docx", "whole-class-feedback.docx"):
+        tbls = list(_body_xml(name).iter(W + "tblPr"))
+        assert tbls, name
+        for tblpr in tbls:
+            kids = _children(tblpr)
+            assert kids == [k for k in TBLPR_ORDER if k in kids], (name, kids)
+            assert {"tblW", "tblBorders", "tblLayout", "tblLook"} <= set(kids), (name, kids)
+
+
+def test_tables_are_full_text_width_and_fixed():
+    """Utan uttrycklig bredd ritar Quick Look en smal ruta: 17 cm, fast layout, i alla tabeller."""
+    for name in ("quality-ladder-routine.docx", "whole-class-feedback.docx"):
+        body = _body_xml(name)
+        tbls = list(body.iter(W + "tbl"))
+        assert tbls, name
+        for tbl in tbls:
+            w = tbl.find(W + "tblPr").find(W + "tblW")
+            assert (w.get(W + "type"), w.get(W + "w")) == ("dxa", "9638"), name
+            assert tbl.find(W + "tblPr").find(W + "tblLayout").get(W + "type") == "fixed"
+            assert tbl.find(W + "tblGrid").find(W + "gridCol").get(W + "w") == "9638"
+            tcw = tbl.find(".//" + W + "tcW")
+            assert (tcw.get(W + "type"), tcw.get(W + "w")) == ("dxa", "9638"), name
+
+
+def test_routine_sheet_has_a_box_under_each_prompt():
+    heights = [int(h.get(W + "val")) for h in _body_xml("quality-ladder-routine.docx").iter(W + "trHeight")]
+    assert heights == [int(2 * 567), int(2 * 567), int(7 * 567)]
 
 
 def test_notes_boxes_are_1_4_cm():
