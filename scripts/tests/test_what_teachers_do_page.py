@@ -90,8 +90,8 @@ def test_time_table():
     box = text_of(block[block.index("Across all school stages"):])
     for n in ("49", "39", "52", "38", "46.9"):
         assert n in box, n
-    assert ("These surveys ask about a typical week at all stages, TALIS about the last week in "
-            "lower secondary, so the totals differ.") in box
+    assert ("These surveys cover all school stages, and the US ones ask about a typical week; TALIS "
+            "asks about the last week in lower secondary, so the totals differ.") in box
 
 
 def test_bars_come_from_a_css_variable_and_numbers_stay_text():
@@ -123,6 +123,9 @@ def test_ai_section():
         assert s in shown, s
     assert ("So this package promises minutes, not hours. The biggest gains for the most "
             "stressful tasks probably come from cutting work, not from automating it.") in shown
+    assert ("The quality of the planned lessons and materials was not lower in either trial."
+            in shown)
+    assert "Lesson quality was not lower" not in shown
     for sentence in re.split(r"(?<=[.!?])\s+", shown):
         assert not ("13%" in sentence and "32%" in sentence), sentence
     assert "13%" not in shown
@@ -195,6 +198,8 @@ def test_parts():
     for c in cards[1:]:
         assert "Coming" in text_of(c)
     assert "seven modules that tie it all together" in text_of(cards[3]).lower()
+    assert "working name" not in text_of(block).lower()
+    assert "Five parts, built in this order." in text_of(block)
 
 
 def test_internal_links_resolve():
