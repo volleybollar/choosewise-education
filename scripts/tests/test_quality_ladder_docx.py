@@ -130,3 +130,33 @@ def test_fits_one_page_proxy(name):
 def test_no_ai_student_data():
     text = doc_text(DIR / "whole-class-feedback.docx")
     assert "names on paper or in this document, never in an AI tool" in text
+
+
+def _body_xml(name):
+    return Document(str(DIR / name)).element.body
+
+
+def _children(el):
+    return [c.tag.rsplit("}", 1)[-1] for c in el]
+
+
+def test_xml_children_in_schema_order():
+    """Word kräver schemaordning: pBdr före spacing i pPr, tblBorders före tblLook i tblPr."""
+    ns = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+    lines = [p for p in _body_xml("quality-ladder-routine.docx").iter(ns + "pPr")
+             if p.find(ns + "pBdr") is not None]
+    assert lines, "inga skrivrader hittades"
+    for ppr in lines:
+        kids = _children(ppr)
+        assert kids.index("pBdr") < kids.index("spacing"), kids
+    tbls = list(_body_xml("whole-class-feedback.docx").iter(ns + "tblPr"))
+    assert tbls, "inga anteckningsrutor hittades"
+    for tblpr in tbls:
+        kids = _children(tblpr)
+        assert kids.index("tblBorders") < kids.index("tblLook"), kids
+
+
+def test_notes_boxes_are_1_4_cm():
+    ns = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+    heights = {h.get(ns + "val") for h in _body_xml("whole-class-feedback.docx").iter(ns + "trHeight")}
+    assert heights == {str(int(1.4 * 567))}

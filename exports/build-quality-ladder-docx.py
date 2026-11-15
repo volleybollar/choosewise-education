@@ -101,14 +101,16 @@ def _guide(doc: Document, text: str) -> None:
 def _write_line(doc: Document) -> None:
     """En tom skrivrad: ett tomt stycke med understreckad kant, som ger en ren linje i Word."""
     p = doc.add_paragraph()
-    p.paragraph_format.space_before = Pt(10)
-    p.paragraph_format.space_after = Pt(0)
+    # Kanten läggs in först och avstånden sätts efteråt: python-docx lägger då w:spacing
+    # på rätt plats efter w:pBdr, som Words schema kräver.
     borders = OxmlElement("w:pBdr")
     bottom = OxmlElement("w:bottom")
     for key, val in (("val", "single"), ("sz", "4"), ("space", "1"), ("color", LINE)):
         bottom.set(qn(f"w:{key}"), val)
     borders.append(bottom)
     p._p.get_or_add_pPr().append(borders)
+    p.paragraph_format.space_before = Pt(10)
+    p.paragraph_format.space_after = Pt(0)
 
 
 def _notes_box(doc: Document, height_cm: float) -> None:
@@ -126,7 +128,8 @@ def _notes_box(doc: Document, height_cm: float) -> None:
         for key, val in (("val", "single"), ("sz", "4"), ("space", "0"), ("color", LINE)):
             b.set(qn(f"w:{key}"), val)
         borders.append(b)
-    table._tbl.tblPr.append(borders)
+    # Schemat kräver w:tblBorders före w:tblLook.
+    table._tbl.tblPr.find(qn("w:tblLook")).addprevious(borders)
     cell = row.cells[0]
     cell.paragraphs[0].paragraph_format.space_after = Pt(0)
 
@@ -175,7 +178,7 @@ def _whole_class(data: dict, dst: Path) -> None:
     for sec in wc["sections"]:
         _heading(doc, sec["heading"])
         _guide(doc, sec["guide"])
-        _notes_box(doc, 1.0 if sec["heading"] == "Task and date" else 1.7)
+        _notes_box(doc, 1.4)
     p = doc.add_paragraph(wc["followup"])
     p.paragraph_format.space_before = Pt(10)
     doc.save(str(dst))
