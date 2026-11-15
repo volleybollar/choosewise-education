@@ -68,6 +68,8 @@ PAGES = (
         "unit-studio-541ebd12/",
         "pedagogy-compass-59ecb8db/",
         "homework-upgrade-1f0cd17c/",
+        "quality-ladder-ec1c2f8c/",
+        "what-teachers-do-354716b7/",
         "pedagogy/",
         "community/",
         "ai-lessons-younger-3c514a93/",

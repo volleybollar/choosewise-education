@@ -1,0 +1,71 @@
+/* Quality Ladder (dold sida för Skool-medlemmar). Bygger på thinking-moves.css
+   (tm-) och lägger bara till det som är nytt här (ql-). Färger bara som
+   var(--…), teckenvikter bara 300/400/500 (tokens). */
+
+/* Rubrikerna är längre än de delade 22ch och ska stå på en rad på dator. */
+.ql-page .section__title { max-width: none; }
+
+/* ───── Exemplet i hero ───── */
+.ql-hero-example { margin-top: var(--space-8); max-width: var(--content-max); }
+.ql-hero-example__title { margin: 0 0 var(--space-3); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+
+/* Uppgiften och kriterierna staplas (rubrik över text), som i Homework Upgrade. */
+.ql-example dl { grid-template-columns: 1fr; gap: var(--space-1); }
+.ql-example dd { margin-bottom: var(--space-2); }
+.ql-example li, .ql-example p { max-width: none; }
+.ql-example__list { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-1); }
+.ql-example__heading { margin: var(--space-5) 0 var(--space-3); font-size: var(--fs-body); font-weight: var(--weight-emphasis); }
+
+/* Elevernas tre svar: tre kort bredvid varandra på dator, ett i taget på mobil.
+   Korten i samma rad är lika höga. */
+.ql-samples { display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.ql-sample { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: var(--space-3) var(--space-4); }
+.ql-sample__title { margin: 0 0 var(--space-2); font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); font-weight: var(--weight-emphasis); }
+.ql-sample__text { margin: 0; }
+
+/* Lärarnyckeln är ett eget block under elevsvaren: streckad ram, annan
+   bakgrund och en egen rubrik, så att ingen tar den för något eleverna får. */
+.ql-key { margin-top: var(--space-5); padding: var(--space-3) var(--space-4); background: var(--color-bg); border: 1px dashed var(--color-border-strong); border-radius: var(--radius-sm); }
+.ql-key .ql-example__heading { margin-top: 0; }
+.ql-key__list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); }
+.ql-key__list li { max-width: none; }
+.ql-key__list p { margin: 0 0 var(--space-1); }
+.ql-key__head { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: baseline; }
+/* Nivån som text och ram, inte bara färg. */
+.ql-key__level { font-size: var(--fs-caption); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); padding: 0 var(--space-2); color: var(--color-text-soft); }
+.ql-key strong { font-weight: var(--weight-emphasis); }
+
+/* ───── Kryssrutan i byggaren ───── */
+/* Rutan och texten på samma rad. */
+.ql-check { flex-direction: row; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); }
+.ql-check input { flex: none; width: 1.125rem; height: 1.125rem; accent-color: var(--color-accent); }
+
+/* ───── Rutinen, mallen och policyn ───── */
+.ql-list { margin: 0 0 var(--space-5); padding-left: var(--space-5); display: grid; gap: var(--space-2); max-width: var(--content-text-max); }
+.ql-list li { max-width: none; }
+.ql-prose { margin: 0 0 var(--space-4); max-width: var(--content-text-max); }
+.ql-label { margin: 0 0 var(--space-4); }
+.ql-time { color: var(--color-text-soft); font-size: var(--fs-small); }
+.ql-download { margin: var(--space-3) 0 0; }
+.ql-download a { font-weight: var(--weight-emphasis); }
+
+/* Mallens rubriker med en rad vägledning under var och en. */
+.ql-template { display: grid; gap: var(--space-3); margin: 0 0 var(--space-5); max-width: var(--content-text-max); }
+.ql-template__row { padding-left: var(--space-4); border-left: 3px solid var(--color-highlight); }
+.ql-template dt { font-weight: var(--weight-emphasis); }
+.ql-template dd { margin: 0; color: var(--color-text-soft); }
+.ql-principle__source { color: var(--color-text-muted); font-size: var(--fs-small); }
+
+/* ───── Forskningen, varningarna och nästa steg ───── */
+.ql-evidence__item { max-width: var(--content-text-max); margin: var(--space-5) 0 0; }
+.ql-evidence__item strong { font-weight: var(--weight-emphasis); }
+.ql-evidence__item .tm-move__sources { margin-top: var(--space-1); font-size: var(--fs-small); color: var(--color-text-soft); }
+.ql-care__list { padding-left: var(--space-5); margin: 0; display: grid; gap: var(--space-3); max-width: var(--content-text-max); }
+.ql-care__list strong { font-weight: var(--weight-emphasis); }
+.ql-next { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-3); }
+.ql-next li { max-width: none; }
+
+/* Etiketten Choosewise: Choosewises egen regel, inte ett forskningsresultat.
+   Streckad ram i kopparfärg, så den inte förväxlas med forskningsetiketterna
+   (samma regel som i homework-upgrade.css). */
+.tm-chip--choosewise { color: var(--color-highlight-ink); border-color: var(--color-highlight); border-style: dashed; }
