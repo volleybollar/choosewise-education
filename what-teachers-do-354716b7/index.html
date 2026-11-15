@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What teachers do — Choosewise</title>
+  <meta name="description" content="For Choosewise members. Where teachers' time and stress go, what AI has been shown to save, and the eleven tasks that fill a teacher's week, each with the Choosewise tools that help.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- thinking-moves.css delar vi bara för etiketterna Strong / Promising /
+       Framework (klassen tm-chip). Allt annat på sidan bor i
+       what-teachers-do.css (prefix wt-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/what-teachers-do.css?v=20261114a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten. -->
+<!-- seo:start (build-seo-meta.py) -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <!-- class="wt-page" låter sektionsrubrikerna vara längre än de delade 22
+       tecknen (se what-teachers-do.css). Sidan är handskriven: ingen JSON, inget
+       byggskript och ingen JavaScript utöver sajtens gemensamma include.js. -->
+  <main class="wt-page">
+    <!-- Hero: vad paketet är och för vem. Ingressen säger problemet (för lite
+         tid, och nya lärare saknar erfarenhet) och lovar mindre arbete med
+         lika bra eller bättre undervisning. -->
+    <section class="page-hero container">
+      <span class="eyebrow">For Choosewise members · All school stages</span>
+      <h1>What teachers do</h1>
+      <p class="lede">Teachers have too little time, and new teachers also lack experience. This package goes through the eleven tasks that fill a teacher's week, shows where the time and the stress sit, and gives each task a way to do it with less work and teaching that is as good or better.</p>
+    </section>
+
+    <!-- Var tiden går. Tabellen är en riktig <table>, så skärmläsare får
+         siffrorna. Staplarna är bara dekoration: varje sifferruta bär
+         style="--v: 22.7" (timmar) och CSS:en (what-teachers-do.css) ritar en
+         stapel som är --v av 50 timmar bred. Samma skala för alla rader, så att
+         staplarna går att jämföra rakt över. Ändra siffran i rutan och
+         --v i samma ruta, så följer staplen med. -->
+    <section class="section" id="wt-time">
+      <div class="container">
+        <h2 class="section__title">Where the time goes</h2>
+        <p class="wt-lede">Hours per week for full-time lower-secondary teachers, as the teachers report it themselves (TALIS 2024). Bars use the same scale in every row, up to 50 hours.</p>
+        <!-- wt-scroll: på en smal telefon får tabellen rulla i sidled inuti sin
+             egen ruta, aldrig hela sidan. tabindex="0" gör att man kan rulla den
+             med tangentbordet. -->
+        <div class="wt-scroll" role="region" aria-label="Hours per week by task, TALIS 2024" tabindex="0">
+          <table class="wt-table">
+            <thead>
+              <tr>
+                <th scope="col">Task</th>
+                <th scope="col">OECD average</th>
+                <th scope="col">Sweden</th>
+                <th scope="col">United States</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Teaching</th><td class="wt-num" style="--v: 22.7">22.7</td><td class="wt-num" style="--v: 19.2">19.2</td><td class="wt-num" style="--v: 28.1">28.1</td></tr>
+              <tr><th scope="row">Planning lessons</th><td class="wt-num" style="--v: 7.4">7.4</td><td class="wt-num" style="--v: 7.2">7.2</td><td class="wt-num" style="--v: 7.2">7.2</td></tr>
+              <tr><th scope="row">Marking student work</th><td class="wt-num" style="--v: 4.6">4.6</td><td class="wt-num" style="--v: 3.8">3.8</td><td class="wt-num" style="--v: 4.6">4.6</td></tr>
+              <tr><th scope="row">Working with colleagues</th><td class="wt-num" style="--v: 3.1">3.1</td><td class="wt-num" style="--v: 3.4">3.4</td><td class="wt-num" style="--v: 3.2">3.2</td></tr>
+              <tr><th scope="row">Administration</th><td class="wt-num" style="--v: 3.0">3.0</td><td class="wt-num" style="--v: 2.9">2.9</td><td class="wt-num" style="--v: 2.9">2.9</td></tr>
+              <tr><th scope="row">Counselling and guidance</th><td class="wt-num" style="--v: 2.6">2.6</td><td class="wt-num" style="--v: 2.7">2.7</td><td class="wt-num" style="--v: 3.6">3.6</td></tr>
+              <tr><th scope="row">Parents and guardians</th><td class="wt-num" style="--v: 1.8">1.8</td><td class="wt-num" style="--v: 1.8">1.8</td><td class="wt-num" style="--v: 2.0">2.0</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><th scope="row">Total working time</th><td class="wt-num" style="--v: 41.0">41.0</td><td class="wt-num" style="--v: 44.0">44.0</td><td class="wt-num" style="--v: 45.3">45.3</td></tr>
+            </tfoot>
+          </table>
+        </div>
+        <p class="wt-note">Tasks are measured one by one and overlap, so they add up to more than the total. Read them as sizes relative to each other. England did not take part in TALIS 2024.</p>
+
+        <!-- Rutan "Across all school stages": TALIS gäller bara högstadiet, så
+             här står de amerikanska och engelska undersökningarna som gäller
+             alla stadier. Sista raden säger varför totalerna skiljer sig. -->
+        <aside class="wt-box">
+          <h3 class="wt-box__title">Across all school stages</h3>
+          <p>US K–12 public school teachers reported a typical week of 49 hours in 2025, ten more than their 39 contracted hours and five more than similar working adults (RAND 2025). Federal data from 2020–21 give 52 hours, 25 of them paid teaching, against a 38-hour contract (NCES 2022). Teachers in England reported 46.9 hours in spring 2025 (DfE).</p>
+          <p class="wt-box__line">These surveys ask about a typical week at all stages, TALIS about the last week in lower secondary, so the totals differ.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Tid och stress är inte samma sak: den här tabellen visar hur stor andel
+         av lärarna som säger att uppgiften stressar dem ganska mycket eller
+         mycket. Staplarna räknas här av 100 procent (wt-num--pct i CSS). -->
+    <section class="section section--alt" id="wt-stress">
+      <div class="container">
+        <h2 class="section__title">What weighs most is not what takes longest</h2>
+        <p class="wt-lede">Share of teachers who say the task stresses them quite a bit or a lot (TALIS 2024, lower secondary).</p>
+        <div class="wt-scroll" role="region" aria-label="Share of teachers stressed by each cause, TALIS 2024" tabindex="0">
+          <table class="wt-table wt-table--narrow">
+            <thead>
+              <tr>
+                <th scope="col">Cause of stress</th>
+                <th scope="col">OECD average</th>
+                <th scope="col">Sweden</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Too much administration</th><td class="wt-num wt-num--pct" style="--v: 52">52%</td><td class="wt-num wt-num--pct" style="--v: 65">65%</td></tr>
+              <tr><th scope="row">Too much marking</th><td class="wt-num wt-num--pct" style="--v: 40">40%</td><td class="wt-num wt-num--pct" style="--v: 51">51%</td></tr>
+              <tr><th scope="row">Adapting lessons for students with special needs</th><td class="wt-num wt-num--pct" style="--v: 37">37%</td><td class="wt-num wt-num--pct" style="--v: 51">51%</td></tr>
+              <tr><th scope="row">Keeping order in class</th><td class="wt-num wt-num--pct" style="--v: 45">45%</td><td class="wt-num wt-num--pct" style="--v: 40">40%</td></tr>
+              <tr><th scope="row">Parents' concerns</th><td class="wt-num wt-num--pct" style="--v: 42">42%</td><td class="wt-num wt-num--pct" style="--v: 39">39%</td></tr>
+              <tr><th scope="row">Too much lesson planning</th><td class="wt-num wt-num--pct" style="--v: 35">35%</td><td class="wt-num wt-num--pct" style="--v: 31">31%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="wt-facts">
+          <li><strong>England:</strong> 71% say administration takes too much time, and 50% say the same about parents (DfE, spring 2025).</li>
+          <li><strong>United States:</strong> 55% of teachers report frequent job stress, against 34% of similar working adults. After student behaviour, the most common top stressors are low pay (33%), too many hours outside contract time (32%) and administrative work (32%) (RAND 2026). Asked what besides pay would most improve their morale, the top answer was more planning time in the school day (54%) (EdWeek 2026).</li>
+          <li><strong>New teachers:</strong> in Sweden, 55% of novices find keeping order stressful, against 35% of experienced teachers (TALIS 2024).</li>
+        </ul>
+        <p class="wt-conclusion">Planning takes the most time outside lessons but stresses least. Administration, marking and adapting for different needs stress most.</p>
+      </div>
+    </section>
+
+    <!-- Vad AI visats spara. Bara det som är mätt: två randomiserade försök på
+         planering, och en tydlig gräns mot lärares egna uppskattningar. Siffrorna
+         från olika mätningar sätts aldrig i samma mening. -->
+    <section class="section" id="wt-ai">
+      <div class="container">
+        <h2 class="section__title">What AI has been shown to save</h2>
+        <div class="wt-prose">
+          <p>Two randomised trials have measured it, and both are about lesson planning. In a trial of ChatGPT with Year 7–8 science teachers in England, planning time fell by 31%, about 25 min a week. In a trial of Oak's Aila with Years 3–6 teachers, it fell by 24%, about 49 min a week. Lesson quality was not lower in either trial.</p>
+          <p>Teachers' own estimates are much larger. In Gallup's 2025 survey, US teachers who use AI weekly estimate that it saves them 5.9 hours a week. That is a self-report across all tasks, and it covers only the 32% of teachers who use AI every week, so it cannot be set against the trials.</p>
+          <p>We have found no controlled study of AI for marking, feedback, reports or parent contact among school teachers.</p>
+          <p>Checking AI output is work too. Interviews with 57 teachers in Sweden and Australia (Selwyn, Ljungqvist and Sonesson, 2025, as reported in the OECD Digital Education Outlook 2026) describe the hidden labour of reviewing and repairing AI drafts for administrative tasks, time that estimates may not fully count.</p>
+        </div>
+        <p class="wt-conclusion">So this package promises minutes, not hours. The biggest gains for the most stressful tasks probably come from cutting work, not from automating it.</p>
+      </div>
+    </section>
+
+    <!-- Tre regler som gäller alla delar i paketet. En numrerad lista: reglerna
+         ska kunna hänvisas till ("regel 2") i kursen och i Skool. -->
+    <section class="section section--alt" id="wt-rules">
+      <div class="container">
+        <h2 class="section__title">Three rules for every part</h2>
+        <ol class="wt-rules">
+          <li>No student names and no student work in any prompt. Names and details are added afterwards, outside AI.</li>
+          <li>You decide first, AI drafts after, and you check everything before it reaches students.</li>
+          <li>Cut before you automate. Work that does not help students is better removed than done faster.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- De elva uppgifterna, i Johans ordning (ingen tidsordning, eftersom
+         timmarna i tabellen ovan skulle motsäga den). En rad per uppgift:
+         tid och stress, vad som redan finns på Choosewise (länkar), vad som är
+         nytt i paketet (med status Ready eller Coming) och etikett för hur
+         stark evidensen är. Bara delar som är klara (Ready) länkas; en ny del
+         som ännu inte finns får status Coming och ingen länk. Nytt verktyg =
+         ny länk i "now"-listan; ny del som blir klar = byt Coming mot Ready och
+         lägg till länken. Raderna blir kort på en smal skärm (se CSS). -->
+    <section class="section" id="wt-tasks">
+      <div class="container">
+        <h2 class="section__title">Eleven tasks, and what helps with each</h2>
+        <p class="wt-lede">About half already have support on Choosewise; the new parts fill the gaps.</p>
+        <p class="wt-note">Hours are OECD averages from TALIS 2024. Stress shares are OECD averages unless a country is named.</p>
+        <div class="wt-tasks__head" aria-hidden="true">
+          <span>Task</span><span>Time and stress</span><span>On Choosewise now</span><span>New in this package</span><span>Evidence</span>
+        </div>
+        <ol class="wt-tasks">
+          <li class="wt-task">
+            <h3 class="wt-task__name">Planning teaching</h3>
+            <p class="wt-task__time">7.4 h, stresses 35%</p>
+            <div class="wt-task__now"><ul>
+              <li><a href="/lesson-lens/">Lesson Lens</a></li>
+              <li><a href="/unit-studio-541ebd12/">Unit Studio</a></li>
+              <li><a href="/pedagogy-compass-59ecb8db/">Pedagogy Compass</a></li>
+              <li><a href="/thinking-profile/">Thinking Profile</a></li>
+              <li><a href="/free/prompts/">Prompt packs</a></li>
+            </ul></div>
+            <div class="wt-task__new"><p>Course module 1 with worked examples for new teachers <span class="wt-status wt-status--coming">Coming</span></p></div>
+            <div class="wt-task__label">Time saving: two randomised trials</div>
+          </li>
+          <li class="wt-task">
+            <h3 class="wt-task__name">Teaching</h3>
+            <p class="wt-task__time">22.7 h; AI cannot shorten it</p>
+            <div class="wt-task__now"><ul>
+              <li><a href="/thinking-moves/">Thinking Moves</a></li>
+              <li><a href="/flawed-answer/">Flawed Answer</a></li>
+              <li><a href="/side-by-side/">Side by Side</a></li>
+              <li><a href="/retrieval-rhythm/">Retrieval Rhythm</a></li>
+              <li><a href="/two-minute-debrief/">Two-Minute Debrief</a></li>
+            </ul></div>
+            <div class="wt-task__new"><p>Course module 2 <span class="wt-status wt-status--coming">Coming</span></p></div>
+            <div class="wt-task__label">Varies by tool</div>
+          </li>
+          <li class="wt-task">
+            <h3 class="wt-task__name">Marking and assessing</h3>
+            <p class="wt-task__time">4.6 h, stresses 51% in Sweden</p>
+            <div class="wt-task__now"><ul>
+              <li>Feedback lens in <a href="/lesson-lens/">Lesson Lens</a></li>
+              <li>The check in <a href="/homework-upgrade-1f0cd17c/">Homework Upgrade</a></li>
+            </ul></div>
+            <div class="wt-task__new">
+              <p><a href="/quality-ladder-ec1c2f8c/">Quality Ladder</a> <span class="wt-status wt-status--ready">Ready</span></p>
+              <p><a href="/quality-ladder-ec1c2f8c/#ql-policy">One-page feedback policy</a> <span class="wt-status wt-status--ready">Ready</span></p>
+            </div>
+            <div class="wt-task__label"><span class="tm-chip tm-chip--promising">Promising</span></div>
+          </li>
+          <li class="wt-task">
+            <h3 class="wt-task__name">Colleagues and meetings</h3>
+            <p class="wt-task__time">3.1 h</p>
+            <div class="wt-task__now"><ul>
+              <li><a href="/prompts/lead-teachers/">Prompt pack for lead teachers</a></li>
+            </ul></div>
+            <div class="wt-task__new"><p>Meeting protocol in Paperwork Pack <span class="wt-status wt-status--coming">Coming</span></p></div>
+            <div class="wt-task__label"><span class="tm-chip tm-chip--promising">Promising</span></div>
+          </li>
+          <li class="wt-task">
+            <h3 class="wt-task__name">Individual support</h3>
+            <p class="wt-task__time">Part of the 2.6 h for guidance</p>
+            <div class="wt-task__now"><ul>
+              <li><a href="/study-moves/">Study Moves</a> (student side)</li>
+              <li>A prompt in the <a href="/prompts/teachers/">teachers pack</a></li>
+            </ul></div>
+            <div class="wt-task__new"><p>Barrier Planner <span class="wt-status wt-status--coming">Coming</span></p></div>
+            <div class="wt-task__label"><span class="tm-chip tm-chip--framework">Framework</span></div>
+          </li>
+          <li class="wt-task">
+            <h3 class="wt-task__name">Administration and documentation</h3>
+            <p class="wt-task__time">3.0 h, stresses 65% in Sweden</p>
+            <div class="wt-task__now"><p>Nothing yet</p></div>
+            <div class="wt-task__new"><p>"Cut first" and templates in Paperwork Pack <span class="wt-status wt-status--coming">Coming</span></p></div>
+            <div class="wt-task__label"><span class="tm-chip tm-chip--framework">Framework</span></div>
+          </li>
+          <li class="wt-task">
+            <h3 class="wt-task__name">Creating and adapting materials</h3>
+            <p class="wt-task__time">Part of planning</p>
+            <div class="wt-task__now"><ul>
+              <li><a href="/visual-codes/">Visual codes</a></li>
+              <li><a href="/free/study-codes/">Study codes</a></li>
+              <li><a href="/infographic-styles/">Infographic styles</a></li>
+            </ul></div>
+            <div class="wt-task__new"><p>"Adapt a text" in Barrier Planner <span class="wt-status wt-status--coming">Coming</span></p></div>
+            <div class="wt-task__label"><span class="tm-chip tm-chip--promising">Promising</span></div>
+          </li>
+          <li class="wt-task">
+            <h3 class="wt-task__name">Student welfare and support measures</h3>
+            <p class="wt-task__time">Adapting stresses 51% in Sweden</p>
+            <div class="wt-task__now"><p>Nothing yet</p></div>
+            <div class="wt-task__new"><p>Needs-and-measures form, no diagnoses <span class="wt-status wt-status--coming">Coming</span></p></div>
+            <div class="wt-task__label"><span class="tm-chip tm-chip--framework">Framework</span></div>
+          </li>
+          <li class="wt-task">
+            <h3 class="wt-task__name">Evaluating knowledge</h3>
+            <p class="wt-task__time">Part of marking and teaching</p>
+            <div class="wt-task__now"><ul>
+              <li><a href="/retrieval-rhythm/">Retrieval Rhythm</a></li>
+              <li><a href="/homework-upgrade-1f0cd17c/">Homework Upgrade</a></li>
+              <li>Exit tickets in <a href="/two-minute-debrief/">Two-Minute Debrief</a></li>
+            </ul></div>
+            <div class="wt-task__new"><p><a href="/quality-ladder-ec1c2f8c/">Quality Ladder</a> for larger tasks <span class="wt-status wt-status--ready">Ready</span></p></div>
+            <div class="wt-task__label"><span class="tm-chip tm-chip--strong">Strong</span> for retrieval practice</div>
+          </li>
+          <li class="wt-task">
+            <h3 class="wt-task__name">Communicating with parents</h3>
+            <p class="wt-task__time">1.8 h; 50% in England say it takes too much time</p>
+            <div class="wt-task__now"><ul>
+              <li>Parent texts in <a href="/test-countdown/">Test Countdown</a> and <a href="/homework-upgrade-1f0cd17c/">Homework Upgrade</a></li>
+            </ul></div>
+            <div class="wt-task__new"><p>Message templates in Paperwork Pack <span class="wt-status wt-status--coming">Coming</span></p></div>
+            <div class="wt-task__label"><span class="tm-chip tm-chip--promising">Promising</span></div>
+          </li>
+          <li class="wt-task">
+            <h3 class="wt-task__name">Generating ideas</h3>
+            <p class="wt-task__time">Part of planning</p>
+            <div class="wt-task__now"><ul>
+              <li><a href="/free/prompts/">Prompt packs</a></li>
+              <li><a href="/pedagogy-compass-59ecb8db/">Pedagogy Compass</a></li>
+            </ul></div>
+            <div class="wt-task__new"><p>Ideas first <span class="wt-status wt-status--coming">Coming</span></p></div>
+            <div class="wt-task__label"><span class="tm-chip tm-chip--promising">Promising</span></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- De fem delarna i byggordning. Bara Quality Ladder är klar och länkas.
+         De andra tre delarna och kursen får status Coming och ingen länk.
+         Namnen är arbetsnamn tills Johan bekräftat dem. Korten i samma rad är
+         lika höga (grid, se CSS). -->
+    <section class="section section--alt" id="wt-parts">
+      <div class="container">
+        <h2 class="section__title">The parts</h2>
+        <p class="wt-lede">Five parts, built in this order. The names are working names.</p>
+        <div class="wt-parts">
+          <article class="wt-part">
+            <p class="wt-part__num">Part 1 <span class="wt-status wt-status--ready">Ready</span></p>
+            <h3 class="wt-part__name">Quality Ladder</h3>
+            <p>Three made-up answers to your task at three levels. Students rank them and lift their own answer one level, and you give whole-class feedback instead of thirty comments.</p>
+            <p class="wt-part__covers">Covers: marking and assessing, evaluating knowledge</p>
+            <p class="wt-part__link"><a href="/quality-ladder-ec1c2f8c/">Open Quality Ladder →</a></p>
+          </article>
+          <article class="wt-part">
+            <p class="wt-part__num">Part 2 <span class="wt-status wt-status--coming">Coming</span></p>
+            <h3 class="wt-part__name">Paperwork Pack</h3>
+            <p>Templates and prompt packs for messages to parents, meetings about teaching, and cutting administration.</p>
+            <p class="wt-part__covers">Covers: communicating with parents, colleagues and meetings, administration and documentation</p>
+          </article>
+          <article class="wt-part">
+            <p class="wt-part__num">Part 3 <span class="wt-status wt-status--coming">Coming</span></p>
+            <h3 class="wt-part__name">Barrier Planner</h3>
+            <p>From the barrier the teacher sees to adjustments, never from a diagnosis.</p>
+            <p class="wt-part__covers">Covers: individual support, student welfare and support measures, creating and adapting materials</p>
+          </article>
+          <article class="wt-part">
+            <p class="wt-part__num">Part 4 <span class="wt-status wt-status--coming">Coming</span></p>
+            <h3 class="wt-part__name">The course</h3>
+            <p>Seven modules that tie it all together.</p>
+            <p class="wt-part__covers">Covers: all eleven tasks</p>
+          </article>
+          <article class="wt-part">
+            <p class="wt-part__num">Part 5 <span class="wt-status wt-status--coming">Coming</span></p>
+            <h3 class="wt-part__name">Ideas first</h3>
+            <p>A way to get ideas from AI without every lesson turning out the same.</p>
+            <p class="wt-part__covers">Covers: generating ideas, planning teaching</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Källorna. Alla länkar är https. Siffrorna på sidan kommer bara från
+         dessa tio källor. -->
+    <section class="section" id="wt-sources">
+      <div class="container">
+        <h2 class="section__title">Sources</h2>
+        <ul class="wt-sources">
+          <li><a href="https://doi.org/10.1787/90df6235-en">OECD (2025), Results from TALIS 2024: The State of Teaching</a></li>
+          <li><a href="https://www.gov.uk/government/publications/working-lives-of-teachers-and-leaders-wave-4">DfE, Working lives of teachers and leaders: wave 4 (2025)</a></li>
+          <li><a href="https://www.rand.org/pubs/research_reports/RRA1108-16.html">RAND (2025), Teacher Well-Being, Pay, and Intentions to Leave in 2025 (RR-A1108-16)</a></li>
+          <li><a href="https://www.rand.org/pubs/research_reports/RRA4404-2.html">RAND (2026), Teacher Well-Being, Pay, and Intentions to Leave in 2026 (RR-A4404-2)</a></li>
+          <li><a href="https://nces.ed.gov/pubs2022/2022113.pdf">NCES (2022), Characteristics of 2020–21 Public and Private K–12 School Teachers (NCES 2022-113)</a></li>
+          <li><a href="https://epe.brightspotcdn.com/63/2d/5eae81dd4311ac100802eb7b2272/2026-edweek-the-state-of-teaching-data-downloadable.pdf">EdWeek Research Center (2026), State of Teaching: Teacher Morale in 2026</a></li>
+          <li><a href="https://files.eric.ed.gov/fulltext/ED680921.pdf">EEF/NFER, ChatGPT in lesson preparation: a Teacher Choices trial</a></li>
+          <li><a href="https://gsa.uk.com/wp-content/uploads/2026/10/aila-lesson-planning_teacher-choices_evaluation-report.pdf">EEF/NFER, Lesson planning using AI lesson assistant, Aila: a Teacher Choices trial (2026)</a></li>
+          <li><a href="https://news.gallup.com/poll/691967/teachers-using-ai-tools-save-hours-week.aspx">Gallup and Walton Family Foundation (2025), Teaching for Tomorrow</a></li>
+          <li><a href="https://doi.org/10.1080/17439884.2025.2537959">Selwyn, Ljungqvist and Sonesson (2025), When the prompting stops, Learning, Media and Technology</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+</body>
+</html>
