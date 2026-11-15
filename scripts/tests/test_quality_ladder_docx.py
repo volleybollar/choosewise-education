@@ -179,3 +179,14 @@ def test_notes_boxes_are_1_4_cm():
     ns = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
     heights = {h.get(ns + "val") for h in _body_xml("whole-class-feedback.docx").iter(ns + "trHeight")}
     assert heights == {str(int(1.4 * 567))}
+
+
+@pytest.mark.parametrize("name", FILES)
+def test_no_filler_paragraphs(name):
+    """Inga stycken som bara består av hårda blanksteg, och varje ruta har exakt ett stycke."""
+    body = _body_xml(name)
+    for p in body.iter(W + "p"):
+        text = "".join(t.text or "" for t in p.iter(W + "t"))
+        assert not (text and not text.replace("\u00a0", "").strip()), (name, repr(text[:20]))
+    for tc in body.iter(W + "tc"):
+        assert len(tc.findall(W + "p")) == 1, name

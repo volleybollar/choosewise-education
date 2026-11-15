@@ -37,7 +37,6 @@ SOFT = RGBColor(0x4E, 0x5A, 0x68)   # --color-text-soft, för vägledningstext
 LINE = "9AA7B5"                      # grå för skrivrader och rutor
 AUTHOR = "Choosewise.education"
 TEXT_WIDTH_CM = 17                   # 21 cm minus 2 x 2 cm marginal
-FILLER_CHARS = 520                   # hårda blanksteg à ~1 pt i 4 pt: längre än 17 cm
 TEXT_WIDTH_TWIPS = 9638              # samma bredd i twips (1 cm = 566,9)
 
 
@@ -105,7 +104,9 @@ def _notes_box(doc: Document, height_cm: float) -> None:
     """En tom ruta med ram över hela textbredden: plats för elevens eller lärarens text.
 
     Bredden sätts uttryckligen (17 cm = A4 minus 2 x 2 cm marginal) och tabellen låses med
-    fast layout. Utan det ritar Quick Look och Pages en smal ruta vid vänstermarginalen."""
+    fast layout, vilket Word och Google Dokument följer. Rutan har ett enda tomt stycke i
+    normal storlek, så att den som skriver hamnar i vanlig text. Quick Look ignorerar
+    bredden och kan visa en smalare ruta; den förhandsvisningen är godtagen."""
     table = doc.add_table(rows=1, cols=1)
     table.autofit = False                      # w:tblLayout fixed, på rätt plats i tblPr
     tblpr = table._tbl.tblPr
@@ -129,13 +130,6 @@ def _notes_box(doc: Document, height_cm: float) -> None:
     cell = row.cells[0]
     cell.width = Cm(TEXT_WIDTH_CM)
     cell.paragraphs[0].paragraph_format.space_after = Pt(0)
-    # Quick Look (och Pages) ritar cellen efter innehållet och ignorerar bredden, så en tom
-    # ruta blir en smal strimma. Ett andra, osynligt stycke av hårda blanksteg i 4 pt är
-    # bredare än raden och tvingar rutan till full bredd. Det första stycket är där
-    # läraren eller eleven skriver, så det påverkas inte; Word ritar rutan lika bred ändå.
-    filler = cell.add_paragraph()
-    filler.paragraph_format.space_after = Pt(0)
-    filler.add_run("\u00a0" * FILLER_CHARS).font.size = Pt(4)
 
 
 def _highlighted(paragraph, text: str) -> None:
