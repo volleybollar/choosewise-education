@@ -20,6 +20,7 @@ from __future__ import annotations
 import importlib.util
 import json
 import re
+from datetime import datetime
 from pathlib import Path
 
 from docx import Document
@@ -37,6 +38,7 @@ SOFT = RGBColor(0x4E, 0x5A, 0x68)   # --color-text-soft, för vägledningstext
 LINE = "9AA7B5"                      # grå för skrivrader och rutor
 AUTHOR = "Choosewise.education"
 TEXT_WIDTH_CM = 17                   # 21 cm minus 2 x 2 cm marginal
+FIXED_DATE = datetime(2026, 11, 14)   # fast datum i dokumentegenskaperna
 TEXT_WIDTH_TWIPS = 9638              # samma bredd i twips (1 cm = 566,9)
 
 
@@ -52,21 +54,28 @@ def _load_helpers():
 # ───── Byggstenar ─────
 
 def _new_document(title: str) -> Document:
-    """A4 stående, 2 cm marginal, Calibri 11 och dokumentegenskaperna."""
+    """A4 stående, 2 cm marginal, Arial 11 och dokumentegenskaperna."""
     doc = Document()
     sec = doc.sections[0]
     sec.page_width, sec.page_height = Cm(21), Cm(29.7)
     sec.left_margin = sec.right_margin = sec.top_margin = sec.bottom_margin = Cm(2)
 
     normal = doc.styles["Normal"]
-    normal.font.name = "Calibri"
-    normal.element.rPr.rFonts.set(qn("w:eastAsia"), "Calibri")
+    # Arial finns på Mac utan Office, på Windows och i Google Docs.
+    normal.font.name = "Arial"
+    normal.element.rPr.rFonts.set(qn("w:eastAsia"), "Arial")
+    normal.element.rPr.rFonts.set(qn("w:cs"), "Arial")
     normal.font.size = Pt(11)
     normal.paragraph_format.space_after = Pt(6)
 
     doc.core_properties.author = AUTHOR
     doc.core_properties.last_modified_by = AUTHOR
     doc.core_properties.title = title
+    # Fasta värden så att bygget är reproducerbart och ingen gammal metadata
+    # ("python-docx"-kommentaren, mallens datum) syns för lärarna.
+    doc.core_properties.created = FIXED_DATE
+    doc.core_properties.modified = FIXED_DATE
+    doc.core_properties.comments = ""
     return doc
 
 

@@ -111,8 +111,9 @@ def test_stress_numbers():
     for n in ("52%", "65%", "40%", "51%", "37%", "45%", "42%", "39%", "35%", "31%", "71%", "55%",
               "34%", "33%", "32%", "54%"):
         assert n in shown, n
-    assert ("Planning takes the most time outside lessons but stresses least. Administration, "
-            "marking and adapting for different needs stress most.") in shown
+    assert ("Planning takes the most time outside lessons but stresses least. Administration "
+            "stresses most everywhere; in Sweden, marking and adapting for different needs come "
+            "next.") in shown
 
 
 def test_ai_section():
@@ -153,7 +154,7 @@ def test_eleven_tasks_in_johans_order():
              for r in rows]
     assert names == TASKS
     lede = re.search(r'<p class="wt-lede">(.*?)</p>', block, re.S).group(1)
-    assert text_of(lede) == ("About half already have support on Choosewise; the new parts fill "
+    assert text_of(lede) == ("Most tasks already have some support on Choosewise; the new parts fill "
                              "the gaps.")
     assert "order" not in lede
     for r in rows:
@@ -286,3 +287,21 @@ def test_hidden_page_is_not_linked_anywhere():
         assert SLUG not in (ROOT / rel).read_text(encoding="utf-8"), rel
     for p in (ROOT / "assets/partials").glob("*"):
         assert SLUG not in p.read_text(encoding="utf-8"), p.name
+
+
+def test_neither_hidden_slug_appears_in_any_public_html():
+    """Ingen öppen HTML-sida får länka till eller nämna de två dolda sidorna."""
+    import subprocess
+    files = subprocess.run(["git", "ls-files", "*.html"], cwd=ROOT, capture_output=True,
+                           text=True, check=True).stdout.splitlines()
+    skip = ("what-teachers-do-354716b7/", "quality-ladder-ec1c2f8c/", "_unpublished/", "docs/",
+            "exports/")
+    checked = 0
+    for rel in files:
+        if rel.startswith(skip):
+            continue
+        checked += 1
+        text = (ROOT / rel).read_text(encoding="utf-8", errors="replace")
+        for slug in ("what-teachers-do-354716b7", "quality-ladder-ec1c2f8c"):
+            assert slug not in text, (rel, slug)
+    assert checked > 50

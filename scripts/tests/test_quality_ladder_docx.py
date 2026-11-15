@@ -114,6 +114,28 @@ def test_core_properties(name, title):
     assert props.title == title
 
 
+@pytest.mark.parametrize("name", FILES)
+def test_no_stale_metadata(name):
+    """Inget "python-docx" i dokumentegenskaperna, fasta datum, ingen kommentar."""
+    import zipfile
+    props = Document(str(DIR / name)).core_properties
+    assert props.created.date().isoformat() == "2026-11-14"
+    assert props.modified.date().isoformat() == "2026-11-14"
+    assert props.comments == ""
+    with zipfile.ZipFile(DIR / name) as z:
+        for part in ("docProps/core.xml", "docProps/app.xml"):
+            if part in z.namelist():
+                assert "python-docx" not in z.read(part).decode("utf-8").lower(), part
+
+
+@pytest.mark.parametrize("name", FILES)
+def test_body_font_is_arial(name):
+    doc = Document(str(DIR / name))
+    assert doc.styles["Normal"].font.name == "Arial"
+    with __import__("zipfile").ZipFile(DIR / name) as z:
+        assert "Calibri" not in z.read("word/document.xml").decode("utf-8")
+
+
 def test_fresh_build_matches_committed_text(tmp_path):
     built = load_builder().build_docx(tmp_path)
     assert sorted(p.name for p in built) == sorted(FILES)

@@ -120,7 +120,8 @@ def test_how_it_works_steps():
     assert [text_of(s) for s in re.findall(r"<li>(.*?)</li>", steps, re.S)] == [
         "Enter the task and your criteria. Copy the prompt into your AI tool, and read the three "
         "samples before the lesson: check the facts and that the levels differ in what they do, "
-        "not in length.",
+        "not in length. Now and then change the order before you hand them out, so that A is not "
+        "always the same level.",
         "In class, students write their own answer first, then rank Samples A, B and C and explain "
         "the differences with the criteria. Then you reveal the levels.",
         "Students lift their own answer one level. You give whole-class feedback instead of thirty "
