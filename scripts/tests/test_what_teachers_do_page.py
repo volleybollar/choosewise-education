@@ -113,7 +113,7 @@ def test_stress_numbers():
     for n in ("52%", "65%", "40%", "51%", "37%", "45%", "42%", "39%", "35%", "31%", "71%", "55%",
               "34%", "33%", "32%", "54%"):
         assert n in shown, n
-    assert ("Planning takes the most time outside lessons but stresses least. Administration "
+    assert ("Planning takes the most time outside lessons, but of the tasks above it stresses the fewest teachers. Administration "
             "stresses most everywhere; in Sweden, marking and adapting for different needs come "
             "next.") in shown
 
