@@ -161,7 +161,10 @@
          stark evidensen är. Bara delar som är klara (Ready) länkas; en ny del
          som ännu inte finns får status Coming och ingen länk. Nytt verktyg =
          ny länk i "now"-listan; ny del som blir klar = byt Coming mot Ready och
-         lägg till länken. Raderna blir kort på en smal skärm (se CSS). -->
+         lägg till länken. Raderna blir kort på en smal skärm (se CSS).
+         Tabellen är också kursens karta: raderna följer de elva lektionerna i
+         Skool (1-11). "Course lesson N" betyder att lektionen finns i Skool;
+         den länkas inte härifrån, eftersom kursen länkas i "The parts". -->
     <section class="section" id="wt-tasks">
       <div class="container">
         <h2 class="section__title">Eleven tasks, and what helps with each</h2>
@@ -181,7 +184,10 @@
               <li><a href="/thinking-profile/">Thinking Profile</a></li>
               <li><a href="/free/prompts/">Prompt packs</a></li>
             </ul></div>
-            <div class="wt-task__new"><p>Course module 1 with worked examples for new teachers <span class="wt-status wt-status--coming">Coming</span></p></div>
+            <div class="wt-task__new">
+              <p>Course lesson 1 <span class="wt-status wt-status--ready">Ready</span></p>
+              <p>Worked examples for new teachers <span class="wt-status wt-status--coming">Coming</span></p>
+            </div>
             <div class="wt-task__label">Time saving: two randomised trials</div>
           </li>
           <li class="wt-task">
@@ -194,21 +200,35 @@
               <li><a href="/retrieval-rhythm/">Retrieval Rhythm</a></li>
               <li><a href="/two-minute-debrief/">Two-Minute Debrief</a></li>
             </ul></div>
-            <div class="wt-task__new"><p>Course module 2 <span class="wt-status wt-status--coming">Coming</span></p></div>
+            <div class="wt-task__new"><p>Course lesson 2 <span class="wt-status wt-status--ready">Ready</span></p></div>
             <div class="wt-task__label">Varies by tool</div>
           </li>
           <li class="wt-task">
-            <h3 class="wt-task__name">Marking and assessing</h3>
+            <!-- Rad 3: ny i kursen. Siffran 55 % mot 35 % är TALIS 2024 för Sverige
+                 (nyutexaminerade mot erfarna lärare). Etiketten Promising kommer
+                 från evidensfilen om ordning i klassrummet. -->
+            <h3 class="wt-task__name">Keeping order in class</h3>
+            <p class="wt-task__time">Novices 55% vs experienced 35% in Sweden find it stressful</p>
+            <div class="wt-task__now"><p>Nothing yet</p></div>
+            <div class="wt-task__new"><p>Course lesson 3 <span class="wt-status wt-status--ready">Ready</span></p></div>
+            <div class="wt-task__label"><span class="tm-chip tm-chip--promising">Promising</span></div>
+          </li>
+          <li class="wt-task">
+            <!-- Rad 4: "Marking and assessing" och "Evaluating knowledge" är
+                 sammanslagna till en rad, med verktygen från båda. -->
+            <h3 class="wt-task__name">Marking, assessing and evaluating knowledge</h3>
             <p class="wt-task__time">4.6 h, stresses 51% in Sweden</p>
             <div class="wt-task__now"><ul>
               <li>Feedback lens in <a href="/lesson-lens/">Lesson Lens</a></li>
               <li>The check in <a href="/homework-upgrade-1f0cd17c/">Homework Upgrade</a></li>
+              <li><a href="/retrieval-rhythm/">Retrieval Rhythm</a></li>
+              <li>Exit tickets in <a href="/two-minute-debrief/">Two-Minute Debrief</a></li>
             </ul></div>
             <div class="wt-task__new">
               <p><a href="/quality-ladder-ec1c2f8c/">Quality Ladder</a> <span class="wt-status wt-status--ready">Ready</span></p>
               <p><a href="/quality-ladder-ec1c2f8c/#ql-policy">One-page feedback policy</a> <span class="wt-status wt-status--ready">Ready</span></p>
             </div>
-            <div class="wt-task__label"><span class="tm-chip tm-chip--promising">Promising</span></div>
+            <div class="wt-task__label"><span class="tm-chip tm-chip--promising">Promising</span><br><span class="tm-chip tm-chip--strong">Strong</span> for retrieval practice</div>
           </li>
           <li class="wt-task">
             <h3 class="wt-task__name">Colleagues and meetings</h3>
@@ -255,17 +275,6 @@
             <div class="wt-task__label"><span class="tm-chip tm-chip--framework">Framework</span></div>
           </li>
           <li class="wt-task">
-            <h3 class="wt-task__name">Evaluating knowledge</h3>
-            <p class="wt-task__time">Part of marking and teaching</p>
-            <div class="wt-task__now"><ul>
-              <li><a href="/retrieval-rhythm/">Retrieval Rhythm</a></li>
-              <li><a href="/homework-upgrade-1f0cd17c/">Homework Upgrade</a></li>
-              <li>Exit tickets in <a href="/two-minute-debrief/">Two-Minute Debrief</a></li>
-            </ul></div>
-            <div class="wt-task__new"><p><a href="/quality-ladder-ec1c2f8c/">Quality Ladder</a> for larger tasks <span class="wt-status wt-status--ready">Ready</span></p></div>
-            <div class="wt-task__label"><span class="tm-chip tm-chip--strong">Strong</span> for retrieval practice</div>
-          </li>
-          <li class="wt-task">
             <h3 class="wt-task__name">Communicating with parents</h3>
             <p class="wt-task__time">1.8 h; 50% in England say it takes too much time</p>
             <div class="wt-task__now"><ul>
@@ -288,10 +297,9 @@
       </div>
     </section>
 
-    <!-- De fem delarna i byggordning. Bara Quality Ladder är klar och länkas.
-         De andra tre delarna och kursen får status Coming och ingen länk.
-         Korten i samma rad är
-         lika höga (grid, se CSS). -->
+    <!-- De fem delarna i byggordning. Quality Ladder och kursen är klara och
+         länkas (kursen till Skool Classroom). De andra tre delarna får status
+         Coming och ingen länk. Korten i samma rad är lika höga (grid, se CSS). -->
     <section class="section section--alt" id="wt-parts">
       <div class="container">
         <h2 class="section__title">The parts</h2>
@@ -317,10 +325,11 @@
             <p class="wt-part__covers">Covers: individual support, student welfare and support measures, creating and adapting materials</p>
           </article>
           <article class="wt-part">
-            <p class="wt-part__num">Part 4 <span class="wt-status wt-status--coming">Coming</span></p>
+            <p class="wt-part__num">Part 4 <span class="wt-status wt-status--ready">Ready</span></p>
             <h3 class="wt-part__name">The course</h3>
-            <p>Seven modules that tie it all together.</p>
+            <p>Eleven lessons in Skool, one per task.</p>
             <p class="wt-part__covers">Covers: all eleven tasks</p>
+            <p class="wt-part__link"><a href="https://www.skool.com/choosewise-7103/classroom">Open the course in Skool →</a></p>
           </article>
           <article class="wt-part">
             <p class="wt-part__num">Part 5 <span class="wt-status wt-status--coming">Coming</span></p>
