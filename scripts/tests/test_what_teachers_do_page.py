@@ -202,6 +202,15 @@ def test_keeping_order_row():
     assert row_part(row, "wt-task__label") == "Promising"
 
 
+def test_administration_row_offers_the_feedback_policy_now():
+    row = tasks()[6]
+    now = re.search(r'<div class="wt-task__now">(.*?)</div>', row, re.S).group(1)
+    assert "Nothing yet" not in now
+    assert re.findall(r'<a [^>]*href="([^"]*)"[^>]*>(.*?)</a>', now, re.S) == [
+        (QL + "#ql-policy", "One-page feedback policy")]
+    assert [text_of(i) for i in re.findall(r"<li>(.*?)</li>", now, re.S)] == ["One-page feedback policy"]
+
+
 def test_marking_row_merges_evaluating_knowledge():
     row = tasks()[3]
     now = re.search(r'<div class="wt-task__now">(.*?)</div>', row, re.S).group(1)
