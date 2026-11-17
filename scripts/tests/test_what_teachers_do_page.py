@@ -174,19 +174,22 @@ def test_status_chips():
     for i, row in enumerate(rows, 1):
         cell = new_cell(row)
         shown = text_of(cell)
+        # Varje rad namnger sin kurslektion, och den är klar; den länkas inte härifrån.
+        assert f"Course lesson {i} Ready" in shown, i
+        assert not re.search(rf'<a [^>]*>\s*Course lesson {i}\b', cell), i
         if i == 4:
-            # Rad 4: Quality Ladder och policyn på en sida, båda klara och länkade.
-            assert shown.count("Ready") == 2, i
+            # Rad 4: lektionen, Quality Ladder och policyn på en sida, alla klara; de två sista länkade.
+            assert shown.count("Ready") == 3, i
             assert f'href="{QL}' in cell, i
             assert "Coming" not in shown, i
-        elif i in (1, 2, 3):
-            # Kurslektion 1-3 är klara; kursen finns i Skool, så ingen länk i cellen.
-            assert f"Course lesson {i} Ready" in shown, i
+        elif i == 1:
+            assert shown.count("Ready") == 1 and shown.count("Coming") == 1, i
             assert "<a " not in cell, i
-            assert shown.count("Coming") == (1 if i == 1 else 0), i
+        elif i in (2, 3):
+            assert shown.count("Ready") == 1 and "Coming" not in shown, i
+            assert "<a " not in cell, i
         else:
-            assert "Coming" in shown, i
-            assert "Ready" not in shown, i
+            assert shown.count("Ready") == 1 and shown.count("Coming") == 1, i
             assert "<a " not in cell, i
     assert "Worked examples for new teachers Coming" in text_of(new_cell(rows[0]))
 
