@@ -3,12 +3,14 @@
 """Bygger kursomslagen till Skool-communityts Classroom ur
 exports/skool-course-cover-1460x752.html.
 
-Två steg:
+Tre steg:
   1. Gör numrets typsnitt: Hanken Grotesk Light med kortare flagga på ettan.
      Hankens etta har en flagga som sticker ut tre stambredder åt vänster;
      den kortas till knappt hälften. Siffrorna är lika breda, så 01, 02 och
      10 står likadant i ringen.
   2. Renderar ett omslag per kurs i COURSES till PNG.
+  3. Renderar översiktsbilden till About i Skool med alla omslag
+     (exports/skool-classroom-1920x1080.html).
 
 Kursstrukturen är preliminär. Ändra listan och kör om skriptet; mappen med
 omslag töms först, så den speglar alltid listan.
@@ -21,6 +23,7 @@ Kör:  /usr/bin/python3 scripts/build-skool-course-covers.py
 from __future__ import annotations
 
 import http.server
+import json
 import re
 import socketserver
 import threading
@@ -33,7 +36,9 @@ from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = "exports/skool-course-cover-1460x752.html"
+OVERVIEW = "exports/skool-classroom-1920x1080.html"
 OUT_DIR = ROOT / "assets/images/brand/skool/courses"
+OVERVIEW_PNG = ROOT / "assets/images/brand/skool/classroom-about.png"
 HANKEN = ROOT / "assets/fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2"
 DIGITS = ROOT / "assets/fonts/cover-digits/CoverDigits-Light.woff2"
 PORT = 8803
@@ -110,6 +115,7 @@ def build_covers() -> None:
         with sync_playwright() as p:
             browser = p.chromium.launch()
             page = browser.new_page(viewport={"width": 1460, "height": 752})
+            names = []
             for number, line1, line2, level in COURSES:
                 params = {"n": number, "t1": line1, "t2": line2, "lv": level}
                 page.goto(f"http://127.0.0.1:{PORT}/{SOURCE}?{urlencode(params)}",
@@ -130,10 +136,30 @@ def build_covers() -> None:
                 png = OUT_DIR / f"{number}-{slug(line1, line2, level)}.png"
                 page.locator("svg#cover").screenshot(path=str(png))
                 print(f"  {png.relative_to(ROOT)}")
+                names.append(png.name)
+            # Omslagens ordning, som översiktsbilden läser
+            (OUT_DIR / "courses.json").write_text(json.dumps(names, indent=2) + "\n")
+            render_overview(page)
             browser.close()
     finally:
         httpd.shutdown()
         httpd.server_close()
+
+
+def render_overview(page) -> None:
+    page.set_viewport_size({"width": 1920, "height": 1080})
+    page.goto(f"http://127.0.0.1:{PORT}/{OVERVIEW}", wait_until="networkidle")
+    page.wait_for_selector("body[data-ready='1']")
+    for font in ('600 52px "Hanken Grotesk"', 'italic 44px "Instrument Serif"'):
+        if not page.evaluate(f"document.fonts.check('{font}')"):
+            raise RuntimeError(f"Typsnittet laddades inte: {font}")
+    bottom = page.evaluate("document.getElementById('grid').getBoundingClientRect().bottom")
+    if bottom > 1080 - 40:
+        raise SystemExit(
+            f"Omslagen går utanför översiktsbilden (nederkant {bottom:.0f}). "
+            f"Rutnätet rymmer nio; ändra layouten i {OVERVIEW}.")
+    page.screenshot(path=str(OVERVIEW_PNG))
+    print(f"  {OVERVIEW_PNG.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":
