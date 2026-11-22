@@ -72,11 +72,15 @@
       "name": "Spacing across the unit",
       "one_liner": "Practice is spread out over days and weeks, so earlier content keeps coming back.",
       "label": "strong",
-      "evidence": "Distributed practice is the other strategy rated high utility by Dunlosky et al. 2013. A 2022 review of classroom and lab research finds that spacing and retrieval together give the most durable learning (Carpenter, Pan & Butler 2022).",
+      "evidence": "Distributed practice is the other strategy rated high utility by Dunlosky et al. 2013. A 2026 meta-analysis of studies in real school classrooms finds a small but reliable benefit from spacing practice out (Ruitenburg et al. 2026). A 2022 review of classroom and lab research finds that spacing and retrieval together give the most durable learning (Carpenter, Pan & Butler 2022).",
       "sources": [
         {
           "text": "Dunlosky et al. 2013, Psychological Science in the Public Interest",
           "url": "https://doi.org/10.1177/1529100612453266"
+        },
+        {
+          "text": "Ruitenburg et al. 2026, Educational Psychology Review",
+          "url": "https://doi.org/10.1007/s10648-026-10225-5"
         },
         {
           "text": "Carpenter, Pan & Butler 2022, Nature Reviews Psychology",
