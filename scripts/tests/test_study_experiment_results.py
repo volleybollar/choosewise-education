@@ -62,6 +62,25 @@ def scores(page, text):
     page.fill("#se-scores", text)
 
 
+def type_scores(page, text):
+    """Skriver i poängrutan tangent för tangent, som läraren gör (\\n trycks som
+    Enter). Rutan behåller fokus, med markören efter det sist skrivna tecknet."""
+    page.focus("#se-scores")
+    page.keyboard.type(text)
+
+
+def leave_scores(page):
+    """Tar fokus från poängrutan, som när läraren klickar någon annanstans."""
+    page.locator("#se-scores").blur()
+
+
+def summary_top(page):
+    """Sammanfattningens överkant mätt från sidans topp. Läget i fönstret duger
+    inte: sidan rullar mjukt till rutan när den får fokus, och ibland medan man
+    skriver, så det ändras också av annat än felraden."""
+    return page.eval_on_selector("#se-summary", "e => e.getBoundingClientRect().top + window.scrollY")
+
+
 def summary(page):
     return page.inner_text("#se-summary")
 
@@ -160,12 +179,14 @@ def test_zero_count_row_has_no_bar_width(page):
 
 def test_errors_named(page):
     scores(page, "3 5\n9 1")
+    leave_scores(page)
     assert page.text_content("#se-errors").strip() == "Line 2 is not two scores between 0 and 6, so it is left out."
     assert "1 slip." in summary(page)
 
 
 def test_errors_one_sentence_per_line_and_cleared(page):
     scores(page, "x\n3 5\ny")
+    leave_scores(page)
     text = page.text_content("#se-errors")
     assert "Line 1 is not two scores between 0 and 6, so it is left out." in text
     assert "Line 3 is not two scores between 0 and 6, so it is left out." in text
@@ -240,6 +261,7 @@ def test_errors_text_is_not_rewritten_when_unchanged(page):
     # Ett aria-live-område läser upp varje ändring av sin text: sätts samma text
     # igen vid varje tangenttryckning läses felet upp om och om igen.
     scores(page, "9 9")
+    leave_scores(page)
     page.evaluate("""() => {
         window.__errorWrites = 0;
         new MutationObserver(m => { window.__errorWrites += m.length; })
@@ -252,7 +274,47 @@ def test_errors_text_is_not_rewritten_when_unchanged(page):
     assert page.evaluate("() => window.__errorWrites") == 0
     # Kontroll: ändras felet skrivs texten.
     scores(page, "9 9\n8 8")
+    leave_scores(page)
     assert page.evaluate("() => window.__errorWrites") > 0
+
+
+def test_errors_skip_the_line_being_typed(page):
+    # Medan en lapp skrivs står det bara ett tal på raden under ett par
+    # tangenttryckningar. Raden räknas inte förrän den har två poäng, men den
+    # nämns inte heller som fel så länge markören står på den.
+    type_scores(page, "3 5\n4")
+    assert page.text_content("#se-errors") == ""
+    assert "1 slip." in summary(page)
+
+
+def test_errors_name_the_line_being_typed_once_the_box_loses_focus(page):
+    # Lämnar läraren rutan med en halvskriven rad nämns den, med samma mening
+    # som andra fel.
+    type_scores(page, "3 5\n4")
+    assert page.text_content("#se-errors") == ""
+    leave_scores(page)
+    assert page.text_content("#se-errors").strip() == "Line 2 is not two scores between 0 and 6, so it is left out."
+    assert "1 slip." in summary(page)
+
+
+def test_errors_name_other_bad_lines_while_typing(page):
+    # Bara raden med markören väntar. En rad som läraren redan har lämnat nämns
+    # som vanligt, också medan nästa lapp skrivs.
+    type_scores(page, "3 9\n4")
+    assert page.text_content("#se-errors").strip() == "Line 1 is not two scores between 0 and 6, so it is left out."
+
+
+def test_summary_stays_put_while_slips_are_typed(page):
+    # Felraden står ovanför sammanfattningen. Kom och gick den medan en lapp
+    # skrevs, skulle sammanfattningen och diagrammet hoppa en rad upp och ner
+    # vid varannan tangenttryckning.
+    page.focus("#se-scores")
+    top = summary_top(page)
+    typed = ""
+    for key in "3 5\n4 4":
+        page.keyboard.type(key)
+        typed += key
+        assert summary_top(page) == top, typed
 
 
 def test_chart_groups_have_a_caption(page):
@@ -305,5 +367,6 @@ def test_max_changes_validation(page):
 
 def test_no_html_rendered(page):
     scores(page, "<b>1</b> 2")
+    leave_scores(page)
     assert "Line 1 is not two scores" in page.text_content("#se-errors")
     assert page.locator("#se-results b").count() == 0

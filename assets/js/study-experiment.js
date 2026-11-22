@@ -198,6 +198,14 @@
     return n >= 1 && n <= MAX_LIMIT ? n : DEFAULT_MAX;
   }
 
+  /* Raden (från 1) som markören står på när läraren skriver i poängrutan,
+     räknad som i parseScores. 0 när rutan inte har fokus. */
+  function caretLine() {
+    var box = els.scores;
+    if (document.activeElement !== box) { return 0; }
+    return box.value.slice(0, box.selectionStart).split(/\r\n|\r|\n/).length;
+  }
+
   /* Ett element med klass och text. Texten sätts alltid med textContent. */
   function make(tag, className, text) {
     var node = document.createElement(tag);
@@ -249,10 +257,19 @@
       same: wholeNumber('pred-same', 0)
     });
 
+    /* Raden som läraren skriver på just nu nämns inte som fel. Under ett par
+       tangenttryckningar står det bara ett tal där, och en felrad som kom och
+       gick skulle få sammanfattningen och diagrammet att hoppa. Raden räknas
+       ändå inte förrän den har två poäng, och den nämns så snart läraren
+       skriver på en annan rad eller lämnar rutan. */
+    var caret = caretLine();
+
     /* Felen: en mening per rad som lämnas utanför. Området är aria-live, så
        texten sätts bara när den har ändrats: annars läses samma fel upp på
        nytt vid varje tangenttryckning. */
-    var errors = parsed.bad.map(function (line) {
+    var errors = parsed.bad.filter(function (line) {
+      return line !== caret;
+    }).map(function (line) {
       return 'Line ' + line + ' is not two scores between 0 and ' + max + ', so it is left out.';
     }).join('\n');
     if (els.errors.textContent !== errors) { els.errors.textContent = errors; }
@@ -299,6 +316,10 @@
       els[id] = document.getElementById('se-' + id);
     });
     els.results.addEventListener('input', renderResults);
+    /* Lämnar läraren poängrutan ritas vyn om, så att raden markören stod på
+       nämns om den är fel. När blur körs är rutan inte längre
+       document.activeElement, så caretLine ger 0. */
+    els.scores.addEventListener('blur', renderResults);
     renderResults();
   }
 
