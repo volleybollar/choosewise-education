@@ -152,3 +152,13 @@ def test_grades_span_six_to_twelve():
 def test_trade_off_brief_says_what_nudge_asks():
     brief = next(l for l in lenses() if l["id"] == "trade-off")["prompt_brief"]
     assert "For NUDGE" in brief
+
+
+def test_fact_check_corrections_2026_11_22():
+    # Samma formuleringar som den faktagranskade Compass-sidan: EEF-försöket i hela skolor gav en
+    # mindre men verklig effekt, metaanalysen 2023 gäller matematik, och spacing har Ruitenburg m.fl. 2026.
+    ls = {l["id"]: l for l in lenses()}
+    assert "in 140 secondary schools found a smaller but real effect at scale" in ls["formative-check"]["evidence"]
+    assert "confirmed for mathematics in a 2023 meta-analysis" in ls["cognitive-load"]["evidence"]
+    assert "(Ruitenburg et al. 2026)" in ls["spacing"]["evidence"]
+    assert any(s["url"] == "https://doi.org/10.1007/s10648-026-10225-5" for s in ls["spacing"]["sources"])
