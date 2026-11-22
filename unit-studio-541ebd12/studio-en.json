@@ -129,7 +129,7 @@
       "id": "explicit-instruction",
       "name": "Explicit instruction and worked examples",
       "label": "strong",
-      "evidence": "A meta-analysis of 328 studies over half a century found consistently positive effects of Direct Instruction, a highly structured form of explicit teaching (Stockard et al. 2018). Rosenshine's principles summarise the wider research on explicit instruction for classroom use. Cognitive load theory rests on decades of replicated experiments. The worked-example effect is one of its most robust findings, confirmed in a 2023 meta-analysis, and it fades as students gain expertise (Sweller, van Merriënboer & Paas 2019; Barbieri et al. 2023).",
+      "evidence": "A meta-analysis of 328 studies over half a century found consistently positive effects of Direct Instruction, a highly structured form of explicit teaching (Stockard et al. 2018). Rosenshine's principles summarise the wider research on explicit instruction for classroom use. Cognitive load theory rests on decades of replicated experiments. The worked-example effect is one of its most robust findings, confirmed for mathematics in a 2023 meta-analysis, and it fades as students gain expertise (Sweller, van Merriënboer & Paas 2019; Barbieri et al. 2023).",
       "sources": [
         {
           "text": "Stockard et al. 2018, Review of Educational Research",
@@ -173,7 +173,7 @@
       "id": "formative-checkpoints",
       "name": "Checkpoints (formative assessment)",
       "label": "strong",
-      "evidence": "Black & Wiliam's 1998 review made the case that formative assessment raises achievement, and a 2024 meta-analysis of 118 K-12 studies confirms a positive, more modest average effect (Yao et al. 2024). A whole-school EEF trial found a similar, real effect at scale.",
+      "evidence": "Black & Wiliam's 1998 review made the case that formative assessment raises achievement, and a 2024 meta-analysis of 118 K-12 studies confirms a positive, more modest average effect (Yao et al. 2024). A whole-school EEF trial in 140 secondary schools found a smaller but real effect at scale (about +2 months on GCSE results).",
       "sources": [
         {
           "text": "Black & Wiliam 1998, Assessment in Education",

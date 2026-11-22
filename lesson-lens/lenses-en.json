@@ -115,7 +115,7 @@
       "name": "Cognitive load & worked examples",
       "one_liner": "New material is shown in small steps with worked examples, so working memory is not overloaded.",
       "label": "strong",
-      "evidence": "Cognitive load theory rests on decades of replicated experiments. The worked-example effect is one of its most robust findings, confirmed in a 2023 meta-analysis, and it fades as students gain expertise (Sweller, van Merriënboer & Paas 2019; Barbieri et al. 2023).",
+      "evidence": "Cognitive load theory rests on decades of replicated experiments. The worked-example effect is one of its most robust findings, confirmed for mathematics in a 2023 meta-analysis, and it fades as students gain expertise (Sweller, van Merriënboer & Paas 2019; Barbieri et al. 2023).",
       "sources": [
         {
           "text": "Sweller, van Merriënboer & Paas 2019, Educational Psychology Review",
@@ -196,7 +196,7 @@
       "name": "Formative check (hinge question, exit ticket)",
       "one_liner": "A quick check during or at the end of the lesson shows what students understood, so the next step is based on evidence.",
       "label": "strong",
-      "evidence": "Black & Wiliam's 1998 review made the case that formative assessment raises achievement, and a 2024 meta-analysis of 118 K-12 studies confirms a positive, more modest average effect (Yao et al. 2024). A whole-school EEF trial found a similar, real effect at scale.",
+      "evidence": "Black & Wiliam's 1998 review made the case that formative assessment raises achievement, and a 2024 meta-analysis of 118 K-12 studies confirms a positive, more modest average effect (Yao et al. 2024). A whole-school EEF trial in 140 secondary schools found a smaller but real effect at scale (about +2 months on GCSE results).",
       "sources": [
         {
           "text": "Black & Wiliam 1998, Assessment in Education",
