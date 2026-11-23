@@ -37,7 +37,7 @@ HERO_LEDE = ("One-page templates for meetings, administration and messages home,
              "go in afterwards, outside AI.")
 EVIDENCE_LEDE = ("Meetings about one problem and short messages home have promising evidence. "
                  "Cutting administration rests on expert guidance, not trials. We have found no "
-                 "controlled study of AI for report writing or parent communication.")
+                 "controlled study of AI for report writing or parent communication by school teachers.")
 COUNTRY_ADMIN = ("Rules differ between countries. Check what applies where you work before you "
                  "stop keeping a record or change what you document.")
 COUNTRY_PARENTS = ("Rules differ between countries. Check what applies where you work before you "
@@ -171,6 +171,21 @@ def test_privacy_line_in_each_section():
         assert privacy_at < block.index('class="pp-prompt"'), sid
         # Raden står en gång per avsnitt, ovanför prompterna.
         assert block.count(PRIVACY_PAGE) == 1, sid
+
+
+def test_prompts_are_marked_as_writing_aids():
+    """Samma rad en gång per avsnitt, direkt under rubriken över prompterna."""
+    line = "These prompts are writing aids, not evidence-based methods."
+    for sid in COURSE_SECTIONS:
+        block = section(sid)
+        assert text_of(block).count(line) == 1, sid
+        assert block.index("Prompts to make your own") < block.index(line) < block.index('class="pp-prompt"'), sid
+
+
+def test_evidence_absence_claim_names_school_teachers():
+    ai = next(e for e in data()["evidence"] if e["title"] == "AI for these tasks")
+    assert ("We have found no controlled study of AI for report writing or parent "
+            "communication by school teachers.") in ai["text"]
 
 
 # ───── Mallarna och prompterna ─────

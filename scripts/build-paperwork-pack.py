@@ -39,6 +39,9 @@ LABEL_ORDER = ("strong", "promising", "framework", "choosewise")
 # där är ordagrant som i kurslektionerna, och raden läggs till här, på ett ställe.
 PRIVACY_COPY = "Do not include student names or student work in this conversation."
 
+# Raden under "Prompts to make your own" i varje avsnitt (som "untested" i kurslektionerna).
+PROMPTS_NOTE = "These prompts are writing aids, not evidence-based methods."
+
 
 # ───── Ren text: det som kopieringsknapparna lägger i urklipp ─────
 
@@ -146,6 +149,8 @@ def render_section(sec: dict) -> str:
     out = [f'<p class="section__lede">{escape(sec["intro"])}</p>']
     out.append('<div class="pp-templates">' + "".join(_render_template(t) for t in sec["templates"]) + "</div>")
     out.append('<h3 class="pp-subtitle">Prompts to make your own</h3>')
+    # Samma rad i alla tre avsnitt: prompterna är skrivstöd, inte prövade metoder.
+    out.append('<p class="pp-prompts__note">' + escape(PROMPTS_NOTE) + "</p>")
     out.append(
         '<p class="tm-privacy"><strong>Do not include student names or student work.</strong> '
         "Fill in the brackets afterwards, outside AI.</p>"
