@@ -73,7 +73,13 @@ EVIDENCE = [
 ]
 # Ett nyckelord per riskpunkt, i specens ordning (C5).
 CARE_KEYWORDS = ["wrong", "one page", "too many", "translat", "one problem"]
-MESSAGE_HEADINGS = ["Missing work", "An upcoming test", "Something done well", "Absence"]
+# De tre tabellblocken (mall, rubrik): kolumnrubriker i "columns", tomma rader i "rows".
+TABLE_BLOCKS = {
+    ("meeting-protocol", "Decision log"),
+    ("cut-first-checklist", "Our recurring documents"),
+    ("messages-home", "Term plan"),
+}
+MESSAGE_HEADINGS =["Missing work", "An upcoming test", "Something done well", "Absence"]
 BLAME_WORDS = ["fail", "concern", "worried", "must", "unacceptable"]
 BANNED = ["leverage", "empower", "game-changer", "seamless", "unlock", "cutting-edge", "!"]
 
@@ -132,7 +138,8 @@ def test_template_ids_and_files():
             assert t["file"] == t["id"] + ".docx"
             assert t["title"] and t["intro"] and t["blocks"]
             for block in t["blocks"]:
-                assert block["heading"] and block["lines"]
+                # Tabellblock har tomma rader i "lines"; alla andra block har text.
+                assert block["heading"] and (block["lines"] or block.get("columns"))
                 assert isinstance(block["box"], bool)
 
 
@@ -233,6 +240,27 @@ def test_no_unbracketed_personal_data():
             for line in block["lines"]:
                 outside = re.sub(r"\[[^\]]*\]", "", line)
                 assert not re.search(r"\d", outside), (template_id, line)
+
+
+def test_table_blocks():
+    # Tabeller är egna fält (columns + rows), aldrig rader med " | " i texten.
+    tables = {}
+    for s in data()["sections"]:
+        for t in s["templates"]:
+            for block in t["blocks"]:
+                assert not any(" | " in line for line in block["lines"]), (t["id"], block)
+                if "columns" in block:
+                    tables[(t["id"], block["heading"])] = block
+                else:
+                    assert "rows" not in block, (t["id"], block)
+    assert set(tables) == TABLE_BLOCKS
+    for key, block in tables.items():
+        assert len(block["columns"]) >= 2, key
+        assert all(block["columns"]), key
+        assert isinstance(block["rows"], int) and block["rows"] >= 1, key
+        assert block["lines"] == [], key
+    for text in all_strings(data()):
+        assert " | " not in text, text
 
 
 def test_feedback_policy_link():

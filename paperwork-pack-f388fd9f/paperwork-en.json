@@ -46,7 +46,7 @@
             {"heading": "The decision", "lines": ["The one change each of us tries in class."], "box": true},
             {"heading": "Who, by when", "lines": ["Each of us, and the date we try the change by."], "box": true},
             {"heading": "Follow-up", "lines": ["Date: [date of the next meeting]", "What we will look at: [what we will bring to check the change]", "What happened (filled in at the next meeting):"], "box": true},
-            {"heading": "Decision log", "lines": ["Date | Decision | Result"], "box": true}
+            {"heading": "Decision log", "columns": ["Date", "Decision", "Result"], "rows": 4, "lines": [], "box": false}
           ]
         },
         {
@@ -104,7 +104,7 @@
           "file": "cut-first-checklist.docx",
           "intro": "Go through your team's recurring documents together. Ask three questions of each, then keep, shorten or stop it.",
           "blocks": [
-            {"heading": "Our recurring documents", "lines": ["Document | Who reads it | What do they do with it | What would happen without it | Keep, shorten or stop"], "box": true},
+            {"heading": "Our recurring documents", "columns": ["Document", "Who reads it", "What do they do with it", "What would happen without it", "Keep, shorten or stop"], "rows": 6, "lines": [], "box": false},
             {"heading": "Five checks, with examples from England", "lines": [
               "No more than two or three data collections a year, each used for a clear action (DfE 2018).",
               "No marking done to leave a trail (DfE 2016).",
@@ -163,7 +163,8 @@
             {"heading": "An upcoming test", "lines": ["Hello [parent's name]. [First name]'s class has a test on [topic] on [date]. It covers [what the test covers]. A tip for revising: [one revision tip]. One question to ask at home: [question, for example 'Can you explain this without your book?']", "[Your name]"], "box": false},
             {"heading": "Something done well", "lines": ["Hello [parent's name]. [First name] [something specific done well] in [subject] this week. One thing to work on next: [one thing]. One question to ask at home: [question]", "[Your name]"], "box": false},
             {"heading": "Absence", "lines": ["Hello [parent's name]. So far this term, [first name] has been absent for [number] days in total. Every day in school helps [first name] keep up with the class. Is there anything we can do to help?", "[Your name]"], "box": false},
-            {"heading": "Term plan", "lines": ["Messages per class this term, as agreed with our team: [number]", "Date | Class | Template", "Keep student names out of this log."], "box": true}
+            {"heading": "This term's limit", "lines": ["Messages per class this term, as agreed with our team: [number]", "Log each message below by date, class and template. Keep student names out of the log."], "box": false},
+            {"heading": "Term plan", "columns": ["Date", "Class", "Template"], "rows": 6, "lines": [], "box": false}
           ]
         }
       ],
