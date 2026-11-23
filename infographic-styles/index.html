@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
-  <link rel="stylesheet" href="/assets/css/pages.css">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261123a">
 <!-- seo:start (build-seo-meta.py) -->
 <link rel="canonical" href="https://choosewise.education/infographic-styles/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -21,7 +21,7 @@
 <link rel="alternate" hreflang="en" href="https://choosewise.education/infographic-styles/">
 <link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/infografik-stilar/">
 <link rel="alternate" hreflang="x-default" href="https://choosewise.education/infographic-styles/">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."},{"@type":"CollectionPage","@id":"https://choosewise.education/infographic-styles/#webpage","url":"https://choosewise.education/infographic-styles/","isPartOf":{"@id":"https://choosewise.education/#website"},"inLanguage":"en","dateModified":"2026-10-27","about":{"@id":"https://choosewise.education/#organization"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."},{"@type":"CollectionPage","@id":"https://choosewise.education/infographic-styles/#webpage","url":"https://choosewise.education/infographic-styles/","isPartOf":{"@id":"https://choosewise.education/#website"},"inLanguage":"en","dateModified":"2026-11-23","about":{"@id":"https://choosewise.education/#organization"}}]}</script>
 <!-- seo:end -->
 </head>
 <body>
@@ -34,6 +34,65 @@
       <p class="lede" data-reveal>A library of styles for infographics in Gemini Notebook (which can also be used in other AI image generators — better text-aware image models keep arriving. ChatGPT's Images 2 model, released in April 2026, is particularly strong at this, so it's worth testing the prompts there too). Click a card, view the prompt, and copy it by clicking the button.</p>
     </section>
 
+    <!-- ───── Rutan "How to use a style" ─────
+         Korten längre ned ger bara stildelen av prompten (hur bilden ser ut).
+         Rutan ger resten: en mall för innehållsdelen (vad bilden handlar om),
+         inställningarna i Gemini Notebook och åldersgränsen. Filmen om
+         stilarna skickar lärare hit, därför står rutan överst. Den är öppen:
+         inget formulär och ingen e-post.
+         Utseendet finns under "How to use a style" i /assets/css/pages.css. -->
+    <section class="style-howto" aria-labelledby="style-howto-title" data-reveal>
+      <div class="style-howto__box">
+        <!-- Del 1: rubriken -->
+        <h2 id="style-howto-title">How to use a style</h2>
+        <!-- Två spalter på dator (mallen till vänster, inställningar och
+             åldersgräns till höger), en spalt på telefon. -->
+        <div class="style-howto__grid">
+          <div>
+            <!-- Del 2: mallen. Luckorna står inom [hakparenteser], och <em>
+                 gör dem kopparfärgade. Mallen står två gånger: i kodblocket
+                 (det man ser) och i knappens data-copy (det som kopieras).
+                 Ändra båda likadant; testet
+                 scripts/tests/test_infographic_styles_how_to.py larmar om de
+                 skiljer sig. Inne i <pre> syns varje mellanslag och
+                 radbrytning, därför börjar raden "Visual style" längst ut
+                 till vänster. -->
+            <h3>Prompt template</h3>
+            <p>Copy it and replace the text in <em>[brackets]</em>.</p>
+            <pre><code>Create an infographic for pupils aged <em>[age]</em> about <em>[topic]</em>. Use only facts from the sources. Show <em>[what to include]</em>. Keep the text short and simple enough for this age group, with large labels that can be read from the back of a classroom.
+
+Visual style: <em>[paste a style prompt from this page]</em></code></pre>
+            <!-- Knappen sköts av /assets/js/copy-to-clipboard.js, samma skript
+                 som korten använder. "Copied!" syns en kort stund efter klicket. -->
+            <div class="style-howto__copy">
+              <button type="button" class="btn btn--primary" data-copy="Create an infographic for pupils aged [age] about [topic]. Use only facts from the sources. Show [what to include]. Keep the text short and simple enough for this age group, with large labels that can be read from the back of a classroom.
+
+Visual style: [paste a style prompt from this page]">Copy template</button>
+              <span class="copy-toast" role="status">Copied!</span>
+            </div>
+          </div>
+          <div>
+            <!-- Del 3: inställningarna i Gemini Notebook, samma som filmens
+                 exempel gjordes med. Namnen följer Googles hjälpsida om
+                 infografik (där heter språket "output language"). -->
+            <h3>Settings in Gemini Notebook</h3>
+            <ul>
+              <li><strong>Language:</strong> English, or your class's language</li>
+              <li><strong>Orientation:</strong> Landscape</li>
+              <li><strong>Level of detail:</strong> Standard</li>
+              <li><strong>Visual style:</strong> none of the built-in styles</li>
+            </ul>
+            <!-- Del 4: åldersgränsen. Infografik i Gemini Notebook är bara för
+                 användare som har fyllt 18, därför gör läraren bilden åt
+                 klassen. Källa: support.google.com/gemininotebook/answer/16758265
+                 (kontrollerad 23 november 2026). -->
+            <h3>Age limit</h3>
+            <p>Infographics in Gemini Notebook are only available to users aged 18 and over. Pupils under 18 must not use the feature themselves, so you make the infographic for the class.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Answer capsule for "what is an infographics style?" -->
     <section class="seo-answer" data-reveal>
       <h2 class="seo-answer__question">What is an infographics style?</h2>
@@ -44,7 +103,7 @@
       <div class="styles-grid" data-source="/infographic-styles/styles-en.json" data-template="style"></div>
     </section>
   <!-- last-updated:start (build-seo-meta.py) -->
-<aside class="page-last-updated" aria-label="Last updated"><p><span class="page-last-updated__label">Last updated:</span> <time datetime="2026-10-27">October 27, 2026</time></p></aside>
+<aside class="page-last-updated" aria-label="Last updated"><p><span class="page-last-updated__label">Last updated:</span> <time datetime="2026-11-23">November 23, 2026</time></p></aside>
 <!-- last-updated:end -->
   </main>
 
