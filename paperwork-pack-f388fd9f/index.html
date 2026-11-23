@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paperwork Pack — Choosewise</title>
+  <meta name="description" content="For Choosewise members. One-page templates for meetings about teaching, administration and messages home, and a few prompts to make your own. Names, grades and details go in afterwards, outside AI.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (prefix tm-), och sedan det som är
+       nytt för Paperwork Pack (prefix pp-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/paperwork-pack.css?v=20261123a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten. -->
+<!-- seo:start (build-seo-meta.py) -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <!-- class="pp-page" gör att sektionsrubrikerna får vara längre än de delade
+       22 tecknen (se paperwork-pack.css). -->
+  <main class="pp-page">
+    <!-- Hero: vad paketet är, länken tillbaka till översikten, ett färdigt
+         exempel på en mall och länkar till de tre avsnitten. Exemplet visas
+         först med flit: en lärare som tvekar ska se vad en mall är innan
+         hen läser vidare. Hela paketet får ingen forskningsetikett; varje
+         avsnitt har sin egen längre ned. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/what-teachers-do-354716b7/">← What teachers do</a>
+      <span class="eyebrow">For Choosewise members · All school stages</span>
+      <h1>Paperwork Pack</h1>
+      <p class="lede">One-page templates for meetings, administration and messages home, and a few prompts to make your own. Cut first, then standardise what is left. Names, grades and details go in afterwards, outside AI.</p>
+      <!-- Hopplänkarna: en per avsnitt. Kurslektionerna 5, 7 och 10 länkar
+           till samma ankare (#pp-meetings, #pp-admin, #pp-parents). -->
+      <nav class="pp-jump" aria-label="Sections">
+        <a href="#pp-meetings">Meetings about teaching</a>
+        <a href="#pp-admin">Administration</a>
+        <a href="#pp-parents">Messages home</a>
+      </nav>
+      <div class="pp-hero-example">
+        <h2 class="pp-hero-example__title">What a template looks like</h2>
+        <!-- Exemplet byggs av scripts/build-paperwork-pack.py från "hero" i
+             paperwork-pack-f388fd9f/paperwork-en.json. Redigera JSON-filen,
+             inte rutan, och kör skriptet igen. -->
+<!-- hero-example:start -->
+<div class="tm-example pp-example"><ol class="pp-example__list"><li class="pp-example__row"><span class="pp-example__text">Hello [parent&#x27;s name].</span><span class="pp-example__job">Says who the message is for.</span></li><li class="pp-example__row"><span class="pp-example__text">[First name] explained [idea] clearly in class this week.</span><span class="pp-example__job">Something specific the student did.</span></li><li class="pp-example__row"><span class="pp-example__text">There are [number] assignments missing in [subject]: [assignments].</span><span class="pp-example__job">The missing work.</span></li><li class="pp-example__row"><span class="pp-example__text">The test on [topic] is on [date].</span><span class="pp-example__job">The date.</span></li><li class="pp-example__row"><span class="pp-example__text">One question to ask at home: [question, for example &#x27;Can you explain this without your book?&#x27;]</span><span class="pp-example__job">One thing to do at home.</span></li></ol></div>
+<!-- hero-example:end -->
+      </div>
+    </section>
+
+    <!-- Avsnitt 1, möten om undervisning (kurslektion 5). Rubriken och
+         etiketterna är statiska; ingress, tre mallar, integritetsraden och
+         prompterna byggs från JSON-filen (sections, pp-meetings). Etiketten
+         Promising gäller mötena och kollegaparen; själva protokollet är ett
+         Framework, eftersom ingen har prövat ett mötesprotokoll för sig. -->
+    <section class="section section--alt" id="pp-meetings">
+      <div class="container">
+        <h2 class="section__title">Meetings about teaching</h2>
+        <p class="pp-label"><span class="tm-chip tm-chip--promising">Promising</span> <span class="pp-label__note">meetings about one problem and pairing on a skill</span> <span class="tm-chip tm-chip--framework">Framework</span> <span class="pp-label__note">the protocol itself</span></p>
+<!-- meetings:start -->
+<p class="section__lede">Give each meeting about teaching one problem in your teaching, and end it with a decision that each of you tries in class. Send information in writing instead, and keep the meeting for teaching.</p>
+<div class="pp-templates"><article class="pp-template"><h3 class="pp-template__title">Meeting protocol</h3><p class="pp-template__intro">One problem per meeting, a decision that each of you tries in class, and a follow-up at the next meeting.</p><div class="pp-template__body"><div class="pp-block pp-block--box"><h4 class="pp-block__heading">The problem</h4><p>One problem many of us see in class, in one sentence.</p></div><div class="pp-block pp-block--box"><h4 class="pp-block__heading">What each of us brings</h4><p>A task, a test item or a count from an exit ticket. Student work stays on paper in the room, with names removed, and never goes into an AI tool.</p></div><div class="pp-block pp-block--box"><h4 class="pp-block__heading">What we saw</h4><p>What the things we brought show about the problem.</p></div><div class="pp-block pp-block--box"><h4 class="pp-block__heading">The decision</h4><p>The one change each of us tries in class.</p></div><div class="pp-block pp-block--box"><h4 class="pp-block__heading">Who, by when</h4><p>Each of us, and the date we try the change by.</p></div><div class="pp-block pp-block--box"><h4 class="pp-block__heading">Follow-up</h4><p>Date: [date of the next meeting]</p><p>What we will look at: [what we will bring to check the change]</p><p>What happened (filled in at the next meeting):</p></div><div class="pp-block pp-block--table"><h4 class="pp-block__heading">Decision log</h4><div class="pp-table-wrap"><table class="pp-table"><thead><tr><th scope="col">Date</th><th scope="col">Decision</th><th scope="col">Result</th></tr></thead><tbody><tr><td data-label="Date"></td><td data-label="Decision"></td><td data-label="Result"></td></tr><tr><td data-label="Date"></td><td data-label="Decision"></td><td data-label="Result"></td></tr><tr><td data-label="Date"></td><td data-label="Decision"></td><td data-label="Result"></td></tr><tr><td data-label="Date"></td><td data-label="Decision"></td><td data-label="Result"></td></tr></tbody></table></div></div></div><div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="Meeting protocol
+
+One problem per meeting, a decision that each of you tries in class, and a follow-up at the next meeting.
+
+The problem
+One problem many of us see in class, in one sentence.
+
+What each of us brings
+A task, a test item or a count from an exit ticket. Student work stays on paper in the room, with names removed, and never goes into an AI tool.
+
+What we saw
+What the things we brought show about the problem.
+
+The decision
+The one change each of us tries in class.
+
+Who, by when
+Each of us, and the date we try the change by.
+
+Follow-up
+Date: [date of the next meeting]
+What we will look at: [what we will bring to check the change]
+What happened (filled in at the next meeting):
+
+Decision log
+Date | Decision | Result">Copy text</button><span class="copy-toast" role="status">Copied</span></div><p class="pp-download"><a href="meeting-protocol.docx" download>Meeting protocol (.docx)</a></p></article><article class="pp-template"><h3 class="pp-template__title">Information note</h3><p class="pp-template__intro">Send this instead of a meeting that only passes on information. Keep the meeting for teaching.</p><div class="pp-template__body"><div class="pp-block"><h4 class="pp-block__heading">Who it is for</h4><p>[team or group]</p></div><div class="pp-block"><h4 class="pp-block__heading">What is new</h4><p>[what has changed, in one or two sentences]</p></div><div class="pp-block"><h4 class="pp-block__heading">What you need to do, by when</h4><p>[what to do] by [date]</p></div><div class="pp-block"><h4 class="pp-block__heading">Who to ask</h4><p>[name], [how to reach them]</p></div><div class="pp-block"><h4 class="pp-block__heading">For the next meeting</h4><p>Questions we will take at [meeting]: [only what needs discussion]</p></div></div><div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="Information note
+
+Send this instead of a meeting that only passes on information. Keep the meeting for teaching.
+
+Who it is for
+[team or group]
+
+What is new
+[what has changed, in one or two sentences]
+
+What you need to do, by when
+[what to do] by [date]
+
+Who to ask
+[name], [how to reach them]
+
+For the next meeting
+Questions we will take at [meeting]: [only what needs discussion]">Copy text</button><span class="copy-toast" role="status">Copied</span></div><p class="pp-download"><a href="information-note.docx" download>Information note (.docx)</a></p></article><article class="pp-template"><h3 class="pp-template__title">Skill pairing</h3><p class="pp-template__intro">Pair up with the colleague who is strong at exactly the skill you want to get better at. The visits and the fifteen-minute talk are our rule, not a research finding.</p><div class="pp-template__body"><div class="pp-block"><h4 class="pp-block__heading">One skill to get better at</h4><p>[the skill, for example starting a lesson, explaining a hard idea or giving feedback]</p></div><div class="pp-block"><h4 class="pp-block__heading">The colleague</h4><p>[colleague&#x27;s name], who is strong at exactly this skill</p></div><div class="pp-block"><h4 class="pp-block__heading">One visit each way</h4><p>I watch one of [colleague&#x27;s name]&#x27;s lessons on [date].</p><p>[Colleague&#x27;s name] watches one of mine on [date].</p></div><div class="pp-block pp-block--box"><h4 class="pp-block__heading">Fifteen minutes&#x27; talk afterwards</h4><p>What I saw:</p><p>What I will try:</p><p>When we check: [date]</p></div></div><div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="Skill pairing
+
+Pair up with the colleague who is strong at exactly the skill you want to get better at. The visits and the fifteen-minute talk are our rule, not a research finding.
+
+One skill to get better at
+[the skill, for example starting a lesson, explaining a hard idea or giving feedback]
+
+The colleague
+[colleague&#x27;s name], who is strong at exactly this skill
+
+One visit each way
+I watch one of [colleague&#x27;s name]&#x27;s lessons on [date].
+[Colleague&#x27;s name] watches one of mine on [date].
+
+Fifteen minutes&#x27; talk afterwards
+What I saw:
+What I will try:
+When we check: [date]">Copy text</button><span class="copy-toast" role="status">Copied</span></div><p class="pp-download"><a href="skill-pairing.docx" download>Skill pairing (.docx)</a></p></article></div>
+<h3 class="pp-subtitle">Prompts to make your own</h3>
+<p class="tm-privacy"><strong>Do not include student names or student work.</strong> Fill in the brackets afterwards, outside AI.</p>
+<div class="pp-prompts"><article class="pp-prompt"><h4 class="pp-prompt__title">P1 · An agenda for a meeting about one problem</h4><p class="pp-prompt__text">Our team of [number] teachers of [subject or year group] has [length] minutes to work on one problem in our teaching: [the problem]. Write an agenda with times: what each of us brings (a task, a test item or a count from an exit ticket), how we look at it together, the one change we will each try in class, and when and how we check the result at the next meeting. Do not ask me about individual students or colleagues.</p><div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="Do not include student names or student work in this conversation.
+
+Our team of [number] teachers of [subject or year group] has [length] minutes to work on one problem in our teaching: [the problem]. Write an agenda with times: what each of us brings (a task, a test item or a count from an exit ticket), how we look at it together, the one change we will each try in class, and when and how we check the result at the next meeting. Do not ask me about individual students or colleagues.">Copy prompt</button><span class="copy-toast" role="status">Copied</span></div></article><article class="pp-prompt"><h4 class="pp-prompt__title">P2 · An information note instead of a meeting</h4><p class="pp-prompt__text">I want to send my team a written note instead of holding a meeting that only passes on information. Here are the points: [list the points]. Turn them into a note under 200 words in plain language, with four parts: who it is for, what is new, what they need to do and by when, and who to ask. If a point needs discussion, do not explain it in the note; list it at the end as a question for our next meeting. Do not ask me for names or details about students or colleagues.</p><div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="Do not include student names or student work in this conversation.
+
+I want to send my team a written note instead of holding a meeting that only passes on information. Here are the points: [list the points]. Turn them into a note under 200 words in plain language, with four parts: who it is for, what is new, what they need to do and by when, and who to ask. If a point needs discussion, do not explain it in the note; list it at the end as a question for our next meeting. Do not ask me for names or details about students or colleagues.">Copy prompt</button><span class="copy-toast" role="status">Copied</span></div></article></div>
+<!-- meetings:end -->
+      </div>
+    </section>
+
+    <!-- Avsnitt 2, administration (kurslektion 7). Etiketten Framework: att
+         skära bort arbete bygger på expertråd, inte på prövningar. Innehållet
+         inklusive landsraden och länken till feedbackpolicyn i Quality Ladder
+         byggs från JSON-filen (pp-admin). -->
+    <section class="section" id="pp-admin">
+      <div class="container">
+        <h2 class="section__title">Administration</h2>
+        <p class="pp-label"><span class="tm-chip tm-chip--framework">Framework</span> <span class="pp-label__note">cutting first rests on expert guidance, not trials</span></p>
+<!-- admin:start -->
+<p class="section__lede">Cut first, then standardise what is left. Go through your team&#x27;s recurring documents, stop what nobody acts on, and turn the rest into one-page templates with placeholders.</p>
+<div class="pp-templates"><article class="pp-template"><h3 class="pp-template__title">Cut first checklist</h3><p class="pp-template__intro">Go through your team&#x27;s recurring documents together. Ask three questions of each, then keep, shorten or stop it.</p><div class="pp-template__body"><div class="pp-block pp-block--table"><h4 class="pp-block__heading">Our recurring documents</h4><div class="pp-table-wrap"><table class="pp-table"><thead><tr><th scope="col">Document</th><th scope="col">Who reads it</th><th scope="col">What do they do with it</th><th scope="col">What would happen without it</th><th scope="col">Keep, shorten or stop</th></tr></thead><tbody><tr><td data-label="Document"></td><td data-label="Who reads it"></td><td data-label="What do they do with it"></td><td data-label="What would happen without it"></td><td data-label="Keep, shorten or stop"></td></tr><tr><td data-label="Document"></td><td data-label="Who reads it"></td><td data-label="What do they do with it"></td><td data-label="What would happen without it"></td><td data-label="Keep, shorten or stop"></td></tr><tr><td data-label="Document"></td><td data-label="Who reads it"></td><td data-label="What do they do with it"></td><td data-label="What would happen without it"></td><td data-label="Keep, shorten or stop"></td></tr><tr><td data-label="Document"></td><td data-label="Who reads it"></td><td data-label="What do they do with it"></td><td data-label="What would happen without it"></td><td data-label="Keep, shorten or stop"></td></tr><tr><td data-label="Document"></td><td data-label="Who reads it"></td><td data-label="What do they do with it"></td><td data-label="What would happen without it"></td><td data-label="Keep, shorten or stop"></td></tr><tr><td data-label="Document"></td><td data-label="Who reads it"></td><td data-label="What do they do with it"></td><td data-label="What would happen without it"></td><td data-label="Keep, shorten or stop"></td></tr></tbody></table></div></div><div class="pp-block"><h4 class="pp-block__heading">Five checks, with examples from England</h4><p>No more than two or three data collections a year, each used for a clear action (DfE 2018).</p><p>No marking done to leave a trail (DfE 2016).</p><p>Short reports instead of long written ones (DfE 2018).</p><p>One-page policies that leave the method to teachers (EEF feedback guidance, 2021).</p><p>&quot;If the hours spent do not have the commensurate impact on pupil progress: stop it.&quot; (DfE 2016)</p></div><div class="pp-block"><h4 class="pp-block__heading">Where these come from</h4><p>The DfE (England&#x27;s Department for Education) and the EEF (Education Endowment Foundation) are examples from England. Check what applies where you work.</p></div></div><div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="Cut first checklist
+
+Go through your team&#x27;s recurring documents together. Ask three questions of each, then keep, shorten or stop it.
+
+Our recurring documents
+Document | Who reads it | What do they do with it | What would happen without it | Keep, shorten or stop
+
+Five checks, with examples from England
+No more than two or three data collections a year, each used for a clear action (DfE 2018).
+No marking done to leave a trail (DfE 2016).
+Short reports instead of long written ones (DfE 2018).
+One-page policies that leave the method to teachers (EEF feedback guidance, 2021).
+&quot;If the hours spent do not have the commensurate impact on pupil progress: stop it.&quot; (DfE 2016)
+
+Where these come from
+The DfE (England&#x27;s Department for Education) and the EEF (Education Endowment Foundation) are examples from England. Check what applies where you work.">Copy text</button><span class="copy-toast" role="status">Copied</span></div><p class="pp-download"><a href="cut-first-checklist.docx" download>Cut first checklist (.docx)</a></p></article><article class="pp-template"><h3 class="pp-template__title">One-page letter template</h3><p class="pp-template__intro">For a letter you write again and again: a trip, a test date, an event. Everything personal stays in brackets until you fill it in, outside AI.</p><div class="pp-template__body"><div class="pp-block"><h4 class="pp-block__heading">Who it is for and what they need to do</h4><p>To the parents and guardians of [class or year group]: please [what they need to do] by [date].</p></div><div class="pp-block"><h4 class="pp-block__heading">What, when, where</h4><p>What: [the trip, test or event]</p><p>When: [date and time]</p><p>Where: [place]</p></div><div class="pp-block"><h4 class="pp-block__heading">What to bring or decide</h4><p>[what to bring, or what to decide]</p></div><div class="pp-block"><h4 class="pp-block__heading">Reply</h4><p>Please reply by [date] to [name], [how to reply].</p><p>[Your name], [school]</p></div></div><div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="One-page letter template
+
+For a letter you write again and again: a trip, a test date, an event. Everything personal stays in brackets until you fill it in, outside AI.
+
+Who it is for and what they need to do
+To the parents and guardians of [class or year group]: please [what they need to do] by [date].
+
+What, when, where
+What: [the trip, test or event]
+When: [date and time]
+Where: [place]
+
+What to bring or decide
+[what to bring, or what to decide]
+
+Reply
+Please reply by [date] to [name], [how to reply].
+[Your name], [school]">Copy text</button><span class="copy-toast" role="status">Copied</span></div><p class="pp-download"><a href="letter-template.docx" download>One-page letter template (.docx)</a></p></article></div>
+<h3 class="pp-subtitle">Prompts to make your own</h3>
+<p class="tm-privacy"><strong>Do not include student names or student work.</strong> Fill in the brackets afterwards, outside AI.</p>
+<div class="pp-prompts"><article class="pp-prompt"><h4 class="pp-prompt__title">P3 · A one-page template for a recurring document</h4><p class="pp-prompt__text">I am a teacher at a [primary or secondary] school. Write a one-page template for a document I write again and again: [the document, for example a letter to parents about a trip]. Put every name, date, grade and personal detail in square brackets as a placeholder. Start with one line saying who it is for and what they need to do. Keep it short and plain. Do not ask me for names or details about students.</p><div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="Do not include student names or student work in this conversation.
+
+I am a teacher at a [primary or secondary] school. Write a one-page template for a document I write again and again: [the document, for example a letter to parents about a trip]. Put every name, date, grade and personal detail in square brackets as a placeholder. Start with one line saying who it is for and what they need to do. Keep it short and plain. Do not ask me for names or details about students.">Copy prompt</button><span class="copy-toast" role="status">Copied</span></div></article><article class="pp-prompt"><h4 class="pp-prompt__title">P4 · A policy or routine on one page</h4><p class="pp-prompt__text">Here is our school&#x27;s own text for a policy or routine: [paste the text, with no names or personal details]. Shorten it to one page. Keep what someone has to act on: who does what, and by when. Leave the method and how often to do it to the teachers. Then list everything you removed, so our team can check it. Do not ask me for names or details about students or colleagues.</p><div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="Do not include student names or student work in this conversation.
+
+Here is our school&#x27;s own text for a policy or routine: [paste the text, with no names or personal details]. Shorten it to one page. Keep what someone has to act on: who does what, and by when. Leave the method and how often to do it to the teachers. Then list everything you removed, so our team can check it. Do not ask me for names or details about students or colleagues.">Copy prompt</button><span class="copy-toast" role="status">Copied</span></div></article></div>
+<ul class="pp-links"><li><a href="/quality-ladder-ec1c2f8c/#ql-policy">One-page feedback policy: Quality Ladder</a></li></ul>
+<p class="tm-note pp-country">Rules differ between countries. Check what applies where you work before you stop keeping a record or change what you document.</p>
+<!-- admin:end -->
+      </div>
+    </section>
+
+    <!-- Avsnitt 3, meddelanden hem (kurslektion 10). Etiketten Promising:
+         korta, regelbundna meddelanden om lärande har lovande resultat.
+         Mallen, termsplanen, prompterna och landsraden byggs från JSON-filen
+         (pp-parents). -->
+    <section class="section section--alt" id="pp-parents">
+      <div class="container">
+        <h2 class="section__title">Messages home</h2>
+        <p class="pp-label"><span class="tm-chip tm-chip--promising">Promising</span> <span class="pp-label__note">short, regular messages about learning</span></p>
+<!-- parents:start -->
+<p class="section__lede">Short, regular messages about one specific thing: work that is missing, a test that is coming, something done well. Agree with your team how many messages a class gets per term, and stay within that limit.</p>
+<div class="pp-templates"><article class="pp-template"><h3 class="pp-template__title">Messages home</h3><p class="pp-template__intro">Four messages, each under 60 words, and a plan for the term. Fill in the brackets one message at a time, outside AI, and read each message before you send it.</p><div class="pp-template__body"><div class="pp-block"><h4 class="pp-block__heading">Missing work</h4><p>Hello [parent&#x27;s name]. [First name] has [number] pieces of work missing in [subject]: [the work]. Please help [first name] hand them in by [date]. One question to ask at home: [question, for example &#x27;Which one will you finish first?&#x27;]</p><p>[Your name]</p></div><div class="pp-block"><h4 class="pp-block__heading">An upcoming test</h4><p>Hello [parent&#x27;s name]. [First name]&#x27;s class has a test on [topic] on [date]. It covers [what the test covers]. A tip for revising: [one revision tip]. One question to ask at home: [question, for example &#x27;Can you explain this without your book?&#x27;]</p><p>[Your name]</p></div><div class="pp-block"><h4 class="pp-block__heading">Something done well</h4><p>Hello [parent&#x27;s name]. [First name] [something specific done well] in [subject] this week. One thing to work on next: [one thing]. One question to ask at home: [question]</p><p>[Your name]</p></div><div class="pp-block"><h4 class="pp-block__heading">Absence</h4><p>Hello [parent&#x27;s name]. So far this term, [first name] has been absent for [number] days in total. Every day in school helps [first name] keep up with the class. Is there anything we can do to help?</p><p>[Your name]</p></div><div class="pp-block"><h4 class="pp-block__heading">This term&#x27;s limit</h4><p>Messages per class this term, as agreed with our team: [number]</p><p>Log each message below by date, class and template. Keep student names out of the log.</p></div><div class="pp-block pp-block--table"><h4 class="pp-block__heading">Term plan</h4><div class="pp-table-wrap"><table class="pp-table"><thead><tr><th scope="col">Date</th><th scope="col">Class</th><th scope="col">Template</th></tr></thead><tbody><tr><td data-label="Date"></td><td data-label="Class"></td><td data-label="Template"></td></tr><tr><td data-label="Date"></td><td data-label="Class"></td><td data-label="Template"></td></tr><tr><td data-label="Date"></td><td data-label="Class"></td><td data-label="Template"></td></tr><tr><td data-label="Date"></td><td data-label="Class"></td><td data-label="Template"></td></tr><tr><td data-label="Date"></td><td data-label="Class"></td><td data-label="Template"></td></tr><tr><td data-label="Date"></td><td data-label="Class"></td><td data-label="Template"></td></tr></tbody></table></div></div></div><div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="Messages home
+
+Four messages, each under 60 words, and a plan for the term. Fill in the brackets one message at a time, outside AI, and read each message before you send it.
+
+Missing work
+Hello [parent&#x27;s name]. [First name] has [number] pieces of work missing in [subject]: [the work]. Please help [first name] hand them in by [date]. One question to ask at home: [question, for example &#x27;Which one will you finish first?&#x27;]
+[Your name]
+
+An upcoming test
+Hello [parent&#x27;s name]. [First name]&#x27;s class has a test on [topic] on [date]. It covers [what the test covers]. A tip for revising: [one revision tip]. One question to ask at home: [question, for example &#x27;Can you explain this without your book?&#x27;]
+[Your name]
+
+Something done well
+Hello [parent&#x27;s name]. [First name] [something specific done well] in [subject] this week. One thing to work on next: [one thing]. One question to ask at home: [question]
+[Your name]
+
+Absence
+Hello [parent&#x27;s name]. So far this term, [first name] has been absent for [number] days in total. Every day in school helps [first name] keep up with the class. Is there anything we can do to help?
+[Your name]
+
+This term&#x27;s limit
+Messages per class this term, as agreed with our team: [number]
+Log each message below by date, class and template. Keep student names out of the log.
+
+Term plan
+Date | Class | Template">Copy text</button><span class="copy-toast" role="status">Copied</span></div><p class="pp-download"><a href="messages-home.docx" download>Messages home (.docx)</a></p></article></div>
+<h3 class="pp-subtitle">Prompts to make your own</h3>
+<p class="tm-privacy"><strong>Do not include student names or student work.</strong> Fill in the brackets afterwards, outside AI.</p>
+<div class="pp-prompts"><article class="pp-prompt"><h4 class="pp-prompt__title">P5 · Three message templates</h4><p class="pp-prompt__text">I teach [subject] to [age or year group]. Write three message templates to parents or guardians, each under 60 words and in plain language: one about missing work, one about an upcoming test, and one about something done well with one thing to work on. Use square brackets for every name, date, number and detail, for example [first name], [date] and [topic]. End each message with one question the family can ask at home. Do not ask me about individual students.</p><div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="Do not include student names or student work in this conversation.
+
+I teach [subject] to [age or year group]. Write three message templates to parents or guardians, each under 60 words and in plain language: one about missing work, one about an upcoming test, and one about something done well with one thing to work on. Use square brackets for every name, date, number and detail, for example [first name], [date] and [topic]. End each message with one question the family can ask at home. Do not ask me about individual students.">Copy prompt</button><span class="copy-toast" role="status">Copied</span></div></article><article class="pp-prompt"><h4 class="pp-prompt__title">P6 · Translate a template</h4><p class="pp-prompt__text">Translate this message template into [language]: [paste the template]. Keep every square bracket and its contents unchanged, in English, so that I can fill them in afterwards. Use plain, everyday words. After the translation, list any phrase that may not carry over well into [language], and suggest another way to say it. Do not ask me for names or details about students, their families or colleagues.</p><div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="Do not include student names or student work in this conversation.
+
+Translate this message template into [language]: [paste the template]. Keep every square bracket and its contents unchanged, in English, so that I can fill them in afterwards. Use plain, everyday words. After the translation, list any phrase that may not carry over well into [language], and suggest another way to say it. Do not ask me for names or details about students, their families or colleagues.">Copy prompt</button><span class="copy-toast" role="status">Copied</span></div></article><article class="pp-prompt"><h4 class="pp-prompt__title">P7 · Rewrite a template in plain language</h4><p class="pp-prompt__text">Rewrite this message template in plain language: [paste the template]. Write so that a parent with little schooling, or someone still learning the language, can understand it. Use short sentences and everyday words. Keep the same facts and the same request. Keep every square bracket and its contents unchanged. Do not ask me for names or details about students, their families or colleagues.</p><div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="Do not include student names or student work in this conversation.
+
+Rewrite this message template in plain language: [paste the template]. Write so that a parent with little schooling, or someone still learning the language, can understand it. Use short sentences and everyday words. Keep the same facts and the same request. Keep every square bracket and its contents unchanged. Do not ask me for names or details about students, their families or colleagues.">Copy prompt</button><span class="copy-toast" role="status">Copied</span></div></article></div>
+<p class="tm-note pp-country">Rules differ between countries. Check what applies where you work before you send messages home, store parents&#x27; contact details or translate for families.</p>
+<!-- parents:end -->
+      </div>
+    </section>
+
+    <!-- Forskningen bakom paketet. Ingressen är statisk; teckenförklaringen och
+         de sju punkterna med källlänkar byggs från JSON-filen (evidence och
+         labels). Punkter utan etikett (innehållet är viktigare än formen, och
+         AI för de här uppgifterna) visas utan chip. -->
+    <section class="section" id="pp-evidence">
+      <div class="container">
+        <h2 class="section__title">What the research says</h2>
+        <p class="section__lede">Meetings about one problem and short messages home have promising evidence. Cutting administration rests on expert guidance, not trials. We have found no controlled study of AI for report writing or parent communication.</p>
+<!-- evidence:start -->
+<ul class="tm-legend"><li><span class="tm-chip tm-chip--strong">Strong</span> Meta-analyses of classroom studies show that working this way improves learning.</li><li><span class="tm-chip tm-chip--promising">Promising</span> Controlled studies show gains, but results are mixed, small in number or dependent on context.</li><li><span class="tm-chip tm-chip--framework">Framework</span> A useful structure. The method itself has not been tested in intervention studies.</li><li><span class="tm-chip tm-chip--choosewise">Choosewise</span> Our own rule, not a research finding.</li></ul>
+<p class="pp-evidence__item"><span class="tm-chip tm-chip--promising">Promising</span> <strong>Meetings about one problem, quality over hours</strong> In a study of more than 9,000 teachers in 336 Miami-Dade schools, it was better quality of collaboration that went with larger gains in maths and reading (Ronfeldt et al. 2015). It is a correlation, not a measured cause. The meeting protocol itself is a Framework: we have found no trial of a meeting protocol on its own. <span class="tm-move__sources">Source: <a href="https://doi.org/10.3102/0002831215585562">Ronfeldt, Farmer, McQueen &amp; Grissom 2015, American Educational Research Journal</a></span></p>
+<p class="pp-evidence__item"><span class="tm-chip tm-chip--promising">Promising</span> <strong>Pairing on a skill</strong> In a randomised trial, pairing teachers who scored low on specific skills with colleagues strong in those skills raised student achievement in the low-scoring teachers&#x27; classes by 0.12 standard deviations, a small effect (Papay et al. 2020). That is smaller than coaching (0.18 on achievement across 60 causal studies; Kraft et al. 2018), but it came from a colleague rather than a programme. It is a single trial. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1257/pol.20170709">Papay, Taylor, Tyler &amp; Laski 2020, American Economic Journal: Economic Policy</a>, <a href="https://doi.org/10.3102/0034654318759268">Kraft, Blazar &amp; Hogan 2018, Review of Educational Research</a></span></p>
+<p class="pp-evidence__item"><strong>Content matters more than format</strong> The EEF&#x27;s trial of lesson study in 181 English primary schools found that pupils did no better on national tests a year after the two-year programme (Murphy et al. 2021). A US trial with 39 teams found larger gains in fractions knowledge when lesson study came with a research-based resource kit (Lewis &amp; Perry 2017). Our reading: what the team brings to look at matters more than the format of the meeting. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1016/j.econedurev.2021.102091">Murphy, Weinhardt &amp; Wyness 2021, Economics of Education Review</a>, <a href="https://doi.org/10.5951/jresematheduc.48.3.0261">Lewis &amp; Perry 2017, Journal for Research in Mathematics Education</a></span></p>
+<p class="pp-evidence__item"><span class="tm-chip tm-chip--framework">Framework</span> <strong>Cut first</strong> England&#x27;s Department for Education saw &quot;no reason&quot; for more than two or three attainment data collection points a year, each used to inform clear actions, and called lengthy written reports to parents &quot;usually burdensome&quot; (DfE 2018). Its marking review lists deep marking and writing &quot;VF&quot; to show that verbal feedback was given as ineffective practice, and says: &quot;If the hours spent do not have the commensurate impact on pupil progress: stop it.&quot; (DfE 2016). The EEF&#x27;s feedback guidance says a policy &quot;should not over-specify features such as the frequency or method of feedback&quot; (EEF 2021). These are examples from England. The guidance comes from expert groups, not from trials, and its value lies in cutting tasks, not in automating them. <span class="tm-move__sources">Sources: <a href="https://dera.ioe.ac.uk//32432/1/Workload_Advisory_Group_report.pdf">Department for Education 2018, Making data work (Teacher Workload Advisory Group)</a>, <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/511256/Eliminating-unnecessary-workload-around-marking.pdf">Department for Education 2016, Eliminating unnecessary workload around marking</a>, <a href="https://english.hias.hants.gov.uk/mod/resource/view.php?id=3639">Education Endowment Foundation 2021, Teacher Feedback to Improve Pupil Learning</a></span></p>
+<p class="pp-evidence__item"><span class="tm-chip tm-chip--promising">Promising</span> <strong>Messages about learning</strong> In US middle and high schools, weekly automated alerts about missed assignments, grades and absences cut course failures by 27% and raised class attendance by 12%, but did not change state test scores (Bergman &amp; Chan 2021). In a high-school credit-recovery programme, a weekly one-sentence message from the teacher cut the share who failed to earn credit from 15.8% to 9.3% (Kraft &amp; Rogers 2015). In a UK trial, 30 texts over a year about tests, homework and topics gave secondary students about one month&#x27;s extra progress in maths, a small gain (via the EEF&#x27;s guidance). The EEF says there is, as yet, less rigorous evidence for what makes parental engagement effective, and that many of the more rigorous studies show mixed results; the impacts of well-designed messages may appear small, but they are generally low cost. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.3368/jhr.56.1.1118-9837R1">Bergman &amp; Chan 2021, Journal of Human Resources</a>, <a href="https://doi.org/10.1016/j.econedurev.2015.04.001">Kraft &amp; Rogers 2015, Economics of Education Review</a>, <a href="https://dera.ioe.ac.uk//32623/1/EEF_Parental_Engagement_Guidance_Report.pdf">Education Endowment Foundation 2018, Working with Parents to Support Children&#x27;s Learning</a></span></p>
+<p class="pp-evidence__item"><span class="tm-chip tm-chip--promising">Promising</span> <strong>Short absence letters</strong> In 203 US schools, a letter with the child&#x27;s total days absent, in fewer than 50 words and without blame, cut absences by about one day per child (Rogers &amp; Feller 2018, as reported in the EEF&#x27;s guidance). The absence message in this pack follows that pattern. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1038/s41562-018-0328-1">Rogers &amp; Feller 2018, Nature Human Behaviour</a>, <a href="https://dera.ioe.ac.uk//32623/1/EEF_Parental_Engagement_Guidance_Report.pdf">Education Endowment Foundation 2018, Working with Parents to Support Children&#x27;s Learning</a></span></p>
+<p class="pp-evidence__item"><strong>AI for these tasks</strong> We have found no controlled study of AI for report writing or parent communication. Checking is work too: interviews with 57 teachers in Sweden and Australia, reported by the OECD, describe the hidden labour of reviewing and repairing AI drafts for administrative tasks (Selwyn, Ljungqvist &amp; Sonesson 2025). That is why AI writes the template here, and you add the details afterwards, outside AI. <span class="tm-move__sources">Sources: <a href="https://www.oecd.org/en/publications/oecd-digital-education-outlook-2026_062a7394-en.html">OECD 2026, Digital Education Outlook 2026</a>, <a href="https://doi.org/10.1080/17439884.2025.2537959">Selwyn, Ljungqvist &amp; Sonesson 2025, Learning, Media and Technology</a></span></p>
+<!-- evidence:end -->
+      </div>
+    </section>
+
+    <!-- Varningarna: fem risker och vad paketet gör åt var och en.
+         Byggs från JSON-filen (care). -->
+    <section class="section section--alt" id="pp-care">
+      <div class="container">
+        <h2 class="section__title">Watch out for</h2>
+<!-- care:start -->
+<ul class="pp-care__list"><li><strong>Wrong details in the wrong message.</strong> Fill in the brackets one message at a time, outside AI, and read each message before you send it.</li><li><strong>Templates that grow.</strong> Keep every template to one page. If a template gets longer than what it replaced, cut it.</li><li><strong>Too many messages.</strong> Count what already goes out to each class, and stay within the limit your team agreed.</li><li><strong>Translation errors.</strong> Translate the template before any details go in, keep the brackets unchanged, and where you can, ask someone who reads the language to check it once.</li><li><strong>A meeting with five problems.</strong> Give each meeting one problem, and spread the rest over later meetings.</li></ul>
+<!-- care:end -->
+      </div>
+    </section>
+
+    <!-- Nästa steg: länkar härifrån och ut, bland annat tillbaka till
+         översikten What teachers do. Handskriven lista. -->
+    <section class="section" id="pp-next">
+      <div class="container">
+        <h2 class="section__title">Next</h2>
+        <ul class="pp-next">
+          <li><a href="/what-teachers-do-354716b7/">Back to the overview: What teachers do</a></li>
+          <li><a href="/quality-ladder-ec1c2f8c/#ql-policy">Feedback policy: Quality Ladder</a></li>
+          <li><a href="/prompts/lead-teachers/">Prompt pack for lead teachers</a></li>
+          <li><a href="/two-minute-debrief/">Exit tickets for the meeting: Two-Minute Debrief</a></li>
+          <li>Texts for home: <a href="/test-countdown/">Test Countdown</a> and <a href="/homework-upgrade-1f0cd17c/">Homework Upgrade</a></li>
+          <li><a href="https://www.skool.com/choosewise-7103">Talk to other teachers: the Choosewise community on Skool</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknapparna (data-copy) är sajtens egna; sidan har ingen egen JavaScript. -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+</body>
+</html>
