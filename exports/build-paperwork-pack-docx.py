@@ -54,7 +54,7 @@ BOX_CM = 2.5                         # skrivruta i mall med få rutor
 ROW_CM = 1.0                         # tom tabellrad
 COMPACT_BOX_CM = 1.2                 # skrivruta i mall med många rutor
 COMPACT_TALL_BOX_CM = 1.6            # rutan under uppföljningen i den mallen
-COMPACT_ROW_CM = 0.8                 # tom tabellrad i den mallen
+COMPACT_ROW_CM = 0.7                 # tom tabellrad i den mallen
 COMPACT_FROM = 4                     # så många rutor eller fler gör mallen kompakt
 
 
@@ -63,12 +63,12 @@ COMPACT_FROM = 4                     # så många rutor eller fler gör mallen k
 def _style_heading(style, size_pt: int, before: int, after: int) -> None:
     """Gör en inbyggd rubrikstil till Arial, marinblå och fet.
 
-    Wordmallens rubrikstilar pekar på temateckensnittet (asciiTheme m.fl.). De attributen
+    Wordmallens rubrikstilar pekar på temateckensnittet (asciiTheme, cstheme m.fl.). De attributen
     går före namnet och måste bort, annars blir rubrikerna Calibri Light/Cambria."""
     style.font.name = "Arial"
     rfonts = style.element.rPr.find(qn("w:rFonts"))
     for key in list(rfonts.attrib):
-        if "Theme" in key:
+        if "theme" in key.lower():   # asciiTheme, hAnsiTheme, eastAsiaTheme och cstheme
             del rfonts.attrib[key]
     rfonts.set(qn("w:eastAsia"), "Arial")
     rfonts.set(qn("w:cs"), "Arial")
@@ -165,6 +165,24 @@ def _box(doc: Document, height_cm: float) -> None:
     _row_height(table.rows[0], height_cm)
 
 
+def _closing_paragraph(doc: Document) -> None:
+    """Ett tomt stycke på 1 pt utan avstånd, sist efter en avslutande tabell.
+
+    Word lägger alltid ett stycke efter en tabell som slutar dokumentet; det är 11 pt med 6 pt
+    efter om vi inte skriver ett eget. På mötesprotokollet, som har minst marginal, kan det
+    stycket annars ge en tom sida 2."""
+    p = doc.add_paragraph()
+    fmt = p.paragraph_format
+    fmt.space_before = Pt(0)
+    fmt.space_after = Pt(0)
+    fmt.line_spacing = Pt(1)                    # exakt 1 pt radhöjd
+    mark = OxmlElement("w:rPr")                 # styckets egen radbrytningsmarkering
+    p._p.get_or_add_pPr().append(mark)          # rPr kommer sist i pPr, efter spacing
+    sz = OxmlElement("w:sz")
+    sz.set(qn("w:val"), "2")                    # halva punkter: 2 = 1 pt
+    mark.append(sz)
+
+
 def _grid(doc: Document, columns: list[str], rows: int, row_cm: float) -> None:
     """En tabell med rubrikrad och `rows` tomma rader. Kolumnerna är lika breda."""
     n = len(columns)
@@ -216,6 +234,8 @@ def _template(t: dict, dst: Path) -> None:
             else:
                 height = COMPACT_TALL_BOX_CM if block["heading"] == "Follow-up" else COMPACT_BOX_CM
             _box(doc, height)
+    if doc.element.body[-2].tag == qn("w:tbl"):
+        _closing_paragraph(doc)             # body[-1] är sectPr
     doc.save(str(dst))
 
 

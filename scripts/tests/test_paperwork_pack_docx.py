@@ -161,7 +161,7 @@ def test_headings_use_real_styles(name):
     # Temateckensnittet får inte slå ut Arial i rubrikstilarna.
     for style in ("Heading 1", "Heading 2"):
         fonts = doc.styles[style].element.rPr.find(W + "rFonts")
-        assert not [k for k in fonts.attrib if "Theme" in k], (name, style)
+        assert not [k for k in fonts.attrib if "theme" in k.lower()], (name, style)   # även cstheme
 
 
 @pytest.mark.parametrize("name", FILES)
@@ -232,13 +232,35 @@ def test_tables_are_full_text_width_and_fixed(name):
 
 @pytest.mark.parametrize("name", FILES)
 def test_no_filler_paragraphs(name):
-    """Inga stycken som bara är hårda blanksteg, och varje cell har exakt ett stycke."""
+    """Inga stycken som bara är hårda blanksteg, och varje cell har exakt ett stycke.
+
+    Enda undantaget är det tomma stycke på 1 pt som får stå sist efter en avslutande tabell
+    (se test_document_ending_in_a_table_closes_with_a_1pt_paragraph); inga andra tomma stycken
+    på toppnivå."""
     body = _body(name)
     for p in body.iter(W + "p"):
         text = "".join(t.text or "" for t in p.iter(W + "t"))
         assert not (text and not text.replace(" ", "").strip()), (name, repr(text[:20]))
+    top = [c for c in body.iterchildren() if not c.tag.endswith("}sectPr")]
+    for k, c in enumerate(top):
+        if c.tag == W + "p" and not "".join(x.text or "" for x in c.iter(W + "t")):
+            assert k == len(top) - 1 and top[k - 1].tag == W + "tbl", (name, k)
     for tc in body.iter(W + "tc"):
         assert len(tc.findall(W + "p")) == 1, name
+
+
+@pytest.mark.parametrize("name", FILES)
+def test_document_ending_in_a_table_closes_with_a_1pt_paragraph(name):
+    """Word lägger annars till ett stycke på 11 pt efter en sista tabell, vilket kan ge en tom sida 2."""
+    top = [c for c in _body(name).iterchildren() if not c.tag.endswith("}sectPr")]
+    assert top[-1].tag == W + "p", f"{name}: slutar på en tabell utan avslutande stycke"
+    if top[-2].tag == W + "tbl":
+        last = top[-1]
+        ppr = last.find(W + "pPr")
+        assert ppr.find(W + "rPr").find(W + "sz").get(W + "val") == "2", name   # 1 pt
+        spacing = ppr.find(W + "spacing")
+        assert (spacing.get(W + "before"), spacing.get(W + "after")) == ("0", "0"), name
+        assert not "".join(x.text or "" for x in last.iter(W + "t")), name
 
 
 @pytest.mark.parametrize("name", FILES)
@@ -253,6 +275,9 @@ def test_box_blocks_have_a_box(name):
     t = templates()[name]
     # sectPr (sidinställningarna) ligger sist i body och hör inte till något block.
     body = [c for c in _body(name).iterchildren() if not c.tag.endswith("}sectPr")]
+    # Det avslutande 1 pt-stycket efter en sista tabell hör inte till något block.
+    if body[-1].tag == W + "p" and not "".join(x.text or "" for x in body[-1].iter(W + "t")):
+        body = body[:-1]
     kinds = [c.tag.rsplit("}", 1)[-1] for c in body]
     for b in t["blocks"]:
         # Hitta blockets rubrik (Heading 2) och följ med fram till nästa rubrik.

@@ -294,8 +294,9 @@ def test_neither_hidden_slug_appears_in_any_public_html():
     import subprocess
     files = subprocess.run(["git", "ls-files", "*.html"], cwd=ROOT, capture_output=True,
                            text=True, check=True).stdout.splitlines()
-    skip = ("what-teachers-do-354716b7/", "quality-ladder-ec1c2f8c/", "_unpublished/", "docs/",
-            "exports/")
+    # Dolda sidor får länka till varandra: Paperwork Pack länkar till de två andra.
+    skip = ("what-teachers-do-354716b7/", "quality-ladder-ec1c2f8c/", "paperwork-pack-f388fd9f/",
+            "_unpublished/", "docs/", "exports/")
     checked = 0
     for rel in files:
         if rel.startswith(skip):

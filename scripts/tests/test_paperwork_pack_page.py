@@ -433,3 +433,52 @@ def test_swedish_comments():
 def test_font_weights_only_from_tokens():
     css = CSS.read_text(encoding="utf-8")
     assert not re.search(r"font-weight:\s*\d", css)
+
+
+# ───── Fyllbara tabeller i telefonläge ─────
+
+@pytest.fixture(scope="module")
+def site():
+    """Lokal server på ledig port: sidans CSS ligger på absoluta sökvägar, så file:// räcker inte."""
+    import functools
+    import http.server
+    import socketserver
+    import threading
+
+    class Quiet(http.server.SimpleHTTPRequestHandler):
+        def log_message(self, *args):  # sviten ska vara tyst
+            pass
+
+    class Server(socketserver.TCPServer):
+        allow_reuse_address = True
+
+    srv = Server(("127.0.0.1", 0), functools.partial(Quiet, directory=str(ROOT)))
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+    yield f"http://127.0.0.1:{srv.server_address[1]}"
+    srv.shutdown()
+
+
+COUNT_VISIBLE_ROWS = """() => [...document.querySelectorAll('.pp-table')].map(t => ({
+    total: t.querySelectorAll('tbody tr').length,
+    visible: [...t.querySelectorAll('tbody tr')].filter(r => getComputedStyle(r).display !== 'none').length
+}))"""
+
+
+def test_fill_in_tables_show_one_row_on_a_phone_and_all_rows_on_desktop(site):
+    """Vid 390 px visas exakt en tom rad per tabell (annars blir det långa stackar av identiska kort);
+    vid 1280 px syns alla rader, och alla rader finns kvar i HTML:en."""
+    sync_api = pytest.importorskip("playwright.sync_api")
+    with sync_api.sync_playwright() as pw:
+        browser = pw.chromium.launch()
+        try:
+            for width, phone in ((390, True), (1280, False)):
+                page = browser.new_page(viewport={"width": width, "height": 900})
+                page.goto(f"{site}/{SLUG}/")
+                tables = page.evaluate(COUNT_VISIBLE_ROWS)
+                assert len(tables) == 3, tables
+                for t in tables:
+                    assert t["total"] >= 4, (width, t)
+                    assert t["visible"] == (1 if phone else t["total"]), (width, t)
+                page.close()
+        finally:
+            browser.close()

@@ -58,6 +58,9 @@
   .pp-table td { height: auto; min-height: 2.75rem; border: 0; border-bottom: 1px solid var(--color-border); }
   .pp-table td:last-child { border-bottom: 0; }
   .pp-table td::before { content: attr(data-label); display: block; font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); }
+  /* En tom tabell kan inte fyllas i på skärmen: visa en ruta så att man ser vad tabellen frågar efter, göm resten.
+     Alla rader finns kvar i HTML:en och på bredare skärmar. */
+  .pp-table tbody tr + tr { display: none; }
   .pp-template { padding: var(--space-4); }
 }
 

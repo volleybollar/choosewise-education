@@ -66,6 +66,7 @@ HIDDEN_PATHS = {
     "/homework-upgrade-1f0cd17c/",
     # Quality Ladder: bara för Skool-medlemmar via en dold länk (Johans beslut 2026-11-14).
     "/quality-ladder-ec1c2f8c/",
+    # Paperwork Pack: bara för Skool-medlemmar via en dold länk (beslut 2026-11-23).
     "/paperwork-pack-f388fd9f/",
     # What teachers do: översikten, bara för Skool-medlemmar via en dold länk (Johans beslut 2026-11-14).
     "/what-teachers-do-354716b7/",
