@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
-  <link rel="stylesheet" href="/assets/css/pages.css?v=20261123a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261124a">
 <!-- seo:start (build-seo-meta.py) -->
 <link rel="canonical" href="https://choosewise.education/infographic-styles/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -21,7 +21,7 @@
 <link rel="alternate" hreflang="en" href="https://choosewise.education/infographic-styles/">
 <link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/infografik-stilar/">
 <link rel="alternate" hreflang="x-default" href="https://choosewise.education/infographic-styles/">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."},{"@type":"CollectionPage","@id":"https://choosewise.education/infographic-styles/#webpage","url":"https://choosewise.education/infographic-styles/","isPartOf":{"@id":"https://choosewise.education/#website"},"inLanguage":"en","dateModified":"2026-11-23","about":{"@id":"https://choosewise.education/#organization"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."},{"@type":"CollectionPage","@id":"https://choosewise.education/infographic-styles/#webpage","url":"https://choosewise.education/infographic-styles/","isPartOf":{"@id":"https://choosewise.education/#website"},"inLanguage":"en","dateModified":"2026-11-24","about":{"@id":"https://choosewise.education/#organization"}}]}</script>
 <!-- seo:end -->
 </head>
 <body>
@@ -59,13 +59,13 @@
                  till vänster. -->
             <h3>Prompt template</h3>
             <p>Copy it and replace the text in <em>[brackets]</em>.</p>
-            <pre><code>Create an infographic for pupils aged <em>[age]</em> about <em>[topic]</em>. Use only facts from the sources. Show <em>[what to include]</em>. Keep the text short and simple enough for this age group, with large labels that can be read from the back of a classroom.
+            <pre><code>Create an infographic for students aged <em>[age]</em> about <em>[topic]</em>. Use only facts from the sources. Show <em>[what to include]</em>. Keep the text short and simple enough for this age group, with large labels that can be read from the back of a classroom.
 
 Visual style: <em>[paste a style prompt from this page]</em></code></pre>
             <!-- Knappen sköts av /assets/js/copy-to-clipboard.js, samma skript
                  som korten använder. "Copied!" syns en kort stund efter klicket. -->
             <div class="style-howto__copy">
-              <button type="button" class="btn btn--primary" data-copy="Create an infographic for pupils aged [age] about [topic]. Use only facts from the sources. Show [what to include]. Keep the text short and simple enough for this age group, with large labels that can be read from the back of a classroom.
+              <button type="button" class="btn btn--primary" data-copy="Create an infographic for students aged [age] about [topic]. Use only facts from the sources. Show [what to include]. Keep the text short and simple enough for this age group, with large labels that can be read from the back of a classroom.
 
 Visual style: [paste a style prompt from this page]">Copy template</button>
               <span class="copy-toast" role="status">Copied!</span>
@@ -87,7 +87,41 @@ Visual style: [paste a style prompt from this page]">Copy template</button>
                  klassen. Källa: support.google.com/gemininotebook/answer/16758265
                  (kontrollerad 23 november 2026). -->
             <h3>Age limit</h3>
-            <p>Infographics in Gemini Notebook are only available to users aged 18 and over. Pupils under 18 must not use the feature themselves, so you make the infographic for the class.</p>
+            <p>Infographics in Gemini Notebook are only available to users aged 18 and over. Students under 18 must not use the feature themselves, so you make the infographic for the class.</p>
+          </div>
+        </div>
+        <!-- Del 5: andra bildmodeller, till exempel ChatGPT, i en egen ram
+             längst ner (Johans val 2026-11-24, alternativ C). Där finns inga
+             källor, så mallen ber om fakta i prompten i stället för "facts
+             from the sources", och "landscape" står i mallen eftersom det inte
+             finns några inställningar att välja. Mallen står två gånger, i
+             kodblocket och i knappens data-copy, precis som ovan; testet
+             jämför dem. Åldersgränsen för ChatGPT: OpenAIs Terms of Use och
+             help.openai.com/en/articles/8313401 (kontrollerad 24 november
+             2026). Utseendet: .style-howto__ram i /assets/css/pages.css. -->
+        <div class="style-howto__ram">
+          <h3>Using ChatGPT or another image model?</h3>
+          <div class="style-howto__grid">
+            <div>
+              <p>There are no sources there to take facts from, so you write the facts into the prompt. Use this template instead:</p>
+              <pre><code>Create a landscape infographic for students aged <em>[age]</em> about <em>[topic]</em>. Use only these facts: <em>[paste your facts]</em>. Show <em>[what to include]</em>. Keep the text short and simple enough for this age group, with large labels that can be read from the back of a classroom.
+
+Visual style: <em>[paste a style prompt from this page]</em></code></pre>
+              <div class="style-howto__copy">
+                <button type="button" class="btn btn--primary" data-copy="Create a landscape infographic for students aged [age] about [topic]. Use only these facts: [paste your facts]. Show [what to include]. Keep the text short and simple enough for this age group, with large labels that can be read from the back of a classroom.
+
+Visual style: [paste a style prompt from this page]">Copy template</button>
+                <span class="copy-toast" role="status">Copied!</span>
+              </div>
+            </div>
+            <div>
+              <ul>
+                <li><strong>Model:</strong> one that handles text in images well, such as ChatGPT's Images 2</li>
+                <li><strong>Facts:</strong> paste only facts you have checked</li>
+                <li><strong>Format:</strong> landscape is already in the template</li>
+              </ul>
+              <p>ChatGPT is for users aged 13 and over, or older where your country requires it. Users under 18 need permission from a parent or guardian. Other tools have their own age limits, so check them before your students use them.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -103,7 +137,7 @@ Visual style: [paste a style prompt from this page]">Copy template</button>
       <div class="styles-grid" data-source="/infographic-styles/styles-en.json" data-template="style"></div>
     </section>
   <!-- last-updated:start (build-seo-meta.py) -->
-<aside class="page-last-updated" aria-label="Last updated"><p><span class="page-last-updated__label">Last updated:</span> <time datetime="2026-11-23">November 23, 2026</time></p></aside>
+<aside class="page-last-updated" aria-label="Last updated"><p><span class="page-last-updated__label">Last updated:</span> <time datetime="2026-11-24">November 24, 2026</time></p></aside>
 <!-- last-updated:end -->
   </main>
 

@@ -23,6 +23,13 @@ PAGES = {
     "sv/infografik-stilar/index.html": "Använd bara fakta från källorna",
 }
 
+# Sida -> meningen som mallen för ChatGPT och andra bildmodeller ska ha. Där
+# finns inga källor, så läraren skriver in fakta i prompten.
+OTHER_MODELS = {
+    "infographic-styles/index.html": "Use only these facts",
+    "sv/infografik-stilar/index.html": "Använd bara följande fakta",
+}
+
 
 def box(rel: str) -> str:
     """Rutans HTML, från <section class="style-howto"> till dess </section>,
@@ -58,6 +65,30 @@ def test_template_keeps_to_the_sources(rel, sentence):
     assert plain(shown.group(1)) == html.unescape(copied.group(1)), (
         f"{rel}: knappen kopierar inte samma mall som syns"
     )
+
+
+@pytest.mark.parametrize("rel", PAGES)
+def test_every_template_is_copied_as_shown(rel):
+    """Rutan har en mall per verktyg. Varje kopieringsknapp kopierar samma
+    mall som står i kodblocket ovanför den."""
+    content = box(rel)
+    shown = re.findall(r"<pre[^>]*>\s*<code[^>]*>(.*?)</code>\s*</pre>", content, re.S)
+    copied = re.findall(r'data-copy="([^"]*)"', content)
+    assert len(shown) == len(copied) == 2, f"{rel}: {len(shown)} mallar och {len(copied)} knappar, väntade 2 av varje"
+    for i, (s, c) in enumerate(zip(shown, copied), 1):
+        assert plain(s) == html.unescape(c), f"{rel}: knapp {i} kopierar inte samma mall som syns"
+
+
+@pytest.mark.parametrize("rel, sentence", OTHER_MODELS.items(), ids=list(OTHER_MODELS))
+def test_other_models_take_the_facts_in_the_prompt(rel, sentence):
+    """Ramen längst ner gäller ChatGPT och andra bildmodeller, som saknar
+    källor: mallen ber om fakta i prompten och nämner ChatGPT:s åldersgräns."""
+    ram = re.search(r'<div class="style-howto__ram">(.*)', box(rel), re.S)
+    assert ram, f"{rel}: rutan saknar ramen för andra bildmodeller"
+    text = plain(ram.group(1))
+    assert sentence in text, f"{rel}: mallen för andra bildmodeller saknar {sentence!r}"
+    assert PAGES[rel] not in text, f"{rel}: mallen för andra bildmodeller hänvisar till källor"
+    assert re.search(r"\b13\b", text), f"{rel}: ChatGPT:s åldersgräns 13 står inte i ramen"
 
 
 @pytest.mark.parametrize("rel", PAGES)
