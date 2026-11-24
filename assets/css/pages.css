@@ -543,5 +543,18 @@ a.card:hover .card__title { color: var(--color-accent); }
 .style-howto__copy { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
 .style-howto__copy .copy-toast { position: static; transform: scale(0.95); }
 .style-howto__copy .copy-toast--visible { transform: scale(1); }
+/* Ramen längst ner i rutan: mallen för ChatGPT och andra bildmodeller.
+   Papperets ljusa ton och en tunn kant skiljer den från Gemini Notebook ovanför. */
+.style-howto__ram {
+  margin-top: var(--space-6);
+  padding: var(--space-5);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+}
+.style-howto__ram ul { margin-bottom: var(--space-4); }
+@media (max-width: 768px) {
+  .style-howto__ram { padding: var(--space-4); }
+}
 .style-howto ul { padding-left: var(--space-5); margin-bottom: var(--space-5); }
 .style-howto li + li { margin-top: var(--space-1); }

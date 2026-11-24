@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
-  <link rel="stylesheet" href="/assets/css/pages.css?v=20261123a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261124a">
 <!-- seo:start (build-seo-meta.py) -->
 <link rel="canonical" href="https://choosewise.education/sv/infografik-stilar/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -89,6 +89,40 @@ Visuell stil: [klistra in en stilprompt från den här sidan]">Kopiera mallen</b
                  (kontrollerad 23 november 2026). -->
             <h3>Åldersgräns</h3>
             <p>Infografik i Gemini Notebook är bara tillgänglig för användare som har fyllt 18 år. Elever under 18 får därför inte använda funktionen själva, så det är du som gör infografiken åt klassen.</p>
+          </div>
+        </div>
+        <!-- Del 5: andra bildmodeller, till exempel ChatGPT, i en egen ram
+             längst ner (Johans val 2026-11-24, alternativ C). Där finns inga
+             källor, så mallen ber om fakta i prompten i stället för "fakta
+             från källorna", och "liggande" står i mallen eftersom det inte
+             finns några inställningar att välja. Mallen står två gånger, i
+             kodblocket och i knappens data-copy, precis som ovan; testet
+             jämför dem. Åldersgränsen för ChatGPT: OpenAIs Terms of Use och
+             help.openai.com/en/articles/8313401 (kontrollerad 24 november
+             2026). Utseendet: .style-howto__ram i /assets/css/pages.css. -->
+        <div class="style-howto__ram">
+          <h3>Använder du ChatGPT eller en annan bildmodell?</h3>
+          <div class="style-howto__grid">
+            <div>
+              <p>Där finns inga källor att hämta fakta från, så du skriver in fakta i prompten. Använd den här mallen i stället:</p>
+              <pre><code>Skapa en liggande infografik om <em>[ämnesområde]</em> för elever i åldern <em>[ålder]</em>. Använd bara följande fakta: <em>[klistra in dina fakta]</em>. Visa <em>[vad som ska vara med]</em>. Håll texten kort och på en nivå som passar åldersgruppen, med etiketter så stora att de går att läsa längst bak i klassrummet.
+
+Visuell stil: <em>[klistra in en stilprompt från den här sidan]</em></code></pre>
+              <div class="style-howto__copy">
+                <button type="button" class="btn btn--primary" data-copy="Skapa en liggande infografik om [ämnesområde] för elever i åldern [ålder]. Använd bara följande fakta: [klistra in dina fakta]. Visa [vad som ska vara med]. Håll texten kort och på en nivå som passar åldersgruppen, med etiketter så stora att de går att läsa längst bak i klassrummet.
+
+Visuell stil: [klistra in en stilprompt från den här sidan]">Kopiera mallen</button>
+                <span class="copy-toast" role="status">Kopierat!</span>
+              </div>
+            </div>
+            <div>
+              <ul>
+                <li><strong>Modell:</strong> en som klarar text i bilder bra, till exempel ChatGPT:s Images 2</li>
+                <li><strong>Fakta:</strong> klistra bara in fakta som du har kontrollerat</li>
+                <li><strong>Format:</strong> liggande står redan i mallen</li>
+              </ul>
+              <p>ChatGPT är till för användare som har fyllt 13 år, eller äldre om landets regler kräver det. Användare under 18 behöver tillstånd från en förälder eller vårdnadshavare. Andra verktyg har egna åldersgränser, så kontrollera dem innan eleverna använder verktygen.</p>
+            </div>
           </div>
         </div>
       </div>

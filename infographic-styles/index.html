@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
-  <link rel="stylesheet" href="/assets/css/pages.css?v=20261123a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261124a">
 <!-- seo:start (build-seo-meta.py) -->
 <link rel="canonical" href="https://choosewise.education/infographic-styles/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -87,7 +87,41 @@ Visual style: [paste a style prompt from this page]">Copy template</button>
                  klassen. Källa: support.google.com/gemininotebook/answer/16758265
                  (kontrollerad 23 november 2026). -->
             <h3>Age limit</h3>
-            <p>Infographics in Gemini Notebook are only available to users aged 18 and over. Pupils under 18 must not use the feature themselves, so you make the infographic for the class.</p>
+            <p>Infographics in Gemini Notebook are only available to users aged 18 and over. Students under 18 must not use the feature themselves, so you make the infographic for the class.</p>
+          </div>
+        </div>
+        <!-- Del 5: andra bildmodeller, till exempel ChatGPT, i en egen ram
+             längst ner (Johans val 2026-11-24, alternativ C). Där finns inga
+             källor, så mallen ber om fakta i prompten i stället för "facts
+             from the sources", och "landscape" står i mallen eftersom det inte
+             finns några inställningar att välja. Mallen står två gånger, i
+             kodblocket och i knappens data-copy, precis som ovan; testet
+             jämför dem. Åldersgränsen för ChatGPT: OpenAIs Terms of Use och
+             help.openai.com/en/articles/8313401 (kontrollerad 24 november
+             2026). Utseendet: .style-howto__ram i /assets/css/pages.css. -->
+        <div class="style-howto__ram">
+          <h3>Using ChatGPT or another image model?</h3>
+          <div class="style-howto__grid">
+            <div>
+              <p>There are no sources there to take facts from, so you write the facts into the prompt. Use this template instead:</p>
+              <pre><code>Create a landscape infographic for students aged <em>[age]</em> about <em>[topic]</em>. Use only these facts: <em>[paste your facts]</em>. Show <em>[what to include]</em>. Keep the text short and simple enough for this age group, with large labels that can be read from the back of a classroom.
+
+Visual style: <em>[paste a style prompt from this page]</em></code></pre>
+              <div class="style-howto__copy">
+                <button type="button" class="btn btn--primary" data-copy="Create a landscape infographic for students aged [age] about [topic]. Use only these facts: [paste your facts]. Show [what to include]. Keep the text short and simple enough for this age group, with large labels that can be read from the back of a classroom.
+
+Visual style: [paste a style prompt from this page]">Copy template</button>
+                <span class="copy-toast" role="status">Copied!</span>
+              </div>
+            </div>
+            <div>
+              <ul>
+                <li><strong>Model:</strong> one that handles text in images well, such as ChatGPT's Images 2</li>
+                <li><strong>Facts:</strong> paste only facts you have checked</li>
+                <li><strong>Format:</strong> landscape is already in the template</li>
+              </ul>
+              <p>ChatGPT is for users aged 13 and over, or older where your country requires it. Users under 18 need permission from a parent or guardian. Other tools have their own age limits, so check them before your students use them.</p>
+            </div>
           </div>
         </div>
       </div>
