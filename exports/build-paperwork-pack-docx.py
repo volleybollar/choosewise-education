@@ -52,9 +52,10 @@ FIXED_DATE = datetime(2026, 11, 23)  # fast datum i dokumentegenskaperna
 # sex plus en tabell) får lägre rutor för att rymmas på en A4-sida; rutorna växer när man skriver.
 BOX_CM = 2.5                         # skrivruta i mall med få rutor
 ROW_CM = 1.0                         # tom tabellrad
-COMPACT_BOX_CM = 1.2                 # skrivruta i mall med många rutor
-COMPACT_TALL_BOX_CM = 1.6            # rutan under uppföljningen i den mallen
+COMPACT_BOX_CM = 1.0                 # skrivruta i mall med många rutor
+COMPACT_TALL_BOX_CM = 1.4            # rutan under uppföljningen i den mallen
 COMPACT_ROW_CM = 0.7                 # tom tabellrad i den mallen
+COMPACT_HEADING_BEFORE_PT = 4        # luft ovanför blockrubrikerna i den mallen (annars 8 pt)
 COMPACT_FROM = 4                     # så många rutor eller fler gör mallen kompakt
 
 
@@ -216,7 +217,10 @@ def _template(t: dict, dst: Path) -> None:
     doc.add_heading(t["title"], level=1)
     doc.add_paragraph(t["intro"])
     for block in t["blocks"]:
-        doc.add_heading(block["heading"], level=2)
+        heading = doc.add_heading(block["heading"], level=2)
+        if compact:
+            # Word 2026-11-24: mötesprotokollet spillde en tabellrad till sida 2 med 8 pt och 1,2 cm rutor.
+            heading.paragraph_format.space_before = Pt(COMPACT_HEADING_BEFORE_PT)
         if "columns" in block:
             _grid(doc, block["columns"], block["rows"], COMPACT_ROW_CM if compact else ROW_CM)
             continue

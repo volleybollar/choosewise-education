@@ -50,7 +50,10 @@
 .pp-table th, .pp-table td { border: 1px solid var(--color-border-strong); padding: var(--space-2) var(--space-3); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
 .pp-table th { font-weight: var(--weight-emphasis); background: var(--color-bg-alt); }
 .pp-table td { height: 2.75rem; }
+/* Raden om Word-filen under varje tabell: bara på mobil, där tabellen visar en enda rad. */
+.pp-block .pp-table__note { display: none; margin: var(--space-2) 0 0; max-width: none; font-size: var(--fs-small); color: var(--color-text-soft); }
 @media (max-width: 640px) {
+  .pp-block .pp-table__note { display: block; }
   .pp-table, .pp-table tbody, .pp-table tr, .pp-table td { display: block; width: 100%; }
   /* Kolumnrubrikerna flyttar in i varje ruta; tabellhuvudet göms för alla utom skärmläsare. */
   .pp-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

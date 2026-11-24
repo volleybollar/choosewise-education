@@ -234,6 +234,33 @@ def test_table_blocks_are_real_tables():
                     assert f'data-label="{escape(c)}"' in body, c
 
 
+def test_message_copy_buttons():
+    """Varje meddelande hem har en egen knapp som kopierar meddelandet och avsändarraden,
+    inte rubriken; knappen står direkt efter meddelandet."""
+    mod = load_build()
+    t = next(t for t in all_templates() if t["id"] == "messages-home")
+    block = section("pp-parents")
+    messages = [b for b in t["blocks"] if b.get("copy")]
+    assert len(messages) == 4
+    for b in messages:
+        assert mod.message_text(b) == "\n".join(b["lines"])
+        assert mod.message_text(b) in copy_values(block), b["heading"]
+        m = re.search(rf'<h4[^>]*>{re.escape(escape(b["heading"]))}</h4>.*?</div></div>', block, re.S)
+        assert m and ">Copy message</button>" in m.group(0), b["heading"]
+        assert 'class="btn btn--secondary" data-copy' in m.group(0), b["heading"]
+    assert block.count(">Copy message</button>") == 4
+
+
+def test_every_table_has_a_phone_note():
+    mod = load_build()
+    tables = [b for t in all_templates() for b in t["blocks"] if "columns" in b]
+    page = html()
+    note = f'<p class="pp-table__note">{escape(mod.TABLE_NOTE)}</p>'
+    assert page.count(note) == len(tables) == 3
+    assert page.count("</table></div>" + note) == 3
+    assert ".docx" not in mod.TABLE_NOTE and "Word file" in mod.TABLE_NOTE
+
+
 def test_cut_first_checks_and_note():
     t = next(t for t in all_templates() if t["id"] == "cut-first-checklist")
     headings = [b["heading"] for b in t["blocks"]]
@@ -266,11 +293,12 @@ def test_data_copy_survives_a_real_parser():
     for s in data()["sections"]:
         expected += [mod.template_text(t) for t in s["templates"]]
         expected += [mod.prompt_text(p) for p in s["prompts"]]
+        expected += [mod.message_text(b) for t in s["templates"] for b in t["blocks"] if b.get("copy")]
     found = []
     for sid in COURSE_SECTIONS:
         found += copy_values(section(sid))
     assert sorted(found) == sorted(expected)
-    assert len(found) == len(expected) == 6 + 7
+    assert len(found) == len(expected) == 6 + 7 + 4
 
 
 def test_copy_buttons_are_followed_by_a_toast():
@@ -460,13 +488,14 @@ def site():
 
 COUNT_VISIBLE_ROWS = """() => [...document.querySelectorAll('.pp-table')].map(t => ({
     total: t.querySelectorAll('tbody tr').length,
-    visible: [...t.querySelectorAll('tbody tr')].filter(r => getComputedStyle(r).display !== 'none').length
+    visible: [...t.querySelectorAll('tbody tr')].filter(r => getComputedStyle(r).display !== 'none').length,
+    note: getComputedStyle(t.closest('.pp-block').querySelector('.pp-table__note')).display !== 'none'
 }))"""
 
 
 def test_fill_in_tables_show_one_row_on_a_phone_and_all_rows_on_desktop(site):
-    """Vid 390 px visas exakt en tom rad per tabell (annars blir det långa stackar av identiska kort);
-    vid 1280 px syns alla rader, och alla rader finns kvar i HTML:en."""
+    """Vid 390 px visas exakt en tom rad per tabell (annars blir det långa stackar av identiska kort)
+    och raden om Word-filen; vid 1280 px syns alla rader men inte raden, och alla rader finns kvar i HTML:en."""
     sync_api = pytest.importorskip("playwright.sync_api")
     with sync_api.sync_playwright() as pw:
         browser = pw.chromium.launch()
@@ -479,6 +508,8 @@ def test_fill_in_tables_show_one_row_on_a_phone_and_all_rows_on_desktop(site):
                 for t in tables:
                     assert t["total"] >= 4, (width, t)
                     assert t["visible"] == (1 if phone else t["total"]), (width, t)
+                    # Raden om Word-filen syns bara när raderna är gömda.
+                    assert t["note"] is phone, (width, t)
                 page.close()
         finally:
             browser.close()

@@ -301,3 +301,21 @@ def test_box_blocks_have_a_box(name):
             assert body[start + 1:end][-1] is tbl, (name, b["heading"])
         else:
             assert not tbls, (name, b["heading"])
+
+
+def test_meeting_protocol_is_compact():
+    """Mötesprotokollet spillde en tabellrad till sida 2 i Word (2026-11-24). Rutorna är lägre och
+    blockrubrikerna har 4 pt luft ovanför; de andra mallarna behåller 8 pt."""
+    for name in FILES:
+        compact = name == "meeting-protocol.docx"
+        for p in _body(name).iter(W + "p"):
+            style = p.find(W + "pPr")
+            style = style.find(W + "pStyle") if style is not None else None
+            if style is None or style.get(W + "val") != "Heading2":
+                continue
+            spacing = p.find(W + "pPr").find(W + "spacing")
+            before = spacing.get(W + "before") if spacing is not None else None
+            assert before == ("80" if compact else None), (name, before)   # 4 pt = 80 twentieths
+    heights = [int(h.get(W + "val")) for tbl in _body("meeting-protocol.docx").iter(W + "tbl")
+               if len(tbl.findall(".//" + W + "tc")) == 1 for h in tbl.iter(W + "trHeight")]
+    assert len(heights) == 6 and max(heights) <= int(1.4 * 567), heights

@@ -188,6 +188,13 @@ def test_message_word_limits():
     assert len(messages["Absence"].split()) < 50
 
 
+def test_only_the_four_messages_have_a_copy_button():
+    # "copy": true ger blocket en egen kopieringsknapp på sidan: bara de fyra meddelandena hem.
+    flagged = [(t["id"], b["heading"]) for s in data()["sections"] for t in s["templates"]
+               for b in t["blocks"] if b.get("copy")]
+    assert flagged == [("messages-home", h) for h in MESSAGE_HEADINGS]
+
+
 def test_absence_has_no_blame_words():
     text = message_blocks()["Absence"].lower()
     for word in BLAME_WORDS:

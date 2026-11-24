@@ -42,6 +42,9 @@ PRIVACY_COPY = "Do not include student names or student work in this conversatio
 # Raden under "Prompts to make your own" i varje avsnitt (som "untested" i kurslektionerna).
 PROMPTS_NOTE = "These prompts are writing aids, not evidence-based methods."
 
+# Raden under varje tabell. Den syns bara på mobil, där tabellen visar en enda rad.
+TABLE_NOTE = "On a small screen, only the first row is shown. The Word file below has the full table."
+
 
 # ───── Ren text: det som kopieringsknapparna lägger i urklipp ─────
 
@@ -54,6 +57,11 @@ def template_text(t: dict) -> str:
         body = " | ".join(block["columns"]) if "columns" in block else "\n".join(block["lines"])
         parts.append(f"{block['heading']}\n{body}")
     return f"{t['title']}\n\n{t['intro']}\n\n" + "\n\n".join(parts)
+
+
+def message_text(block: dict) -> str:
+    """A message home as its own copy button gives it: the message and the sign-off, no heading."""
+    return "\n".join(block["lines"])
 
 
 def prompt_text(p: dict) -> str:
@@ -70,12 +78,13 @@ def _source_links(sources: list) -> str:
     return f'<span class="tm-move__sources">{word}: {links}</span>'
 
 
-def _copy_row(label: str, text: str) -> str:
+def _copy_row(label: str, text: str, kind: str = "primary") -> str:
     """A copy button with its 'Copied' toast. The toast must follow the button:
-    copy-to-clipboard.js looks for it among the button's siblings."""
+    copy-to-clipboard.js looks for it among the button's siblings. kind="secondary"
+    is the lighter button, for the four messages inside a template."""
     return (
         '<div class="tm-copy-row">'
-        f'<button type="button" class="btn btn--primary" data-copy="{escape(text)}">{escape(label)}</button>'
+        f'<button type="button" class="btn btn--{kind}" data-copy="{escape(text)}">{escape(label)}</button>'
         '<span class="copy-toast" role="status">Copied</span>'
         "</div>"
     )
@@ -100,8 +109,10 @@ def render_example(hero: dict) -> str:
 
 def _render_block(block: dict) -> str:
     """One block of a template. A table block is a real table whose cells carry their
-    column name (data-label), so that it can stack at phone width. Other blocks are a
-    heading and paragraphs; box: true gives a bordered fill-in area."""
+    column name (data-label), so that it can stack at phone width, followed by a note that
+    only shows on a phone. Other blocks are a heading and paragraphs; box: true gives a
+    bordered fill-in area, and copy: true (the four messages home) gives the block its own
+    copy button."""
     heading = f'<h4 class="pp-block__heading">{escape(block["heading"])}</h4>'
     if "columns" in block:
         head = "".join(f'<th scope="col">{escape(c)}</th>' for c in block["columns"])
@@ -112,11 +123,14 @@ def _render_block(block: dict) -> str:
             f"{heading}"
             '<div class="pp-table-wrap"><table class="pp-table">'
             f"<thead><tr>{head}</tr></thead><tbody>{body}</tbody>"
-            "</table></div></div>"
+            "</table></div>"
+            f'<p class="pp-table__note">{escape(TABLE_NOTE)}</p>'
+            "</div>"
         )
     lines = "".join(f"<p>{escape(line)}</p>" for line in block["lines"])
     box = " pp-block--box" if block["box"] else ""
-    return f'<div class="pp-block{box}">{heading}{lines}</div>'
+    copy = _copy_row("Copy message", message_text(block), "secondary") if block.get("copy") else ""
+    return f'<div class="pp-block{box}">{heading}{lines}{copy}</div>'
 
 
 def _render_template(t: dict) -> str:
