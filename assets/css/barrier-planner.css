@@ -105,3 +105,7 @@
   .bp-jump, #bp-plan, #bp-adapt, .tm-copy-row, .bp-download { display: none; }
   .bp-card, .bp-block, .bp-eef { break-inside: avoid; }
 }
+
+/* .tm-field sätter display:flex, vilket annars slår ut hidden-attributet.
+   Fältet "Something else" göms av barrier-planner.js med just hidden. */
+.tm-field[hidden] { display: none; }
