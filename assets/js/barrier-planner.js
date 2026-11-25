@@ -176,7 +176,8 @@
       if (!plan.link.hidden) plan.link.setAttribute('href', '#bp-barrier-' + choice);
 
       var ready = clean(plan.subject.value) && clean(plan.task.value) && choice &&
-        (!isOther || clean(plan.other.value));
+        (!isOther || clean(plan.other.value)) &&
+        (isOther || data.cards.some(function (c) { return c.id === choice; }));
       show(plan, ready ? buildPlanPrompt({
         subject: plan.subject.value, grade: plan.grade.value, task: plan.task.value,
         barrier: choice, other: plan.other.value, seen: plan.seen.value,

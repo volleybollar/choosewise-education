@@ -11,7 +11,7 @@ kontrollerar rad för rad att filerna och sidan har exakt samma ord. Layouten
 (rubriker, rutor, tabeller) läggs på här.
 
 Hjälpfunktionerna (Arial, rubrikstilarna Heading 1 och 2, ramade rutor, tabeller
-med fast bredd 9638 dxa, avslutande 1 pt-stycke) hämtas från
+med fast bredd 9638 dxa) hämtas från
 build-paperwork-pack-docx.py. Bara dokumentdatumet byts mot 2026-11-25.
 
 Filerna skrivs till barrier-planner-1c25533d/ bredvid sidan som länkar till dem.
@@ -101,10 +101,13 @@ def _needs_and_measures(d: dict, dst: Path) -> None:
     doc.add_heading(page.RECORD_TITLE, level=1)
 
     # Varningen: första meningen fet, som på sidan. Direkt efter kommer formulärhuvudet.
-    first, rest = r["warning"].split(". ", 1)
+    first, sep, rest = r["warning"].partition(". ")
     p = doc.add_paragraph()
-    p.add_run(first + ".").bold = True
-    p.add_run(" " + rest)
+    if sep:
+        p.add_run(first + ".").bold = True
+        p.add_run(" " + rest)
+    else:
+        p.add_run(r["warning"]).bold = True
     p.paragraph_format.space_after = Pt(6)
     p.paragraph_format.keep_with_next = True
     _labels_row(doc, [f"{h}:" for h in r["header"]], NAME_ROW_CM)

@@ -60,6 +60,8 @@ CARE_KEYWORDS = ["identifiable", "unsupported", "never go away", "definitions", 
 # Brittisk stavning som inte får stå på sidan (utom i citat och källtitlar).
 BRITISH = re.compile(r"\b(behaviour\w*|colour\w*|programme|practis\w*|organis\w*|recognis\w*"
                      r"|labelled|centre|pupils?|maths)\b", re.IGNORECASE)
+# Brittiska ord som inte är stavning men ändå ska hållas utanför (utom i citat och källtitlar).
+BRITISH_WORDS = ["primary school", "attainers", "tick off"]
 QUOTED = re.compile(r'"[^"]*"|“[^”]*”')
 BANNED = ["leverage", "empower", "game-changer", "seamless", "unlock", "cutting-edge",
           "ai-proof", "low effect", "doesn't work", "does not work", "!"]
@@ -215,6 +217,7 @@ def test_unsupported():
 def test_evidence():
     ev = data()["evidence"]
     assert ev["lede"].strip()
+    assert "Many of the moves" in ev["lede"] and "Most of the moves" not in ev["lede"]
     items = ev["items"]
     assert [i["label"] for i in items] == EVIDENCE_LABELS
     assert ("less helpful for teaching and learning than determining the pupils' educational needs"
@@ -238,6 +241,13 @@ def test_american_spelling():
     for s in all_strings(data(), skip_sources=True):
         hits = BRITISH.findall(QUOTED.sub("", s))
         assert not hits, (hits, s)
+
+
+def test_british_vocabulary():
+    for s in all_strings(data(), skip_sources=True):
+        text = QUOTED.sub("", s).lower()
+        for word in BRITISH_WORDS:
+            assert word not in text, (word, s)
 
 
 def test_banned_words():

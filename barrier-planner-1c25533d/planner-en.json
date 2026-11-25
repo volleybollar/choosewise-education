@@ -21,10 +21,10 @@
     "title": "What a plan looks like",
     "note": "Our example, not a tested plan.",
     "rows": [
-      {"term": "The barrier", "text": "In science, loses track of practical tasks with several steps."},
+      {"term": "The barrier", "text": "In science, loses track of lab tasks with several steps."},
       {"term": "For the whole class", "text": "The steps numbered on the board, a checklist on each table, the first step shown."},
       {"term": "Targeted", "text": "A quick check after step two with the students who still lose track."},
-      {"term": "Review in three weeks", "text": "Do they finish the practical without asking what comes next?"}
+      {"term": "Review in three weeks", "text": "Do they finish the lab without asking what comes next?"}
     ]
   },
   "how": [
@@ -49,7 +49,7 @@
       "whole_class": [
         {"text": "Show the first step and do it together, so everyone has started before anyone works alone.", "short": "show the first step and do it together before anyone works alone", "label": null},
         {"text": "Put a worked example on the board. Worked examples help learners with little prior knowledge most (0.51, a moderate effect).", "short": "a worked example on the board", "label": "strong"},
-        {"text": "Write the steps as a short checklist that students tick off.", "short": "the steps as a short checklist that students tick off", "label": "framework"}
+        {"text": "Write the steps as a short checklist that students check off.", "short": "the steps as a short checklist that students check off", "label": "framework"}
       ],
       "targeted": [
         {"text": "A check after the first few minutes with the students who have not started: give them the first step, then move on (our suggestion, not a research finding).", "short": "a check after the first few minutes with the students who have not started, giving them the first step", "label": null}
@@ -275,7 +275,7 @@
     ]
   },
   "record": {
-    "intro": "Keep each record as a short cycle of assess, plan, do and review, written as needs and measures: what the student meets in school and what will be done, never their difficulties or a diagnosis. Plan one to three measures, each with an owner, a start, a review date and what you will look for then. On the date, keep, change or stop each one.",
+    "intro": "Keep each record as a short cycle of assess, plan, do and review, written as needs and measures: what the student meets in school and what will be done, never their difficulties or a diagnosis. Plan one to three measures, each with an owner, a start and what you will look for. Set one review date, and on that date keep, change or stop each measure.",
     "warning": "This form never goes through AI. Fill it in by hand or in your school's system for records.",
     "header": ["Student or class", "Date", "Who took part"],
     "blocks": [
@@ -339,12 +339,12 @@
     "movement_note": "Movement breaks are not on this list: whether they help in class is an open question, resting on lab data about working memory."
   },
   "evidence": {
-    "lede": "Planning from the barrier rather than the diagnosis rests on expert guidance. Most of the moves it leads to have good evidence of their own.",
+    "lede": "Planning from the barrier rather than the diagnosis rests on expert guidance. Many of the moves it leads to have good evidence of their own; the chip on each move says how much.",
     "items": [
       {
         "title": "Needs, not diagnosis",
         "label": "framework",
-        "text": "The EEF's guidance on special educational needs says that for most students with special educational needs a diagnosis is \"less helpful for teaching and learning than determining the pupils' educational needs\". Labels also change what adults expect: in US data on about 11,740 adolescents, teachers and parents expected less of students labeled with a learning disability than of students who achieved and behaved the same without the label (an association, not a measured cause). Primary teachers asked about \"dyslexia\" tied how effective they felt to the belief that the condition is fixed; the wording \"reading difficulties\" did not have that effect.",
+        "text": "The EEF's guidance on special educational needs says that for most students with special educational needs a diagnosis is \"less helpful for teaching and learning than determining the pupils' educational needs\". Labels also change what adults expect: in US data on about 11,740 adolescents, teachers and parents expected less of students labeled with a learning disability than of students who achieved and behaved the same without the label (an association, not a measured cause). Elementary school teachers asked about \"dyslexia\" tied how effective they felt to the belief that the condition is fixed; the wording \"reading difficulties\" did not have that effect.",
         "sources": [
           {"text": "EEF 2020, Special Educational Needs in Mainstream Schools", "url": "https://dera.ioe.ac.uk/37846/1/EEF_Special_Educational_Needs_in_Mainstream_Schools_Guidance_Report.pdf"},
           {"text": "Shifrer 2013, Journal of Health and Social Behavior", "url": "https://doi.org/10.1177/0022146513503346"},
@@ -407,7 +407,7 @@
       {
         "title": "The same task, with scaffolds you can take away",
         "label": "promising",
-        "text": "In primary school, differentiation gave small to moderate gains when it was part of a broader program or used computers, while grouping students by ability on its own had a small negative effect on the lowest attainers. A separate easier worksheet risks lowering the demand for the students who need the content most, so keep the task and add support you can take away.",
+        "text": "In elementary school, differentiation gave small to moderate gains when it was part of a broader program or used computers, while grouping students by ability on its own had a small negative effect on the lowest-achieving students. A separate easier worksheet risks lowering the demand for the students who need the content most, so keep the task and add support you can take away.",
         "sources": [
           {"text": "Deunk et al. 2018, Educational Research Review", "url": "https://doi.org/10.1016/j.edurev.2018.02.002"}
         ]

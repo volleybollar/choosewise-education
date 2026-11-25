@@ -289,6 +289,21 @@ def test_plan_empty_state(page, blank):
     assert page.text_content("#bp-hint").strip() == PLAN_HINT
 
 
+def test_choice_without_a_card_is_empty(page):
+    # Ett val som saknas i #bp-data (och inte är "other") ger tomt läge.
+    fill_plan(page)
+    assert plan(page) != ""
+    page.evaluate("""() => {
+        const o = document.createElement('option');
+        o.value = 'nope'; o.textContent = 'nope';
+        document.getElementById('bp-barrier').appendChild(o);
+    }""")
+    page.select_option("#bp-barrier", "nope")
+    assert plan(page) == ""
+    assert page.is_disabled("#bp-copy")
+    assert page.text_content("#bp-hint").strip() == PLAN_HINT
+
+
 def test_whitespace_counts_as_empty(page):
     fill_plan(page, subject="   ")
     assert plan(page) == ""

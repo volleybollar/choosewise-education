@@ -40,8 +40,9 @@ SLUG = "barrier-planner-1c25533d"
 # Teckenförklaringen listar etiketterna i den här ordningen.
 LABEL_ORDER = ("strong", "promising", "framework", "choosewise")
 
-# Första raden i varje kopierad prompt. Den läggs till av barrier-planner.js
-# (steg 3); konstanten står här så att alla delar av sidan använder samma rad.
+# Första raden i varje kopierad prompt. Den läggs till av barrier-planner.js,
+# som har en egen kopia av raden; den här konstanten är det testerna jämför
+# mot, så ändras raden ska båda ändras.
 PRIVACY_COPY = "Do not include student names or student work in this conversation."
 
 # Rubriker som både sidan och Word-filen visar. Ändras de, ändras båda.
@@ -222,7 +223,7 @@ def _render_form_block(block: dict, record: dict) -> str:
     """One block of the blank form. A box and a line are bordered fill-in areas; the
     measures block is a real table whose cells carry their column name (data-label), so
     that it can stack at phone width; the outcomes block is one line per measure, each with a Keep / Change / Stop box."""
-    head = (f'<h4 class="bp-block__heading">{escape(block["heading"])}</h4>'
+    head = (f'<h3 class="bp-block__heading">{escape(block["heading"])}</h3>'
             f'<p class="bp-block__hint">{escape(block["hint"])}</p>')
     kind = block["kind"]
     if kind == "measures":
