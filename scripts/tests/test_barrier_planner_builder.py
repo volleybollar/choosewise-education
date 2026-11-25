@@ -82,7 +82,7 @@ def expected_plan(i, card=None):
         "Write everything in English." if english
         else f"Write everything in {language}, but keep the headings in English.",
         "",
-        "Reply in plain text, no tables, in under 300 words, with exactly these parts:",
+        "Reply in plain text, no tables, with exactly these parts. Keep each part under 70 words, so the whole reply stays under 300 words:",
         "FOR THE WHOLE CLASS: two or three moves written for this task: what you do and what students see.",
         "TARGETED: one or two supports for the students who still meet the barrier, and how you will notice during the lesson who they are.",
         "TAKE IT AWAY: which support goes first, and what tells you it is time.",
