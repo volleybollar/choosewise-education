@@ -1,0 +1,429 @@
+{
+  "labels": {
+    "strong": {
+      "name": "Strong",
+      "definition": "Meta-analyses of classroom studies show that working this way improves learning."
+    },
+    "promising": {
+      "name": "Promising",
+      "definition": "Controlled studies show gains, but results are mixed, small in number or dependent on context."
+    },
+    "framework": {
+      "name": "Framework",
+      "definition": "A useful structure. The method itself has not been tested in intervention studies."
+    },
+    "choosewise": {
+      "name": "Choosewise",
+      "definition": "Our own rule, not a research finding."
+    }
+  },
+  "hero": {
+    "title": "What a plan looks like",
+    "note": "Our example, not a tested plan.",
+    "rows": [
+      {"term": "The barrier", "text": "In science, loses track of practical tasks with several steps."},
+      {"term": "For the whole class", "text": "The steps numbered on the board, a checklist on each table, the first step shown."},
+      {"term": "Targeted", "text": "A quick check after step two with the students who still lose track."},
+      {"term": "Review in three weeks", "text": "Do they finish the practical without asking what comes next?"}
+    ]
+  },
+  "how": [
+    "Name what you see in the task, in plain words: what happens, not who it happens to.",
+    "Find the closest barrier and use the whole-class moves first. They lower the barrier for everyone, and most students need nothing more.",
+    "Add one targeted support for the students who still meet it, decide what you will take away first, and set a date to look again."
+  ],
+  "barriers_intro": {
+    "diagnosis": "Have a diagnosis in mind? Two students with the same diagnosis can need very different things, and many students who need support have none. Describe what you see in this task instead, and pick the closest barrier below.",
+    "privacy": "Describe the task and the barrier, never the student."
+  },
+  "cards": [
+    {
+      "id": "getting-started",
+      "barrier": "Doesn't get started on the task",
+      "signs": [
+        "Waits after the task is set",
+        "Asks what to do when the others have started",
+        "Starts late, or only once you come over"
+      ],
+      "label": "framework",
+      "whole_class": [
+        {"text": "Show the first step and do it together, so everyone has started before anyone works alone.", "short": "show the first step and do it together before anyone works alone", "label": null},
+        {"text": "Put a worked example on the board. Worked examples help learners with little prior knowledge most (0.51, a moderate effect).", "short": "a worked example on the board", "label": "strong"},
+        {"text": "Write the steps as a short checklist that students tick off.", "short": "the steps as a short checklist that students tick off", "label": "framework"}
+      ],
+      "targeted": [
+        {"text": "A check after the first few minutes with the students who have not started: give them the first step, then move on (our suggestion, not a research finding).", "short": "a check after the first few minutes with the students who have not started, giving them the first step", "label": null}
+      ],
+      "not_this": [
+        "Less work as the default. There is little evidence for it, and it risks lowering expectations."
+      ],
+      "review": "Do they start within the first few minutes without asking what to do?",
+      "sources": [
+        {"text": "Tetzlaff, Simonsmeier, Peters & Brod 2025, Learning and Instruction", "url": "https://doi.org/10.1016/j.learninstruc.2025.102142"},
+        {"text": "EEF 2020, Special Educational Needs in Mainstream Schools", "url": "https://dera.ioe.ac.uk/37846/1/EEF_Special_Educational_Needs_in_Mainstream_Schools_Guidance_Report.pdf"},
+        {"text": "Harrison et al. 2013, Review of Educational Research", "url": "https://doi.org/10.3102/0034654313497517"}
+      ],
+      "link": {"text": "Pedagogy Compass: They don't get started", "href": "/pedagogy-compass-59ecb8db/#problem-dont-start"}
+    },
+    {
+      "id": "multi-step",
+      "barrier": "Loses track of instructions with several steps",
+      "signs": [
+        "Does the first step, then stops",
+        "Asks what comes next",
+        "Skips steps or does them in the wrong order"
+      ],
+      "label": "framework",
+      "whole_class": [
+        {"text": "Number the steps on the board and leave them up for the whole task.", "short": "the steps numbered on the board for the whole task", "label": null},
+        {"text": "Put a checklist of the steps on each table.", "short": "a checklist of the steps on each table", "label": "framework"},
+        {"text": "Show the first step before students start. Splitting instruction into segments gives small-to-medium gains in multimedia learning.", "short": "show the first step before students start", "label": "framework"}
+      ],
+      "targeted": [
+        {"text": "A quick check after step two with the students who still lose track.", "short": "a quick check after step two with the students who still lose track", "label": null}
+      ],
+      "not_this": [],
+      "review": "Do they finish the task without asking what comes next?",
+      "sources": [
+        {"text": "Rey et al. 2019, Educational Psychology Review", "url": "https://doi.org/10.1007/s10648-018-9456-4"},
+        {"text": "EEF 2020, Special Educational Needs in Mainstream Schools", "url": "https://dera.ioe.ac.uk/37846/1/EEF_Special_Educational_Needs_in_Mainstream_Schools_Guidance_Report.pdf"}
+      ],
+      "link": {"text": "Pedagogy Compass: My lessons overload them", "href": "/pedagogy-compass-59ecb8db/#problem-overload"}
+    },
+    {
+      "id": "reading-load",
+      "barrier": "Reading a long text takes all their energy",
+      "signs": [
+        "Reads slowly and runs out of time",
+        "Can talk about the topic but not about the text",
+        "Gets lost in long paragraphs"
+      ],
+      "label": "framework",
+      "whole_class": [
+        {"text": "Teach the key words before the text, and give a glossary.", "short": "teach the key words before the text and give a glossary", "label": "promising"},
+        {"text": "Add one picture or diagram that shows the main idea. Graphics raised reading comprehension by 0.39, a moderate effect, at all grade levels.", "short": "one picture or diagram that shows the main idea", "label": "strong"},
+        {"text": "Split the text into sections with one guiding question each.", "short": "the text in sections with one guiding question each", "label": "framework"}
+      ],
+      "targeted": [
+        {"text": "Text-to-speech or read-aloud for the long text: 0.35 on reading comprehension for students with reading difficulties, between a small and a moderate effect. It gives access to the content but does not teach reading.", "short": "text-to-speech or read-aloud for the long text", "label": "promising"}
+      ],
+      "not_this": [
+        "Colored overlays and dyslexia fonts. Better-designed studies of overlays show little benefit, and two studies of dyslexia fonts found no gain."
+      ],
+      "review": "Do they answer the section questions without help with the words?",
+      "sources": [
+        {"text": "Guo, Zhang, Wright & McTigue 2020, AERA Open", "url": "https://doi.org/10.1177/2332858420901696"},
+        {"text": "Wood, Moxley, Tighe & Wagner 2018, Journal of Learning Disabilities", "url": "https://doi.org/10.1177/0022219416688170"},
+        {"text": "Abraham 2008, Computer Assisted Language Learning", "url": "https://doi.org/10.1080/09588220802090246"}
+      ],
+      "link": {"text": "Adapt a text, below", "href": "#bp-adapt"}
+    },
+    {
+      "id": "writing",
+      "barrier": "Starts written tasks but doesn't finish them",
+      "signs": [
+        "Writes a good opening, then stops",
+        "Runs out of ideas halfway",
+        "Hands in much less than the task asks for"
+      ],
+      "label": "framework",
+      "whole_class": [
+        {"text": "Show a model text and the criteria before anyone writes.", "short": "a model text and the criteria before anyone writes", "label": null},
+        {"text": "Add a short planning step before the writing starts: the main point and what supports it (our suggestion, not a research finding).", "short": "a short planning step before the writing starts: the main point and what supports it", "label": null},
+        {"text": "Offer sentence starters, and take them away as students manage. Frames should be faded, because scaffolding can quietly strip the demand out of a task.", "short": "sentence starters, taken away as students manage", "label": null}
+      ],
+      "targeted": [
+        {"text": "Let them say the answer to a partner first, then write it (our suggestion, not a research finding).", "short": "say the answer to a partner first, then write it", "label": null}
+      ],
+      "not_this": [
+        "Less work as the default. Cut only volume that does not serve the goal."
+      ],
+      "review": "Do they finish the written task without you sitting beside them?",
+      "sources": [
+        {"text": "To, Panadero & Carless 2022, Assessment & Evaluation in Higher Education", "url": "https://doi.org/10.1080/02602938.2021.2011134"},
+        {"text": "EEF 2020, Special Educational Needs in Mainstream Schools", "url": "https://dera.ioe.ac.uk/37846/1/EEF_Special_Educational_Needs_in_Mainstream_Schools_Guidance_Report.pdf"}
+      ],
+      "link": {"text": "Quality Ladder: model texts and criteria", "href": "/quality-ladder-ec1c2f8c/"}
+    },
+    {
+      "id": "attention",
+      "barrier": "Loses focus during independent work or in noise",
+      "signs": [
+        "Looks around or chats once independent work starts",
+        "Is pulled off task by noise or movement",
+        "Works well with you, drifts when you move on"
+      ],
+      "label": "framework",
+      "whole_class": [
+        {"text": "Seat students in rows for individual work. Rows raised on-task behavior during individual work, most for disruptive students, across 8 studies; let the task decide the layout.", "short": "rows for individual work", "label": "promising"},
+        {"text": "Teach the routines for independent work explicitly, and practice them.", "short": "the routines for independent work taught explicitly", "label": null},
+        {"text": "Give a short reminder just before a known trouble spot (precorrection).", "short": "a short reminder just before a known trouble spot", "label": "promising"}
+      ],
+      "targeted": [
+        {"text": "Specific praise when they get it right: say what they did.", "short": "specific praise when they get it right", "label": "promising"},
+        {"text": "A quieter seat for independent work (our suggestion; we have found no study of \"preferential seating\").", "short": "a quieter seat for independent work", "label": null}
+      ],
+      "not_this": [
+        "Fidget spinners. Attention in class got worse in a study of 60 young children with ADHD.",
+        "Accommodations written in by habit. A systematic review found very little evidence for the ones commonly recommended for students with behavioral challenges."
+      ],
+      "review": "Do they keep working through independent work without reminders?",
+      "sources": [
+        {"text": "Wannarka & Ruhl 2008, Support for Learning", "url": "https://doi.org/10.1111/j.1467-9604.2008.00375.x"},
+        {"text": "Ennis, Royer, Lane & Griffith 2017, Education and Treatment of Children", "url": "https://doi.org/10.1353/etc.2017.0021"},
+        {"text": "Royer, Lane, Dunlap & Ennis 2018, Remedial and Special Education", "url": "https://doi.org/10.1177/0741932517751054"},
+        {"text": "Graziano, Garcia & Landis 2020, Journal of Attention Disorders", "url": "https://doi.org/10.1177/1087054718770009"},
+        {"text": "Harrison et al. 2013, Review of Educational Research", "url": "https://doi.org/10.3102/0034654313497517"}
+      ],
+      "link": null
+    },
+    {
+      "id": "changes",
+      "barrier": "Finds changes and unstructured time hard",
+      "signs": [
+        "Gets upset or stuck when the plan changes",
+        "Struggles at the start of lessons and between activities",
+        "Drifts in group work without clear roles"
+      ],
+      "label": "framework",
+      "whole_class": [
+        {"text": "Put the lesson's plan on the board as a visual schedule, and point to it as you go.", "short": "the lesson's plan on the board as a visual schedule", "label": null},
+        {"text": "Give a warning before each change: what is ending and what comes next.", "short": "a warning before each change: what is ending and what comes next", "label": null},
+        {"text": "Teach transitions as routines, and practice them.", "short": "transitions taught as routines", "label": null}
+      ],
+      "targeted": [
+        {"text": "A personal visual schedule. The studies are mostly single-case studies with autistic learners, so plan from what you see, not from a diagnosis.", "short": "a personal visual schedule", "label": "promising"}
+      ],
+      "not_this": [],
+      "review": "Do they move to the next activity without stopping to ask what is happening?",
+      "sources": [
+        {"text": "Knight, Sartini & Spriggs 2015, Journal of Autism and Developmental Disorders", "url": "https://doi.org/10.1007/s10803-014-2201-z"},
+        {"text": "Ennis, Royer, Lane & Griffith 2017, Education and Treatment of Children", "url": "https://doi.org/10.1353/etc.2017.0021"}
+      ],
+      "link": null
+    },
+    {
+      "id": "not-alone",
+      "barrier": "Can do it with you, but not alone",
+      "signs": [
+        "Gets it right when you work through it together",
+        "Stops when you move on",
+        "Asks you to check each step"
+      ],
+      "label": "framework",
+      "whole_class": [
+        {"text": "A worked example, then a half-finished one, then their own. The EEF describes scaffolding as \"temporary support\" that is removed as students manage.", "short": "a worked example, then a half-finished one, then their own", "label": "strong"},
+        {"text": "Questions students ask themselves to plan, check and evaluate their work. Metacognition adds about 8 months of progress in the EEF Toolkit.", "short": "questions students ask themselves to plan, check and evaluate their work", "label": "strong"}
+      ],
+      "targeted": [
+        {"text": "A partly completed example with the next step left blank.", "short": "a partly completed example with the next step left blank", "label": null}
+      ],
+      "not_this": [],
+      "review": "Do they finish a similar task on their own without asking you to check each step?",
+      "sources": [
+        {"text": "Tetzlaff, Simonsmeier, Peters & Brod 2025, Learning and Instruction", "url": "https://doi.org/10.1016/j.learninstruc.2025.102142"},
+        {"text": "EEF Teaching and Learning Toolkit: Metacognition and self-regulation", "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation"},
+        {"text": "EEF 2020, Special Educational Needs in Mainstream Schools", "url": "https://dera.ioe.ac.uk/37846/1/EEF_Special_Educational_Needs_in_Mainstream_Schools_Guidance_Report.pdf"}
+      ],
+      "link": {"text": "Pedagogy Compass: They can do it with me, but not alone", "href": "/pedagogy-compass-59ecb8db/#problem-not-alone"}
+    },
+    {
+      "id": "language",
+      "barrier": "Is still learning the language of instruction",
+      "signs": [
+        "Follows when you show, loses the thread when you only talk",
+        "Knows the idea but not the words for it",
+        "Writes much less than they can say"
+      ],
+      "label": "framework",
+      "whole_class": [
+        {"text": "Teach a set of academic words intensively across several days. The IES practice guide rates the evidence as strong.", "short": "a set of academic words taught intensively across several days", "label": "strong"},
+        {"text": "Let students talk before they write, with oral and written language in content lessons. The IES practice guide rates this as strong too.", "short": "talk before writing, with oral and written language in content lessons", "label": "strong"},
+        {"text": "Give sentence frames, and fade them as students manage.", "short": "sentence frames, faded as students manage", "label": null}
+      ],
+      "targeted": [
+        {"text": "An elaborated version of the text and a glossary of the key words. Glossaries had a medium effect on comprehension and a large one on vocabulary, in studies of on-screen glosses for second-language readers.", "short": "an elaborated version of the text and a glossary of the key words", "label": "promising"}
+      ],
+      "not_this": [
+        "Stripping the language out of the text. Simplifying removes the language students need to learn; elaborate instead."
+      ],
+      "review": "Do they use the key words in their own sentences without the glossary?",
+      "sources": [
+        {"text": "Baker et al. 2014, IES practice guide: Teaching academic content and literacy to English learners", "url": "https://ies.ed.gov/ncee/wwc/PracticeGuide/19"},
+        {"text": "Abraham 2008, Computer Assisted Language Learning", "url": "https://doi.org/10.1080/09588220802090246"},
+        {"text": "Oh 2001, TESOL Quarterly", "url": "https://doi.org/10.2307/3587860"}
+      ],
+      "link": {"text": "Adapt a text, below", "href": "#bp-adapt"}
+    }
+  ],
+  "adapt": {
+    "intro": "Keep the same text and the same task for everyone, and add support that can be removed: explanations in brackets, a glossary, one picture, and sections with one question each. Elaborate rather than simplify, so students still meet the real words. Then take the support away, piece by piece, as they manage without it.",
+    "example": [
+      {"term": "Original", "text": "\"Photosynthesis converts light energy into chemical energy stored in glucose.\""},
+      {"term": "Elaborated", "text": "\"Photosynthesis (the way plants make their own food) converts light energy (energy from sunlight) into chemical energy (energy stored in a substance) stored in glucose (a kind of sugar).\""},
+      {"term": "Glossary", "text": "glucose, a sugar that plants make and use for energy. \"The leaf stores energy as glucose.\""},
+      {"term": "Section question", "text": "What does the plant take in, and what does it make?"},
+      {"term": "Picture", "text": "A leaf with arrows for the sunlight, water and carbon dioxide going in, and the glucose and oxygen it makes."}
+    ],
+    "check": "Check every definition and bracketed explanation; this is where errors slip in.",
+    "links": [
+      {"text": "Visual codes: one-word codes that turn a photo into a teaching visual, such as a cutaway or a labeled diagram", "href": "/visual-codes/"},
+      {"text": "Study codes: 27 codes that turn a topic into a study poster or a worksheet", "href": "/free/study-codes/"},
+      {"text": "Infographic styles: 140 style prompts for an infographic that shows the main idea", "href": "/infographic-styles/"}
+    ]
+  },
+  "record": {
+    "intro": "Keep each record as a short cycle of assess, plan, do and review, written as needs and measures: what the student meets in school and what will be done, never their difficulties or a diagnosis. Plan one to three measures, each with an owner, a start, a review date and what you will look for then. On the date, keep, change or stop each one.",
+    "warning": "This form never goes through AI. Fill it in by hand or in your school's system for records.",
+    "header": ["Student or class", "Date", "Who took part"],
+    "blocks": [
+      {"heading": "What the student meets in school", "hint": "The barriers to learning, and in which subjects.", "kind": "box"},
+      {"heading": "Strengths and interests", "hint": "What goes well, and what they care about.", "kind": "box"},
+      {"heading": "Measures (up to three)", "hint": "For each: what we do, who does it, from when and what we look for.", "kind": "measures"},
+      {"heading": "Review date", "hint": "Two to three weeks ahead.", "kind": "line"},
+      {"heading": "Outcome per measure", "hint": "On the review date: keep, change or stop each measure, and note what you saw.", "kind": "outcomes"}
+    ],
+    "measure_columns": ["What we do", "Who does it", "From when", "What we look for"],
+    "outcomes": ["Keep", "Change", "Stop"],
+    "review_questions": [
+      "Which measures were carried out, by whom and how often?",
+      "What have we seen in the task since we last met?",
+      "Which measure seemed to help most, and how do we know?",
+      "What does the student say helps, and what gets in the way?",
+      "For each measure: keep, change or stop, and who does what before the next review?"
+    ],
+    "eef_questions": [
+      "What barriers to learning does the student meet, and in which subjects?",
+      "What support do they need to reach the curriculum?",
+      "What are their strengths and interests?"
+    ],
+    "country_line": "Rules differ between countries. Check what applies where you work before you decide, record or share support for a student."
+  },
+  "unsupported": {
+    "intro": "Six adjustments that are often recommended but have little or no support in research, each with what to do instead.",
+    "items": [
+      {
+        "title": "Colored overlays and tinted lenses",
+        "research": "A systematic review found that the better-designed studies show less benefit, with effects small or similar to placebo.",
+        "instead": "Teach the key words before the text, add a picture, and offer text-to-speech for a long text."
+      },
+      {
+        "title": "Dyslexia fonts",
+        "research": "Two studies of children with dyslexia found no gain in reading; in the larger one, with 170 children, most preferred Arial.",
+        "instead": "Keep your usual font, and put the effort into the key words, a glossary and sections with one question each."
+      },
+      {
+        "title": "Fidget spinners as an attention aid",
+        "research": "Attention in class got worse in a study of 60 young children with ADHD.",
+        "instead": "Rows for individual work, routines taught explicitly and a reminder before a known trouble spot."
+      },
+      {
+        "title": "Extra time as a classroom support",
+        "research": "Extra time is a test accommodation. In tests it tended to help all students, somewhat more those with disabilities; it is not a support for learning in lessons.",
+        "instead": "In lessons, change the route: steps on the board, a worked example and a check after the first step."
+      },
+      {
+        "title": "Less work as the default accommodation",
+        "research": "There is little evidence for it, and it risks lowering expectations.",
+        "instead": "Keep the task and the goal, and cut only volume that does not serve the goal."
+      },
+      {
+        "title": "Matching teaching to a diagnosis category",
+        "research": "The EEF notes that \"two children with the same diagnosis can have very different educational needs as individuals\".",
+        "instead": "Start from the barrier you see in the task, and pick the closest card above."
+      }
+    ],
+    "movement_note": "Movement breaks are not on this list: whether movement helps attention is an open question, resting so far on one lab study."
+  },
+  "evidence": {
+    "lede": "Planning from the barrier rather than the diagnosis rests on expert guidance. Most of the moves it leads to have good evidence of their own.",
+    "items": [
+      {
+        "title": "Needs, not diagnosis",
+        "label": "framework",
+        "text": "The EEF's guidance on special educational needs says that for most of these students a diagnosis is \"less helpful for teaching and learning than determining the pupils' educational needs\". Labels also change what adults expect: in US data on about 11,740 adolescents, teachers and parents expected less of students labeled with a learning disability than of students who achieved and behaved the same without the label (an association, not a measured cause). Teachers asked about \"dyslexia\" tied how effective they felt to the belief that the condition is fixed; the wording \"reading difficulties\" did not have that effect.",
+        "sources": [
+          {"text": "EEF 2020, Special Educational Needs in Mainstream Schools", "url": "https://dera.ioe.ac.uk/37846/1/EEF_Special_Educational_Needs_in_Mainstream_Schools_Guidance_Report.pdf"},
+          {"text": "Shifrer 2013, Journal of Health and Social Behavior", "url": "https://doi.org/10.1177/0022146513503346"},
+          {"text": "Gibbs & Elliott 2015, European Journal of Special Needs Education", "url": "https://doi.org/10.1080/08856257.2015.1022999"}
+        ]
+      },
+      {
+        "title": "Good teaching for all",
+        "label": "strong",
+        "text": "The EEF recommends five strategies for every student: flexible grouping, cognitive and metacognitive strategies, explicit instruction, technology, and scaffolding. In its words, \"to a great extent, good teaching for pupils with SEND is good teaching for all\". The parts have strong evidence of their own: metacognition and self-regulation add about 8 months of progress in the EEF Toolkit, and worked examples help learners with little prior knowledge most (0.51, a moderate effect).",
+        "sources": [
+          {"text": "EEF 2020, Special Educational Needs in Mainstream Schools", "url": "https://dera.ioe.ac.uk/37846/1/EEF_Special_Educational_Needs_in_Mainstream_Schools_Guidance_Report.pdf"},
+          {"text": "EEF Teaching and Learning Toolkit: Metacognition and self-regulation", "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation"},
+          {"text": "Tetzlaff, Simonsmeier, Peters & Brod 2025, Learning and Instruction", "url": "https://doi.org/10.1016/j.learninstruc.2025.102142"}
+        ]
+      },
+      {
+        "title": "Text-to-speech and read-aloud",
+        "label": "promising",
+        "text": "Text-to-speech and related read-aloud tools raised reading comprehension for students with reading difficulties by 0.35, between a small and a moderate effect. They give access to the content; they do not teach reading.",
+        "sources": [
+          {"text": "Wood, Moxley, Tighe & Wagner 2018, Journal of Learning Disabilities", "url": "https://doi.org/10.1177/0022219416688170"}
+        ]
+      },
+      {
+        "title": "Visual schedules",
+        "label": "promising",
+        "text": "Visual activity schedules meet the criteria for an evidence-based practice for autistic learners, especially combined with systematic teaching. Most of the 31 studies were single-case studies, from preschool to adult, so plan from what you see, not from a diagnosis.",
+        "sources": [
+          {"text": "Knight, Sartini & Spriggs 2015, Journal of Autism and Developmental Disorders", "url": "https://doi.org/10.1007/s10803-014-2201-z"}
+        ]
+      },
+      {
+        "title": "Rows, routines and reminders",
+        "label": "promising",
+        "text": "Rows raised on-task behavior during individual work, most for disruptive students, across 8 studies; let the task decide the layout. A reminder just before a known trouble spot (precorrection) is classed as an evidence-based practice in a review of single-case studies from preschool to Grade 12.",
+        "sources": [
+          {"text": "Wannarka & Ruhl 2008, Support for Learning", "url": "https://doi.org/10.1111/j.1467-9604.2008.00375.x"},
+          {"text": "Ennis, Royer, Lane & Griffith 2017, Education and Treatment of Children", "url": "https://doi.org/10.1353/etc.2017.0021"}
+        ]
+      },
+      {
+        "title": "Pictures and diagrams",
+        "label": "strong",
+        "text": "Adding graphics had a moderate effect on reading comprehension, 0.39 across 39 experiments, \"regardless of grade level\". Pictures, pictorial diagrams and flow diagrams did about equally well.",
+        "sources": [
+          {"text": "Guo, Zhang, Wright & McTigue 2020, AERA Open", "url": "https://doi.org/10.1177/2332858420901696"}
+        ]
+      },
+      {
+        "title": "Elaborate rather than simplify, and add a glossary",
+        "label": "promising",
+        "text": "Elaborated texts were understood about as well as simplified ones, or better, and they keep the language students need to learn. We have found no meta-analysis of the comparison. Glossaries had a medium effect on comprehension and a large one on vocabulary, in studies of on-screen glosses for second-language readers.",
+        "sources": [
+          {"text": "Yano, Long & Ross 1994, Language Learning", "url": "https://doi.org/10.1111/j.1467-1770.1994.tb01100.x"},
+          {"text": "Oh 2001, TESOL Quarterly", "url": "https://doi.org/10.2307/3587860"},
+          {"text": "Abraham 2008, Computer Assisted Language Learning", "url": "https://doi.org/10.1080/09588220802090246"}
+        ]
+      },
+      {
+        "title": "The same task, with scaffolds you can take away",
+        "label": "promising",
+        "text": "In primary school, differentiation helped a little when it was part of a broader program, while grouping students by ability on its own had a small negative effect on the lowest attainers. A separate easier worksheet risks lowering the demand for the students who need the content most, so keep the task and add support you can take away.",
+        "sources": [
+          {"text": "Deunk et al. 2018, Educational Research Review", "url": "https://doi.org/10.1016/j.edurev.2018.02.002"}
+        ]
+      },
+      {
+        "title": "Assess, plan, do, review",
+        "label": "framework",
+        "text": "The cycle comes from the EEF's guidance. Its evidence review found no systematic review of it in England, and some positive evidence from US response-to-intervention studies. The needs-and-measures form on this page is ours, built on that guidance.",
+        "sources": [
+          {"text": "EEF 2020, Special Educational Needs in Mainstream Schools", "url": "https://dera.ioe.ac.uk/37846/1/EEF_Special_Educational_Needs_in_Mainstream_Schools_Guidance_Report.pdf"}
+        ]
+      }
+    ]
+  },
+  "care": [
+    {"risk": "A student becomes identifiable from the details", "what_we_do": "Describe the task and the barrier for \"some students\". In a very small class, use the card and skip AI."},
+    {"risk": "The reply suggests something unsupported or lowers the goal", "what_we_do": "Check it against the card's \"Not this\" and the list of popular but unsupported adjustments, and keep the same goal for everyone before you use it."},
+    {"risk": "Supports that never go away", "what_we_do": "Follow the TAKE IT AWAY part of the reply, and look again on the review date."},
+    {"risk": "Errors in definitions and brackets", "what_we_do": "Read every definition and bracketed explanation before you print."},
+    {"risk": "The barrier is not the whole story", "what_we_do": "If nothing changes by the review date, talk with colleagues and your school's support staff. Plans for one student belong there, outside AI."}
+  ]
+}
