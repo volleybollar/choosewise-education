@@ -63,7 +63,9 @@ def expected_text(name):
 def doc_lines(path):
     """Dokumentets text rad för rad, utan tomma rader. En tabells första rad blir en rad med
     cellerna sammanfogade med " | " (som record_text() gör), utom när varje cell slutar på ":"
-    (formulärhuvudet): då blir varje cell en egen rad."""
+    (formulärhuvudet): då blir varje cell en egen rad. Utfallstabellen har en tom första
+    cell i rubrikraden: den raden skrivs utan den tomma cellen, och radetiketterna i
+    första kolumnen följer som egna rader."""
     doc = Document(str(path))
     out = []
     for child in doc.element.body.iterchildren():
@@ -74,7 +76,11 @@ def doc_lines(path):
             first = child.find(W + "tr")
             cells = ["".join(t.text or "" for t in tc.iter(W + "t")) for tc in first.iter(W + "tc")]
             if any(cells):
-                if all(c.endswith(":") for c in cells):
+                if not cells[0]:
+                    out.append(" | ".join(cells[1:]))
+                    for tr in child.findall(W + "tr")[1:]:
+                        out.append("".join(t.text or "" for t in tr.find(W + "tc").iter(W + "t")))
+                elif all(c.endswith(":") for c in cells):
                     out.extend(cells)
                 else:
                     out.append(" | ".join(cells))
@@ -248,6 +254,11 @@ def test_warning_directly_above_form():
     # Första meningen är fetstil, resten inte.
     runs = body[idx].findall(W + "r")
     assert runs[0].find(W + "rPr").find(W + "b") is not None
+    # Resten efter första meningen är vanlig text.
+    assert len(runs) >= 2
+    for run in runs[1:]:
+        rpr = run.find(W + "rPr")
+        assert rpr is None or rpr.find(W + "b") is None
 
 
 def test_measures_table():
@@ -260,9 +271,12 @@ def test_measures_table():
     assert len(rows) == 4
     assert all(not _cell_text(tc) for tr in rows[1:] for tc in tr.findall(W + "tc"))
     out = [t for t in tables
-           if [_cell_text(tc) for tc in t.find(W + "tr").findall(W + "tc")] == d["outcomes"]]
+           if [_cell_text(tc) for tc in t.find(W + "tr").findall(W + "tc")] == [""] + d["outcomes"]]
     assert len(out) == 1
-    assert len(out[0].findall(W + "tr")) >= 2
+    rows = out[0].findall(W + "tr")
+    assert len(rows) == 1 + len(d["outcome_rows"])
+    assert [_cell_text(tr.findall(W + "tc")[0]) for tr in rows[1:]] == d["outcome_rows"]
+    assert all(not _cell_text(tc) for tr in rows[1:] for tc in tr.findall(W + "tc")[1:])
 
 
 def test_no_diagnosis_field():

@@ -44,11 +44,11 @@ pp = _load(ROOT / "exports/build-paperwork-pack-docx.py", "pp_docx_helpers")
 page = _load(ROOT / "scripts/build-barrier-planner.py", "bp_page_helpers")
 
 # Lägre rutor än Paperwork Packs så att hela formuläret ryms på en A4-sida.
-NAME_ROW_CM = 1.1     # formulärhuvudet: rad med plats under etiketten
-BOX_CM = 1.2          # skrivruta för de två fritextblocken
-LINE_CM = 0.8         # kort ruta för granskningsdatumet
-MEASURE_ROW_CM = 0.9  # tom rad i insatstabellen
-OUTCOME_ROW_CM = 1.1  # skrivrad under Keep / Change / Stop
+NAME_ROW_CM = 0.9     # formulärhuvudet: rad med plats under etiketten
+BOX_CM = 0.9          # skrivruta för de två fritextblocken
+LINE_CM = 0.6         # kort ruta för granskningsdatumet
+MEASURE_ROW_CM = 0.7  # tom rad i insatstabellen
+OUTCOME_ROW_CM = 0.75  # skrivrad under Keep / Change / Stop
 
 
 def _new_document(title: str):
@@ -58,7 +58,7 @@ def _new_document(title: str):
     return doc
 
 
-def _heading2(doc, text: str, before: int = 6):
+def _heading2(doc, text: str, before: int = 4):
     h = doc.add_heading(text, level=2)
     h.paragraph_format.space_before = Pt(before)
     return h
@@ -120,7 +120,14 @@ def _needs_and_measures(d: dict, dst: Path) -> None:
         elif kind == "line":
             pp._box(doc, LINE_CM)
         elif kind == "outcomes":
-            pp._grid(doc, r["outcomes"], 1, OUTCOME_ROW_CM)
+            # Rubrikrad (tom första cell, sedan Keep / Change / Stop) och en rad per åtgärd.
+            rows = r["outcome_rows"]
+            pp._grid(doc, [""] + r["outcomes"], len(rows), OUTCOME_ROW_CM)
+            table = doc.tables[-1]
+            for row, label in zip(table.rows[1:], rows):
+                run = row.cells[0].paragraphs[0].add_run(label)
+                run.bold = True
+                run.font.size = Pt(10)
 
     _heading2(doc, page.REVIEW_QUESTIONS_TITLE)
     _numbered(doc, r["review_questions"])

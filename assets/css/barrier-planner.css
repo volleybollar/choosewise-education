@@ -25,7 +25,9 @@
 .bp-download a { font-weight: var(--weight-emphasis); }
 .bp-country { margin-top: var(--space-5); }
 .bp-diagnosis { margin-bottom: var(--space-4); }
-.bp-card-link { align-self: flex-start; font-size: var(--fs-small); }
+/* Länken står under listan, utanför label, och dras upp så nära listan som möjligt. */
+.bp-card-link { grid-column: 1 / -1; justify-self: start; margin-top: calc(-1 * var(--space-2)); font-size: var(--fs-small); }
+.bp-card-link[hidden] { display: none; }
 
 /* ───── De åtta korten ─────
    Ett rutnät som staplas på mobil. Korten i samma rad är lika höga, och
@@ -56,8 +58,10 @@
 .bp-block__hint { margin: 0 0 var(--space-2); max-width: var(--content-text-max); font-size: var(--fs-small); color: var(--color-text-soft); }
 .bp-box { min-height: 5.5rem; border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); }
 .bp-line { min-height: 2.5rem; border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); max-width: 16rem; }
-.bp-outcomes { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); }
-.bp-outcomes li { max-width: none; display: flex; align-items: center; gap: var(--space-2); }
+.bp-outcomes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
+.bp-outcomes li { max-width: none; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-6); }
+.bp-outcomes__measure { min-width: 5.5rem; font-weight: var(--weight-emphasis); }
+.bp-outcomes__choice { display: inline-flex; align-items: center; gap: var(--space-2); }
 .bp-tick { display: inline-block; width: 1.1rem; height: 1.1rem; border: 1px solid var(--color-border-strong); border-radius: 2px; flex: none; }
 
 /* Tabellen med åtgärder: en riktig tabell på dator, och på mobil ett kort per rad
@@ -86,6 +90,8 @@
 
 /* ───── Obelagda anpassningar, forskningen, varningarna och nästa steg ───── */
 .bp-unsupported__list { margin: var(--space-5) 0 0; padding-left: var(--space-5); display: grid; gap: var(--space-4); max-width: var(--content-text-max); }
+/* Titeln står på en egen rad ovanför texten (block), inte inflytande i den. */
+.bp-item-title { display: block; font-weight: var(--weight-emphasis); }
 .bp-unsupported__list strong { font-weight: var(--weight-emphasis); }
 .bp-unsupported__instead { display: block; margin-top: var(--space-1); color: var(--color-text-soft); }
 .bp-evidence__item { max-width: var(--content-text-max); margin: var(--space-5) 0 0; }

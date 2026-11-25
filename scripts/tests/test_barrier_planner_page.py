@@ -377,7 +377,7 @@ def test_record_text_order():
         if b["kind"] == "measures":
             order += r["measure_columns"]
         if b["kind"] == "outcomes":
-            order += r["outcomes"]
+            order += r["outcomes"] + r["outcome_rows"]
     order += ["Questions for the review meeting"] + r["review_questions"]
     order += ["The EEF's three questions"] + r["eef_questions"] + [r["country_line"]]
     at = -1
@@ -462,7 +462,7 @@ def test_evidence_and_legend():
     items = block.split('class="bp-evidence__item"')[1:]
     assert len(items) == len(d["evidence"]["items"]) == 9
     for item, e in zip(items, d["evidence"]["items"]):
-        assert f"<strong>{escape(e['title'])}</strong>" in item
+        assert f'<strong class="bp-item-title">{escape(e["title"])}</strong>' in item
         assert escape(e["text"]) in item
         assert f'<span class="tm-chip tm-chip--{e["label"]}">{LABEL_NAMES[e["label"]]}</span>' in item
         for s in e["sources"]:

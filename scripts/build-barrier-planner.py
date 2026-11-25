@@ -61,7 +61,7 @@ def record_text(record: dict) -> str:
     """The needs-and-measures form as plain text: the title, the warning, the header
     lines (each followed by ':'), then the blocks in order. A block is its heading and
     hint; the measures block adds the column names joined by ' | ', and the outcomes
-    block adds the outcomes joined by ' | '. The five review questions, the EEF's three
+    block adds the outcomes joined by ' | ', then the three row labels, one per line. The five review questions, the EEF's three
     questions and the country line close it. This is both the clipboard text and the
     text of the .docx file."""
     parts = [RECORD_TITLE, record["warning"], "\n".join(f"{h}:" for h in record["header"])]
@@ -71,6 +71,7 @@ def record_text(record: dict) -> str:
             lines.append(" | ".join(record["measure_columns"]))
         elif block["kind"] == "outcomes":
             lines.append(" | ".join(record["outcomes"]))
+            lines.extend(record["outcome_rows"])
         parts.append("\n".join(lines))
     parts.append(f"{REVIEW_QUESTIONS_TITLE}\n{_numbered(record['review_questions'])}")
     parts.append(f"{EEF_TITLE}\n{_numbered(record['eef_questions'])}")
@@ -220,7 +221,7 @@ def _warning_html(text: str) -> str:
 def _render_form_block(block: dict, record: dict) -> str:
     """One block of the blank form. A box and a line are bordered fill-in areas; the
     measures block is a real table whose cells carry their column name (data-label), so
-    that it can stack at phone width; the outcomes block is one tick box per outcome."""
+    that it can stack at phone width; the outcomes block is one line per measure, each with a Keep / Change / Stop box."""
     head = (f'<h4 class="bp-block__heading">{escape(block["heading"])}</h4>'
             f'<p class="bp-block__hint">{escape(block["hint"])}</p>')
     kind = block["kind"]
@@ -231,8 +232,9 @@ def _render_form_block(block: dict, record: dict) -> str:
         rows = "".join(f"<tr>{cells}</tr>" for _ in range(3))
         body = f'<div class="bp-table-wrap"><table class="bp-table"><thead><tr>{th}</tr></thead><tbody>{rows}</tbody></table></div>'
     elif kind == "outcomes":
-        items = "".join(f'<li><span class="bp-tick" aria-hidden="true"></span>{escape(o)}</li>' for o in record["outcomes"])
-        body = f'<ul class="bp-outcomes">{items}</ul>'
+        ticks = "".join(f'<span class="bp-outcomes__choice"><span class="bp-tick" aria-hidden="true"></span>{escape(o)}</span>' for o in record["outcomes"])
+        rows = "".join(f'<li><span class="bp-outcomes__measure">{escape(m)}</span>{ticks}</li>' for m in record["outcome_rows"])
+        body = f'<ul class="bp-outcomes">{rows}</ul>'
     elif kind == "line":
         body = '<div class="bp-line"></div>'
     else:
@@ -270,7 +272,7 @@ def render_unsupported(u: dict) -> str:
     """The intro, the six items (what the research says, then 'Instead:'), the movement
     note, and the copy button and .docx link for the list."""
     items = "".join(
-        f'<li class="bp-unsupported__item"><strong>{escape(i["title"])}</strong> {escape(i["research"])} '
+        f'<li class="bp-unsupported__item"><strong class="bp-item-title">{escape(i["title"])}</strong> {escape(i["research"])} '
         f'<span class="bp-unsupported__instead">Instead: {escape(i["instead"])}</span></li>'
         for i in u["items"]
     )
@@ -299,7 +301,7 @@ def render_evidence(evidence: dict, labels: dict) -> str:
     for item in evidence["items"]:
         out.append(
             f'<p class="bp-evidence__item">{_chip(item["label"], labels)} '
-            f'<strong>{escape(item["title"])}</strong> '
+            f'<strong class="bp-item-title">{escape(item["title"])}</strong> '
             f'{escape(item["text"])} {_source_links(item["sources"])}</p>'
         )
     return "\n".join(out)
@@ -307,7 +309,7 @@ def render_evidence(evidence: dict, labels: dict) -> str:
 
 def render_care(items: list) -> str:
     rows = "".join(
-        f'<li><strong>{escape(c["risk"])}</strong> {escape(c["what_we_do"])}</li>' for c in items
+        f'<li><strong class="bp-item-title">{escape(c["risk"])}</strong> {escape(c["what_we_do"])}</li>' for c in items
     )
     return f'<ul class="bp-care__list">{rows}</ul>'
 
