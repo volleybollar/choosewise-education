@@ -21,6 +21,12 @@ PP_ROWS = {5: ("#pp-meetings", "Meeting protocol in Paperwork Pack"),
            7: ("#pp-admin", '"Cut first" and templates in Paperwork Pack'),
            10: ("#pp-parents", "Message templates in Paperwork Pack")}
 
+BP = "/barrier-planner-1c25533d/"
+# Raderna där Barrier Planner är klart: radnummer → (avsnitt på sidan, text på raden)
+BP_ROWS = {6: ("#bp-plan", "Barrier Planner"),
+           8: ("#bp-adapt", '"Adapt a text" in Barrier Planner'),
+           9: ("#bp-record", "Needs-and-measures form, no diagnoses")}
+
 SECTIONS = ["wt-time", "wt-stress", "wt-ai", "wt-rules", "wt-tasks", "wt-parts", "wt-sources"]
 
 TASKS = ["Planning teaching", "Teaching", "Keeping order in class",
@@ -193,13 +199,13 @@ def test_status_chips():
         elif i in (2, 3):
             assert shown.count("Ready") == 1 and "Coming" not in shown, i
             assert "<a " not in cell, i
-        elif i in PP_ROWS:
-            # Rad 5, 7 och 10: lektionen och sin del av Paperwork Pack, båda klara; delen länkad.
-            anchor, label = PP_ROWS[i]
+        elif i in PP_ROWS or i in BP_ROWS:
+            # Rad 5–10: lektionen och sin del av Paperwork Pack eller Barrier Planner, båda klara; delen länkad.
+            base, anchor, label = (PP, *PP_ROWS[i]) if i in PP_ROWS else (BP, *BP_ROWS[i])
             assert shown.count("Ready") == 2 and "Coming" not in shown, i
             links = re.findall(r'<a [^>]*href="([^"]*)"[^>]*>(.*?)</a>', cell, re.S)
-            assert [(h, text_of(t)) for h, t in links] == [(PP + anchor, label)], i
-            assert f'id="{anchor[1:]}"' in (ROOT / PP.strip("/") / "index.html").read_text(encoding="utf-8"), i
+            assert [(h, text_of(t)) for h, t in links] == [(base + anchor, label)], i
+            assert f'id="{anchor[1:]}"' in (ROOT / base.strip("/") / "index.html").read_text(encoding="utf-8"), i
         else:
             assert shown.count("Ready") == 1 and shown.count("Coming") == 1, i
             assert "<a " not in cell, i
@@ -252,11 +258,12 @@ def test_parts():
     links = [re.findall(r'<a [^>]*href="([^"]*)"[^>]*>(.*?)</a>', c, re.S) for c in cards]
     assert [(h, text_of(t)) for h, t in links[0]] == [(QL, "Open Quality Ladder →")]
     assert [(h, text_of(t)) for h, t in links[1]] == [(PP, "Open Paperwork Pack →")]
+    assert [(h, text_of(t)) for h, t in links[2]] == [(BP, "Open Barrier Planner →")]
     assert [(h, text_of(t)) for h, t in links[3]] == [(CLASSROOM, "Open the course in Skool →")]
-    assert all(not l for i, l in enumerate(links) if i not in (0, 1, 3))
-    for i in (0, 1, 3):
+    assert all(not l for i, l in enumerate(links) if i not in (0, 1, 2, 3))
+    for i in (0, 1, 2, 3):
         assert "Ready" in text_of(cards[i]) and "Coming" not in text_of(cards[i]), i
-    for i in (2, 4):
+    for i in (4,):
         assert "Coming" in text_of(cards[i]), i
     assert "Eleven lessons in Skool, one per task" in text_of(cards[3])
     assert "seven modules" not in text_of(cards[3]).lower()
