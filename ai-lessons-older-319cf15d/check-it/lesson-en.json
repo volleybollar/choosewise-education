@@ -1,0 +1,251 @@
+{
+  "id": "check-it",
+  "title": "Check It",
+  "band": "16-19",
+  "number": 2,
+  "line": "Students check an article written to look like a chatbot's answer the way fact-checkers do, then ask AI for the other side and open every source it gives.",
+  "minutes": 40,
+  "groups": "Individual, pairs, then the whole class",
+  "ai_use": "students",
+  "prep_minutes": 15,
+  "goals": [
+    "Check a claim the way fact-checkers do: leave the page, find out who says what, and trace the claim to its original source.",
+    "Use AI to find the other side of a claim, and check that the sources it names exist and say what it claims.",
+    "Judge a claim as true, wrong or impossible to confirm, and give the source for that judgement."
+  ],
+  "key_words": [
+    {
+      "word": "lateral reading",
+      "meaning": "Checking a page by leaving it: opening new tabs to find out who is behind it and what other sources say."
+    },
+    {
+      "word": "original source",
+      "meaning": "Where a claim first came from, such as the study, the report or the organisation itself."
+    },
+    {
+      "word": "can't confirm",
+      "meaning": "No reliable source backs the claim up. It may be true, but you shouldn't repeat it as a fact."
+    },
+    {
+      "word": "counter-evidence",
+      "meaning": "Facts or sources that go against a claim."
+    }
+  ],
+  "materials": [
+    "Student PDF page 1, the article: one per student",
+    "Page 2, check the claims, ask AI and two closing-question tickets: one per pair",
+    "One device per pair with a search engine and the AI tool your school has approved"
+  ],
+  "before": [
+    "Print page 1 for every student and page 2 for every pair.",
+    "Give each pair two claims to check, so that every claim is checked by at least two pairs. Write the claim numbers for each pair on the board.",
+    "Before class, run one of the prompts in step 4 with claim 4 or claim 6 on the tool students will use, and save a screenshot of the answer. You need it if the tool is blocked or students can't log in.",
+    "Check that students can reach a search engine and the AI tool your school has approved, and that the tool is approved for their age.",
+    "The article is written to look like a chatbot's answer, and three of its six claims are wrong or can't be confirmed. Go through every claim in step 5, so that nobody leaves believing a wrong one."
+  ],
+  "steps": [
+    {
+      "minutes": 4,
+      "mode": "Individual",
+      "title": "First impression",
+      "do": "Hand out page 1. Students read the article and tick Believe, Not sure or Doubt for each numbered claim, going on their gut feeling. No searching yet."
+    },
+    {
+      "minutes": 4,
+      "mode": "All",
+      "title": "Read sideways",
+      "do": "Ask which claims students doubted and why. Then explain how fact-checkers work: they don't read a page from top to bottom to judge it. They leave it, open new tabs and ask three things: who is behind this, what do other sources say, and where did the claim first come from? This is called lateral reading.",
+      "say": "A text can sound sure and still be wrong. You won't find out by reading it more closely. You find out by leaving it."
+    },
+    {
+      "minutes": 12,
+      "mode": "Pairs",
+      "title": "Check the claims",
+      "do": "Hand out page 2. Each pair checks the two claims you gave them with a search engine and writes who says so and a verdict: true, wrong or can't confirm. Tips: search for the organisation's name on its own; look for official health or research bodies; follow a number back to where it first appeared."
+    },
+    {
+      "minutes": 8,
+      "mode": "Pairs",
+      "title": "Ask AI for the other side",
+      "student_ai": true,
+      "do": "Pairs pick one of their claims and one prompt from page 2, type it into the AI tool your school has approved with the claim in the brackets, and open every source in the answer: does it exist, and does it say what the answer claims? They note what they find on page 2.",
+      "prompts": [
+        "What is the strongest evidence against this claim: \"[claim]\"? List sources I can open.",
+        "Who disagrees with this claim, and why: \"[claim]\"? Give links to the sources."
+      ],
+      "without_ai": "Show the answer you saved before class on the projector. Pairs pick one of the sources in it, open it, and check whether it exists and says what the answer claims."
+    },
+    {
+      "minutes": 9,
+      "mode": "All",
+      "title": "Claim by claim",
+      "do": "Go through the six claims. Ask the pairs who checked each one for their verdict and source, then give the answer (see Background). Claim 1: true, CDC. Claim 2: true, a CDC report from 2015. Claim 3: wrong number: fewer than one in three US high-school students sleep at least 8 hours on school nights, so more than two in three sleep less. Claim 4: can't confirm, and almost certainly made up: no organisation of that name can be found. Claim 5: true, the American Academy of Pediatrics in 2014. Claim 6: can't confirm: many websites repeat it, but none points to a source from Einstein's lifetime. Then ask where AI helped and where it misled.",
+      "say": "AI can point you to a source. What counts is the source itself, and only once you've opened it."
+    },
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
+      "do": "Each student answers the closing question on a ticket from page 2 and hands it in."
+    }
+  ],
+  "gather": [
+    {
+      "question": "Which claim fooled most of us at first, and why?",
+      "students_say": [
+        "The Einstein one. It sounds like a fun fact.",
+        "The council, because it sounded official.",
+        "The numbers. They look exact."
+      ]
+    },
+    {
+      "question": "How did you find out that claim 4 was a problem?",
+      "students_say": [
+        "We searched the name and found nothing.",
+        "It has no website.",
+        "Only the article mentions it."
+      ]
+    },
+    {
+      "question": "Did the AI help you find the other side?",
+      "students_say": [
+        "It gave us ideas for what to search.",
+        "One link didn't work.",
+        "One source didn't say what the answer said."
+      ]
+    },
+    {
+      "question": "What will you do the next time a chatbot gives you a fact?",
+      "students_say": [
+        "Check where it comes from.",
+        "Open the link before I use it.",
+        "Search for it somewhere else."
+      ]
+    }
+  ],
+  "simpler": "Check claims 1, 4 and 6 together as a class on the projector, then let pairs check one more claim each. Run the AI step as a teacher demo.",
+  "harder": "Pairs ask the AI tool for a short article about a topic from one of their courses and check three of its claims the same way. Or the class writes a rule for school work: what counts as a good enough source, and how do you show that you checked?",
+  "closing_question": "A chatbot gives you a fact with a link. What do you check before you use the fact?",
+  "language_swap": "Pages 1 and 2 have English text. Read the article on page 1 aloud in your class's language, or write your own version about a topic in your country with six claims of the same kinds, using sources you have checked. Write the column headings on page 2 in your language. The prompts work in any language, and students can search in the language that has the best sources for each claim.",
+  "age_note": "In step 4, students use the AI tool your school has approved for their age. Check the table: Claude is for 18 and over, and ChatGPT needs a parent's or guardian's permission under 18. Step 4 works without AI, with the answer you saved before class.",
+  "background": [
+    "Professional fact-checkers judge a page by leaving it. Instead of reading a site from top to bottom, they open new tabs and check who is behind it, what others say and where a claim first came from: this is called lateral reading. Earlier Stanford research found that fact-checkers were much less easily fooled by questionable websites than historians and undergraduates. In a randomised study with about 500 high-school students, six 50-minute lessons made students twice as likely to spot questionable websites, although by the end of the semester they still earned only half of the possible points (Stanford Graduate School of Education, 2022). The skill takes practice, so expect pairs to be slow at first.",
+    "A chatbot's answer is like a page without an author: it can mix true and wrong claims in the same confident tone. AI can help find counter-arguments and places to look, but a source it names only counts once you have opened it and seen that it exists and says what the answer claims. Research on lateral reading of chatbot answers is still thin; the habit is the same.",
+    "The article's claims, with sources. 1: true. The CDC (US Centers for Disease Control and Prevention), citing the American Academy of Sleep Medicine, recommends 8–10 hours of sleep for teens aged 13–17. 2: true. A CDC report from 2015 says that in puberty, biological rhythms commonly shift so that adolescents become sleepy later at night. 3: wrong number. The same report says that fewer than one in three US high-school students sleep at least 8 hours on school nights, so more than two in three sleep less, not one in three. 4: can't confirm. When we searched in November 2026, we found no organisation with that name and nothing behind the 20 percent figure; treat it as made up. 5: true. In 2014 the American Academy of Pediatrics recommended that middle and high schools start no earlier than 8:30 a.m., as cited in the CDC report. 6: can't confirm. Many websites repeat it, but none we found pointed to a letter, interview or biography from Einstein's lifetime."
+  ],
+  "frameworks": {
+    "AILit": "Engage with AI, competence 3 (evaluate whether AI outputs should be accepted, revised or rejected: checking them against trusted sources and justifying the decision), advanced level",
+    "AI4K12": "Big Idea 4 (Natural Interaction)"
+  },
+  "tools": [
+    "chatgpt",
+    "gemini",
+    "gemini-education",
+    "copilot",
+    "copilot-education",
+    "claude"
+  ],
+  "credits": [],
+  "further_reading": [
+    {
+      "title": "Stanford Graduate School of Education (2022): It doesn't take long to learn how to spot misinformation online",
+      "url": "https://ed.stanford.edu/news/it-doesn-t-take-long-learn-how-spot-misinformation-online-stanford-study-finds"
+    },
+    {
+      "title": "CDC: About sleep (recommended hours by age)",
+      "url": "https://www.cdc.gov/sleep/about/index.html"
+    },
+    {
+      "title": "CDC (2015): School start times for middle school and high school students, United States, 2011–12 school year",
+      "url": "https://www.cdc.gov/mmwr/preview/mmwrhtml/mm6430a1.htm"
+    }
+  ],
+  "student_pdf": {
+    "file": "check-it-student-en.pdf",
+    "pages": [
+      {
+        "title": "The article",
+        "instruction": "This article was written for this lesson. Some claims are wrong. Read it, then tick one box for each claim.",
+        "blocks": [
+          {
+            "kind": "text",
+            "body": "Why teenagers can't get up in the morning. Teenagers are not lazy: their bodies work differently. [1] Teenagers aged 13 to 17 need 8 to 10 hours of sleep a night. [2] In puberty, the body clock shifts, so teenagers get sleepy later at night and need to sleep later in the morning. [3] Many don't get enough: about one in three US high-school students sleeps less than 8 hours on school nights. [4] A 2023 study by the Nordic Teen Sleep Council found that one extra hour of sleep raises school grades by 20 percent. [5] That is why the American Academy of Pediatrics recommends that middle and high schools start no earlier than 8:30 in the morning. [6] Great minds have always known this: Albert Einstein slept ten hours every night. In short, sleep is not wasted time. It is how your brain gets ready for the next day."
+          },
+          {
+            "kind": "checklist",
+            "items": 6,
+            "checks": [
+              "Believe",
+              "Not sure",
+              "Doubt"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Check the claims",
+        "instruction": "Leave the article. Search for who says it, and find the original.",
+        "blocks": [
+          {
+            "kind": "table",
+            "columns": [
+              "Claim",
+              "Who says so? (the source)",
+              "True, wrong or can't confirm?"
+            ],
+            "rows": [
+              [
+                "1",
+                "",
+                ""
+              ],
+              [
+                "2",
+                "",
+                ""
+              ],
+              [
+                "3",
+                "",
+                ""
+              ],
+              [
+                "4",
+                "",
+                ""
+              ],
+              [
+                "5",
+                "",
+                ""
+              ],
+              [
+                "6",
+                "",
+                ""
+              ]
+            ]
+          },
+          {
+            "kind": "text",
+            "body": "Ask AI for the other side. Pick one prompt and put your claim in the brackets. 1: What is the strongest evidence against this claim: \"[claim]\"? List sources I can open. 2: Who disagrees with this claim, and why: \"[claim]\"? Give links to the sources."
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "A source the AI gave",
+              "Does it exist and say that?"
+            ],
+            "rows": 1
+          },
+          {
+            "kind": "tickets",
+            "question": "A chatbot gives you a fact with a link. What do you check before you use the fact?",
+            "count": 2
+          }
+        ]
+      }
+    ]
+  },
+  "skool_text": "Lesson 2 for ages 16–19. Students check an article written to look like a chatbot's answer the way fact-checkers do: they leave the page, find out who says what and trace each claim to its source. Then they ask AI for the other side and open every source it gives. Students use AI, with a way to do it without, 40 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-older-319cf15d/check-it/"
+}

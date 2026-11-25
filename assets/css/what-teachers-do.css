@@ -1,0 +1,118 @@
+/* What teachers do (dold översiktssida för Skool-medlemmar). Allt här har
+   prefixet wt-. Etiketterna Strong / Promising / Framework (tm-chip) kommer
+   från thinking-moves.css. Färger bara som var(--…), teckenvikter bara
+   300/400/500 (tokens). Ingen JavaScript: staplarna ritas av CSS ur
+   variabeln --v i varje sifferruta. */
+
+/* Rubrikerna är längre än de delade 22 tecknen och ska få plats. */
+.wt-page .section__title { max-width: none; }
+/* Brödtexten i den här sidan styr breddarna själv (se nedan). */
+.wt-page p, .wt-page li { max-width: none; }
+
+.wt-lede { margin: 0 0 var(--space-5); max-width: 46rem; color: var(--color-text-soft); }
+.wt-note { margin: var(--space-3) 0 0; max-width: 46rem; font-size: var(--fs-small); color: var(--color-text-soft); }
+.wt-prose { display: grid; gap: var(--space-4); max-width: 46rem; }
+.wt-prose p { margin: 0; }
+
+/* Slutsatsen under varje bakgrundsavsnitt: kopparstreck till vänster, och
+   texten i fetare vikt så att den syns som sidans poäng. */
+.wt-conclusion { margin: var(--space-6) 0 0; padding-left: var(--space-4); border-left: 3px solid var(--color-highlight); max-width: 46rem; font-size: 1.125rem; font-weight: var(--weight-emphasis); }
+
+/* ───── Tabellerna med staplar ───── */
+/* Tabellen får rulla i sidled inuti sin egen ruta på en smal skärm, aldrig
+   hela sidan. Fokusramen syns när man rullar med tangentbordet. */
+.wt-scroll { overflow-x: auto; max-width: 100%; }
+.wt-scroll:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+.wt-table { width: 100%; border-collapse: collapse; font-size: var(--fs-small); }
+.wt-table--narrow { max-width: 46rem; }
+.wt-table th, .wt-table td { padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--color-border); text-align: left; vertical-align: top; }
+.wt-table thead th { font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-text-muted); font-weight: var(--weight-emphasis); border-bottom: 1px solid var(--color-border-strong); vertical-align: bottom; }
+.wt-table tbody th, .wt-table tfoot th { font-weight: var(--weight-body); color: var(--color-text); width: 34%; }
+.wt-table tfoot th, .wt-table tfoot td { border-top: 1px solid var(--color-border-strong); border-bottom: 0; font-weight: var(--weight-emphasis); }
+
+/* Sifferrutan: siffran är text (skärmläsare får den). ::after är stapeln,
+   --v av --max av rutans bredd. Tabellen med timmar har skalan 0–50, den med
+   procent 0–100. Samma skala i alla rader. */
+.wt-num { --max: 50; font-variant-numeric: tabular-nums; }
+.wt-num--pct { --max: 100; }
+.wt-num::after { content: ""; display: block; margin-top: var(--space-1); height: 0.375rem; min-width: 2px; border-radius: 2px; width: calc(var(--v) / var(--max) * 100%); background: var(--wt-bar, var(--color-accent)); }
+/* En färg per kolumn: OECD grå, Sverige blå, USA koppar. Kolumnrubriken får
+   en liten ruta i samma färg, så att färgen har en förklaring. */
+.wt-table td:nth-child(2) { --wt-bar: var(--color-text-soft); }
+.wt-table td:nth-child(3) { --wt-bar: var(--color-accent); }
+.wt-table td:nth-child(4) { --wt-bar: var(--color-highlight); }
+.wt-table thead th:nth-child(n+2)::before { content: ""; display: inline-block; width: 0.625rem; height: 0.625rem; margin-right: var(--space-2); border-radius: 2px; background: var(--wt-bar); }
+.wt-table thead th:nth-child(2) { --wt-bar: var(--color-text-soft); }
+.wt-table thead th:nth-child(3) { --wt-bar: var(--color-accent); }
+.wt-table thead th:nth-child(4) { --wt-bar: var(--color-highlight); }
+
+/* Rutan "Across all school stages". */
+.wt-box { margin-top: var(--space-6); padding: var(--space-4) var(--space-5); background: var(--color-bg-alt); border: 1px solid var(--color-border); border-left: 3px solid var(--color-highlight); border-radius: var(--radius-sm); max-width: 46rem; }
+.wt-box__title { margin: 0 0 var(--space-3); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+.wt-box p { margin: 0 0 var(--space-3); }
+.wt-box__line { margin-bottom: 0; color: var(--color-text-soft); font-size: var(--fs-small); }
+
+.wt-facts { margin: var(--space-5) 0 0; padding-left: var(--space-5); display: grid; gap: var(--space-3); max-width: 46rem; }
+.wt-facts strong { font-weight: var(--weight-emphasis); }
+
+/* ───── De tre reglerna ───── */
+.wt-rules { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); max-width: 46rem; counter-reset: wt-rule; }
+.wt-rules li { counter-increment: wt-rule; display: grid; grid-template-columns: 2.5rem 1fr; gap: var(--space-3); align-items: baseline; font-size: 1.125rem; }
+.wt-rules li::before { content: counter(wt-rule); font-size: var(--fs-h2); font-weight: var(--weight-display); color: var(--color-accent); line-height: 1; }
+
+/* ───── Status: Ready / Coming ───── */
+/* Texten bär betydelsen; färg och ram är bara förstärkning. */
+.wt-status { display: inline-block; font-size: var(--fs-caption); font-weight: var(--weight-emphasis); letter-spacing: 0.03em; border: 1px solid; border-radius: var(--radius-sm); padding: 0 var(--space-2); white-space: nowrap; vertical-align: baseline; }
+.wt-status--ready { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-bg); }
+.wt-status--coming { color: var(--color-text-muted); border-color: var(--color-border-strong); border-style: dashed; }
+
+/* ───── De elva uppgifterna ───── */
+/* Smal skärm: varje uppgift är ett block där varje del har en liten rubrik
+   (::before). Bred skärm: en rad per uppgift under en gemensam rubrikrad, och
+   de små rubrikerna göms. */
+.wt-tasks__head { display: none; }
+.wt-tasks { list-style: none; padding: 0; margin: var(--space-5) 0 0; }
+.wt-tasks > li { padding: var(--space-4) 0; border-top: 1px solid var(--color-border-strong); display: grid; gap: var(--space-3); }
+.wt-tasks > li:last-child { border-bottom: 1px solid var(--color-border-strong); }
+.wt-task__name { margin: 0; font-size: var(--fs-body); font-weight: var(--weight-emphasis); line-height: var(--lh-normal); }
+.wt-task__time, .wt-task__now p, .wt-task__new p { margin: 0; }
+.wt-task__now ul { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-1); }
+.wt-task__new { display: grid; gap: var(--space-2); }
+.wt-task__time::before, .wt-task__now::before, .wt-task__new::before, .wt-task__label::before { display: block; margin-bottom: var(--space-1); font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-text-muted); font-weight: var(--weight-emphasis); }
+.wt-task__time::before { content: "Time and stress"; }
+.wt-task__now::before { content: "On Choosewise now"; }
+.wt-task__new::before { content: "New in this package"; }
+.wt-task__label::before { content: "Evidence"; }
+.wt-task__time, .wt-task__now, .wt-task__new, .wt-task__label { font-size: var(--fs-small); }
+
+@media (min-width: 62rem) {
+  .wt-tasks__head,
+  .wt-tasks > li { display: grid; grid-template-columns: 1.15fr 1fr 1.3fr 1.6fr 1.1fr; gap: var(--space-5); }
+  .wt-tasks__head { margin-top: var(--space-5); padding-bottom: var(--space-2); font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-text-muted); font-weight: var(--weight-emphasis); }
+  .wt-tasks { margin-top: 0; }
+  .wt-task__time::before, .wt-task__now::before, .wt-task__new::before, .wt-task__label::before { display: none; }
+  .wt-task__name { font-size: var(--fs-small); line-height: var(--lh-normal); }
+}
+
+/* ───── De fem delarna ───── */
+/* Korten i samma rad är lika höga (grid stretchar dem); länken i första
+   kortet ligger längst ned. */
+.wt-parts { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+.wt-part { display: flex; flex-direction: column; gap: var(--space-2); background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: var(--space-4) var(--space-5); }
+.wt-part p { margin: 0; }
+.wt-part__num { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-text-muted); font-weight: var(--weight-emphasis); }
+.wt-part__name { margin: 0; font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+.wt-part__covers { font-size: var(--fs-small); color: var(--color-text-soft); }
+.wt-part .wt-part__link { margin-top: auto; padding-top: var(--space-3); font-weight: var(--weight-emphasis); }
+
+/* ───── Källor ───── */
+.wt-sources { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-2); max-width: 46rem; font-size: var(--fs-small); }
+.wt-sources a { overflow-wrap: anywhere; }
+
+/* Smal telefon: tätare tabellceller så att tabellen ryms utan att rulla. */
+@media (max-width: 30rem) {
+  .wt-table th, .wt-table td { padding-inline: var(--space-2); }
+  .wt-table thead th { letter-spacing: 0.04em; }
+  .wt-table thead th:nth-child(n+2)::before { display: block; margin: 0 0 var(--space-1); }
+}

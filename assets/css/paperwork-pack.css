@@ -1,0 +1,89 @@
+/* Paperwork Pack (dold sida för Skool-medlemmar). Bygger på thinking-moves.css
+   (tm-) och lägger bara till det som är nytt här (pp-). Färger bara som
+   var(--…), teckenvikter bara 300/400/500 (tokens). */
+
+/* Rubrikerna är längre än de delade 22ch och ska stå på en rad på dator. */
+.pp-page .section__title { max-width: none; }
+
+/* ───── Hero: hopplänkar och exemplet ───── */
+.pp-jump { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-top: var(--space-5); }
+.pp-jump a { font-weight: var(--weight-emphasis); }
+
+.pp-hero-example { margin-top: var(--space-8); max-width: var(--content-max); }
+.pp-hero-example__title { margin: 0 0 var(--space-3); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+
+/* Meddelandet rad för rad: meningen till vänster, vad den gör till höger.
+   Två kolumner på dator, staplat på mobil. */
+.pp-example__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
+.pp-example__row { max-width: none; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--space-2) var(--space-5); padding-bottom: var(--space-3); border-bottom: 1px solid var(--color-border); }
+.pp-example__row:last-child { border-bottom: 0; padding-bottom: 0; }
+.pp-example__text { overflow-wrap: anywhere; }
+.pp-example__job { font-size: var(--fs-small); color: var(--color-text-soft); }
+@media (max-width: 640px) { .pp-example__row { grid-template-columns: minmax(0, 1fr); } }
+
+/* ───── Avsnitten ───── */
+.pp-label { margin: 0 0 var(--space-4); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); max-width: none; }
+.pp-label__note { font-size: var(--fs-small); color: var(--color-text-soft); }
+.pp-prompts__note { margin: 0 0 var(--space-3); max-width: none; font-size: var(--fs-small); color: var(--color-text-soft); }
+.pp-subtitle { margin: var(--space-7) 0 var(--space-3); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+
+/* Mallarna: ett kort per mall, lika höga i samma rad är inte aktuellt eftersom
+   de staplas (varje mall är lång). */
+.pp-templates, .pp-prompts { display: grid; gap: var(--space-6); margin-top: var(--space-5); max-width: var(--content-max); }
+.pp-template { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: var(--space-4) var(--space-5); min-width: 0; }
+.pp-template__title { margin: 0 0 var(--space-2); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+.pp-template__intro { margin: 0 0 var(--space-4); max-width: var(--content-text-max); color: var(--color-text-soft); }
+.pp-template__body { display: grid; gap: var(--space-4); }
+.pp-download { margin: var(--space-3) 0 0; }
+.pp-download a { font-weight: var(--weight-emphasis); }
+
+/* Ett block i en mall: rubrik och text. box: true ger en ruta att fylla i. */
+.pp-block { min-width: 0; }
+.pp-block__heading { margin: 0 0 var(--space-1); font-size: var(--fs-body); font-weight: var(--weight-emphasis); }
+.pp-block p { margin: 0 0 var(--space-2); max-width: var(--content-text-max); overflow-wrap: anywhere; }
+.pp-block--box { border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); padding: var(--space-3) var(--space-4); }
+
+/* Tabellerna: en riktig tabell på dator, och på mobil ett kort per rad där
+   varje ruta har sin kolumnrubrik framför sig, så att ingenting rullar i sidled. */
+.pp-table-wrap { max-width: 100%; }
+.pp-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: var(--fs-small); }
+.pp-table th, .pp-table td { border: 1px solid var(--color-border-strong); padding: var(--space-2) var(--space-3); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.pp-table th { font-weight: var(--weight-emphasis); background: var(--color-bg-alt); }
+.pp-table td { height: 2.75rem; }
+/* Raden om Word-filen under varje tabell: bara på mobil, där tabellen visar en enda rad. */
+.pp-block .pp-table__note { display: none; margin: var(--space-2) 0 0; max-width: none; font-size: var(--fs-small); color: var(--color-text-soft); }
+@media (max-width: 640px) {
+  .pp-block .pp-table__note { display: block; }
+  .pp-table, .pp-table tbody, .pp-table tr, .pp-table td { display: block; width: 100%; }
+  /* Kolumnrubrikerna flyttar in i varje ruta; tabellhuvudet göms för alla utom skärmläsare. */
+  .pp-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .pp-table tr { margin-bottom: var(--space-3); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); }
+  .pp-table td { height: auto; min-height: 2.75rem; border: 0; border-bottom: 1px solid var(--color-border); }
+  .pp-table td:last-child { border-bottom: 0; }
+  .pp-table td::before { content: attr(data-label); display: block; font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); }
+  /* En tom tabell kan inte fyllas i på skärmen: visa en ruta så att man ser vad tabellen frågar efter, göm resten.
+     Alla rader finns kvar i HTML:en och på bredare skärmar. */
+  .pp-table tbody tr + tr { display: none; }
+  .pp-template { padding: var(--space-4); }
+}
+
+/* Prompterna: titel, texten i en ruta och kopieringsknappen. */
+.pp-prompt { border-left: 3px solid var(--color-highlight); padding-left: var(--space-4); min-width: 0; }
+.pp-prompt__title { margin: 0 0 var(--space-2); font-size: var(--fs-body); font-weight: var(--weight-emphasis); }
+.pp-prompt__text { margin: 0; max-width: var(--content-text-max); font-family: var(--font-mono); font-size: var(--fs-small); line-height: var(--lh-normal); overflow-wrap: anywhere; }
+.pp-links { margin: var(--space-5) 0 0; padding-left: var(--space-5); display: grid; gap: var(--space-2); }
+.pp-links li { max-width: none; }
+.pp-country { margin-top: var(--space-5); }
+
+/* ───── Forskningen, varningarna och nästa steg ───── */
+.pp-evidence__item { max-width: var(--content-text-max); margin: var(--space-5) 0 0; }
+.pp-evidence__item strong { font-weight: var(--weight-emphasis); }
+.pp-evidence__item .tm-move__sources { margin-top: var(--space-1); font-size: var(--fs-small); color: var(--color-text-soft); }
+.pp-care__list { padding-left: var(--space-5); margin: 0; display: grid; gap: var(--space-3); max-width: var(--content-text-max); }
+.pp-care__list strong { font-weight: var(--weight-emphasis); }
+.pp-next { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-3); }
+.pp-next li { max-width: none; }
+
+/* Etiketten Choosewise (teckenförklaringen): samma streckade kopparram som i
+   quality-ladder.css, så den inte förväxlas med forskningsetiketterna. */
+.tm-chip--choosewise { color: var(--color-highlight-ink); border-color: var(--color-highlight); border-style: dashed; }

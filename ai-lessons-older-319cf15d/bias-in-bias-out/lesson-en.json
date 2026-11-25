@@ -1,0 +1,348 @@
+{
+  "id": "bias-in-bias-out",
+  "title": "Bias In, Bias Out",
+  "band": "13-15",
+  "number": 3,
+  "line": "Students hire for a summer job, turn their choices into training data, and watch a scoring rule leave out the best applicants for reasons nobody chose.",
+  "minutes": 40,
+  "groups": "Individual, pairs, then the whole class",
+  "ai_use": "none",
+  "prep_minutes": 10,
+  "goals": [
+    "Explain how past choices used as training data can carry a pattern that has nothing to do with the task.",
+    "Show who gains and who loses when an AI system repeats that pattern.",
+    "Suggest changes that make such a system fairer: other features, checks across groups, and a person who reviews the results."
+  ],
+  "key_words": [
+    {
+      "word": "training data",
+      "meaning": "The examples a system learns from. Today: the people the class hired."
+    },
+    {
+      "word": "feature",
+      "meaning": "One piece of information about each example, such as where someone lives."
+    },
+    {
+      "word": "bias",
+      "meaning": "A pattern that treats some groups unfairly. Bias in the data comes out in the results: bias in, bias out."
+    },
+    {
+      "word": "stand-in feature",
+      "meaning": "A feature that carries the same pattern as another one. Where someone lives can say a lot about who they are."
+    }
+  ],
+  "materials": [
+    "Student PDF page 1, round 1 and two closing-question tickets: one per pair",
+    "Page 2, round 2 and who gains, who pays: one per pair",
+    "Scrap paper, and the board"
+  ],
+  "before": [
+    "Print pages 1 and 2 for every pair, and keep page 2 back until step 5.",
+    "Draw an empty tally on the board: Worked before (Yes, No), Reference (Yes, No), Lives in (Northside, Southside), Hobby (Football, Chess, Drama, Gaming).",
+    "Know the answer: if pairs hire the three applicants who have worked before and have a reference (A, B and C), the rule gives the job to J and K, and I and M, the best applicants in round 2, lose."
+  ],
+  "steps": [
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "What should count?",
+      "do": "Each student writes two things on scrap paper that should matter when choosing someone for a summer job at the swimming-pool kiosk."
+    },
+    {
+      "minutes": 2,
+      "mode": "All",
+      "title": "Collect",
+      "do": "Collect answers on the board, for example: experience, being reliable, a good reference, being friendly, being free all summer. Keep the list up."
+    },
+    {
+      "minutes": 4,
+      "mode": "Pairs",
+      "title": "Round 1: you choose",
+      "do": "Hand out page 1. Pairs read the eight applicants, tick three to hire and agree on one reason for each hire. The applicants have letters instead of names on purpose, so nobody guesses anything from a name."
+    },
+    {
+      "minutes": 6,
+      "mode": "All",
+      "title": "The machine's memory",
+      "do": "Ask a few pairs for their reasons and write them on the board. Then count how many of the class's hires had each value: worked before, reference, where they live, hobby. Circle the most common value in each column. This tally is the training data. If the class is split, use the three applicants with the most ticks.",
+      "say": "Now we build a machine that learns from our choices. The machine never sees our reasons. It only gets what the people we hired had in common."
+    },
+    {
+      "minutes": 7,
+      "mode": "Pairs",
+      "title": "Round 2: the machine chooses",
+      "do": "Hand out page 2. Pairs score the six new applicants with the machine's rule: one point for each value the applicant shares with the circled values on the board. The two with the most points get the job."
+    },
+    {
+      "minutes": 8,
+      "mode": "All",
+      "title": "Who did it leave out?",
+      "do": "Ask who got the job (J and K) and who didn't. Applicants I and M had worked before and had a reference, the two things the class said matter, and both lost. Where someone lives and their hobby have nothing to do with the job, but all of round 1's best applicants happened to share them, so the rule copied them. Name it: bias in, bias out. Then tell the real case from the background.",
+      "say": "Nobody in this room chose by neighbourhood. The pattern was in the data, and the rule repeated it."
+    },
+    {
+      "minutes": 7,
+      "mode": "Pairs",
+      "title": "Who gains, who pays?",
+      "do": "On page 2, pairs write one group that gains from the machine, one that loses, and one change they would make: leave out features that have nothing to do with the job, compare the results for Northside and Southside before using it, or let a person look at every no."
+    },
+    {
+      "minutes": 3,
+      "mode": "Individual",
+      "title": "Closing question",
+      "do": "Each student answers the closing question on a ticket from page 1 and hands it in."
+    }
+  ],
+  "gather": [
+    {
+      "question": "Why did I and M lose?",
+      "students_say": [
+        "They live in Southside.",
+        "They don't play football.",
+        "The machine copied what our hires had in common."
+      ]
+    },
+    {
+      "question": "Did we do anything wrong in round 1?",
+      "students_say": [
+        "No, we picked the ones who had worked before.",
+        "Maybe: we didn't notice that they all lived in Northside.",
+        "The data was the problem, not us."
+      ]
+    },
+    {
+      "question": "Who gains and who loses if the kiosk uses the machine?",
+      "students_say": [
+        "The kiosk saves time.",
+        "People from Northside get the jobs.",
+        "People from Southside never get a chance and don't know why."
+      ]
+    },
+    {
+      "question": "How could the makers make it fairer?",
+      "students_say": [
+        "Take out where people live.",
+        "Test it on different groups first.",
+        "Let a person check every no."
+      ]
+    }
+  ],
+  "simpler": "Do round 1 and the tally together on the board, and score round 2 as a class.",
+  "harder": "Take away Lives in and Hobby and add a new column, School, where all of round 1's best applicants went to the same school in Northside. Does the problem come back? That is how one feature can stand in for another. Or let students try the online hiring game that ISTE's original activity uses (see Further reading).",
+  "closing_question": "How can an AI system that learns from past choices end up unfair, even if nobody meant it to be? Use today's job as your example.",
+  "language_swap": "Pages 1 and 2 have English words, but few of them. Write Yes, No, the two neighbourhoods and the four hobbies in your class's language on the board, and read the column headings aloud in your language. Students can write the answers on page 2 and their tickets on page 1 in any language.",
+  "age_note": "Nobody uses AI in this lesson: the machine is a scoring rule that students run on paper.",
+  "background": [
+    "Organisations use AI systems to sort job applications, school places and loan requests. Such a system learns from past choices: which applications were accepted before. If those choices followed a pattern that had nothing to do with the job, the system learns that pattern too, and repeats it for every new applicant.",
+    "A well-known case: in 2018 Reuters reported that Amazon had built an experimental tool to rate job applicants, trained on patterns in CVs sent to the company over ten years. Most came from men, a reflection of the tech industry. The tool penalised CVs that included the word \"women's\", as in \"women's chess club captain\", and downgraded graduates of two all-women's colleges. Amazon disbanded the team. According to people familiar with the project, recruiters looked at the tool's recommendations but never relied on them alone.",
+    "In today's game, where someone lives and their hobby stand in for the history of who was hired before. Removing a feature doesn't always help, because other features can carry the same pattern: in the Amazon case, words in the CV pointed to gender. That is why fairness checks compare results for different groups, and why a person should review results that affect people.",
+    "Use precise words in class: the system scores and sorts applicants by patterns in past choices. The people who build it, choose its data and use its scores are responsible for what happens next."
+  ],
+  "frameworks": {
+    "AILit": "Engage with AI, competence 6 (explain how biased data or design choices can lead AI systems to unfair outcomes for certain groups), and Shape AI, competence 3 (design AI systems with attention to how data sources and selection influence behaviour, when AI is used for choices that affect others), intermediate level",
+    "AI4K12": "Big Idea 3 (Learning) · Big Idea 5 (Societal Impact)"
+  },
+  "tools": [],
+  "credits": [
+    {
+      "text": "Adapted from ISTE, Hands-On AI Projects for the Classroom: A Guide on Ethics and AI (2024), by Nancye Blair Black and Susan Brooks-Young, Project 4 \"AI and the 21st Century Worker\", Activity 4 \"AI Decision-Making\". Licensed under CC BY 4.0. Changes: the online hiring game is replaced by a 40-minute paper game with our own applicants, scoring rule and wording.",
+      "url": "https://iste-ascd.org/ai-lessons"
+    },
+    {
+      "text": "Licence of the original: Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ],
+  "further_reading": [
+    {
+      "title": "Reuters, Jeffrey Dastin (2018): Amazon scraps secret AI recruiting tool that showed bias against women (in The Irish Times)",
+      "url": "https://www.irishtimes.com/business/technology/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-1.3658651"
+    },
+    {
+      "title": "Survival of the Best Fit, the online hiring game used in ISTE's original activity",
+      "url": "https://www.survivalofthebestfit.com/"
+    }
+  ],
+  "student_pdf": {
+    "file": "bias-in-bias-out-student-en.pdf",
+    "pages": [
+      {
+        "title": "Round 1: you choose",
+        "instruction": "Hire three applicants. Tick them.",
+        "blocks": [
+          {
+            "kind": "text",
+            "body": "A summer job at the swimming-pool kiosk. You can hire three people."
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Applicant",
+              "Worked before",
+              "Reference",
+              "Lives in",
+              "Hobby",
+              "Hire?"
+            ],
+            "rows": [
+              [
+                "A",
+                "Yes",
+                "Yes",
+                "Northside",
+                "Football",
+                ""
+              ],
+              [
+                "B",
+                "Yes",
+                "Yes",
+                "Northside",
+                "Football",
+                ""
+              ],
+              [
+                "C",
+                "Yes",
+                "Yes",
+                "Northside",
+                "Football",
+                ""
+              ],
+              [
+                "D",
+                "No",
+                "No",
+                "Southside",
+                "Chess",
+                ""
+              ],
+              [
+                "E",
+                "No",
+                "Yes",
+                "Southside",
+                "Drama",
+                ""
+              ],
+              [
+                "F",
+                "No",
+                "No",
+                "Northside",
+                "Gaming",
+                ""
+              ],
+              [
+                "G",
+                "No",
+                "No",
+                "Southside",
+                "Gaming",
+                ""
+              ],
+              [
+                "H",
+                "No",
+                "No",
+                "Northside",
+                "Drama",
+                ""
+              ]
+            ]
+          },
+          {
+            "kind": "tickets",
+            "question": "How can an AI system that learns from past choices end up unfair, even if nobody meant it to be? Use today's job as your example.",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "title": "Round 2: the machine chooses",
+        "instruction": "One point for each value circled on the board.",
+        "blocks": [
+          {
+            "kind": "table",
+            "columns": [
+              "Applicant",
+              "Worked before",
+              "Reference",
+              "Lives in",
+              "Hobby",
+              "Points"
+            ],
+            "rows": [
+              [
+                "I",
+                "Yes",
+                "Yes",
+                "Southside",
+                "Chess",
+                ""
+              ],
+              [
+                "J",
+                "No",
+                "Yes",
+                "Northside",
+                "Football",
+                ""
+              ],
+              [
+                "K",
+                "Yes",
+                "No",
+                "Northside",
+                "Football",
+                ""
+              ],
+              [
+                "L",
+                "No",
+                "No",
+                "Southside",
+                "Drama",
+                ""
+              ],
+              [
+                "M",
+                "Yes",
+                "Yes",
+                "Southside",
+                "Gaming",
+                ""
+              ],
+              [
+                "N",
+                "No",
+                "No",
+                "Northside",
+                "Football",
+                ""
+              ]
+            ]
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Our answers"
+            ],
+            "rows": [
+              [
+                "Who gains:"
+              ],
+              [
+                "Who loses:"
+              ],
+              [
+                "One change:"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "skool_text": "Lesson 3 for ages 13–15. Students hire three of eight applicants for a summer job, then turn their choices into a scoring rule. In round 2 the rule leaves out the best applicants because of where they live, a pattern nobody chose on purpose. Adapted from ISTE (CC BY 4.0). No devices, 40 minutes.\n\nTeacher guide and student PDF: https://choosewise.education/ai-lessons-older-319cf15d/bias-in-bias-out/"
+}

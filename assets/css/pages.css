@@ -503,3 +503,58 @@ a.card:hover .card__title { color: var(--color-accent); }
 .pack-list__title { color: var(--color-text); text-decoration: none; }
 .pack-list__title:hover { color: var(--color-accent); }
 .pack-list .btn { flex-shrink: 0; }
+
+/* ───── How to use a style (/infographic-styles/ och /sv/infografik-stilar/) ─────
+   Rutan under sidans hero: mallen för innehållsdelen av prompten, inställningarna
+   i Gemini Notebook och åldersgränsen. Den yttre <section> följer sidans
+   bredd, precis som .seo-answer under den. Den inre .style-howto__box är
+   själva rutan, i samma svala ton som sektionsbanden (.section--alt). */
+.style-howto { max-width: var(--content-max); margin-inline: auto; padding-inline: var(--space-5); }
+.style-howto__box { background: var(--color-bg-alt); border-radius: var(--radius-md); padding: var(--space-6); }
+/* Samma rubrikstorlek som frågan "What is an infographics style?" under rutan */
+.style-howto h2 { font-size: var(--fs-h2); margin-bottom: var(--space-5); }
+/* Delrubrikerna (mallen, inställningarna, åldersgränsen) i brödtextens storlek */
+.style-howto h3 { font-size: var(--fs-body); font-weight: var(--weight-emphasis); margin-bottom: var(--space-2); }
+/* Två spalter på dator: mallen får mest plats (3:2, som .free-resource).
+   Under 768 px hamnar allt i en spalt. */
+.style-howto__grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--space-6) var(--space-7); align-items: start; }
+@media (max-width: 768px) {
+  .style-howto__box { padding: var(--space-5); }
+  .style-howto__grid { grid-template-columns: minmax(0, 1fr); }
+}
+/* Mallen i ett kodblock. pre-wrap bryter de långa raderna, annars blir
+   sidan scrollbar i sidled på en telefon. */
+.style-howto pre {
+  margin-block: var(--space-3) var(--space-4);
+  padding: var(--space-4);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  line-height: var(--lh-normal);
+  white-space: pre-wrap;
+}
+/* <code> får annars webbläsarens eget typsnitt och storlek; ärv från <pre> */
+.style-howto code { font: inherit; }
+/* Luckorna [så här] i kopparbläck och rak stil, så att de syns direkt */
+.style-howto em { font-style: normal; color: var(--color-highlight-ink); }
+/* "Copied!" står bredvid knappen i stället för ovanpå den (som .tm-copy-row) */
+.style-howto__copy { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+.style-howto__copy .copy-toast { position: static; transform: scale(0.95); }
+.style-howto__copy .copy-toast--visible { transform: scale(1); }
+/* Ramen längst ner i rutan: mallen för ChatGPT och andra bildmodeller.
+   Papperets ljusa ton och en tunn kant skiljer den från Gemini Notebook ovanför. */
+.style-howto__ram {
+  margin-top: var(--space-6);
+  padding: var(--space-5);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+}
+.style-howto__ram ul { margin-bottom: var(--space-4); }
+@media (max-width: 768px) {
+  .style-howto__ram { padding: var(--space-4); }
+}
+.style-howto ul { padding-left: var(--space-5); margin-bottom: var(--space-5); }
+.style-howto li + li { margin-top: var(--space-1); }

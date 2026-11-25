@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Study Experiment — choosewise.education</title>
+  <meta name="description" content="A free classroom kit for Grades 7–12. Students study two short texts, one by reading it twice and one by testing themselves, and a surprise quiz a week later shows which worked better in their own scores. Students need no AI.">
+  <meta property="og:title" content="The Study Experiment — choosewise.education">
+  <meta property="og:description" content="A free classroom kit for Grades 7–12. Students study two short texts, one by reading it twice and one by testing themselves, and a surprise quiz a week later shows which worked better in their own scores. Students need no AI.">
+  <meta property="og:image" content="https://choosewise.education/assets/images/brand/og/studyexperiment-en.png">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (byggare, etiketter, anteckningar,
+       prefix tm-), och sedan det som är nytt för Study Experiment (prefix se-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/study-experiment.css?v=20261113a">
+<!-- seo:start (build-seo-meta.py) -->
+<link rel="canonical" href="https://choosewise.education/study-experiment/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."}]}</script>
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main class="se-page">
+    <!-- Hero: vad kitet är och de tre löftena. Texten är skriven till
+         läraren, som kör experimentet med sin klass. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/study/">← Study + AI</a>
+      <span class="eyebrow">Free classroom kit · Grades 7–12</span>
+      <h1>The Study Experiment</h1>
+      <p class="lede">Your class studies two short texts, one by reading it twice and one by testing themselves. A week later, a surprise quiz shows which worked better. Students see the answer in their own scores, not in a poster about research.</p>
+      <ul class="tm-promises">
+        <li><strong>Students need no AI.</strong> You can make the texts with AI, or use your textbook.</li>
+        <li><strong>No personal data.</strong> Slips are anonymous, and the results view keeps nothing.</li>
+        <li><strong>Any AI tool.</strong> The prompt works in Copilot, Gemini, ChatGPT and Claude.</li>
+      </ul>
+    </section>
+
+    <!-- Så fungerar det: de två lektionerna i korthet (två rutor bredvid
+         varandra på dator, under varandra på mobil), vad man behöver, vad
+         man gör före start och vad man kan vänta sig. Allt mellan markörerna
+         byggs av scripts/build-study-experiment.py från
+         study-experiment/experiment-en.json — redigera JSON-filen, inte
+         HTML:en, och kör skriptet igen. -->
+    <section class="section section--alt" id="se-how">
+      <div class="container">
+        <h2 class="section__title">How it works</h2>
+<!-- overview:start -->
+<ul class="se-glance"><li class="se-glance__box"><h3 class="se-glance__title"><a href="#se-lesson1">Lesson 1</a></h3><p class="se-glance__time">20 minutes</p><p class="se-glance__text">Every student studies two texts, one by reading it twice and one by testing themselves, and predicts which will be remembered better.</p></li><li class="se-glance__box"><h3 class="se-glance__title"><a href="#se-lesson2">Lesson 2, one week later</a></h3><p class="se-glance__time">25 minutes</p><p class="se-glance__text">A surprise quiz on both texts. The class result goes on the board, and you talk about what it means.</p></li></ul>
+<div class="se-prep">
+  <div class="se-prep__col"><h3 class="se-prep__title">You need</h3><ul class="se-list"><li>Two short texts, Text A and Text B: one copy of each per student</li><li>Blank paper for writing from memory</li><li>Group cards and prediction slips for Lesson 1</li><li>The quiz and score slips for Lesson 2</li><li>A timer</li><li>The results view on this page, or the board</li></ul></div>
+  <div class="se-prep__col"><h3 class="se-prep__title">Before you start</h3><ol class="se-list"><li>Pick a topic area the class has not studied and will not study in the coming week. Lessons on the topic in between would change the result.</li><li>Make the two texts and the quiz with the prompt on this page, or use two textbook passages.</li><li>Read everything, check every fact, and make sure the two texts are about equally long and equally hard. For younger classes, keep them short and plain: if students can write down only a line or two from memory, the experiment shows little.</li><li>Print the texts, the quiz and, from the kit, the group cards and the slips.</li><li>Decide which half of the room is Group 1 and which is Group 2, and write it down.</li></ol></div>
+</div>
+<div class="tm-note se-expect"><h3 class="se-prep__title">What to expect</h3><p>Expect a modest gap. In a class of 25, the class average will most likely favour the text students tested themselves on, by about half a question out of six. About half the students will score higher on that text, about one in five will get the same score on both, and about one in four will do better on the text they read twice. Roughly one class in fourteen sees no gap or the reverse. Many students will predict “about the same”. These numbers are our estimate from the research, not a promise.</p></div>
+<!-- overview:end -->
+      </div>
+    </section>
+
+    <!-- Lektion 1: ingress och numrerade steg, med minuter per steg.
+         Byggs från JSON-filen mellan markörerna. -->
+    <section class="section container" id="se-lesson1">
+      <h2 class="section__title">Lesson 1: study two texts</h2>
+<!-- lesson1:start -->
+<p class="section__lede">About 20 minutes. Every student studies both texts, one in each way. Keep the times exact, so that both ways get the same eight minutes per text.</p>
+<ol class="se-steps" aria-label="Lesson 1, 20 minutes"><li><span class="se-minutes">2 min</span><span class="se-step__text">Tell the class that today you will try two ways of studying. Do not mention a quiz, and do not say which way you expect to work better. Hand out the group cards: Group 1 to one half of the room, Group 2 to the other.</span></li><li><span class="se-minutes">4 min</span><span class="se-step__text">Hand out Text A. Everyone reads it carefully.</span></li><li><span class="se-minutes">4 min</span><span class="se-step__text">Group 1 reads Text A again and makes a mark in the margin each time they reach the end. Group 2 turns Text A over and writes down everything they remember for three minutes, then turns it back and marks what they missed.</span></li><li><span class="se-step__text">Collect Text A and the written sheets.</span></li><li><span class="se-minutes">4 min</span><span class="se-step__text">Hand out Text B. Everyone reads it carefully.</span></li><li><span class="se-minutes">4 min</span><span class="se-step__text">Group 1 turns Text B over and writes down everything they remember for three minutes, then turns it back and marks what they missed. Group 2 reads Text B again and makes a mark each time they reach the end.</span></li><li><span class="se-minutes">2 min</span><span class="se-step__text">Collect everything, so that nobody takes a text home. Before anyone talks about the two ways, hand out the prediction slips. Collect them, sort them into three piles and write down the three numbers.</span></li></ol>
+<!-- lesson1:end -->
+    </section>
+
+    <!-- Lektion 2: stegen, och direkt efter dem diskussionen, de tre
+         förklaringarna, vad man gör om resultatet blir jämnt eller omvänt
+         (id="se-even-result", dit resultatvyn länkar) och vägen utan dator.
+         Allt byggs från JSON-filen. -->
+    <section class="section section--alt" id="se-lesson2">
+      <div class="container">
+        <h2 class="section__title">Lesson 2: the surprise quiz</h2>
+<!-- lesson2:start -->
+<p class="section__lede">One week later, about 25 minutes. Do not warn the class: a quiz they know about turns into homework, and then the experiment no longer compares the two ways.</p>
+<ol class="se-steps" aria-label="Lesson 2, 25 minutes"><li><span class="se-minutes">1 min</span><span class="se-step__text">Tell the class there is a short quiz on last week&#x27;s two texts. It does not count, and nobody will see anyone else&#x27;s score.</span></li><li><span class="se-minutes">8 min</span><span class="se-step__text">Hand out the quiz. No texts and no notes. Q1 to Q6 are on Text A, Q7 to Q12 on Text B.</span></li><li><span class="se-minutes">3 min</span><span class="se-step__text">Read the answers aloud. Students mark their own answers strictly: an answer counts only if it matches the key.</span></li><li><span class="se-minutes">1 min</span><span class="se-step__text">Remind the class which text each student read twice: Group 1 read Text A twice, Group 2 read Text B twice. Anyone unsure can work it out: if you wrote from memory after the first text, you read the second text twice. Hand out the score slips. Students fill them in, fold them and hand them in. Students who missed Lesson 1 take the quiz too, but hand in no slip.</span></li><li><span class="se-minutes">2 min</span><span class="se-step__text">Type the prediction numbers and the scores into the results view on this page, leaving out any slip with the box ticked, and show it on the board. A student can read the slips aloud while you type.</span></li><li><span class="se-minutes">5 min</span><span class="se-step__text">Talk about the result with the questions below.</span></li><li><span class="se-minutes">3 min</span><span class="se-step__text">Explain the three points below, so that every student can make sense of the result, whichever way their own scores went.</span></li><li><span class="se-minutes">2 min</span><span class="se-step__text">End with a plan: every student writes down when and how they will test themselves before their next real test. Close the book, write down what you remember, then check. For more ways to study, point students to Study Moves on choosewise.education.</span></li></ol>
+<!-- lesson2:end -->
+<!-- discussion:start -->
+<div class="se-talk">
+  <h3 class="se-talk__title">Questions for the class</h3>
+  <ol class="se-list"><li>Think back to last week: which text felt easier to study, and what did you predict?</li><li>Which way won for you? Is that what you predicted?</li><li>What happened in the whole class? Why might the way that felt harder have worked better?</li><li>Why might some of you have done better on the text you read twice?</li></ol>
+  <h3 class="se-talk__title">Explain three things</h3>
+  <ol class="se-list"><li>Why reading again feels better. A text you have just read feels familiar, and familiar feels like knowing. Writing from memory is harder, and hard work feels as if learning is going badly. But recognising a text is not the same as recalling it when the text is gone. On a quiz straight after studying, reading twice often wins; a week later, testing yourself usually does.</li><li>Why your own result can go either way. Six questions per text is a small test: one lucky guess or one tricky question can change which way wins for you. The class result is a better guide than any one student&#x27;s, and many studies are a better guide than one class.</li><li>Why it was not just the easier text. Half the class tested themselves on Text A and the other half on Text B. If one text was easier, it helped both ways equally across the class.</li></ol>
+  <div class="se-even-result" id="se-even-result">
+    <h3 class="se-talk__title">If your result is even, or the other way round</h3>
+    <p>One class is not a study. With 25 students, chance plays a big part, and it takes many studies to see the pattern. Ask what might have affected your result: did some students already know the topic, was one text easier, did anyone go over a text at home? Then ask what each way felt like. Across studies in real school classrooms, testing yourself beats reading again when the test comes later, and your class has still felt why reading again is so tempting.</p>
+  </div>
+  <p class="tm-note se-nocomputer">No computer? Ask for hands: who scored higher on the text they tested themselves on, who on the one they read twice, and who got the same? Write the three numbers on the board next to the predictions.</p>
+</div>
+<!-- discussion:end -->
+      </div>
+    </section>
+
+    <!-- Texterna och quizet. Allt sker i webbläsaren: inget sparas och inget
+         skickas någonstans. Logiken finns i assets/js/study-experiment.js,
+         som fyller i prompten medan man skriver. Under byggaren står
+         alternativet utan AI (byggs från JSON-filen). -->
+    <section class="section container" id="se-make">
+      <h2 class="section__title">Make the texts and the quiz</h2>
+      <p class="section__lede">Fill in the form and copy the prompt into your AI tool. You get two short texts of about the same length and difficulty, and a quiz with answers. Read everything and check every fact before you print.</p>
+      <div id="se-builder">
+        <!-- onsubmit="return false" hindrar att Enter i ett fält laddar om sidan:
+             prompten byggs medan man skriver, så formuläret ska aldrig skickas. -->
+        <form class="tm-form" id="se-form" autocomplete="off" onsubmit="return false">
+          <!-- Integritetsraden: samma som i de andra verktygen. Prompten behöver
+               bara ämne, årskurs och område. -->
+          <p class="tm-privacy tm-field--wide"><strong>Do not include student names or student work.</strong> The prompt only needs your subject, grade and topic area.</p>
+          <label class="tm-field">
+            <span class="tm-field__label">Subject</span>
+            <input class="input" id="se-subject" list="se-subjects" maxlength="60" placeholder="e.g. Biology" required>
+            <!-- Samma ämnesförslag som i Study Moves. -->
+            <datalist id="se-subjects">
+              <option value="Art"><option value="Biology"><option value="Chemistry"><option value="Civics">
+              <option value="Economics"><option value="English"><option value="Geography"><option value="History">
+              <option value="Maths"><option value="Modern languages"><option value="Music"><option value="PE and health">
+              <option value="Physics"><option value="Religion and ethics"><option value="Science"><option value="Social studies"><option value="Technology">
+            </datalist>
+          </label>
+          <label class="tm-field">
+            <span class="tm-field__label">Grade</span>
+            <select class="input" id="se-grade">
+              <option value="7">Grade 7</option><option value="8">Grade 8</option><option value="9" selected>Grade 9</option>
+              <option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option>
+            </select>
+          </label>
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">What is the topic area? Pick one the class has not studied yet.</span>
+            <textarea class="input" id="se-topic" rows="3" maxlength="300" placeholder="e.g. How animals survive the winter" required></textarea>
+          </label>
+          <!-- Språket på texterna och quizet. Förvalt engelska; tomt fält
+               ger också engelska (study-experiment.js). -->
+          <label class="tm-field">
+            <span class="tm-field__label">Language of the texts and the quiz</span>
+            <input class="input" id="se-language" value="English" maxlength="40">
+          </label>
+        </form>
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
+          <textarea class="input tm-prompt" id="se-prompt" rows="16" readonly></textarea>
+        </label>
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--primary" id="se-copy" data-copy="" aria-describedby="se-hint" disabled>Copy prompt</button>
+          <!-- Ledtråden står bredvid knappen så att man ser varför den är grå.
+               Den töms av study-experiment.js när prompten är klar. -->
+          <p class="tm-hint" id="se-hint" aria-live="polite">Fill in subject and topic area to see your prompt.</p>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
+      </div>
+<!-- noai:start -->
+<p class="tm-note se-noai">No AI? Pick two passages from a textbook in your subject that the class has not read, about the same length and about equally hard. Write six short questions for each, with answers that are a word, a number or a short phrase from the passage.</p>
+<!-- noai:end -->
+    </section>
+
+    <!-- Resultatvyn. Läraren skriver in förutsägelserna och poängen från
+         lapparna efter lektion 2, och sammanfattningen och diagrammet
+         uppdateras medan man skriver. Inget sparas och inget skickas: laddar
+         man om sidan är den tom. Logiken finns i assets/js/study-experiment.js;
+         här finns bara fälten och de tomma ytorna den fyller. -->
+    <section class="section section--alt" id="se-results">
+      <div class="container">
+        <h2 class="section__title">Your class's result</h2>
+        <p class="section__lede">After Lesson 2, type in what the class predicted and the scores from the slips. The result updates as you type. Nothing is saved or sent anywhere.</p>
+        <form class="se-form" id="se-results-form" autocomplete="off" onsubmit="return false">
+          <label class="tm-field se-field--narrow">
+            <span class="tm-field__label">Questions per text</span>
+            <input class="input" type="number" id="se-max" min="1" max="20" value="6" inputmode="numeric">
+          </label>
+          <!-- Förutsägelserna från lektion 1: hur många som tippade vad.
+               Valfria — tomma fält räknas som noll. -->
+          <fieldset class="se-preds">
+            <legend class="tm-field__label">What students predicted in Lesson 1, number of slips (optional)</legend>
+            <label class="tm-field">
+              <span class="tm-field__label">Predicted: the text read twice</span>
+              <input class="input" type="number" id="se-pred-twice" min="0" inputmode="numeric">
+            </label>
+            <label class="tm-field">
+              <span class="tm-field__label">Predicted: the text tested</span>
+              <input class="input" type="number" id="se-pred-tested" min="0" inputmode="numeric">
+            </label>
+            <label class="tm-field">
+              <span class="tm-field__label">Predicted: about the same</span>
+              <input class="input" type="number" id="se-pred-same" min="0" inputmode="numeric">
+            </label>
+          </fieldset>
+          <!-- En rad per lapp: först poängen för texten som lästes två gånger,
+               sedan för texten man testade sig på. -->
+          <label class="tm-field">
+            <span class="tm-field__label">Scores, one slip per line: the text read twice, then the text tested (for example 3 5)</span>
+            <textarea class="input se-scores" id="se-scores" rows="8" placeholder="3 5&#10;4 4&#10;2 6"></textarea>
+          </label>
+        </form>
+        <!-- Ytorna som study-experiment.js fyller. Felmeddelandena läses upp av
+             skärmläsare (aria-live). Noten visas bara när resultatet är jämnt
+             eller omvänt och länkar till rådet i lektion 2. -->
+        <div class="se-output">
+          <p class="se-errors" id="se-errors" aria-live="polite"></p>
+          <div class="se-summary" id="se-summary"></div>
+          <div class="se-chart" id="se-chart"></div>
+          <p class="tm-note" id="se-even" hidden>Your class's result is even or reversed. See <a href="#se-even-result">If your result is even, or the other way round</a> in Lesson 2.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forskningen bakom upplägget. Varje stycke och dess källor byggs från
+         JSON-filen; källorna är länkar så att läraren kan kontrollera dem. -->
+    <section class="section container" id="se-evidence">
+      <h2 class="section__title">What the research says</h2>
+<!-- evidence:start -->
+<p class="se-evidence">In the classic experiment, university students read a short text and then either read it again or wrote down what they remembered. Five minutes later, reading again had done slightly better. A week later, testing yourself had done clearly better: 56% of the text remembered against 42%. Students who had only reread also expected to remember more. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1111/j.1467-9280.2006.01693.x">Roediger &amp; Karpicke 2006, Psychological Science</a></span></p>
+<p class="se-evidence">In a 2026 review of studies in real school classrooms, with students aged 6 to 18, testing yourself beat reading again, with smaller effects than in lab studies (Ruitenburg et al. 2026). Quizzes followed by checking the answers helped more than quizzes alone (Yang et al. 2021). In lab studies without a check, writing from memory helped little when people recalled less than half of what they had read (Rowland 2014). That is why the testing group checks its writing against the text. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1007/s10648-026-10225-5">Ruitenburg et al. 2026, Educational Psychology Review</a>, <a href="https://doi.org/10.1037/bul0000309">Yang et al. 2021, Psychological Bulletin</a>, <a href="https://doi.org/10.1037/a0037559">Rowland 2014, Psychological Bulletin</a></span></p>
+<p class="se-evidence">The Study Experiment is a Grades 7–12 version of a demonstration used with university classes: one text studied twice, one studied and then tested, and short-answer quizzes a week later. The students found the usual testing effect in their own results. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1177/0098628312450432">Einstein, Mullet &amp; Harrison 2012, Teaching of Psychology</a></span></p>
+<p class="se-evidence">Doing both ways is not enough to change what students believe. Seeing their own scores for each way helps, but mainly for students whose scores show the effect. Students whose scores do not show it change their minds when they also get an explanation. That is why Lesson 2 has both. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.3758/s13421-012-0274-5">Tullis, Finley &amp; Benjamin 2013, Memory &amp; Cognition</a>, <a href="https://doi.org/10.1007/s10648-021-09604-x">Hui et al. 2021, Educational Psychology Review</a>, <a href="https://doi.org/10.3390/jintelligence11070147">Rivers 2023, Journal of Intelligence</a></span></p>
+<p class="se-evidence">Effort is easy to misread: students who found a way of studying harder judged it less effective and were less likely to choose it again. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1016/j.cogpsych.2019.101237">Kirk-Johnson, Galla &amp; Fraundorf 2019, Cognitive Psychology</a></span></p>
+<p class="se-evidence">What this experiment can do is show students the effect in their own scores and shift what they believe. No study has yet shown that a demonstration like this changes how teenagers study at home. In a lab study, university students who were told why testing yourself works and shown how to do it used it on their own a week later (Ariel &amp; Karpicke 2018). Researchers also argue that lasting change needs a commitment and a plan (McDaniel &amp; Einstein 2020), so the lesson ends with one. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1037/xap0000133">Ariel &amp; Karpicke 2018, Journal of Experimental Psychology: Applied</a>, <a href="https://doi.org/10.1177/1745691620920723">McDaniel &amp; Einstein 2020, Perspectives on Psychological Science</a></span></p>
+<!-- evidence:end -->
+    </section>
+
+    <!-- AI-verktyg och åldersgränser. Global regel för allt AI-innehåll på
+         sajten: åldersgränser och läsarens eget ansvar för nationella regler.
+         Ingressen med datumet och reglerna byggs från JSON-filen; noten
+         under är statisk text, samma som i Study Moves. -->
+    <section class="section section--alt" id="se-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age rules</h2>
+<!-- age:start -->
+<p class="section__lede">Students do not use AI in this experiment. If you use AI to make the material, these rules apply (November 2026):</p>
+<ul class="tm-age"><li><strong>Copilot Chat:</strong> Students aged 13 and over, through the school&#x27;s own Microsoft 365 Education account. The school&#x27;s administrator must set each student&#x27;s age group; under-13 accounts get no access.</li><li><strong>Gemini for Education:</strong> Open to education users of all ages, with stricter content rules and some features switched off for under-18s. The school&#x27;s administrator must turn it on for students under 18.</li><li><strong>ChatGPT:</strong> Ages 13 and over (or the minimum age in your country) on personal accounts, with a parent&#x27;s or guardian&#x27;s permission under 18. Users under 18 are placed in ChatGPT for Teens. ChatGPT for Teachers is for verified U.S. K–12 school staff, not students.</li><li><strong>Claude:</strong> Ages 18 and over. Claude for Teachers is for verified U.S. K–12 teachers, not students.</li></ul>
+<!-- age:end -->
+        <p class="tm-note">Rules differ between countries and change often. Check your own national rules and your school policy before students use any AI tool.</p>
+      </div>
+    </section>
+
+    <!-- Lärarkitet som PDF. Fri nedladdning, ingen e-postgrind. PDF:en
+         byggs separat; länken till nästa steg leder till Study Moves, där
+         eleverna kan fortsätta att testa sig själva. -->
+    <section class="section container" id="se-download">
+      <h2 class="section__title">The kit</h2>
+      <p class="section__lede">Everything to print: a short overview, the two lesson scripts, the group cards, the prediction and score slips, and a fill-in prompt for when you are offline. Free to print and share.</p>
+      <a class="btn btn--primary" href="/assets/pdfs/free/study-experiment-kit-en.pdf" download>Download the teacher kit (PDF)</a>
+      <p class="se-next">Next, give students a way to keep doing it: <a href="/study-moves/#test-yourself">Test yourself in Study Moves</a>.</p>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknappen (data-copy), promptbyggaren och resultatvyn. -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+  <script src="/assets/js/study-experiment.js" defer></script>
+</body>
+</html>

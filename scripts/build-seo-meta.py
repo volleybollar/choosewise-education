@@ -62,8 +62,38 @@ HIDDEN_PATHS = {
     "/unit-studio-541ebd12/",
     # Pedagogy Compass: bara för Skool-medlemmar via en dold länk (Johans beslut 2026-10-30).
     "/pedagogy-compass-59ecb8db/",
+    # Homework Upgrade: bara för Skool-medlemmar via en dold länk (Johans beslut 2026-11-14).
+    "/homework-upgrade-1f0cd17c/",
+    # Quality Ladder: bara för Skool-medlemmar via en dold länk (Johans beslut 2026-11-14).
+    "/quality-ladder-ec1c2f8c/",
+    # Paperwork Pack: bara för Skool-medlemmar via en dold länk (beslut 2026-11-23).
+    "/paperwork-pack-f388fd9f/",
+    # What teachers do: översikten, bara för Skool-medlemmar via en dold länk (Johans beslut 2026-11-14).
+    "/what-teachers-do-354716b7/",
     # Community: dold tills Skool öppnar för alla (Johans beslut 2026-11-11).
     "/community/",
+    # AI-lektioner för elever: bara för Skool-medlemmar via dolda länkar (Johans beslut 2026-11-11).
+    "/ai-lessons-younger-3c514a93/",
+    "/ai-lessons-younger-3c514a93/word-guessing-machine/",
+    "/ai-lessons-younger-3c514a93/who-decides/",
+    "/ai-lessons-younger-3c514a93/ai-or-human/",
+    "/ai-lessons-younger-3c514a93/who-does-it-fail/",
+    "/ai-lessons-younger-3c514a93/learning-from-examples/",
+    "/ai-lessons-younger-3c514a93/ai-or-not/",
+    "/ai-lessons-older-319cf15d/",
+    "/ai-lessons-older-319cf15d/why-chatbots-feel-human/",
+    "/ai-lessons-older-319cf15d/confident-and-wrong/",
+    "/ai-lessons-older-319cf15d/bias-in-bias-out/",
+    "/ai-lessons-older-319cf15d/ai-or-human/",
+    "/ai-lessons-older-319cf15d/my-data-trail/",
+    "/ai-lessons-older-319cf15d/does-ai-help-me-learn/",
+    "/ai-lessons-older-319cf15d/check-it/",
+    "/ai-lessons-older-319cf15d/using-ai-well/",
+    "/ai-lessons-older-319cf15d/who-made-this/",
+    "/ai-lessons-older-319cf15d/who-decides-about-ai/",
+    "/ai-lessons-younger-3c514a93/made-by-people/",
+    "/ai-lessons-younger-3c514a93/guess-my-rule/",
+    "/ai-lessons-younger-3c514a93/teach-the-robot/",
 }
 
 # -- Pair map: EN canonical-path -> SV canonical-path

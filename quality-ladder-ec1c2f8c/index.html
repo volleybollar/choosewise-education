@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quality Ladder — Choosewise</title>
+  <meta name="description" content="For Choosewise members. Get three made-up answers to your task at three levels from any AI tool, have students rank them against your criteria and lift their own answer one level, and give whole-class feedback instead of thirty comments.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (prefix tm-), och sedan det som är
+       nytt för Quality Ladder (prefix ql-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/quality-ladder.css?v=20261114a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten. -->
+<!-- seo:start (build-seo-meta.py) -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <!-- class="ql-page" gör att sektionsrubrikerna får vara längre än de delade
+       22 tecknen (se quality-ladder.css). -->
+  <main class="ql-page">
+    <!-- Hero: vad verktyget är, länken tillbaka till översikten och ett färdigt
+         exempel. Exemplet visas före byggaren med flit: en lärare som tvekar
+         ska se vad hen får innan hen skriver in något. Nivåerna (svagast,
+         mellan, starkast) står bara i lärarnyckeln, aldrig bland elevsvaren. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/what-teachers-do-354716b7/">← What teachers do</a>
+      <span class="eyebrow">For Choosewise members · All school stages</span>
+      <h1>Quality Ladder</h1>
+      <p class="lede">Describe quality once, for the whole class. Your AI tool writes three made-up answers to your task at three levels. Students write their own first, rank the three against your criteria, and lift their own answer one level. No grading, and no student work in the AI.</p>
+      <div class="ql-hero-example">
+        <h2 class="ql-hero-example__title">What a ladder looks like</h2>
+        <!-- Exemplet byggs av scripts/build-quality-ladder.py från exemplet i
+             quality-ladder-ec1c2f8c/ladder-en.json. Redigera JSON-filen, inte
+             rutan, och kör skriptet igen. -->
+<!-- hero-example:start -->
+<div class="tm-example ql-example"><h3 class="tm-example__subject">History <span>· Grade 8</span></h3><dl><dt>The task</dt><dd>Why did the Industrial Revolution begin in Britain? Explain with at least two reasons.</dd><dt>Criteria</dt><dd><ol class="ql-example__list"><li>Gives reasons</li><li>Links each reason to an effect</li><li>Uses evidence</li></ol></dd></dl><h4 class="ql-example__heading">What students get: three samples</h4><div class="ql-samples"><article class="ql-sample"><p class="ql-sample__title">Sample A</p><p class="ql-sample__text">One reason is that Britain had a lot of coal. Coal could power steam engines, so factories no longer had to be built next to fast rivers to drive their machines. Another reason is that Britain had colonies. The colonies were very important for trade. Together these two things meant that Britain was ready to change how goods were made before other countries.</p></article><article class="ql-sample"><p class="ql-sample__title">Sample B</p><p class="ql-sample__text">Britain had lots of coal and iron. It also had factories, steam engines and canals. There were many inventors, like James Watt. Britain had colonies all over the world and a big navy, and it had banks too. All of these things are why the Industrial Revolution started in Britain and not in other countries, because Britain had more of them than anywhere else.</p></article><article class="ql-sample"><p class="ql-sample__title">Sample C</p><p class="ql-sample__text">Britain had three advantages. First, it had large coalfields, and coal powered steam engines: Newcomen&#x27;s engine (1712) was first used to pump water out of coal mines. Second, trade with its colonies brought in raw cotton, so cotton makers wanted faster spinning machines, like Arkwright&#x27;s water frame (1769). Third, a growing population gave factories both workers and customers. Together, these made Britain the first to industrialise.</p></article></div><aside class="ql-key" aria-label="Teacher key"><h4 class="ql-example__heading">Teacher key · not for students</h4><ul class="ql-key__list"><li><p class="ql-key__head"><strong>Sample A</strong> <span class="ql-key__level">Middle</span></p><p>Gives two reasons and links coal to an effect. The colonies are only named, and there is no fact or date as evidence.</p><p><strong>One level up:</strong> Say what the colonies did for industry, and back each link with a fact from the chapter.</p></li><li><p class="ql-key__head"><strong>Sample B</strong> <span class="ql-key__level">Weakest</span></p><p>Lists many causes but links none of them to an effect, so it never explains why. This is the common mistake.</p><p><strong>One level up:</strong> Pick two causes and say what each one made possible.</p></li><li><p class="ql-key__head"><strong>Sample C</strong> <span class="ql-key__level">Strongest</span></p><p>Three reasons, each linked to an effect, two backed by a fact and a date, and a short conclusion.</p><p><strong>One level up:</strong> Back the third reason with a fact too, and say which reason mattered most, and why.</p></li></ul></aside></div>
+<!-- hero-example:end -->
+      </div>
+    </section>
+
+    <!-- Så fungerar det: tre steg. Texten är statisk. -->
+    <section class="section section--alt" id="ql-how">
+      <div class="container">
+        <h2 class="section__title">How it works</h2>
+        <ol class="tm-steps">
+          <li>Enter the task and your criteria. Copy the prompt into your AI tool, and read the three samples before the lesson: check the facts and that the levels differ in what they do, not in length. Now and then change the order before you hand them out, so that A is not always the same level.</li>
+          <li>In class, students write their own answer first, then rank Samples A, B and C and explain the differences with the criteria. Then you reveal the levels.</li>
+          <li>Students lift their own answer one level. You give whole-class feedback instead of thirty separate comments.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Promptbyggaren. Allt sker i webbläsaren: inget sparas och inget
+         skickas någonstans. Logiken (prompten som byggs medan man skriver)
+         finns i assets/js/quality-ladder.js. Här finns bara formuläret. -->
+    <section class="section" id="ql-builder">
+      <div class="container">
+        <h2 class="section__title">Build your prompt</h2>
+        <p class="tm-privacy"><strong>Do not include student names or student work.</strong> The prompt only needs your task, criteria, subject and grade.</p>
+        <!-- onsubmit="return false" hindrar att Enter i ett fält laddar om sidan:
+             prompten byggs medan man skriver, så formuläret ska aldrig skickas. -->
+        <form class="tm-form" id="ql-builder-form" autocomplete="off" onsubmit="return false">
+          <label class="tm-field">
+            <span class="tm-field__label">Subject</span>
+            <input class="input" id="ql-subject" list="ql-subjects" maxlength="60" placeholder="e.g. History" required>
+            <!-- Samma ämnesförslag som i Lesson Lens. -->
+            <datalist id="ql-subjects">
+              <option value="Art"><option value="Biology"><option value="Chemistry"><option value="Civics">
+              <option value="Economics"><option value="English"><option value="Geography"><option value="History">
+              <option value="Maths"><option value="Modern languages"><option value="Music"><option value="PE and health">
+              <option value="Physics"><option value="Religion and ethics"><option value="Science"><option value="Social studies"><option value="Technology">
+            </datalist>
+          </label>
+          <!-- Årskurs 1 till 12. Åttan är förvald, som i exemplet. -->
+          <label class="tm-field">
+            <span class="tm-field__label">Grade</span>
+            <select class="input" id="ql-grade">
+              <option value="1">Grade 1</option><option value="2">Grade 2</option><option value="3">Grade 3</option>
+              <option value="4">Grade 4</option><option value="5">Grade 5</option><option value="6">Grade 6</option>
+              <option value="7">Grade 7</option><option value="8" selected>Grade 8</option><option value="9">Grade 9</option>
+              <option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option>
+            </select>
+          </label>
+          <!-- Uppgiften. Gränsen 2000 tecken räcker för en hel uppgift med underfrågor. -->
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">The task as students get it</span>
+            <textarea class="input" id="ql-task" rows="4" maxlength="2000" placeholder="Why did the Industrial Revolution begin in Britain? Explain with at least two reasons." required></textarea>
+          </label>
+          <!-- Kriterierna, ett per rad (&#10; i platshållaren är en radbrytning).
+               Tomt fält är tillåtet: då låter prompten AI-verktyget föreslå kriterier. -->
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">Criteria (optional)</span>
+            <span class="tm-field__note">One per line. Three to five work best. Leave it empty and the AI suggests criteria.</span>
+            <textarea class="input" id="ql-criteria" rows="4" maxlength="800" placeholder="Gives reasons&#10;Links each reason to an effect&#10;Uses evidence"></textarea>
+          </label>
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">A common mistake in this task (optional)</span>
+            <input class="input" id="ql-mistake" maxlength="200" placeholder="e.g. lists causes without saying what each one led to">
+          </label>
+          <!-- Hur långt ett starkt svar är. "One paragraph" är förvalt. -->
+          <label class="tm-field">
+            <span class="tm-field__label">Length of a strong answer</span>
+            <select class="input" id="ql-length">
+              <option value="A few sentences">A few sentences</option>
+              <option value="One paragraph" selected>One paragraph</option>
+              <option value="Several paragraphs">Several paragraphs</option>
+              <option value="About a page">About a page</option>
+            </select>
+          </label>
+          <!-- Språket på elevsvaren. Förvalt engelska; tomt fält räknas också som engelska. -->
+          <label class="tm-field">
+            <span class="tm-field__label">Language of the samples</span>
+            <input class="input" id="ql-language" value="English" maxlength="40">
+          </label>
+          <!-- Kryssrutan är förbockad: ett andra starkt svar visar att det finns
+               mer än ett sätt att göra uppgiften bra. -->
+          <label class="tm-field tm-field--wide ql-check">
+            <input type="checkbox" id="ql-second" checked>
+            <span class="tm-field__label">Add a second strong answer that solves the task differently</span>
+          </label>
+        </form>
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
+          <textarea class="input tm-prompt" id="ql-prompt" rows="14" readonly></textarea>
+        </label>
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--primary" id="ql-copy" data-copy="" aria-describedby="ql-hint" disabled>Copy prompt</button>
+          <!-- Ledtråden står bredvid knappen så att man ser varför den är grå.
+               Den töms av quality-ladder.js när prompten är klar. -->
+          <p class="tm-hint" id="ql-hint" aria-live="polite">Fill in subject and the task to see your prompt.</p>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lektionen: sex steg för eleverna. Stegen, Åk 1-3-noten, tidsuppskattningen,
+         kopieringsknappen och nedladdningen byggs från JSON-filen (routine). -->
+    <section class="section section--alt" id="ql-lesson">
+      <div class="container">
+        <h2 class="section__title">The lesson, step by step</h2>
+<!-- routine:start -->
+<ol class="ql-list"><li>Write your own answer to the task first, before you see any samples. Use books and notes if the task allows.</li><li>Read Samples A, B and C. On your own, rank them from strongest to weakest.</li><li>With a partner, explain your ranking using the criteria: what does the strongest one do that the others do not?</li><li>Your teacher reveals the levels, shows a second strong answer that does the task in a different way (when there is one), and leads a short discussion with three questions.</li><li>Decide which sample your own answer is closest to, and why.</li><li>Make the one change that would lift your answer one level, and write your new version.</li></ol>
+<p class="ql-prose">For the teacher, Grades 1–3: read the samples aloud and rank them together. Students say or draw what makes the best one better, then improve their own answer with your help.</p>
+<p class="ql-prose ql-time">About 25 minutes of one lesson (our estimate).</p>
+<div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="The lesson, step by step
+
+1. Write your own answer to the task first, before you see any samples. Use books and notes if the task allows.
+2. Read Samples A, B and C. On your own, rank them from strongest to weakest.
+3. With a partner, explain your ranking using the criteria: what does the strongest one do that the others do not?
+4. Your teacher reveals the levels, shows a second strong answer that does the task in a different way (when there is one), and leads a short discussion with three questions.
+5. Decide which sample your own answer is closest to, and why.
+6. Make the one change that would lift your answer one level, and write your new version.
+
+For the teacher, Grades 1–3: read the samples aloud and rank them together. Students say or draw what makes the best one better, then improve their own answer with your help.
+
+My answer is closest to Sample ___ because …
+The one change I will make: …
+My new version: …">Copy text</button><span class="copy-toast" role="status">Copied</span></div>
+<p class="ql-download"><a href="quality-ladder-routine.docx" download>Student sheet (.docx)</a></p>
+<!-- routine:end -->
+      </div>
+    </section>
+
+    <!-- Återkoppling till hela klassen: en mall i stället för trettio kommentarer.
+         Innehållet byggs från JSON-filen (whole_class). Namn på elever skrivs
+         på papper eller i dokumentet, aldrig i ett AI-verktyg. -->
+    <section class="section" id="ql-feedback">
+      <div class="container">
+        <h2 class="section__title">Whole-class feedback</h2>
+        <!-- Etiketten Framework: en användbar struktur, inte ett testat resultat (spec B6). -->
+        <p class="ql-label"><span class="tm-chip tm-chip--framework">Framework</span></p>
+<!-- whole-class:start -->
+<p class="section__lede">Read the answers once, make notes on this template as you go, and give the class one round of feedback instead of thirty separate comments.</p>
+<dl class="ql-template"><div class="ql-template__row"><dt>Task and date</dt><dd>Which task the feedback is about, and which Quality Ladder samples it refers to.</dd></div><div class="ql-template__row"><dt>What many did well</dt><dd>Two or three things to keep doing, each with a short example in your own words.</dd></div><div class="ql-template__row"><dt>Misunderstandings to reteach</dt><dd>Ideas many students got wrong. These need teaching again, not a correction in the margin.</dd></div><div class="ql-template__row"><dt>Careless mistakes</dt><dd>Slips students can fix themselves once they know where to look. Keep them apart from misunderstandings.</dd></div><div class="ql-template__row"><dt>One thing everyone does next</dt><dd>A single task every student does in the next lesson, with time set aside to do it.</dd></div><div class="ql-template__row"><dt>Students to talk to</dt><dd>Who needs a word with you. Write names on paper or in this document, never in an AI tool.</dd></div></dl>
+<p class="ql-prose">Start the next lesson with the feedback, then give students time to act on it: redo a part, fix the misunderstanding or lift their answer one level.</p>
+<div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="Whole-class feedback
+
+Read the answers once, make notes on this template as you go, and give the class one round of feedback instead of thirty separate comments.
+
+Task and date
+Which task the feedback is about, and which Quality Ladder samples it refers to.
+
+What many did well
+Two or three things to keep doing, each with a short example in your own words.
+
+Misunderstandings to reteach
+Ideas many students got wrong. These need teaching again, not a correction in the margin.
+
+Careless mistakes
+Slips students can fix themselves once they know where to look. Keep them apart from misunderstandings.
+
+One thing everyone does next
+A single task every student does in the next lesson, with time set aside to do it.
+
+Students to talk to
+Who needs a word with you. Write names on paper or in this document, never in an AI tool.
+
+Start the next lesson with the feedback, then give students time to act on it: redo a part, fix the misunderstanding or lift their answer one level.">Copy template</button><span class="copy-toast" role="status">Copied</span></div>
+<p class="ql-download"><a href="whole-class-feedback.docx" download>Whole-class feedback template (.docx)</a></p>
+<!-- whole-class:end -->
+      </div>
+    </section>
+
+    <!-- En sida som policy för arbetslaget eller skolan. Byggs från JSON-filen (policy). -->
+    <section class="section section--alt" id="ql-policy">
+      <div class="container">
+        <h2 class="section__title">A one-page feedback policy</h2>
+        <!-- Samma etikett som mallen: Framework. -->
+        <p class="ql-label"><span class="tm-chip tm-chip--framework">Framework</span></p>
+<!-- policy:start -->
+<p class="section__lede">Feedback policy for [School], agreed by [Team] on [Date]. Change it to fit your school, and keep it to one page.</p>
+<ol class="ql-list ql-principles"><li><strong>Feedback is for the student&#x27;s next step.</strong> Feedback exists to move learning forward. The amount of feedback is not the same as its quality. <span class="ql-principle__source">DfE 2016</span></li><li><strong>Teachers choose the method and how often.</strong> Written, verbal and whole-class feedback all count. The teacher decides what fits the task; this policy sets no frequency. <span class="ql-principle__source">EEF 2021</span></li><li><strong>No marking for show.</strong> No acknowledgement marking and no deep-marking trails in different colour pens. <span class="ql-principle__source">DfE 2016; Elliott et al. 2016</span></li><li><strong>Students act on feedback.</strong> Feedback is followed by time in a lesson to use it. <span class="ql-principle__source">Elliott et al. 2016</span></li><li><strong>Not a grade on every piece.</strong> Not every piece of work gets a grade, so that students read the comments. <span class="ql-principle__source">Elliott et al. 2016</span></li><li><strong>Students judge quality too.</strong> Students regularly compare work with the criteria, both their own and samples, before the teacher gives feedback. <span class="ql-principle__source">Sanchez et al. 2017</span></li><li><strong>AI drafts, it does not judge.</strong> AI may draft samples, templates and wording. It never sees student work or names, and it never grades. <span class="ql-principle__source">Choosewise</span></li><li><strong>Review.</strong> [Team] reviews this policy on [Review date].</li></ol>
+<div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="Feedback policy for [School], agreed by [Team] on [Date]. Change it to fit your school, and keep it to one page.
+
+1. Feedback is for the student&#x27;s next step: Feedback exists to move learning forward. The amount of feedback is not the same as its quality. (DfE 2016)
+2. Teachers choose the method and how often: Written, verbal and whole-class feedback all count. The teacher decides what fits the task; this policy sets no frequency. (EEF 2021)
+3. No marking for show: No acknowledgement marking and no deep-marking trails in different colour pens. (DfE 2016; Elliott et al. 2016)
+4. Students act on feedback: Feedback is followed by time in a lesson to use it. (Elliott et al. 2016)
+5. Not a grade on every piece: Not every piece of work gets a grade, so that students read the comments. (Elliott et al. 2016)
+6. Students judge quality too: Students regularly compare work with the criteria, both their own and samples, before the teacher gives feedback. (Sanchez et al. 2017)
+7. AI drafts, it does not judge: AI may draft samples, templates and wording. It never sees student work or names, and it never grades. (Choosewise)
+8. Review: [Team] reviews this policy on [Review date].">Copy policy</button><span class="copy-toast" role="status">Copied</span></div>
+<p class="ql-download"><a href="feedback-policy.docx" download>Feedback policy (.docx)</a></p>
+<!-- policy:end -->
+      </div>
+    </section>
+
+    <!-- Använd samma tre svar tillsammans med kollegor för att enas om nivåer.
+         Stycket byggs från JSON-filen (colleagues). -->
+    <section class="section" id="ql-colleagues">
+      <div class="container">
+        <h2 class="section__title">Use the same samples with colleagues</h2>
+<!-- colleagues:start -->
+<p class="ql-prose">Bring one set of three samples to a department meeting. Each teacher places a few real answers next to them (weaker, similar or stronger), then you compare where you put them and why. In a writing study, rating texts against benchmark texts at different levels gave scores that agreed closely with comparative judgement, another careful method, although ratings bunched in the middle (Bouwer et al. 2023). One meeting can give the team a shared picture of what a strong answer looks like.</p>
+<!-- colleagues:end -->
+      </div>
+    </section>
+
+    <!-- Forskningen bakom upplägget. Ingressen är statisk; teckenförklaringen och
+         de sex punkterna med källlänkar byggs från JSON-filen (evidence och labels). -->
+    <section class="section section--alt" id="ql-evidence">
+      <div class="container">
+        <h2 class="section__title">What the research says</h2>
+        <p class="section__lede">Students judging work against criteria is well supported in school. Samples written by AI at three levels have not been tested yet.</p>
+        <!-- Helhetsbedömningen av Quality Ladder (spec B7). Statisk text, utanför markörerna. -->
+        <p class="ql-prose"><strong>Quality Ladder as a whole: Promising, with a Strong core.</strong></p>
+<!-- evidence:start -->
+<ul class="tm-legend"><li><span class="tm-chip tm-chip--strong">Strong</span> Meta-analyses of classroom studies show that working this way improves learning.</li><li><span class="tm-chip tm-chip--promising">Promising</span> Controlled studies show gains, but results are mixed, small in number or dependent on context.</li><li><span class="tm-chip tm-chip--framework">Framework</span> A useful structure. The method itself has not been tested in intervention studies.</li><li><span class="tm-chip tm-chip--choosewise">Choosewise</span> Our own rule, not a research finding.</li></ul>
+<p class="ql-evidence__item"><span class="tm-chip tm-chip--strong">Strong</span> <strong>Judging work against criteria helps students learn.</strong> Students in Grades 3–12 who assessed their own or each other&#x27;s work did better on later tests, self-assessment slightly more than peer assessment (0.34 and 0.29; Sanchez et al. 2017). Across 54 control-group studies from primary school to university, peer assessment helped performance (0.31 overall, and 0.28 compared with teacher assessment alone; Double et al. 2020). In writing in Grades 1–8, feedback from adults helped most (0.87), then feedback from students themselves (0.62) and from peers (0.58), while teachers only monitoring progress did not help (Graham et al. 2015). It works best with criteria and some training. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1037/edu0000190">Sanchez et al. 2017, Journal of Educational Psychology</a>, <a href="https://doi.org/10.1007/s10648-019-09510-3">Double, McGrane &amp; Hopfenbeck 2020, Educational Psychology Review</a>, <a href="https://doi.org/10.1086/681947">Graham, Hebert &amp; Harris 2015, The Elementary School Journal</a></span></p>
+<p class="ql-evidence__item"><span class="tm-chip tm-chip--strong">Strong</span> <strong>Clear criteria help, when they are about substance.</strong> Rubrics improved academic performance across 21 studies in school and university (0.45 after correcting for publication bias), more than they improved self-regulation (0.23) or self-efficacy (0.18) (Panadero et al. 2023). In one Year 6 class, success criteria turned into a checklist that students ticked off (Eltringham et al. 2018). Criteria should describe what good thinking does, not features to count. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1007/s10648-023-09823-4">Panadero et al. 2023, Educational Psychology Review</a>, <a href="https://doi.org/10.1080/03004279.2017.1379549">Eltringham, Hawe &amp; Dixon 2018, Education 3-13</a></span></p>
+<p class="ql-evidence__item"><span class="tm-chip tm-chip--promising">Promising</span> <strong>Samples work best after a first draft and a discussion.</strong> A review of 40 studies of exemplars recommends that students write a draft first, then compare it with the samples and improve it. All 40 studies were in higher education, and most had no control group (To et al. 2022). Among university students, a teacher-led discussion of why each sample sits at its level raised understanding and results, while just handing out grade descriptors may have little or no benefit (Hendry et al. 2012). <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1080/02602938.2021.2011134">To, Panadero &amp; Carless 2022, Assessment &amp; Evaluation in Higher Education</a>, <a href="https://doi.org/10.1080/02602938.2010.515014">Hendry, Armstrong &amp; Bromberger 2012, Assessment &amp; Evaluation in Higher Education</a></span></p>
+<p class="ql-evidence__item"><span class="tm-chip tm-chip--promising">Promising</span> <strong>AI-written model texts: one promising study, no test of three levels.</strong> In a study with 104 high-school English learners, a ChatGPT-written model text improved writing as much as a teacher-written one, though students worried that its style was unnatural (Lu &amp; Zeng 2025). No study of AI-written samples at three levels was found. That is why you read every sample before the lesson. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1080/17501229.2025.2525341">Lu &amp; Zeng 2025, Innovation in Language Learning and Teaching</a></span></p>
+<p class="ql-evidence__item"><span class="tm-chip tm-chip--framework">Framework</span> <strong>Whole-class feedback saves time. Its effect on learning has not been tested in a controlled study.</strong> In one English secondary school, reading all books and giving whole-class feedback cut a maths teacher&#x27;s marking from about 3.5 to 1 hour a week. That is a worked estimate without attainment data (Jones &amp; Essery 2018). The EEF judges that how feedback is delivered is likely to matter less than its principles, and warns that whole-class feedback can become too generic (EEF 2021). No controlled study of its effect on learning was found. <span class="tm-move__sources">Sources: <a href="https://my.chartered.college/research-hub/q-how-can-we-reduce-teacher-workload-without-affecting-the-quality-of-marking-a-whole-class-feedback">Jones &amp; Essery 2018, Chartered College of Teaching</a>, <a href="https://english.hias.hants.gov.uk/mod/resource/view.php?id=3639">Education Endowment Foundation 2021, Teacher Feedback to Improve Pupil Learning</a></span></p>
+<p class="ql-evidence__item"><span class="tm-chip tm-chip--promising">Promising</span> <strong>The same samples help colleagues agree.</strong> Rating texts against benchmark texts at different levels gave scores that agreed closely with comparative judgement, although ratings bunched in the middle (Bouwer et al. 2023). <span class="tm-move__sources">Source: <a href="https://doi.org/10.17239/jowr-2024.15.03.03">Bouwer et al. 2023, Journal of Writing Research</a></span></p>
+<!-- evidence:end -->
+      </div>
+    </section>
+
+    <!-- Varningarna: fyra risker och vad verktyget gör åt var och en.
+         Byggs från JSON-filen (care). -->
+    <section class="section" id="ql-care">
+      <div class="container">
+        <h2 class="section__title">Watch out for</h2>
+<!-- care:start -->
+<ul class="ql-care__list"><li><strong>Students copy the strongest sample.</strong> Students write before they see any sample, a second strong answer shows another way to do it well, and each new task gets a new set.</li><li><strong>The criteria become a checklist.</strong> Write criteria about what good thinking does, and ask students to explain why a sample sits where it does, not to tick off features.</li><li><strong>Samples narrow ideas in open, creative tasks.</strong> Use the ladder for tasks where students explain, argue or solve. For very open, creative tasks, use only the discussion questions (To et al. 2022).</li><li><strong>The AI gets facts wrong or misjudges the age.</strong> Read all three samples before the lesson. Check the facts, the language for the age and the fit to your task, and cut or rewrite what does not fit (in one study, students found AI model texts unnatural in style; Lu &amp; Zeng 2025).</li></ul>
+<!-- care:end -->
+      </div>
+    </section>
+
+    <!-- AI-verktyg och åldersgränser. Global regel för allt AI-innehåll på
+         sajten: åldersgränser och läsarens eget ansvar för nationella regler.
+         Ingressen med datumet och reglerna byggs från JSON-filen; noten under
+         är statisk text. -->
+    <section class="section section--alt" id="ql-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age rules</h2>
+<!-- age:start -->
+<p class="section__lede">You use AI to prepare. Students need no AI for Quality Ladder. If students use AI tools, these rules apply (November 2026):</p>
+<ul class="tm-age"><li><strong>Copilot Chat:</strong> Students aged 13 and over, through the school&#x27;s own Microsoft 365 Education account. The school&#x27;s administrator must set each student&#x27;s age group; under-13 accounts get no access.</li><li><strong>Gemini for Education:</strong> Open to education users of all ages, with stricter content rules and some features switched off for under-18s. The school&#x27;s administrator must turn it on for students under 18.</li><li><strong>ChatGPT:</strong> Ages 13 and over (or the minimum age in your country) on personal accounts, with a parent&#x27;s or guardian&#x27;s permission under 18. Users under 18 are placed in ChatGPT for Teens. ChatGPT for Teachers is for verified U.S. K–12 school staff, not students.</li><li><strong>Claude:</strong> Ages 18 and over. Claude for Teachers is for verified U.S. K–12 teachers, not students.</li></ul>
+<!-- age:end -->
+        <p class="tm-note">Rules differ between countries and change often. Check your own national rules and your school policy before students use any AI tool.</p>
+      </div>
+    </section>
+
+    <!-- Nästa steg: länkar härifrån och ut, bland annat tillbaka till
+         översikten What teachers do. -->
+    <section class="section" id="ql-next">
+      <div class="container">
+        <h2 class="section__title">Next</h2>
+        <ul class="ql-next">
+          <li><a href="/what-teachers-do-354716b7/">Back to the overview: What teachers do</a></li>
+          <li><a href="/lesson-lens/">Feedback in a lesson plan: Lesson Lens</a></li>
+          <li><a href="/homework-upgrade-1f0cd17c/">Checks after homework: Homework Upgrade</a></li>
+          <li><a href="https://www.skool.com/choosewise-7103">Talk to other teachers: the Choosewise community on Skool</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknapparna (data-copy) och promptbyggaren (quality-ladder.js). -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+  <script src="/assets/js/quality-ladder.js" defer></script>
+</body>
+</html>

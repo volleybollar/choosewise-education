@@ -89,6 +89,14 @@ def test_fact_check_corrections_2026_10_30():
     assert steps["motivation-ai"]["why"].startswith("Students who feel they belong and can succeed tend to be more motivated")
 
 
+def test_fact_check_corrections_2026_11_22():
+    # Samma formuleringar som den faktagranskade Compass-sidan: EEF-försöket i hela skolor gav en
+    # mindre men verklig effekt, och metaanalysen 2023 gäller matematik.
+    a = {x["id"]: x for x in data()["approaches"]}
+    assert "in 140 secondary schools found a smaller but real effect at scale" in a["formative-checkpoints"]["evidence"]
+    assert "confirmed for mathematics in a 2023 meta-analysis" in a["explicit-instruction"]["evidence"]
+
+
 def test_age_rules_match_lesson_lens():
     ll = json.loads(LL_DATA.read_text(encoding="utf-8"))
     assert data()["age_rules"] == ll["age_rules"]

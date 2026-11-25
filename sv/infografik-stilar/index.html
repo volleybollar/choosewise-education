@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
-  <link rel="stylesheet" href="/assets/css/pages.css">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261124a">
 <!-- seo:start (build-seo-meta.py) -->
 <link rel="canonical" href="https://choosewise.education/sv/infografik-stilar/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -21,7 +21,7 @@
 <link rel="alternate" hreflang="en" href="https://choosewise.education/infographic-styles/">
 <link rel="alternate" hreflang="sv" href="https://choosewise.education/sv/infografik-stilar/">
 <link rel="alternate" hreflang="x-default" href="https://choosewise.education/infographic-styles/">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."},{"@type":"CollectionPage","@id":"https://choosewise.education/sv/infografik-stilar/#webpage","url":"https://choosewise.education/sv/infografik-stilar/","isPartOf":{"@id":"https://choosewise.education/#website"},"inLanguage":"sv","dateModified":"2026-10-27","about":{"@id":"https://choosewise.education/#organization"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."},{"@type":"CollectionPage","@id":"https://choosewise.education/sv/infografik-stilar/#webpage","url":"https://choosewise.education/sv/infografik-stilar/","isPartOf":{"@id":"https://choosewise.education/#website"},"inLanguage":"sv","dateModified":"2026-11-24","about":{"@id":"https://choosewise.education/#organization"}}]}</script>
 <!-- seo:end -->
 </head>
 <body>
@@ -34,6 +34,100 @@
       <p class="lede" data-reveal>Ett bibliotek av stilar för infografik i Gemini Notebook (som även kan användas i andra AI-bildgeneratorer; det kommer hela tiden nya och bättre modeller för att generera bilder med text. I april 2026 släpptes ChatGPTs modell Images 2 som är bra på just detta, så testa gärna promptarna i den modellen också). Klicka på ett kort, se prompten och kopiera den genom att klicka på knappen.</p>
     </section>
 
+    <!-- ───── Rutan "Så använder du en stil" ─────
+         Korten längre ned ger bara stildelen av prompten (hur bilden ser ut).
+         Rutan ger resten: en mall för innehållsdelen (vad bilden handlar om),
+         inställningarna i Gemini Notebook och åldersgränsen. Filmen om
+         stilarna skickar lärare hit, därför står rutan överst. Den är öppen:
+         inget formulär och ingen e-post.
+         Utseendet finns under "How to use a style" i /assets/css/pages.css. -->
+    <section class="style-howto" aria-labelledby="style-howto-title" data-reveal>
+      <div class="style-howto__box">
+        <!-- Del 1: rubriken -->
+        <h2 id="style-howto-title">Så använder du en stil</h2>
+        <!-- Två spalter på dator (mallen till vänster, inställningar och
+             åldersgräns till höger), en spalt på telefon. -->
+        <div class="style-howto__grid">
+          <div>
+            <!-- Del 2: mallen. Luckorna står inom [hakparenteser], och <em>
+                 gör dem kopparfärgade. Mallen står två gånger: i kodblocket
+                 (det man ser) och i knappens data-copy (det som kopieras).
+                 Ändra båda likadant; testet
+                 scripts/tests/test_infographic_styles_how_to.py larmar om de
+                 skiljer sig. Inne i <pre> syns varje mellanslag och
+                 radbrytning, därför börjar raden "Visuell stil" längst ut
+                 till vänster. -->
+            <h3>Promptmall</h3>
+            <p>Kopiera den och byt ut texten inom <em>[hakparenteser]</em>.</p>
+            <pre><code>Skapa en infografik om <em>[ämnesområde]</em> för elever i åldern <em>[ålder]</em>. Använd bara fakta från källorna. Visa <em>[vad som ska vara med]</em>. Håll texten kort och på en nivå som passar åldersgruppen, med etiketter så stora att de går att läsa längst bak i klassrummet.
+
+Visuell stil: <em>[klistra in en stilprompt från den här sidan]</em></code></pre>
+            <!-- Knappen sköts av /assets/js/copy-to-clipboard.js, samma skript
+                 som korten använder. "Kopierat!" syns en kort stund efter klicket. -->
+            <div class="style-howto__copy">
+              <button type="button" class="btn btn--primary" data-copy="Skapa en infografik om [ämnesområde] för elever i åldern [ålder]. Använd bara fakta från källorna. Visa [vad som ska vara med]. Håll texten kort och på en nivå som passar åldersgruppen, med etiketter så stora att de går att läsa längst bak i klassrummet.
+
+Visuell stil: [klistra in en stilprompt från den här sidan]">Kopiera mallen</button>
+              <span class="copy-toast" role="status">Kopierat!</span>
+            </div>
+          </div>
+          <div>
+            <!-- Del 3: inställningarna i Gemini Notebook, samma som filmens
+                 exempel gjordes med utom språket. Orientering, Liggande,
+                 Detaljnivå och Visuellt format är orden på Googles svenska
+                 hjälpsida om infografik (där heter språket "Outputspråk"). -->
+            <h3>Inställningar i Gemini Notebook</h3>
+            <ul>
+              <li><strong>Språk:</strong> svenska, eller det språk lektionen är på</li>
+              <li><strong>Orientering:</strong> Liggande</li>
+              <li><strong>Detaljnivå:</strong> Standard</li>
+              <li><strong>Visuellt format:</strong> ingen av de förvalda stilarna</li>
+            </ul>
+            <!-- Del 4: åldersgränsen. Infografik i Gemini Notebook är bara för
+                 användare som har fyllt 18, därför gör läraren bilden åt
+                 klassen. Källa: support.google.com/gemininotebook/answer/16758265
+                 (kontrollerad 23 november 2026). -->
+            <h3>Åldersgräns</h3>
+            <p>Infografik i Gemini Notebook är bara tillgänglig för användare som har fyllt 18 år. Elever under 18 får därför inte använda funktionen själva, så det är du som gör infografiken åt klassen.</p>
+          </div>
+        </div>
+        <!-- Del 5: andra bildmodeller, till exempel ChatGPT, i en egen ram
+             längst ner (Johans val 2026-11-24, alternativ C). Där finns inga
+             källor, så mallen ber om fakta i prompten i stället för "fakta
+             från källorna", och "liggande" står i mallen eftersom det inte
+             finns några inställningar att välja. Mallen står två gånger, i
+             kodblocket och i knappens data-copy, precis som ovan; testet
+             jämför dem. Åldersgränsen för ChatGPT: OpenAIs Terms of Use och
+             help.openai.com/en/articles/8313401 (kontrollerad 24 november
+             2026). Utseendet: .style-howto__ram i /assets/css/pages.css. -->
+        <div class="style-howto__ram">
+          <h3>Använder du ChatGPT eller en annan bildmodell?</h3>
+          <div class="style-howto__grid">
+            <div>
+              <p>Där finns inga källor att hämta fakta från, så du skriver in fakta i prompten. Använd den här mallen i stället:</p>
+              <pre><code>Skapa en liggande infografik om <em>[ämnesområde]</em> för elever i åldern <em>[ålder]</em>. Använd bara följande fakta: <em>[klistra in dina fakta]</em>. Visa <em>[vad som ska vara med]</em>. Håll texten kort och på en nivå som passar åldersgruppen, med etiketter så stora att de går att läsa längst bak i klassrummet.
+
+Visuell stil: <em>[klistra in en stilprompt från den här sidan]</em></code></pre>
+              <div class="style-howto__copy">
+                <button type="button" class="btn btn--primary" data-copy="Skapa en liggande infografik om [ämnesområde] för elever i åldern [ålder]. Använd bara följande fakta: [klistra in dina fakta]. Visa [vad som ska vara med]. Håll texten kort och på en nivå som passar åldersgruppen, med etiketter så stora att de går att läsa längst bak i klassrummet.
+
+Visuell stil: [klistra in en stilprompt från den här sidan]">Kopiera mallen</button>
+                <span class="copy-toast" role="status">Kopierat!</span>
+              </div>
+            </div>
+            <div>
+              <ul>
+                <li><strong>Modell:</strong> en som klarar text i bilder bra, till exempel ChatGPT:s Images 2</li>
+                <li><strong>Fakta:</strong> klistra bara in fakta som du har kontrollerat</li>
+                <li><strong>Format:</strong> liggande står redan i mallen</li>
+              </ul>
+              <p>ChatGPT är till för användare som har fyllt 13 år, eller äldre om landets regler kräver det. Användare under 18 behöver tillstånd från en förälder eller vårdnadshavare. Andra verktyg har egna åldersgränser, så kontrollera dem innan eleverna använder verktygen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Svarsblock för "vad är en infografikstil?" -->
     <section class="seo-answer" data-reveal>
       <h2 class="seo-answer__question">Vad är en infografikstil?</h2>
@@ -44,7 +138,7 @@
       <div class="styles-grid" data-source="/sv/infografik-stilar/styles-sv.json" data-template="style"></div>
     </section>
   <!-- last-updated:start (build-seo-meta.py) -->
-<aside class="page-last-updated" aria-label="Senast uppdaterad"><p><span class="page-last-updated__label">Senast uppdaterad:</span> <time datetime="2026-10-27">27 oktober 2026</time></p></aside>
+<aside class="page-last-updated" aria-label="Senast uppdaterad"><p><span class="page-last-updated__label">Senast uppdaterad:</span> <time datetime="2026-11-24">24 november 2026</time></p></aside>
 <!-- last-updated:end -->
   </main>
 

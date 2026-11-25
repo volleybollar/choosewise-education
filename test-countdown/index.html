@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test Countdown — choosewise.education</title>
+  <meta name="description" content="A free study planner for Grades 7–12. Type in your test date and what the test covers, and get short study sessions on different days instead of one long evening. No AI needed.">
+  <meta property="og:title" content="Test Countdown — choosewise.education">
+  <meta property="og:description" content="A free study planner for Grades 7–12. Type in your test date and what the test covers, and get short study sessions on different days instead of one long evening. No AI needed.">
+  <meta property="og:image" content="https://choosewise.education/assets/images/brand/og/testcountdown-en.png">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (formulär, etiketter, anteckningar,
+       prefix tm-), och sedan det som är nytt för Test Countdown (prefix tc-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/test-countdown.css?v=20261114b">
+<!-- seo:start (build-seo-meta.py) -->
+<link rel="canonical" href="https://choosewise.education/test-countdown/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://choosewise.education/#organization","name":"choosewise.education","url":"https://choosewise.education/","description":"Independent education resource on AI in schools. The WISE Framework for Education and prompts for teachers and school leaders.","founder":{"@id":"https://choosewise.education/#johan"},"sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"]},{"@type":"WebSite","@id":"https://choosewise.education/#website","url":"https://choosewise.education/","name":"choosewise.education","publisher":{"@id":"https://choosewise.education/#organization"},"inLanguage":["en","sv"]},{"@type":"Person","@id":"https://choosewise.education/#johan","name":"Johan Lindström","jobTitle":"Education consultant and author","url":"https://choosewise.education/about/","sameAs":["https://www.linkedin.com/in/johan-lindstrom/","https://jlsu.se/"],"knowsAbout":["AI in education","EU AI Act","School digitalization","Pedagogical leadership","Educational technology","Source criticism","Prompt engineering for education"],"worksFor":{"@id":"https://choosewise.education/#organization"},"knowsLanguage":["sv","en"],"description":"Swedish education consultant with 28 years in schools (10 as teacher, 7 as school leader, 11 in EdTech). Recognized voice on AI and digitalization in Swedish education."}]}</script>
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <main class="tc-page">
+    <!-- Hero: vad verktyget är och de tre löftena. Texten är skriven till
+         eleven ("you"); läraren får ett eget avsnitt längre ned. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/study/">← Study + AI</a>
+      <span class="eyebrow">Free study planner · Grades 7–12</span>
+      <h1>Test Countdown</h1>
+      <p class="lede">Type in your test date and what the test covers. You get a plan of short study sessions on different days, instead of one long evening before the test. Print it, bookmark it or share it with your class.</p>
+      <ul class="tm-promises">
+        <li><strong>No AI needed.</strong> Every session works with your notes closed and a blank sheet.</li>
+        <li><strong>Nothing is saved.</strong> The plan is made in your browser and lives in the link.</li>
+        <li><strong>For students and teachers.</strong> Teachers can share one plan with the class and make the quizzes with AI.</li>
+      </ul>
+    </section>
+
+    <!-- Planeraren: formuläret, ledtråden och planen. Allt sker i webbläsaren,
+         inget sparas och inget skickas. Planen räknas ut av
+         assets/js/test-countdown.js medan man skriver; här finns bara fälten
+         och de tomma ytorna som scriptet fyller. Noterna i planen byggs från
+         JSON-filen (test-countdown/countdown-en.json) av
+         scripts/build-test-countdown.py: redigera JSON-filen, inte HTML:en. -->
+    <section class="section container" id="tc-make">
+      <h2 class="section__title">Make your plan</h2>
+      <!-- Integritetsraden står före formuläret: planen behöver bara provdatum och område. -->
+      <p class="tm-privacy"><strong>Do not type names.</strong> The plan only needs your test date and what the test covers.</p>
+      <!-- onsubmit="return false" hindrar att Enter i ett fält laddar om sidan:
+           planen räknas ut medan man skriver, så formuläret ska aldrig skickas. -->
+      <form class="tm-form" id="tc-form" autocomplete="off" onsubmit="return false">
+        <label class="tm-field">
+          <span class="tm-field__label">Test date</span>
+          <input class="input" id="tc-test" type="date" required>
+        </label>
+        <!-- Startdatumet fylls i med dagens datum av test-countdown.js. -->
+        <label class="tm-field">
+          <span class="tm-field__label">Start on</span>
+          <input class="input" id="tc-start" type="date">
+        </label>
+        <label class="tm-field">
+          <span class="tm-field__label">Minutes per session</span>
+          <select class="input" id="tc-minutes">
+            <option value="15">15 minutes</option><option value="20" selected>20 minutes</option>
+            <option value="30">30 minutes</option><option value="45">45 minutes</option>
+          </select>
+        </label>
+        <!-- Ett område per rad. &#10; i placeholder blir radbrytning i rutan. -->
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label">What does the test cover? One area per line, up to six.</span>
+          <textarea class="input" id="tc-areas" rows="4" maxlength="400" placeholder="Cells&#10;Photosynthesis&#10;Food chains"></textarea>
+        </label>
+        <!-- Veckodagarna man kan plugga. Alla är ikryssade från början; värdena är
+             ISO-veckodagar (1 = måndag … 7 = söndag), samma som i adressen. -->
+        <fieldset class="tc-days tm-field--wide" id="tc-days">
+          <legend class="tm-field__label">Days you can study</legend>
+          <div class="tc-days__row">
+            <label class="tc-day"><input type="checkbox" name="day" value="1" checked><span>Mon</span></label>
+            <label class="tc-day"><input type="checkbox" name="day" value="2" checked><span>Tue</span></label>
+            <label class="tc-day"><input type="checkbox" name="day" value="3" checked><span>Wed</span></label>
+            <label class="tc-day"><input type="checkbox" name="day" value="4" checked><span>Thu</span></label>
+            <label class="tc-day"><input type="checkbox" name="day" value="5" checked><span>Fri</span></label>
+            <label class="tc-day"><input type="checkbox" name="day" value="6" checked><span>Sat</span></label>
+            <label class="tc-day"><input type="checkbox" name="day" value="7" checked><span>Sun</span></label>
+          </div>
+        </fieldset>
+      </form>
+      <!-- Ledtråden: säger vad som saknas så länge det inte går att göra en plan.
+           aria-live gör att skärmläsare läser upp den när den ändras. -->
+      <p class="tm-hint" id="tc-hint" aria-live="polite">Pick your test date to see your plan.</p>
+      <!-- Skärmläsarens meddelande: planen ligger i en ruta som är dold tills den finns,
+           så den rutan kan inte tala om att en plan har dykt upp. Den här är alltid
+           med (visuellt dold, utanför #tc-plan) och scriptet skriver planens rubrik i den. -->
+      <p class="visually-hidden" id="tc-status" aria-live="polite"></p>
+      <!-- Planen. Dold tills det finns en plan att visa; test-countdown.js fyller
+           rubriken, summeringen och raderna och visar rutan. -->
+      <div class="tc-plan" id="tc-plan" hidden>
+        <h3 class="tc-plan__heading" id="tc-plan-title"></h3>
+        <p class="tc-plan__total" id="tc-plan-total"></p>
+        <!-- role="list": CSS tar bort punkterna, och då slutar Safari behandla den som en lista. -->
+        <ol class="tc-plan__list" id="tc-plan-list" role="list"></ol>
+        <!-- Noterna under planen: "short on time", "capped" och "past" är dolda och
+             visas av scriptet när de gäller; "sensible" visas alltid. Byggs från JSON-filen. -->
+<!-- notes:start -->
+<p class="tm-note" id="tc-short" hidden>You have only a few study days, so the plan is short and goes straight to the most important ideas. A few short sessions still beat one long evening, but less time means less will stay with you after the test. Next time, start a week or two earlier.</p>
+<p class="tm-note" id="tc-capped" hidden>Your test is more than three weeks away, so the plan starts three weeks before it. Until then, keep up with your lessons and quiz yourself now and then on what you have just learned.</p>
+<p class="tm-note" id="tc-past" hidden>Some of these sessions are already in the past. To plan from today, set Start on to today.</p>
+<p class="tc-sensible">This is a sensible plan, not a perfect one: the practice test near the end and the session lengths are rules of thumb, not research findings. The plan assumes each area has already been taught; if one has not, learn it in class or from your book before its first quiz. Move a session if you need to, but keep the sessions on different days and keep testing yourself.</p>
+<!-- notes:end -->
+        <!-- Länken är planen: adressen innehåller allt formuläret fyllts i med,
+             så "Copy link" kopierar adressen (data-copy sätts av test-countdown.js). -->
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--primary" id="tc-link" data-copy="">Copy link to this plan</button>
+          <button type="button" class="btn btn--secondary" id="tc-print">Print the plan</button>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
+        <p class="tc-bookmark">Bookmark this page to come back to your plan. The link holds your plan; nothing is saved anywhere else.</p>
+      </div>
+    </section>
+
+    <!-- Så testar du dig själv: fyra steg och noten om att det känns svårare.
+         Rubriken och texten byggs från JSON-filen. Skrivs ut tillsammans med planen. -->
+    <section class="section section--alt" id="tc-howto">
+      <div class="container">
+<!-- howto:start -->
+<h2 class="section__title">How to quiz yourself</h2>
+<ol class="tc-list"><li>Close your book and put your notes away.</li><li>Write down everything you remember about the area, or answer questions: the ones at the end of the chapter, flashcards, an old test or a quiz from your teacher.</li><li>Open your notes and check. Try the ones you missed again, with your notes closed, until you get each one right once.</li><li>Next session, start with what you missed last time.</li></ol>
+<p class="tm-note">These sessions will feel harder than reading your notes again, and you will get things wrong. That does not mean they are working worse. Notes you have just read feel familiar, and familiar feels like knowing, but on the test the notes are gone. The next quiz, a few days later, is where you will see the difference.</p>
+<!-- howto:end -->
+      </div>
+    </section>
+
+    <!-- Varför planen ser ut som den gör: fem korta punkter till elever och
+         föräldrar. Byggs från JSON-filen. Skrivs också ut. -->
+    <section class="section container" id="tc-why">
+<!-- why:start -->
+<h2 class="section__title">Why the plan looks like this</h2>
+<p class="section__lede">For students, and for parents who wonder why the evenings before a test look different.</p>
+<ul class="tc-list"><li>Short sessions on different days. What you study on several days stays with you longer than the same time spent in one long evening.</li><li>Every session starts with a quiz, not with reading. Pulling something out of your memory, and then checking it, makes it easier to find on the test than reading it again.</li><li>Earlier areas come back. Each session brings back what you practised before, so every area is tested again after a gap and nothing is left until the end.</li><li>A practice test near the end. There is still time to fix what you got wrong, and nothing new is crammed in at the last minute.</li><li>A short last session and a normal bedtime. Sleep helps you keep what you have studied, and students who give up sleep to study more than usual are more likely to struggle in class or on a test the next day.</li></ul>
+<!-- why:end -->
+    </section>
+
+    <!-- Läraren: dela planen med klassen, gör quizen med AI (promptbyggaren)
+         och vägen utan AI. Promptbyggaren fylls i av test-countdown.js utifrån
+         den plan som gjorts ovan. Texterna runt byggs från JSON-filen. -->
+    <section class="section section--alt" id="tc-teachers">
+      <div class="container">
+        <h2 class="section__title">For teachers</h2>
+<!-- share:start -->
+<p>To give the whole class the same plan, fill in the planner with the test date and the areas, then copy the link and post it where your students will find it. Everyone who opens it sees the same plan. Students who open it later can set Start on to today, and anyone can untick days to fit their own week. You can also print it. The link holds only what is in the form.</p>
+<!-- share:end -->
+        <h3 class="tc-subtitle">Make the quizzes with AI</h3>
+        <div id="tc-builder">
+          <form class="tm-form" id="tc-builder-form" autocomplete="off" onsubmit="return false">
+            <label class="tm-field">
+              <span class="tm-field__label">Subject</span>
+              <input class="input" id="tc-subject" list="tc-subjects" maxlength="60" placeholder="e.g. Biology" required>
+              <!-- Samma ämnesförslag som i Study Moves. -->
+              <datalist id="tc-subjects">
+                <option value="Art"><option value="Biology"><option value="Chemistry"><option value="Civics">
+                <option value="Economics"><option value="English"><option value="Geography"><option value="History">
+                <option value="Maths"><option value="Modern languages"><option value="Music"><option value="PE and health">
+                <option value="Physics"><option value="Religion and ethics"><option value="Science"><option value="Social studies"><option value="Technology">
+              </datalist>
+            </label>
+            <label class="tm-field">
+              <span class="tm-field__label">Grade</span>
+              <select class="input" id="tc-grade">
+                <option value="7">Grade 7</option><option value="8">Grade 8</option><option value="9" selected>Grade 9</option>
+                <option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option>
+              </select>
+            </label>
+            <!-- Språket på quizen. Förvalt engelska; tomt fält ger också engelska. -->
+            <label class="tm-field tm-field--wide">
+              <span class="tm-field__label">Language of the quizzes</span>
+              <input class="input" id="tc-language" value="English" maxlength="40">
+            </label>
+          </form>
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
+            <textarea class="input tm-prompt" id="tc-prompt" rows="18" readonly></textarea>
+          </label>
+          <div class="tm-copy-row">
+            <button type="button" class="btn btn--primary" id="tc-copy" data-copy="" aria-describedby="tc-prompt-hint" disabled>Copy prompt</button>
+            <!-- Ledtråden står bredvid knappen så att man ser varför den är grå. -->
+            <p class="tm-hint" id="tc-prompt-hint" aria-live="polite">Make a plan above, then fill in your subject.</p>
+            <span class="copy-toast" role="status">Copied</span>
+          </div>
+        </div>
+<!-- noai:start -->
+<p class="tm-note">No AI? Use the questions at the end of each chapter, an old test or flashcards. Or let students write down everything they remember about each area and check it against their notes: that works on its own.</p>
+<!-- noai:end -->
+      </div>
+    </section>
+
+    <!-- Forskningen bakom upplägget. Varje stycke och dess källor byggs från
+         JSON-filen; källorna är länkar så att man kan kontrollera dem. -->
+    <section class="section container" id="tc-evidence">
+      <h2 class="section__title">What the research says</h2>
+<!-- evidence:start -->
+<p class="tc-evidence__item">Spreading your study over several days beats doing it all the night before. In real school classrooms, spaced practice beat cramming by a reliable margin, about as large as the gain from testing yourself instead of reading again (Ruitenburg et al. 2026). In a study with university students and a test ten days away, a gap of one day between sessions already gave most of the benefit, and gaps of up to a week did about as well (Cepeda et al. 2009). That is why the plan spreads the sessions out but does not need exact gaps. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1007/s10648-026-10225-5">Ruitenburg et al. 2026, Educational Psychology Review</a>, <a href="https://doi.org/10.1027/1618-3169.56.4.236">Cepeda et al. 2009, Experimental Psychology</a></span></p>
+<p class="tc-evidence__item">Every session starts by testing yourself and then checking. In real school classrooms, quizzes followed by the right answers helped more than quizzes alone (Yang et al. 2021). Even a wrong attempt helps, as long as you study the answer straight after (Kornell, Hays &amp; Bjork 2009). <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1037/bul0000309">Yang et al. 2021, Psychological Bulletin</a>, <a href="https://doi.org/10.1037/a0015729">Kornell, Hays &amp; Bjork 2009, Journal of Experimental Psychology: Learning, Memory, and Cognition</a></span></p>
+<p class="tc-evidence__item">Each session brings back the areas you have already practised, so every area is tested again after a gap. When university students quizzed themselves on the same ideas in several spaced sessions, their course exam scores rose by at least 10% (Janes et al. 2020) and they remembered more at the end of the semester (Higham et al. 2022). Most of this research is with older students, but it builds on testing yourself and spacing, which both help in school classrooms. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1002/acp.3699">Janes et al. 2020, Applied Cognitive Psychology</a>, <a href="https://doi.org/10.1037/edu0000693">Higham et al. 2022, Journal of Educational Psychology</a></span></p>
+<p class="tc-evidence__item">Spacing and testing yourself feel slower than reading again, so many students think they are doing worse. In one study with university students, spacing worked better for 90% of them, yet most of those who noticed a difference (72%) believed cramming had worked better (Kornell 2009). A test after a gap is where the difference shows, which is why the plan has a practice test. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1002/acp.1537">Kornell 2009, Applied Cognitive Psychology</a></span></p>
+<p class="tc-evidence__item">On days when high school students gave up sleep to study more than usual, they had more trouble in class and on tests the next day (Gillen-O&#x27;Neel, Huynh &amp; Fuligni 2013). In a study with high school students, sleep within a few hours of studying helped them keep the words they had learned (Gais, Lucas &amp; Born 2006). So the last session is short, and bedtime is normal. <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1111/j.1467-8624.2012.01834.x">Gillen-O&#x27;Neel, Huynh &amp; Fuligni 2013, Child Development</a>, <a href="https://doi.org/10.1101/lm.132106">Gais, Lucas &amp; Born 2006, Learning &amp; Memory</a></span></p>
+<p class="tc-evidence__item">With only a day or two left, testing yourself still beats reading again: two days later, university students remembered 68% of a text they had tested themselves on, against 54% of a text they had read again (Roediger &amp; Karpicke 2006). But what you cram fades quickly. In high school French classes, words practised in three 10-minute sessions on three days were remembered clearly better four days later than words practised in one 30-minute session (Bloom &amp; Shuell 1981). <span class="tm-move__sources">Sources: <a href="https://doi.org/10.1111/j.1467-9280.2006.01693.x">Roediger &amp; Karpicke 2006, Psychological Science</a>, <a href="https://doi.org/10.1080/00220671.1981.10885317">Bloom &amp; Shuell 1981, Journal of Educational Research</a></span></p>
+<!-- evidence:end -->
+    </section>
+
+    <!-- AI-verktyg och åldersgränser. Global regel för allt AI-innehåll på
+         sajten: åldersgränser och läsarens eget ansvar för nationella regler.
+         Ingressen med datumet, reglerna och pekaren till Study Moves byggs från
+         JSON-filen; noten under är statisk text, samma som i Study Moves. -->
+    <section class="section section--alt" id="tc-age">
+      <div class="container">
+        <h2 class="section__title">AI tools and age rules</h2>
+<!-- age:start -->
+<p class="section__lede">You do not need AI for this plan. If you use AI to make the quizzes, these rules apply (November 2026):</p>
+<ul class="tm-age"><li><strong>Copilot Chat:</strong> Students aged 13 and over, through the school&#x27;s own Microsoft 365 Education account. The school&#x27;s administrator must set each student&#x27;s age group; under-13 accounts get no access.</li><li><strong>Gemini for Education:</strong> Open to education users of all ages, with stricter content rules and some features switched off for under-18s. The school&#x27;s administrator must turn it on for students under 18.</li><li><strong>ChatGPT:</strong> Ages 13 and over (or the minimum age in your country) on personal accounts, with a parent&#x27;s or guardian&#x27;s permission under 18. Users under 18 are placed in ChatGPT for Teens. ChatGPT for Teachers is for verified U.S. K–12 school staff, not students.</li><li><strong>Claude:</strong> Ages 18 and over. Claude for Teachers is for verified U.S. K–12 teachers, not students.</li></ul>
+<p class="tm-note">Students aged 13 and over who want an AI to quiz them, and whose school allows it, can use the student prompt in <a href="/study-moves/#test-yourself">Test yourself in Study Moves</a>.</p>
+<!-- age:end -->
+        <p class="tm-note">Rules differ between countries and change often. Check your own national rules and your school policy before students use any AI tool.</p>
+      </div>
+    </section>
+
+    <!-- Nästa steg: länk till kortet om utspridd träning i Study Moves. -->
+    <section class="section container" id="tc-next">
+      <p class="tc-next">Next: learn why short sessions on different days work, in <a href="/study-moves/#spread-it-out">Spread it out in Study Moves</a>.</p>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknapparna (data-copy) och planeraren med promptbyggaren. -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+  <script src="/assets/js/test-countdown.js" defer></script>
+</body>
+</html>
