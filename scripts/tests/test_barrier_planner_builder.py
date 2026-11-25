@@ -345,3 +345,17 @@ def test_no_console_errors(page):
     fill_plan(page)
     fill_adapt(page)
     assert page.errors == []
+
+
+DOLLARS = "Math $$ $& $' $`"
+
+
+def test_dollar_signs_are_literal(page):
+    v = fill_plan(page, subject=DOLLARS, task="Solve $1 $& now", review="two weeks")
+    assert plan(page) == expected_plan(v, card_of("multi-step"))
+    assert DOLLARS in plan(page) and "Solve $1 $& now" in plan(page)
+    assert page.get_attribute("#bp-copy", "data-copy") == plan(page)
+    a = fill_adapt(page, subject=DOLLARS, words="10")
+    assert adapt(page) == expected_adapt(a)
+    assert DOLLARS in adapt(page)
+    assert page.get_attribute("#bp-a-copy", "data-copy") == adapt(page)

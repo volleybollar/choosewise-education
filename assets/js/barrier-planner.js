@@ -82,7 +82,7 @@
     var lines = [
       PRIVACY,
       '',
-      fill(PLAN_INTRO, { grade: grade }).replace('{subject}', subject),
+      fill(PLAN_INTRO, { grade: grade, subject: subject }),
       '',
       'The task as students get it:',
       task,
@@ -114,7 +114,7 @@
           : 'Write everything in ' + language + ', but keep the headings in English.',
         ''
       ],
-      PLAN_FORMAT.map(function (line) { return line.replace('{review}', clean(input.review)); })
+      PLAN_FORMAT.map(function (line) { return fill(line, { review: clean(input.review) }); })
     );
     return lines.join('\n');
   }
@@ -129,7 +129,7 @@
       line += ' Some students find it hard: ' + barrier.charAt(0).toLowerCase() + barrier.slice(1) + '.';
     }
     return [PRIVACY, '', line, '', 'TEXT:', clean(input.text)]
-      .concat(ADAPT_TAIL.map(function (l) { return l.replace('{n}', clean(input.words)); }))
+      .concat(ADAPT_TAIL.map(function (l) { return fill(l, { n: clean(input.words) }); }))
       .join('\n');
   }
 
