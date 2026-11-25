@@ -6,7 +6,8 @@
     ?n=01&t1=Start Here
     ?n=02&t1=AI in Teaching&t2=%26 Learning&lv=Basic
       t2 = titelns andra rad, valfri
-      lv = nivån ovanför titeln, valfri; skiljer kurser med samma titel åt
+      lv = lilla raden ovanför titeln, valfri; nivån där kurser delar titel,
+           annars en kort förklaring
 
   Kurslistan står i byggskriptet, som gör alla omslag till PNG:
     /usr/bin/python3 scripts/build-skool-course-covers.py
@@ -50,7 +51,8 @@
     <text id="t1" x="112" y="640"></text>
     <text id="t2" x="112" y="640"></text>
   </g>
-  <!-- Nivån, en rad ovanför titeln, i koppar för text på blått -->
+  <!-- Lilla raden (nivån eller en förklaring), en rad ovanför titeln,
+       i koppar för text på blått -->
   <text id="lv" x="114" y="640" font-size="56" font-weight="500" fill="#E8C9A8"></text>
 
   <!-- Ringen ekar ringen i märket. Den är likadan på alla omslag: inga

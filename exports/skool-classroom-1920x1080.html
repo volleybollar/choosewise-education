@@ -11,7 +11,7 @@
     http://localhost:8765/exports/skool-classroom-1920x1080.html
 
   Samma ljusa stil som säljbilden till About (skool-community-1920x1080.html?v=about).
-  Rutnätet rymmer nio omslag (3 × 3); fler stoppar bygget.
+  Rutnätet rymmer femton omslag (5 i bredd, 3 rader); fler stoppar bygget.
 -->
 <html lang="en">
 <head>
@@ -22,13 +22,17 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: 1920px; height: 1080px; overflow: hidden; }
-  body { position: relative; background: #FBFAF8; color: #0C1A2E;
-         font-family: 'Hanken Grotesk', -apple-system, sans-serif; }
+  /* Rubrikraden och rutnätet står som en grupp mitt i bilden, med lika
+     mycket luft ovanför som under och lika mycket till vänster som till höger. */
+  body { background: #FBFAF8; color: #0C1A2E;
+         font-family: 'Hanken Grotesk', -apple-system, sans-serif;
+         display: flex; flex-direction: column; align-items: center; justify-content: center;
+         gap: 56px; }
 
   /* ===== RUBRIKRADEN =====
      Logga och rubrik till vänster, taglinen till höger. Raden har samma
      bredd som rutnätet, så kanterna linjerar. */
-  .head { position: absolute; left: 152px; right: 152px; top: 60px; height: 64px;
+  .head { width: 1760px; height: 64px;
           display: flex; align-items: center; justify-content: space-between; }
   .brand { display: flex; align-items: center; gap: 20px; font-size: 52px; font-weight: 600;
            letter-spacing: -0.5px; }
@@ -36,12 +40,12 @@
   .tag { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 44px; color: #9C5A24; }
 
   /* ===== OMSLAGEN =====
-     Tre i bredd, i kursernas ordning. 520 px breda i Skools proportion
-     1460 × 752, med rundade hörn och skugga som korten i Classroom. */
-  .grid { position: absolute; left: 152px; top: 164px; display: grid;
-          grid-template-columns: repeat(3, 520px); gap: 28px; }
-  .grid img { display: block; width: 520px; aspect-ratio: 1460 / 752; border-radius: 14px;
-              box-shadow: 0 10px 28px rgba(7, 40, 77, .22); }
+     Fem i bredd, i kursernas ordning: 01–05, 06–10, 11–15. 336 px breda i
+     Skools proportion 1460 × 752, med rundade hörn och skugga som korten i
+     Classroom. 5 × 336 + 4 × 20 = 1760, samma bredd som rubrikraden. */
+  .grid { display: grid; grid-template-columns: repeat(5, 336px); gap: 20px; }
+  .grid img { display: block; width: 336px; aspect-ratio: 1460 / 752; border-radius: 10px;
+              box-shadow: 0 8px 22px rgba(7, 40, 77, .22); }
 </style>
 </head>
 <body>

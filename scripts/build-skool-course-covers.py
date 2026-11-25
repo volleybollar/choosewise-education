@@ -43,20 +43,27 @@ HANKEN = ROOT / "assets/fonts/hanken-grotesk/HankenGrotesk-VariableFont.woff2"
 DIGITS = ROOT / "assets/fonts/cover-digits/CoverDigits-Light.woff2"
 PORT = 8803
 
-# Nummer, titelns första rad, andra rad (tom = en rad), nivå (tom = ingen).
-# Johans kursstruktur 2026-11-11; Research Briefs väntar. Nivån står bara där
-# den skiljer kurser med samma titel åt.
+# Nummer, titelns första rad, andra rad (tom = en rad), lilla raden ovanför
+# titeln (tom = ingen). Johans kursstruktur 2026-11-25; Research Briefs väntar.
+# Den lilla raden är nivån där kurser delar titel, annars en kort förklaring.
+# 11 och 12 väntar på medlemmarnas önskemål och visar "Coming soon" så länge.
 # En titel som når in i ringen stoppar bygget — dela den då på två rader.
 COURSES = [
     ("01", "Start Here", "", ""),
     ("02", "Understanding", "AI", "For everyone"),
     ("03", "AI in Teaching", "& Learning", "Basics"),
     ("04", "AI in Teaching", "& Learning", "Intermediate"),
-    ("05", "AI lessons", "for students", "Younger students"),
-    ("06", "AI lessons", "for students", "Older students"),
-    ("07", "Resource", "Library", ""),
-    ("08", "Q&A Replays", "", ""),
-    ("09", "YouTube", "Library", ""),
+    ("05", "The Toolkits", "", "Think · Pedagogy · Study"),
+    ("06", "What", "teachers do", "How AI can help"),
+    ("07", "AI, Law", "& Privacy", ""),
+    ("08", "AI tools", "", "The most common"),
+    ("09", "AI lessons", "for students", "Younger students"),
+    ("10", "AI lessons", "for students", "Older students"),
+    ("11", "Coming soon", "", "Shaped by your requests"),
+    ("12", "Coming soon", "", "Shaped by your requests"),
+    ("13", "Resource", "Library", ""),
+    ("14", "Q&A Replays", "", ""),
+    ("15", "YouTube", "Library", ""),
 ]
 
 TITLE_MAX_RIGHT = 820   # ringen börjar vid x = 842
@@ -157,7 +164,7 @@ def render_overview(page) -> None:
     if bottom > 1080 - 40:
         raise SystemExit(
             f"Omslagen går utanför översiktsbilden (nederkant {bottom:.0f}). "
-            f"Rutnätet rymmer nio; ändra layouten i {OVERVIEW}.")
+            f"Rutnätet rymmer femton; ändra layouten i {OVERVIEW}.")
     page.screenshot(path=str(OVERVIEW_PNG))
     print(f"  {OVERVIEW_PNG.relative_to(ROOT)}")
 
