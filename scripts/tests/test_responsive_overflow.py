@@ -71,6 +71,7 @@ PAGES = (
         "quality-ladder-ec1c2f8c/",
         "what-teachers-do-354716b7/",
         "paperwork-pack-f388fd9f/",
+        "barrier-planner-1c25533d/",
         "pedagogy/",
         "community/",
         "ai-lessons-younger-3c514a93/",

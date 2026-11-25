@@ -1,0 +1,107 @@
+/* Barrier Planner (dold sida för Skool-medlemmar). Bygger på thinking-moves.css
+   (tm-) och lägger bara till det som är nytt här (bp-). Färger bara som
+   var(--…), teckenvikter bara 300/400/500 (tokens). */
+
+/* Rubrikerna är längre än de delade 22ch ("Popular but unsupported") och ska stå på en rad på dator. */
+.bp-page .section__title { max-width: none; }
+
+/* ───── Hero: hopplänkar och exemplet ───── */
+.bp-jump { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-top: var(--space-5); }
+.bp-jump a { font-weight: var(--weight-emphasis); }
+
+.bp-hero-example { margin-top: var(--space-8); max-width: var(--content-max); }
+.bp-hero-example__title { margin: 0 0 var(--space-3); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+.bp-example__note { margin: var(--space-3) 0 0; max-width: none; font-size: var(--fs-small); color: var(--color-text-soft); }
+
+/* ───── Avsnitten ───── */
+.bp-label { margin: 0 0 var(--space-4); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); max-width: none; }
+.bp-label__note { font-size: var(--fs-small); color: var(--color-text-soft); }
+.bp-subtitle { margin: var(--space-7) 0 var(--space-3); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+.bp-prose { margin: var(--space-4) 0 0; max-width: var(--content-text-max); }
+.bp-prose strong { font-weight: var(--weight-emphasis); }
+.bp-links { margin: var(--space-4) 0 0; padding-left: var(--space-5); display: grid; gap: var(--space-2); }
+.bp-links li { max-width: none; }
+.bp-download { margin: var(--space-3) 0 0; }
+.bp-download a { font-weight: var(--weight-emphasis); }
+.bp-country { margin-top: var(--space-5); }
+.bp-diagnosis { margin-bottom: var(--space-4); }
+.bp-card-link { align-self: flex-start; font-size: var(--fs-small); }
+
+/* ───── De åtta korten ─────
+   Ett rutnät som staplas på mobil. Korten i samma rad är lika höga, och
+   länken längst ned hamnar på samma höjd. */
+.bp-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr)); gap: var(--space-5); margin-top: var(--space-5); }
+.bp-card { display: flex; flex-direction: column; min-width: 0; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: var(--space-4) var(--space-5); }
+.bp-card__head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: var(--space-2) var(--space-3); margin-bottom: var(--space-2); }
+.bp-card__title { margin: 0; font-size: var(--fs-h3); font-weight: var(--weight-emphasis); min-width: 0; overflow-wrap: anywhere; }
+.bp-card__heading { margin: var(--space-4) 0 var(--space-1); font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); font-weight: var(--weight-emphasis); }
+.bp-card__list { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-2); }
+.bp-card__list li { max-width: none; overflow-wrap: anywhere; }
+.bp-card__list .tm-chip { margin-left: var(--space-1); }
+.bp-card__review { margin: 0; max-width: none; }
+.bp-card__sources { margin: var(--space-4) 0 0; max-width: none; font-size: var(--fs-small); color: var(--color-text-soft); overflow-wrap: anywhere; }
+.bp-card__link { margin: auto 0 0; padding-top: var(--space-3); max-width: none; font-weight: var(--weight-emphasis); }
+
+/* ───── Blanketten: behov och åtgärder ─────
+   Varningen står direkt ovanför blanketten. Fälten är ramar att fylla i för
+   hand (eller i skolans eget system), inte formulärfält. */
+.bp-warning { margin: 0 0 var(--space-3); max-width: none; padding: var(--space-3) var(--space-4); border-left: 3px solid var(--color-highlight); background: var(--color-bg-alt); }
+.bp-form { display: grid; gap: var(--space-4); max-width: var(--content-max); padding: var(--space-4) var(--space-5); background: var(--color-bg); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); }
+.bp-form__row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
+.bp-form__field { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
+.bp-form__label { font-size: var(--fs-small); color: var(--color-text-soft); }
+.bp-form__fill { display: block; min-height: 2.25rem; border-bottom: 1px solid var(--color-border-strong); }
+.bp-block { min-width: 0; }
+.bp-block__heading { margin: 0 0 var(--space-1); font-size: var(--fs-body); font-weight: var(--weight-emphasis); }
+.bp-block__hint { margin: 0 0 var(--space-2); max-width: var(--content-text-max); font-size: var(--fs-small); color: var(--color-text-soft); }
+.bp-box { min-height: 5.5rem; border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); }
+.bp-line { min-height: 2.5rem; border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); max-width: 16rem; }
+.bp-outcomes { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); }
+.bp-outcomes li { max-width: none; display: flex; align-items: center; gap: var(--space-2); }
+.bp-tick { display: inline-block; width: 1.1rem; height: 1.1rem; border: 1px solid var(--color-border-strong); border-radius: 2px; flex: none; }
+
+/* Tabellen med åtgärder: en riktig tabell på dator, och på mobil ett kort per rad
+   där varje ruta har sin kolumnrubrik framför sig, så att ingenting rullar i sidled. */
+.bp-table-wrap { max-width: 100%; }
+.bp-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: var(--fs-small); }
+.bp-table th, .bp-table td { border: 1px solid var(--color-border-strong); padding: var(--space-2) var(--space-3); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.bp-table th { font-weight: var(--weight-emphasis); background: var(--color-bg-alt); }
+.bp-table td { height: 2.75rem; }
+@media (max-width: 640px) {
+  .bp-form { padding: var(--space-4); }
+  .bp-form__row { grid-template-columns: minmax(0, 1fr); }
+  .bp-table, .bp-table tbody, .bp-table tr, .bp-table td { display: block; width: 100%; }
+  /* Kolumnrubrikerna flyttar in i varje ruta; tabellhuvudet göms för alla utom skärmläsare. */
+  .bp-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .bp-table tr { margin-bottom: var(--space-3); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); }
+  .bp-table td { height: auto; min-height: 2.75rem; border: 0; border-bottom: 1px solid var(--color-border); }
+  .bp-table td:last-child { border-bottom: 0; }
+  .bp-table td::before { content: attr(data-label); display: block; font-size: var(--fs-caption); letter-spacing: var(--tracking-loose); text-transform: uppercase; color: var(--color-accent); }
+}
+
+/* Frågorna efter blanketten och EEF:s tre frågor i en ruta. */
+.bp-questions { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-2); max-width: var(--content-text-max); }
+.bp-eef { margin-top: var(--space-6); max-width: var(--content-max); padding: var(--space-4) var(--space-5); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); background: var(--color-bg); }
+.bp-eef__title { margin: 0 0 var(--space-2); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+
+/* ───── Obelagda anpassningar, forskningen, varningarna och nästa steg ───── */
+.bp-unsupported__list { margin: var(--space-5) 0 0; padding-left: var(--space-5); display: grid; gap: var(--space-4); max-width: var(--content-text-max); }
+.bp-unsupported__list strong { font-weight: var(--weight-emphasis); }
+.bp-unsupported__instead { display: block; margin-top: var(--space-1); color: var(--color-text-soft); }
+.bp-evidence__item { max-width: var(--content-text-max); margin: var(--space-5) 0 0; }
+.bp-evidence__item strong { font-weight: var(--weight-emphasis); }
+.bp-evidence__item .tm-move__sources { margin-top: var(--space-1); font-size: var(--fs-small); color: var(--color-text-soft); }
+.bp-care__list { padding-left: var(--space-5); margin: 0; display: grid; gap: var(--space-3); max-width: var(--content-text-max); }
+.bp-care__list strong { font-weight: var(--weight-emphasis); }
+.bp-next { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-3); }
+.bp-next li { max-width: none; }
+
+/* Etiketten Choosewise (teckenförklaringen): samma streckade kopparram som i
+   quality-ladder.css, så den inte förväxlas med forskningsetiketterna. */
+.tm-chip--choosewise { color: var(--color-highlight-ink); border-color: var(--color-highlight); border-style: dashed; }
+
+/* ───── Utskrift: korten och blanketten skrivs ut, byggarna och hopplänkarna inte ───── */
+@media print {
+  .bp-jump, #bp-plan, #bp-adapt, .tm-copy-row, .bp-download { display: none; }
+  .bp-card, .bp-block, .bp-eef { break-inside: avoid; }
+}
