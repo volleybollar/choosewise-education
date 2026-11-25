@@ -15,6 +15,11 @@ SLUG = "what-teachers-do-354716b7"
 PAGE = ROOT / SLUG / "index.html"
 CSS = ROOT / "assets/css/what-teachers-do.css"
 QL = "/quality-ladder-ec1c2f8c/"
+PP = "/paperwork-pack-f388fd9f/"
+# Raderna där Paperwork Pack är klart: radnummer → (avsnitt på sidan, text på raden)
+PP_ROWS = {5: ("#pp-meetings", "Meeting protocol in Paperwork Pack"),
+           7: ("#pp-admin", '"Cut first" and templates in Paperwork Pack'),
+           10: ("#pp-parents", "Message templates in Paperwork Pack")}
 
 SECTIONS = ["wt-time", "wt-stress", "wt-ai", "wt-rules", "wt-tasks", "wt-parts", "wt-sources"]
 
@@ -188,6 +193,13 @@ def test_status_chips():
         elif i in (2, 3):
             assert shown.count("Ready") == 1 and "Coming" not in shown, i
             assert "<a " not in cell, i
+        elif i in PP_ROWS:
+            # Rad 5, 7 och 10: lektionen och sin del av Paperwork Pack, båda klara; delen länkad.
+            anchor, label = PP_ROWS[i]
+            assert shown.count("Ready") == 2 and "Coming" not in shown, i
+            links = re.findall(r'<a [^>]*href="([^"]*)"[^>]*>(.*?)</a>', cell, re.S)
+            assert [(h, text_of(t)) for h, t in links] == [(PP + anchor, label)], i
+            assert f'id="{anchor[1:]}"' in (ROOT / PP.strip("/") / "index.html").read_text(encoding="utf-8"), i
         else:
             assert shown.count("Ready") == 1 and shown.count("Coming") == 1, i
             assert "<a " not in cell, i
@@ -239,11 +251,12 @@ def test_parts():
     assert names == PARTS
     links = [re.findall(r'<a [^>]*href="([^"]*)"[^>]*>(.*?)</a>', c, re.S) for c in cards]
     assert [(h, text_of(t)) for h, t in links[0]] == [(QL, "Open Quality Ladder →")]
+    assert [(h, text_of(t)) for h, t in links[1]] == [(PP, "Open Paperwork Pack →")]
     assert [(h, text_of(t)) for h, t in links[3]] == [(CLASSROOM, "Open the course in Skool →")]
-    assert all(not l for i, l in enumerate(links) if i not in (0, 3))
-    for i in (0, 3):
+    assert all(not l for i, l in enumerate(links) if i not in (0, 1, 3))
+    for i in (0, 1, 3):
         assert "Ready" in text_of(cards[i]) and "Coming" not in text_of(cards[i]), i
-    for i in (1, 2, 4):
+    for i in (2, 4):
         assert "Coming" in text_of(cards[i]), i
     assert "Eleven lessons in Skool, one per task" in text_of(cards[3])
     assert "seven modules" not in text_of(cards[3]).lower()
