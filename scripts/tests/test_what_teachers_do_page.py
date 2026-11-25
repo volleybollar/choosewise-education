@@ -18,10 +18,12 @@ QL = "/quality-ladder-ec1c2f8c/"
 
 SECTIONS = ["wt-time", "wt-stress", "wt-ai", "wt-rules", "wt-tasks", "wt-parts", "wt-sources"]
 
-TASKS = ["Planning teaching", "Teaching", "Marking and assessing", "Colleagues and meetings",
+TASKS = ["Planning teaching", "Teaching", "Keeping order in class",
+         "Marking, assessing and evaluating knowledge", "Colleagues and meetings",
          "Individual support", "Administration and documentation",
          "Creating and adapting materials", "Student welfare and support measures",
-         "Evaluating knowledge", "Communicating with parents", "Generating ideas"]
+         "Communicating with parents", "Generating ideas"]
+CLASSROOM = "https://www.skool.com/choosewise-7103/classroom"
 PARTS = ["Quality Ladder", "Paperwork Pack", "Barrier Planner", "The course", "Ideas first"]
 
 
@@ -111,7 +113,7 @@ def test_stress_numbers():
     for n in ("52%", "65%", "40%", "51%", "37%", "45%", "42%", "39%", "35%", "31%", "71%", "55%",
               "34%", "33%", "32%", "54%"):
         assert n in shown, n
-    assert ("Planning takes the most time outside lessons but stresses least. Administration "
+    assert ("Planning takes the most time outside lessons, but of the tasks above it stresses the fewest teachers. Administration "
             "stresses most everywhere; in Sweden, marking and adapting for different needs come "
             "next.") in shown
 
@@ -153,6 +155,7 @@ def test_eleven_tasks_in_johans_order():
     names = [text_of(re.search(r'<h3 class="wt-task__name">(.*?)</h3>', r, re.S).group(1))
              for r in rows]
     assert names == TASKS
+    assert "Evaluating knowledge" not in names
     lede = re.search(r'<p class="wt-lede">(.*?)</p>', block, re.S).group(1)
     assert text_of(lede) == ("Most tasks already have some support on Choosewise; the new parts fill "
                              "the gaps.")
@@ -162,27 +165,69 @@ def test_eleven_tasks_in_johans_order():
             assert f'class="{part}"' in r, part
 
 
+def row_part(row, cls):
+    return text_of(re.search(rf'<(?:div|p) class="{cls}">(.*?)</(?:div|p)>', row, re.S).group(1))
+
+
 def test_status_chips():
     rows = tasks()
     for i, row in enumerate(rows, 1):
         cell = new_cell(row)
-        if i in (3, 9):
-            assert "Ready" in text_of(cell), i
+        shown = text_of(cell)
+        # Varje rad namnger sin kurslektion, och den är klar; den länkas inte härifrån.
+        assert f"Course lesson {i} Ready" in shown, i
+        assert not re.search(rf'<a [^>]*>\s*Course lesson {i}\b', cell), i
+        if i == 4:
+            # Rad 4: lektionen, Quality Ladder och policyn på en sida, alla klara; de två sista länkade.
+            assert shown.count("Ready") == 3, i
             assert f'href="{QL}' in cell, i
-            assert "Coming" not in text_of(cell), i
-        else:
-            assert "Coming" in text_of(cell), i
+            assert "Coming" not in shown, i
+        elif i == 1:
+            assert shown.count("Ready") == 1 and shown.count("Coming") == 1, i
             assert "<a " not in cell, i
-    # Rad 3 har två färdiga delar: Quality Ladder och policyn på en sida.
-    assert text_of(new_cell(rows[2])).count("Ready") == 2
+        elif i in (2, 3):
+            assert shown.count("Ready") == 1 and "Coming" not in shown, i
+            assert "<a " not in cell, i
+        else:
+            assert shown.count("Ready") == 1 and shown.count("Coming") == 1, i
+            assert "<a " not in cell, i
+    assert "Worked examples for new teachers Coming" in text_of(new_cell(rows[0]))
+
+
+def test_keeping_order_row():
+    row = tasks()[2]
+    time = row_part(row, "wt-task__time")
+    assert "55%" in time and "35%" in time and "Sweden" in time
+    assert row_part(row, "wt-task__now") == "Nothing yet"
+    assert row_part(row, "wt-task__label") == "Promising"
+
+
+def test_administration_row_offers_the_feedback_policy_now():
+    row = tasks()[6]
+    now = re.search(r'<div class="wt-task__now">(.*?)</div>', row, re.S).group(1)
+    assert "Nothing yet" not in now
+    assert re.findall(r'<a [^>]*href="([^"]*)"[^>]*>(.*?)</a>', now, re.S) == [
+        (QL + "#ql-policy", "One-page feedback policy")]
+    assert [text_of(i) for i in re.findall(r"<li>(.*?)</li>", now, re.S)] == ["One-page feedback policy"]
+
+
+def test_marking_row_merges_evaluating_knowledge():
+    row = tasks()[3]
+    now = re.search(r'<div class="wt-task__now">(.*?)</div>', row, re.S).group(1)
+    items = [text_of(i) for i in re.findall(r"<li>(.*?)</li>", now, re.S)]
+    assert items == ["Feedback lens in Lesson Lens", "The check in Homework Upgrade",
+                     "Retrieval Rhythm", "Exit tickets in Two-Minute Debrief"]
+    new = text_of(new_cell(row))
+    assert "Quality Ladder Ready" in new
+    assert "One-page feedback policy Ready" in new
 
 
 def test_task_labels_follow_the_proposals_page():
     labels = [text_of(re.search(r'<div class="wt-task__label">(.*?)</div>', r, re.S).group(1))
               for r in tasks()]
     assert labels == ["Time saving: two randomised trials", "Varies by tool", "Promising",
-                      "Promising", "Framework", "Framework", "Promising", "Framework",
-                      "Strong for retrieval practice", "Promising", "Promising"]
+                      "Promising Strong for retrieval practice", "Promising", "Framework",
+                      "Framework", "Promising", "Framework", "Promising", "Promising"]
 
 
 def test_parts():
@@ -194,11 +239,14 @@ def test_parts():
     assert names == PARTS
     links = [re.findall(r'<a [^>]*href="([^"]*)"[^>]*>(.*?)</a>', c, re.S) for c in cards]
     assert [(h, text_of(t)) for h, t in links[0]] == [(QL, "Open Quality Ladder →")]
-    assert all(not l for l in links[1:])
-    assert "Ready" in text_of(cards[0])
-    for c in cards[1:]:
-        assert "Coming" in text_of(c)
-    assert "seven modules that tie it all together" in text_of(cards[3]).lower()
+    assert [(h, text_of(t)) for h, t in links[3]] == [(CLASSROOM, "Open the course in Skool →")]
+    assert all(not l for i, l in enumerate(links) if i not in (0, 3))
+    for i in (0, 3):
+        assert "Ready" in text_of(cards[i]) and "Coming" not in text_of(cards[i]), i
+    for i in (1, 2, 4):
+        assert "Coming" in text_of(cards[i]), i
+    assert "Eleven lessons in Skool, one per task" in text_of(cards[3])
+    assert "seven modules" not in text_of(cards[3]).lower()
     assert "working name" not in text_of(block).lower()
     assert "Five parts, built in this order." in text_of(block)
 
