@@ -80,7 +80,7 @@
         {"text": "Show the first step before students start. Splitting instruction into segments gives small-to-medium gains in multimedia learning.", "short": "show the first step before students start", "label": "framework"}
       ],
       "targeted": [
-        {"text": "A quick check after step two with the students who still lose track.", "short": "a quick check after step two with the students who still lose track", "label": null}
+        {"text": "A quick check after step two with the students who still lose track (our suggestion, not a research finding).", "short": "a quick check after step two with the students who still lose track", "label": null}
       ],
       "not_this": [],
       "review": "Do they finish the task without asking what comes next?",
@@ -100,7 +100,7 @@
       ],
       "label": "framework",
       "whole_class": [
-        {"text": "Teach the key words before the text, and give a glossary.", "short": "teach the key words before the text and give a glossary", "label": "promising"},
+        {"text": "Teach the key words before the text, and give a glossary. Glossaries were studied with second-language readers.", "short": "teach the key words before the text and give a glossary", "label": "promising"},
         {"text": "Add one picture or diagram that shows the main idea. Graphics raised reading comprehension by 0.39, a moderate effect, at all grade levels.", "short": "one picture or diagram that shows the main idea", "label": "strong"},
         {"text": "Split the text into sections with one guiding question each.", "short": "the text in sections with one guiding question each", "label": "framework"}
       ],
@@ -108,13 +108,15 @@
         {"text": "Text-to-speech or read-aloud for the long text: 0.35 on reading comprehension for students with reading difficulties, between a small and a moderate effect. It gives access to the content but does not teach reading.", "short": "text-to-speech or read-aloud for the long text", "label": "promising"}
       ],
       "not_this": [
-        "Colored overlays and dyslexia fonts. Better-designed studies of overlays show little benefit, and two studies of dyslexia fonts found no gain."
+        "Colored overlays and dyslexia fonts. Better-designed studies of overlays show little benefit, and two studies of dyslexia fonts with children found no gain."
       ],
       "review": "Do they answer the section questions without help with the words?",
       "sources": [
         {"text": "Guo, Zhang, Wright & McTigue 2020, AERA Open", "url": "https://doi.org/10.1177/2332858420901696"},
         {"text": "Wood, Moxley, Tighe & Wagner 2018, Journal of Learning Disabilities", "url": "https://doi.org/10.1177/0022219416688170"},
-        {"text": "Abraham 2008, Computer Assisted Language Learning", "url": "https://doi.org/10.1080/09588220802090246"}
+        {"text": "Abraham 2008, Computer Assisted Language Learning", "url": "https://doi.org/10.1080/09588220802090246"},
+        {"text": "Griffiths, Taylor, Henderson & Barrett 2016, Ophthalmic and Physiological Optics", "url": "https://doi.org/10.1111/opo.12316"},
+        {"text": "Kuster, van Weerdenburg, Gompel & Bosman 2018, Annals of Dyslexia", "url": "https://doi.org/10.1007/s11881-017-0154-6"}
       ],
       "link": {"text": "Adapt a text, below", "href": "#bp-adapt"}
     },
@@ -128,7 +130,7 @@
       ],
       "label": "framework",
       "whole_class": [
-        {"text": "Show a model text and the criteria before anyone writes.", "short": "a model text and the criteria before anyone writes", "label": null},
+        {"text": "Share the criteria before anyone writes, and show a model text once students have a first draft.", "short": "the criteria before anyone writes, and a model text once students have a first draft", "label": null},
         {"text": "Add a short planning step before the writing starts: the main point and what supports it (our suggestion, not a research finding).", "short": "a short planning step before the writing starts: the main point and what supports it", "label": null},
         {"text": "Offer sentence starters, and take them away as students manage. Frames should be faded, because scaffolding can quietly strip the demand out of a task.", "short": "sentence starters, taken away as students manage", "label": null}
       ],
@@ -161,7 +163,7 @@
       ],
       "targeted": [
         {"text": "Specific praise when they get it right: say what they did.", "short": "specific praise when they get it right", "label": "promising"},
-        {"text": "A quieter seat for independent work (our suggestion; we have found no study of \"preferential seating\").", "short": "a quieter seat for independent work", "label": null}
+        {"text": "A quieter seat for independent work (our suggestion; we have found no study of \"preferential seating\" for ADHD).", "short": "a quieter seat for independent work", "label": null}
       ],
       "not_this": [
         "Fidget spinners. Attention in class got worse in a study of 60 young children with ADHD.",
@@ -187,8 +189,8 @@
       ],
       "label": "framework",
       "whole_class": [
-        {"text": "Put the lesson's plan on the board as a visual schedule, and point to it as you go.", "short": "the lesson's plan on the board as a visual schedule", "label": null},
-        {"text": "Give a warning before each change: what is ending and what comes next.", "short": "a warning before each change: what is ending and what comes next", "label": null},
+        {"text": "Put the lesson's plan on the board as a visual schedule, and point to it as you go.", "short": "the lesson's plan on the board as a visual schedule", "label": "framework"},
+        {"text": "Just before each change, say what is ending, what comes next and what to do (precorrection).", "short": "a warning before each change: what is ending and what comes next", "label": "promising"},
         {"text": "Teach transitions as routines, and practice them.", "short": "transitions taught as routines", "label": null}
       ],
       "targeted": [
@@ -213,7 +215,7 @@
       "label": "framework",
       "whole_class": [
         {"text": "A worked example, then a half-finished one, then their own. The EEF describes scaffolding as \"temporary support\" that is removed as students manage.", "short": "a worked example, then a half-finished one, then their own", "label": "strong"},
-        {"text": "Questions students ask themselves to plan, check and evaluate their work. Metacognition adds about 8 months of progress in the EEF Toolkit.", "short": "questions students ask themselves to plan, check and evaluate their work", "label": "strong"}
+        {"text": "Questions students ask themselves to plan, check and evaluate their work. Metacognition and self-regulation add about 8 months of progress in the EEF Toolkit.", "short": "questions students ask themselves to plan, check and evaluate their work", "label": "strong"}
       ],
       "targeted": [
         {"text": "A partly completed example with the next step left blank.", "short": "a partly completed example with the next step left blank", "label": null}
@@ -237,8 +239,8 @@
       ],
       "label": "framework",
       "whole_class": [
-        {"text": "Teach a set of academic words intensively across several days. The IES practice guide rates the evidence as strong.", "short": "a set of academic words taught intensively across several days", "label": "strong"},
-        {"text": "Let students talk before they write, with oral and written language in content lessons. The IES practice guide rates this as strong too.", "short": "talk before writing, with oral and written language in content lessons", "label": "strong"},
+        {"text": "Teach a set of academic words intensively across several days. The IES practice guide for elementary and middle school rates the evidence as strong.", "short": "a set of academic words taught intensively across several days", "label": null},
+        {"text": "Let students talk, then write, in content lessons. The IES practice guide rates combining oral and written language as strong too.", "short": "talk before writing, with oral and written language in content lessons", "label": null},
         {"text": "Give sentence frames, and fade them as students manage.", "short": "sentence frames, faded as students manage", "label": null}
       ],
       "targeted": [
@@ -249,7 +251,7 @@
       ],
       "review": "Do they use the key words in their own sentences without the glossary?",
       "sources": [
-        {"text": "Baker et al. 2014, IES practice guide: Teaching academic content and literacy to English learners", "url": "https://ies.ed.gov/ncee/wwc/PracticeGuide/19"},
+        {"text": "Baker et al. 2014, IES practice guide: Teaching academic content and literacy to English learners in elementary and middle school", "url": "https://ies.ed.gov/ncee/wwc/PracticeGuide/19"},
         {"text": "Abraham 2008, Computer Assisted Language Learning", "url": "https://doi.org/10.1080/09588220802090246"},
         {"text": "Oh 2001, TESOL Quarterly", "url": "https://doi.org/10.2307/3587860"}
       ],
@@ -285,6 +287,7 @@
     ],
     "measure_columns": ["What we do", "Who does it", "From when", "What we look for"],
     "outcomes": ["Keep", "Change", "Stop"],
+    "outcome_rows": ["Measure 1", "Measure 2", "Measure 3"],
     "review_questions": [
       "Which measures were carried out, by whom and how often?",
       "What have we seen in the task since we last met?",
@@ -333,7 +336,7 @@
         "instead": "Start from the barrier you see in the task, and pick the closest card above."
       }
     ],
-    "movement_note": "Movement breaks are not on this list: whether movement helps attention is an open question, resting so far on one lab study."
+    "movement_note": "Movement breaks are not on this list: whether they help in class is an open question, resting on lab data about working memory."
   },
   "evidence": {
     "lede": "Planning from the barrier rather than the diagnosis rests on expert guidance. Most of the moves it leads to have good evidence of their own.",
@@ -341,7 +344,7 @@
       {
         "title": "Needs, not diagnosis",
         "label": "framework",
-        "text": "The EEF's guidance on special educational needs says that for most of these students a diagnosis is \"less helpful for teaching and learning than determining the pupils' educational needs\". Labels also change what adults expect: in US data on about 11,740 adolescents, teachers and parents expected less of students labeled with a learning disability than of students who achieved and behaved the same without the label (an association, not a measured cause). Teachers asked about \"dyslexia\" tied how effective they felt to the belief that the condition is fixed; the wording \"reading difficulties\" did not have that effect.",
+        "text": "The EEF's guidance on special educational needs says that for most students with special educational needs a diagnosis is \"less helpful for teaching and learning than determining the pupils' educational needs\". Labels also change what adults expect: in US data on about 11,740 adolescents, teachers and parents expected less of students labeled with a learning disability than of students who achieved and behaved the same without the label (an association, not a measured cause). Primary teachers asked about \"dyslexia\" tied how effective they felt to the belief that the condition is fixed; the wording \"reading difficulties\" did not have that effect.",
         "sources": [
           {"text": "EEF 2020, Special Educational Needs in Mainstream Schools", "url": "https://dera.ioe.ac.uk/37846/1/EEF_Special_Educational_Needs_in_Mainstream_Schools_Guidance_Report.pdf"},
           {"text": "Shifrer 2013, Journal of Health and Social Behavior", "url": "https://doi.org/10.1177/0022146513503346"},
@@ -351,7 +354,7 @@
       {
         "title": "Good teaching for all",
         "label": "strong",
-        "text": "The EEF recommends five strategies for every student: flexible grouping, cognitive and metacognitive strategies, explicit instruction, technology, and scaffolding. In its words, \"to a great extent, good teaching for pupils with SEND is good teaching for all\". The parts have strong evidence of their own: metacognition and self-regulation add about 8 months of progress in the EEF Toolkit, and worked examples help learners with little prior knowledge most (0.51, a moderate effect).",
+        "text": "The EEF recommends five strategies for every student: flexible grouping, cognitive and metacognitive strategies, explicit instruction, technology, and scaffolding. In its words, \"to a great extent, good teaching for pupils with SEND is good teaching for all\". Several of the parts have strong evidence of their own: metacognition and self-regulation add about 8 months of progress in the EEF Toolkit, and worked examples help learners with little prior knowledge most (0.51, a moderate effect).",
         "sources": [
           {"text": "EEF 2020, Special Educational Needs in Mainstream Schools", "url": "https://dera.ioe.ac.uk/37846/1/EEF_Special_Educational_Needs_in_Mainstream_Schools_Guidance_Report.pdf"},
           {"text": "EEF Teaching and Learning Toolkit: Metacognition and self-regulation", "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation"},
@@ -375,7 +378,7 @@
         ]
       },
       {
-        "title": "Rows, routines and reminders",
+        "title": "Rows and reminders",
         "label": "promising",
         "text": "Rows raised on-task behavior during individual work, most for disruptive students, across 8 studies; let the task decide the layout. A reminder just before a known trouble spot (precorrection) is classed as an evidence-based practice in a review of single-case studies from preschool to Grade 12.",
         "sources": [
@@ -394,7 +397,7 @@
       {
         "title": "Elaborate rather than simplify, and add a glossary",
         "label": "promising",
-        "text": "Elaborated texts were understood about as well as simplified ones, or better, and they keep the language students need to learn. We have found no meta-analysis of the comparison. Glossaries had a medium effect on comprehension and a large one on vocabulary, in studies of on-screen glosses for second-language readers.",
+        "text": "In studies of second-language readers, elaborated texts were understood about as well as simplified ones, or better, and they keep the language students need to learn. We have found no meta-analysis of the comparison. Glossaries had a medium effect on comprehension and a large one on vocabulary, in studies of on-screen glosses.",
         "sources": [
           {"text": "Yano, Long & Ross 1994, Language Learning", "url": "https://doi.org/10.1111/j.1467-1770.1994.tb01100.x"},
           {"text": "Oh 2001, TESOL Quarterly", "url": "https://doi.org/10.2307/3587860"},
@@ -404,7 +407,7 @@
       {
         "title": "The same task, with scaffolds you can take away",
         "label": "promising",
-        "text": "In primary school, differentiation helped a little when it was part of a broader program, while grouping students by ability on its own had a small negative effect on the lowest attainers. A separate easier worksheet risks lowering the demand for the students who need the content most, so keep the task and add support you can take away.",
+        "text": "In primary school, differentiation gave small to moderate gains when it was part of a broader program or used computers, while grouping students by ability on its own had a small negative effect on the lowest attainers. A separate easier worksheet risks lowering the demand for the students who need the content most, so keep the task and add support you can take away.",
         "sources": [
           {"text": "Deunk et al. 2018, Educational Research Review", "url": "https://doi.org/10.1016/j.edurev.2018.02.002"}
         ]
@@ -412,7 +415,7 @@
       {
         "title": "Assess, plan, do, review",
         "label": "framework",
-        "text": "The cycle comes from the EEF's guidance. Its evidence review found no systematic review of it in England, and some positive evidence from US response-to-intervention studies. The needs-and-measures form on this page is ours, built on that guidance.",
+        "text": "The cycle comes from the EEF's guidance. Its evidence review found no systematic review of it in England, and only some positive evidence from US response-to-intervention studies. The needs-and-measures form on this page is ours, built on that guidance.",
         "sources": [
           {"text": "EEF 2020, Special Educational Needs in Mainstream Schools", "url": "https://dera.ioe.ac.uk/37846/1/EEF_Special_Educational_Needs_in_Mainstream_Schools_Guidance_Report.pdf"}
         ]

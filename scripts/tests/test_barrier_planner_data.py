@@ -193,6 +193,7 @@ def test_record_shape():
     rec = data()["record"]
     assert rec["measure_columns"] == ["What we do", "Who does it", "From when", "What we look for"]
     assert rec["outcomes"] == ["Keep", "Change", "Stop"]
+    assert rec["outcome_rows"] == ["Measure 1", "Measure 2", "Measure 3"]
     assert len(rec["review_questions"]) == 5
     assert len(rec["eef_questions"]) == 3
     assert [b["kind"] for b in rec["blocks"]] == ["box", "box", "measures", "line", "outcomes"]
