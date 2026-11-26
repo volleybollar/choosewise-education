@@ -257,7 +257,8 @@ def test_choose_section():
     for item, check in zip(items, d["checks"]):
         assert item.startswith(escape(check)), check
     # Följdprompten ligger i den första punkten, direkt efter kontrollen.
-    assert items[0] == (escape(d["checks"][0]) + '<div class="tm-copy-row">'
+    assert items[0] == (escape(d["checks"][0]) + f'<p class="if-follow-up">{escape(d["follow_up"])}</p>'
+                        '<div class="tm-copy-row">'
                         f'<button type="button" class="btn btn--primary" data-copy="{escape(d["follow_up"])}">'
                         'Copy follow-up prompt</button><span class="copy-toast" role="status">Copied</span></div>')
     assert "data-copy" not in items[1] and "data-copy" not in items[2]
@@ -306,7 +307,8 @@ def test_evidence_and_legend():
     assert escape(d["evidence"]["lede"]) in block
     lede_at = block.index(escape(d["evidence"]["lede"]))
     legend = re.search(r'<ul class="tm-legend">.*?</ul>', block, re.S)
-    chip = '<span class="tm-chip tm-chip--promising">Promising</span>'
+    chip = ('<span class="tm-chip tm-chip--promising">Promising</span> '
+            '<span class="if-label__note">the approach as a whole</span>')
     assert lede_at < block.index(chip) < legend.start()
     assert len(re.findall("<li>", legend.group(0))) == 4
     for key, name in LABEL_NAMES.items():

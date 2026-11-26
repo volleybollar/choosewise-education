@@ -107,10 +107,7 @@ def test_every_linked_docx_exists():
 def test_text_matches_json():
     expected = [x for x in expected_text().split("\n") if x.strip()]
     actual = doc_lines(FILE)
-    pos = 0
-    for line in expected:
-        assert line in actual[pos:], line
-        pos = actual.index(line, pos) + 1
+    assert actual == expected
 
 
 def test_headings_use_real_styles():

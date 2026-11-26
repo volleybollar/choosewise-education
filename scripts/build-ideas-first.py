@@ -106,11 +106,13 @@ def render_how(how: dict, labels: dict) -> str:
 
 
 def render_choose(choose: dict) -> str:
-    """The intro, the three checks (the follow-up copy button sits inside the first one,
-    since a <div> between two <li> would be invalid), then the three ways to change an idea."""
+    """The intro, the three checks (the follow-up prompt text and its copy button sit inside the
+    first one, since a <div> between two <li> would be invalid), then the three ways to change an idea."""
     checks = []
     for i, check in enumerate(choose["checks"]):
-        extra = _copy_row(FOLLOW_UP_BUTTON, choose["follow_up"]) if i == 0 else ""
+        # Första kontrollen visar följdprompten som läsbar text och har kopieringsknappen under.
+        extra = (f'<p class="if-follow-up">{escape(choose["follow_up"])}</p>'
+                 + _copy_row(FOLLOW_UP_BUTTON, choose["follow_up"])) if i == 0 else ""
         checks.append(f"<li>{escape(check)}{extra}</li>")
     ways = "".join(f"<li>{escape(w)}</li>" for w in choose["ways"])
     return "\n".join([
@@ -129,7 +131,8 @@ def render_team(team: dict) -> str:
     for i, step in enumerate(team["routine"], 1):
         text = escape(step)
         if i == 4:
-            assert text.count("Get ideas") == 1, "step 4 must name Get ideas exactly once"
+            if text.count("Get ideas") != 1:
+                raise ValueError("step 4 must name Get ideas exactly once")
             text = text.replace("Get ideas", '<a href="#if-ideas">Get ideas</a>')
         steps.append(f"<li>{text}</li>")
     return "\n".join([
@@ -154,7 +157,7 @@ def render_evidence(evidence: dict, labels: dict) -> str:
     item. An item gets a chip only when it has a label of its own."""
     out = [
         f'<p class="section__lede">{escape(evidence["lede"])}</p>',
-        f'<p class="if-label">{_chip(evidence["label"], labels)}</p>',
+        f'<p class="if-label">{_chip(evidence["label"], labels)} <span class="if-label__note">the approach as a whole</span></p>',
         render_legend(labels),
     ]
     for item in evidence["items"]:
@@ -180,7 +183,7 @@ def render_next(items: list) -> str:
 
 
 def _inject(html: str, name: str, content: str) -> str:
-    pattern = re.compile(rf"(<!--\s*{name}:start\s*-->)(.*?)(<!--\s*{name}:end\s*-->)", re.S)
+    pattern = re.compile(rf"(<!--\s*{re.escape(name)}:start\s*-->)(.*?)(<!--\s*{re.escape(name)}:end\s*-->)", re.S)
     if not pattern.search(html):
         raise ValueError(f"Missing <!-- {name}:start --> / <!-- {name}:end --> markers")
     return pattern.sub(lambda m: f"{m.group(1)}\n{content}\n{m.group(3)}", html)

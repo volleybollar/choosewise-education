@@ -139,7 +139,7 @@ def test_default_me(page):
     out = prompt(page)
     assert out == expected_prompt(v)
     assert page.get_attribute("#if-copy", "data-copy") == out
-    assert out.startswith(PRIVACY_COPY + "\n\n")
+    assert out.startswith("Do not include student names or student work in this conversation.\n\n")
     assert "Do not rank them or choose one for me." in out
     assert not page.is_disabled("#if-copy")
     assert not page.is_visible("#if-hint")
