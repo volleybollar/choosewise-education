@@ -1,0 +1,221 @@
+{
+  "labels": {
+    "strong": {
+      "name": "Strong",
+      "definition": "Meta-analyses of classroom studies show that working this way improves learning."
+    },
+    "promising": {
+      "name": "Promising",
+      "definition": "Controlled studies show gains, but results are mixed, small in number or dependent on context."
+    },
+    "framework": {
+      "name": "Framework",
+      "definition": "A useful structure. The method itself has not been tested in intervention studies."
+    },
+    "choosewise": {
+      "name": "Choosewise",
+      "definition": "Our own rule, not a research finding."
+    }
+  },
+  "hero": {
+    "title": "What it looks like",
+    "note": "Our example, Grade 8 geography.",
+    "rows": [
+      {
+        "term": "Goal",
+        "text": "Students can explain why towns grew up beside rivers."
+      },
+      {
+        "term": "Your ideas first",
+        "text": "A map of local rivers and towns; a short text with questions."
+      },
+      {
+        "term": "From the AI, three of the eight",
+        "text": "A role-play in which groups choose where to found a town; a card sort of reasons (water, transport, trade, defense); two maps of the same area, two hundred years apart."
+      },
+      {
+        "term": "Your choice and change",
+        "text": "The two maps, but of your own town, with the card sort as a way into them."
+      }
+    ],
+    "closing": "The AI widened the options; the choice and the local maps are yours."
+  },
+  "how": {
+    "steps": [
+      "Write your own two or three ideas before you ask.",
+      "Ask for many ideas that differ on purpose, in format, context and level of challenge. Not for \"the best idea\".",
+      "Choose one and change it to fit your class. Not the first one you see.",
+      "In a team, collect everyone's ideas before anyone uses AI."
+    ],
+    "label": "framework",
+    "note": "The four steps are our reading of the studies below. None of the studies on ideas is of teachers planning lessons."
+  },
+  "choose": {
+    "intro": "This step is yours, without AI. It is where an idea becomes your lesson.",
+    "checks": [
+      "Are the eight really different, or one activity in eight wordings? Ask again for the kind that is missing.",
+      "Does the idea you chose serve the goal, and is the subject content right?",
+      "What did you change? If you cannot say, you took the AI's idea, not your own."
+    ],
+    "follow_up": "Several of these are the same kind of activity. Give me four more, each of a kind that is missing from the list above. Same rules: one or two sentences each, the format in brackets, no ranking.",
+    "ways": [
+      "Make it local: your own town, your school, a place your class knows.",
+      "Combine it with one of your own ideas.",
+      "Fit the level of challenge to your class."
+    ],
+    "ways_note": "(our suggestion, not a research finding)"
+  },
+  "team": {
+    "intro": "When everyone asks the same tool the same question, a department can end up teaching the same AI lesson. In the story study, AI helped each writer, but the stories became more alike. A short routine keeps everyone's own ideas in play.",
+    "routine": [
+      "Agree on the goal in one sentence.",
+      "Everyone writes two or three ideas alone, before anyone talks and before anyone uses AI (five minutes).",
+      "Read them out and collect them on one sheet.",
+      "One person chooses \"Our team\" in Get ideas, pastes everyone's ideas and runs the prompt. Read the eight together.",
+      "Each teacher, or the team together, chooses one and writes down what they changed."
+    ],
+    "routine_note": "About fifteen minutes in all. The timings are our suggestion, not a research finding; ideas before AI is the Framework step.",
+    "sheet": {
+      "title": "Ideas first: team sheet",
+      "header": ["Subject", "Grade", "Goal", "Date"],
+      "note": "Only the ideas go into AI, never the names on this sheet.",
+      "routine_heading": "The routine, about fifteen minutes",
+      "routine": [
+        "Agree on the goal in one sentence.",
+        "Everyone writes two or three ideas alone, before anyone uses AI (5 min).",
+        "Read them out and write them in the table below.",
+        "One person runs the \"Our team\" prompt with all the ideas.",
+        "Read the eight together; each chooses one and notes what they changed."
+      ],
+      "before_ai": {
+        "heading": "Ideas before AI",
+        "columns": ["Who", "Ideas"],
+        "rows": 6
+      },
+      "from_ai": {
+        "heading": "From the AI: worth a closer look",
+        "hint": "The two or three ideas you want to talk about, not all eight."
+      },
+      "chose": {
+        "heading": "What we chose and changed",
+        "columns": ["Who", "Chose", "Changed"],
+        "rows": 4
+      }
+    }
+  },
+  "evidence": {
+    "lede": "Several studies point the same way: AI helps people produce more and better ideas, and the ideas become more alike. None of the studies on ideas is of teachers planning lessons; the one trial with teachers measured time, not variety.",
+    "label": "promising",
+    "items": [
+      {
+        "title": "More creative, less varied",
+        "text": "In an online experiment, adults who got story ideas from an AI wrote stories judged more creative, better written and more enjoyable, with the largest gains among the less creative writers. But the stories were more similar to each other: each writer gained, and the range across writers narrowed.",
+        "label": null,
+        "sources": [
+          {
+            "text": "Doshi & Hauser 2024, Science Advances",
+            "url": "https://doi.org/10.1126/sciadv.adn5290"
+          }
+        ]
+      },
+      {
+        "title": "Across 28 studies",
+        "text": "A meta-analysis of 28 studies with 8,214 participants found people working with generative AI more creative than people without it (0.27, a small effect), while the diversity of their ideas fell (−0.86, a large drop). AI alone and people alone did not differ (−0.05). It is a preprint, not yet peer-reviewed.",
+        "label": null,
+        "sources": [
+          {
+            "text": "Holzner, Maier & Feuerriegel 2025, arXiv preprint",
+            "url": "https://doi.org/10.48550/arXiv.2505.17241"
+          }
+        ]
+      },
+      {
+        "title": "Less distinct, less owned",
+        "text": "In a study with 36 participants, people using ChatGPT produced more and more detailed ideas, but the ideas from different users were less distinct, and the users \"felt less responsible for the ideas they generated\".",
+        "label": null,
+        "sources": [
+          {
+            "text": "Anderson, Shah & Kreminski 2024, Creativity and Cognition",
+            "url": "https://doi.org/10.1145/3635636.3656204"
+          }
+        ]
+      },
+      {
+        "title": "Stuck on the first example",
+        "text": "In a design study with 60 participants, an AI image generator increased fixation on the first example. Participants produced fewer ideas, with less variety and lower originality.",
+        "label": null,
+        "sources": [
+          {
+            "text": "Wadinambiarachchi et al. 2024, CHI '24",
+            "url": "https://doi.org/10.1145/3613904.3642919"
+          }
+        ]
+      },
+      {
+        "title": "The one trial with teachers",
+        "text": "In a trial in England, science teachers of 11- to 14-year-olds who used ChatGPT with a short guide spent 56.2 minutes a week on lesson and resource preparation, against 81.5 minutes in the comparison group (31% less). An expert panel found that the quality \"did not appear to be affected\". The trial measured time, not how varied the ideas were.",
+        "label": null,
+        "sources": [
+          {
+            "text": "Roy et al. 2024, ChatGPT in lesson preparation (EEF/NFER), summary by Stanford SCALE",
+            "url": "https://scale.stanford.edu/ai/repository/chatgpt-lesson-preparation-teacher-choices-trial-evaluation-report"
+          }
+        ]
+      },
+      {
+        "title": "The four steps",
+        "text": "Write your own ideas first, ask for many that differ on purpose, choose one and change it, and in a team collect everyone's ideas before anyone uses AI. This is our reading of the studies above, not a tested method.",
+        "label": "framework",
+        "sources": []
+      }
+    ]
+  },
+  "care": [
+    {
+      "risk": "One activity in eight wordings",
+      "what_we_do": "Copy the follow-up prompt and ask for the kinds that are missing."
+    },
+    {
+      "risk": "Wrong subject content",
+      "what_we_do": "Check every fact before you use an idea, as with any AI text."
+    },
+    {
+      "risk": "Taking the first idea",
+      "what_we_do": "Read all eight before you choose, and write down what you changed."
+    },
+    {
+      "risk": "The whole department teaching the same AI lesson",
+      "what_we_do": "Collect your own ideas first and use \"Our team\" in Get ideas."
+    },
+    {
+      "risk": "A student becomes identifiable in the \"must fit\" line",
+      "what_we_do": "Describe the lesson or the class as a whole, never one student."
+    }
+  ],
+  "next": [
+    {
+      "text": "Back to the overview: What teachers do",
+      "href": "/what-teachers-do-354716b7/"
+    },
+    {
+      "text": "Teaching problems with ranked models: Pedagogy Compass",
+      "href": "/pedagogy-compass-59ecb8db/"
+    },
+    {
+      "text": "A whole unit through five research steps: Unit Studio",
+      "href": "/unit-studio-541ebd12/"
+    },
+    {
+      "text": "Prompts for teachers: ideas for cross-curricular projects (25) and for using current news (36)",
+      "href": "/prompts/teachers/"
+    },
+    {
+      "text": "Prompt packs: printable prompts, one pack per subject or role",
+      "href": "/free/prompts/"
+    },
+    {
+      "text": "Talk to other teachers: the Choosewise community on Skool",
+      "href": "https://www.skool.com/choosewise-7103"
+    }
+  ]
+}
