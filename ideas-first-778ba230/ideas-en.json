@@ -57,7 +57,7 @@
       "Does the idea you chose serve the goal, and is the subject content right?",
       "What did you change? If you cannot say, you took the AI's idea, not your own."
     ],
-    "follow_up": "Several of these are the same kind of activity. Give me four more, each of a kind that is missing from the list above. Same rules: one or two sentences each, the format in brackets, no ranking.",
+    "follow_up": "Several of these are the same kind of activity. Give me four more, each of a kind that is missing from the list above, not a new version of one already there. Same rules: one or two sentences each, the format in brackets, no ranking.",
     "ways": [
       "Make it local: your own town, your school, a place your class knows.",
       "Combine it with one of your own ideas.",
