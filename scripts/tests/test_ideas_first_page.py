@@ -180,7 +180,7 @@ def test_fields():
     for fid, name in (("if-subject", "input"), ("if-goal", "input"), ("if-own", "textarea")):
         assert "required" in tag(f, fid, name), fid
     for fid, name, limit in (("if-subject", "input", 60), ("if-goal", "input", 200),
-                             ("if-own", "textarea", 1500), ("if-fit", "input", 200),
+                             ("if-own", "textarea", 3000), ("if-fit", "input", 200),
                              ("if-language", "input", 40)):
         assert f'maxlength="{limit}"' in tag(f, fid, name), fid
     assert 'rows="4"' in tag(f, "if-own", "textarea")
