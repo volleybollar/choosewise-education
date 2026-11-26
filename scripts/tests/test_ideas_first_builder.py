@@ -70,7 +70,7 @@ def expected_prompt(i):
         "",
         "Write everything in English." if english else f"Write everything in {language}.",
         "",
-        "Reply in plain text, no tables, as a numbered list of eight ideas, one or two sentences each. Start each idea with its format in brackets, for example (hands-on). "
+        "Reply in plain text, no tables, as a numbered list of eight ideas, one or two sentences each. Start each idea with its format in parentheses, for example (hands-on). "
         + ("Do not rank them or choose one for us." if team else "Do not rank them or choose one for me."),
     ]
     return "\n".join(lines)

@@ -35,7 +35,7 @@
       note: 'Everyone\'s ideas, one per line.'
     }
   };
-  var FORMAT = 'Reply in plain text, no tables, as a numbered list of eight ideas, one or two sentences each. Start each idea with its format in brackets, for example (hands-on). ';
+  var FORMAT = 'Reply in plain text, no tables, as a numbered list of eight ideas, one or two sentences each. Start each idea with its format in parentheses, for example (hands-on). ';
 
   /* Trimmar ett textvärde; saknat värde blir tom sträng. */
   function clean(value) {

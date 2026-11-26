@@ -33,7 +33,7 @@ CHECKS = [
 ]
 FOLLOW_UP = ("Several of these are the same kind of activity. Give me four more, each of a kind "
              "that is missing from the list above, not a new version of one already there. "
-             "Same rules: one or two sentences each, the format in brackets, no ranking.")
+             "Same rules: one or two sentences each, the format in parentheses, no ranking.")
 SOURCE_URLS = {
     "https://doi.org/10.1126/sciadv.adn5290",
     "https://doi.org/10.48550/arXiv.2505.17241",

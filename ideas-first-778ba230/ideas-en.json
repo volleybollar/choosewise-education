@@ -57,7 +57,7 @@
       "Does the idea you chose serve the goal, and is the subject content right?",
       "What did you change? If you cannot say, you took the AI's idea, not your own."
     ],
-    "follow_up": "Several of these are the same kind of activity. Give me four more, each of a kind that is missing from the list above, not a new version of one already there. Same rules: one or two sentences each, the format in brackets, no ranking.",
+    "follow_up": "Several of these are the same kind of activity. Give me four more, each of a kind that is missing from the list above, not a new version of one already there. Same rules: one or two sentences each, the format in parentheses, no ranking.",
     "ways": [
       "Make it local: your own town, your school, a place your class knows.",
       "Combine it with one of your own ideas.",
@@ -66,7 +66,7 @@
     "ways_note": "(our suggestion, not a research finding)"
   },
   "team": {
-    "intro": "When everyone asks the same tool the same question, a department can end up teaching the same AI lesson. In the story study, AI helped each writer, but the stories became more alike. A short routine keeps everyone's own ideas in play.",
+    "intro": "When everyone asks the same tool the same question, a department can end up teaching the same AI lesson. In the story study, AI helped individual writers, but the stories became more alike. A short routine keeps everyone's own ideas in play.",
     "routine": [
       "Agree on the goal in one sentence.",
       "Everyone writes two or three ideas alone, before anyone talks and before anyone uses AI (five minutes).",
@@ -104,12 +104,12 @@
     }
   },
   "evidence": {
-    "lede": "Several studies point the same way: AI helps people produce more and better ideas, and the ideas become more alike. None of the studies on ideas is of teachers planning lessons; the one trial with teachers measured time, not variety.",
+    "lede": "The studies on ideas point the same way: with AI, ideas become more alike, even where individual ideas get better. None of the studies on ideas is of teachers planning lessons; the one trial with teachers measured time, not variety.",
     "label": "promising",
     "items": [
       {
         "title": "More creative, less varied",
-        "text": "In an online experiment, adults who got story ideas from an AI wrote stories judged more creative, better written and more enjoyable, with the largest gains among the less creative writers. But the stories were more similar to each other: each writer gained, and the range across writers narrowed.",
+        "text": "In an online experiment, adults who got story ideas from an AI wrote stories judged more creative, better written and more enjoyable, with the largest gains among the less creative writers. But the stories were more similar to each other: individual writers gained, and the range across writers narrowed.",
         "label": null,
         "sources": [
           {
