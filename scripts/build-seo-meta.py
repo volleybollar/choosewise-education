@@ -70,6 +70,8 @@ HIDDEN_PATHS = {
     "/paperwork-pack-f388fd9f/",
     # Barrier Planner: bara för Skool-medlemmar via en dold länk (beslut 2026-11-25).
     "/barrier-planner-1c25533d/",
+    # Ideas first: bara för Skool-medlemmar via en dold länk (beslut 2026-11-26).
+    "/ideas-first-778ba230/",
     # What teachers do: översikten, bara för Skool-medlemmar via en dold länk (Johans beslut 2026-11-14).
     "/what-teachers-do-354716b7/",
     # Community: dold tills Skool öppnar för alla (Johans beslut 2026-11-11).

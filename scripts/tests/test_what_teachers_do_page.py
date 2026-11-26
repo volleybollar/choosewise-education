@@ -22,6 +22,7 @@ PP_ROWS = {5: ("#pp-meetings", "Meeting protocol in Paperwork Pack"),
            10: ("#pp-parents", "Message templates in Paperwork Pack")}
 
 BP = "/barrier-planner-1c25533d/"
+IF = "/ideas-first-778ba230/"
 # Raderna där Barrier Planner är klart: radnummer → (avsnitt på sidan, text på raden)
 BP_ROWS = {6: ("#bp-plan", "Barrier Planner"),
            8: ("#bp-adapt", '"Adapt a text" in Barrier Planner'),
@@ -207,8 +208,12 @@ def test_status_chips():
             assert [(h, text_of(t)) for h, t in links] == [(base + anchor, label)], i
             assert f'id="{anchor[1:]}"' in (ROOT / base.strip("/") / "index.html").read_text(encoding="utf-8"), i
         else:
-            assert shown.count("Ready") == 1 and shown.count("Coming") == 1, i
-            assert "<a " not in cell, i
+            # Rad 11: lektionen och Ideas first, båda klara; Ideas first länkad.
+            assert i == 11, i
+            assert shown.count("Ready") == 2 and "Coming" not in shown, i
+            links = re.findall(r'<a [^>]*href="([^"]*)"[^>]*>(.*?)</a>', cell, re.S)
+            assert [(h, text_of(t)) for h, t in links] == [(IF, "Ideas first")], i
+            assert (ROOT / IF.strip("/") / "index.html").exists(), i
     assert "Worked examples for new teachers Coming" in text_of(new_cell(rows[0]))
 
 
@@ -260,11 +265,9 @@ def test_parts():
     assert [(h, text_of(t)) for h, t in links[1]] == [(PP, "Open Paperwork Pack →")]
     assert [(h, text_of(t)) for h, t in links[2]] == [(BP, "Open Barrier Planner →")]
     assert [(h, text_of(t)) for h, t in links[3]] == [(CLASSROOM, "Open the course in Skool →")]
-    assert all(not l for i, l in enumerate(links) if i not in (0, 1, 2, 3))
-    for i in (0, 1, 2, 3):
+    assert [(h, text_of(t)) for h, t in links[4]] == [(IF, "Open Ideas first →")]
+    for i in range(5):
         assert "Ready" in text_of(cards[i]) and "Coming" not in text_of(cards[i]), i
-    for i in (4,):
-        assert "Coming" in text_of(cards[i]), i
     assert "Eleven lessons in Skool, one per task" in text_of(cards[3])
     assert "seven modules" not in text_of(cards[3]).lower()
     assert "working name" not in text_of(block).lower()
@@ -364,7 +367,7 @@ def test_neither_hidden_slug_appears_in_any_public_html():
                            text=True, check=True).stdout.splitlines()
     # Dolda sidor får länka till varandra: Paperwork Pack länkar till de två andra.
     skip = ("what-teachers-do-354716b7/", "quality-ladder-ec1c2f8c/", "paperwork-pack-f388fd9f/",
-            "barrier-planner-1c25533d/",
+            "barrier-planner-1c25533d/", "ideas-first-778ba230/",
             "_unpublished/", "docs/", "exports/")
     checked = 0
     for rel in files:

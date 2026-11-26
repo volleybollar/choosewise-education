@@ -1,0 +1,49 @@
+/* Ideas first (dold sida för Skool-medlemmar). Bygger på thinking-moves.css
+   (tm-) och lägger bara till det som är nytt här (if-). Färger bara som
+   var(--…), teckenvikter bara tokens. */
+
+/* Rubrikerna ("What the research says") ska få stå på en rad på dator, bortom de delade 22ch. */
+.if-page .section__title { max-width: none; }
+
+/* ───── Hero: hopplänkar och exemplet ───── */
+.if-jump { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-top: var(--space-5); }
+.if-jump a { font-weight: var(--weight-emphasis); }
+
+.if-hero-example { margin-top: var(--space-8); max-width: var(--content-max); }
+.if-hero-example__title { margin: 0 0 var(--space-3); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+.if-example__note { margin: var(--space-3) 0 0; max-width: none; font-size: var(--fs-small); color: var(--color-text-soft); }
+.if-example__closing { margin: var(--space-3) 0 0; max-width: none; font-weight: var(--weight-emphasis); }
+
+/* ───── Avsnitten ───── */
+.if-label { margin: var(--space-4) 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); max-width: none; }
+.if-label__note { font-size: var(--fs-small); color: var(--color-text-soft); }
+.if-subtitle { margin: var(--space-7) 0 var(--space-3); font-size: var(--fs-h3); font-weight: var(--weight-emphasis); }
+.if-prose { margin: var(--space-4) 0 0; max-width: var(--content-text-max); }
+.if-download { margin: var(--space-3) 0 0; }
+.if-download a { font-weight: var(--weight-emphasis); }
+
+/* Kontrollerna och rutinen är numrerade listor; följdprompten ligger inuti första kontrollen. */
+.if-checks, .if-routine { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-3); max-width: var(--content-text-max); }
+.if-checks li, .if-routine li { max-width: none; overflow-wrap: anywhere; }
+/* Följdprompten som citerad text: samma monospace som promptfältet, en kopparstrimma till vänster. */
+.if-follow-up { margin: var(--space-3) 0 0; padding: var(--space-3) var(--space-4); max-width: none; border-left: 3px solid var(--color-highlight); font-family: var(--font-mono); font-size: var(--fs-small); line-height: var(--lh-normal); white-space: pre-wrap; overflow-wrap: anywhere; }
+.if-ways { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-2); max-width: var(--content-text-max); }
+.if-ways li { max-width: none; }
+
+/* ───── Forskningen, varningarna och nästa steg ───── */
+/* Titeln står på en egen rad ovanför texten (block), inte inflytande i den. */
+.if-item-title { display: block; font-weight: var(--weight-emphasis); }
+.if-evidence__item { max-width: var(--content-text-max); margin: var(--space-5) 0 0; }
+.if-evidence__item .tm-move__sources { margin-top: var(--space-1); font-size: var(--fs-small); color: var(--color-text-soft); overflow-wrap: anywhere; }
+.if-care__list { padding-left: var(--space-5); margin: 0; display: grid; gap: var(--space-3); max-width: var(--content-text-max); }
+.if-next { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-3); }
+.if-next li { max-width: none; overflow-wrap: anywhere; }
+
+/* Etiketten Choosewise (teckenförklaringen): samma streckade kopparram som i
+   barrier-planner.css, så den inte förväxlas med forskningsetiketterna. */
+.tm-chip--choosewise { color: var(--color-highlight-ink); border-color: var(--color-highlight); border-style: dashed; }
+
+/* ───── Utskrift: byggaren och hopplänkarna skrivs inte ut ───── */
+@media print {
+  .if-jump, #if-ideas, .tm-copy-row, .if-download { display: none; }
+}
