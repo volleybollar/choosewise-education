@@ -364,7 +364,7 @@ def test_neither_hidden_slug_appears_in_any_public_html():
                            text=True, check=True).stdout.splitlines()
     # Dolda sidor får länka till varandra: Paperwork Pack länkar till de två andra.
     skip = ("what-teachers-do-354716b7/", "quality-ladder-ec1c2f8c/", "paperwork-pack-f388fd9f/",
-            "barrier-planner-1c25533d/",
+            "barrier-planner-1c25533d/", "ideas-first-778ba230/",
             "_unpublished/", "docs/", "exports/")
     checked = 0
     for rel in files:

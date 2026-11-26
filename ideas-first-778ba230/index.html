@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ideas first — Choosewise</title>
+  <meta name="description" content="For Choosewise members. Write your own ideas first, ask the AI for many that differ on purpose, then choose one and make it yours: a prompt builder, a way to check and change an idea, and a routine for a team.">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css?v=20261020a">
+  <link rel="stylesheet" href="/assets/css/pages.css?v=20261020c">
+  <!-- Delade stilar för verktygssidorna (prefix tm-), och sedan det som är
+       nytt för Ideas first (prefix if-). -->
+  <link rel="stylesheet" href="/assets/css/thinking-moves.css?v=20261029a">
+  <link rel="stylesheet" href="/assets/css/ideas-first.css?v=20261126a">
+  <!-- Sidan är bara för Skool-medlemmar. build-seo-meta.py lägger in noindex
+       här (HIDDEN_PATHS), och sidan länkas aldrig från resten av sajten. -->
+<!-- seo:start (build-seo-meta.py) -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- seo:end -->
+</head>
+<body>
+  <div data-include="/assets/partials/header-en.html"></div>
+
+  <!-- class="if-page" gör att sektionsrubrikerna får vara längre än de delade
+       22 tecknen (se ideas-first.css). -->
+  <main class="if-page">
+    <!-- Hero: vad verktyget är, länken tillbaka till översikten, hopplänkar och
+         ett färdigt exempel. Exemplet visas före byggaren med flit: en lärare
+         som tvekar ska se vad hen får innan hen skriver in något. -->
+    <section class="page-hero container">
+      <a class="tm-back" href="/what-teachers-do-354716b7/">← What teachers do</a>
+      <span class="eyebrow">For Choosewise members · All school stages</span>
+      <h1>Ideas first</h1>
+      <p class="lede">AI makes ideas easy to get, and they tend to look alike. Write your own ideas first, ask for many that differ on purpose, then choose one and make it yours. No student details needed.</p>
+      <!-- Hopplänkar till sidans fem delar. -->
+      <nav class="if-jump" aria-label="On this page">
+        <a href="#if-how">Four steps</a>
+        <a href="#if-ideas">Get ideas</a>
+        <a href="#if-choose">Choose and change</a>
+        <a href="#if-team">In a team</a>
+        <a href="#if-evidence">What the research says</a>
+      </nav>
+      <div class="if-hero-example">
+        <h2 class="if-hero-example__title">What it looks like</h2>
+        <!-- Exemplet byggs av scripts/build-ideas-first.py från hero i
+             ideas-first-778ba230/ideas-en.json. Redigera JSON-filen, inte
+             rutan, och kör skriptet igen. -->
+<!-- hero-example:start -->
+<div class="tm-example if-example"><dl><dt>Goal</dt><dd>Students can explain why towns grew up beside rivers.</dd><dt>Your ideas first</dt><dd>A map of local rivers and towns; a short text with questions.</dd><dt>From the AI, three of the eight</dt><dd>A role-play in which groups choose where to found a town; a card sort of reasons (water, transport, trade, defense); two maps of the same area, two hundred years apart.</dd><dt>Your choice and change</dt><dd>The two maps, but of your own town, with the card sort as a way into them.</dd></dl><p class="if-example__note">Our example, Grade 8 geography.</p><p class="if-example__closing">The AI widened the options; the choice and the local maps are yours.</p></div>
+<!-- hero-example:end -->
+      </div>
+    </section>
+
+    <!-- De fyra stegen och etiketten Framework med raden om vad stegen vilar på.
+         Byggs från JSON-filen (how). -->
+    <section class="section section--alt" id="if-how">
+      <div class="container">
+        <h2 class="section__title">Four steps</h2>
+<!-- how:start -->
+<ol class="tm-steps">
+<li>Write your own two or three ideas before you ask.</li>
+<li>Ask for many ideas that differ on purpose, in format, context and level of challenge. Not for &quot;the best idea&quot;.</li>
+<li>Choose one and change it to fit your class. Not the first one you see.</li>
+<li>In a team, collect everyone&#x27;s ideas before anyone uses AI.</li>
+</ol>
+<p class="if-label"><span class="tm-chip tm-chip--framework">Framework</span> <span class="if-label__note">The four steps are our reading of the studies below. None of the studies on ideas is of teachers planning lessons.</span></p>
+<!-- how:end -->
+      </div>
+    </section>
+
+    <!-- Idébyggaren. Allt sker i webbläsaren: inget sparas och inget skickas
+         någonstans. Logiken (prompten som byggs medan man skriver) finns i
+         assets/js/ideas-first.js. Här finns bara formuläret. Integritetsraden
+         står före formuläret, och inget fält frågar efter en elev. -->
+    <section class="section" id="if-ideas">
+      <div class="container">
+        <h2 class="section__title">Get ideas</h2>
+        <p class="tm-privacy"><strong>Do not include student names or student work.</strong> The prompt only needs the subject, the goal and your own ideas.</p>
+        <!-- onsubmit="return false" hindrar att Enter i ett fält laddar om sidan:
+             prompten byggs medan man skriver, så formuläret ska aldrig skickas. -->
+        <form class="tm-form" id="if-form" autocomplete="off" onsubmit="return false">
+          <!-- Ensam eller i team. "Just me" är förvalt; ideas-first.js byter
+               etikett och anteckning på "Your own ideas" när "Our team" väljs. -->
+          <label class="tm-field">
+            <span class="tm-field__label">Who is planning</span>
+            <select class="input" id="if-who">
+              <option value="me" selected>Just me</option>
+              <option value="team">Our team</option>
+            </select>
+          </label>
+          <label class="tm-field">
+            <span class="tm-field__label">Subject</span>
+            <input class="input" id="if-subject" list="if-subjects" maxlength="60" placeholder="e.g. Geography" required>
+            <!-- Samma ämnesförslag som i Barrier Planner (och Lesson Lens, med Math i stället för Maths). -->
+            <datalist id="if-subjects">
+              <option value="Art"><option value="Biology"><option value="Chemistry"><option value="Civics">
+              <option value="Economics"><option value="English"><option value="Geography"><option value="History">
+              <option value="Math"><option value="Modern languages"><option value="Music"><option value="PE and health">
+              <option value="Physics"><option value="Religion and ethics"><option value="Science"><option value="Social studies"><option value="Technology">
+            </datalist>
+          </label>
+          <!-- Årskurs 1 till 12. Åttan är förvald. -->
+          <label class="tm-field">
+            <span class="tm-field__label">Grade</span>
+            <select class="input" id="if-grade">
+              <option value="1">Grade 1</option><option value="2">Grade 2</option><option value="3">Grade 3</option>
+              <option value="4">Grade 4</option><option value="5">Grade 5</option><option value="6">Grade 6</option>
+              <option value="7">Grade 7</option><option value="8" selected>Grade 8</option><option value="9">Grade 9</option>
+              <option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option>
+            </select>
+          </label>
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">The goal of the lesson</span>
+            <span class="tm-field__note">What students should be able to do.</span>
+            <input class="input" id="if-goal" maxlength="200" placeholder="e.g. explain why towns grew up beside rivers" required>
+          </label>
+          <!-- Lärarens egna idéer, en per rad. Etikett och anteckning har egna id:n
+               så att ideas-first.js kan byta dem i teamläge. -->
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label" id="if-own-label">Your own ideas</span>
+            <span class="tm-field__note" id="if-own-note">Two or three is enough.</span>
+            <textarea class="input" id="if-own" rows="4" maxlength="1500" placeholder="One idea per line, e.g. a map of local rivers and towns" required></textarea>
+          </label>
+          <label class="tm-field tm-field--wide">
+            <span class="tm-field__label">Anything the ideas must fit (optional)</span>
+            <span class="tm-field__note">About the lesson or the class as a whole, never a student.</span>
+            <input class="input" id="if-fit" maxlength="200" placeholder="e.g. 20 minutes, no computers">
+          </label>
+          <!-- Språket på idéerna. Förvalt engelska; tomt fält räknas också som engelska. -->
+          <label class="tm-field">
+            <span class="tm-field__label">Language of the ideas</span>
+            <input class="input" id="if-language" value="English" maxlength="40">
+          </label>
+        </form>
+        <label class="tm-field tm-field--wide">
+          <span class="tm-field__label">Your prompt — copy it into your AI tool</span>
+          <textarea class="input tm-prompt" id="if-prompt" rows="14" readonly></textarea>
+        </label>
+        <div class="tm-copy-row">
+          <button type="button" class="btn btn--primary" id="if-copy" data-copy="" aria-describedby="if-hint" disabled>Copy prompt</button>
+          <!-- Ledtråden står bredvid knappen så att man ser varför den är grå.
+               Den töms av ideas-first.js när prompten är klar. -->
+          <p class="tm-hint" id="if-hint" aria-live="polite">Write the subject, the goal and at least one idea of your own to see your prompt.</p>
+          <span class="copy-toast" role="status">Copied</span>
+        </div>
+        <p class="if-prose">This prompt is a writing aid, not an evidence-based method.</p>
+      </div>
+    </section>
+
+    <!-- Välj och ändra: steget som är lärarens, utan AI. Ingressen, de tre
+         kontrollerna (med följdprompten som kopieringsknapp i den första),
+         och de tre sätten att ändra en idé byggs från JSON-filen (choose). -->
+    <section class="section section--alt" id="if-choose">
+      <div class="container">
+        <h2 class="section__title">Choose and change</h2>
+<!-- choose:start -->
+<p class="section__lede">This step is yours, without AI. It is where an idea becomes your lesson.</p>
+<h3 class="if-subtitle">Check before use</h3>
+<ol class="if-checks"><li>Are the eight really different, or one activity in eight wordings? Ask again for the kind that is missing.<div class="tm-copy-row"><button type="button" class="btn btn--primary" data-copy="Several of these are the same kind of activity. Give me four more, each of a kind that is missing from the list above. Same rules: one or two sentences each, the format in brackets, no ranking.">Copy follow-up prompt</button><span class="copy-toast" role="status">Copied</span></div></li><li>Does the idea you chose serve the goal, and is the subject content right?</li><li>What did you change? If you cannot say, you took the AI&#x27;s idea, not your own.</li></ol>
+<h3 class="if-subtitle">Three ways to change an idea</h3>
+<ul class="if-ways"><li>Make it local: your own town, your school, a place your class knows.</li><li>Combine it with one of your own ideas.</li><li>Fit the level of challenge to your class.</li></ul>
+<p class="if-prose">(our suggestion, not a research finding)</p>
+<!-- choose:end -->
+      </div>
+    </section>
+
+    <!-- I team: rutinen för ett planeringsmöte och länken till bladet. Byggs
+         från JSON-filen (team). Själva bladet (.docx) görs av
+         exports/build-ideas-first-docx.py och visas inte på sidan. -->
+    <section class="section" id="if-team">
+      <div class="container">
+        <h2 class="section__title">In a team</h2>
+<!-- team:start -->
+<p class="section__lede">When everyone asks the same tool the same question, a department can end up teaching the same AI lesson. In the story study, AI helped each writer, but the stories became more alike. A short routine keeps everyone&#x27;s own ideas in play.</p>
+<ol class="if-routine"><li>Agree on the goal in one sentence.</li><li>Everyone writes two or three ideas alone, before anyone talks and before anyone uses AI (five minutes).</li><li>Read them out and collect them on one sheet.</li><li>One person chooses &quot;Our team&quot; in <a href="#if-ideas">Get ideas</a>, pastes everyone&#x27;s ideas and runs the prompt. Read the eight together.</li><li>Each teacher, or the team together, chooses one and writes down what they changed.</li></ol>
+<p class="if-prose">About fifteen minutes in all. The timings are our suggestion, not a research finding; ideas before AI is the Framework step.</p>
+<p class="if-download"><a href="team-idea-sheet.docx" download>Team sheet (.docx)</a></p>
+<!-- team:end -->
+      </div>
+    </section>
+
+    <!-- Forskningen bakom upplägget. Ingressen, etiketten, teckenförklaringen och
+         de sex punkterna med källlänkar byggs från JSON-filen (evidence och labels). -->
+    <section class="section section--alt" id="if-evidence">
+      <div class="container">
+        <h2 class="section__title">What the research says</h2>
+<!-- evidence:start -->
+<p class="section__lede">Several studies point the same way: AI helps people produce more and better ideas, and the ideas become more alike. None of the studies on ideas is of teachers planning lessons; the one trial with teachers measured time, not variety.</p>
+<p class="if-label"><span class="tm-chip tm-chip--promising">Promising</span></p>
+<ul class="tm-legend"><li><span class="tm-chip tm-chip--strong">Strong</span> Meta-analyses of classroom studies show that working this way improves learning.</li><li><span class="tm-chip tm-chip--promising">Promising</span> Controlled studies show gains, but results are mixed, small in number or dependent on context.</li><li><span class="tm-chip tm-chip--framework">Framework</span> A useful structure. The method itself has not been tested in intervention studies.</li><li><span class="tm-chip tm-chip--choosewise">Choosewise</span> Our own rule, not a research finding.</li></ul>
+<p class="if-evidence__item"><strong class="if-item-title">More creative, less varied</strong> In an online experiment, adults who got story ideas from an AI wrote stories judged more creative, better written and more enjoyable, with the largest gains among the less creative writers. But the stories were more similar to each other: each writer gained, and the range across writers narrowed. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1126/sciadv.adn5290">Doshi &amp; Hauser 2024, Science Advances</a></span></p>
+<p class="if-evidence__item"><strong class="if-item-title">Across 28 studies</strong> A meta-analysis of 28 studies with 8,214 participants found people working with generative AI more creative than people without it (0.27, a small effect), while the diversity of their ideas fell (−0.86, a large drop). AI alone and people alone did not differ (−0.05). It is a preprint, not yet peer-reviewed. <span class="tm-move__sources">Source: <a href="https://doi.org/10.48550/arXiv.2505.17241">Holzner, Maier &amp; Feuerriegel 2025, arXiv preprint</a></span></p>
+<p class="if-evidence__item"><strong class="if-item-title">Less distinct, less owned</strong> In a study with 36 participants, people using ChatGPT produced more and more detailed ideas, but the ideas from different users were less distinct, and the users &quot;felt less responsible for the ideas they generated&quot;. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1145/3635636.3656204">Anderson, Shah &amp; Kreminski 2024, Creativity and Cognition</a></span></p>
+<p class="if-evidence__item"><strong class="if-item-title">Stuck on the first example</strong> In a design study with 60 participants, an AI image generator increased fixation on the first example. Participants produced fewer ideas, with less variety and lower originality. <span class="tm-move__sources">Source: <a href="https://doi.org/10.1145/3613904.3642919">Wadinambiarachchi et al. 2024, CHI &#x27;24</a></span></p>
+<p class="if-evidence__item"><strong class="if-item-title">The one trial with teachers</strong> In a trial in England, science teachers of 11- to 14-year-olds who used ChatGPT with a short guide spent 56.2 minutes a week on lesson and resource preparation, against 81.5 minutes in the comparison group (31% less). An expert panel found that the quality &quot;did not appear to be affected&quot;. The trial measured time, not how varied the ideas were. <span class="tm-move__sources">Source: <a href="https://scale.stanford.edu/ai/repository/chatgpt-lesson-preparation-teacher-choices-trial-evaluation-report">Roy et al. 2024, ChatGPT in lesson preparation (EEF/NFER), summary by Stanford SCALE</a></span></p>
+<p class="if-evidence__item"><span class="tm-chip tm-chip--framework">Framework</span> <strong class="if-item-title">The four steps</strong> Write your own ideas first, ask for many that differ on purpose, choose one and change it, and in a team collect everyone&#x27;s ideas before anyone uses AI. This is our reading of the studies above, not a tested method.</p>
+<!-- evidence:end -->
+      </div>
+    </section>
+
+    <!-- Varningarna: fem risker och vad man gör åt var och en.
+         Byggs från JSON-filen (care). -->
+    <section class="section" id="if-care">
+      <div class="container">
+        <h2 class="section__title">Watch out for</h2>
+<!-- care:start -->
+<ul class="if-care__list"><li><strong class="if-item-title">One activity in eight wordings</strong> Copy the follow-up prompt and ask for the kinds that are missing.</li><li><strong class="if-item-title">Wrong subject content</strong> Check every fact before you use an idea, as with any AI text.</li><li><strong class="if-item-title">Taking the first idea</strong> Read all eight before you choose, and write down what you changed.</li><li><strong class="if-item-title">The whole department teaching the same AI lesson</strong> Collect your own ideas first and use &quot;Our team&quot; in Get ideas.</li><li><strong class="if-item-title">A student becomes identifiable in the &quot;must fit&quot; line</strong> Describe the lesson or the class as a whole, never one student.</li></ul>
+<!-- care:end -->
+      </div>
+    </section>
+
+    <!-- Nästa steg: länkar härifrån och ut, bland annat tillbaka till
+         översikten What teachers do. Byggs från JSON-filen (next). -->
+    <section class="section section--alt" id="if-next">
+      <div class="container">
+        <h2 class="section__title">Next</h2>
+<!-- next:start -->
+<ul class="if-next">
+<li><a href="/what-teachers-do-354716b7/">Back to the overview: What teachers do</a></li>
+<li><a href="/pedagogy-compass-59ecb8db/">Teaching problems with ranked models: Pedagogy Compass</a></li>
+<li><a href="/unit-studio-541ebd12/">A whole unit through five research steps: Unit Studio</a></li>
+<li><a href="/prompts/teachers/">Prompts for teachers: ideas for cross-curricular projects (25) and for using current news (36)</a></li>
+<li><a href="/free/prompts/">Prompt packs: printable prompts, one pack per subject or role</a></li>
+<li><a href="https://www.skool.com/choosewise-7103">Talk to other teachers: the Choosewise community on Skool</a></li>
+</ul>
+<!-- next:end -->
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/assets/partials/footer-en.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <!-- Kopieringsknapparna (data-copy) och byggaren (ideas-first.js, kommer i nästa steg). -->
+  <script src="/assets/js/copy-to-clipboard.js" defer></script>
+  <script src="/assets/js/ideas-first.js" defer></script>
+</body>
+</html>

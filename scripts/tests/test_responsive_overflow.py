@@ -72,6 +72,7 @@ PAGES = (
         "what-teachers-do-354716b7/",
         "paperwork-pack-f388fd9f/",
         "barrier-planner-1c25533d/",
+        "ideas-first-778ba230/",
         "pedagogy/",
         "community/",
         "ai-lessons-younger-3c514a93/",
