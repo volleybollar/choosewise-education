@@ -24,6 +24,8 @@ import json
 from datetime import datetime
 from pathlib import Path
 
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
 from docx.shared import Pt
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -95,6 +97,12 @@ def build_docx(root: Path) -> list[Path]:
         item.paragraph_format.space_after = Pt(2)
         for run in item.runs:
             run.font.size = Pt(10)
+        # Styckets teckenmarkering styr listnumrets storlek: samma 10 pt som texten.
+        mark = OxmlElement("w:rPr")
+        sz = OxmlElement("w:sz")
+        sz.set(qn("w:val"), "20")
+        mark.append(sz)
+        item._p.get_or_add_pPr().append(mark)
 
     _heading2(doc, s["before_ai"]["heading"])
     pp._grid(doc, s["before_ai"]["columns"], s["before_ai"]["rows"], BEFORE_ROW_CM)

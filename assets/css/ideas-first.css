@@ -47,6 +47,3 @@
 @media print {
   .if-jump, #if-ideas, .tm-copy-row, .if-download { display: none; }
 }
-
-/* .tm-field sätter display:flex, vilket annars slår ut hidden-attributet. */
-.tm-field[hidden] { display: none; }

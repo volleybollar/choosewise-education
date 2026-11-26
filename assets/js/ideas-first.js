@@ -32,7 +32,7 @@
       ask: 'Give us eight ideas for an activity that reaches this goal, each clearly different from the others and from all of ours: vary the format (written, spoken, hands-on, visual), the context and the level of challenge.',
       noRank: 'Do not rank them or choose one for us.',
       label: 'Your team\'s ideas',
-      note: 'Everyone\'s ideas, one per line.'
+      note: 'Everyone\'s ideas, one per line, no names.'
     }
   };
   var FORMAT = 'Reply in plain text, no tables, as a numbered list of eight ideas, one or two sentences each. Start each idea with its format in parentheses, for example (hands-on). ';
@@ -55,7 +55,7 @@
      släng tomma rader. */
   function ideaLines(own) {
     return String(own == null ? '' : own).split(/\r?\n/)
-      .map(function (line) { return line.trim().replace(/^(?:[-•*]|\d+[.)])\s*/, ''); })
+      .map(function (line) { return line.trim().replace(/^(?:[-•*·●○◦▪]|\d+[.)])(?=\s|$)\s*/, ''); })
       .filter(function (line) { return line !== ''; });
   }
 
@@ -63,7 +63,8 @@
      input = { who: "me" | "team", subject, grade, goal, own, fit, language }. */
   function buildIdeasPrompt(input) {
     var mode = MODES[input.who === 'team' ? 'team' : 'me'];
-    var language = clean(input.language);
+    /* Ett avslutande punkt i språkfältet ger annars dubbla punkter ('Swedish..'). */
+    var language = clean(input.language).replace(/\.+$/, '');
     var english = language === '' || language.toLowerCase() === 'english';
     var fit = clean(input.fit);
 

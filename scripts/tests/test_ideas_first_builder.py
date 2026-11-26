@@ -36,7 +36,7 @@ DEFAULT = dict(
 def idea_lines(own):
     out = []
     for line in re.split(r"\r?\n", own):
-        line = re.sub(r"^(?:[-•*]|\d+[.)])\s*", "", line.strip())
+        line = re.sub(r"^(?:[-•*·●○◦▪]|\d+[.)])(?=\s|$)\s*", "", line.strip())
         if line:
             out.append(line)
     return out
@@ -47,6 +47,7 @@ def expected_prompt(i):
     team = i["who"] == "team"
     subject, goal = i["subject"].strip(), i["goal"].strip()
     fit, language = i["fit"].strip(), i["language"].strip()
+    language = re.sub(r"\.+$", "", language)
     english = language == "" or language.lower() == "english"
     lines = [
         PRIVACY_COPY,
@@ -154,7 +155,7 @@ def test_team(page):
               "Give us eight ideas", "from all of ours", "choose one for us."):
         assert s in out
     assert page.text_content("#if-own-label").strip() == "Your team's ideas"
-    assert page.text_content("#if-own-note").strip() == "Everyone's ideas, one per line."
+    assert page.text_content("#if-own-note").strip() == "Everyone's ideas, one per line, no names."
 
 
 def test_fit_line(page):
@@ -174,6 +175,8 @@ def test_fit_line(page):
     (" english ", "Write everything in English."),
     ("ENGLISH", "Write everything in English."),
     ("", "Write everything in English."),
+    ("Swedish.", "Write everything in Swedish."),
+    ("English.", "Write everything in English."),
 ])
 def test_language(page, lang, line):
     fill(page, language=lang)
@@ -185,6 +188,22 @@ def test_list_markers_stripped(page):
     out = prompt(page)
     assert out == expected_prompt(v)
     assert "- one\n- two\n- three\n- four\n- five\n- six\n" in out
+
+
+def test_numbers_and_signs_are_not_markers(page):
+    own = "0.5 + 0.5 on a number line\n-5 °C overnight\n3.5 km walk along the river\n**bold** idea"
+    v = fill(page, own=own)
+    out = prompt(page)
+    assert out == expected_prompt(v)
+    assert ("- 0.5 + 0.5 on a number line\n- -5 °C overnight\n"
+            "- 3.5 km walk along the river\n- **bold** idea\n") in out
+
+
+def test_word_and_docs_bullets_stripped(page):
+    v = fill(page, own="·\tone\n●\ttwo\n○ three\n◦ four\n▪ five")
+    out = prompt(page)
+    assert out == expected_prompt(v)
+    assert "- one\n- two\n- three\n- four\n- five\n" in out
 
 
 def test_marker_only_lines_count_as_empty(page):
@@ -228,9 +247,10 @@ def test_switch_team_and_back(page):
 
 
 def test_dollar_and_html_are_literal(page):
-    v = fill(page, goal=HTML_TEXT, own=HTML_TEXT)
+    v = fill(page, subject=HTML_TEXT, goal=HTML_TEXT, own=HTML_TEXT)
     out = prompt(page)
     assert out == expected_prompt(v)
+    assert f"I teach {HTML_TEXT} to Grade" in out
     assert f"The goal of the lesson is: {HTML_TEXT}" in out
     assert f"- {HTML_TEXT}" in out
     assert page.get_attribute("#if-copy", "data-copy") == out

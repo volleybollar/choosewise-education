@@ -231,3 +231,16 @@ def test_note_on_the_sheet():
 
 def test_american_spelling_in_docx():
     assert BRITISH.findall(QUOTED.sub("", doc_text(FILE))) == []
+
+
+def test_routine_numbers_match_text_size():
+    # Listnumret tar storlek från styckets egen teckenmarkering: den ska vara lika stor som texten.
+    items = [p for p in _body().iter(W + "p")
+             if p.find(W + "pPr") is not None and p.find(W + "pPr").find(W + "pStyle") is not None
+             and p.find(W + "pPr").find(W + "pStyle").get(W + "val") == "ListNumber"]
+    assert items
+    for p in items:
+        mark = p.find(W + "pPr").find(W + "rPr")
+        assert mark is not None and mark.find(W + "sz") is not None
+        runs = {r.find(W + "rPr").find(W + "sz").get(W + "val") for r in p.findall(W + "r")}
+        assert runs == {mark.find(W + "sz").get(W + "val")}
